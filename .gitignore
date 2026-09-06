@@ -1,0 +1,10 @@
+config/local-tools.env
+engine/
+uast/
+benchmarks/
+artifacts/
+fixtures/generated/
+node_modules/
+dist/
+__pycache__/
+.venv/
