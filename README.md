@@ -2,12 +2,13 @@
 
 This workspace isolates the Go and Python UAST migration from the Code Scanner application.
 
-`engine/` and `uast/` are independent upstream Git clones so changes can be prepared as focused upstream pull requests. They intentionally remain separate repositories rather than nested copies.
+`engine/` and `uast/` are Git submodules pinned to official upstream commits. Changes remain focused in their respective repositories so they can be prepared as upstream pull requests.
 
 ## Baseline
 
-- `engine/` is on `migration/local-engine-baseline`, based on upstream `d4f31f6` with the existing local Engine changes applied as an uncommitted working tree.
-- `uast/` is on `migration/local-engine-compatible`, based on `v0.2.13`, matching the Engine's parser package dependency range.
+- `engine/` is pinned to official upstream `249420d`.
+- `uast/` is pinned to official upstream `07e3823`.
+- The prior local Engine baseline, including C support changes, is preserved in local branch `migration/local-engine-baseline` at `1012bbc`.
 - Legacy parser binaries stay outside this workspace and are used only for compatibility baselines.
 
 ## Local Setup

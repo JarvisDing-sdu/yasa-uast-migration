@@ -1,0 +1,6 @@
+[submodule "engine"]
+	path = engine
+	url = https://github.com/antgroup/YASA-Engine.git
+[submodule "uast"]
+	path = uast
+	url = https://github.com/antgroup/YASA-UAST.git
