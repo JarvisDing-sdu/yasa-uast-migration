@@ -27,7 +27,7 @@
 | a. UAST 单测回归 | 测试 Python 源码到 UAST 的节点、字段、位置和错误语义 | 新 parser 转树没有改变既有语义 |
 | b. 大项目 AST 解析与还原 | 用大型真实 Python 项目全量解析；导出、重读 UAST 并交给 Engine 消费 | 不只小样例可用；目录扫描、序列化、位置和内存也可靠 |
 | c. YASA xAST 回归通过 | 用 Engine 官方 xAST Python benchmark 和其历史预期结果回归 | 通用污点引擎没有因 UAST 改变而退化 |
-| d. 开源靶场项目 Py、Go 检出能力不下降 | 当前阶段只做 Python：选定包含真实框架/API source 和 sink 的开源应用，用完整规则比较旧 parser 与新 parser | Python 真实规则检出能力不下降；Go 当前不在范围内 |
+| d. 开源靶场项目 Py、Go 检出能力不下降 | 当前阶段只做 Python：使用 OWASP Benchmark Python v0.1 的 1,230 个有 CWE/正负真值 case，用完整规则比较旧 parser 与新 parser | Python 完整规则检出能力与误报能力不下降；Go 当前不在范围内 |
 | e. 性能 | 在同一机器、同一输入、同一规则下比较旧 binary 和新 Node parser | 时间、吞吐、内存和失败率不退化 |
 
 推荐执行顺序：
