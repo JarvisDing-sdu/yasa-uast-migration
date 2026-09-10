@@ -1,0 +1,39 @@
+name: PR Checks
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]  # PR 创建、更新（push）、重新打开 时触发
+
+env:
+  NODE_VERSION: 20
+
+jobs:
+  # 构建检查
+  build:
+    name: Build Verification
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: |
+          echo "📦 Installing production dependencies..."
+          npm ci
+          npm install @ant-yasa/uast-parser-java-js@latest @ant-yasa/uast-spec@latest
+          echo "🔍 Resolved UAST versions:"
+          npm list @ant-yasa/uast-spec @ant-yasa/uast-parser-java-js
+    
+      # 👇 新增：TypeScript 类型检查（不生成文件）
+      - name: 🔍 Type Check with tsc --noEmit
+        run: |
+          echo "🧪 Running TypeScript type check (no emit)..."
+          npx tsc --noEmit --pretty
+          echo "✅ TypeScript 类型检查通过，无编译错误"

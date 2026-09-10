@@ -1,0 +1,482 @@
+import type Unit from '../../../engine/analyzer/common/value/unit'
+import { getLegacyArgValues } from '../../../engine/analyzer/common/call-args'
+import { flattenUnionValues, processEntryPointAndTaintSource } from '../common-kit/taint-entrypoint-util'
+
+const config = require('../../../config')
+
+const Checker = require('../../common/checker')
+const IntroduceTaint = require('../common-kit/source-util')
+const completeEntryPoint = require('../common-kit/entry-points-util')
+
+const processedRouteRegistry = new Set<string>()
+const controllerQids = new Set<string>()
+const directTaintSourceFuncs = new Set<string>([
+  'GetBool',
+  'GetFile',
+  'GetFiles',
+  'GetFloat',
+  'GetInt',
+  'GetInt16',
+  'GetInt32',
+  'GetInt64',
+  'GetInt8',
+  'GetString',
+  'GetStrings',
+  'GetUint16',
+  'GetUint32',
+  'GetUint64',
+  'GetUint8',
+])
+
+/** BeegoInput 上返回用户输入的方法（c.Ctx.Input.Query() 等） */
+const beegoInputSourceFuncs = new Set<string>([
+  'Query',
+  'Header',
+  'Cookie',
+  'Param',
+  'CopyBody',
+  'Session',
+  'Data',
+])
+
+/** Context 上绑定用户输入到参数的方法（c.Ctx.BindJSON(&obj) 等），第一个参数为绑定目标 */
+const ctxBindFuncs = new Set<string>([
+  'Bind',
+  'BindJSON',
+  'BindXML',
+  'BindYAML',
+  'BindForm',
+  'BindProtobuf',
+])
+
+/** Context 上返回用户输入的方法（c.Ctx.GetCookie() 等） */
+const ctxSourceFuncs = new Set<string>([
+  'GetCookie',
+])
+
+/**
+ * 判断 res 是否为 c.Ctx.Input.* 或 c.Ctx.Request.* 的直接子属性访问。
+ * Input 和 Request 是 Beego Context 中唯二包含用户输入的子结构，
+ * 其直接子属性（RequestBody、Body、URL、Header、Form 等）需要注册为独立 source
+ * 以获得精确的 trace 起点，而非继承 c.Ctx 的笼统位置。
+ */
+function isCtxUserInputSubfield(res: any): boolean {
+  const parent = res.object
+  if (parent?.type !== 'MemberAccess') return false
+  const parentProp = parent.property?.name
+  if (parentProp !== 'Input' && parentProp !== 'Request') return false
+  const grandparent = parent.object
+  if (grandparent?.property?.name !== 'Ctx') return false
+  return controllerQids.has(grandparent.object?._qid)
+}
+
+/** 判断 fclos.object 是否为 c.Ctx.Input（BeegoInput 实例） */
+function isBeegoInputMethod(fclos: any): boolean {
+  const obj = fclos.object
+  if (obj?.type !== 'MemberAccess') return false
+  if (obj.property?.name !== 'Input') return false
+  const parent = obj.object
+  if (parent?.property?.name !== 'Ctx') return false
+  return controllerQids.has(parent.object?._qid)
+}
+
+/** 判断 fclos.object 是否为 c.Ctx（Beego Context 实例，非 Controller 本身） */
+function isCtxMethod(fclos: any): boolean {
+  const obj = fclos.object
+  if (obj?.type !== 'MemberAccess') return false
+  if (obj.property?.name !== 'Ctx') return false
+  return controllerQids.has(obj.object?._qid)
+}
+
+/**
+ *
+ */
+class BeegoEntrypointCollectChecker extends Checker {
+  /**
+   * constructor
+   * @param resultManager
+   */
+  constructor(resultManager: any) {
+    super(resultManager, 'beego-entrypoint-collect-checker')
+  }
+
+  /**
+   * pre function call hook
+   * @param analyzer
+   * @param scope
+   * @param node
+   * @param state
+   * @param info
+   */
+  triggerAtFunctionCallBefore(analyzer: any, scope: any, node: any, state: any, info: any) {
+    const { fclos, callInfo } = info
+    const argvalues = getLegacyArgValues(callInfo)
+    if (config.entryPointMode === 'ONLY_CUSTOM') return
+    if (fclos.vtype === 'symbol') {
+      if (fclos.type === 'Identifier') {
+        if (fclos._qid.includes('github.com/beego/beego/v2/server/web/filter/apiauth.APISecretAuth')) {
+          processEntryPointAndTaintSource(analyzer, state, processedRouteRegistry, argvalues[0], '0', 'GO_INPUT')
+        } else if (fclos._qid.includes('github.com/beego/beego/v2/server/web/filter/auth.NewBasicAuthenticator')) {
+          processEntryPointAndTaintSource(analyzer, state, processedRouteRegistry, argvalues[0], '0, 1', 'GO_INPUT')
+        } else if (
+          fclos._qid.includes('github.com/beego/beego/v2/server/web') ||
+          fclos._qid.includes('github.com/astaxie/beego')
+        ) {
+          this.handleHttpServerMethod(analyzer, scope, state, fclos.name, argvalues)
+        }
+      } else if (fclos.type === 'MemberAccess') {
+        if (controllerQids.has(fclos.object._qid) && fclos.property.name === 'Mapping') {
+          const controllerMethodVal = argvalues[1]
+          if (controllerMethodVal?.ast?.node?.loc) {
+            const hash = JSON.stringify(controllerMethodVal.ast.node.loc)
+            if (!processedRouteRegistry.has(hash)) {
+              processedRouteRegistry.add(hash)
+              const entryPoint = completeEntryPoint(controllerMethodVal)
+              analyzer.entryPoints.push(entryPoint)
+            }
+          }
+        } else if (fclos._qid.includes('github.com/beego/beego/v2/server/web.NewNamespace')) {
+          this.handleNamespaceMethod(analyzer, scope, state, fclos.property.name, argvalues)
+        }
+      }
+    }
+  }
+
+  /**
+   * post function call hook
+   * @param analyzer
+   * @param scope
+   * @param node
+   * @param state
+   * @param info
+   */
+  triggerAtFunctionCallAfter(analyzer: any, scope: any, node: any, state: any, info: any) {
+    const { fclos, ret, callInfo } = info
+    const argvalues = getLegacyArgValues(callInfo)
+    if (config.entryPointMode === 'ONLY_CUSTOM') return
+    if (fclos.vtype === 'symbol' && fclos.type === 'MemberAccess') {
+      if (controllerQids.has(fclos.object._qid)) {
+        // Controller 方法：c.GetString() / c.GetInt() / c.Bind() 等
+        if (directTaintSourceFuncs.has(fclos.property.name)) {
+          IntroduceTaint.markTaintSource(ret, { path: node, kind: 'GO_INPUT' })
+        } else if (fclos.property.name === 'Bind') {
+          IntroduceTaint.markTaintSource(argvalues[0], { path: node, kind: 'GO_INPUT' })
+        }
+      } else if (isBeegoInputMethod(fclos)) {
+        // BeegoInput 方法：c.Ctx.Input.Query() / c.Ctx.Input.Header() / c.Ctx.Input.Bind() 等
+        const methodName = fclos.property.name
+        if (beegoInputSourceFuncs.has(methodName)) {
+          IntroduceTaint.markTaintSource(ret, { path: node, kind: 'GO_INPUT' })
+        } else if (methodName === 'Bind') {
+          IntroduceTaint.markTaintSource(argvalues[0], { path: node, kind: 'GO_INPUT' })
+        }
+      } else if (isCtxMethod(fclos)) {
+        // Context 方法：c.Ctx.BindJSON(&obj) / c.Ctx.GetCookie() 等
+        const methodName = fclos.property.name
+        if (ctxBindFuncs.has(methodName)) {
+          IntroduceTaint.markTaintSource(argvalues[0], { path: node, kind: 'GO_INPUT' })
+        } else if (ctxSourceFuncs.has(methodName)) {
+          IntroduceTaint.markTaintSource(ret, { path: node, kind: 'GO_INPUT' })
+        }
+      }
+    }
+  }
+
+  /**
+   * post member access hook
+   * @param analyzer
+   * @param scope
+   * @param node
+   * @param state
+   * @param info
+   */
+  triggerAtMemberAccess(analyzer: any, scope: any, node: any, state: any, info: any) {
+    const { res } = info
+    if (config.entryPointMode === 'ONLY_CUSTOM') return
+    if (res.vtype === 'symbol' && res.type === 'MemberAccess') {
+      if (res.property.name === 'Ctx' && controllerQids.has(res.object._qid)) {
+        IntroduceTaint.markTaintSource(res, { path: node, kind: 'GO_INPUT' })
+      } else if (isCtxUserInputSubfield(res)) {
+        // c.Ctx.Input.* / c.Ctx.Request.* 子属性：清除继承的 trace，注册为独立 source
+        if (res.taint) {
+          res.taint.clearTrace()
+        }
+        IntroduceTaint.markTaintSource(res, { path: node, kind: 'GO_INPUT' })
+      }
+    }
+  }
+
+  /**
+   * variable assignment hook
+   * @param analyzer
+   * @param scope
+   * @param node
+   * @param state
+   * @param info
+   */
+  triggerAtAssignment(analyzer: any, scope: any, node: any, state: any, info: any) {
+    if (config.entryPointMode === 'ONLY_CUSTOM') return
+    const { rvalue } = info
+    const { left } = node
+    if (
+      analyzer.processInstruction(scope, left.object, state)?._qid?.includes('github.com/beego/beego/v2/server/web.BConfig') &&
+      left.property?.name === 'RecoverFunc'
+    ) {
+      processEntryPointAndTaintSource(analyzer, state, processedRouteRegistry, rvalue, '0', 'GO_INPUT')
+    }
+  }
+
+  /**
+   * post entry point interpretation hook
+   * @param analyzer
+   * @param scope
+   * @param node
+   * @param state
+   * @param info
+   */
+  triggerAtSymbolInterpretOfEntryPointAfter(analyzer: any, scope: any, node: any, state: any, info: any) {
+    if (info?.entryPoint.functionName === 'main') processedRouteRegistry.clear()
+  }
+
+  /**
+   * check if a method is a valid controller method
+   * @param name - the method name to check
+   * @param value - the method value to validate
+   * @returns {boolean} true if the method is a valid controller method, false otherwise
+   */
+  isControllerMethod(name: string, value: any): boolean {
+    if (!name[0] || name[0] < 'A' || name[0] > 'Z') return false
+    if (!value || value.vtype !== 'fclos') return false
+    const fdef = value.ast?.fdef || value.ast?.node
+    if (!fdef) return false
+    if (fdef.returnType?.type !== 'VoidType') return false
+    return fdef.parameters?.length === 0
+  }
+
+  /**
+   * handle method calls on web.HttpServer
+   * @param analyzer
+   * @param scope
+   * @param state
+   * @param name method name
+   * @param argvalues
+   */
+  // eslint-disable-next-line complexity
+  handleHttpServerMethod(analyzer: any, scope: any, state: any, name: string, argvalues: Array<Unit>) {
+    switch (name) {
+      case 'AutoRouter':
+      case 'NSAutoRouter':
+        if (argvalues[0]) this.handleAutoControllerArgVal(analyzer, argvalues[0])
+        break
+      case 'AutoPrefix':
+      case 'NSAutoPrefix':
+        if (argvalues[1]) this.handleAutoControllerArgVal(analyzer, argvalues[1])
+        break
+      case 'InsertFilter':
+        processEntryPointAndTaintSource(analyzer, state, processedRouteRegistry, argvalues[2], '0', 'GO_INPUT')
+        break
+      case 'InsertFilterChain':
+        flattenUnionValues([argvalues[1]])
+          .filter((unit) => unit.vtype === 'fclos')
+          .forEach((fclos) => {
+            const fdef = (fclos as any).ast?.fdef || (fclos as any).ast?.node
+            const retVal = analyzer.processAndCallFuncDef(scope, fdef, fclos, state)
+            processEntryPointAndTaintSource(analyzer, state, processedRouteRegistry, retVal, '0', 'GO_INPUT')
+          })
+        break
+      case 'Handler':
+        flattenUnionValues([argvalues[1]]).forEach((handlerVal) => {
+          const serveHttp = handlerVal.value?.ServeHTTP
+          if (serveHttp) {
+            processEntryPointAndTaintSource(analyzer, state, processedRouteRegistry, serveHttp, '1', 'GO_INPUT')
+          }
+        })
+        break
+      case 'Include':
+      case 'NSInclude':
+        flattenUnionValues(argvalues).forEach((mappingController) => {
+          const urlMapping = mappingController.value?.URLMapping
+          if (urlMapping) {
+            controllerQids.add(mappingController._qid)
+            analyzer.processAndCallFuncDef(scope, urlMapping.ast?.fdef || urlMapping.ast?.node, urlMapping, state)
+          }
+        })
+        break
+      case 'CtrlGet':
+      case 'CtrlPost':
+      case 'CtrlDelete':
+      case 'CtrlAny':
+      case 'CtrlHead':
+      case 'CtrlOptions':
+      case 'CtrlPatch':
+      case 'CtrlPut':
+      case 'NSCtrlGet':
+      case 'NSCtrlPost':
+      case 'NSCtrlDelete':
+      case 'NSCtrlAny':
+      case 'NSCtrlHead':
+      case 'NSCtrlOptions':
+      case 'NSCtrlPatch':
+      case 'NSCtrlPut':
+        flattenUnionValues([argvalues[1]])
+          .filter((unit) => unit.vtype === 'fclos')
+          .forEach((unboundMethodVal: any) => {
+            const thisVal = unboundMethodVal._this
+            const instance = analyzer.buildNewObject(
+              thisVal?.cdef || thisVal?.ast?.cdef,
+              [],
+              thisVal,
+              state,
+              null,
+              scope
+            )
+            const fdef = unboundMethodVal.ast?.fdef || unboundMethodVal.ast?.node
+            const boundMethodVal = instance.value?.[fdef?.id?.name]
+            if (boundMethodVal?.ast?.node?.loc) {
+              const hash = JSON.stringify(boundMethodVal.ast.node.loc)
+              if (!processedRouteRegistry.has(hash)) {
+                processedRouteRegistry.add(hash)
+                controllerQids.add(boundMethodVal._this?._qid)
+                const entryPoint = completeEntryPoint(boundMethodVal)
+                analyzer.entryPoints.push(entryPoint)
+              }
+            }
+          })
+        break
+      case 'Router':
+      case 'NSRouter': {
+        const methodStrings = flattenUnionValues(argvalues.slice(2)).filter(
+          (unit: any) => unit.vtype === 'primitive' && unit.literalType === 'STRING'
+        )
+        if (methodStrings.length > 0) {
+          methodStrings.forEach((stringVal) => {
+            // beego 三参 Router 第三参数格式："HTTP方法:控制器方法;HTTP方法:控制器方法;..."
+            // 先按 ; 分割再逐项按 : 提取方法名，支持多方法注册
+            const methodMappings = stringVal.value.slice(1, -1).split(';')
+            for (const mapping of methodMappings) {
+              const methodName = mapping.split(':')[1]
+              if (!methodName) continue
+              flattenUnionValues([argvalues[1]]).forEach((controllerVal) => {
+                const controllerMethodVal = controllerVal.value?.[methodName]
+                if (controllerMethodVal?.ast?.node?.loc) {
+                  const hash = JSON.stringify(controllerMethodVal.ast.node.loc)
+                  if (!processedRouteRegistry.has(hash)) {
+                    processedRouteRegistry.add(hash)
+                    controllerQids.add(controllerVal._this?._qid ?? '')
+                    const entryPoint = completeEntryPoint(controllerMethodVal)
+                    analyzer.entryPoints.push(entryPoint)
+                  }
+                }
+              })
+            }
+          })
+        } else if (argvalues[1]) {
+          // v1 Router(path, &Ctrl{}) 2 参形态，语义等同 v2 AutoRouter
+          this.handleAutoControllerArgVal(analyzer, argvalues[1])
+        }
+        break
+      }
+      case 'Get':
+      case 'Post':
+      case 'Delete':
+      case 'Any':
+      case 'Head':
+      case 'Options':
+      case 'Patch':
+      case 'Put':
+      case 'NSGet':
+      case 'NSPost':
+      case 'NSDelete':
+      case 'NSAny':
+      case 'NSHead':
+      case 'NSOptions':
+      case 'NSPatch':
+      case 'NSPut':
+        processEntryPointAndTaintSource(analyzer, state, processedRouteRegistry, argvalues[1], '0', 'GO_INPUT')
+        break
+      case 'NSCond':
+        processEntryPointAndTaintSource(analyzer, state, processedRouteRegistry, argvalues[0], '0', 'GO_INPUT')
+        break
+      case 'NSBefore':
+      case 'NSAfter':
+        argvalues.forEach((val) => processEntryPointAndTaintSource(analyzer, state, processedRouteRegistry, val, '0', 'GO_INPUT'))
+        break
+      case 'ErrorController':
+        this.handleErrorControllerArgVal(analyzer, argvalues[0])
+        break
+      default:
+        break
+    }
+  }
+
+  /**
+   * handle method calls on web.Namespace
+   * @param analyzer
+   * @param scope
+   * @param state
+   * @param name
+   * @param argvalues
+   */
+  handleNamespaceMethod(analyzer: any, scope: any, state: any, name: string, argvalues: Array<Unit>) {
+    switch (name) {
+      case 'Filter':
+        argvalues
+          .slice(1)
+          .forEach((val) => processEntryPointAndTaintSource(analyzer, state, processedRouteRegistry, val, '0', 'GO_INPUT'))
+        break
+      case 'Cond':
+        processEntryPointAndTaintSource(analyzer, state, processedRouteRegistry, argvalues[0], '0', 'GO_INPUT')
+        break
+      default:
+        break
+    }
+  }
+
+  /**
+   * handle ErrorController registration
+   * @param analyzer
+   * @param controllerArgVal
+   */
+  handleErrorControllerArgVal(analyzer: any, controllerArgVal: Unit) {
+    flattenUnionValues([controllerArgVal])
+      .flatMap((v) => Object.entries(v.value))
+      .filter(([fieldName, fieldVal]) => this.isControllerMethod(fieldName, fieldVal) && fieldName.startsWith('Error'))
+      .map(([, controllerMethodVal]) => controllerMethodVal as Unit)
+      .forEach((controllerMethodVal) => {
+        if (controllerMethodVal?.ast?.node?.loc) {
+          const hash = JSON.stringify(controllerMethodVal.ast.node.loc)
+          if (!processedRouteRegistry.has(hash)) {
+            processedRouteRegistry.add(hash)
+            controllerQids.add(controllerMethodVal._this?._qid ?? '')
+            const entryPoint = completeEntryPoint(controllerMethodVal)
+            analyzer.entryPoints.push(entryPoint)
+          }
+        }
+      })
+  }
+
+  /**
+   * handle AutoXXX API based controller registration
+   * @param analyzer
+   * @param controllerArgVal
+   */
+  handleAutoControllerArgVal(analyzer: any, controllerArgVal: Unit) {
+    flattenUnionValues([controllerArgVal])
+      .flatMap((v) => Object.entries(v.value))
+      .filter(([fieldName, fieldVal]) => this.isControllerMethod(fieldName, fieldVal))
+      .map(([, controllerMethodVal]) => controllerMethodVal as Unit)
+      .forEach((controllerMethodVal) => {
+        if (controllerMethodVal?.ast?.node?.loc) {
+          const hash = JSON.stringify(controllerMethodVal.ast.node.loc)
+          if (!processedRouteRegistry.has(hash)) {
+            processedRouteRegistry.add(hash)
+            controllerQids.add(controllerMethodVal._this?._qid ?? '')
+            const entryPoint = completeEntryPoint(controllerMethodVal)
+            analyzer.entryPoints.push(entryPoint)
+          }
+        }
+      })
+  }
+}
+
+module.exports = BeegoEntrypointCollectChecker

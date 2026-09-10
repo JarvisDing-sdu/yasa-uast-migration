@@ -1,0 +1,24 @@
+[
+  {
+    "checkerIds": [
+      "taint_flow_test"
+    ],
+    "sources": {
+      "TaintSource": [
+        {
+          "path": "taint_src"
+        }
+      ]
+    },
+    "sinks": {
+      "FuncCallTaintSink": [
+        {
+          "fsig": "os.system",
+          "args": [
+            0
+          ]
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,265 @@
+import type { CallInfo } from '../../../engine/analyzer/common/call-args'
+
+const _ = require('lodash')
+const GoEntryPoint = require('../../../engine/analyzer/golang/common/entrypoint-collector/go-default-entrypoint')
+const completeEntryPoint = require('../common-kit/entry-points-util')
+const Config = require('../../../config')
+const BasicRuleHandler = require('../../common/rules-basic-handler')
+const AstUtil = require('../../../util/ast-util')
+const FileUtil = require('../../../util/file-util')
+const EntryPoint = require('../../../engine/analyzer/common/entrypoint/entrypoint')
+const Constant = require('../../../util/constant')
+const IntroduceTaint = require('../common-kit/source-util')
+const { matchSinkAtFuncCallWithCalleeType } = require('../common-kit/sink-util')
+const SanitizerChecker = require('../../sanitizer/sanitizer-checker')
+const FullCallGraphFileEntryPoint = require('../../common/full-callgraph-file-entrypoint')
+const logger = require('../../../util/logger')(__filename)
+const TaintChecker = require('../taint-checker')
+const TaintOutputStrategy = require('../../common/output/taint-output-strategy')
+
+const TAINT_TAG_NAME = 'GO_INPUT'
+/**
+ * Go framework checker
+ */
+class GoDefaultTaintChecker extends TaintChecker {
+  entryPoints: any[]
+
+  /**
+   * constructor
+   * @param resultManager
+   */
+  constructor(resultManager: unknown, checkerId = 'taint_flow_go_input') {
+    super(resultManager, checkerId)
+    this.entryPoints = []
+  }
+
+  /**
+   * starter trigger
+   * @param analyzer
+   * @param scope
+   * @param node
+   * @param state
+   * @param info
+   */
+  triggerAtStartOfAnalyze(analyzer: any, scope: any, node: any, state: any, info: any) {
+    const { topScope } = analyzer
+    this.prepareEntryPoints(topScope, analyzer)
+    analyzer.mainEntryPoints = this.entryPoints
+    this.addSourceTagForSourceScope(TAINT_TAG_NAME, this.sourceScope.value)
+    this.addSourceTagForcheckerRuleConfigContent(TAINT_TAG_NAME, this.checkerRuleConfigContent)
+  }
+
+  /**
+   * 添加main entryPoints
+   * @param topScope
+   * @param analyzer
+   */
+  prepareEntryPoints(topScope: any, analyzer: any) {
+    if (Config.entryPointMode === 'ONLY_CUSTOM') return
+    // 添加main入口
+    let mainEntryPoints = GoEntryPoint.getMainEntryPoints(topScope.context.packages)
+    if (_.isEmpty(mainEntryPoints)) {
+      logger.info('[go-default-taint-checker]EntryPoints are not found')
+      return
+    }
+    if (Array.isArray(mainEntryPoints)) {
+      mainEntryPoints = _.uniqBy(mainEntryPoints, (value: any) => value.ast.fdef)
+    } else {
+      mainEntryPoints = [mainEntryPoints]
+    }
+    mainEntryPoints.forEach((main: any) => {
+      if (main) {
+        const entryPoint = completeEntryPoint(main)
+        this.entryPoints.push(entryPoint)
+      }
+    })
+
+    // 使用callGraph边界作为entrypoint
+    if (Config.entryPointMode !== 'ONLY_CUSTOM') {
+      // 始终构建 classHierarchyMap，CHA fallback dispatch 需要
+      if (analyzer.typeResolver?.findClassHierarchy) {
+        analyzer.classHierarchyMap = analyzer.typeResolver.findClassHierarchy(analyzer, null)
+      }
+      if (Config.cgAlgo === 'CHA' && analyzer.typeResolver) {
+        FullCallGraphFileEntryPoint.makeFullCallGraphByType(analyzer, analyzer.typeResolver)
+      } else {
+        FullCallGraphFileEntryPoint.makeFullCallGraph(analyzer)
+      }
+      const fullCallGraphEntrypoint = FullCallGraphFileEntryPoint.getAllEntryPointsUsingCallGraph(
+        analyzer.ainfo?.callgraph,
+        analyzer
+      )
+      this.entryPoints.push(...fullCallGraphEntrypoint)
+    }
+
+    // 使用用户规则中指定的entrypoint
+    const { entrypoints: ruleConfigEntryPoints } = this.checkerRuleConfigContent
+    // 添加rule_config中的route入口
+    if (!_.isEmpty(ruleConfigEntryPoints) && Config.entryPointMode !== 'SELF_COLLECT') {
+      for (const entrypoint of ruleConfigEntryPoints) {
+        let entryPointSymVal
+        if (entrypoint.funcReceiverType) {
+          entryPointSymVal = AstUtil.satisfy(
+            topScope.context.packages,
+            (n: any) =>
+              n.vtype === 'fclos' &&
+              FileUtil.extractAfterSubstring(n?.ast?.node?.loc?.sourcefile, Config.maindirPrefix) === entrypoint.filePath &&
+              n?.parent?.ast?.node?.type === 'ClassDefinition' &&
+              n?.parent?.ast?.node?.id?.name === entrypoint.funcReceiverType &&
+              n?.ast?.node?.id.name === entrypoint.functionName,
+            (node: any, prop: any) => prop === '_field',
+            null,
+            false
+          )
+        } else {
+          entryPointSymVal = AstUtil.satisfy(
+            topScope.context.packages,
+            (n: any) =>
+              n.vtype === 'fclos' &&
+              FileUtil.extractAfterSubstring(n?.ast?.node?.loc?.sourcefile, Config.maindirPrefix) === entrypoint.filePath &&
+              n?.ast?.node?.id.name === entrypoint.functionName,
+            (node: any, prop: any) => prop === '_field',
+            null,
+            false
+          )
+        }
+        if (_.isEmpty(entryPointSymVal)) {
+          continue
+        }
+        if (Array.isArray(entryPointSymVal)) {
+          entryPointSymVal = _.uniqBy(entryPointSymVal, (value: any) => value.ast.fdef)
+        } else {
+          entryPointSymVal = [entryPointSymVal]
+        }
+
+        const entryPoint = new EntryPoint(Constant.ENGIN_START_FUNCALL)
+        entryPoint.scopeVal = entryPointSymVal[0].parent
+        entryPoint.argValues = []
+        entryPoint.functionName = entrypoint.functionName
+        entryPoint.filePath = entrypoint.filePath
+        entryPoint.attribute = entrypoint.attribute
+        entryPoint.packageName = entrypoint.packageName
+        entryPoint.entryPointSymVal = entryPointSymVal[0]
+        analyzer.ruleEntrypoints.push(entryPoint)
+      }
+    }
+  }
+
+  /**
+   * MemberAccess trigger
+   * @param analyzer
+   * @param node
+   * @param scope
+   * @param state
+   * @param info
+   */
+  triggerAtMemberAccess(analyzer: any, scope: any, node: any, state: any, info: any) {
+    const taintSource = this.checkerRuleConfigContent.sources?.TaintSource
+    IntroduceTaint.introduceTaintAtMemberAccess(info.res, node, scope, taintSource)
+  }
+
+  /**
+   * FunctionCall trigger
+   * @param analyzer
+   * @param scope
+   * @param node
+   * @param state
+   * @param info
+   */
+  triggerAtFunctionCallBefore(analyzer: any, scope: any, node: any, state: any, info: any) {
+    const { fclos, callInfo } = info
+    const calleeObject = fclos?.object
+    this.checkByNameAndClassMatch(node, fclos, callInfo, scope, state, analyzer)
+    const funcCallArgTaintSource = this.checkerRuleConfigContent.sources?.FuncCallArgTaintSource
+    IntroduceTaint.introduceFuncArgTaintByRuleConfig(calleeObject, node, callInfo, funcCallArgTaintSource, fclos)
+  }
+
+  /**
+   * FunctionCallAfter trigger
+   * @param analyzer
+   * @param scope
+   * @param node
+   * @param state
+   * @param info
+   */
+  triggerAtFunctionCallAfter(analyzer: any, scope: any, node: any, state: any, info: any) {
+    const { fclos, ret } = info
+    const funcCallReturnValueTaintSource = this.checkerRuleConfigContent.sources?.FuncCallReturnValueTaintSource
+
+    IntroduceTaint.introduceTaintAtFuncCallReturnValue(fclos, node, ret, funcCallReturnValueTaintSource)
+  }
+
+  /**
+   * check if sink or not by name and class
+   * @param node
+   * @param fclos
+   * @param argvalues
+   * @param scope
+   * @param state
+   */
+  checkByNameAndClassMatch(node: any, fclos: any, callInfo: CallInfo | undefined, scope: any, state?: any, analyzer?: any) {
+    if (fclos === undefined) {
+      return
+    }
+    const rules = this.checkerRuleConfigContent.sinks?.FuncCallTaintSink
+
+    if (!rules || !callInfo) return
+    let rule = matchSinkAtFuncCallWithCalleeType(node, fclos, rules, scope, callInfo, analyzer)
+    rule = rule.length > 0 ? rule[0] : null
+
+    if (rule) {
+      const args = BasicRuleHandler.prepareArgs(callInfo, fclos, rule)
+      const sanitizers = SanitizerChecker.findSanitizerByIds((rule as any).sanitizerIds)
+      const ndResultWithMatchedSanitizerTagsArray = SanitizerChecker.findTagAndMatchedSanitizer(
+        node,
+        fclos,
+        args,
+        scope,
+        TAINT_TAG_NAME,
+        true,
+        sanitizers
+      )
+      if (ndResultWithMatchedSanitizerTagsArray) {
+        for (const ndResultWithMatchedSanitizerTags of ndResultWithMatchedSanitizerTagsArray) {
+          const { nd } = ndResultWithMatchedSanitizerTags
+          const { matchedSanitizerTags } = ndResultWithMatchedSanitizerTags
+          let ruleName = (rule as any).fsig
+          if (typeof (rule as any).attribute !== 'undefined') {
+            const attrStr = Array.isArray((rule as any).attribute) ? (rule as any).attribute.join(',') : (rule as any).attribute
+            ruleName += `\nSINK Attribute: ${attrStr}`
+          }
+          const taintFlowFinding = this.buildTaintFinding(
+            this.getCheckerId(),
+            this.desc,
+            node,
+            nd,
+            fclos,
+            TAINT_TAG_NAME,
+            ruleName,
+            matchedSanitizerTags,
+            state?.callstack,
+            state?.callsites
+          )
+
+          if (!TaintOutputStrategy.isNewFinding(this.resultManager, taintFlowFinding)) continue
+          this.resultManager.newFinding(taintFlowFinding, TaintOutputStrategy.outputStrategyId)
+        }
+        return true
+      }
+    }
+  }
+
+  /**
+   *
+   * @param analyzer
+   * @param scope
+   * @param node
+   * @param state
+   * @param info
+   */
+  triggerAtIdentifier(analyzer: any, scope: any, node: any, state: any, info: any) {
+    IntroduceTaint.introduceTaintAtIdentifierDirect(analyzer, scope, node, info.res, this.sourceScope.value)
+  }
+}
+
+module.exports = GoDefaultTaintChecker
