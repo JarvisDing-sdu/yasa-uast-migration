@@ -1,0 +1,445 @@
+{
+  "moduleName": "__single_module__",
+  "packageInfo": {
+    "PathName": "",
+    "files": {},
+    "subs": {
+      "/": {
+        "PathName": "",
+        "files": {
+          "examples/terminator.go": {
+            "node": {
+              "_meta": {},
+              "body": [
+                {
+                  "_meta": {},
+                  "loc": {
+                    "end": {
+                      "column": 17,
+                      "line": 1
+                    },
+                    "sourcefile": "examples/terminator.go",
+                    "start": {
+                      "column": 9,
+                      "line": 1
+                    }
+                  },
+                  "packageName": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 17,
+                        "line": 1
+                      },
+                      "sourcefile": "examples/terminator.go",
+                      "start": {
+                        "column": 9,
+                        "line": 1
+                      }
+                    },
+                    "name": "examples",
+                    "type": "Identifier"
+                  },
+                  "type": "PackageDeclaration"
+                },
+                {
+                  "_meta": {
+                    "ReceiveCls": "",
+                    "isDefaultImport": true
+                  },
+                  "cloned": false,
+                  "id": {
+                    "_meta": {},
+                    "loc": null,
+                    "name": "b",
+                    "type": "Identifier"
+                  },
+                  "init": {
+                    "_meta": {},
+                    "from": {
+                      "_meta": {},
+                      "literalType": "string",
+                      "loc": {
+                        "end": {
+                          "column": 50,
+                          "line": 3
+                        },
+                        "sourcefile": "examples/terminator.go",
+                        "start": {
+                          "column": 8,
+                          "line": 3
+                        }
+                      },
+                      "type": "Literal",
+                      "value": "golang.org/x/tools/internal/lsp/rename/b"
+                    },
+                    "imported": null,
+                    "loc": {
+                      "end": {
+                        "column": 50,
+                        "line": 3
+                      },
+                      "sourcefile": "examples/terminator.go",
+                      "start": {
+                        "column": 8,
+                        "line": 3
+                      }
+                    },
+                    "local": null,
+                    "type": "ImportExpression"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 50,
+                      "line": 3
+                    },
+                    "sourcefile": "examples/terminator.go",
+                    "start": {
+                      "column": 8,
+                      "line": 3
+                    }
+                  },
+                  "type": "VariableDeclaration",
+                  "varType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "DynamicType",
+                    "typeArguments": null
+                  },
+                  "variableParam": false
+                },
+                {
+                  "_meta": {},
+                  "body": {
+                    "_meta": {},
+                    "body": [
+                      {
+                        "_meta": {},
+                        "arguments": [],
+                        "callee": {
+                          "_meta": {},
+                          "computed": false,
+                          "loc": {
+                            "end": {
+                              "column": 9,
+                              "line": 6
+                            },
+                            "sourcefile": "examples/terminator.go",
+                            "start": {
+                              "column": 2,
+                              "line": 6
+                            }
+                          },
+                          "object": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 3,
+                                "line": 6
+                              },
+                              "sourcefile": "examples/terminator.go",
+                              "start": {
+                                "column": 2,
+                                "line": 6
+                              }
+                            },
+                            "name": "b",
+                            "type": "Identifier"
+                          },
+                          "property": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 9,
+                                "line": 6
+                              },
+                              "sourcefile": "examples/terminator.go",
+                              "start": {
+                                "column": 4,
+                                "line": 6
+                              }
+                            },
+                            "name": "Hello",
+                            "type": "Identifier"
+                          },
+                          "type": "MemberAccess"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 11,
+                            "line": 6
+                          },
+                          "sourcefile": "examples/terminator.go",
+                          "start": {
+                            "column": 2,
+                            "line": 6
+                          }
+                        },
+                        "type": "CallExpression"
+                      }
+                    ],
+                    "id": null,
+                    "loc": {
+                      "end": {
+                        "column": 2,
+                        "line": 7
+                      },
+                      "sourcefile": "examples/terminator.go",
+                      "start": {
+                        "column": 10,
+                        "line": 5
+                      }
+                    },
+                    "type": "ScopedStatement"
+                  },
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 7,
+                        "line": 5
+                      },
+                      "sourcefile": "examples/terminator.go",
+                      "start": {
+                        "column": 6,
+                        "line": 5
+                      }
+                    },
+                    "name": "_",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 7
+                    },
+                    "sourcefile": "examples/terminator.go",
+                    "start": {
+                      "column": 1,
+                      "line": 5
+                    }
+                  },
+                  "modifiers": null,
+                  "parameters": [],
+                  "returnType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "VoidType",
+                    "typeArguments": null
+                  },
+                  "type": "FunctionDefinition"
+                },
+                {
+                  "_meta": {},
+                  "body": {
+                    "_meta": {},
+                    "body": [
+                      {
+                        "_meta": {},
+                        "arguments": [],
+                        "callee": {
+                          "_meta": {},
+                          "computed": false,
+                          "loc": {
+                            "end": {
+                              "column": 9,
+                              "line": 10
+                            },
+                            "sourcefile": "examples/terminator.go",
+                            "start": {
+                              "column": 2,
+                              "line": 10
+                            }
+                          },
+                          "object": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 3,
+                                "line": 10
+                              },
+                              "sourcefile": "examples/terminator.go",
+                              "start": {
+                                "column": 2,
+                                "line": 10
+                              }
+                            },
+                            "name": "b",
+                            "type": "Identifier"
+                          },
+                          "property": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 9,
+                                "line": 10
+                              },
+                              "sourcefile": "examples/terminator.go",
+                              "start": {
+                                "column": 4,
+                                "line": 10
+                              }
+                            },
+                            "name": "Hello",
+                            "type": "Identifier"
+                          },
+                          "type": "MemberAccess"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 11,
+                            "line": 10
+                          },
+                          "sourcefile": "examples/terminator.go",
+                          "start": {
+                            "column": 2,
+                            "line": 10
+                          }
+                        },
+                        "type": "CallExpression"
+                      },
+                      {
+                        "_meta": {},
+                        "arguments": [],
+                        "callee": {
+                          "_meta": {},
+                          "computed": false,
+                          "loc": {
+                            "end": {
+                              "column": 9,
+                              "line": 11
+                            },
+                            "sourcefile": "examples/terminator.go",
+                            "start": {
+                              "column": 2,
+                              "line": 11
+                            }
+                          },
+                          "object": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 3,
+                                "line": 11
+                              },
+                              "sourcefile": "examples/terminator.go",
+                              "start": {
+                                "column": 2,
+                                "line": 11
+                              }
+                            },
+                            "name": "b",
+                            "type": "Identifier"
+                          },
+                          "property": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 9,
+                                "line": 11
+                              },
+                              "sourcefile": "examples/terminator.go",
+                              "start": {
+                                "column": 4,
+                                "line": 11
+                              }
+                            },
+                            "name": "Hello",
+                            "type": "Identifier"
+                          },
+                          "type": "MemberAccess"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 11,
+                            "line": 11
+                          },
+                          "sourcefile": "examples/terminator.go",
+                          "start": {
+                            "column": 2,
+                            "line": 11
+                          }
+                        },
+                        "type": "CallExpression"
+                      }
+                    ],
+                    "id": null,
+                    "loc": {
+                      "end": {
+                        "column": 2,
+                        "line": 12
+                      },
+                      "sourcefile": "examples/terminator.go",
+                      "start": {
+                        "column": 14,
+                        "line": 9
+                      }
+                    },
+                    "type": "ScopedStatement"
+                  },
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 11,
+                        "line": 9
+                      },
+                      "sourcefile": "examples/terminator.go",
+                      "start": {
+                        "column": 6,
+                        "line": 9
+                      }
+                    },
+                    "name": "ahead",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 12
+                    },
+                    "sourcefile": "examples/terminator.go",
+                    "start": {
+                      "column": 1,
+                      "line": 9
+                    }
+                  },
+                  "modifiers": null,
+                  "parameters": [],
+                  "returnType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "VoidType",
+                    "typeArguments": null
+                  },
+                  "type": "FunctionDefinition"
+                }
+              ],
+              "language": "golang",
+              "languageVersion": "1.18",
+              "loc": {
+                "end": {
+                  "column": 2,
+                  "line": 12
+                },
+                "sourcefile": "examples/terminator.go",
+                "start": {
+                  "column": 1,
+                  "line": 1
+                }
+              },
+              "type": "CompileUnit",
+              "uri": "",
+              "version": ""
+            },
+            "packageName": "__single__"
+          }
+        },
+        "subs": {}
+      }
+    }
+  }
+}

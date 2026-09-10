@@ -1,0 +1,2733 @@
+{
+  "moduleName": "__single_module__",
+  "packageInfo": {
+    "PathName": "",
+    "files": {},
+    "subs": {
+      "/": {
+        "PathName": "",
+        "files": {
+          "examples/function3.go": {
+            "node": {
+              "_meta": {},
+              "body": [
+                {
+                  "_meta": {},
+                  "loc": {
+                    "end": {
+                      "column": 17,
+                      "line": 1
+                    },
+                    "sourcefile": "examples/function3.go",
+                    "start": {
+                      "column": 9,
+                      "line": 1
+                    }
+                  },
+                  "packageName": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 17,
+                        "line": 1
+                      },
+                      "sourcefile": "examples/function3.go",
+                      "start": {
+                        "column": 9,
+                        "line": 1
+                      }
+                    },
+                    "name": "examples",
+                    "type": "Identifier"
+                  },
+                  "type": "PackageDeclaration"
+                },
+                {
+                  "_meta": {
+                    "ReceiveCls": "",
+                    "isDefaultImport": true
+                  },
+                  "cloned": false,
+                  "id": {
+                    "_meta": {},
+                    "loc": null,
+                    "name": "fmt",
+                    "type": "Identifier"
+                  },
+                  "init": {
+                    "_meta": {},
+                    "from": {
+                      "_meta": {},
+                      "literalType": "string",
+                      "loc": {
+                        "end": {
+                          "column": 13,
+                          "line": 3
+                        },
+                        "sourcefile": "examples/function3.go",
+                        "start": {
+                          "column": 8,
+                          "line": 3
+                        }
+                      },
+                      "type": "Literal",
+                      "value": "fmt"
+                    },
+                    "imported": null,
+                    "loc": {
+                      "end": {
+                        "column": 13,
+                        "line": 3
+                      },
+                      "sourcefile": "examples/function3.go",
+                      "start": {
+                        "column": 8,
+                        "line": 3
+                      }
+                    },
+                    "local": null,
+                    "type": "ImportExpression"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 13,
+                      "line": 3
+                    },
+                    "sourcefile": "examples/function3.go",
+                    "start": {
+                      "column": 8,
+                      "line": 3
+                    }
+                  },
+                  "type": "VariableDeclaration",
+                  "varType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "DynamicType",
+                    "typeArguments": null
+                  },
+                  "variableParam": false
+                },
+                {
+                  "_meta": {},
+                  "body": [
+                    {
+                      "_meta": {
+                        "ReceiveCls": "Filters"
+                      },
+                      "body": {
+                        "_meta": {},
+                        "body": [
+                          {
+                            "_meta": {},
+                            "cloned": true,
+                            "id": {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 16,
+                                      "line": 15
+                                    },
+                                    "sourcefile": "examples/function3.go",
+                                    "start": {
+                                      "column": 9,
+                                      "line": 15
+                                    }
+                                  },
+                                  "name": "Filters",
+                                  "type": "Identifier"
+                                }
+                              },
+                              "loc": null,
+                              "name": "f",
+                              "type": "Identifier"
+                            },
+                            "init": {
+                              "_meta": {},
+                              "loc": null,
+                              "type": "ThisExpression"
+                            },
+                            "loc": null,
+                            "type": "VariableDeclaration",
+                            "varType": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 16,
+                                  "line": 15
+                                },
+                                "sourcefile": "examples/function3.go",
+                                "start": {
+                                  "column": 9,
+                                  "line": 15
+                                }
+                              },
+                              "name": "Filters",
+                              "type": "Identifier"
+                            },
+                            "variableParam": false
+                          },
+                          {
+                            "_meta": {},
+                            "alternative": {
+                              "_meta": {},
+                              "loc": null,
+                              "type": "Noop"
+                            },
+                            "consequent": {
+                              "_meta": {},
+                              "body": [
+                                {
+                                  "_meta": {},
+                                  "argument": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 13,
+                                        "line": 17
+                                      },
+                                      "sourcefile": "examples/function3.go",
+                                      "start": {
+                                        "column": 10,
+                                        "line": 17
+                                      }
+                                    },
+                                    "name": "nil",
+                                    "type": "Identifier"
+                                  },
+                                  "isYield": false,
+                                  "loc": {
+                                    "end": {
+                                      "column": 13,
+                                      "line": 17
+                                    },
+                                    "sourcefile": "examples/function3.go",
+                                    "start": {
+                                      "column": 3,
+                                      "line": 17
+                                    }
+                                  },
+                                  "type": "ReturnStatement"
+                                }
+                              ],
+                              "id": null,
+                              "loc": {
+                                "end": {
+                                  "column": 3,
+                                  "line": 18
+                                },
+                                "sourcefile": "examples/function3.go",
+                                "start": {
+                                  "column": 17,
+                                  "line": 16
+                                }
+                              },
+                              "type": "ScopedStatement"
+                            },
+                            "loc": {
+                              "end": {
+                                "column": 3,
+                                "line": 18
+                              },
+                              "sourcefile": "examples/function3.go",
+                              "start": {
+                                "column": 2,
+                                "line": 16
+                              }
+                            },
+                            "test": {
+                              "_meta": {},
+                              "left": {
+                                "_meta": {},
+                                "arguments": [
+                                  {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 10,
+                                        "line": 16
+                                      },
+                                      "sourcefile": "examples/function3.go",
+                                      "start": {
+                                        "column": 9,
+                                        "line": 16
+                                      }
+                                    },
+                                    "name": "f",
+                                    "type": "Identifier"
+                                  }
+                                ],
+                                "callee": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 8,
+                                      "line": 16
+                                    },
+                                    "sourcefile": "examples/function3.go",
+                                    "start": {
+                                      "column": 5,
+                                      "line": 16
+                                    }
+                                  },
+                                  "name": "len",
+                                  "type": "Identifier"
+                                },
+                                "loc": {
+                                  "end": {
+                                    "column": 11,
+                                    "line": 16
+                                  },
+                                  "sourcefile": "examples/function3.go",
+                                  "start": {
+                                    "column": 5,
+                                    "line": 16
+                                  }
+                                },
+                                "type": "CallExpression"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 16,
+                                  "line": 16
+                                },
+                                "sourcefile": "examples/function3.go",
+                                "start": {
+                                  "column": 5,
+                                  "line": 16
+                                }
+                              },
+                              "operator": "==",
+                              "right": {
+                                "_meta": {},
+                                "literalType": "INT",
+                                "loc": {
+                                  "end": {
+                                    "column": 16,
+                                    "line": 16
+                                  },
+                                  "sourcefile": "examples/function3.go",
+                                  "start": {
+                                    "column": 15,
+                                    "line": 16
+                                  }
+                                },
+                                "type": "Literal",
+                                "value": "0"
+                              },
+                              "type": "BinaryExpression"
+                            },
+                            "type": "IfStatement"
+                          },
+                          {
+                            "_meta": {},
+                            "cloned": true,
+                            "id": {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "element": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 22,
+                                        "line": 19
+                                      },
+                                      "sourcefile": "examples/function3.go",
+                                      "start": {
+                                        "column": 16,
+                                        "line": 19
+                                      }
+                                    },
+                                    "name": "string",
+                                    "type": "Identifier"
+                                  },
+                                  "id": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 22,
+                                        "line": 19
+                                      },
+                                      "sourcefile": "examples/function3.go",
+                                      "start": {
+                                        "column": 14,
+                                        "line": 19
+                                      }
+                                    },
+                                    "name": "ArrayType",
+                                    "type": "Identifier"
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 22,
+                                      "line": 19
+                                    },
+                                    "sourcefile": "examples/function3.go",
+                                    "start": {
+                                      "column": 14,
+                                      "line": 19
+                                    }
+                                  },
+                                  "size": {
+                                    "_meta": {},
+                                    "loc": null,
+                                    "type": "Noop"
+                                  },
+                                  "type": "ArrayType",
+                                  "typeArguments": null
+                                }
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 5,
+                                  "line": 19
+                                },
+                                "sourcefile": "examples/function3.go",
+                                "start": {
+                                  "column": 2,
+                                  "line": 19
+                                }
+                              },
+                              "name": "exp",
+                              "type": "Identifier"
+                            },
+                            "init": {
+                              "_meta": {},
+                              "arguments": [
+                                {
+                                  "_meta": {},
+                                  "element": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 22,
+                                        "line": 19
+                                      },
+                                      "sourcefile": "examples/function3.go",
+                                      "start": {
+                                        "column": 16,
+                                        "line": 19
+                                      }
+                                    },
+                                    "name": "string",
+                                    "type": "Identifier"
+                                  },
+                                  "id": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 22,
+                                        "line": 19
+                                      },
+                                      "sourcefile": "examples/function3.go",
+                                      "start": {
+                                        "column": 14,
+                                        "line": 19
+                                      }
+                                    },
+                                    "name": "ArrayType",
+                                    "type": "Identifier"
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 22,
+                                      "line": 19
+                                    },
+                                    "sourcefile": "examples/function3.go",
+                                    "start": {
+                                      "column": 14,
+                                      "line": 19
+                                    }
+                                  },
+                                  "size": {
+                                    "_meta": {},
+                                    "loc": null,
+                                    "type": "Noop"
+                                  },
+                                  "type": "ArrayType",
+                                  "typeArguments": null
+                                },
+                                {
+                                  "_meta": {},
+                                  "arguments": [
+                                    {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 29,
+                                          "line": 19
+                                        },
+                                        "sourcefile": "examples/function3.go",
+                                        "start": {
+                                          "column": 28,
+                                          "line": 19
+                                        }
+                                      },
+                                      "name": "f",
+                                      "type": "Identifier"
+                                    }
+                                  ],
+                                  "callee": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 27,
+                                        "line": 19
+                                      },
+                                      "sourcefile": "examples/function3.go",
+                                      "start": {
+                                        "column": 24,
+                                        "line": 19
+                                      }
+                                    },
+                                    "name": "len",
+                                    "type": "Identifier"
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 30,
+                                      "line": 19
+                                    },
+                                    "sourcefile": "examples/function3.go",
+                                    "start": {
+                                      "column": 24,
+                                      "line": 19
+                                    }
+                                  },
+                                  "type": "CallExpression"
+                                }
+                              ],
+                              "callee": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 13,
+                                    "line": 19
+                                  },
+                                  "sourcefile": "examples/function3.go",
+                                  "start": {
+                                    "column": 9,
+                                    "line": 19
+                                  }
+                                },
+                                "name": "make",
+                                "type": "Identifier"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 31,
+                                  "line": 19
+                                },
+                                "sourcefile": "examples/function3.go",
+                                "start": {
+                                  "column": 9,
+                                  "line": 19
+                                }
+                              },
+                              "type": "CallExpression"
+                            },
+                            "loc": {
+                              "end": {
+                                "column": 31,
+                                "line": 19
+                              },
+                              "sourcefile": "examples/function3.go",
+                              "start": {
+                                "column": 2,
+                                "line": 19
+                              }
+                            },
+                            "type": "VariableDeclaration",
+                            "varType": {
+                              "_meta": {},
+                              "element": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 22,
+                                    "line": 19
+                                  },
+                                  "sourcefile": "examples/function3.go",
+                                  "start": {
+                                    "column": 16,
+                                    "line": 19
+                                  }
+                                },
+                                "name": "string",
+                                "type": "Identifier"
+                              },
+                              "id": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 22,
+                                    "line": 19
+                                  },
+                                  "sourcefile": "examples/function3.go",
+                                  "start": {
+                                    "column": 14,
+                                    "line": 19
+                                  }
+                                },
+                                "name": "ArrayType",
+                                "type": "Identifier"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 22,
+                                  "line": 19
+                                },
+                                "sourcefile": "examples/function3.go",
+                                "start": {
+                                  "column": 14,
+                                  "line": 19
+                                }
+                              },
+                              "size": {
+                                "_meta": {},
+                                "loc": null,
+                                "type": "Noop"
+                              },
+                              "type": "ArrayType",
+                              "typeArguments": null
+                            },
+                            "variableParam": false
+                          },
+                          {
+                            "_meta": {},
+                            "body": {
+                              "_meta": {},
+                              "body": [
+                                {
+                                  "_meta": {},
+                                  "cloned": true,
+                                  "left": {
+                                    "_meta": {},
+                                    "computed": true,
+                                    "loc": {
+                                      "end": {
+                                        "column": 9,
+                                        "line": 21
+                                      },
+                                      "sourcefile": "examples/function3.go",
+                                      "start": {
+                                        "column": 3,
+                                        "line": 21
+                                      }
+                                    },
+                                    "object": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 6,
+                                          "line": 21
+                                        },
+                                        "sourcefile": "examples/function3.go",
+                                        "start": {
+                                          "column": 3,
+                                          "line": 21
+                                        }
+                                      },
+                                      "name": "exp",
+                                      "type": "Identifier"
+                                    },
+                                    "property": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 8,
+                                          "line": 21
+                                        },
+                                        "sourcefile": "examples/function3.go",
+                                        "start": {
+                                          "column": 7,
+                                          "line": 21
+                                        }
+                                      },
+                                      "name": "i",
+                                      "type": "Identifier"
+                                    },
+                                    "type": "MemberAccess"
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 48,
+                                      "line": 21
+                                    },
+                                    "sourcefile": "examples/function3.go",
+                                    "start": {
+                                      "column": 3,
+                                      "line": 21
+                                    }
+                                  },
+                                  "operator": "=",
+                                  "right": {
+                                    "_meta": {},
+                                    "arguments": [
+                                      {
+                                        "_meta": {},
+                                        "literalType": "STRING",
+                                        "loc": {
+                                          "end": {
+                                            "column": 31,
+                                            "line": 21
+                                          },
+                                          "sourcefile": "examples/function3.go",
+                                          "start": {
+                                            "column": 24,
+                                            "line": 21
+                                          }
+                                        },
+                                        "type": "Literal",
+                                        "value": "\"%s %s\""
+                                      },
+                                      {
+                                        "_meta": {},
+                                        "computed": false,
+                                        "loc": {
+                                          "end": {
+                                            "column": 38,
+                                            "line": 21
+                                          },
+                                          "sourcefile": "examples/function3.go",
+                                          "start": {
+                                            "column": 33,
+                                            "line": 21
+                                          }
+                                        },
+                                        "object": {
+                                          "_meta": {},
+                                          "loc": {
+                                            "end": {
+                                              "column": 34,
+                                              "line": 21
+                                            },
+                                            "sourcefile": "examples/function3.go",
+                                            "start": {
+                                              "column": 33,
+                                              "line": 21
+                                            }
+                                          },
+                                          "name": "v",
+                                          "type": "Identifier"
+                                        },
+                                        "property": {
+                                          "_meta": {},
+                                          "loc": {
+                                            "end": {
+                                              "column": 38,
+                                              "line": 21
+                                            },
+                                            "sourcefile": "examples/function3.go",
+                                            "start": {
+                                              "column": 35,
+                                              "line": 21
+                                            }
+                                          },
+                                          "name": "Key",
+                                          "type": "Identifier"
+                                        },
+                                        "type": "MemberAccess"
+                                      },
+                                      {
+                                        "_meta": {},
+                                        "computed": false,
+                                        "loc": {
+                                          "end": {
+                                            "column": 47,
+                                            "line": 21
+                                          },
+                                          "sourcefile": "examples/function3.go",
+                                          "start": {
+                                            "column": 40,
+                                            "line": 21
+                                          }
+                                        },
+                                        "object": {
+                                          "_meta": {},
+                                          "loc": {
+                                            "end": {
+                                              "column": 41,
+                                              "line": 21
+                                            },
+                                            "sourcefile": "examples/function3.go",
+                                            "start": {
+                                              "column": 40,
+                                              "line": 21
+                                            }
+                                          },
+                                          "name": "v",
+                                          "type": "Identifier"
+                                        },
+                                        "property": {
+                                          "_meta": {},
+                                          "loc": {
+                                            "end": {
+                                              "column": 47,
+                                              "line": 21
+                                            },
+                                            "sourcefile": "examples/function3.go",
+                                            "start": {
+                                              "column": 42,
+                                              "line": 21
+                                            }
+                                          },
+                                          "name": "Value",
+                                          "type": "Identifier"
+                                        },
+                                        "type": "MemberAccess"
+                                      }
+                                    ],
+                                    "callee": {
+                                      "_meta": {},
+                                      "computed": false,
+                                      "loc": {
+                                        "end": {
+                                          "column": 23,
+                                          "line": 21
+                                        },
+                                        "sourcefile": "examples/function3.go",
+                                        "start": {
+                                          "column": 12,
+                                          "line": 21
+                                        }
+                                      },
+                                      "object": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 15,
+                                            "line": 21
+                                          },
+                                          "sourcefile": "examples/function3.go",
+                                          "start": {
+                                            "column": 12,
+                                            "line": 21
+                                          }
+                                        },
+                                        "name": "fmt",
+                                        "type": "Identifier"
+                                      },
+                                      "property": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 23,
+                                            "line": 21
+                                          },
+                                          "sourcefile": "examples/function3.go",
+                                          "start": {
+                                            "column": 16,
+                                            "line": 21
+                                          }
+                                        },
+                                        "name": "Sprintf",
+                                        "type": "Identifier"
+                                      },
+                                      "type": "MemberAccess"
+                                    },
+                                    "loc": {
+                                      "end": {
+                                        "column": 48,
+                                        "line": 21
+                                      },
+                                      "sourcefile": "examples/function3.go",
+                                      "start": {
+                                        "column": 12,
+                                        "line": 21
+                                      }
+                                    },
+                                    "type": "CallExpression"
+                                  },
+                                  "type": "AssignmentExpression"
+                                },
+                                {
+                                  "_meta": {},
+                                  "arguments": [
+                                    {
+                                      "_meta": {},
+                                      "computed": false,
+                                      "loc": {
+                                        "end": {
+                                          "column": 23,
+                                          "line": 22
+                                        },
+                                        "sourcefile": "examples/function3.go",
+                                        "start": {
+                                          "column": 16,
+                                          "line": 22
+                                        }
+                                      },
+                                      "object": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 17,
+                                            "line": 22
+                                          },
+                                          "sourcefile": "examples/function3.go",
+                                          "start": {
+                                            "column": 16,
+                                            "line": 22
+                                          }
+                                        },
+                                        "name": "v",
+                                        "type": "Identifier"
+                                      },
+                                      "property": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 23,
+                                            "line": 22
+                                          },
+                                          "sourcefile": "examples/function3.go",
+                                          "start": {
+                                            "column": 18,
+                                            "line": 22
+                                          }
+                                        },
+                                        "name": "Value",
+                                        "type": "Identifier"
+                                      },
+                                      "type": "MemberAccess"
+                                    }
+                                  ],
+                                  "callee": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 15,
+                                        "line": 22
+                                      },
+                                      "sourcefile": "examples/function3.go",
+                                      "start": {
+                                        "column": 3,
+                                        "line": 22
+                                      }
+                                    },
+                                    "name": "__taint_sink",
+                                    "type": "Identifier"
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 24,
+                                      "line": 22
+                                    },
+                                    "sourcefile": "examples/function3.go",
+                                    "start": {
+                                      "column": 3,
+                                      "line": 22
+                                    }
+                                  },
+                                  "type": "CallExpression"
+                                }
+                              ],
+                              "id": null,
+                              "loc": {
+                                "end": {
+                                  "column": 3,
+                                  "line": 23
+                                },
+                                "sourcefile": "examples/function3.go",
+                                "start": {
+                                  "column": 22,
+                                  "line": 20
+                                }
+                              },
+                              "type": "ScopedStatement"
+                            },
+                            "key": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 7,
+                                  "line": 20
+                                },
+                                "sourcefile": "examples/function3.go",
+                                "start": {
+                                  "column": 6,
+                                  "line": 20
+                                }
+                              },
+                              "name": "i",
+                              "type": "Identifier"
+                            },
+                            "loc": {
+                              "end": {
+                                "column": 3,
+                                "line": 23
+                              },
+                              "sourcefile": "examples/function3.go",
+                              "start": {
+                                "column": 2,
+                                "line": 20
+                              }
+                            },
+                            "right": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 21,
+                                  "line": 20
+                                },
+                                "sourcefile": "examples/function3.go",
+                                "start": {
+                                  "column": 20,
+                                  "line": 20
+                                }
+                              },
+                              "name": "f",
+                              "type": "Identifier"
+                            },
+                            "type": "RangeStatement",
+                            "value": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 10,
+                                  "line": 20
+                                },
+                                "sourcefile": "examples/function3.go",
+                                "start": {
+                                  "column": 9,
+                                  "line": 20
+                                }
+                              },
+                              "name": "v",
+                              "type": "Identifier"
+                            }
+                          },
+                          {
+                            "_meta": {},
+                            "argument": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 12,
+                                  "line": 24
+                                },
+                                "sourcefile": "examples/function3.go",
+                                "start": {
+                                  "column": 9,
+                                  "line": 24
+                                }
+                              },
+                              "name": "exp",
+                              "type": "Identifier"
+                            },
+                            "isYield": false,
+                            "loc": {
+                              "end": {
+                                "column": 12,
+                                "line": 24
+                              },
+                              "sourcefile": "examples/function3.go",
+                              "start": {
+                                "column": 2,
+                                "line": 24
+                              }
+                            },
+                            "type": "ReturnStatement"
+                          }
+                        ],
+                        "id": null,
+                        "loc": {
+                          "end": {
+                            "column": 2,
+                            "line": 25
+                          },
+                          "sourcefile": "examples/function3.go",
+                          "start": {
+                            "column": 35,
+                            "line": 15
+                          }
+                        },
+                        "type": "ScopedStatement"
+                      },
+                      "id": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 23,
+                            "line": 15
+                          },
+                          "sourcefile": "examples/function3.go",
+                          "start": {
+                            "column": 18,
+                            "line": 15
+                          }
+                        },
+                        "name": "Parse",
+                        "type": "Identifier"
+                      },
+                      "loc": {
+                        "end": {
+                          "column": 2,
+                          "line": 25
+                        },
+                        "sourcefile": "examples/function3.go",
+                        "start": {
+                          "column": 1,
+                          "line": 15
+                        }
+                      },
+                      "modifiers": null,
+                      "parameters": [],
+                      "returnType": {
+                        "_meta": {},
+                        "element": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 34,
+                              "line": 15
+                            },
+                            "sourcefile": "examples/function3.go",
+                            "start": {
+                              "column": 28,
+                              "line": 15
+                            }
+                          },
+                          "name": "string",
+                          "type": "Identifier"
+                        },
+                        "id": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 34,
+                              "line": 15
+                            },
+                            "sourcefile": "examples/function3.go",
+                            "start": {
+                              "column": 26,
+                              "line": 15
+                            }
+                          },
+                          "name": "ArrayType",
+                          "type": "Identifier"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 34,
+                            "line": 15
+                          },
+                          "sourcefile": "examples/function3.go",
+                          "start": {
+                            "column": 26,
+                            "line": 15
+                          }
+                        },
+                        "size": {
+                          "_meta": {},
+                          "loc": null,
+                          "type": "Noop"
+                        },
+                        "type": "ArrayType",
+                        "typeArguments": null
+                      },
+                      "type": "FunctionDefinition"
+                    }
+                  ],
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 13,
+                        "line": 5
+                      },
+                      "sourcefile": "examples/function3.go",
+                      "start": {
+                        "column": 6,
+                        "line": 5
+                      }
+                    },
+                    "name": "Filters",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 22,
+                      "line": 5
+                    },
+                    "sourcefile": "examples/function3.go",
+                    "start": {
+                      "column": 6,
+                      "line": 5
+                    }
+                  },
+                  "supers": [
+                    {
+                      "_meta": {},
+                      "element": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 22,
+                            "line": 5
+                          },
+                          "sourcefile": "examples/function3.go",
+                          "start": {
+                            "column": 16,
+                            "line": 5
+                          }
+                        },
+                        "name": "Filter",
+                        "type": "Identifier"
+                      },
+                      "id": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 22,
+                            "line": 5
+                          },
+                          "sourcefile": "examples/function3.go",
+                          "start": {
+                            "column": 14,
+                            "line": 5
+                          }
+                        },
+                        "name": "ArrayType",
+                        "type": "Identifier"
+                      },
+                      "loc": {
+                        "end": {
+                          "column": 22,
+                          "line": 5
+                        },
+                        "sourcefile": "examples/function3.go",
+                        "start": {
+                          "column": 14,
+                          "line": 5
+                        }
+                      },
+                      "size": {
+                        "_meta": {},
+                        "loc": null,
+                        "type": "Noop"
+                      },
+                      "type": "ArrayType",
+                      "typeArguments": null
+                    }
+                  ],
+                  "type": "ClassDefinition"
+                },
+                {
+                  "_meta": {},
+                  "body": [
+                    {
+                      "_meta": {},
+                      "cloned": true,
+                      "id": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 17,
+                                "line": 8
+                              },
+                              "sourcefile": "examples/function3.go",
+                              "start": {
+                                "column": 11,
+                                "line": 8
+                              }
+                            },
+                            "name": "string",
+                            "type": "Identifier"
+                          }
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 5,
+                            "line": 8
+                          },
+                          "sourcefile": "examples/function3.go",
+                          "start": {
+                            "column": 2,
+                            "line": 8
+                          }
+                        },
+                        "name": "Key",
+                        "type": "Identifier"
+                      },
+                      "init": null,
+                      "loc": {
+                        "end": {
+                          "column": 17,
+                          "line": 8
+                        },
+                        "sourcefile": "examples/function3.go",
+                        "start": {
+                          "column": 2,
+                          "line": 8
+                        }
+                      },
+                      "type": "VariableDeclaration",
+                      "varType": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 17,
+                            "line": 8
+                          },
+                          "sourcefile": "examples/function3.go",
+                          "start": {
+                            "column": 11,
+                            "line": 8
+                          }
+                        },
+                        "name": "string",
+                        "type": "Identifier"
+                      },
+                      "variableParam": false
+                    },
+                    {
+                      "_meta": {},
+                      "cloned": true,
+                      "id": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 17,
+                                "line": 9
+                              },
+                              "sourcefile": "examples/function3.go",
+                              "start": {
+                                "column": 11,
+                                "line": 9
+                              }
+                            },
+                            "name": "string",
+                            "type": "Identifier"
+                          }
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 7,
+                            "line": 9
+                          },
+                          "sourcefile": "examples/function3.go",
+                          "start": {
+                            "column": 2,
+                            "line": 9
+                          }
+                        },
+                        "name": "Value",
+                        "type": "Identifier"
+                      },
+                      "init": null,
+                      "loc": {
+                        "end": {
+                          "column": 17,
+                          "line": 9
+                        },
+                        "sourcefile": "examples/function3.go",
+                        "start": {
+                          "column": 2,
+                          "line": 9
+                        }
+                      },
+                      "type": "VariableDeclaration",
+                      "varType": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 17,
+                            "line": 9
+                          },
+                          "sourcefile": "examples/function3.go",
+                          "start": {
+                            "column": 11,
+                            "line": 9
+                          }
+                        },
+                        "name": "string",
+                        "type": "Identifier"
+                      },
+                      "variableParam": false
+                    },
+                    {
+                      "_meta": {},
+                      "cloned": true,
+                      "id": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 19,
+                                "line": 10
+                              },
+                              "sourcefile": "examples/function3.go",
+                              "start": {
+                                "column": 11,
+                                "line": 10
+                              }
+                            },
+                            "name": "Operator",
+                            "type": "Identifier"
+                          }
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 10,
+                            "line": 10
+                          },
+                          "sourcefile": "examples/function3.go",
+                          "start": {
+                            "column": 2,
+                            "line": 10
+                          }
+                        },
+                        "name": "Operator",
+                        "type": "Identifier"
+                      },
+                      "init": null,
+                      "loc": {
+                        "end": {
+                          "column": 19,
+                          "line": 10
+                        },
+                        "sourcefile": "examples/function3.go",
+                        "start": {
+                          "column": 2,
+                          "line": 10
+                        }
+                      },
+                      "type": "VariableDeclaration",
+                      "varType": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 19,
+                            "line": 10
+                          },
+                          "sourcefile": "examples/function3.go",
+                          "start": {
+                            "column": 11,
+                            "line": 10
+                          }
+                        },
+                        "name": "Operator",
+                        "type": "Identifier"
+                      },
+                      "variableParam": false
+                    }
+                  ],
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 12,
+                        "line": 7
+                      },
+                      "sourcefile": "examples/function3.go",
+                      "start": {
+                        "column": 6,
+                        "line": 7
+                      }
+                    },
+                    "name": "Filter",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 11
+                    },
+                    "sourcefile": "examples/function3.go",
+                    "start": {
+                      "column": 6,
+                      "line": 7
+                    }
+                  },
+                  "supers": [],
+                  "type": "ClassDefinition"
+                },
+                {
+                  "_meta": {},
+                  "body": [],
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 14,
+                        "line": 13
+                      },
+                      "sourcefile": "examples/function3.go",
+                      "start": {
+                        "column": 6,
+                        "line": 13
+                      }
+                    },
+                    "name": "Operator",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 21,
+                      "line": 13
+                    },
+                    "sourcefile": "examples/function3.go",
+                    "start": {
+                      "column": 6,
+                      "line": 13
+                    }
+                  },
+                  "supers": [
+                    {
+                      "_meta": {},
+                      "loc": {
+                        "end": {
+                          "column": 21,
+                          "line": 13
+                        },
+                        "sourcefile": "examples/function3.go",
+                        "start": {
+                          "column": 15,
+                          "line": 13
+                        }
+                      },
+                      "name": "string",
+                      "type": "Identifier"
+                    }
+                  ],
+                  "type": "ClassDefinition"
+                },
+                {
+                  "_meta": {},
+                  "body": {
+                    "_meta": {},
+                    "body": [
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 20,
+                                  "line": 28
+                                },
+                                "sourcefile": "examples/function3.go",
+                                "start": {
+                                  "column": 13,
+                                  "line": 28
+                                }
+                              },
+                              "name": "Filters",
+                              "type": "Identifier"
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 9,
+                              "line": 28
+                            },
+                            "sourcefile": "examples/function3.go",
+                            "start": {
+                              "column": 2,
+                              "line": 28
+                            }
+                          },
+                          "name": "filters",
+                          "type": "Identifier"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "expressions": [
+                            {
+                              "_meta": {},
+                              "cloned": false,
+                              "id": {
+                                "_meta": {
+                                  "ReceiveCls": "",
+                                  "type": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 20,
+                                        "line": 28
+                                      },
+                                      "sourcefile": "examples/function3.go",
+                                      "start": {
+                                        "column": 13,
+                                        "line": 28
+                                      }
+                                    },
+                                    "name": "Filters",
+                                    "type": "Identifier"
+                                  }
+                                },
+                                "loc": {
+                                  "end": {
+                                    "column": 3,
+                                    "line": 31
+                                  },
+                                  "sourcefile": "examples/function3.go",
+                                  "start": {
+                                    "column": 13,
+                                    "line": 28
+                                  }
+                                },
+                                "name": "tmp1",
+                                "type": "Identifier"
+                              },
+                              "init": {
+                                "_meta": {},
+                                "arguments": [],
+                                "callee": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 20,
+                                      "line": 28
+                                    },
+                                    "sourcefile": "examples/function3.go",
+                                    "start": {
+                                      "column": 13,
+                                      "line": 28
+                                    }
+                                  },
+                                  "name": "Filters",
+                                  "type": "Identifier"
+                                },
+                                "loc": null,
+                                "type": "NewExpression"
+                              },
+                              "loc": null,
+                              "type": "VariableDeclaration",
+                              "varType": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 20,
+                                    "line": 28
+                                  },
+                                  "sourcefile": "examples/function3.go",
+                                  "start": {
+                                    "column": 13,
+                                    "line": 28
+                                  }
+                                },
+                                "name": "Filters",
+                                "type": "Identifier"
+                              },
+                              "variableParam": false
+                            },
+                            {
+                              "_meta": {},
+                              "cloned": true,
+                              "left": {
+                                "_meta": {},
+                                "computed": false,
+                                "loc": null,
+                                "object": {
+                                  "_meta": {
+                                    "ReceiveCls": "",
+                                    "type": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 20,
+                                          "line": 28
+                                        },
+                                        "sourcefile": "examples/function3.go",
+                                        "start": {
+                                          "column": 13,
+                                          "line": 28
+                                        }
+                                      },
+                                      "name": "Filters",
+                                      "type": "Identifier"
+                                    }
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 3,
+                                      "line": 31
+                                    },
+                                    "sourcefile": "examples/function3.go",
+                                    "start": {
+                                      "column": 13,
+                                      "line": 28
+                                    }
+                                  },
+                                  "name": "tmp1",
+                                  "type": "Identifier"
+                                },
+                                "property": {
+                                  "_meta": {},
+                                  "loc": null,
+                                  "name": "0",
+                                  "type": "Identifier"
+                                },
+                                "type": "MemberAccess"
+                              },
+                              "loc": null,
+                              "operator": "=",
+                              "right": {
+                                "_meta": {},
+                                "expressions": [
+                                  {
+                                    "_meta": {},
+                                    "cloned": false,
+                                    "id": {
+                                      "_meta": {
+                                        "ReceiveCls": "",
+                                        "type": {
+                                          "_meta": {},
+                                          "loc": {
+                                            "end": {
+                                              "column": 9,
+                                              "line": 29
+                                            },
+                                            "sourcefile": "examples/function3.go",
+                                            "start": {
+                                              "column": 3,
+                                              "line": 29
+                                            }
+                                          },
+                                          "name": "Filter",
+                                          "type": "Identifier"
+                                        }
+                                      },
+                                      "loc": {
+                                        "end": {
+                                          "column": 57,
+                                          "line": 29
+                                        },
+                                        "sourcefile": "examples/function3.go",
+                                        "start": {
+                                          "column": 3,
+                                          "line": 29
+                                        }
+                                      },
+                                      "name": "tmp2",
+                                      "type": "Identifier"
+                                    },
+                                    "init": {
+                                      "_meta": {},
+                                      "arguments": [],
+                                      "callee": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 9,
+                                            "line": 29
+                                          },
+                                          "sourcefile": "examples/function3.go",
+                                          "start": {
+                                            "column": 3,
+                                            "line": 29
+                                          }
+                                        },
+                                        "name": "Filter",
+                                        "type": "Identifier"
+                                      },
+                                      "loc": null,
+                                      "type": "NewExpression"
+                                    },
+                                    "loc": null,
+                                    "type": "VariableDeclaration",
+                                    "varType": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 9,
+                                          "line": 29
+                                        },
+                                        "sourcefile": "examples/function3.go",
+                                        "start": {
+                                          "column": 3,
+                                          "line": 29
+                                        }
+                                      },
+                                      "name": "Filter",
+                                      "type": "Identifier"
+                                    },
+                                    "variableParam": false
+                                  },
+                                  {
+                                    "_meta": {},
+                                    "cloned": true,
+                                    "left": {
+                                      "_meta": {},
+                                      "computed": false,
+                                      "loc": null,
+                                      "object": {
+                                        "_meta": {
+                                          "ReceiveCls": "",
+                                          "type": {
+                                            "_meta": {},
+                                            "loc": {
+                                              "end": {
+                                                "column": 9,
+                                                "line": 29
+                                              },
+                                              "sourcefile": "examples/function3.go",
+                                              "start": {
+                                                "column": 3,
+                                                "line": 29
+                                              }
+                                            },
+                                            "name": "Filter",
+                                            "type": "Identifier"
+                                          }
+                                        },
+                                        "loc": {
+                                          "end": {
+                                            "column": 57,
+                                            "line": 29
+                                          },
+                                          "sourcefile": "examples/function3.go",
+                                          "start": {
+                                            "column": 3,
+                                            "line": 29
+                                          }
+                                        },
+                                        "name": "tmp2",
+                                        "type": "Identifier"
+                                      },
+                                      "property": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 13,
+                                            "line": 29
+                                          },
+                                          "sourcefile": "examples/function3.go",
+                                          "start": {
+                                            "column": 10,
+                                            "line": 29
+                                          }
+                                        },
+                                        "name": "Key",
+                                        "type": "Identifier"
+                                      },
+                                      "type": "MemberAccess"
+                                    },
+                                    "loc": null,
+                                    "operator": "=",
+                                    "right": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 26,
+                                          "line": 29
+                                        },
+                                        "sourcefile": "examples/function3.go",
+                                        "start": {
+                                          "column": 15,
+                                          "line": 29
+                                        }
+                                      },
+                                      "name": "__taint_src",
+                                      "type": "Identifier"
+                                    },
+                                    "type": "AssignmentExpression"
+                                  },
+                                  {
+                                    "_meta": {},
+                                    "cloned": true,
+                                    "left": {
+                                      "_meta": {},
+                                      "computed": false,
+                                      "loc": null,
+                                      "object": {
+                                        "_meta": {
+                                          "ReceiveCls": "",
+                                          "type": {
+                                            "_meta": {},
+                                            "loc": {
+                                              "end": {
+                                                "column": 9,
+                                                "line": 29
+                                              },
+                                              "sourcefile": "examples/function3.go",
+                                              "start": {
+                                                "column": 3,
+                                                "line": 29
+                                              }
+                                            },
+                                            "name": "Filter",
+                                            "type": "Identifier"
+                                          }
+                                        },
+                                        "loc": {
+                                          "end": {
+                                            "column": 57,
+                                            "line": 29
+                                          },
+                                          "sourcefile": "examples/function3.go",
+                                          "start": {
+                                            "column": 3,
+                                            "line": 29
+                                          }
+                                        },
+                                        "name": "tmp2",
+                                        "type": "Identifier"
+                                      },
+                                      "property": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 33,
+                                            "line": 29
+                                          },
+                                          "sourcefile": "examples/function3.go",
+                                          "start": {
+                                            "column": 28,
+                                            "line": 29
+                                          }
+                                        },
+                                        "name": "Value",
+                                        "type": "Identifier"
+                                      },
+                                      "type": "MemberAccess"
+                                    },
+                                    "loc": null,
+                                    "operator": "=",
+                                    "right": {
+                                      "_meta": {},
+                                      "literalType": "STRING",
+                                      "loc": {
+                                        "end": {
+                                          "column": 41,
+                                          "line": 29
+                                        },
+                                        "sourcefile": "examples/function3.go",
+                                        "start": {
+                                          "column": 35,
+                                          "line": 29
+                                        }
+                                      },
+                                      "type": "Literal",
+                                      "value": "\"John\""
+                                    },
+                                    "type": "AssignmentExpression"
+                                  },
+                                  {
+                                    "_meta": {},
+                                    "cloned": true,
+                                    "left": {
+                                      "_meta": {},
+                                      "computed": false,
+                                      "loc": null,
+                                      "object": {
+                                        "_meta": {
+                                          "ReceiveCls": "",
+                                          "type": {
+                                            "_meta": {},
+                                            "loc": {
+                                              "end": {
+                                                "column": 9,
+                                                "line": 29
+                                              },
+                                              "sourcefile": "examples/function3.go",
+                                              "start": {
+                                                "column": 3,
+                                                "line": 29
+                                              }
+                                            },
+                                            "name": "Filter",
+                                            "type": "Identifier"
+                                          }
+                                        },
+                                        "loc": {
+                                          "end": {
+                                            "column": 57,
+                                            "line": 29
+                                          },
+                                          "sourcefile": "examples/function3.go",
+                                          "start": {
+                                            "column": 3,
+                                            "line": 29
+                                          }
+                                        },
+                                        "name": "tmp2",
+                                        "type": "Identifier"
+                                      },
+                                      "property": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 51,
+                                            "line": 29
+                                          },
+                                          "sourcefile": "examples/function3.go",
+                                          "start": {
+                                            "column": 43,
+                                            "line": 29
+                                          }
+                                        },
+                                        "name": "Operator",
+                                        "type": "Identifier"
+                                      },
+                                      "type": "MemberAccess"
+                                    },
+                                    "loc": null,
+                                    "operator": "=",
+                                    "right": {
+                                      "_meta": {},
+                                      "literalType": "STRING",
+                                      "loc": {
+                                        "end": {
+                                          "column": 56,
+                                          "line": 29
+                                        },
+                                        "sourcefile": "examples/function3.go",
+                                        "start": {
+                                          "column": 53,
+                                          "line": 29
+                                        }
+                                      },
+                                      "type": "Literal",
+                                      "value": "\"=\""
+                                    },
+                                    "type": "AssignmentExpression"
+                                  },
+                                  {
+                                    "_meta": {
+                                      "ReceiveCls": "",
+                                      "type": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 9,
+                                            "line": 29
+                                          },
+                                          "sourcefile": "examples/function3.go",
+                                          "start": {
+                                            "column": 3,
+                                            "line": 29
+                                          }
+                                        },
+                                        "name": "Filter",
+                                        "type": "Identifier"
+                                      }
+                                    },
+                                    "loc": {
+                                      "end": {
+                                        "column": 57,
+                                        "line": 29
+                                      },
+                                      "sourcefile": "examples/function3.go",
+                                      "start": {
+                                        "column": 3,
+                                        "line": 29
+                                      }
+                                    },
+                                    "name": "tmp2",
+                                    "type": "Identifier"
+                                  }
+                                ],
+                                "loc": {
+                                  "end": {
+                                    "column": 57,
+                                    "line": 29
+                                  },
+                                  "sourcefile": "examples/function3.go",
+                                  "start": {
+                                    "column": 3,
+                                    "line": 29
+                                  }
+                                },
+                                "type": "Sequence"
+                              },
+                              "type": "AssignmentExpression"
+                            },
+                            {
+                              "_meta": {},
+                              "cloned": true,
+                              "left": {
+                                "_meta": {},
+                                "computed": false,
+                                "loc": null,
+                                "object": {
+                                  "_meta": {
+                                    "ReceiveCls": "",
+                                    "type": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 20,
+                                          "line": 28
+                                        },
+                                        "sourcefile": "examples/function3.go",
+                                        "start": {
+                                          "column": 13,
+                                          "line": 28
+                                        }
+                                      },
+                                      "name": "Filters",
+                                      "type": "Identifier"
+                                    }
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 3,
+                                      "line": 31
+                                    },
+                                    "sourcefile": "examples/function3.go",
+                                    "start": {
+                                      "column": 13,
+                                      "line": 28
+                                    }
+                                  },
+                                  "name": "tmp1",
+                                  "type": "Identifier"
+                                },
+                                "property": {
+                                  "_meta": {},
+                                  "loc": null,
+                                  "name": "1",
+                                  "type": "Identifier"
+                                },
+                                "type": "MemberAccess"
+                              },
+                              "loc": null,
+                              "operator": "=",
+                              "right": {
+                                "_meta": {},
+                                "expressions": [
+                                  {
+                                    "_meta": {},
+                                    "cloned": false,
+                                    "id": {
+                                      "_meta": {
+                                        "ReceiveCls": "",
+                                        "type": {
+                                          "_meta": {},
+                                          "loc": {
+                                            "end": {
+                                              "column": 9,
+                                              "line": 30
+                                            },
+                                            "sourcefile": "examples/function3.go",
+                                            "start": {
+                                              "column": 3,
+                                              "line": 30
+                                            }
+                                          },
+                                          "name": "Filter",
+                                          "type": "Identifier"
+                                        }
+                                      },
+                                      "loc": {
+                                        "end": {
+                                          "column": 49,
+                                          "line": 30
+                                        },
+                                        "sourcefile": "examples/function3.go",
+                                        "start": {
+                                          "column": 3,
+                                          "line": 30
+                                        }
+                                      },
+                                      "name": "tmp3",
+                                      "type": "Identifier"
+                                    },
+                                    "init": {
+                                      "_meta": {},
+                                      "arguments": [],
+                                      "callee": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 9,
+                                            "line": 30
+                                          },
+                                          "sourcefile": "examples/function3.go",
+                                          "start": {
+                                            "column": 3,
+                                            "line": 30
+                                          }
+                                        },
+                                        "name": "Filter",
+                                        "type": "Identifier"
+                                      },
+                                      "loc": null,
+                                      "type": "NewExpression"
+                                    },
+                                    "loc": null,
+                                    "type": "VariableDeclaration",
+                                    "varType": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 9,
+                                          "line": 30
+                                        },
+                                        "sourcefile": "examples/function3.go",
+                                        "start": {
+                                          "column": 3,
+                                          "line": 30
+                                        }
+                                      },
+                                      "name": "Filter",
+                                      "type": "Identifier"
+                                    },
+                                    "variableParam": false
+                                  },
+                                  {
+                                    "_meta": {},
+                                    "cloned": true,
+                                    "left": {
+                                      "_meta": {},
+                                      "computed": false,
+                                      "loc": null,
+                                      "object": {
+                                        "_meta": {
+                                          "ReceiveCls": "",
+                                          "type": {
+                                            "_meta": {},
+                                            "loc": {
+                                              "end": {
+                                                "column": 9,
+                                                "line": 30
+                                              },
+                                              "sourcefile": "examples/function3.go",
+                                              "start": {
+                                                "column": 3,
+                                                "line": 30
+                                              }
+                                            },
+                                            "name": "Filter",
+                                            "type": "Identifier"
+                                          }
+                                        },
+                                        "loc": {
+                                          "end": {
+                                            "column": 49,
+                                            "line": 30
+                                          },
+                                          "sourcefile": "examples/function3.go",
+                                          "start": {
+                                            "column": 3,
+                                            "line": 30
+                                          }
+                                        },
+                                        "name": "tmp3",
+                                        "type": "Identifier"
+                                      },
+                                      "property": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 13,
+                                            "line": 30
+                                          },
+                                          "sourcefile": "examples/function3.go",
+                                          "start": {
+                                            "column": 10,
+                                            "line": 30
+                                          }
+                                        },
+                                        "name": "Key",
+                                        "type": "Identifier"
+                                      },
+                                      "type": "MemberAccess"
+                                    },
+                                    "loc": null,
+                                    "operator": "=",
+                                    "right": {
+                                      "_meta": {},
+                                      "literalType": "STRING",
+                                      "loc": {
+                                        "end": {
+                                          "column": 20,
+                                          "line": 30
+                                        },
+                                        "sourcefile": "examples/function3.go",
+                                        "start": {
+                                          "column": 15,
+                                          "line": 30
+                                        }
+                                      },
+                                      "type": "Literal",
+                                      "value": "\"age\""
+                                    },
+                                    "type": "AssignmentExpression"
+                                  },
+                                  {
+                                    "_meta": {},
+                                    "cloned": true,
+                                    "left": {
+                                      "_meta": {},
+                                      "computed": false,
+                                      "loc": null,
+                                      "object": {
+                                        "_meta": {
+                                          "ReceiveCls": "",
+                                          "type": {
+                                            "_meta": {},
+                                            "loc": {
+                                              "end": {
+                                                "column": 9,
+                                                "line": 30
+                                              },
+                                              "sourcefile": "examples/function3.go",
+                                              "start": {
+                                                "column": 3,
+                                                "line": 30
+                                              }
+                                            },
+                                            "name": "Filter",
+                                            "type": "Identifier"
+                                          }
+                                        },
+                                        "loc": {
+                                          "end": {
+                                            "column": 49,
+                                            "line": 30
+                                          },
+                                          "sourcefile": "examples/function3.go",
+                                          "start": {
+                                            "column": 3,
+                                            "line": 30
+                                          }
+                                        },
+                                        "name": "tmp3",
+                                        "type": "Identifier"
+                                      },
+                                      "property": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 27,
+                                            "line": 30
+                                          },
+                                          "sourcefile": "examples/function3.go",
+                                          "start": {
+                                            "column": 22,
+                                            "line": 30
+                                          }
+                                        },
+                                        "name": "Value",
+                                        "type": "Identifier"
+                                      },
+                                      "type": "MemberAccess"
+                                    },
+                                    "loc": null,
+                                    "operator": "=",
+                                    "right": {
+                                      "_meta": {},
+                                      "literalType": "STRING",
+                                      "loc": {
+                                        "end": {
+                                          "column": 33,
+                                          "line": 30
+                                        },
+                                        "sourcefile": "examples/function3.go",
+                                        "start": {
+                                          "column": 29,
+                                          "line": 30
+                                        }
+                                      },
+                                      "type": "Literal",
+                                      "value": "\"30\""
+                                    },
+                                    "type": "AssignmentExpression"
+                                  },
+                                  {
+                                    "_meta": {},
+                                    "cloned": true,
+                                    "left": {
+                                      "_meta": {},
+                                      "computed": false,
+                                      "loc": null,
+                                      "object": {
+                                        "_meta": {
+                                          "ReceiveCls": "",
+                                          "type": {
+                                            "_meta": {},
+                                            "loc": {
+                                              "end": {
+                                                "column": 9,
+                                                "line": 30
+                                              },
+                                              "sourcefile": "examples/function3.go",
+                                              "start": {
+                                                "column": 3,
+                                                "line": 30
+                                              }
+                                            },
+                                            "name": "Filter",
+                                            "type": "Identifier"
+                                          }
+                                        },
+                                        "loc": {
+                                          "end": {
+                                            "column": 49,
+                                            "line": 30
+                                          },
+                                          "sourcefile": "examples/function3.go",
+                                          "start": {
+                                            "column": 3,
+                                            "line": 30
+                                          }
+                                        },
+                                        "name": "tmp3",
+                                        "type": "Identifier"
+                                      },
+                                      "property": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 43,
+                                            "line": 30
+                                          },
+                                          "sourcefile": "examples/function3.go",
+                                          "start": {
+                                            "column": 35,
+                                            "line": 30
+                                          }
+                                        },
+                                        "name": "Operator",
+                                        "type": "Identifier"
+                                      },
+                                      "type": "MemberAccess"
+                                    },
+                                    "loc": null,
+                                    "operator": "=",
+                                    "right": {
+                                      "_meta": {},
+                                      "literalType": "STRING",
+                                      "loc": {
+                                        "end": {
+                                          "column": 48,
+                                          "line": 30
+                                        },
+                                        "sourcefile": "examples/function3.go",
+                                        "start": {
+                                          "column": 45,
+                                          "line": 30
+                                        }
+                                      },
+                                      "type": "Literal",
+                                      "value": "\"\u003e\""
+                                    },
+                                    "type": "AssignmentExpression"
+                                  },
+                                  {
+                                    "_meta": {
+                                      "ReceiveCls": "",
+                                      "type": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 9,
+                                            "line": 30
+                                          },
+                                          "sourcefile": "examples/function3.go",
+                                          "start": {
+                                            "column": 3,
+                                            "line": 30
+                                          }
+                                        },
+                                        "name": "Filter",
+                                        "type": "Identifier"
+                                      }
+                                    },
+                                    "loc": {
+                                      "end": {
+                                        "column": 49,
+                                        "line": 30
+                                      },
+                                      "sourcefile": "examples/function3.go",
+                                      "start": {
+                                        "column": 3,
+                                        "line": 30
+                                      }
+                                    },
+                                    "name": "tmp3",
+                                    "type": "Identifier"
+                                  }
+                                ],
+                                "loc": {
+                                  "end": {
+                                    "column": 49,
+                                    "line": 30
+                                  },
+                                  "sourcefile": "examples/function3.go",
+                                  "start": {
+                                    "column": 3,
+                                    "line": 30
+                                  }
+                                },
+                                "type": "Sequence"
+                              },
+                              "type": "AssignmentExpression"
+                            },
+                            {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 20,
+                                      "line": 28
+                                    },
+                                    "sourcefile": "examples/function3.go",
+                                    "start": {
+                                      "column": 13,
+                                      "line": 28
+                                    }
+                                  },
+                                  "name": "Filters",
+                                  "type": "Identifier"
+                                }
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 3,
+                                  "line": 31
+                                },
+                                "sourcefile": "examples/function3.go",
+                                "start": {
+                                  "column": 13,
+                                  "line": 28
+                                }
+                              },
+                              "name": "tmp1",
+                              "type": "Identifier"
+                            }
+                          ],
+                          "loc": {
+                            "end": {
+                              "column": 3,
+                              "line": 31
+                            },
+                            "sourcefile": "examples/function3.go",
+                            "start": {
+                              "column": 13,
+                              "line": 28
+                            }
+                          },
+                          "type": "Sequence"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 3,
+                            "line": 31
+                          },
+                          "sourcefile": "examples/function3.go",
+                          "start": {
+                            "column": 2,
+                            "line": 28
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 20,
+                              "line": 28
+                            },
+                            "sourcefile": "examples/function3.go",
+                            "start": {
+                              "column": 13,
+                              "line": 28
+                            }
+                          },
+                          "name": "Filters",
+                          "type": "Identifier"
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "arguments": [
+                          {
+                            "_meta": {},
+                            "arguments": [],
+                            "callee": {
+                              "_meta": {},
+                              "computed": false,
+                              "loc": {
+                                "end": {
+                                  "column": 28,
+                                  "line": 32
+                                },
+                                "sourcefile": "examples/function3.go",
+                                "start": {
+                                  "column": 15,
+                                  "line": 32
+                                }
+                              },
+                              "object": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 22,
+                                    "line": 32
+                                  },
+                                  "sourcefile": "examples/function3.go",
+                                  "start": {
+                                    "column": 15,
+                                    "line": 32
+                                  }
+                                },
+                                "name": "filters",
+                                "type": "Identifier"
+                              },
+                              "property": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 28,
+                                    "line": 32
+                                  },
+                                  "sourcefile": "examples/function3.go",
+                                  "start": {
+                                    "column": 23,
+                                    "line": 32
+                                  }
+                                },
+                                "name": "Parse",
+                                "type": "Identifier"
+                              },
+                              "type": "MemberAccess"
+                            },
+                            "loc": {
+                              "end": {
+                                "column": 30,
+                                "line": 32
+                              },
+                              "sourcefile": "examples/function3.go",
+                              "start": {
+                                "column": 15,
+                                "line": 32
+                              }
+                            },
+                            "type": "CallExpression"
+                          }
+                        ],
+                        "callee": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 14,
+                              "line": 32
+                            },
+                            "sourcefile": "examples/function3.go",
+                            "start": {
+                              "column": 2,
+                              "line": 32
+                            }
+                          },
+                          "name": "__taint_sink",
+                          "type": "Identifier"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 31,
+                            "line": 32
+                          },
+                          "sourcefile": "examples/function3.go",
+                          "start": {
+                            "column": 2,
+                            "line": 32
+                          }
+                        },
+                        "type": "CallExpression"
+                      }
+                    ],
+                    "id": null,
+                    "loc": {
+                      "end": {
+                        "column": 2,
+                        "line": 33
+                      },
+                      "sourcefile": "examples/function3.go",
+                      "start": {
+                        "column": 13,
+                        "line": 27
+                      }
+                    },
+                    "type": "ScopedStatement"
+                  },
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 10,
+                        "line": 27
+                      },
+                      "sourcefile": "examples/function3.go",
+                      "start": {
+                        "column": 6,
+                        "line": 27
+                      }
+                    },
+                    "name": "main",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 33
+                    },
+                    "sourcefile": "examples/function3.go",
+                    "start": {
+                      "column": 1,
+                      "line": 27
+                    }
+                  },
+                  "modifiers": null,
+                  "parameters": [],
+                  "returnType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "VoidType",
+                    "typeArguments": null
+                  },
+                  "type": "FunctionDefinition"
+                }
+              ],
+              "language": "golang",
+              "languageVersion": "1.18",
+              "loc": {
+                "end": {
+                  "column": 2,
+                  "line": 33
+                },
+                "sourcefile": "examples/function3.go",
+                "start": {
+                  "column": 1,
+                  "line": 1
+                }
+              },
+              "type": "CompileUnit",
+              "uri": "",
+              "version": ""
+            },
+            "packageName": "__single__"
+          }
+        },
+        "subs": {}
+      }
+    }
+  }
+}

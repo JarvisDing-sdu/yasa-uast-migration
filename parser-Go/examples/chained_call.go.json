@@ -1,0 +1,1724 @@
+{
+  "moduleName": "__single_module__",
+  "packageInfo": {
+    "PathName": "",
+    "files": {},
+    "subs": {
+      "/": {
+        "PathName": "",
+        "files": {
+          "examples/chained_call.go": {
+            "node": {
+              "_meta": {},
+              "body": [
+                {
+                  "_meta": {},
+                  "loc": {
+                    "end": {
+                      "column": 17,
+                      "line": 1
+                    },
+                    "sourcefile": "examples/chained_call.go",
+                    "start": {
+                      "column": 9,
+                      "line": 1
+                    }
+                  },
+                  "packageName": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 17,
+                        "line": 1
+                      },
+                      "sourcefile": "examples/chained_call.go",
+                      "start": {
+                        "column": 9,
+                        "line": 1
+                      }
+                    },
+                    "name": "examples",
+                    "type": "Identifier"
+                  },
+                  "type": "PackageDeclaration"
+                },
+                {
+                  "_meta": {},
+                  "body": {
+                    "_meta": {},
+                    "body": [
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "id": null,
+                              "loc": null,
+                              "type": "DynamicType",
+                              "typeArguments": null
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 10,
+                              "line": 4
+                            },
+                            "sourcefile": "examples/chained_call.go",
+                            "start": {
+                              "column": 2,
+                              "line": 4
+                            }
+                          },
+                          "name": "instance",
+                          "type": "Identifier"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "argument": {
+                            "_meta": {},
+                            "expressions": [
+                              {
+                                "_meta": {},
+                                "cloned": false,
+                                "id": {
+                                  "_meta": {
+                                    "ReceiveCls": "",
+                                    "type": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 17,
+                                          "line": 4
+                                        },
+                                        "sourcefile": "examples/chained_call.go",
+                                        "start": {
+                                          "column": 15,
+                                          "line": 4
+                                        }
+                                      },
+                                      "name": "AA",
+                                      "type": "Identifier"
+                                    }
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 24,
+                                      "line": 4
+                                    },
+                                    "sourcefile": "examples/chained_call.go",
+                                    "start": {
+                                      "column": 15,
+                                      "line": 4
+                                    }
+                                  },
+                                  "name": "tmp1",
+                                  "type": "Identifier"
+                                },
+                                "init": {
+                                  "_meta": {},
+                                  "arguments": [],
+                                  "callee": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 17,
+                                        "line": 4
+                                      },
+                                      "sourcefile": "examples/chained_call.go",
+                                      "start": {
+                                        "column": 15,
+                                        "line": 4
+                                      }
+                                    },
+                                    "name": "AA",
+                                    "type": "Identifier"
+                                  },
+                                  "loc": null,
+                                  "type": "NewExpression"
+                                },
+                                "loc": null,
+                                "type": "VariableDeclaration",
+                                "varType": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 17,
+                                      "line": 4
+                                    },
+                                    "sourcefile": "examples/chained_call.go",
+                                    "start": {
+                                      "column": 15,
+                                      "line": 4
+                                    }
+                                  },
+                                  "name": "AA",
+                                  "type": "Identifier"
+                                },
+                                "variableParam": false
+                              },
+                              {
+                                "_meta": {},
+                                "cloned": true,
+                                "left": {
+                                  "_meta": {},
+                                  "computed": false,
+                                  "loc": null,
+                                  "object": {
+                                    "_meta": {
+                                      "ReceiveCls": "",
+                                      "type": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 17,
+                                            "line": 4
+                                          },
+                                          "sourcefile": "examples/chained_call.go",
+                                          "start": {
+                                            "column": 15,
+                                            "line": 4
+                                          }
+                                        },
+                                        "name": "AA",
+                                        "type": "Identifier"
+                                      }
+                                    },
+                                    "loc": {
+                                      "end": {
+                                        "column": 24,
+                                        "line": 4
+                                      },
+                                      "sourcefile": "examples/chained_call.go",
+                                      "start": {
+                                        "column": 15,
+                                        "line": 4
+                                      }
+                                    },
+                                    "name": "tmp1",
+                                    "type": "Identifier"
+                                  },
+                                  "property": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 6,
+                                        "line": 9
+                                      },
+                                      "sourcefile": "examples/chained_call.go",
+                                      "start": {
+                                        "column": 2,
+                                        "line": 9
+                                      }
+                                    },
+                                    "name": "name",
+                                    "type": "Identifier"
+                                  },
+                                  "type": "MemberAccess"
+                                },
+                                "loc": null,
+                                "operator": "=",
+                                "right": {
+                                  "_meta": {},
+                                  "literalType": "STRING",
+                                  "loc": {
+                                    "end": {
+                                      "column": 23,
+                                      "line": 4
+                                    },
+                                    "sourcefile": "examples/chained_call.go",
+                                    "start": {
+                                      "column": 18,
+                                      "line": 4
+                                    }
+                                  },
+                                  "type": "Literal",
+                                  "value": "\"Bob\""
+                                },
+                                "type": "AssignmentExpression"
+                              },
+                              {
+                                "_meta": {
+                                  "ReceiveCls": "",
+                                  "type": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 17,
+                                        "line": 4
+                                      },
+                                      "sourcefile": "examples/chained_call.go",
+                                      "start": {
+                                        "column": 15,
+                                        "line": 4
+                                      }
+                                    },
+                                    "name": "AA",
+                                    "type": "Identifier"
+                                  }
+                                },
+                                "loc": {
+                                  "end": {
+                                    "column": 24,
+                                    "line": 4
+                                  },
+                                  "sourcefile": "examples/chained_call.go",
+                                  "start": {
+                                    "column": 15,
+                                    "line": 4
+                                  }
+                                },
+                                "name": "tmp1",
+                                "type": "Identifier"
+                              }
+                            ],
+                            "loc": {
+                              "end": {
+                                "column": 24,
+                                "line": 4
+                              },
+                              "sourcefile": "examples/chained_call.go",
+                              "start": {
+                                "column": 15,
+                                "line": 4
+                              }
+                            },
+                            "type": "Sequence"
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 24,
+                              "line": 4
+                            },
+                            "sourcefile": "examples/chained_call.go",
+                            "start": {
+                              "column": 14,
+                              "line": 4
+                            }
+                          },
+                          "type": "ReferenceExpression"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 24,
+                            "line": 4
+                          },
+                          "sourcefile": "examples/chained_call.go",
+                          "start": {
+                            "column": 2,
+                            "line": 4
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "id": null,
+                          "loc": null,
+                          "type": "DynamicType",
+                          "typeArguments": null
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "arguments": [],
+                        "callee": {
+                          "_meta": {},
+                          "computed": false,
+                          "loc": {
+                            "end": {
+                              "column": 64,
+                              "line": 5
+                            },
+                            "sourcefile": "examples/chained_call.go",
+                            "start": {
+                              "column": 2,
+                              "line": 5
+                            }
+                          },
+                          "object": {
+                            "_meta": {},
+                            "arguments": [
+                              {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 55,
+                                    "line": 5
+                                  },
+                                  "sourcefile": "examples/chained_call.go",
+                                  "start": {
+                                    "column": 44,
+                                    "line": 5
+                                  }
+                                },
+                                "name": "__taint_src",
+                                "type": "Identifier"
+                              }
+                            ],
+                            "callee": {
+                              "_meta": {},
+                              "computed": false,
+                              "loc": {
+                                "end": {
+                                  "column": 43,
+                                  "line": 5
+                                },
+                                "sourcefile": "examples/chained_call.go",
+                                "start": {
+                                  "column": 2,
+                                  "line": 5
+                                }
+                              },
+                              "object": {
+                                "_meta": {},
+                                "arguments": [],
+                                "callee": {
+                                  "_meta": {},
+                                  "computed": false,
+                                  "loc": {
+                                    "end": {
+                                      "column": 33,
+                                      "line": 5
+                                    },
+                                    "sourcefile": "examples/chained_call.go",
+                                    "start": {
+                                      "column": 2,
+                                      "line": 5
+                                    }
+                                  },
+                                  "object": {
+                                    "_meta": {},
+                                    "arguments": [
+                                      {
+                                        "_meta": {},
+                                        "literalType": "STRING",
+                                        "loc": {
+                                          "end": {
+                                            "column": 22,
+                                            "line": 5
+                                          },
+                                          "sourcefile": "examples/chained_call.go",
+                                          "start": {
+                                            "column": 19,
+                                            "line": 5
+                                          }
+                                        },
+                                        "type": "Literal",
+                                        "value": "\"_\""
+                                      }
+                                    ],
+                                    "callee": {
+                                      "_meta": {},
+                                      "computed": false,
+                                      "loc": {
+                                        "end": {
+                                          "column": 18,
+                                          "line": 5
+                                        },
+                                        "sourcefile": "examples/chained_call.go",
+                                        "start": {
+                                          "column": 2,
+                                          "line": 5
+                                        }
+                                      },
+                                      "object": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 10,
+                                            "line": 5
+                                          },
+                                          "sourcefile": "examples/chained_call.go",
+                                          "start": {
+                                            "column": 2,
+                                            "line": 5
+                                          }
+                                        },
+                                        "name": "instance",
+                                        "type": "Identifier"
+                                      },
+                                      "property": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 18,
+                                            "line": 5
+                                          },
+                                          "sourcefile": "examples/chained_call.go",
+                                          "start": {
+                                            "column": 11,
+                                            "line": 5
+                                          }
+                                        },
+                                        "name": "setName",
+                                        "type": "Identifier"
+                                      },
+                                      "type": "MemberAccess"
+                                    },
+                                    "loc": {
+                                      "end": {
+                                        "column": 23,
+                                        "line": 5
+                                      },
+                                      "sourcefile": "examples/chained_call.go",
+                                      "start": {
+                                        "column": 2,
+                                        "line": 5
+                                      }
+                                    },
+                                    "type": "CallExpression"
+                                  },
+                                  "property": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 33,
+                                        "line": 5
+                                      },
+                                      "sourcefile": "examples/chained_call.go",
+                                      "start": {
+                                        "column": 24,
+                                        "line": 5
+                                      }
+                                    },
+                                    "name": "clearName",
+                                    "type": "Identifier"
+                                  },
+                                  "type": "MemberAccess"
+                                },
+                                "loc": {
+                                  "end": {
+                                    "column": 35,
+                                    "line": 5
+                                  },
+                                  "sourcefile": "examples/chained_call.go",
+                                  "start": {
+                                    "column": 2,
+                                    "line": 5
+                                  }
+                                },
+                                "type": "CallExpression"
+                              },
+                              "property": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 43,
+                                    "line": 5
+                                  },
+                                  "sourcefile": "examples/chained_call.go",
+                                  "start": {
+                                    "column": 36,
+                                    "line": 5
+                                  }
+                                },
+                                "name": "setName",
+                                "type": "Identifier"
+                              },
+                              "type": "MemberAccess"
+                            },
+                            "loc": {
+                              "end": {
+                                "column": 56,
+                                "line": 5
+                              },
+                              "sourcefile": "examples/chained_call.go",
+                              "start": {
+                                "column": 2,
+                                "line": 5
+                              }
+                            },
+                            "type": "CallExpression"
+                          },
+                          "property": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 64,
+                                "line": 5
+                              },
+                              "sourcefile": "examples/chained_call.go",
+                              "start": {
+                                "column": 57,
+                                "line": 5
+                              }
+                            },
+                            "name": "process",
+                            "type": "Identifier"
+                          },
+                          "type": "MemberAccess"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 66,
+                            "line": 5
+                          },
+                          "sourcefile": "examples/chained_call.go",
+                          "start": {
+                            "column": 2,
+                            "line": 5
+                          }
+                        },
+                        "type": "CallExpression"
+                      }
+                    ],
+                    "id": null,
+                    "loc": {
+                      "end": {
+                        "column": 2,
+                        "line": 6
+                      },
+                      "sourcefile": "examples/chained_call.go",
+                      "start": {
+                        "column": 45,
+                        "line": 3
+                      }
+                    },
+                    "type": "ScopedStatement"
+                  },
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 24,
+                        "line": 3
+                      },
+                      "sourcefile": "examples/chained_call.go",
+                      "start": {
+                        "column": 6,
+                        "line": 3
+                      }
+                    },
+                    "name": "chained_call_002_T",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 6
+                    },
+                    "sourcefile": "examples/chained_call.go",
+                    "start": {
+                      "column": 1,
+                      "line": 3
+                    }
+                  },
+                  "modifiers": null,
+                  "parameters": [
+                    {
+                      "_meta": {},
+                      "cloned": true,
+                      "id": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 43,
+                                "line": 3
+                              },
+                              "sourcefile": "examples/chained_call.go",
+                              "start": {
+                                "column": 37,
+                                "line": 3
+                              }
+                            },
+                            "name": "string",
+                            "type": "Identifier"
+                          }
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 36,
+                            "line": 3
+                          },
+                          "sourcefile": "examples/chained_call.go",
+                          "start": {
+                            "column": 25,
+                            "line": 3
+                          }
+                        },
+                        "name": "__taint_src",
+                        "type": "Identifier"
+                      },
+                      "init": null,
+                      "loc": {
+                        "end": {
+                          "column": 43,
+                          "line": 3
+                        },
+                        "sourcefile": "examples/chained_call.go",
+                        "start": {
+                          "column": 25,
+                          "line": 3
+                        }
+                      },
+                      "type": "VariableDeclaration",
+                      "varType": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 43,
+                            "line": 3
+                          },
+                          "sourcefile": "examples/chained_call.go",
+                          "start": {
+                            "column": 37,
+                            "line": 3
+                          }
+                        },
+                        "name": "string",
+                        "type": "Identifier"
+                      },
+                      "variableParam": false
+                    }
+                  ],
+                  "returnType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "VoidType",
+                    "typeArguments": null
+                  },
+                  "type": "FunctionDefinition"
+                },
+                {
+                  "_meta": {},
+                  "body": [
+                    {
+                      "_meta": {},
+                      "cloned": true,
+                      "id": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 13,
+                                "line": 9
+                              },
+                              "sourcefile": "examples/chained_call.go",
+                              "start": {
+                                "column": 7,
+                                "line": 9
+                              }
+                            },
+                            "name": "string",
+                            "type": "Identifier"
+                          }
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 6,
+                            "line": 9
+                          },
+                          "sourcefile": "examples/chained_call.go",
+                          "start": {
+                            "column": 2,
+                            "line": 9
+                          }
+                        },
+                        "name": "name",
+                        "type": "Identifier"
+                      },
+                      "init": null,
+                      "loc": {
+                        "end": {
+                          "column": 13,
+                          "line": 9
+                        },
+                        "sourcefile": "examples/chained_call.go",
+                        "start": {
+                          "column": 2,
+                          "line": 9
+                        }
+                      },
+                      "type": "VariableDeclaration",
+                      "varType": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 13,
+                            "line": 9
+                          },
+                          "sourcefile": "examples/chained_call.go",
+                          "start": {
+                            "column": 7,
+                            "line": 9
+                          }
+                        },
+                        "name": "string",
+                        "type": "Identifier"
+                      },
+                      "variableParam": false
+                    },
+                    {
+                      "_meta": {
+                        "ReceiveCls": "AA"
+                      },
+                      "body": {
+                        "_meta": {},
+                        "body": [
+                          {
+                            "_meta": {},
+                            "cloned": true,
+                            "id": {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "element": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 12,
+                                        "line": 12
+                                      },
+                                      "sourcefile": "examples/chained_call.go",
+                                      "start": {
+                                        "column": 10,
+                                        "line": 12
+                                      }
+                                    },
+                                    "name": "AA",
+                                    "type": "Identifier"
+                                  },
+                                  "id": null,
+                                  "kind": "pointer",
+                                  "loc": {
+                                    "end": {
+                                      "column": 12,
+                                      "line": 12
+                                    },
+                                    "sourcefile": "examples/chained_call.go",
+                                    "start": {
+                                      "column": 9,
+                                      "line": 12
+                                    }
+                                  },
+                                  "type": "PointerType",
+                                  "typeArguments": null
+                                }
+                              },
+                              "loc": null,
+                              "name": "a",
+                              "type": "Identifier"
+                            },
+                            "init": {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "element": null,
+                                  "id": null,
+                                  "kind": "",
+                                  "loc": null,
+                                  "type": "PointerType",
+                                  "typeArguments": null
+                                }
+                              },
+                              "loc": null,
+                              "type": "ThisExpression"
+                            },
+                            "loc": null,
+                            "type": "VariableDeclaration",
+                            "varType": {
+                              "_meta": {},
+                              "element": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 12,
+                                    "line": 12
+                                  },
+                                  "sourcefile": "examples/chained_call.go",
+                                  "start": {
+                                    "column": 10,
+                                    "line": 12
+                                  }
+                                },
+                                "name": "AA",
+                                "type": "Identifier"
+                              },
+                              "id": null,
+                              "kind": "pointer",
+                              "loc": {
+                                "end": {
+                                  "column": 12,
+                                  "line": 12
+                                },
+                                "sourcefile": "examples/chained_call.go",
+                                "start": {
+                                  "column": 9,
+                                  "line": 12
+                                }
+                              },
+                              "type": "PointerType",
+                              "typeArguments": null
+                            },
+                            "variableParam": false
+                          },
+                          {
+                            "_meta": {},
+                            "cloned": true,
+                            "left": {
+                              "_meta": {},
+                              "computed": false,
+                              "loc": {
+                                "end": {
+                                  "column": 8,
+                                  "line": 13
+                                },
+                                "sourcefile": "examples/chained_call.go",
+                                "start": {
+                                  "column": 2,
+                                  "line": 13
+                                }
+                              },
+                              "object": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 3,
+                                    "line": 13
+                                  },
+                                  "sourcefile": "examples/chained_call.go",
+                                  "start": {
+                                    "column": 2,
+                                    "line": 13
+                                  }
+                                },
+                                "name": "a",
+                                "type": "Identifier"
+                              },
+                              "property": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 8,
+                                    "line": 13
+                                  },
+                                  "sourcefile": "examples/chained_call.go",
+                                  "start": {
+                                    "column": 4,
+                                    "line": 13
+                                  }
+                                },
+                                "name": "name",
+                                "type": "Identifier"
+                              },
+                              "type": "MemberAccess"
+                            },
+                            "loc": {
+                              "end": {
+                                "column": 15,
+                                "line": 13
+                              },
+                              "sourcefile": "examples/chained_call.go",
+                              "start": {
+                                "column": 2,
+                                "line": 13
+                              }
+                            },
+                            "operator": "=",
+                            "right": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 15,
+                                  "line": 13
+                                },
+                                "sourcefile": "examples/chained_call.go",
+                                "start": {
+                                  "column": 11,
+                                  "line": 13
+                                }
+                              },
+                              "name": "name",
+                              "type": "Identifier"
+                            },
+                            "type": "AssignmentExpression"
+                          },
+                          {
+                            "_meta": {},
+                            "argument": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 10,
+                                  "line": 14
+                                },
+                                "sourcefile": "examples/chained_call.go",
+                                "start": {
+                                  "column": 9,
+                                  "line": 14
+                                }
+                              },
+                              "name": "a",
+                              "type": "Identifier"
+                            },
+                            "isYield": false,
+                            "loc": {
+                              "end": {
+                                "column": 10,
+                                "line": 14
+                              },
+                              "sourcefile": "examples/chained_call.go",
+                              "start": {
+                                "column": 2,
+                                "line": 14
+                              }
+                            },
+                            "type": "ReturnStatement"
+                          }
+                        ],
+                        "id": null,
+                        "loc": {
+                          "end": {
+                            "column": 2,
+                            "line": 15
+                          },
+                          "sourcefile": "examples/chained_call.go",
+                          "start": {
+                            "column": 39,
+                            "line": 12
+                          }
+                        },
+                        "type": "ScopedStatement"
+                      },
+                      "id": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 21,
+                            "line": 12
+                          },
+                          "sourcefile": "examples/chained_call.go",
+                          "start": {
+                            "column": 14,
+                            "line": 12
+                          }
+                        },
+                        "name": "setName",
+                        "type": "Identifier"
+                      },
+                      "loc": {
+                        "end": {
+                          "column": 2,
+                          "line": 15
+                        },
+                        "sourcefile": "examples/chained_call.go",
+                        "start": {
+                          "column": 1,
+                          "line": 12
+                        }
+                      },
+                      "modifiers": null,
+                      "parameters": [
+                        {
+                          "_meta": {},
+                          "cloned": true,
+                          "id": {
+                            "_meta": {
+                              "ReceiveCls": "",
+                              "type": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 33,
+                                    "line": 12
+                                  },
+                                  "sourcefile": "examples/chained_call.go",
+                                  "start": {
+                                    "column": 27,
+                                    "line": 12
+                                  }
+                                },
+                                "name": "string",
+                                "type": "Identifier"
+                              }
+                            },
+                            "loc": {
+                              "end": {
+                                "column": 26,
+                                "line": 12
+                              },
+                              "sourcefile": "examples/chained_call.go",
+                              "start": {
+                                "column": 22,
+                                "line": 12
+                              }
+                            },
+                            "name": "name",
+                            "type": "Identifier"
+                          },
+                          "init": null,
+                          "loc": {
+                            "end": {
+                              "column": 33,
+                              "line": 12
+                            },
+                            "sourcefile": "examples/chained_call.go",
+                            "start": {
+                              "column": 22,
+                              "line": 12
+                            }
+                          },
+                          "type": "VariableDeclaration",
+                          "varType": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 33,
+                                "line": 12
+                              },
+                              "sourcefile": "examples/chained_call.go",
+                              "start": {
+                                "column": 27,
+                                "line": 12
+                              }
+                            },
+                            "name": "string",
+                            "type": "Identifier"
+                          },
+                          "variableParam": false
+                        }
+                      ],
+                      "returnType": {
+                        "_meta": {},
+                        "element": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 38,
+                              "line": 12
+                            },
+                            "sourcefile": "examples/chained_call.go",
+                            "start": {
+                              "column": 36,
+                              "line": 12
+                            }
+                          },
+                          "name": "AA",
+                          "type": "Identifier"
+                        },
+                        "id": null,
+                        "kind": "pointer",
+                        "loc": {
+                          "end": {
+                            "column": 38,
+                            "line": 12
+                          },
+                          "sourcefile": "examples/chained_call.go",
+                          "start": {
+                            "column": 35,
+                            "line": 12
+                          }
+                        },
+                        "type": "PointerType",
+                        "typeArguments": null
+                      },
+                      "type": "FunctionDefinition"
+                    },
+                    {
+                      "_meta": {
+                        "ReceiveCls": "AA"
+                      },
+                      "body": {
+                        "_meta": {},
+                        "body": [
+                          {
+                            "_meta": {},
+                            "cloned": true,
+                            "id": {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "element": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 12,
+                                        "line": 17
+                                      },
+                                      "sourcefile": "examples/chained_call.go",
+                                      "start": {
+                                        "column": 10,
+                                        "line": 17
+                                      }
+                                    },
+                                    "name": "AA",
+                                    "type": "Identifier"
+                                  },
+                                  "id": null,
+                                  "kind": "pointer",
+                                  "loc": {
+                                    "end": {
+                                      "column": 12,
+                                      "line": 17
+                                    },
+                                    "sourcefile": "examples/chained_call.go",
+                                    "start": {
+                                      "column": 9,
+                                      "line": 17
+                                    }
+                                  },
+                                  "type": "PointerType",
+                                  "typeArguments": null
+                                }
+                              },
+                              "loc": null,
+                              "name": "a",
+                              "type": "Identifier"
+                            },
+                            "init": {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "element": null,
+                                  "id": null,
+                                  "kind": "",
+                                  "loc": null,
+                                  "type": "PointerType",
+                                  "typeArguments": null
+                                }
+                              },
+                              "loc": null,
+                              "type": "ThisExpression"
+                            },
+                            "loc": null,
+                            "type": "VariableDeclaration",
+                            "varType": {
+                              "_meta": {},
+                              "element": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 12,
+                                    "line": 17
+                                  },
+                                  "sourcefile": "examples/chained_call.go",
+                                  "start": {
+                                    "column": 10,
+                                    "line": 17
+                                  }
+                                },
+                                "name": "AA",
+                                "type": "Identifier"
+                              },
+                              "id": null,
+                              "kind": "pointer",
+                              "loc": {
+                                "end": {
+                                  "column": 12,
+                                  "line": 17
+                                },
+                                "sourcefile": "examples/chained_call.go",
+                                "start": {
+                                  "column": 9,
+                                  "line": 17
+                                }
+                              },
+                              "type": "PointerType",
+                              "typeArguments": null
+                            },
+                            "variableParam": false
+                          },
+                          {
+                            "_meta": {},
+                            "cloned": true,
+                            "left": {
+                              "_meta": {},
+                              "computed": false,
+                              "loc": {
+                                "end": {
+                                  "column": 8,
+                                  "line": 18
+                                },
+                                "sourcefile": "examples/chained_call.go",
+                                "start": {
+                                  "column": 2,
+                                  "line": 18
+                                }
+                              },
+                              "object": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 3,
+                                    "line": 18
+                                  },
+                                  "sourcefile": "examples/chained_call.go",
+                                  "start": {
+                                    "column": 2,
+                                    "line": 18
+                                  }
+                                },
+                                "name": "a",
+                                "type": "Identifier"
+                              },
+                              "property": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 8,
+                                    "line": 18
+                                  },
+                                  "sourcefile": "examples/chained_call.go",
+                                  "start": {
+                                    "column": 4,
+                                    "line": 18
+                                  }
+                                },
+                                "name": "name",
+                                "type": "Identifier"
+                              },
+                              "type": "MemberAccess"
+                            },
+                            "loc": {
+                              "end": {
+                                "column": 13,
+                                "line": 18
+                              },
+                              "sourcefile": "examples/chained_call.go",
+                              "start": {
+                                "column": 2,
+                                "line": 18
+                              }
+                            },
+                            "operator": "=",
+                            "right": {
+                              "_meta": {},
+                              "literalType": "STRING",
+                              "loc": {
+                                "end": {
+                                  "column": 13,
+                                  "line": 18
+                                },
+                                "sourcefile": "examples/chained_call.go",
+                                "start": {
+                                  "column": 11,
+                                  "line": 18
+                                }
+                              },
+                              "type": "Literal",
+                              "value": "\"\""
+                            },
+                            "type": "AssignmentExpression"
+                          },
+                          {
+                            "_meta": {},
+                            "argument": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 10,
+                                  "line": 19
+                                },
+                                "sourcefile": "examples/chained_call.go",
+                                "start": {
+                                  "column": 9,
+                                  "line": 19
+                                }
+                              },
+                              "name": "a",
+                              "type": "Identifier"
+                            },
+                            "isYield": false,
+                            "loc": {
+                              "end": {
+                                "column": 10,
+                                "line": 19
+                              },
+                              "sourcefile": "examples/chained_call.go",
+                              "start": {
+                                "column": 2,
+                                "line": 19
+                              }
+                            },
+                            "type": "ReturnStatement"
+                          }
+                        ],
+                        "id": null,
+                        "loc": {
+                          "end": {
+                            "column": 2,
+                            "line": 20
+                          },
+                          "sourcefile": "examples/chained_call.go",
+                          "start": {
+                            "column": 30,
+                            "line": 17
+                          }
+                        },
+                        "type": "ScopedStatement"
+                      },
+                      "id": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 23,
+                            "line": 17
+                          },
+                          "sourcefile": "examples/chained_call.go",
+                          "start": {
+                            "column": 14,
+                            "line": 17
+                          }
+                        },
+                        "name": "clearName",
+                        "type": "Identifier"
+                      },
+                      "loc": {
+                        "end": {
+                          "column": 2,
+                          "line": 20
+                        },
+                        "sourcefile": "examples/chained_call.go",
+                        "start": {
+                          "column": 1,
+                          "line": 17
+                        }
+                      },
+                      "modifiers": null,
+                      "parameters": [],
+                      "returnType": {
+                        "_meta": {},
+                        "element": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 29,
+                              "line": 17
+                            },
+                            "sourcefile": "examples/chained_call.go",
+                            "start": {
+                              "column": 27,
+                              "line": 17
+                            }
+                          },
+                          "name": "AA",
+                          "type": "Identifier"
+                        },
+                        "id": null,
+                        "kind": "pointer",
+                        "loc": {
+                          "end": {
+                            "column": 29,
+                            "line": 17
+                          },
+                          "sourcefile": "examples/chained_call.go",
+                          "start": {
+                            "column": 26,
+                            "line": 17
+                          }
+                        },
+                        "type": "PointerType",
+                        "typeArguments": null
+                      },
+                      "type": "FunctionDefinition"
+                    },
+                    {
+                      "_meta": {
+                        "ReceiveCls": "AA"
+                      },
+                      "body": {
+                        "_meta": {},
+                        "body": [
+                          {
+                            "_meta": {},
+                            "cloned": true,
+                            "id": {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "element": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 12,
+                                        "line": 22
+                                      },
+                                      "sourcefile": "examples/chained_call.go",
+                                      "start": {
+                                        "column": 10,
+                                        "line": 22
+                                      }
+                                    },
+                                    "name": "AA",
+                                    "type": "Identifier"
+                                  },
+                                  "id": null,
+                                  "kind": "pointer",
+                                  "loc": {
+                                    "end": {
+                                      "column": 12,
+                                      "line": 22
+                                    },
+                                    "sourcefile": "examples/chained_call.go",
+                                    "start": {
+                                      "column": 9,
+                                      "line": 22
+                                    }
+                                  },
+                                  "type": "PointerType",
+                                  "typeArguments": null
+                                }
+                              },
+                              "loc": null,
+                              "name": "a",
+                              "type": "Identifier"
+                            },
+                            "init": {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "element": null,
+                                  "id": null,
+                                  "kind": "",
+                                  "loc": null,
+                                  "type": "PointerType",
+                                  "typeArguments": null
+                                }
+                              },
+                              "loc": null,
+                              "type": "ThisExpression"
+                            },
+                            "loc": null,
+                            "type": "VariableDeclaration",
+                            "varType": {
+                              "_meta": {},
+                              "element": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 12,
+                                    "line": 22
+                                  },
+                                  "sourcefile": "examples/chained_call.go",
+                                  "start": {
+                                    "column": 10,
+                                    "line": 22
+                                  }
+                                },
+                                "name": "AA",
+                                "type": "Identifier"
+                              },
+                              "id": null,
+                              "kind": "pointer",
+                              "loc": {
+                                "end": {
+                                  "column": 12,
+                                  "line": 22
+                                },
+                                "sourcefile": "examples/chained_call.go",
+                                "start": {
+                                  "column": 9,
+                                  "line": 22
+                                }
+                              },
+                              "type": "PointerType",
+                              "typeArguments": null
+                            },
+                            "variableParam": false
+                          },
+                          {
+                            "_meta": {},
+                            "arguments": [
+                              {
+                                "_meta": {},
+                                "computed": false,
+                                "loc": {
+                                  "end": {
+                                    "column": 21,
+                                    "line": 23
+                                  },
+                                  "sourcefile": "examples/chained_call.go",
+                                  "start": {
+                                    "column": 15,
+                                    "line": 23
+                                  }
+                                },
+                                "object": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 16,
+                                      "line": 23
+                                    },
+                                    "sourcefile": "examples/chained_call.go",
+                                    "start": {
+                                      "column": 15,
+                                      "line": 23
+                                    }
+                                  },
+                                  "name": "a",
+                                  "type": "Identifier"
+                                },
+                                "property": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 21,
+                                      "line": 23
+                                    },
+                                    "sourcefile": "examples/chained_call.go",
+                                    "start": {
+                                      "column": 17,
+                                      "line": 23
+                                    }
+                                  },
+                                  "name": "name",
+                                  "type": "Identifier"
+                                },
+                                "type": "MemberAccess"
+                              }
+                            ],
+                            "callee": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 14,
+                                  "line": 23
+                                },
+                                "sourcefile": "examples/chained_call.go",
+                                "start": {
+                                  "column": 2,
+                                  "line": 23
+                                }
+                              },
+                              "name": "__taint_sink",
+                              "type": "Identifier"
+                            },
+                            "loc": {
+                              "end": {
+                                "column": 22,
+                                "line": 23
+                              },
+                              "sourcefile": "examples/chained_call.go",
+                              "start": {
+                                "column": 2,
+                                "line": 23
+                              }
+                            },
+                            "type": "CallExpression"
+                          }
+                        ],
+                        "id": null,
+                        "loc": {
+                          "end": {
+                            "column": 2,
+                            "line": 24
+                          },
+                          "sourcefile": "examples/chained_call.go",
+                          "start": {
+                            "column": 24,
+                            "line": 22
+                          }
+                        },
+                        "type": "ScopedStatement"
+                      },
+                      "id": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 21,
+                            "line": 22
+                          },
+                          "sourcefile": "examples/chained_call.go",
+                          "start": {
+                            "column": 14,
+                            "line": 22
+                          }
+                        },
+                        "name": "process",
+                        "type": "Identifier"
+                      },
+                      "loc": {
+                        "end": {
+                          "column": 2,
+                          "line": 24
+                        },
+                        "sourcefile": "examples/chained_call.go",
+                        "start": {
+                          "column": 1,
+                          "line": 22
+                        }
+                      },
+                      "modifiers": null,
+                      "parameters": [],
+                      "returnType": {
+                        "_meta": {},
+                        "id": null,
+                        "loc": null,
+                        "type": "VoidType",
+                        "typeArguments": null
+                      },
+                      "type": "FunctionDefinition"
+                    }
+                  ],
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 8,
+                        "line": 8
+                      },
+                      "sourcefile": "examples/chained_call.go",
+                      "start": {
+                        "column": 6,
+                        "line": 8
+                      }
+                    },
+                    "name": "AA",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 10
+                    },
+                    "sourcefile": "examples/chained_call.go",
+                    "start": {
+                      "column": 6,
+                      "line": 8
+                    }
+                  },
+                  "supers": [],
+                  "type": "ClassDefinition"
+                }
+              ],
+              "language": "golang",
+              "languageVersion": "1.18",
+              "loc": {
+                "end": {
+                  "column": 2,
+                  "line": 24
+                },
+                "sourcefile": "examples/chained_call.go",
+                "start": {
+                  "column": 1,
+                  "line": 1
+                }
+              },
+              "type": "CompileUnit",
+              "uri": "",
+              "version": ""
+            },
+            "packageName": "__single__"
+          }
+        },
+        "subs": {}
+      }
+    }
+  }
+}

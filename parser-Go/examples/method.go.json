@@ -1,0 +1,1360 @@
+{
+  "moduleName": "__single_module__",
+  "packageInfo": {
+    "PathName": "",
+    "files": {},
+    "subs": {
+      "/": {
+        "PathName": "",
+        "files": {
+          "examples/method.go": {
+            "node": {
+              "_meta": {},
+              "body": [
+                {
+                  "_meta": {},
+                  "loc": {
+                    "end": {
+                      "column": 17,
+                      "line": 1
+                    },
+                    "sourcefile": "examples/method.go",
+                    "start": {
+                      "column": 9,
+                      "line": 1
+                    }
+                  },
+                  "packageName": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 17,
+                        "line": 1
+                      },
+                      "sourcefile": "examples/method.go",
+                      "start": {
+                        "column": 9,
+                        "line": 1
+                      }
+                    },
+                    "name": "examples",
+                    "type": "Identifier"
+                  },
+                  "type": "PackageDeclaration"
+                },
+                {
+                  "_meta": {
+                    "ReceiveCls": "",
+                    "isDefaultImport": true
+                  },
+                  "cloned": false,
+                  "id": {
+                    "_meta": {},
+                    "loc": null,
+                    "name": "fmt",
+                    "type": "Identifier"
+                  },
+                  "init": {
+                    "_meta": {},
+                    "from": {
+                      "_meta": {},
+                      "literalType": "string",
+                      "loc": {
+                        "end": {
+                          "column": 7,
+                          "line": 4
+                        },
+                        "sourcefile": "examples/method.go",
+                        "start": {
+                          "column": 2,
+                          "line": 4
+                        }
+                      },
+                      "type": "Literal",
+                      "value": "fmt"
+                    },
+                    "imported": null,
+                    "loc": {
+                      "end": {
+                        "column": 7,
+                        "line": 4
+                      },
+                      "sourcefile": "examples/method.go",
+                      "start": {
+                        "column": 2,
+                        "line": 4
+                      }
+                    },
+                    "local": null,
+                    "type": "ImportExpression"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 7,
+                      "line": 4
+                    },
+                    "sourcefile": "examples/method.go",
+                    "start": {
+                      "column": 2,
+                      "line": 4
+                    }
+                  },
+                  "type": "VariableDeclaration",
+                  "varType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "DynamicType",
+                    "typeArguments": null
+                  },
+                  "variableParam": false
+                },
+                {
+                  "_meta": {
+                    "ReceiveCls": "",
+                    "isDefaultImport": true
+                  },
+                  "cloned": false,
+                  "id": {
+                    "_meta": {},
+                    "loc": null,
+                    "name": "math",
+                    "type": "Identifier"
+                  },
+                  "init": {
+                    "_meta": {},
+                    "from": {
+                      "_meta": {},
+                      "literalType": "string",
+                      "loc": {
+                        "end": {
+                          "column": 8,
+                          "line": 5
+                        },
+                        "sourcefile": "examples/method.go",
+                        "start": {
+                          "column": 2,
+                          "line": 5
+                        }
+                      },
+                      "type": "Literal",
+                      "value": "math"
+                    },
+                    "imported": null,
+                    "loc": {
+                      "end": {
+                        "column": 8,
+                        "line": 5
+                      },
+                      "sourcefile": "examples/method.go",
+                      "start": {
+                        "column": 2,
+                        "line": 5
+                      }
+                    },
+                    "local": null,
+                    "type": "ImportExpression"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 8,
+                      "line": 5
+                    },
+                    "sourcefile": "examples/method.go",
+                    "start": {
+                      "column": 2,
+                      "line": 5
+                    }
+                  },
+                  "type": "VariableDeclaration",
+                  "varType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "DynamicType",
+                    "typeArguments": null
+                  },
+                  "variableParam": false
+                },
+                {
+                  "_meta": {},
+                  "body": [
+                    {
+                      "_meta": {},
+                      "cloned": true,
+                      "id": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 14,
+                                "line": 9
+                              },
+                              "sourcefile": "examples/method.go",
+                              "start": {
+                                "column": 7,
+                                "line": 9
+                              }
+                            },
+                            "name": "float64",
+                            "type": "Identifier"
+                          }
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 3,
+                            "line": 9
+                          },
+                          "sourcefile": "examples/method.go",
+                          "start": {
+                            "column": 2,
+                            "line": 9
+                          }
+                        },
+                        "name": "X",
+                        "type": "Identifier"
+                      },
+                      "init": null,
+                      "loc": {
+                        "end": {
+                          "column": 14,
+                          "line": 9
+                        },
+                        "sourcefile": "examples/method.go",
+                        "start": {
+                          "column": 2,
+                          "line": 9
+                        }
+                      },
+                      "type": "VariableDeclaration",
+                      "varType": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 14,
+                            "line": 9
+                          },
+                          "sourcefile": "examples/method.go",
+                          "start": {
+                            "column": 7,
+                            "line": 9
+                          }
+                        },
+                        "name": "float64",
+                        "type": "Identifier"
+                      },
+                      "variableParam": false
+                    },
+                    {
+                      "_meta": {},
+                      "cloned": true,
+                      "id": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 14,
+                                "line": 9
+                              },
+                              "sourcefile": "examples/method.go",
+                              "start": {
+                                "column": 7,
+                                "line": 9
+                              }
+                            },
+                            "name": "float64",
+                            "type": "Identifier"
+                          }
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 6,
+                            "line": 9
+                          },
+                          "sourcefile": "examples/method.go",
+                          "start": {
+                            "column": 5,
+                            "line": 9
+                          }
+                        },
+                        "name": "Y",
+                        "type": "Identifier"
+                      },
+                      "init": null,
+                      "loc": {
+                        "end": {
+                          "column": 14,
+                          "line": 9
+                        },
+                        "sourcefile": "examples/method.go",
+                        "start": {
+                          "column": 2,
+                          "line": 9
+                        }
+                      },
+                      "type": "VariableDeclaration",
+                      "varType": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 14,
+                            "line": 9
+                          },
+                          "sourcefile": "examples/method.go",
+                          "start": {
+                            "column": 7,
+                            "line": 9
+                          }
+                        },
+                        "name": "float64",
+                        "type": "Identifier"
+                      },
+                      "variableParam": false
+                    },
+                    {
+                      "_meta": {
+                        "ReceiveCls": "Vertex"
+                      },
+                      "body": {
+                        "_meta": {},
+                        "body": [
+                          {
+                            "_meta": {},
+                            "cloned": true,
+                            "id": {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 15,
+                                      "line": 12
+                                    },
+                                    "sourcefile": "examples/method.go",
+                                    "start": {
+                                      "column": 9,
+                                      "line": 12
+                                    }
+                                  },
+                                  "name": "Vertex",
+                                  "type": "Identifier"
+                                }
+                              },
+                              "loc": null,
+                              "name": "v",
+                              "type": "Identifier"
+                            },
+                            "init": {
+                              "_meta": {},
+                              "loc": null,
+                              "type": "ThisExpression"
+                            },
+                            "loc": null,
+                            "type": "VariableDeclaration",
+                            "varType": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 15,
+                                  "line": 12
+                                },
+                                "sourcefile": "examples/method.go",
+                                "start": {
+                                  "column": 9,
+                                  "line": 12
+                                }
+                              },
+                              "name": "Vertex",
+                              "type": "Identifier"
+                            },
+                            "variableParam": false
+                          },
+                          {
+                            "_meta": {},
+                            "argument": {
+                              "_meta": {},
+                              "arguments": [
+                                {
+                                  "_meta": {},
+                                  "left": {
+                                    "_meta": {},
+                                    "left": {
+                                      "_meta": {},
+                                      "computed": false,
+                                      "loc": {
+                                        "end": {
+                                          "column": 22,
+                                          "line": 13
+                                        },
+                                        "sourcefile": "examples/method.go",
+                                        "start": {
+                                          "column": 19,
+                                          "line": 13
+                                        }
+                                      },
+                                      "object": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 20,
+                                            "line": 13
+                                          },
+                                          "sourcefile": "examples/method.go",
+                                          "start": {
+                                            "column": 19,
+                                            "line": 13
+                                          }
+                                        },
+                                        "name": "v",
+                                        "type": "Identifier"
+                                      },
+                                      "property": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 22,
+                                            "line": 13
+                                          },
+                                          "sourcefile": "examples/method.go",
+                                          "start": {
+                                            "column": 21,
+                                            "line": 13
+                                          }
+                                        },
+                                        "name": "X",
+                                        "type": "Identifier"
+                                      },
+                                      "type": "MemberAccess"
+                                    },
+                                    "loc": {
+                                      "end": {
+                                        "column": 26,
+                                        "line": 13
+                                      },
+                                      "sourcefile": "examples/method.go",
+                                      "start": {
+                                        "column": 19,
+                                        "line": 13
+                                      }
+                                    },
+                                    "operator": "*",
+                                    "right": {
+                                      "_meta": {},
+                                      "computed": false,
+                                      "loc": {
+                                        "end": {
+                                          "column": 26,
+                                          "line": 13
+                                        },
+                                        "sourcefile": "examples/method.go",
+                                        "start": {
+                                          "column": 23,
+                                          "line": 13
+                                        }
+                                      },
+                                      "object": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 24,
+                                            "line": 13
+                                          },
+                                          "sourcefile": "examples/method.go",
+                                          "start": {
+                                            "column": 23,
+                                            "line": 13
+                                          }
+                                        },
+                                        "name": "v",
+                                        "type": "Identifier"
+                                      },
+                                      "property": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 26,
+                                            "line": 13
+                                          },
+                                          "sourcefile": "examples/method.go",
+                                          "start": {
+                                            "column": 25,
+                                            "line": 13
+                                          }
+                                        },
+                                        "name": "X",
+                                        "type": "Identifier"
+                                      },
+                                      "type": "MemberAccess"
+                                    },
+                                    "type": "BinaryExpression"
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 36,
+                                      "line": 13
+                                    },
+                                    "sourcefile": "examples/method.go",
+                                    "start": {
+                                      "column": 19,
+                                      "line": 13
+                                    }
+                                  },
+                                  "operator": "+",
+                                  "right": {
+                                    "_meta": {},
+                                    "left": {
+                                      "_meta": {},
+                                      "computed": false,
+                                      "loc": {
+                                        "end": {
+                                          "column": 32,
+                                          "line": 13
+                                        },
+                                        "sourcefile": "examples/method.go",
+                                        "start": {
+                                          "column": 29,
+                                          "line": 13
+                                        }
+                                      },
+                                      "object": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 30,
+                                            "line": 13
+                                          },
+                                          "sourcefile": "examples/method.go",
+                                          "start": {
+                                            "column": 29,
+                                            "line": 13
+                                          }
+                                        },
+                                        "name": "v",
+                                        "type": "Identifier"
+                                      },
+                                      "property": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 32,
+                                            "line": 13
+                                          },
+                                          "sourcefile": "examples/method.go",
+                                          "start": {
+                                            "column": 31,
+                                            "line": 13
+                                          }
+                                        },
+                                        "name": "Y",
+                                        "type": "Identifier"
+                                      },
+                                      "type": "MemberAccess"
+                                    },
+                                    "loc": {
+                                      "end": {
+                                        "column": 36,
+                                        "line": 13
+                                      },
+                                      "sourcefile": "examples/method.go",
+                                      "start": {
+                                        "column": 29,
+                                        "line": 13
+                                      }
+                                    },
+                                    "operator": "*",
+                                    "right": {
+                                      "_meta": {},
+                                      "computed": false,
+                                      "loc": {
+                                        "end": {
+                                          "column": 36,
+                                          "line": 13
+                                        },
+                                        "sourcefile": "examples/method.go",
+                                        "start": {
+                                          "column": 33,
+                                          "line": 13
+                                        }
+                                      },
+                                      "object": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 34,
+                                            "line": 13
+                                          },
+                                          "sourcefile": "examples/method.go",
+                                          "start": {
+                                            "column": 33,
+                                            "line": 13
+                                          }
+                                        },
+                                        "name": "v",
+                                        "type": "Identifier"
+                                      },
+                                      "property": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 36,
+                                            "line": 13
+                                          },
+                                          "sourcefile": "examples/method.go",
+                                          "start": {
+                                            "column": 35,
+                                            "line": 13
+                                          }
+                                        },
+                                        "name": "Y",
+                                        "type": "Identifier"
+                                      },
+                                      "type": "MemberAccess"
+                                    },
+                                    "type": "BinaryExpression"
+                                  },
+                                  "type": "BinaryExpression"
+                                }
+                              ],
+                              "callee": {
+                                "_meta": {},
+                                "computed": false,
+                                "loc": {
+                                  "end": {
+                                    "column": 18,
+                                    "line": 13
+                                  },
+                                  "sourcefile": "examples/method.go",
+                                  "start": {
+                                    "column": 9,
+                                    "line": 13
+                                  }
+                                },
+                                "object": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 13,
+                                      "line": 13
+                                    },
+                                    "sourcefile": "examples/method.go",
+                                    "start": {
+                                      "column": 9,
+                                      "line": 13
+                                    }
+                                  },
+                                  "name": "math",
+                                  "type": "Identifier"
+                                },
+                                "property": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 18,
+                                      "line": 13
+                                    },
+                                    "sourcefile": "examples/method.go",
+                                    "start": {
+                                      "column": 14,
+                                      "line": 13
+                                    }
+                                  },
+                                  "name": "Sqrt",
+                                  "type": "Identifier"
+                                },
+                                "type": "MemberAccess"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 37,
+                                  "line": 13
+                                },
+                                "sourcefile": "examples/method.go",
+                                "start": {
+                                  "column": 9,
+                                  "line": 13
+                                }
+                              },
+                              "type": "CallExpression"
+                            },
+                            "isYield": false,
+                            "loc": {
+                              "end": {
+                                "column": 37,
+                                "line": 13
+                              },
+                              "sourcefile": "examples/method.go",
+                              "start": {
+                                "column": 2,
+                                "line": 13
+                              }
+                            },
+                            "type": "ReturnStatement"
+                          }
+                        ],
+                        "id": null,
+                        "loc": {
+                          "end": {
+                            "column": 2,
+                            "line": 14
+                          },
+                          "sourcefile": "examples/method.go",
+                          "start": {
+                            "column": 31,
+                            "line": 12
+                          }
+                        },
+                        "type": "ScopedStatement"
+                      },
+                      "id": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 20,
+                            "line": 12
+                          },
+                          "sourcefile": "examples/method.go",
+                          "start": {
+                            "column": 17,
+                            "line": 12
+                          }
+                        },
+                        "name": "Abs",
+                        "type": "Identifier"
+                      },
+                      "loc": {
+                        "end": {
+                          "column": 2,
+                          "line": 14
+                        },
+                        "sourcefile": "examples/method.go",
+                        "start": {
+                          "column": 1,
+                          "line": 12
+                        }
+                      },
+                      "modifiers": null,
+                      "parameters": [],
+                      "returnType": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 30,
+                            "line": 12
+                          },
+                          "sourcefile": "examples/method.go",
+                          "start": {
+                            "column": 23,
+                            "line": 12
+                          }
+                        },
+                        "name": "float64",
+                        "type": "Identifier"
+                      },
+                      "type": "FunctionDefinition"
+                    }
+                  ],
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 12,
+                        "line": 8
+                      },
+                      "sourcefile": "examples/method.go",
+                      "start": {
+                        "column": 6,
+                        "line": 8
+                      }
+                    },
+                    "name": "Vertex",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 10
+                    },
+                    "sourcefile": "examples/method.go",
+                    "start": {
+                      "column": 6,
+                      "line": 8
+                    }
+                  },
+                  "supers": [],
+                  "type": "ClassDefinition"
+                },
+                {
+                  "_meta": {},
+                  "body": {
+                    "_meta": {},
+                    "body": [
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 13,
+                                  "line": 17
+                                },
+                                "sourcefile": "examples/method.go",
+                                "start": {
+                                  "column": 7,
+                                  "line": 17
+                                }
+                              },
+                              "name": "Vertex",
+                              "type": "Identifier"
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 3,
+                              "line": 17
+                            },
+                            "sourcefile": "examples/method.go",
+                            "start": {
+                              "column": 2,
+                              "line": 17
+                            }
+                          },
+                          "name": "v",
+                          "type": "Identifier"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "expressions": [
+                            {
+                              "_meta": {},
+                              "cloned": false,
+                              "id": {
+                                "_meta": {
+                                  "ReceiveCls": "",
+                                  "type": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 13,
+                                        "line": 17
+                                      },
+                                      "sourcefile": "examples/method.go",
+                                      "start": {
+                                        "column": 7,
+                                        "line": 17
+                                      }
+                                    },
+                                    "name": "Vertex",
+                                    "type": "Identifier"
+                                  }
+                                },
+                                "loc": {
+                                  "end": {
+                                    "column": 19,
+                                    "line": 17
+                                  },
+                                  "sourcefile": "examples/method.go",
+                                  "start": {
+                                    "column": 7,
+                                    "line": 17
+                                  }
+                                },
+                                "name": "tmp1",
+                                "type": "Identifier"
+                              },
+                              "init": {
+                                "_meta": {},
+                                "arguments": [],
+                                "callee": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 13,
+                                      "line": 17
+                                    },
+                                    "sourcefile": "examples/method.go",
+                                    "start": {
+                                      "column": 7,
+                                      "line": 17
+                                    }
+                                  },
+                                  "name": "Vertex",
+                                  "type": "Identifier"
+                                },
+                                "loc": null,
+                                "type": "NewExpression"
+                              },
+                              "loc": null,
+                              "type": "VariableDeclaration",
+                              "varType": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 13,
+                                    "line": 17
+                                  },
+                                  "sourcefile": "examples/method.go",
+                                  "start": {
+                                    "column": 7,
+                                    "line": 17
+                                  }
+                                },
+                                "name": "Vertex",
+                                "type": "Identifier"
+                              },
+                              "variableParam": false
+                            },
+                            {
+                              "_meta": {},
+                              "cloned": true,
+                              "left": {
+                                "_meta": {},
+                                "computed": false,
+                                "loc": null,
+                                "object": {
+                                  "_meta": {
+                                    "ReceiveCls": "",
+                                    "type": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 13,
+                                          "line": 17
+                                        },
+                                        "sourcefile": "examples/method.go",
+                                        "start": {
+                                          "column": 7,
+                                          "line": 17
+                                        }
+                                      },
+                                      "name": "Vertex",
+                                      "type": "Identifier"
+                                    }
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 19,
+                                      "line": 17
+                                    },
+                                    "sourcefile": "examples/method.go",
+                                    "start": {
+                                      "column": 7,
+                                      "line": 17
+                                    }
+                                  },
+                                  "name": "tmp1",
+                                  "type": "Identifier"
+                                },
+                                "property": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 3,
+                                      "line": 9
+                                    },
+                                    "sourcefile": "examples/method.go",
+                                    "start": {
+                                      "column": 2,
+                                      "line": 9
+                                    }
+                                  },
+                                  "name": "X",
+                                  "type": "Identifier"
+                                },
+                                "type": "MemberAccess"
+                              },
+                              "loc": null,
+                              "operator": "=",
+                              "right": {
+                                "_meta": {},
+                                "literalType": "INT",
+                                "loc": {
+                                  "end": {
+                                    "column": 15,
+                                    "line": 17
+                                  },
+                                  "sourcefile": "examples/method.go",
+                                  "start": {
+                                    "column": 14,
+                                    "line": 17
+                                  }
+                                },
+                                "type": "Literal",
+                                "value": "3"
+                              },
+                              "type": "AssignmentExpression"
+                            },
+                            {
+                              "_meta": {},
+                              "cloned": true,
+                              "left": {
+                                "_meta": {},
+                                "computed": false,
+                                "loc": null,
+                                "object": {
+                                  "_meta": {
+                                    "ReceiveCls": "",
+                                    "type": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 13,
+                                          "line": 17
+                                        },
+                                        "sourcefile": "examples/method.go",
+                                        "start": {
+                                          "column": 7,
+                                          "line": 17
+                                        }
+                                      },
+                                      "name": "Vertex",
+                                      "type": "Identifier"
+                                    }
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 19,
+                                      "line": 17
+                                    },
+                                    "sourcefile": "examples/method.go",
+                                    "start": {
+                                      "column": 7,
+                                      "line": 17
+                                    }
+                                  },
+                                  "name": "tmp1",
+                                  "type": "Identifier"
+                                },
+                                "property": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 6,
+                                      "line": 9
+                                    },
+                                    "sourcefile": "examples/method.go",
+                                    "start": {
+                                      "column": 5,
+                                      "line": 9
+                                    }
+                                  },
+                                  "name": "Y",
+                                  "type": "Identifier"
+                                },
+                                "type": "MemberAccess"
+                              },
+                              "loc": null,
+                              "operator": "=",
+                              "right": {
+                                "_meta": {},
+                                "literalType": "INT",
+                                "loc": {
+                                  "end": {
+                                    "column": 18,
+                                    "line": 17
+                                  },
+                                  "sourcefile": "examples/method.go",
+                                  "start": {
+                                    "column": 17,
+                                    "line": 17
+                                  }
+                                },
+                                "type": "Literal",
+                                "value": "4"
+                              },
+                              "type": "AssignmentExpression"
+                            },
+                            {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 13,
+                                      "line": 17
+                                    },
+                                    "sourcefile": "examples/method.go",
+                                    "start": {
+                                      "column": 7,
+                                      "line": 17
+                                    }
+                                  },
+                                  "name": "Vertex",
+                                  "type": "Identifier"
+                                }
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 19,
+                                  "line": 17
+                                },
+                                "sourcefile": "examples/method.go",
+                                "start": {
+                                  "column": 7,
+                                  "line": 17
+                                }
+                              },
+                              "name": "tmp1",
+                              "type": "Identifier"
+                            }
+                          ],
+                          "loc": {
+                            "end": {
+                              "column": 19,
+                              "line": 17
+                            },
+                            "sourcefile": "examples/method.go",
+                            "start": {
+                              "column": 7,
+                              "line": 17
+                            }
+                          },
+                          "type": "Sequence"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 19,
+                            "line": 17
+                          },
+                          "sourcefile": "examples/method.go",
+                          "start": {
+                            "column": 2,
+                            "line": 17
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 13,
+                              "line": 17
+                            },
+                            "sourcefile": "examples/method.go",
+                            "start": {
+                              "column": 7,
+                              "line": 17
+                            }
+                          },
+                          "name": "Vertex",
+                          "type": "Identifier"
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "arguments": [
+                          {
+                            "_meta": {},
+                            "arguments": [],
+                            "callee": {
+                              "_meta": {},
+                              "computed": false,
+                              "loc": {
+                                "end": {
+                                  "column": 19,
+                                  "line": 18
+                                },
+                                "sourcefile": "examples/method.go",
+                                "start": {
+                                  "column": 14,
+                                  "line": 18
+                                }
+                              },
+                              "object": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 15,
+                                    "line": 18
+                                  },
+                                  "sourcefile": "examples/method.go",
+                                  "start": {
+                                    "column": 14,
+                                    "line": 18
+                                  }
+                                },
+                                "name": "v",
+                                "type": "Identifier"
+                              },
+                              "property": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 19,
+                                    "line": 18
+                                  },
+                                  "sourcefile": "examples/method.go",
+                                  "start": {
+                                    "column": 16,
+                                    "line": 18
+                                  }
+                                },
+                                "name": "Abs",
+                                "type": "Identifier"
+                              },
+                              "type": "MemberAccess"
+                            },
+                            "loc": {
+                              "end": {
+                                "column": 21,
+                                "line": 18
+                              },
+                              "sourcefile": "examples/method.go",
+                              "start": {
+                                "column": 14,
+                                "line": 18
+                              }
+                            },
+                            "type": "CallExpression"
+                          }
+                        ],
+                        "callee": {
+                          "_meta": {},
+                          "computed": false,
+                          "loc": {
+                            "end": {
+                              "column": 13,
+                              "line": 18
+                            },
+                            "sourcefile": "examples/method.go",
+                            "start": {
+                              "column": 2,
+                              "line": 18
+                            }
+                          },
+                          "object": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 5,
+                                "line": 18
+                              },
+                              "sourcefile": "examples/method.go",
+                              "start": {
+                                "column": 2,
+                                "line": 18
+                              }
+                            },
+                            "name": "fmt",
+                            "type": "Identifier"
+                          },
+                          "property": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 13,
+                                "line": 18
+                              },
+                              "sourcefile": "examples/method.go",
+                              "start": {
+                                "column": 6,
+                                "line": 18
+                              }
+                            },
+                            "name": "Println",
+                            "type": "Identifier"
+                          },
+                          "type": "MemberAccess"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 22,
+                            "line": 18
+                          },
+                          "sourcefile": "examples/method.go",
+                          "start": {
+                            "column": 2,
+                            "line": 18
+                          }
+                        },
+                        "type": "CallExpression"
+                      }
+                    ],
+                    "id": null,
+                    "loc": {
+                      "end": {
+                        "column": 2,
+                        "line": 19
+                      },
+                      "sourcefile": "examples/method.go",
+                      "start": {
+                        "column": 16,
+                        "line": 16
+                      }
+                    },
+                    "type": "ScopedStatement"
+                  },
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 13,
+                        "line": 16
+                      },
+                      "sourcefile": "examples/method.go",
+                      "start": {
+                        "column": 6,
+                        "line": 16
+                      }
+                    },
+                    "name": "Methods",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 19
+                    },
+                    "sourcefile": "examples/method.go",
+                    "start": {
+                      "column": 1,
+                      "line": 16
+                    }
+                  },
+                  "modifiers": null,
+                  "parameters": [],
+                  "returnType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "VoidType",
+                    "typeArguments": null
+                  },
+                  "type": "FunctionDefinition"
+                }
+              ],
+              "language": "golang",
+              "languageVersion": "1.18",
+              "loc": {
+                "end": {
+                  "column": 2,
+                  "line": 19
+                },
+                "sourcefile": "examples/method.go",
+                "start": {
+                  "column": 1,
+                  "line": 1
+                }
+              },
+              "type": "CompileUnit",
+              "uri": "",
+              "version": ""
+            },
+            "packageName": "__single__"
+          }
+        },
+        "subs": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,386 @@
+{
+  "moduleName": "__single_module__",
+  "packageInfo": {
+    "PathName": "",
+    "files": {},
+    "subs": {
+      "/": {
+        "PathName": "",
+        "files": {
+          "examples/unicodeIdentifier.go": {
+            "node": {
+              "_meta": {},
+              "body": [
+                {
+                  "_meta": {},
+                  "loc": {
+                    "end": {
+                      "column": 17,
+                      "line": 1
+                    },
+                    "sourcefile": "examples/unicodeIdentifier.go",
+                    "start": {
+                      "column": 9,
+                      "line": 1
+                    }
+                  },
+                  "packageName": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 17,
+                        "line": 1
+                      },
+                      "sourcefile": "examples/unicodeIdentifier.go",
+                      "start": {
+                        "column": 9,
+                        "line": 1
+                      }
+                    },
+                    "name": "examples",
+                    "type": "Identifier"
+                  },
+                  "type": "PackageDeclaration"
+                },
+                {
+                  "_meta": {},
+                  "body": {
+                    "_meta": {},
+                    "body": [
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "id": null,
+                              "loc": null,
+                              "type": "DynamicType",
+                              "typeArguments": null
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 20,
+                              "line": 4
+                            },
+                            "sourcefile": "examples/unicodeIdentifier.go",
+                            "start": {
+                              "column": 2,
+                              "line": 4
+                            }
+                          },
+                          "name": "我们记得可橙",
+                          "type": "Identifier"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 28,
+                              "line": 4
+                            },
+                            "sourcefile": "examples/unicodeIdentifier.go",
+                            "start": {
+                              "column": 24,
+                              "line": 4
+                            }
+                          },
+                          "name": "true",
+                          "type": "Identifier"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 28,
+                            "line": 4
+                          },
+                          "sourcefile": "examples/unicodeIdentifier.go",
+                          "start": {
+                            "column": 2,
+                            "line": 4
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "id": null,
+                          "loc": null,
+                          "type": "DynamicType",
+                          "typeArguments": null
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "id": null,
+                              "loc": null,
+                              "type": "DynamicType",
+                              "typeArguments": null
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 20,
+                              "line": 5
+                            },
+                            "sourcefile": "examples/unicodeIdentifier.go",
+                            "start": {
+                              "column": 2,
+                              "line": 5
+                            }
+                          },
+                          "name": "我们记得她们",
+                          "type": "Identifier"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 28,
+                              "line": 5
+                            },
+                            "sourcefile": "examples/unicodeIdentifier.go",
+                            "start": {
+                              "column": 24,
+                              "line": 5
+                            }
+                          },
+                          "name": "true",
+                          "type": "Identifier"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 28,
+                            "line": 5
+                          },
+                          "sourcefile": "examples/unicodeIdentifier.go",
+                          "start": {
+                            "column": 2,
+                            "line": 5
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "id": null,
+                          "loc": null,
+                          "type": "DynamicType",
+                          "typeArguments": null
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "loc": null,
+                              "name": "string",
+                              "type": "Identifier"
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 32,
+                              "line": 6
+                            },
+                            "sourcefile": "examples/unicodeIdentifier.go",
+                            "start": {
+                              "column": 2,
+                              "line": 6
+                            }
+                          },
+                          "name": "他们管这叫矫正叫治疗",
+                          "type": "Identifier"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "literalType": "STRING",
+                          "loc": {
+                            "end": {
+                              "column": 77,
+                              "line": 6
+                            },
+                            "sourcefile": "examples/unicodeIdentifier.go",
+                            "start": {
+                              "column": 36,
+                              "line": 6
+                            }
+                          },
+                          "type": "Literal",
+                          "value": "\"而我更愿意叫它有组织的屠杀\""
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 77,
+                            "line": 6
+                          },
+                          "sourcefile": "examples/unicodeIdentifier.go",
+                          "start": {
+                            "column": 2,
+                            "line": 6
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "loc": null,
+                          "name": "string",
+                          "type": "Identifier"
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "loc": null,
+                              "name": "char",
+                              "type": "Identifier"
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 34,
+                              "line": 7
+                            },
+                            "sourcefile": "examples/unicodeIdentifier.go",
+                            "start": {
+                              "column": 2,
+                              "line": 7
+                            }
+                          },
+                          "name": "都2020年了还搞得像1820年",
+                          "type": "Identifier"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "literalType": "CHAR",
+                          "loc": {
+                            "end": {
+                              "column": 43,
+                              "line": 7
+                            },
+                            "sourcefile": "examples/unicodeIdentifier.go",
+                            "start": {
+                              "column": 38,
+                              "line": 7
+                            }
+                          },
+                          "type": "Literal",
+                          "value": "'呸'"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 43,
+                            "line": 7
+                          },
+                          "sourcefile": "examples/unicodeIdentifier.go",
+                          "start": {
+                            "column": 2,
+                            "line": 7
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "loc": null,
+                          "name": "char",
+                          "type": "Identifier"
+                        },
+                        "variableParam": false
+                      }
+                    ],
+                    "id": null,
+                    "loc": {
+                      "end": {
+                        "column": 2,
+                        "line": 8
+                      },
+                      "sourcefile": "examples/unicodeIdentifier.go",
+                      "start": {
+                        "column": 13,
+                        "line": 3
+                      }
+                    },
+                    "type": "ScopedStatement"
+                  },
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 10,
+                        "line": 3
+                      },
+                      "sourcefile": "examples/unicodeIdentifier.go",
+                      "start": {
+                        "column": 6,
+                        "line": 3
+                      }
+                    },
+                    "name": "main",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 8
+                    },
+                    "sourcefile": "examples/unicodeIdentifier.go",
+                    "start": {
+                      "column": 1,
+                      "line": 3
+                    }
+                  },
+                  "modifiers": null,
+                  "parameters": [],
+                  "returnType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "VoidType",
+                    "typeArguments": null
+                  },
+                  "type": "FunctionDefinition"
+                }
+              ],
+              "language": "golang",
+              "languageVersion": "1.18",
+              "loc": {
+                "end": {
+                  "column": 2,
+                  "line": 8
+                },
+                "sourcefile": "examples/unicodeIdentifier.go",
+                "start": {
+                  "column": 1,
+                  "line": 1
+                }
+              },
+              "type": "CompileUnit",
+              "uri": "",
+              "version": ""
+            },
+            "packageName": "__single__"
+          }
+        },
+        "subs": {}
+      }
+    }
+  }
+}

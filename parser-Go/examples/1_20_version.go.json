@@ -1,0 +1,811 @@
+{
+  "moduleName": "__single_module__",
+  "packageInfo": {
+    "PathName": "",
+    "files": {},
+    "subs": {
+      "/": {
+        "PathName": "",
+        "files": {
+          "examples/1_20_version.go": {
+            "node": {
+              "_meta": {},
+              "body": [
+                {
+                  "_meta": {},
+                  "loc": {
+                    "end": {
+                      "column": 17,
+                      "line": 1
+                    },
+                    "sourcefile": "examples/1_20_version.go",
+                    "start": {
+                      "column": 9,
+                      "line": 1
+                    }
+                  },
+                  "packageName": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 17,
+                        "line": 1
+                      },
+                      "sourcefile": "examples/1_20_version.go",
+                      "start": {
+                        "column": 9,
+                        "line": 1
+                      }
+                    },
+                    "name": "examples",
+                    "type": "Identifier"
+                  },
+                  "type": "PackageDeclaration"
+                },
+                {
+                  "_meta": {},
+                  "body": [
+                    {
+                      "_meta": {},
+                      "cloned": true,
+                      "id": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 19,
+                                "line": 4
+                              },
+                              "sourcefile": "examples/1_20_version.go",
+                              "start": {
+                                "column": 18,
+                                "line": 4
+                              }
+                            },
+                            "name": "T",
+                            "type": "Identifier"
+                          }
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 17,
+                            "line": 4
+                          },
+                          "sourcefile": "examples/1_20_version.go",
+                          "start": {
+                            "column": 2,
+                            "line": 4
+                          }
+                        },
+                        "name": "ComparableField",
+                        "type": "Identifier"
+                      },
+                      "init": null,
+                      "loc": {
+                        "end": {
+                          "column": 19,
+                          "line": 4
+                        },
+                        "sourcefile": "examples/1_20_version.go",
+                        "start": {
+                          "column": 2,
+                          "line": 4
+                        }
+                      },
+                      "type": "VariableDeclaration",
+                      "varType": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 19,
+                            "line": 4
+                          },
+                          "sourcefile": "examples/1_20_version.go",
+                          "start": {
+                            "column": 18,
+                            "line": 4
+                          }
+                        },
+                        "name": "T",
+                        "type": "Identifier"
+                      },
+                      "variableParam": false
+                    }
+                  ],
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 7,
+                        "line": 3
+                      },
+                      "sourcefile": "examples/1_20_version.go",
+                      "start": {
+                        "column": 6,
+                        "line": 3
+                      }
+                    },
+                    "name": "A",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 5
+                    },
+                    "sourcefile": "examples/1_20_version.go",
+                    "start": {
+                      "column": 6,
+                      "line": 3
+                    }
+                  },
+                  "supers": [],
+                  "type": "ClassDefinition"
+                },
+                {
+                  "_meta": {},
+                  "body": [],
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 7,
+                        "line": 7
+                      },
+                      "sourcefile": "examples/1_20_version.go",
+                      "start": {
+                        "column": 6,
+                        "line": 7
+                      }
+                    },
+                    "name": "B",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 16,
+                      "line": 7
+                    },
+                    "sourcefile": "examples/1_20_version.go",
+                    "start": {
+                      "column": 6,
+                      "line": 7
+                    }
+                  },
+                  "supers": [
+                    {
+                      "_meta": {},
+                      "loc": {
+                        "end": {
+                          "column": 16,
+                          "line": 7
+                        },
+                        "sourcefile": "examples/1_20_version.go",
+                        "start": {
+                          "column": 10,
+                          "line": 7
+                        }
+                      },
+                      "name": "string",
+                      "type": "Identifier"
+                    }
+                  ],
+                  "type": "ClassDefinition"
+                },
+                {
+                  "_meta": {
+                    "ReceiveCls": "",
+                    "isInterface": true
+                  },
+                  "body": [],
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 16,
+                        "line": 9
+                      },
+                      "sourcefile": "examples/1_20_version.go",
+                      "start": {
+                        "column": 6,
+                        "line": 9
+                      }
+                    },
+                    "name": "Constraint",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 11
+                    },
+                    "sourcefile": "examples/1_20_version.go",
+                    "start": {
+                      "column": 6,
+                      "line": 9
+                    }
+                  },
+                  "supers": [],
+                  "type": "ClassDefinition"
+                },
+                {
+                  "_meta": {},
+                  "body": {
+                    "_meta": {},
+                    "body": [
+                      {
+                        "_meta": {},
+                        "argument": {
+                          "_meta": {},
+                          "expressions": [
+                            {
+                              "_meta": {},
+                              "cloned": false,
+                              "id": {
+                                "_meta": {
+                                  "ReceiveCls": "",
+                                  "type": {
+                                    "_meta": {},
+                                    "computed": true,
+                                    "loc": {
+                                      "end": {
+                                        "column": 13,
+                                        "line": 14
+                                      },
+                                      "sourcefile": "examples/1_20_version.go",
+                                      "start": {
+                                        "column": 9,
+                                        "line": 14
+                                      }
+                                    },
+                                    "object": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 10,
+                                          "line": 14
+                                        },
+                                        "sourcefile": "examples/1_20_version.go",
+                                        "start": {
+                                          "column": 9,
+                                          "line": 14
+                                        }
+                                      },
+                                      "name": "A",
+                                      "type": "Identifier"
+                                    },
+                                    "property": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 12,
+                                          "line": 14
+                                        },
+                                        "sourcefile": "examples/1_20_version.go",
+                                        "start": {
+                                          "column": 11,
+                                          "line": 14
+                                        }
+                                      },
+                                      "name": "T",
+                                      "type": "Identifier"
+                                    },
+                                    "type": "MemberAccess"
+                                  }
+                                },
+                                "loc": {
+                                  "end": {
+                                    "column": 37,
+                                    "line": 14
+                                  },
+                                  "sourcefile": "examples/1_20_version.go",
+                                  "start": {
+                                    "column": 9,
+                                    "line": 14
+                                  }
+                                },
+                                "name": "tmp1",
+                                "type": "Identifier"
+                              },
+                              "init": {
+                                "_meta": {},
+                                "arguments": [],
+                                "callee": {
+                                  "_meta": {},
+                                  "computed": true,
+                                  "loc": {
+                                    "end": {
+                                      "column": 13,
+                                      "line": 14
+                                    },
+                                    "sourcefile": "examples/1_20_version.go",
+                                    "start": {
+                                      "column": 9,
+                                      "line": 14
+                                    }
+                                  },
+                                  "object": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 10,
+                                        "line": 14
+                                      },
+                                      "sourcefile": "examples/1_20_version.go",
+                                      "start": {
+                                        "column": 9,
+                                        "line": 14
+                                      }
+                                    },
+                                    "name": "A",
+                                    "type": "Identifier"
+                                  },
+                                  "property": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 12,
+                                        "line": 14
+                                      },
+                                      "sourcefile": "examples/1_20_version.go",
+                                      "start": {
+                                        "column": 11,
+                                        "line": 14
+                                      }
+                                    },
+                                    "name": "T",
+                                    "type": "Identifier"
+                                  },
+                                  "type": "MemberAccess"
+                                },
+                                "loc": null,
+                                "type": "NewExpression"
+                              },
+                              "loc": null,
+                              "type": "VariableDeclaration",
+                              "varType": {
+                                "_meta": {},
+                                "computed": true,
+                                "loc": {
+                                  "end": {
+                                    "column": 13,
+                                    "line": 14
+                                  },
+                                  "sourcefile": "examples/1_20_version.go",
+                                  "start": {
+                                    "column": 9,
+                                    "line": 14
+                                  }
+                                },
+                                "object": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 10,
+                                      "line": 14
+                                    },
+                                    "sourcefile": "examples/1_20_version.go",
+                                    "start": {
+                                      "column": 9,
+                                      "line": 14
+                                    }
+                                  },
+                                  "name": "A",
+                                  "type": "Identifier"
+                                },
+                                "property": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 12,
+                                      "line": 14
+                                    },
+                                    "sourcefile": "examples/1_20_version.go",
+                                    "start": {
+                                      "column": 11,
+                                      "line": 14
+                                    }
+                                  },
+                                  "name": "T",
+                                  "type": "Identifier"
+                                },
+                                "type": "MemberAccess"
+                              },
+                              "variableParam": false
+                            },
+                            {
+                              "_meta": {},
+                              "cloned": true,
+                              "left": {
+                                "_meta": {},
+                                "computed": false,
+                                "loc": null,
+                                "object": {
+                                  "_meta": {
+                                    "ReceiveCls": "",
+                                    "type": {
+                                      "_meta": {},
+                                      "computed": true,
+                                      "loc": {
+                                        "end": {
+                                          "column": 13,
+                                          "line": 14
+                                        },
+                                        "sourcefile": "examples/1_20_version.go",
+                                        "start": {
+                                          "column": 9,
+                                          "line": 14
+                                        }
+                                      },
+                                      "object": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 10,
+                                            "line": 14
+                                          },
+                                          "sourcefile": "examples/1_20_version.go",
+                                          "start": {
+                                            "column": 9,
+                                            "line": 14
+                                          }
+                                        },
+                                        "name": "A",
+                                        "type": "Identifier"
+                                      },
+                                      "property": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 12,
+                                            "line": 14
+                                          },
+                                          "sourcefile": "examples/1_20_version.go",
+                                          "start": {
+                                            "column": 11,
+                                            "line": 14
+                                          }
+                                        },
+                                        "name": "T",
+                                        "type": "Identifier"
+                                      },
+                                      "type": "MemberAccess"
+                                    }
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 37,
+                                      "line": 14
+                                    },
+                                    "sourcefile": "examples/1_20_version.go",
+                                    "start": {
+                                      "column": 9,
+                                      "line": 14
+                                    }
+                                  },
+                                  "name": "tmp1",
+                                  "type": "Identifier"
+                                },
+                                "property": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 29,
+                                      "line": 14
+                                    },
+                                    "sourcefile": "examples/1_20_version.go",
+                                    "start": {
+                                      "column": 14,
+                                      "line": 14
+                                    }
+                                  },
+                                  "name": "ComparableField",
+                                  "type": "Identifier"
+                                },
+                                "type": "MemberAccess"
+                              },
+                              "loc": null,
+                              "operator": "=",
+                              "right": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 36,
+                                    "line": 14
+                                  },
+                                  "sourcefile": "examples/1_20_version.go",
+                                  "start": {
+                                    "column": 31,
+                                    "line": 14
+                                  }
+                                },
+                                "name": "value",
+                                "type": "Identifier"
+                              },
+                              "type": "AssignmentExpression"
+                            },
+                            {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "computed": true,
+                                  "loc": {
+                                    "end": {
+                                      "column": 13,
+                                      "line": 14
+                                    },
+                                    "sourcefile": "examples/1_20_version.go",
+                                    "start": {
+                                      "column": 9,
+                                      "line": 14
+                                    }
+                                  },
+                                  "object": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 10,
+                                        "line": 14
+                                      },
+                                      "sourcefile": "examples/1_20_version.go",
+                                      "start": {
+                                        "column": 9,
+                                        "line": 14
+                                      }
+                                    },
+                                    "name": "A",
+                                    "type": "Identifier"
+                                  },
+                                  "property": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 12,
+                                        "line": 14
+                                      },
+                                      "sourcefile": "examples/1_20_version.go",
+                                      "start": {
+                                        "column": 11,
+                                        "line": 14
+                                      }
+                                    },
+                                    "name": "T",
+                                    "type": "Identifier"
+                                  },
+                                  "type": "MemberAccess"
+                                }
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 37,
+                                  "line": 14
+                                },
+                                "sourcefile": "examples/1_20_version.go",
+                                "start": {
+                                  "column": 9,
+                                  "line": 14
+                                }
+                              },
+                              "name": "tmp1",
+                              "type": "Identifier"
+                            }
+                          ],
+                          "loc": {
+                            "end": {
+                              "column": 37,
+                              "line": 14
+                            },
+                            "sourcefile": "examples/1_20_version.go",
+                            "start": {
+                              "column": 9,
+                              "line": 14
+                            }
+                          },
+                          "type": "Sequence"
+                        },
+                        "isYield": false,
+                        "loc": {
+                          "end": {
+                            "column": 37,
+                            "line": 14
+                          },
+                          "sourcefile": "examples/1_20_version.go",
+                          "start": {
+                            "column": 2,
+                            "line": 14
+                          }
+                        },
+                        "type": "ReturnStatement"
+                      }
+                    ],
+                    "id": null,
+                    "loc": {
+                      "end": {
+                        "column": 2,
+                        "line": 15
+                      },
+                      "sourcefile": "examples/1_20_version.go",
+                      "start": {
+                        "column": 38,
+                        "line": 13
+                      }
+                    },
+                    "type": "ScopedStatement"
+                  },
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 9,
+                        "line": 13
+                      },
+                      "sourcefile": "examples/1_20_version.go",
+                      "start": {
+                        "column": 6,
+                        "line": 13
+                      }
+                    },
+                    "name": "foo",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 15
+                    },
+                    "sourcefile": "examples/1_20_version.go",
+                    "start": {
+                      "column": 1,
+                      "line": 13
+                    }
+                  },
+                  "modifiers": null,
+                  "parameters": [
+                    {
+                      "_meta": {},
+                      "cloned": true,
+                      "id": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 31,
+                                "line": 13
+                              },
+                              "sourcefile": "examples/1_20_version.go",
+                              "start": {
+                                "column": 30,
+                                "line": 13
+                              }
+                            },
+                            "name": "T",
+                            "type": "Identifier"
+                          }
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 29,
+                            "line": 13
+                          },
+                          "sourcefile": "examples/1_20_version.go",
+                          "start": {
+                            "column": 24,
+                            "line": 13
+                          }
+                        },
+                        "name": "value",
+                        "type": "Identifier"
+                      },
+                      "init": null,
+                      "loc": {
+                        "end": {
+                          "column": 31,
+                          "line": 13
+                        },
+                        "sourcefile": "examples/1_20_version.go",
+                        "start": {
+                          "column": 24,
+                          "line": 13
+                        }
+                      },
+                      "type": "VariableDeclaration",
+                      "varType": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 31,
+                            "line": 13
+                          },
+                          "sourcefile": "examples/1_20_version.go",
+                          "start": {
+                            "column": 30,
+                            "line": 13
+                          }
+                        },
+                        "name": "T",
+                        "type": "Identifier"
+                      },
+                      "variableParam": false
+                    }
+                  ],
+                  "returnType": {
+                    "_meta": {},
+                    "computed": true,
+                    "loc": {
+                      "end": {
+                        "column": 37,
+                        "line": 13
+                      },
+                      "sourcefile": "examples/1_20_version.go",
+                      "start": {
+                        "column": 33,
+                        "line": 13
+                      }
+                    },
+                    "object": {
+                      "_meta": {},
+                      "loc": {
+                        "end": {
+                          "column": 34,
+                          "line": 13
+                        },
+                        "sourcefile": "examples/1_20_version.go",
+                        "start": {
+                          "column": 33,
+                          "line": 13
+                        }
+                      },
+                      "name": "A",
+                      "type": "Identifier"
+                    },
+                    "property": {
+                      "_meta": {},
+                      "loc": {
+                        "end": {
+                          "column": 36,
+                          "line": 13
+                        },
+                        "sourcefile": "examples/1_20_version.go",
+                        "start": {
+                          "column": 35,
+                          "line": 13
+                        }
+                      },
+                      "name": "T",
+                      "type": "Identifier"
+                    },
+                    "type": "MemberAccess"
+                  },
+                  "type": "FunctionDefinition"
+                }
+              ],
+              "language": "golang",
+              "languageVersion": "1.18",
+              "loc": {
+                "end": {
+                  "column": 2,
+                  "line": 15
+                },
+                "sourcefile": "examples/1_20_version.go",
+                "start": {
+                  "column": 1,
+                  "line": 1
+                }
+              },
+              "type": "CompileUnit",
+              "uri": "",
+              "version": ""
+            },
+            "packageName": "__single__"
+          }
+        },
+        "subs": {}
+      }
+    }
+  }
+}

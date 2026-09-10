@@ -1,0 +1,668 @@
+{
+  "moduleName": "__single_module__",
+  "packageInfo": {
+    "PathName": "",
+    "files": {},
+    "subs": {
+      "/": {
+        "PathName": "",
+        "files": {
+          "examples/varDecl.go": {
+            "node": {
+              "_meta": {},
+              "body": [
+                {
+                  "_meta": {},
+                  "loc": {
+                    "end": {
+                      "column": 17,
+                      "line": 1
+                    },
+                    "sourcefile": "examples/varDecl.go",
+                    "start": {
+                      "column": 9,
+                      "line": 1
+                    }
+                  },
+                  "packageName": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 17,
+                        "line": 1
+                      },
+                      "sourcefile": "examples/varDecl.go",
+                      "start": {
+                        "column": 9,
+                        "line": 1
+                      }
+                    },
+                    "name": "examples",
+                    "type": "Identifier"
+                  },
+                  "type": "PackageDeclaration"
+                },
+                {
+                  "_meta": {},
+                  "cloned": false,
+                  "id": {
+                    "_meta": {
+                      "ReceiveCls": "",
+                      "type": {
+                        "_meta": {},
+                        "id": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 27,
+                              "line": 3
+                            },
+                            "sourcefile": "examples/varDecl.go",
+                            "start": {
+                              "column": 13,
+                              "line": 3
+                            }
+                          },
+                          "name": "MapType",
+                          "type": "Identifier"
+                        },
+                        "keyType": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 23,
+                              "line": 3
+                            },
+                            "sourcefile": "examples/varDecl.go",
+                            "start": {
+                              "column": 17,
+                              "line": 3
+                            }
+                          },
+                          "name": "string",
+                          "type": "Identifier"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 27,
+                            "line": 3
+                          },
+                          "sourcefile": "examples/varDecl.go",
+                          "start": {
+                            "column": 13,
+                            "line": 3
+                          }
+                        },
+                        "type": "MapType",
+                        "typeArguments": null,
+                        "valueType": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 27,
+                              "line": 3
+                            },
+                            "sourcefile": "examples/varDecl.go",
+                            "start": {
+                              "column": 24,
+                              "line": 3
+                            }
+                          },
+                          "name": "int",
+                          "type": "Identifier"
+                        }
+                      }
+                    },
+                    "loc": {
+                      "end": {
+                        "column": 12,
+                        "line": 3
+                      },
+                      "sourcefile": "examples/varDecl.go",
+                      "start": {
+                        "column": 5,
+                        "line": 3
+                      }
+                    },
+                    "name": "entries",
+                    "type": "Identifier"
+                  },
+                  "init": null,
+                  "loc": {
+                    "end": {
+                      "column": 27,
+                      "line": 3
+                    },
+                    "sourcefile": "examples/varDecl.go",
+                    "start": {
+                      "column": 5,
+                      "line": 3
+                    }
+                  },
+                  "type": "VariableDeclaration",
+                  "varType": {
+                    "_meta": {},
+                    "id": {
+                      "_meta": {},
+                      "loc": {
+                        "end": {
+                          "column": 27,
+                          "line": 3
+                        },
+                        "sourcefile": "examples/varDecl.go",
+                        "start": {
+                          "column": 13,
+                          "line": 3
+                        }
+                      },
+                      "name": "MapType",
+                      "type": "Identifier"
+                    },
+                    "keyType": {
+                      "_meta": {},
+                      "loc": {
+                        "end": {
+                          "column": 23,
+                          "line": 3
+                        },
+                        "sourcefile": "examples/varDecl.go",
+                        "start": {
+                          "column": 17,
+                          "line": 3
+                        }
+                      },
+                      "name": "string",
+                      "type": "Identifier"
+                    },
+                    "loc": {
+                      "end": {
+                        "column": 27,
+                        "line": 3
+                      },
+                      "sourcefile": "examples/varDecl.go",
+                      "start": {
+                        "column": 13,
+                        "line": 3
+                      }
+                    },
+                    "type": "MapType",
+                    "typeArguments": null,
+                    "valueType": {
+                      "_meta": {},
+                      "loc": {
+                        "end": {
+                          "column": 27,
+                          "line": 3
+                        },
+                        "sourcefile": "examples/varDecl.go",
+                        "start": {
+                          "column": 24,
+                          "line": 3
+                        }
+                      },
+                      "name": "int",
+                      "type": "Identifier"
+                    }
+                  },
+                  "variableParam": false
+                },
+                {
+                  "_meta": {},
+                  "body": {
+                    "_meta": {},
+                    "body": [
+                      {
+                        "_meta": {},
+                        "argument": {
+                          "_meta": {},
+                          "elements": [
+                            {
+                              "_meta": {},
+                              "literalType": "INT",
+                              "loc": {
+                                "end": {
+                                  "column": 10,
+                                  "line": 6
+                                },
+                                "sourcefile": "examples/varDecl.go",
+                                "start": {
+                                  "column": 9,
+                                  "line": 6
+                                }
+                              },
+                              "type": "Literal",
+                              "value": "1"
+                            },
+                            {
+                              "_meta": {},
+                              "literalType": "INT",
+                              "loc": {
+                                "end": {
+                                  "column": 13,
+                                  "line": 6
+                                },
+                                "sourcefile": "examples/varDecl.go",
+                                "start": {
+                                  "column": 12,
+                                  "line": 6
+                                }
+                              },
+                              "type": "Literal",
+                              "value": "2"
+                            }
+                          ],
+                          "loc": null,
+                          "modifiable": false,
+                          "type": "TupleExpression"
+                        },
+                        "isYield": false,
+                        "loc": {
+                          "end": {
+                            "column": 13,
+                            "line": 6
+                          },
+                          "sourcefile": "examples/varDecl.go",
+                          "start": {
+                            "column": 2,
+                            "line": 6
+                          }
+                        },
+                        "type": "ReturnStatement"
+                      }
+                    ],
+                    "id": null,
+                    "loc": {
+                      "end": {
+                        "column": 2,
+                        "line": 7
+                      },
+                      "sourcefile": "examples/varDecl.go",
+                      "start": {
+                        "column": 28,
+                        "line": 5
+                      }
+                    },
+                    "type": "ScopedStatement"
+                  },
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 14,
+                        "line": 5
+                      },
+                      "sourcefile": "examples/varDecl.go",
+                      "start": {
+                        "column": 6,
+                        "line": 5
+                      }
+                    },
+                    "name": "multiRet",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 7
+                    },
+                    "sourcefile": "examples/varDecl.go",
+                    "start": {
+                      "column": 1,
+                      "line": 5
+                    }
+                  },
+                  "modifiers": null,
+                  "parameters": [],
+                  "returnType": {
+                    "_meta": {},
+                    "elements": [
+                      {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 21,
+                            "line": 5
+                          },
+                          "sourcefile": "examples/varDecl.go",
+                          "start": {
+                            "column": 18,
+                            "line": 5
+                          }
+                        },
+                        "name": "int",
+                        "type": "Identifier"
+                      },
+                      {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 26,
+                            "line": 5
+                          },
+                          "sourcefile": "examples/varDecl.go",
+                          "start": {
+                            "column": 23,
+                            "line": 5
+                          }
+                        },
+                        "name": "int",
+                        "type": "Identifier"
+                      }
+                    ],
+                    "id": null,
+                    "loc": null,
+                    "type": "TupleType",
+                    "typeArguments": null
+                  },
+                  "type": "FunctionDefinition"
+                },
+                {
+                  "_meta": {},
+                  "body": {
+                    "_meta": {},
+                    "body": [
+                      {
+                        "_meta": {},
+                        "expressions": [
+                          {
+                            "_meta": {},
+                            "cloned": false,
+                            "id": {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "id": null,
+                                  "loc": null,
+                                  "type": "DynamicType",
+                                  "typeArguments": null
+                                }
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 7,
+                                  "line": 19
+                                },
+                                "sourcefile": "examples/varDecl.go",
+                                "start": {
+                                  "column": 6,
+                                  "line": 19
+                                }
+                              },
+                              "name": "l",
+                              "type": "Identifier"
+                            },
+                            "init": {
+                              "_meta": {},
+                              "arguments": [],
+                              "callee": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 21,
+                                    "line": 19
+                                  },
+                                  "sourcefile": "examples/varDecl.go",
+                                  "start": {
+                                    "column": 13,
+                                    "line": 19
+                                  }
+                                },
+                                "name": "multiRet",
+                                "type": "Identifier"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 23,
+                                  "line": 19
+                                },
+                                "sourcefile": "examples/varDecl.go",
+                                "start": {
+                                  "column": 13,
+                                  "line": 19
+                                }
+                              },
+                              "type": "CallExpression"
+                            },
+                            "loc": null,
+                            "type": "VariableDeclaration",
+                            "varType": {
+                              "_meta": {},
+                              "id": null,
+                              "loc": null,
+                              "type": "DynamicType",
+                              "typeArguments": null
+                            },
+                            "variableParam": false
+                          },
+                          {
+                            "_meta": {},
+                            "cloned": false,
+                            "id": {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "id": null,
+                                  "loc": null,
+                                  "type": "DynamicType",
+                                  "typeArguments": null
+                                }
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 10,
+                                  "line": 19
+                                },
+                                "sourcefile": "examples/varDecl.go",
+                                "start": {
+                                  "column": 9,
+                                  "line": 19
+                                }
+                              },
+                              "name": "m",
+                              "type": "Identifier"
+                            },
+                            "init": null,
+                            "loc": null,
+                            "type": "VariableDeclaration",
+                            "varType": {
+                              "_meta": {},
+                              "id": null,
+                              "loc": null,
+                              "type": "DynamicType",
+                              "typeArguments": null
+                            },
+                            "variableParam": false
+                          }
+                        ],
+                        "loc": {
+                          "end": {
+                            "column": 23,
+                            "line": 19
+                          },
+                          "sourcefile": "examples/varDecl.go",
+                          "start": {
+                            "column": 6,
+                            "line": 19
+                          }
+                        },
+                        "type": "Sequence"
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "left": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 3,
+                              "line": 20
+                            },
+                            "sourcefile": "examples/varDecl.go",
+                            "start": {
+                              "column": 2,
+                              "line": 20
+                            }
+                          },
+                          "name": "_",
+                          "type": "Identifier"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 7,
+                            "line": 20
+                          },
+                          "sourcefile": "examples/varDecl.go",
+                          "start": {
+                            "column": 2,
+                            "line": 20
+                          }
+                        },
+                        "operator": "=",
+                        "right": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 7,
+                              "line": 20
+                            },
+                            "sourcefile": "examples/varDecl.go",
+                            "start": {
+                              "column": 6,
+                              "line": 20
+                            }
+                          },
+                          "name": "l",
+                          "type": "Identifier"
+                        },
+                        "type": "AssignmentExpression"
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "left": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 3,
+                              "line": 21
+                            },
+                            "sourcefile": "examples/varDecl.go",
+                            "start": {
+                              "column": 2,
+                              "line": 21
+                            }
+                          },
+                          "name": "_",
+                          "type": "Identifier"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 7,
+                            "line": 21
+                          },
+                          "sourcefile": "examples/varDecl.go",
+                          "start": {
+                            "column": 2,
+                            "line": 21
+                          }
+                        },
+                        "operator": "=",
+                        "right": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 7,
+                              "line": 21
+                            },
+                            "sourcefile": "examples/varDecl.go",
+                            "start": {
+                              "column": 6,
+                              "line": 21
+                            }
+                          },
+                          "name": "m",
+                          "type": "Identifier"
+                        },
+                        "type": "AssignmentExpression"
+                      }
+                    ],
+                    "id": null,
+                    "loc": {
+                      "end": {
+                        "column": 2,
+                        "line": 23
+                      },
+                      "sourcefile": "examples/varDecl.go",
+                      "start": {
+                        "column": 17,
+                        "line": 9
+                      }
+                    },
+                    "type": "ScopedStatement"
+                  },
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 14,
+                        "line": 9
+                      },
+                      "sourcefile": "examples/varDecl.go",
+                      "start": {
+                        "column": 6,
+                        "line": 9
+                      }
+                    },
+                    "name": "VarDecls",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 23
+                    },
+                    "sourcefile": "examples/varDecl.go",
+                    "start": {
+                      "column": 1,
+                      "line": 9
+                    }
+                  },
+                  "modifiers": null,
+                  "parameters": [],
+                  "returnType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "VoidType",
+                    "typeArguments": null
+                  },
+                  "type": "FunctionDefinition"
+                }
+              ],
+              "language": "golang",
+              "languageVersion": "1.18",
+              "loc": {
+                "end": {
+                  "column": 2,
+                  "line": 23
+                },
+                "sourcefile": "examples/varDecl.go",
+                "start": {
+                  "column": 1,
+                  "line": 1
+                }
+              },
+              "type": "CompileUnit",
+              "uri": "",
+              "version": ""
+            },
+            "packageName": "__single__"
+          }
+        },
+        "subs": {}
+      }
+    }
+  }
+}

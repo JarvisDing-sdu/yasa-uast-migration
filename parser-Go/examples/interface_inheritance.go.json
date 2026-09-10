@@ -1,0 +1,3979 @@
+{
+  "moduleName": "__single_module__",
+  "packageInfo": {
+    "PathName": "",
+    "files": {},
+    "subs": {
+      "/": {
+        "PathName": "",
+        "files": {
+          "examples/interface_inheritance.go": {
+            "node": {
+              "_meta": {},
+              "body": [
+                {
+                  "_meta": {},
+                  "loc": {
+                    "end": {
+                      "column": 17,
+                      "line": 1
+                    },
+                    "sourcefile": "examples/interface_inheritance.go",
+                    "start": {
+                      "column": 9,
+                      "line": 1
+                    }
+                  },
+                  "packageName": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 17,
+                        "line": 1
+                      },
+                      "sourcefile": "examples/interface_inheritance.go",
+                      "start": {
+                        "column": 9,
+                        "line": 1
+                      }
+                    },
+                    "name": "examples",
+                    "type": "Identifier"
+                  },
+                  "type": "PackageDeclaration"
+                },
+                {
+                  "_meta": {
+                    "ReceiveCls": "",
+                    "isDefaultImport": true
+                  },
+                  "cloned": false,
+                  "id": {
+                    "_meta": {},
+                    "loc": null,
+                    "name": "fmt",
+                    "type": "Identifier"
+                  },
+                  "init": {
+                    "_meta": {},
+                    "from": {
+                      "_meta": {},
+                      "literalType": "string",
+                      "loc": {
+                        "end": {
+                          "column": 13,
+                          "line": 3
+                        },
+                        "sourcefile": "examples/interface_inheritance.go",
+                        "start": {
+                          "column": 8,
+                          "line": 3
+                        }
+                      },
+                      "type": "Literal",
+                      "value": "fmt"
+                    },
+                    "imported": null,
+                    "loc": {
+                      "end": {
+                        "column": 13,
+                        "line": 3
+                      },
+                      "sourcefile": "examples/interface_inheritance.go",
+                      "start": {
+                        "column": 8,
+                        "line": 3
+                      }
+                    },
+                    "local": null,
+                    "type": "ImportExpression"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 13,
+                      "line": 3
+                    },
+                    "sourcefile": "examples/interface_inheritance.go",
+                    "start": {
+                      "column": 8,
+                      "line": 3
+                    }
+                  },
+                  "type": "VariableDeclaration",
+                  "varType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "DynamicType",
+                    "typeArguments": null
+                  },
+                  "variableParam": false
+                },
+                {
+                  "_meta": {},
+                  "body": [
+                    {
+                      "_meta": {},
+                      "cloned": true,
+                      "id": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 13,
+                                "line": 6
+                              },
+                              "sourcefile": "examples/interface_inheritance.go",
+                              "start": {
+                                "column": 7,
+                                "line": 6
+                              }
+                            },
+                            "name": "string",
+                            "type": "Identifier"
+                          }
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 6,
+                            "line": 6
+                          },
+                          "sourcefile": "examples/interface_inheritance.go",
+                          "start": {
+                            "column": 2,
+                            "line": 6
+                          }
+                        },
+                        "name": "name",
+                        "type": "Identifier"
+                      },
+                      "init": null,
+                      "loc": {
+                        "end": {
+                          "column": 13,
+                          "line": 6
+                        },
+                        "sourcefile": "examples/interface_inheritance.go",
+                        "start": {
+                          "column": 2,
+                          "line": 6
+                        }
+                      },
+                      "type": "VariableDeclaration",
+                      "varType": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 13,
+                            "line": 6
+                          },
+                          "sourcefile": "examples/interface_inheritance.go",
+                          "start": {
+                            "column": 7,
+                            "line": 6
+                          }
+                        },
+                        "name": "string",
+                        "type": "Identifier"
+                      },
+                      "variableParam": false
+                    },
+                    {
+                      "_meta": {
+                        "ReceiveCls": "TInterface1"
+                      },
+                      "body": {
+                        "_meta": {},
+                        "body": [
+                          {
+                            "_meta": {},
+                            "cloned": true,
+                            "id": {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 20,
+                                      "line": 9
+                                    },
+                                    "sourcefile": "examples/interface_inheritance.go",
+                                    "start": {
+                                      "column": 9,
+                                      "line": 9
+                                    }
+                                  },
+                                  "name": "TInterface1",
+                                  "type": "Identifier"
+                                }
+                              },
+                              "loc": null,
+                              "name": "t",
+                              "type": "Identifier"
+                            },
+                            "init": {
+                              "_meta": {},
+                              "loc": null,
+                              "type": "ThisExpression"
+                            },
+                            "loc": null,
+                            "type": "VariableDeclaration",
+                            "varType": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 20,
+                                  "line": 9
+                                },
+                                "sourcefile": "examples/interface_inheritance.go",
+                                "start": {
+                                  "column": 9,
+                                  "line": 9
+                                }
+                              },
+                              "name": "TInterface1",
+                              "type": "Identifier"
+                            },
+                            "variableParam": false
+                          }
+                        ],
+                        "id": null,
+                        "loc": {
+                          "end": {
+                            "column": 40,
+                            "line": 9
+                          },
+                          "sourcefile": "examples/interface_inheritance.go",
+                          "start": {
+                            "column": 38,
+                            "line": 9
+                          }
+                        },
+                        "type": "ScopedStatement"
+                      },
+                      "id": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 31,
+                            "line": 9
+                          },
+                          "sourcefile": "examples/interface_inheritance.go",
+                          "start": {
+                            "column": 22,
+                            "line": 9
+                          }
+                        },
+                        "name": "ClearName",
+                        "type": "Identifier"
+                      },
+                      "loc": {
+                        "end": {
+                          "column": 40,
+                          "line": 9
+                        },
+                        "sourcefile": "examples/interface_inheritance.go",
+                        "start": {
+                          "column": 1,
+                          "line": 9
+                        }
+                      },
+                      "modifiers": null,
+                      "parameters": [],
+                      "returnType": {
+                        "_meta": {},
+                        "id": null,
+                        "loc": null,
+                        "type": "VoidType",
+                        "typeArguments": null
+                      },
+                      "type": "FunctionDefinition"
+                    },
+                    {
+                      "_meta": {
+                        "ReceiveCls": "TInterface1"
+                      },
+                      "body": {
+                        "_meta": {},
+                        "body": [
+                          {
+                            "_meta": {},
+                            "cloned": true,
+                            "id": {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 20,
+                                      "line": 10
+                                    },
+                                    "sourcefile": "examples/interface_inheritance.go",
+                                    "start": {
+                                      "column": 9,
+                                      "line": 10
+                                    }
+                                  },
+                                  "name": "TInterface1",
+                                  "type": "Identifier"
+                                }
+                              },
+                              "loc": null,
+                              "name": "t",
+                              "type": "Identifier"
+                            },
+                            "init": {
+                              "_meta": {},
+                              "loc": null,
+                              "type": "ThisExpression"
+                            },
+                            "loc": null,
+                            "type": "VariableDeclaration",
+                            "varType": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 20,
+                                  "line": 10
+                                },
+                                "sourcefile": "examples/interface_inheritance.go",
+                                "start": {
+                                  "column": 9,
+                                  "line": 10
+                                }
+                              },
+                              "name": "TInterface1",
+                              "type": "Identifier"
+                            },
+                            "variableParam": false
+                          }
+                        ],
+                        "id": null,
+                        "loc": {
+                          "end": {
+                            "column": 40,
+                            "line": 10
+                          },
+                          "sourcefile": "examples/interface_inheritance.go",
+                          "start": {
+                            "column": 38,
+                            "line": 10
+                          }
+                        },
+                        "type": "ScopedStatement"
+                      },
+                      "id": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 23,
+                            "line": 10
+                          },
+                          "sourcefile": "examples/interface_inheritance.go",
+                          "start": {
+                            "column": 22,
+                            "line": 10
+                          }
+                        },
+                        "name": "N",
+                        "type": "Identifier"
+                      },
+                      "loc": {
+                        "end": {
+                          "column": 40,
+                          "line": 10
+                        },
+                        "sourcefile": "examples/interface_inheritance.go",
+                        "start": {
+                          "column": 1,
+                          "line": 10
+                        }
+                      },
+                      "modifiers": null,
+                      "parameters": [],
+                      "returnType": {
+                        "_meta": {},
+                        "id": null,
+                        "loc": null,
+                        "type": "VoidType",
+                        "typeArguments": null
+                      },
+                      "type": "FunctionDefinition"
+                    },
+                    {
+                      "_meta": {
+                        "ReceiveCls": "TInterface1"
+                      },
+                      "body": {
+                        "_meta": {},
+                        "body": [
+                          {
+                            "_meta": {},
+                            "cloned": true,
+                            "id": {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 20,
+                                      "line": 11
+                                    },
+                                    "sourcefile": "examples/interface_inheritance.go",
+                                    "start": {
+                                      "column": 9,
+                                      "line": 11
+                                    }
+                                  },
+                                  "name": "TInterface1",
+                                  "type": "Identifier"
+                                }
+                              },
+                              "loc": null,
+                              "name": "t",
+                              "type": "Identifier"
+                            },
+                            "init": {
+                              "_meta": {},
+                              "loc": null,
+                              "type": "ThisExpression"
+                            },
+                            "loc": null,
+                            "type": "VariableDeclaration",
+                            "varType": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 20,
+                                  "line": 11
+                                },
+                                "sourcefile": "examples/interface_inheritance.go",
+                                "start": {
+                                  "column": 9,
+                                  "line": 11
+                                }
+                              },
+                              "name": "TInterface1",
+                              "type": "Identifier"
+                            },
+                            "variableParam": false
+                          },
+                          {
+                            "_meta": {},
+                            "argument": {
+                              "_meta": {},
+                              "literalType": "STRING",
+                              "loc": {
+                                "end": {
+                                  "column": 49,
+                                  "line": 11
+                                },
+                                "sourcefile": "examples/interface_inheritance.go",
+                                "start": {
+                                  "column": 47,
+                                  "line": 11
+                                }
+                              },
+                              "type": "Literal",
+                              "value": "\"\""
+                            },
+                            "isYield": false,
+                            "loc": {
+                              "end": {
+                                "column": 49,
+                                "line": 11
+                              },
+                              "sourcefile": "examples/interface_inheritance.go",
+                              "start": {
+                                "column": 40,
+                                "line": 11
+                              }
+                            },
+                            "type": "ReturnStatement"
+                          }
+                        ],
+                        "id": null,
+                        "loc": {
+                          "end": {
+                            "column": 51,
+                            "line": 11
+                          },
+                          "sourcefile": "examples/interface_inheritance.go",
+                          "start": {
+                            "column": 38,
+                            "line": 11
+                          }
+                        },
+                        "type": "ScopedStatement"
+                      },
+                      "id": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 28,
+                            "line": 11
+                          },
+                          "sourcefile": "examples/interface_inheritance.go",
+                          "start": {
+                            "column": 22,
+                            "line": 11
+                          }
+                        },
+                        "name": "String",
+                        "type": "Identifier"
+                      },
+                      "loc": {
+                        "end": {
+                          "column": 51,
+                          "line": 11
+                        },
+                        "sourcefile": "examples/interface_inheritance.go",
+                        "start": {
+                          "column": 1,
+                          "line": 11
+                        }
+                      },
+                      "modifiers": null,
+                      "parameters": [],
+                      "returnType": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 37,
+                            "line": 11
+                          },
+                          "sourcefile": "examples/interface_inheritance.go",
+                          "start": {
+                            "column": 31,
+                            "line": 11
+                          }
+                        },
+                        "name": "string",
+                        "type": "Identifier"
+                      },
+                      "type": "FunctionDefinition"
+                    },
+                    {
+                      "_meta": {
+                        "ReceiveCls": "TInterface1"
+                      },
+                      "body": {
+                        "_meta": {},
+                        "body": [
+                          {
+                            "_meta": {},
+                            "cloned": true,
+                            "id": {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 20,
+                                      "line": 12
+                                    },
+                                    "sourcefile": "examples/interface_inheritance.go",
+                                    "start": {
+                                      "column": 9,
+                                      "line": 12
+                                    }
+                                  },
+                                  "name": "TInterface1",
+                                  "type": "Identifier"
+                                }
+                              },
+                              "loc": null,
+                              "name": "t",
+                              "type": "Identifier"
+                            },
+                            "init": {
+                              "_meta": {},
+                              "loc": null,
+                              "type": "ThisExpression"
+                            },
+                            "loc": null,
+                            "type": "VariableDeclaration",
+                            "varType": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 20,
+                                  "line": 12
+                                },
+                                "sourcefile": "examples/interface_inheritance.go",
+                                "start": {
+                                  "column": 9,
+                                  "line": 12
+                                }
+                              },
+                              "name": "TInterface1",
+                              "type": "Identifier"
+                            },
+                            "variableParam": false
+                          },
+                          {
+                            "_meta": {},
+                            "argument": {
+                              "_meta": {},
+                              "literalType": "STRING",
+                              "loc": {
+                                "end": {
+                                  "column": 49,
+                                  "line": 12
+                                },
+                                "sourcefile": "examples/interface_inheritance.go",
+                                "start": {
+                                  "column": 47,
+                                  "line": 12
+                                }
+                              },
+                              "type": "Literal",
+                              "value": "\"\""
+                            },
+                            "isYield": false,
+                            "loc": {
+                              "end": {
+                                "column": 49,
+                                "line": 12
+                              },
+                              "sourcefile": "examples/interface_inheritance.go",
+                              "start": {
+                                "column": 40,
+                                "line": 12
+                              }
+                            },
+                            "type": "ReturnStatement"
+                          }
+                        ],
+                        "id": null,
+                        "loc": {
+                          "end": {
+                            "column": 51,
+                            "line": 12
+                          },
+                          "sourcefile": "examples/interface_inheritance.go",
+                          "start": {
+                            "column": 38,
+                            "line": 12
+                          }
+                        },
+                        "type": "ScopedStatement"
+                      },
+                      "id": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 27,
+                            "line": 12
+                          },
+                          "sourcefile": "examples/interface_inheritance.go",
+                          "start": {
+                            "column": 22,
+                            "line": 12
+                          }
+                        },
+                        "name": "Error",
+                        "type": "Identifier"
+                      },
+                      "loc": {
+                        "end": {
+                          "column": 51,
+                          "line": 12
+                        },
+                        "sourcefile": "examples/interface_inheritance.go",
+                        "start": {
+                          "column": 1,
+                          "line": 12
+                        }
+                      },
+                      "modifiers": null,
+                      "parameters": [],
+                      "returnType": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 36,
+                            "line": 12
+                          },
+                          "sourcefile": "examples/interface_inheritance.go",
+                          "start": {
+                            "column": 30,
+                            "line": 12
+                          }
+                        },
+                        "name": "string",
+                        "type": "Identifier"
+                      },
+                      "type": "FunctionDefinition"
+                    }
+                  ],
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 17,
+                        "line": 5
+                      },
+                      "sourcefile": "examples/interface_inheritance.go",
+                      "start": {
+                        "column": 6,
+                        "line": 5
+                      }
+                    },
+                    "name": "TInterface1",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 7
+                    },
+                    "sourcefile": "examples/interface_inheritance.go",
+                    "start": {
+                      "column": 6,
+                      "line": 5
+                    }
+                  },
+                  "supers": [],
+                  "type": "ClassDefinition"
+                },
+                {
+                  "_meta": {},
+                  "body": [
+                    {
+                      "_meta": {},
+                      "cloned": true,
+                      "id": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 13,
+                                "line": 15
+                              },
+                              "sourcefile": "examples/interface_inheritance.go",
+                              "start": {
+                                "column": 7,
+                                "line": 15
+                              }
+                            },
+                            "name": "string",
+                            "type": "Identifier"
+                          }
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 6,
+                            "line": 15
+                          },
+                          "sourcefile": "examples/interface_inheritance.go",
+                          "start": {
+                            "column": 2,
+                            "line": 15
+                          }
+                        },
+                        "name": "name",
+                        "type": "Identifier"
+                      },
+                      "init": null,
+                      "loc": {
+                        "end": {
+                          "column": 13,
+                          "line": 15
+                        },
+                        "sourcefile": "examples/interface_inheritance.go",
+                        "start": {
+                          "column": 2,
+                          "line": 15
+                        }
+                      },
+                      "type": "VariableDeclaration",
+                      "varType": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 13,
+                            "line": 15
+                          },
+                          "sourcefile": "examples/interface_inheritance.go",
+                          "start": {
+                            "column": 7,
+                            "line": 15
+                          }
+                        },
+                        "name": "string",
+                        "type": "Identifier"
+                      },
+                      "variableParam": false
+                    },
+                    {
+                      "_meta": {
+                        "ReceiveCls": "TInterface2"
+                      },
+                      "body": {
+                        "_meta": {},
+                        "body": [
+                          {
+                            "_meta": {},
+                            "cloned": true,
+                            "id": {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 20,
+                                      "line": 18
+                                    },
+                                    "sourcefile": "examples/interface_inheritance.go",
+                                    "start": {
+                                      "column": 9,
+                                      "line": 18
+                                    }
+                                  },
+                                  "name": "TInterface2",
+                                  "type": "Identifier"
+                                }
+                              },
+                              "loc": null,
+                              "name": "t",
+                              "type": "Identifier"
+                            },
+                            "init": {
+                              "_meta": {},
+                              "loc": null,
+                              "type": "ThisExpression"
+                            },
+                            "loc": null,
+                            "type": "VariableDeclaration",
+                            "varType": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 20,
+                                  "line": 18
+                                },
+                                "sourcefile": "examples/interface_inheritance.go",
+                                "start": {
+                                  "column": 9,
+                                  "line": 18
+                                }
+                              },
+                              "name": "TInterface2",
+                              "type": "Identifier"
+                            },
+                            "variableParam": false
+                          }
+                        ],
+                        "id": null,
+                        "loc": {
+                          "end": {
+                            "column": 40,
+                            "line": 18
+                          },
+                          "sourcefile": "examples/interface_inheritance.go",
+                          "start": {
+                            "column": 38,
+                            "line": 18
+                          }
+                        },
+                        "type": "ScopedStatement"
+                      },
+                      "id": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 31,
+                            "line": 18
+                          },
+                          "sourcefile": "examples/interface_inheritance.go",
+                          "start": {
+                            "column": 22,
+                            "line": 18
+                          }
+                        },
+                        "name": "ClearName",
+                        "type": "Identifier"
+                      },
+                      "loc": {
+                        "end": {
+                          "column": 40,
+                          "line": 18
+                        },
+                        "sourcefile": "examples/interface_inheritance.go",
+                        "start": {
+                          "column": 1,
+                          "line": 18
+                        }
+                      },
+                      "modifiers": null,
+                      "parameters": [],
+                      "returnType": {
+                        "_meta": {},
+                        "id": null,
+                        "loc": null,
+                        "type": "VoidType",
+                        "typeArguments": null
+                      },
+                      "type": "FunctionDefinition"
+                    },
+                    {
+                      "_meta": {
+                        "ReceiveCls": "TInterface2"
+                      },
+                      "body": {
+                        "_meta": {},
+                        "body": [
+                          {
+                            "_meta": {},
+                            "cloned": true,
+                            "id": {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 20,
+                                      "line": 19
+                                    },
+                                    "sourcefile": "examples/interface_inheritance.go",
+                                    "start": {
+                                      "column": 9,
+                                      "line": 19
+                                    }
+                                  },
+                                  "name": "TInterface2",
+                                  "type": "Identifier"
+                                }
+                              },
+                              "loc": null,
+                              "name": "t",
+                              "type": "Identifier"
+                            },
+                            "init": {
+                              "_meta": {},
+                              "loc": null,
+                              "type": "ThisExpression"
+                            },
+                            "loc": null,
+                            "type": "VariableDeclaration",
+                            "varType": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 20,
+                                  "line": 19
+                                },
+                                "sourcefile": "examples/interface_inheritance.go",
+                                "start": {
+                                  "column": 9,
+                                  "line": 19
+                                }
+                              },
+                              "name": "TInterface2",
+                              "type": "Identifier"
+                            },
+                            "variableParam": false
+                          }
+                        ],
+                        "id": null,
+                        "loc": {
+                          "end": {
+                            "column": 40,
+                            "line": 19
+                          },
+                          "sourcefile": "examples/interface_inheritance.go",
+                          "start": {
+                            "column": 38,
+                            "line": 19
+                          }
+                        },
+                        "type": "ScopedStatement"
+                      },
+                      "id": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 23,
+                            "line": 19
+                          },
+                          "sourcefile": "examples/interface_inheritance.go",
+                          "start": {
+                            "column": 22,
+                            "line": 19
+                          }
+                        },
+                        "name": "N",
+                        "type": "Identifier"
+                      },
+                      "loc": {
+                        "end": {
+                          "column": 40,
+                          "line": 19
+                        },
+                        "sourcefile": "examples/interface_inheritance.go",
+                        "start": {
+                          "column": 1,
+                          "line": 19
+                        }
+                      },
+                      "modifiers": null,
+                      "parameters": [],
+                      "returnType": {
+                        "_meta": {},
+                        "id": null,
+                        "loc": null,
+                        "type": "VoidType",
+                        "typeArguments": null
+                      },
+                      "type": "FunctionDefinition"
+                    },
+                    {
+                      "_meta": {
+                        "ReceiveCls": "TInterface2"
+                      },
+                      "body": {
+                        "_meta": {},
+                        "body": [
+                          {
+                            "_meta": {},
+                            "cloned": true,
+                            "id": {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 20,
+                                      "line": 20
+                                    },
+                                    "sourcefile": "examples/interface_inheritance.go",
+                                    "start": {
+                                      "column": 9,
+                                      "line": 20
+                                    }
+                                  },
+                                  "name": "TInterface2",
+                                  "type": "Identifier"
+                                }
+                              },
+                              "loc": null,
+                              "name": "t",
+                              "type": "Identifier"
+                            },
+                            "init": {
+                              "_meta": {},
+                              "loc": null,
+                              "type": "ThisExpression"
+                            },
+                            "loc": null,
+                            "type": "VariableDeclaration",
+                            "varType": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 20,
+                                  "line": 20
+                                },
+                                "sourcefile": "examples/interface_inheritance.go",
+                                "start": {
+                                  "column": 9,
+                                  "line": 20
+                                }
+                              },
+                              "name": "TInterface2",
+                              "type": "Identifier"
+                            },
+                            "variableParam": false
+                          },
+                          {
+                            "_meta": {},
+                            "argument": {
+                              "_meta": {},
+                              "literalType": "STRING",
+                              "loc": {
+                                "end": {
+                                  "column": 49,
+                                  "line": 20
+                                },
+                                "sourcefile": "examples/interface_inheritance.go",
+                                "start": {
+                                  "column": 47,
+                                  "line": 20
+                                }
+                              },
+                              "type": "Literal",
+                              "value": "\"\""
+                            },
+                            "isYield": false,
+                            "loc": {
+                              "end": {
+                                "column": 49,
+                                "line": 20
+                              },
+                              "sourcefile": "examples/interface_inheritance.go",
+                              "start": {
+                                "column": 40,
+                                "line": 20
+                              }
+                            },
+                            "type": "ReturnStatement"
+                          }
+                        ],
+                        "id": null,
+                        "loc": {
+                          "end": {
+                            "column": 51,
+                            "line": 20
+                          },
+                          "sourcefile": "examples/interface_inheritance.go",
+                          "start": {
+                            "column": 38,
+                            "line": 20
+                          }
+                        },
+                        "type": "ScopedStatement"
+                      },
+                      "id": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 28,
+                            "line": 20
+                          },
+                          "sourcefile": "examples/interface_inheritance.go",
+                          "start": {
+                            "column": 22,
+                            "line": 20
+                          }
+                        },
+                        "name": "String",
+                        "type": "Identifier"
+                      },
+                      "loc": {
+                        "end": {
+                          "column": 51,
+                          "line": 20
+                        },
+                        "sourcefile": "examples/interface_inheritance.go",
+                        "start": {
+                          "column": 1,
+                          "line": 20
+                        }
+                      },
+                      "modifiers": null,
+                      "parameters": [],
+                      "returnType": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 37,
+                            "line": 20
+                          },
+                          "sourcefile": "examples/interface_inheritance.go",
+                          "start": {
+                            "column": 31,
+                            "line": 20
+                          }
+                        },
+                        "name": "string",
+                        "type": "Identifier"
+                      },
+                      "type": "FunctionDefinition"
+                    },
+                    {
+                      "_meta": {
+                        "ReceiveCls": "TInterface2"
+                      },
+                      "body": {
+                        "_meta": {},
+                        "body": [
+                          {
+                            "_meta": {},
+                            "cloned": true,
+                            "id": {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 20,
+                                      "line": 21
+                                    },
+                                    "sourcefile": "examples/interface_inheritance.go",
+                                    "start": {
+                                      "column": 9,
+                                      "line": 21
+                                    }
+                                  },
+                                  "name": "TInterface2",
+                                  "type": "Identifier"
+                                }
+                              },
+                              "loc": null,
+                              "name": "t",
+                              "type": "Identifier"
+                            },
+                            "init": {
+                              "_meta": {},
+                              "loc": null,
+                              "type": "ThisExpression"
+                            },
+                            "loc": null,
+                            "type": "VariableDeclaration",
+                            "varType": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 20,
+                                  "line": 21
+                                },
+                                "sourcefile": "examples/interface_inheritance.go",
+                                "start": {
+                                  "column": 9,
+                                  "line": 21
+                                }
+                              },
+                              "name": "TInterface2",
+                              "type": "Identifier"
+                            },
+                            "variableParam": false
+                          },
+                          {
+                            "_meta": {},
+                            "argument": {
+                              "_meta": {},
+                              "literalType": "STRING",
+                              "loc": {
+                                "end": {
+                                  "column": 49,
+                                  "line": 21
+                                },
+                                "sourcefile": "examples/interface_inheritance.go",
+                                "start": {
+                                  "column": 47,
+                                  "line": 21
+                                }
+                              },
+                              "type": "Literal",
+                              "value": "\"\""
+                            },
+                            "isYield": false,
+                            "loc": {
+                              "end": {
+                                "column": 49,
+                                "line": 21
+                              },
+                              "sourcefile": "examples/interface_inheritance.go",
+                              "start": {
+                                "column": 40,
+                                "line": 21
+                              }
+                            },
+                            "type": "ReturnStatement"
+                          }
+                        ],
+                        "id": null,
+                        "loc": {
+                          "end": {
+                            "column": 51,
+                            "line": 21
+                          },
+                          "sourcefile": "examples/interface_inheritance.go",
+                          "start": {
+                            "column": 38,
+                            "line": 21
+                          }
+                        },
+                        "type": "ScopedStatement"
+                      },
+                      "id": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 27,
+                            "line": 21
+                          },
+                          "sourcefile": "examples/interface_inheritance.go",
+                          "start": {
+                            "column": 22,
+                            "line": 21
+                          }
+                        },
+                        "name": "Error",
+                        "type": "Identifier"
+                      },
+                      "loc": {
+                        "end": {
+                          "column": 51,
+                          "line": 21
+                        },
+                        "sourcefile": "examples/interface_inheritance.go",
+                        "start": {
+                          "column": 1,
+                          "line": 21
+                        }
+                      },
+                      "modifiers": null,
+                      "parameters": [],
+                      "returnType": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 36,
+                            "line": 21
+                          },
+                          "sourcefile": "examples/interface_inheritance.go",
+                          "start": {
+                            "column": 30,
+                            "line": 21
+                          }
+                        },
+                        "name": "string",
+                        "type": "Identifier"
+                      },
+                      "type": "FunctionDefinition"
+                    }
+                  ],
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 17,
+                        "line": 14
+                      },
+                      "sourcefile": "examples/interface_inheritance.go",
+                      "start": {
+                        "column": 6,
+                        "line": 14
+                      }
+                    },
+                    "name": "TInterface2",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 16
+                    },
+                    "sourcefile": "examples/interface_inheritance.go",
+                    "start": {
+                      "column": 6,
+                      "line": 14
+                    }
+                  },
+                  "supers": [],
+                  "type": "ClassDefinition"
+                },
+                {
+                  "_meta": {
+                    "ReceiveCls": "",
+                    "isInterface": true
+                  },
+                  "body": [
+                    {
+                      "_meta": {},
+                      "id": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 13,
+                            "line": 24
+                          },
+                          "sourcefile": "examples/interface_inheritance.go",
+                          "start": {
+                            "column": 11,
+                            "line": 24
+                          }
+                        },
+                        "name": "ClearName",
+                        "type": "Identifier"
+                      },
+                      "loc": {
+                        "end": {
+                          "column": 13,
+                          "line": 24
+                        },
+                        "sourcefile": "examples/interface_inheritance.go",
+                        "start": {
+                          "column": 11,
+                          "line": 24
+                        }
+                      },
+                      "params": null,
+                      "results": null,
+                      "type": "FuncType",
+                      "typeParams": null
+                    }
+                  ],
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 7,
+                        "line": 23
+                      },
+                      "sourcefile": "examples/interface_inheritance.go",
+                      "start": {
+                        "column": 6,
+                        "line": 23
+                      }
+                    },
+                    "name": "I",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 25
+                    },
+                    "sourcefile": "examples/interface_inheritance.go",
+                    "start": {
+                      "column": 6,
+                      "line": 23
+                    }
+                  },
+                  "supers": [],
+                  "type": "ClassDefinition"
+                },
+                {
+                  "_meta": {
+                    "ReceiveCls": "",
+                    "isInterface": true
+                  },
+                  "body": [
+                    {
+                      "_meta": {},
+                      "id": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 5,
+                            "line": 32
+                          },
+                          "sourcefile": "examples/interface_inheritance.go",
+                          "start": {
+                            "column": 3,
+                            "line": 32
+                          }
+                        },
+                        "name": "N",
+                        "type": "Identifier"
+                      },
+                      "loc": {
+                        "end": {
+                          "column": 5,
+                          "line": 32
+                        },
+                        "sourcefile": "examples/interface_inheritance.go",
+                        "start": {
+                          "column": 3,
+                          "line": 32
+                        }
+                      },
+                      "params": null,
+                      "results": null,
+                      "type": "FuncType",
+                      "typeParams": null
+                    }
+                  ],
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 7,
+                        "line": 29
+                      },
+                      "sourcefile": "examples/interface_inheritance.go",
+                      "start": {
+                        "column": 6,
+                        "line": 29
+                      }
+                    },
+                    "name": "V",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 34
+                    },
+                    "sourcefile": "examples/interface_inheritance.go",
+                    "start": {
+                      "column": 6,
+                      "line": 29
+                    }
+                  },
+                  "supers": [],
+                  "type": "ClassDefinition"
+                },
+                {
+                  "_meta": {},
+                  "body": {
+                    "_meta": {},
+                    "body": [
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "id": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 21,
+                                    "line": 37
+                                  },
+                                  "sourcefile": "examples/interface_inheritance.go",
+                                  "start": {
+                                    "column": 12,
+                                    "line": 37
+                                  }
+                                },
+                                "name": "MapType",
+                                "type": "Identifier"
+                              },
+                              "keyType": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 17,
+                                    "line": 37
+                                  },
+                                  "sourcefile": "examples/interface_inheritance.go",
+                                  "start": {
+                                    "column": 16,
+                                    "line": 37
+                                  }
+                                },
+                                "name": "I",
+                                "type": "Identifier"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 21,
+                                  "line": 37
+                                },
+                                "sourcefile": "examples/interface_inheritance.go",
+                                "start": {
+                                  "column": 12,
+                                  "line": 37
+                                }
+                              },
+                              "type": "MapType",
+                              "typeArguments": null,
+                              "valueType": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 21,
+                                    "line": 37
+                                  },
+                                  "sourcefile": "examples/interface_inheritance.go",
+                                  "start": {
+                                    "column": 18,
+                                    "line": 37
+                                  }
+                                },
+                                "name": "int",
+                                "type": "Identifier"
+                              }
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 3,
+                              "line": 37
+                            },
+                            "sourcefile": "examples/interface_inheritance.go",
+                            "start": {
+                              "column": 2,
+                              "line": 37
+                            }
+                          },
+                          "name": "m",
+                          "type": "Identifier"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "arguments": [
+                            {
+                              "_meta": {},
+                              "id": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 21,
+                                    "line": 37
+                                  },
+                                  "sourcefile": "examples/interface_inheritance.go",
+                                  "start": {
+                                    "column": 12,
+                                    "line": 37
+                                  }
+                                },
+                                "name": "MapType",
+                                "type": "Identifier"
+                              },
+                              "keyType": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 17,
+                                    "line": 37
+                                  },
+                                  "sourcefile": "examples/interface_inheritance.go",
+                                  "start": {
+                                    "column": 16,
+                                    "line": 37
+                                  }
+                                },
+                                "name": "I",
+                                "type": "Identifier"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 21,
+                                  "line": 37
+                                },
+                                "sourcefile": "examples/interface_inheritance.go",
+                                "start": {
+                                  "column": 12,
+                                  "line": 37
+                                }
+                              },
+                              "type": "MapType",
+                              "typeArguments": null,
+                              "valueType": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 21,
+                                    "line": 37
+                                  },
+                                  "sourcefile": "examples/interface_inheritance.go",
+                                  "start": {
+                                    "column": 18,
+                                    "line": 37
+                                  }
+                                },
+                                "name": "int",
+                                "type": "Identifier"
+                              }
+                            }
+                          ],
+                          "callee": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 11,
+                                "line": 37
+                              },
+                              "sourcefile": "examples/interface_inheritance.go",
+                              "start": {
+                                "column": 7,
+                                "line": 37
+                              }
+                            },
+                            "name": "make",
+                            "type": "Identifier"
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 22,
+                              "line": 37
+                            },
+                            "sourcefile": "examples/interface_inheritance.go",
+                            "start": {
+                              "column": 7,
+                              "line": 37
+                            }
+                          },
+                          "type": "CallExpression"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 22,
+                            "line": 37
+                          },
+                          "sourcefile": "examples/interface_inheritance.go",
+                          "start": {
+                            "column": 2,
+                            "line": 37
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "id": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 21,
+                                "line": 37
+                              },
+                              "sourcefile": "examples/interface_inheritance.go",
+                              "start": {
+                                "column": 12,
+                                "line": 37
+                              }
+                            },
+                            "name": "MapType",
+                            "type": "Identifier"
+                          },
+                          "keyType": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 17,
+                                "line": 37
+                              },
+                              "sourcefile": "examples/interface_inheritance.go",
+                              "start": {
+                                "column": 16,
+                                "line": 37
+                              }
+                            },
+                            "name": "I",
+                            "type": "Identifier"
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 21,
+                              "line": 37
+                            },
+                            "sourcefile": "examples/interface_inheritance.go",
+                            "start": {
+                              "column": 12,
+                              "line": 37
+                            }
+                          },
+                          "type": "MapType",
+                          "typeArguments": null,
+                          "valueType": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 21,
+                                "line": 37
+                              },
+                              "sourcefile": "examples/interface_inheritance.go",
+                              "start": {
+                                "column": 18,
+                                "line": 37
+                              }
+                            },
+                            "name": "int",
+                            "type": "Identifier"
+                          }
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": false,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 10,
+                                  "line": 38
+                                },
+                                "sourcefile": "examples/interface_inheritance.go",
+                                "start": {
+                                  "column": 9,
+                                  "line": 38
+                                }
+                              },
+                              "name": "I",
+                              "type": "Identifier"
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 8,
+                              "line": 38
+                            },
+                            "sourcefile": "examples/interface_inheritance.go",
+                            "start": {
+                              "column": 6,
+                              "line": 38
+                            }
+                          },
+                          "name": "i1",
+                          "type": "Identifier"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "expressions": [
+                            {
+                              "_meta": {},
+                              "cloned": false,
+                              "id": {
+                                "_meta": {
+                                  "ReceiveCls": "",
+                                  "type": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 24,
+                                        "line": 38
+                                      },
+                                      "sourcefile": "examples/interface_inheritance.go",
+                                      "start": {
+                                        "column": 13,
+                                        "line": 38
+                                      }
+                                    },
+                                    "name": "TInterface1",
+                                    "type": "Identifier"
+                                  }
+                                },
+                                "loc": {
+                                  "end": {
+                                    "column": 31,
+                                    "line": 38
+                                  },
+                                  "sourcefile": "examples/interface_inheritance.go",
+                                  "start": {
+                                    "column": 13,
+                                    "line": 38
+                                  }
+                                },
+                                "name": "tmp1",
+                                "type": "Identifier"
+                              },
+                              "init": {
+                                "_meta": {},
+                                "arguments": [],
+                                "callee": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 24,
+                                      "line": 38
+                                    },
+                                    "sourcefile": "examples/interface_inheritance.go",
+                                    "start": {
+                                      "column": 13,
+                                      "line": 38
+                                    }
+                                  },
+                                  "name": "TInterface1",
+                                  "type": "Identifier"
+                                },
+                                "loc": null,
+                                "type": "NewExpression"
+                              },
+                              "loc": null,
+                              "type": "VariableDeclaration",
+                              "varType": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 24,
+                                    "line": 38
+                                  },
+                                  "sourcefile": "examples/interface_inheritance.go",
+                                  "start": {
+                                    "column": 13,
+                                    "line": 38
+                                  }
+                                },
+                                "name": "TInterface1",
+                                "type": "Identifier"
+                              },
+                              "variableParam": false
+                            },
+                            {
+                              "_meta": {},
+                              "cloned": true,
+                              "left": {
+                                "_meta": {},
+                                "computed": false,
+                                "loc": null,
+                                "object": {
+                                  "_meta": {
+                                    "ReceiveCls": "",
+                                    "type": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 24,
+                                          "line": 38
+                                        },
+                                        "sourcefile": "examples/interface_inheritance.go",
+                                        "start": {
+                                          "column": 13,
+                                          "line": 38
+                                        }
+                                      },
+                                      "name": "TInterface1",
+                                      "type": "Identifier"
+                                    }
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 31,
+                                      "line": 38
+                                    },
+                                    "sourcefile": "examples/interface_inheritance.go",
+                                    "start": {
+                                      "column": 13,
+                                      "line": 38
+                                    }
+                                  },
+                                  "name": "tmp1",
+                                  "type": "Identifier"
+                                },
+                                "property": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 6,
+                                      "line": 6
+                                    },
+                                    "sourcefile": "examples/interface_inheritance.go",
+                                    "start": {
+                                      "column": 2,
+                                      "line": 6
+                                    }
+                                  },
+                                  "name": "name",
+                                  "type": "Identifier"
+                                },
+                                "type": "MemberAccess"
+                              },
+                              "loc": null,
+                              "operator": "=",
+                              "right": {
+                                "_meta": {},
+                                "literalType": "STRING",
+                                "loc": {
+                                  "end": {
+                                    "column": 30,
+                                    "line": 38
+                                  },
+                                  "sourcefile": "examples/interface_inheritance.go",
+                                  "start": {
+                                    "column": 25,
+                                    "line": 38
+                                  }
+                                },
+                                "type": "Literal",
+                                "value": "\"foo\""
+                              },
+                              "type": "AssignmentExpression"
+                            },
+                            {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 24,
+                                      "line": 38
+                                    },
+                                    "sourcefile": "examples/interface_inheritance.go",
+                                    "start": {
+                                      "column": 13,
+                                      "line": 38
+                                    }
+                                  },
+                                  "name": "TInterface1",
+                                  "type": "Identifier"
+                                }
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 31,
+                                  "line": 38
+                                },
+                                "sourcefile": "examples/interface_inheritance.go",
+                                "start": {
+                                  "column": 13,
+                                  "line": 38
+                                }
+                              },
+                              "name": "tmp1",
+                              "type": "Identifier"
+                            }
+                          ],
+                          "loc": {
+                            "end": {
+                              "column": 31,
+                              "line": 38
+                            },
+                            "sourcefile": "examples/interface_inheritance.go",
+                            "start": {
+                              "column": 13,
+                              "line": 38
+                            }
+                          },
+                          "type": "Sequence"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 31,
+                            "line": 38
+                          },
+                          "sourcefile": "examples/interface_inheritance.go",
+                          "start": {
+                            "column": 6,
+                            "line": 38
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 10,
+                              "line": 38
+                            },
+                            "sourcefile": "examples/interface_inheritance.go",
+                            "start": {
+                              "column": 9,
+                              "line": 38
+                            }
+                          },
+                          "name": "I",
+                          "type": "Identifier"
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": false,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 10,
+                                  "line": 39
+                                },
+                                "sourcefile": "examples/interface_inheritance.go",
+                                "start": {
+                                  "column": 9,
+                                  "line": 39
+                                }
+                              },
+                              "name": "I",
+                              "type": "Identifier"
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 8,
+                              "line": 39
+                            },
+                            "sourcefile": "examples/interface_inheritance.go",
+                            "start": {
+                              "column": 6,
+                              "line": 39
+                            }
+                          },
+                          "name": "i2",
+                          "type": "Identifier"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "expressions": [
+                            {
+                              "_meta": {},
+                              "cloned": false,
+                              "id": {
+                                "_meta": {
+                                  "ReceiveCls": "",
+                                  "type": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 24,
+                                        "line": 39
+                                      },
+                                      "sourcefile": "examples/interface_inheritance.go",
+                                      "start": {
+                                        "column": 13,
+                                        "line": 39
+                                      }
+                                    },
+                                    "name": "TInterface2",
+                                    "type": "Identifier"
+                                  }
+                                },
+                                "loc": {
+                                  "end": {
+                                    "column": 31,
+                                    "line": 39
+                                  },
+                                  "sourcefile": "examples/interface_inheritance.go",
+                                  "start": {
+                                    "column": 13,
+                                    "line": 39
+                                  }
+                                },
+                                "name": "tmp2",
+                                "type": "Identifier"
+                              },
+                              "init": {
+                                "_meta": {},
+                                "arguments": [],
+                                "callee": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 24,
+                                      "line": 39
+                                    },
+                                    "sourcefile": "examples/interface_inheritance.go",
+                                    "start": {
+                                      "column": 13,
+                                      "line": 39
+                                    }
+                                  },
+                                  "name": "TInterface2",
+                                  "type": "Identifier"
+                                },
+                                "loc": null,
+                                "type": "NewExpression"
+                              },
+                              "loc": null,
+                              "type": "VariableDeclaration",
+                              "varType": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 24,
+                                    "line": 39
+                                  },
+                                  "sourcefile": "examples/interface_inheritance.go",
+                                  "start": {
+                                    "column": 13,
+                                    "line": 39
+                                  }
+                                },
+                                "name": "TInterface2",
+                                "type": "Identifier"
+                              },
+                              "variableParam": false
+                            },
+                            {
+                              "_meta": {},
+                              "cloned": true,
+                              "left": {
+                                "_meta": {},
+                                "computed": false,
+                                "loc": null,
+                                "object": {
+                                  "_meta": {
+                                    "ReceiveCls": "",
+                                    "type": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 24,
+                                          "line": 39
+                                        },
+                                        "sourcefile": "examples/interface_inheritance.go",
+                                        "start": {
+                                          "column": 13,
+                                          "line": 39
+                                        }
+                                      },
+                                      "name": "TInterface2",
+                                      "type": "Identifier"
+                                    }
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 31,
+                                      "line": 39
+                                    },
+                                    "sourcefile": "examples/interface_inheritance.go",
+                                    "start": {
+                                      "column": 13,
+                                      "line": 39
+                                    }
+                                  },
+                                  "name": "tmp2",
+                                  "type": "Identifier"
+                                },
+                                "property": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 6,
+                                      "line": 15
+                                    },
+                                    "sourcefile": "examples/interface_inheritance.go",
+                                    "start": {
+                                      "column": 2,
+                                      "line": 15
+                                    }
+                                  },
+                                  "name": "name",
+                                  "type": "Identifier"
+                                },
+                                "type": "MemberAccess"
+                              },
+                              "loc": null,
+                              "operator": "=",
+                              "right": {
+                                "_meta": {},
+                                "literalType": "STRING",
+                                "loc": {
+                                  "end": {
+                                    "column": 30,
+                                    "line": 39
+                                  },
+                                  "sourcefile": "examples/interface_inheritance.go",
+                                  "start": {
+                                    "column": 25,
+                                    "line": 39
+                                  }
+                                },
+                                "type": "Literal",
+                                "value": "\"bar\""
+                              },
+                              "type": "AssignmentExpression"
+                            },
+                            {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 24,
+                                      "line": 39
+                                    },
+                                    "sourcefile": "examples/interface_inheritance.go",
+                                    "start": {
+                                      "column": 13,
+                                      "line": 39
+                                    }
+                                  },
+                                  "name": "TInterface2",
+                                  "type": "Identifier"
+                                }
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 31,
+                                  "line": 39
+                                },
+                                "sourcefile": "examples/interface_inheritance.go",
+                                "start": {
+                                  "column": 13,
+                                  "line": 39
+                                }
+                              },
+                              "name": "tmp2",
+                              "type": "Identifier"
+                            }
+                          ],
+                          "loc": {
+                            "end": {
+                              "column": 31,
+                              "line": 39
+                            },
+                            "sourcefile": "examples/interface_inheritance.go",
+                            "start": {
+                              "column": 13,
+                              "line": 39
+                            }
+                          },
+                          "type": "Sequence"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 31,
+                            "line": 39
+                          },
+                          "sourcefile": "examples/interface_inheritance.go",
+                          "start": {
+                            "column": 6,
+                            "line": 39
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 10,
+                              "line": 39
+                            },
+                            "sourcefile": "examples/interface_inheritance.go",
+                            "start": {
+                              "column": 9,
+                              "line": 39
+                            }
+                          },
+                          "name": "I",
+                          "type": "Identifier"
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "left": {
+                          "_meta": {},
+                          "computed": true,
+                          "loc": {
+                            "end": {
+                              "column": 7,
+                              "line": 40
+                            },
+                            "sourcefile": "examples/interface_inheritance.go",
+                            "start": {
+                              "column": 2,
+                              "line": 40
+                            }
+                          },
+                          "object": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 3,
+                                "line": 40
+                              },
+                              "sourcefile": "examples/interface_inheritance.go",
+                              "start": {
+                                "column": 2,
+                                "line": 40
+                              }
+                            },
+                            "name": "m",
+                            "type": "Identifier"
+                          },
+                          "property": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 6,
+                                "line": 40
+                              },
+                              "sourcefile": "examples/interface_inheritance.go",
+                              "start": {
+                                "column": 4,
+                                "line": 40
+                              }
+                            },
+                            "name": "i1",
+                            "type": "Identifier"
+                          },
+                          "type": "MemberAccess"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 11,
+                            "line": 40
+                          },
+                          "sourcefile": "examples/interface_inheritance.go",
+                          "start": {
+                            "column": 2,
+                            "line": 40
+                          }
+                        },
+                        "operator": "=",
+                        "right": {
+                          "_meta": {},
+                          "literalType": "INT",
+                          "loc": {
+                            "end": {
+                              "column": 11,
+                              "line": 40
+                            },
+                            "sourcefile": "examples/interface_inheritance.go",
+                            "start": {
+                              "column": 10,
+                              "line": 40
+                            }
+                          },
+                          "type": "Literal",
+                          "value": "1"
+                        },
+                        "type": "AssignmentExpression"
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "left": {
+                          "_meta": {},
+                          "computed": true,
+                          "loc": {
+                            "end": {
+                              "column": 7,
+                              "line": 41
+                            },
+                            "sourcefile": "examples/interface_inheritance.go",
+                            "start": {
+                              "column": 2,
+                              "line": 41
+                            }
+                          },
+                          "object": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 3,
+                                "line": 41
+                              },
+                              "sourcefile": "examples/interface_inheritance.go",
+                              "start": {
+                                "column": 2,
+                                "line": 41
+                              }
+                            },
+                            "name": "m",
+                            "type": "Identifier"
+                          },
+                          "property": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 6,
+                                "line": 41
+                              },
+                              "sourcefile": "examples/interface_inheritance.go",
+                              "start": {
+                                "column": 4,
+                                "line": 41
+                              }
+                            },
+                            "name": "i2",
+                            "type": "Identifier"
+                          },
+                          "type": "MemberAccess"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 11,
+                            "line": 41
+                          },
+                          "sourcefile": "examples/interface_inheritance.go",
+                          "start": {
+                            "column": 2,
+                            "line": 41
+                          }
+                        },
+                        "operator": "=",
+                        "right": {
+                          "_meta": {},
+                          "literalType": "INT",
+                          "loc": {
+                            "end": {
+                              "column": 11,
+                              "line": 41
+                            },
+                            "sourcefile": "examples/interface_inheritance.go",
+                            "start": {
+                              "column": 10,
+                              "line": 41
+                            }
+                          },
+                          "type": "Literal",
+                          "value": "2"
+                        },
+                        "type": "AssignmentExpression"
+                      },
+                      {
+                        "_meta": {},
+                        "arguments": [
+                          {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 15,
+                                "line": 42
+                              },
+                              "sourcefile": "examples/interface_inheritance.go",
+                              "start": {
+                                "column": 14,
+                                "line": 42
+                              }
+                            },
+                            "name": "m",
+                            "type": "Identifier"
+                          }
+                        ],
+                        "callee": {
+                          "_meta": {},
+                          "computed": false,
+                          "loc": {
+                            "end": {
+                              "column": 13,
+                              "line": 42
+                            },
+                            "sourcefile": "examples/interface_inheritance.go",
+                            "start": {
+                              "column": 2,
+                              "line": 42
+                            }
+                          },
+                          "object": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 5,
+                                "line": 42
+                              },
+                              "sourcefile": "examples/interface_inheritance.go",
+                              "start": {
+                                "column": 2,
+                                "line": 42
+                              }
+                            },
+                            "name": "fmt",
+                            "type": "Identifier"
+                          },
+                          "property": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 13,
+                                "line": 42
+                              },
+                              "sourcefile": "examples/interface_inheritance.go",
+                              "start": {
+                                "column": 6,
+                                "line": 42
+                              }
+                            },
+                            "name": "Println",
+                            "type": "Identifier"
+                          },
+                          "type": "MemberAccess"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 16,
+                            "line": 42
+                          },
+                          "sourcefile": "examples/interface_inheritance.go",
+                          "start": {
+                            "column": 2,
+                            "line": 42
+                          }
+                        },
+                        "type": "CallExpression"
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "id": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 21,
+                                    "line": 44
+                                  },
+                                  "sourcefile": "examples/interface_inheritance.go",
+                                  "start": {
+                                    "column": 12,
+                                    "line": 44
+                                  }
+                                },
+                                "name": "MapType",
+                                "type": "Identifier"
+                              },
+                              "keyType": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 17,
+                                    "line": 44
+                                  },
+                                  "sourcefile": "examples/interface_inheritance.go",
+                                  "start": {
+                                    "column": 16,
+                                    "line": 44
+                                  }
+                                },
+                                "name": "V",
+                                "type": "Identifier"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 21,
+                                  "line": 44
+                                },
+                                "sourcefile": "examples/interface_inheritance.go",
+                                "start": {
+                                  "column": 12,
+                                  "line": 44
+                                }
+                              },
+                              "type": "MapType",
+                              "typeArguments": null,
+                              "valueType": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 21,
+                                    "line": 44
+                                  },
+                                  "sourcefile": "examples/interface_inheritance.go",
+                                  "start": {
+                                    "column": 18,
+                                    "line": 44
+                                  }
+                                },
+                                "name": "int",
+                                "type": "Identifier"
+                              }
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 3,
+                              "line": 44
+                            },
+                            "sourcefile": "examples/interface_inheritance.go",
+                            "start": {
+                              "column": 2,
+                              "line": 44
+                            }
+                          },
+                          "name": "n",
+                          "type": "Identifier"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "arguments": [
+                            {
+                              "_meta": {},
+                              "id": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 21,
+                                    "line": 44
+                                  },
+                                  "sourcefile": "examples/interface_inheritance.go",
+                                  "start": {
+                                    "column": 12,
+                                    "line": 44
+                                  }
+                                },
+                                "name": "MapType",
+                                "type": "Identifier"
+                              },
+                              "keyType": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 17,
+                                    "line": 44
+                                  },
+                                  "sourcefile": "examples/interface_inheritance.go",
+                                  "start": {
+                                    "column": 16,
+                                    "line": 44
+                                  }
+                                },
+                                "name": "V",
+                                "type": "Identifier"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 21,
+                                  "line": 44
+                                },
+                                "sourcefile": "examples/interface_inheritance.go",
+                                "start": {
+                                  "column": 12,
+                                  "line": 44
+                                }
+                              },
+                              "type": "MapType",
+                              "typeArguments": null,
+                              "valueType": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 21,
+                                    "line": 44
+                                  },
+                                  "sourcefile": "examples/interface_inheritance.go",
+                                  "start": {
+                                    "column": 18,
+                                    "line": 44
+                                  }
+                                },
+                                "name": "int",
+                                "type": "Identifier"
+                              }
+                            }
+                          ],
+                          "callee": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 11,
+                                "line": 44
+                              },
+                              "sourcefile": "examples/interface_inheritance.go",
+                              "start": {
+                                "column": 7,
+                                "line": 44
+                              }
+                            },
+                            "name": "make",
+                            "type": "Identifier"
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 22,
+                              "line": 44
+                            },
+                            "sourcefile": "examples/interface_inheritance.go",
+                            "start": {
+                              "column": 7,
+                              "line": 44
+                            }
+                          },
+                          "type": "CallExpression"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 22,
+                            "line": 44
+                          },
+                          "sourcefile": "examples/interface_inheritance.go",
+                          "start": {
+                            "column": 2,
+                            "line": 44
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "id": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 21,
+                                "line": 44
+                              },
+                              "sourcefile": "examples/interface_inheritance.go",
+                              "start": {
+                                "column": 12,
+                                "line": 44
+                              }
+                            },
+                            "name": "MapType",
+                            "type": "Identifier"
+                          },
+                          "keyType": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 17,
+                                "line": 44
+                              },
+                              "sourcefile": "examples/interface_inheritance.go",
+                              "start": {
+                                "column": 16,
+                                "line": 44
+                              }
+                            },
+                            "name": "V",
+                            "type": "Identifier"
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 21,
+                              "line": 44
+                            },
+                            "sourcefile": "examples/interface_inheritance.go",
+                            "start": {
+                              "column": 12,
+                              "line": 44
+                            }
+                          },
+                          "type": "MapType",
+                          "typeArguments": null,
+                          "valueType": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 21,
+                                "line": 44
+                              },
+                              "sourcefile": "examples/interface_inheritance.go",
+                              "start": {
+                                "column": 18,
+                                "line": 44
+                              }
+                            },
+                            "name": "int",
+                            "type": "Identifier"
+                          }
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": false,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 10,
+                                  "line": 45
+                                },
+                                "sourcefile": "examples/interface_inheritance.go",
+                                "start": {
+                                  "column": 9,
+                                  "line": 45
+                                }
+                              },
+                              "name": "V",
+                              "type": "Identifier"
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 8,
+                              "line": 45
+                            },
+                            "sourcefile": "examples/interface_inheritance.go",
+                            "start": {
+                              "column": 6,
+                              "line": 45
+                            }
+                          },
+                          "name": "v1",
+                          "type": "Identifier"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "expressions": [
+                            {
+                              "_meta": {},
+                              "cloned": false,
+                              "id": {
+                                "_meta": {
+                                  "ReceiveCls": "",
+                                  "type": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 24,
+                                        "line": 45
+                                      },
+                                      "sourcefile": "examples/interface_inheritance.go",
+                                      "start": {
+                                        "column": 13,
+                                        "line": 45
+                                      }
+                                    },
+                                    "name": "TInterface1",
+                                    "type": "Identifier"
+                                  }
+                                },
+                                "loc": {
+                                  "end": {
+                                    "column": 31,
+                                    "line": 45
+                                  },
+                                  "sourcefile": "examples/interface_inheritance.go",
+                                  "start": {
+                                    "column": 13,
+                                    "line": 45
+                                  }
+                                },
+                                "name": "tmp3",
+                                "type": "Identifier"
+                              },
+                              "init": {
+                                "_meta": {},
+                                "arguments": [],
+                                "callee": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 24,
+                                      "line": 45
+                                    },
+                                    "sourcefile": "examples/interface_inheritance.go",
+                                    "start": {
+                                      "column": 13,
+                                      "line": 45
+                                    }
+                                  },
+                                  "name": "TInterface1",
+                                  "type": "Identifier"
+                                },
+                                "loc": null,
+                                "type": "NewExpression"
+                              },
+                              "loc": null,
+                              "type": "VariableDeclaration",
+                              "varType": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 24,
+                                    "line": 45
+                                  },
+                                  "sourcefile": "examples/interface_inheritance.go",
+                                  "start": {
+                                    "column": 13,
+                                    "line": 45
+                                  }
+                                },
+                                "name": "TInterface1",
+                                "type": "Identifier"
+                              },
+                              "variableParam": false
+                            },
+                            {
+                              "_meta": {},
+                              "cloned": true,
+                              "left": {
+                                "_meta": {},
+                                "computed": false,
+                                "loc": null,
+                                "object": {
+                                  "_meta": {
+                                    "ReceiveCls": "",
+                                    "type": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 24,
+                                          "line": 45
+                                        },
+                                        "sourcefile": "examples/interface_inheritance.go",
+                                        "start": {
+                                          "column": 13,
+                                          "line": 45
+                                        }
+                                      },
+                                      "name": "TInterface1",
+                                      "type": "Identifier"
+                                    }
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 31,
+                                      "line": 45
+                                    },
+                                    "sourcefile": "examples/interface_inheritance.go",
+                                    "start": {
+                                      "column": 13,
+                                      "line": 45
+                                    }
+                                  },
+                                  "name": "tmp3",
+                                  "type": "Identifier"
+                                },
+                                "property": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 6,
+                                      "line": 6
+                                    },
+                                    "sourcefile": "examples/interface_inheritance.go",
+                                    "start": {
+                                      "column": 2,
+                                      "line": 6
+                                    }
+                                  },
+                                  "name": "name",
+                                  "type": "Identifier"
+                                },
+                                "type": "MemberAccess"
+                              },
+                              "loc": null,
+                              "operator": "=",
+                              "right": {
+                                "_meta": {},
+                                "literalType": "STRING",
+                                "loc": {
+                                  "end": {
+                                    "column": 30,
+                                    "line": 45
+                                  },
+                                  "sourcefile": "examples/interface_inheritance.go",
+                                  "start": {
+                                    "column": 25,
+                                    "line": 45
+                                  }
+                                },
+                                "type": "Literal",
+                                "value": "\"foo\""
+                              },
+                              "type": "AssignmentExpression"
+                            },
+                            {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 24,
+                                      "line": 45
+                                    },
+                                    "sourcefile": "examples/interface_inheritance.go",
+                                    "start": {
+                                      "column": 13,
+                                      "line": 45
+                                    }
+                                  },
+                                  "name": "TInterface1",
+                                  "type": "Identifier"
+                                }
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 31,
+                                  "line": 45
+                                },
+                                "sourcefile": "examples/interface_inheritance.go",
+                                "start": {
+                                  "column": 13,
+                                  "line": 45
+                                }
+                              },
+                              "name": "tmp3",
+                              "type": "Identifier"
+                            }
+                          ],
+                          "loc": {
+                            "end": {
+                              "column": 31,
+                              "line": 45
+                            },
+                            "sourcefile": "examples/interface_inheritance.go",
+                            "start": {
+                              "column": 13,
+                              "line": 45
+                            }
+                          },
+                          "type": "Sequence"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 31,
+                            "line": 45
+                          },
+                          "sourcefile": "examples/interface_inheritance.go",
+                          "start": {
+                            "column": 6,
+                            "line": 45
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 10,
+                              "line": 45
+                            },
+                            "sourcefile": "examples/interface_inheritance.go",
+                            "start": {
+                              "column": 9,
+                              "line": 45
+                            }
+                          },
+                          "name": "V",
+                          "type": "Identifier"
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": false,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 10,
+                                  "line": 46
+                                },
+                                "sourcefile": "examples/interface_inheritance.go",
+                                "start": {
+                                  "column": 9,
+                                  "line": 46
+                                }
+                              },
+                              "name": "V",
+                              "type": "Identifier"
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 8,
+                              "line": 46
+                            },
+                            "sourcefile": "examples/interface_inheritance.go",
+                            "start": {
+                              "column": 6,
+                              "line": 46
+                            }
+                          },
+                          "name": "v2",
+                          "type": "Identifier"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "expressions": [
+                            {
+                              "_meta": {},
+                              "cloned": false,
+                              "id": {
+                                "_meta": {
+                                  "ReceiveCls": "",
+                                  "type": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 24,
+                                        "line": 46
+                                      },
+                                      "sourcefile": "examples/interface_inheritance.go",
+                                      "start": {
+                                        "column": 13,
+                                        "line": 46
+                                      }
+                                    },
+                                    "name": "TInterface2",
+                                    "type": "Identifier"
+                                  }
+                                },
+                                "loc": {
+                                  "end": {
+                                    "column": 31,
+                                    "line": 46
+                                  },
+                                  "sourcefile": "examples/interface_inheritance.go",
+                                  "start": {
+                                    "column": 13,
+                                    "line": 46
+                                  }
+                                },
+                                "name": "tmp4",
+                                "type": "Identifier"
+                              },
+                              "init": {
+                                "_meta": {},
+                                "arguments": [],
+                                "callee": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 24,
+                                      "line": 46
+                                    },
+                                    "sourcefile": "examples/interface_inheritance.go",
+                                    "start": {
+                                      "column": 13,
+                                      "line": 46
+                                    }
+                                  },
+                                  "name": "TInterface2",
+                                  "type": "Identifier"
+                                },
+                                "loc": null,
+                                "type": "NewExpression"
+                              },
+                              "loc": null,
+                              "type": "VariableDeclaration",
+                              "varType": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 24,
+                                    "line": 46
+                                  },
+                                  "sourcefile": "examples/interface_inheritance.go",
+                                  "start": {
+                                    "column": 13,
+                                    "line": 46
+                                  }
+                                },
+                                "name": "TInterface2",
+                                "type": "Identifier"
+                              },
+                              "variableParam": false
+                            },
+                            {
+                              "_meta": {},
+                              "cloned": true,
+                              "left": {
+                                "_meta": {},
+                                "computed": false,
+                                "loc": null,
+                                "object": {
+                                  "_meta": {
+                                    "ReceiveCls": "",
+                                    "type": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 24,
+                                          "line": 46
+                                        },
+                                        "sourcefile": "examples/interface_inheritance.go",
+                                        "start": {
+                                          "column": 13,
+                                          "line": 46
+                                        }
+                                      },
+                                      "name": "TInterface2",
+                                      "type": "Identifier"
+                                    }
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 31,
+                                      "line": 46
+                                    },
+                                    "sourcefile": "examples/interface_inheritance.go",
+                                    "start": {
+                                      "column": 13,
+                                      "line": 46
+                                    }
+                                  },
+                                  "name": "tmp4",
+                                  "type": "Identifier"
+                                },
+                                "property": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 6,
+                                      "line": 15
+                                    },
+                                    "sourcefile": "examples/interface_inheritance.go",
+                                    "start": {
+                                      "column": 2,
+                                      "line": 15
+                                    }
+                                  },
+                                  "name": "name",
+                                  "type": "Identifier"
+                                },
+                                "type": "MemberAccess"
+                              },
+                              "loc": null,
+                              "operator": "=",
+                              "right": {
+                                "_meta": {},
+                                "literalType": "STRING",
+                                "loc": {
+                                  "end": {
+                                    "column": 30,
+                                    "line": 46
+                                  },
+                                  "sourcefile": "examples/interface_inheritance.go",
+                                  "start": {
+                                    "column": 25,
+                                    "line": 46
+                                  }
+                                },
+                                "type": "Literal",
+                                "value": "\"bar\""
+                              },
+                              "type": "AssignmentExpression"
+                            },
+                            {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 24,
+                                      "line": 46
+                                    },
+                                    "sourcefile": "examples/interface_inheritance.go",
+                                    "start": {
+                                      "column": 13,
+                                      "line": 46
+                                    }
+                                  },
+                                  "name": "TInterface2",
+                                  "type": "Identifier"
+                                }
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 31,
+                                  "line": 46
+                                },
+                                "sourcefile": "examples/interface_inheritance.go",
+                                "start": {
+                                  "column": 13,
+                                  "line": 46
+                                }
+                              },
+                              "name": "tmp4",
+                              "type": "Identifier"
+                            }
+                          ],
+                          "loc": {
+                            "end": {
+                              "column": 31,
+                              "line": 46
+                            },
+                            "sourcefile": "examples/interface_inheritance.go",
+                            "start": {
+                              "column": 13,
+                              "line": 46
+                            }
+                          },
+                          "type": "Sequence"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 31,
+                            "line": 46
+                          },
+                          "sourcefile": "examples/interface_inheritance.go",
+                          "start": {
+                            "column": 6,
+                            "line": 46
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 10,
+                              "line": 46
+                            },
+                            "sourcefile": "examples/interface_inheritance.go",
+                            "start": {
+                              "column": 9,
+                              "line": 46
+                            }
+                          },
+                          "name": "V",
+                          "type": "Identifier"
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "arguments": [],
+                        "callee": {
+                          "_meta": {},
+                          "computed": false,
+                          "loc": {
+                            "end": {
+                              "column": 6,
+                              "line": 47
+                            },
+                            "sourcefile": "examples/interface_inheritance.go",
+                            "start": {
+                              "column": 2,
+                              "line": 47
+                            }
+                          },
+                          "object": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 4,
+                                "line": 47
+                              },
+                              "sourcefile": "examples/interface_inheritance.go",
+                              "start": {
+                                "column": 2,
+                                "line": 47
+                              }
+                            },
+                            "name": "v1",
+                            "type": "Identifier"
+                          },
+                          "property": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 6,
+                                "line": 47
+                              },
+                              "sourcefile": "examples/interface_inheritance.go",
+                              "start": {
+                                "column": 5,
+                                "line": 47
+                              }
+                            },
+                            "name": "N",
+                            "type": "Identifier"
+                          },
+                          "type": "MemberAccess"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 8,
+                            "line": 47
+                          },
+                          "sourcefile": "examples/interface_inheritance.go",
+                          "start": {
+                            "column": 2,
+                            "line": 47
+                          }
+                        },
+                        "type": "CallExpression"
+                      },
+                      {
+                        "_meta": {},
+                        "arguments": [],
+                        "callee": {
+                          "_meta": {},
+                          "computed": false,
+                          "loc": {
+                            "end": {
+                              "column": 14,
+                              "line": 48
+                            },
+                            "sourcefile": "examples/interface_inheritance.go",
+                            "start": {
+                              "column": 2,
+                              "line": 48
+                            }
+                          },
+                          "object": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 4,
+                                "line": 48
+                              },
+                              "sourcefile": "examples/interface_inheritance.go",
+                              "start": {
+                                "column": 2,
+                                "line": 48
+                              }
+                            },
+                            "name": "v2",
+                            "type": "Identifier"
+                          },
+                          "property": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 14,
+                                "line": 48
+                              },
+                              "sourcefile": "examples/interface_inheritance.go",
+                              "start": {
+                                "column": 5,
+                                "line": 48
+                              }
+                            },
+                            "name": "ClearName",
+                            "type": "Identifier"
+                          },
+                          "type": "MemberAccess"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 16,
+                            "line": 48
+                          },
+                          "sourcefile": "examples/interface_inheritance.go",
+                          "start": {
+                            "column": 2,
+                            "line": 48
+                          }
+                        },
+                        "type": "CallExpression"
+                      },
+                      {
+                        "_meta": {},
+                        "arguments": [],
+                        "callee": {
+                          "_meta": {},
+                          "computed": false,
+                          "loc": {
+                            "end": {
+                              "column": 11,
+                              "line": 49
+                            },
+                            "sourcefile": "examples/interface_inheritance.go",
+                            "start": {
+                              "column": 2,
+                              "line": 49
+                            }
+                          },
+                          "object": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 4,
+                                "line": 49
+                              },
+                              "sourcefile": "examples/interface_inheritance.go",
+                              "start": {
+                                "column": 2,
+                                "line": 49
+                              }
+                            },
+                            "name": "v1",
+                            "type": "Identifier"
+                          },
+                          "property": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 11,
+                                "line": 49
+                              },
+                              "sourcefile": "examples/interface_inheritance.go",
+                              "start": {
+                                "column": 5,
+                                "line": 49
+                              }
+                            },
+                            "name": "String",
+                            "type": "Identifier"
+                          },
+                          "type": "MemberAccess"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 13,
+                            "line": 49
+                          },
+                          "sourcefile": "examples/interface_inheritance.go",
+                          "start": {
+                            "column": 2,
+                            "line": 49
+                          }
+                        },
+                        "type": "CallExpression"
+                      },
+                      {
+                        "_meta": {},
+                        "arguments": [],
+                        "callee": {
+                          "_meta": {},
+                          "computed": false,
+                          "loc": {
+                            "end": {
+                              "column": 10,
+                              "line": 50
+                            },
+                            "sourcefile": "examples/interface_inheritance.go",
+                            "start": {
+                              "column": 2,
+                              "line": 50
+                            }
+                          },
+                          "object": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 4,
+                                "line": 50
+                              },
+                              "sourcefile": "examples/interface_inheritance.go",
+                              "start": {
+                                "column": 2,
+                                "line": 50
+                              }
+                            },
+                            "name": "v2",
+                            "type": "Identifier"
+                          },
+                          "property": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 10,
+                                "line": 50
+                              },
+                              "sourcefile": "examples/interface_inheritance.go",
+                              "start": {
+                                "column": 5,
+                                "line": 50
+                              }
+                            },
+                            "name": "Error",
+                            "type": "Identifier"
+                          },
+                          "type": "MemberAccess"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 12,
+                            "line": 50
+                          },
+                          "sourcefile": "examples/interface_inheritance.go",
+                          "start": {
+                            "column": 2,
+                            "line": 50
+                          }
+                        },
+                        "type": "CallExpression"
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "left": {
+                          "_meta": {},
+                          "computed": true,
+                          "loc": {
+                            "end": {
+                              "column": 7,
+                              "line": 51
+                            },
+                            "sourcefile": "examples/interface_inheritance.go",
+                            "start": {
+                              "column": 2,
+                              "line": 51
+                            }
+                          },
+                          "object": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 3,
+                                "line": 51
+                              },
+                              "sourcefile": "examples/interface_inheritance.go",
+                              "start": {
+                                "column": 2,
+                                "line": 51
+                              }
+                            },
+                            "name": "n",
+                            "type": "Identifier"
+                          },
+                          "property": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 6,
+                                "line": 51
+                              },
+                              "sourcefile": "examples/interface_inheritance.go",
+                              "start": {
+                                "column": 4,
+                                "line": 51
+                              }
+                            },
+                            "name": "v1",
+                            "type": "Identifier"
+                          },
+                          "type": "MemberAccess"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 11,
+                            "line": 51
+                          },
+                          "sourcefile": "examples/interface_inheritance.go",
+                          "start": {
+                            "column": 2,
+                            "line": 51
+                          }
+                        },
+                        "operator": "=",
+                        "right": {
+                          "_meta": {},
+                          "literalType": "INT",
+                          "loc": {
+                            "end": {
+                              "column": 11,
+                              "line": 51
+                            },
+                            "sourcefile": "examples/interface_inheritance.go",
+                            "start": {
+                              "column": 10,
+                              "line": 51
+                            }
+                          },
+                          "type": "Literal",
+                          "value": "3"
+                        },
+                        "type": "AssignmentExpression"
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "left": {
+                          "_meta": {},
+                          "computed": true,
+                          "loc": {
+                            "end": {
+                              "column": 7,
+                              "line": 52
+                            },
+                            "sourcefile": "examples/interface_inheritance.go",
+                            "start": {
+                              "column": 2,
+                              "line": 52
+                            }
+                          },
+                          "object": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 3,
+                                "line": 52
+                              },
+                              "sourcefile": "examples/interface_inheritance.go",
+                              "start": {
+                                "column": 2,
+                                "line": 52
+                              }
+                            },
+                            "name": "n",
+                            "type": "Identifier"
+                          },
+                          "property": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 6,
+                                "line": 52
+                              },
+                              "sourcefile": "examples/interface_inheritance.go",
+                              "start": {
+                                "column": 4,
+                                "line": 52
+                              }
+                            },
+                            "name": "v2",
+                            "type": "Identifier"
+                          },
+                          "type": "MemberAccess"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 11,
+                            "line": 52
+                          },
+                          "sourcefile": "examples/interface_inheritance.go",
+                          "start": {
+                            "column": 2,
+                            "line": 52
+                          }
+                        },
+                        "operator": "=",
+                        "right": {
+                          "_meta": {},
+                          "literalType": "INT",
+                          "loc": {
+                            "end": {
+                              "column": 11,
+                              "line": 52
+                            },
+                            "sourcefile": "examples/interface_inheritance.go",
+                            "start": {
+                              "column": 10,
+                              "line": 52
+                            }
+                          },
+                          "type": "Literal",
+                          "value": "4"
+                        },
+                        "type": "AssignmentExpression"
+                      },
+                      {
+                        "_meta": {},
+                        "arguments": [
+                          {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 15,
+                                "line": 53
+                              },
+                              "sourcefile": "examples/interface_inheritance.go",
+                              "start": {
+                                "column": 14,
+                                "line": 53
+                              }
+                            },
+                            "name": "n",
+                            "type": "Identifier"
+                          }
+                        ],
+                        "callee": {
+                          "_meta": {},
+                          "computed": false,
+                          "loc": {
+                            "end": {
+                              "column": 13,
+                              "line": 53
+                            },
+                            "sourcefile": "examples/interface_inheritance.go",
+                            "start": {
+                              "column": 2,
+                              "line": 53
+                            }
+                          },
+                          "object": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 5,
+                                "line": 53
+                              },
+                              "sourcefile": "examples/interface_inheritance.go",
+                              "start": {
+                                "column": 2,
+                                "line": 53
+                              }
+                            },
+                            "name": "fmt",
+                            "type": "Identifier"
+                          },
+                          "property": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 13,
+                                "line": 53
+                              },
+                              "sourcefile": "examples/interface_inheritance.go",
+                              "start": {
+                                "column": 6,
+                                "line": 53
+                              }
+                            },
+                            "name": "Println",
+                            "type": "Identifier"
+                          },
+                          "type": "MemberAccess"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 16,
+                            "line": 53
+                          },
+                          "sourcefile": "examples/interface_inheritance.go",
+                          "start": {
+                            "column": 2,
+                            "line": 53
+                          }
+                        },
+                        "type": "CallExpression"
+                      }
+                    ],
+                    "id": null,
+                    "loc": {
+                      "end": {
+                        "column": 2,
+                        "line": 54
+                      },
+                      "sourcefile": "examples/interface_inheritance.go",
+                      "start": {
+                        "column": 13,
+                        "line": 36
+                      }
+                    },
+                    "type": "ScopedStatement"
+                  },
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 10,
+                        "line": 36
+                      },
+                      "sourcefile": "examples/interface_inheritance.go",
+                      "start": {
+                        "column": 6,
+                        "line": 36
+                      }
+                    },
+                    "name": "main",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 54
+                    },
+                    "sourcefile": "examples/interface_inheritance.go",
+                    "start": {
+                      "column": 1,
+                      "line": 36
+                    }
+                  },
+                  "modifiers": null,
+                  "parameters": [],
+                  "returnType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "VoidType",
+                    "typeArguments": null
+                  },
+                  "type": "FunctionDefinition"
+                }
+              ],
+              "language": "golang",
+              "languageVersion": "1.18",
+              "loc": {
+                "end": {
+                  "column": 2,
+                  "line": 54
+                },
+                "sourcefile": "examples/interface_inheritance.go",
+                "start": {
+                  "column": 1,
+                  "line": 1
+                }
+              },
+              "type": "CompileUnit",
+              "uri": "",
+              "version": ""
+            },
+            "packageName": "__single__"
+          }
+        },
+        "subs": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,223 @@
+{
+  "moduleName": "__single_module__",
+  "packageInfo": {
+    "PathName": "",
+    "files": {},
+    "subs": {
+      "/": {
+        "PathName": "",
+        "files": {
+          "examples/newline.go": {
+            "node": {
+              "_meta": {},
+              "body": [
+                {
+                  "_meta": {},
+                  "loc": {
+                    "end": {
+                      "column": 17,
+                      "line": 1
+                    },
+                    "sourcefile": "examples/newline.go",
+                    "start": {
+                      "column": 9,
+                      "line": 1
+                    }
+                  },
+                  "packageName": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 17,
+                        "line": 1
+                      },
+                      "sourcefile": "examples/newline.go",
+                      "start": {
+                        "column": 9,
+                        "line": 1
+                      }
+                    },
+                    "name": "examples",
+                    "type": "Identifier"
+                  },
+                  "type": "PackageDeclaration"
+                },
+                {
+                  "_meta": {},
+                  "body": {
+                    "_meta": {},
+                    "body": [
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "loc": null,
+                              "name": "int",
+                              "type": "Identifier"
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 3,
+                              "line": 4
+                            },
+                            "sourcefile": "examples/newline.go",
+                            "start": {
+                              "column": 2,
+                              "line": 4
+                            }
+                          },
+                          "name": "i",
+                          "type": "Identifier"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "literalType": "INT",
+                          "loc": {
+                            "end": {
+                              "column": 9,
+                              "line": 4
+                            },
+                            "sourcefile": "examples/newline.go",
+                            "start": {
+                              "column": 7,
+                              "line": 4
+                            }
+                          },
+                          "type": "Literal",
+                          "value": "10"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 9,
+                            "line": 4
+                          },
+                          "sourcefile": "examples/newline.go",
+                          "start": {
+                            "column": 2,
+                            "line": 4
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "loc": null,
+                          "name": "int",
+                          "type": "Identifier"
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "argument": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 4,
+                              "line": 5
+                            },
+                            "sourcefile": "examples/newline.go",
+                            "start": {
+                              "column": 3,
+                              "line": 5
+                            }
+                          },
+                          "name": "p",
+                          "type": "Identifier"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 4,
+                            "line": 5
+                          },
+                          "sourcefile": "examples/newline.go",
+                          "start": {
+                            "column": 2,
+                            "line": 5
+                          }
+                        },
+                        "type": "DereferenceExpression"
+                      }
+                    ],
+                    "id": null,
+                    "loc": {
+                      "end": {
+                        "column": 2,
+                        "line": 6
+                      },
+                      "sourcefile": "examples/newline.go",
+                      "start": {
+                        "column": 13,
+                        "line": 3
+                      }
+                    },
+                    "type": "ScopedStatement"
+                  },
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 10,
+                        "line": 3
+                      },
+                      "sourcefile": "examples/newline.go",
+                      "start": {
+                        "column": 6,
+                        "line": 3
+                      }
+                    },
+                    "name": "main",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 6
+                    },
+                    "sourcefile": "examples/newline.go",
+                    "start": {
+                      "column": 1,
+                      "line": 3
+                    }
+                  },
+                  "modifiers": null,
+                  "parameters": [],
+                  "returnType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "VoidType",
+                    "typeArguments": null
+                  },
+                  "type": "FunctionDefinition"
+                }
+              ],
+              "language": "golang",
+              "languageVersion": "1.18",
+              "loc": {
+                "end": {
+                  "column": 2,
+                  "line": 6
+                },
+                "sourcefile": "examples/newline.go",
+                "start": {
+                  "column": 1,
+                  "line": 1
+                }
+              },
+              "type": "CompileUnit",
+              "uri": "",
+              "version": ""
+            },
+            "packageName": "__single__"
+          }
+        },
+        "subs": {}
+      }
+    }
+  }
+}

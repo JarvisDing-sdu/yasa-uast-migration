@@ -1,0 +1,1049 @@
+{
+  "type": "CompileUnit",
+  "body": [
+    {
+      "type": "ClassDefinition",
+      "id": {
+        "type": "Identifier",
+        "name": "LoggerA",
+        "_meta": {
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 7
+            },
+            "end": {
+              "line": 3,
+              "column": 14
+            },
+            "sourcefile": "enum-trait-adapt.php"
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 3,
+            "column": 7
+          },
+          "end": {
+            "line": 3,
+            "column": 14
+          },
+          "sourcefile": "enum-trait-adapt.php"
+        }
+      },
+      "body": [
+        {
+          "type": "FunctionDefinition",
+          "id": {
+            "type": "Identifier",
+            "name": "log",
+            "_meta": {
+              "loc": {
+                "start": {
+                  "line": 5,
+                  "column": 21
+                },
+                "end": {
+                  "line": 5,
+                  "column": 24
+                },
+                "sourcefile": "enum-trait-adapt.php"
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 5,
+                "column": 21
+              },
+              "end": {
+                "line": 5,
+                "column": 24
+              },
+              "sourcefile": "enum-trait-adapt.php"
+            }
+          },
+          "parameters": [],
+          "returnType": {
+            "type": "DynamicType",
+            "id": null,
+            "_meta": {}
+          },
+          "body": {
+            "type": "ScopedStatement",
+            "body": [
+              {
+                "type": "ExpressionStatement",
+                "expression": {
+                  "type": "CallExpression",
+                  "callee": {
+                    "type": "Identifier",
+                    "name": "echo",
+                    "_meta": {}
+                  },
+                  "arguments": [
+                    {
+                      "type": "Literal",
+                      "value": "A",
+                      "literalType": "string",
+                      "_meta": {
+                        "loc": {
+                          "start": {
+                            "line": 7,
+                            "column": 14
+                          },
+                          "end": {
+                            "line": 7,
+                            "column": 17
+                          },
+                          "sourcefile": "enum-trait-adapt.php"
+                        },
+                        "encapsed": true
+                      },
+                      "loc": {
+                        "start": {
+                          "line": 7,
+                          "column": 14
+                        },
+                        "end": {
+                          "line": 7,
+                          "column": 17
+                        },
+                        "sourcefile": "enum-trait-adapt.php"
+                      }
+                    }
+                  ],
+                  "_meta": {
+                    "loc": {
+                      "start": {
+                        "line": 7,
+                        "column": 9
+                      },
+                      "end": {
+                        "line": 7,
+                        "column": 18
+                      },
+                      "sourcefile": "enum-trait-adapt.php"
+                    }
+                  },
+                  "loc": {
+                    "start": {
+                      "line": 7,
+                      "column": 9
+                    },
+                    "end": {
+                      "line": 7,
+                      "column": 18
+                    },
+                    "sourcefile": "enum-trait-adapt.php"
+                  }
+                },
+                "_meta": {
+                  "loc": {
+                    "start": {
+                      "line": 7,
+                      "column": 9
+                    },
+                    "end": {
+                      "line": 7,
+                      "column": 18
+                    },
+                    "sourcefile": "enum-trait-adapt.php"
+                  }
+                },
+                "loc": {
+                  "start": {
+                    "line": 7,
+                    "column": 9
+                  },
+                  "end": {
+                    "line": 7,
+                    "column": 18
+                  },
+                  "sourcefile": "enum-trait-adapt.php"
+                }
+              }
+            ],
+            "id": null,
+            "_meta": {
+              "loc": {
+                "start": {
+                  "line": 6,
+                  "column": 5
+                },
+                "end": {
+                  "line": 8,
+                  "column": 6
+                },
+                "sourcefile": "enum-trait-adapt.php"
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 6,
+                "column": 5
+              },
+              "end": {
+                "line": 8,
+                "column": 6
+              },
+              "sourcefile": "enum-trait-adapt.php"
+            }
+          },
+          "modifiers": [
+            "public"
+          ],
+          "_meta": {
+            "loc": {
+              "start": {
+                "line": 5,
+                "column": 5
+              },
+              "end": {
+                "line": 8,
+                "column": 6
+              },
+              "sourcefile": "enum-trait-adapt.php"
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 5,
+              "column": 5
+            },
+            "end": {
+              "line": 8,
+              "column": 6
+            },
+            "sourcefile": "enum-trait-adapt.php"
+          }
+        }
+      ],
+      "supers": [],
+      "_meta": {
+        "kind": "trait",
+        "loc": {
+          "start": {
+            "line": 3,
+            "column": 1
+          },
+          "end": {
+            "line": 9,
+            "column": 2
+          },
+          "sourcefile": "enum-trait-adapt.php"
+        }
+      },
+      "loc": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 9,
+          "column": 2
+        },
+        "sourcefile": "enum-trait-adapt.php"
+      }
+    },
+    {
+      "type": "ClassDefinition",
+      "id": {
+        "type": "Identifier",
+        "name": "LoggerB",
+        "_meta": {
+          "loc": {
+            "start": {
+              "line": 11,
+              "column": 7
+            },
+            "end": {
+              "line": 11,
+              "column": 14
+            },
+            "sourcefile": "enum-trait-adapt.php"
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 11,
+            "column": 7
+          },
+          "end": {
+            "line": 11,
+            "column": 14
+          },
+          "sourcefile": "enum-trait-adapt.php"
+        }
+      },
+      "body": [
+        {
+          "type": "FunctionDefinition",
+          "id": {
+            "type": "Identifier",
+            "name": "log",
+            "_meta": {
+              "loc": {
+                "start": {
+                  "line": 13,
+                  "column": 21
+                },
+                "end": {
+                  "line": 13,
+                  "column": 24
+                },
+                "sourcefile": "enum-trait-adapt.php"
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 13,
+                "column": 21
+              },
+              "end": {
+                "line": 13,
+                "column": 24
+              },
+              "sourcefile": "enum-trait-adapt.php"
+            }
+          },
+          "parameters": [],
+          "returnType": {
+            "type": "DynamicType",
+            "id": null,
+            "_meta": {}
+          },
+          "body": {
+            "type": "ScopedStatement",
+            "body": [
+              {
+                "type": "ExpressionStatement",
+                "expression": {
+                  "type": "CallExpression",
+                  "callee": {
+                    "type": "Identifier",
+                    "name": "echo",
+                    "_meta": {}
+                  },
+                  "arguments": [
+                    {
+                      "type": "Literal",
+                      "value": "B",
+                      "literalType": "string",
+                      "_meta": {
+                        "loc": {
+                          "start": {
+                            "line": 15,
+                            "column": 14
+                          },
+                          "end": {
+                            "line": 15,
+                            "column": 17
+                          },
+                          "sourcefile": "enum-trait-adapt.php"
+                        },
+                        "encapsed": true
+                      },
+                      "loc": {
+                        "start": {
+                          "line": 15,
+                          "column": 14
+                        },
+                        "end": {
+                          "line": 15,
+                          "column": 17
+                        },
+                        "sourcefile": "enum-trait-adapt.php"
+                      }
+                    }
+                  ],
+                  "_meta": {
+                    "loc": {
+                      "start": {
+                        "line": 15,
+                        "column": 9
+                      },
+                      "end": {
+                        "line": 15,
+                        "column": 18
+                      },
+                      "sourcefile": "enum-trait-adapt.php"
+                    }
+                  },
+                  "loc": {
+                    "start": {
+                      "line": 15,
+                      "column": 9
+                    },
+                    "end": {
+                      "line": 15,
+                      "column": 18
+                    },
+                    "sourcefile": "enum-trait-adapt.php"
+                  }
+                },
+                "_meta": {
+                  "loc": {
+                    "start": {
+                      "line": 15,
+                      "column": 9
+                    },
+                    "end": {
+                      "line": 15,
+                      "column": 18
+                    },
+                    "sourcefile": "enum-trait-adapt.php"
+                  }
+                },
+                "loc": {
+                  "start": {
+                    "line": 15,
+                    "column": 9
+                  },
+                  "end": {
+                    "line": 15,
+                    "column": 18
+                  },
+                  "sourcefile": "enum-trait-adapt.php"
+                }
+              }
+            ],
+            "id": null,
+            "_meta": {
+              "loc": {
+                "start": {
+                  "line": 14,
+                  "column": 5
+                },
+                "end": {
+                  "line": 16,
+                  "column": 6
+                },
+                "sourcefile": "enum-trait-adapt.php"
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 14,
+                "column": 5
+              },
+              "end": {
+                "line": 16,
+                "column": 6
+              },
+              "sourcefile": "enum-trait-adapt.php"
+            }
+          },
+          "modifiers": [
+            "public"
+          ],
+          "_meta": {
+            "loc": {
+              "start": {
+                "line": 13,
+                "column": 5
+              },
+              "end": {
+                "line": 16,
+                "column": 6
+              },
+              "sourcefile": "enum-trait-adapt.php"
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 13,
+              "column": 5
+            },
+            "end": {
+              "line": 16,
+              "column": 6
+            },
+            "sourcefile": "enum-trait-adapt.php"
+          }
+        }
+      ],
+      "supers": [],
+      "_meta": {
+        "kind": "trait",
+        "loc": {
+          "start": {
+            "line": 11,
+            "column": 1
+          },
+          "end": {
+            "line": 17,
+            "column": 2
+          },
+          "sourcefile": "enum-trait-adapt.php"
+        }
+      },
+      "loc": {
+        "start": {
+          "line": 11,
+          "column": 1
+        },
+        "end": {
+          "line": 17,
+          "column": 2
+        },
+        "sourcefile": "enum-trait-adapt.php"
+      }
+    },
+    {
+      "type": "ClassDefinition",
+      "id": {
+        "type": "Identifier",
+        "name": "Service",
+        "_meta": {
+          "loc": {
+            "start": {
+              "line": 19,
+              "column": 7
+            },
+            "end": {
+              "line": 19,
+              "column": 14
+            },
+            "sourcefile": "enum-trait-adapt.php"
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 19,
+            "column": 7
+          },
+          "end": {
+            "line": 19,
+            "column": 14
+          },
+          "sourcefile": "enum-trait-adapt.php"
+        }
+      },
+      "body": [
+        {
+          "type": "ExpressionStatement",
+          "expression": {
+            "type": "CallExpression",
+            "callee": {
+              "type": "Identifier",
+              "name": "trait_use",
+              "_meta": {}
+            },
+            "arguments": [
+              {
+                "type": "Identifier",
+                "name": "LoggerA",
+                "_meta": {
+                  "loc": {
+                    "start": {
+                      "line": 21,
+                      "column": 9
+                    },
+                    "end": {
+                      "line": 21,
+                      "column": 16
+                    },
+                    "sourcefile": "enum-trait-adapt.php"
+                  }
+                },
+                "loc": {
+                  "start": {
+                    "line": 21,
+                    "column": 9
+                  },
+                  "end": {
+                    "line": 21,
+                    "column": 16
+                  },
+                  "sourcefile": "enum-trait-adapt.php"
+                }
+              },
+              {
+                "type": "Identifier",
+                "name": "LoggerB",
+                "_meta": {
+                  "loc": {
+                    "start": {
+                      "line": 21,
+                      "column": 18
+                    },
+                    "end": {
+                      "line": 21,
+                      "column": 25
+                    },
+                    "sourcefile": "enum-trait-adapt.php"
+                  }
+                },
+                "loc": {
+                  "start": {
+                    "line": 21,
+                    "column": 18
+                  },
+                  "end": {
+                    "line": 21,
+                    "column": 25
+                  },
+                  "sourcefile": "enum-trait-adapt.php"
+                }
+              },
+              {
+                "type": "Noop",
+                "_meta": {
+                  "loc": {
+                    "start": {
+                      "line": 21,
+                      "column": 26
+                    },
+                    "end": {
+                      "line": 24,
+                      "column": 6
+                    },
+                    "sourcefile": "enum-trait-adapt.php"
+                  }
+                },
+                "loc": {
+                  "start": {
+                    "line": 21,
+                    "column": 26
+                  },
+                  "end": {
+                    "line": 24,
+                    "column": 6
+                  },
+                  "sourcefile": "enum-trait-adapt.php"
+                }
+              }
+            ],
+            "_meta": {
+              "synthetic": true,
+              "loc": {
+                "start": {
+                  "line": 21,
+                  "column": 5
+                },
+                "end": {
+                  "line": 24,
+                  "column": 6
+                },
+                "sourcefile": "enum-trait-adapt.php"
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 21,
+                "column": 5
+              },
+              "end": {
+                "line": 24,
+                "column": 6
+              },
+              "sourcefile": "enum-trait-adapt.php"
+            }
+          },
+          "_meta": {
+            "loc": {
+              "start": {
+                "line": 21,
+                "column": 5
+              },
+              "end": {
+                "line": 24,
+                "column": 6
+              },
+              "sourcefile": "enum-trait-adapt.php"
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 21,
+              "column": 5
+            },
+            "end": {
+              "line": 24,
+              "column": 6
+            },
+            "sourcefile": "enum-trait-adapt.php"
+          }
+        }
+      ],
+      "supers": [
+        {
+          "type": "Identifier",
+          "name": "LoggerA",
+          "_meta": {
+            "loc": {
+              "start": {
+                "line": 21,
+                "column": 9
+              },
+              "end": {
+                "line": 21,
+                "column": 16
+              },
+              "sourcefile": "enum-trait-adapt.php"
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 21,
+              "column": 9
+            },
+            "end": {
+              "line": 21,
+              "column": 16
+            },
+            "sourcefile": "enum-trait-adapt.php"
+          }
+        },
+        {
+          "type": "Identifier",
+          "name": "LoggerB",
+          "_meta": {
+            "loc": {
+              "start": {
+                "line": 21,
+                "column": 18
+              },
+              "end": {
+                "line": 21,
+                "column": 25
+              },
+              "sourcefile": "enum-trait-adapt.php"
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 21,
+              "column": 18
+            },
+            "end": {
+              "line": 21,
+              "column": 25
+            },
+            "sourcefile": "enum-trait-adapt.php"
+          }
+        },
+        {
+          "type": "Noop",
+          "_meta": {
+            "loc": {
+              "start": {
+                "line": 21,
+                "column": 26
+              },
+              "end": {
+                "line": 24,
+                "column": 6
+              },
+              "sourcefile": "enum-trait-adapt.php"
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 21,
+              "column": 26
+            },
+            "end": {
+              "line": 24,
+              "column": 6
+            },
+            "sourcefile": "enum-trait-adapt.php"
+          }
+        }
+      ],
+      "_meta": {
+        "loc": {
+          "start": {
+            "line": 19,
+            "column": 1
+          },
+          "end": {
+            "line": 25,
+            "column": 2
+          },
+          "sourcefile": "enum-trait-adapt.php"
+        }
+      },
+      "loc": {
+        "start": {
+          "line": 19,
+          "column": 1
+        },
+        "end": {
+          "line": 25,
+          "column": 2
+        },
+        "sourcefile": "enum-trait-adapt.php"
+      }
+    },
+    {
+      "type": "ClassDefinition",
+      "id": {
+        "type": "Identifier",
+        "name": "Status",
+        "_meta": {
+          "loc": {
+            "start": {
+              "line": 27,
+              "column": 6
+            },
+            "end": {
+              "line": 27,
+              "column": 12
+            },
+            "sourcefile": "enum-trait-adapt.php"
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 27,
+            "column": 6
+          },
+          "end": {
+            "line": 27,
+            "column": 12
+          },
+          "sourcefile": "enum-trait-adapt.php"
+        }
+      },
+      "body": [
+        {
+          "type": "VariableDeclaration",
+          "id": {
+            "type": "Identifier",
+            "name": "Open",
+            "_meta": {
+              "loc": {
+                "start": {
+                  "line": 29,
+                  "column": 10
+                },
+                "end": {
+                  "line": 29,
+                  "column": 14
+                },
+                "sourcefile": "enum-trait-adapt.php"
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 29,
+                "column": 10
+              },
+              "end": {
+                "line": 29,
+                "column": 14
+              },
+              "sourcefile": "enum-trait-adapt.php"
+            }
+          },
+          "init": {
+            "type": "Literal",
+            "value": "open",
+            "literalType": "string",
+            "_meta": {
+              "loc": {
+                "start": {
+                  "line": 29,
+                  "column": 17
+                },
+                "end": {
+                  "line": 29,
+                  "column": 23
+                },
+                "sourcefile": "enum-trait-adapt.php"
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 29,
+                "column": 17
+              },
+              "end": {
+                "line": 29,
+                "column": 23
+              },
+              "sourcefile": "enum-trait-adapt.php"
+            }
+          },
+          "cloned": false,
+          "varType": {
+            "type": "DynamicType",
+            "id": null,
+            "_meta": {}
+          },
+          "_meta": {
+            "enumCase": true,
+            "loc": {
+              "start": {
+                "line": 29,
+                "column": 5
+              },
+              "end": {
+                "line": 29,
+                "column": 24
+              },
+              "sourcefile": "enum-trait-adapt.php"
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 29,
+              "column": 5
+            },
+            "end": {
+              "line": 29,
+              "column": 24
+            },
+            "sourcefile": "enum-trait-adapt.php"
+          }
+        },
+        {
+          "type": "VariableDeclaration",
+          "id": {
+            "type": "Identifier",
+            "name": "Closed",
+            "_meta": {
+              "loc": {
+                "start": {
+                  "line": 30,
+                  "column": 10
+                },
+                "end": {
+                  "line": 30,
+                  "column": 16
+                },
+                "sourcefile": "enum-trait-adapt.php"
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 30,
+                "column": 10
+              },
+              "end": {
+                "line": 30,
+                "column": 16
+              },
+              "sourcefile": "enum-trait-adapt.php"
+            }
+          },
+          "init": {
+            "type": "Literal",
+            "value": "closed",
+            "literalType": "string",
+            "_meta": {
+              "loc": {
+                "start": {
+                  "line": 30,
+                  "column": 19
+                },
+                "end": {
+                  "line": 30,
+                  "column": 27
+                },
+                "sourcefile": "enum-trait-adapt.php"
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 30,
+                "column": 19
+              },
+              "end": {
+                "line": 30,
+                "column": 27
+              },
+              "sourcefile": "enum-trait-adapt.php"
+            }
+          },
+          "cloned": false,
+          "varType": {
+            "type": "DynamicType",
+            "id": null,
+            "_meta": {}
+          },
+          "_meta": {
+            "enumCase": true,
+            "loc": {
+              "start": {
+                "line": 30,
+                "column": 5
+              },
+              "end": {
+                "line": 30,
+                "column": 28
+              },
+              "sourcefile": "enum-trait-adapt.php"
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 30,
+              "column": 5
+            },
+            "end": {
+              "line": 30,
+              "column": 28
+            },
+            "sourcefile": "enum-trait-adapt.php"
+          }
+        }
+      ],
+      "supers": [],
+      "_meta": {
+        "kind": "enum",
+        "loc": {
+          "start": {
+            "line": 27,
+            "column": 1
+          },
+          "end": {
+            "line": 31,
+            "column": 2
+          },
+          "sourcefile": "enum-trait-adapt.php"
+        }
+      },
+      "loc": {
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 31,
+          "column": 2
+        },
+        "sourcefile": "enum-trait-adapt.php"
+      }
+    }
+  ],
+  "language": "php",
+  "languageVersion": null,
+  "uri": "enum-trait-adapt.php",
+  "version": "0.0.0",
+  "_meta": {
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 1
+      },
+      "end": {
+        "line": 32,
+        "column": 1
+      },
+      "sourcefile": "enum-trait-adapt.php"
+    }
+  },
+  "loc": {
+    "start": {
+      "line": 1,
+      "column": 1
+    },
+    "end": {
+      "line": 32,
+      "column": 1
+    },
+    "sourcefile": "enum-trait-adapt.php"
+  }
+}

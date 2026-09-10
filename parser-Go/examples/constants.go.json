@@ -1,0 +1,268 @@
+{
+  "moduleName": "__single_module__",
+  "packageInfo": {
+    "PathName": "",
+    "files": {},
+    "subs": {
+      "/": {
+        "PathName": "",
+        "files": {
+          "examples/constants.go": {
+            "node": {
+              "_meta": {},
+              "body": [
+                {
+                  "_meta": {},
+                  "loc": {
+                    "end": {
+                      "column": 17,
+                      "line": 1
+                    },
+                    "sourcefile": "examples/constants.go",
+                    "start": {
+                      "column": 9,
+                      "line": 1
+                    }
+                  },
+                  "packageName": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 17,
+                        "line": 1
+                      },
+                      "sourcefile": "examples/constants.go",
+                      "start": {
+                        "column": 9,
+                        "line": 1
+                      }
+                    },
+                    "name": "examples",
+                    "type": "Identifier"
+                  },
+                  "type": "PackageDeclaration"
+                },
+                {
+                  "_meta": {},
+                  "cloned": false,
+                  "id": {
+                    "_meta": {
+                      "ReceiveCls": "",
+                      "type": {
+                        "_meta": {},
+                        "id": null,
+                        "loc": null,
+                        "type": "DynamicType",
+                        "typeArguments": null
+                      }
+                    },
+                    "loc": {
+                      "end": {
+                        "column": 10,
+                        "line": 4
+                      },
+                      "sourcefile": "examples/constants.go",
+                      "start": {
+                        "column": 9,
+                        "line": 4
+                      }
+                    },
+                    "name": "T",
+                    "type": "Identifier"
+                  },
+                  "init": {
+                    "_meta": {},
+                    "left": {
+                      "_meta": {},
+                      "literalType": "INT",
+                      "loc": {
+                        "end": {
+                          "column": 14,
+                          "line": 4
+                        },
+                        "sourcefile": "examples/constants.go",
+                        "start": {
+                          "column": 13,
+                          "line": 4
+                        }
+                      },
+                      "type": "Literal",
+                      "value": "1"
+                    },
+                    "loc": {
+                      "end": {
+                        "column": 19,
+                        "line": 4
+                      },
+                      "sourcefile": "examples/constants.go",
+                      "start": {
+                        "column": 13,
+                        "line": 4
+                      }
+                    },
+                    "operator": "\u003c\u003c",
+                    "right": {
+                      "_meta": {},
+                      "literalType": "INT",
+                      "loc": {
+                        "end": {
+                          "column": 19,
+                          "line": 4
+                        },
+                        "sourcefile": "examples/constants.go",
+                        "start": {
+                          "column": 18,
+                          "line": 4
+                        }
+                      },
+                      "type": "Literal",
+                      "value": "0"
+                    },
+                    "type": "BinaryExpression"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 19,
+                      "line": 4
+                    },
+                    "sourcefile": "examples/constants.go",
+                    "start": {
+                      "column": 9,
+                      "line": 4
+                    }
+                  },
+                  "type": "VariableDeclaration",
+                  "varType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "DynamicType",
+                    "typeArguments": null
+                  },
+                  "variableParam": false
+                },
+                {
+                  "_meta": {},
+                  "cloned": false,
+                  "id": {
+                    "_meta": {
+                      "ReceiveCls": "",
+                      "type": {
+                        "_meta": {},
+                        "id": null,
+                        "loc": null,
+                        "type": "DynamicType",
+                        "typeArguments": null
+                      }
+                    },
+                    "loc": {
+                      "end": {
+                        "column": 10,
+                        "line": 5
+                      },
+                      "sourcefile": "examples/constants.go",
+                      "start": {
+                        "column": 8,
+                        "line": 5
+                      }
+                    },
+                    "name": "Ta",
+                    "type": "Identifier"
+                  },
+                  "init": {
+                    "_meta": {},
+                    "left": {
+                      "_meta": {},
+                      "literalType": "INT",
+                      "loc": {
+                        "end": {
+                          "column": 14,
+                          "line": 5
+                        },
+                        "sourcefile": "examples/constants.go",
+                        "start": {
+                          "column": 13,
+                          "line": 5
+                        }
+                      },
+                      "type": "Literal",
+                      "value": "1"
+                    },
+                    "loc": {
+                      "end": {
+                        "column": 19,
+                        "line": 5
+                      },
+                      "sourcefile": "examples/constants.go",
+                      "start": {
+                        "column": 13,
+                        "line": 5
+                      }
+                    },
+                    "operator": "\u003c\u003c",
+                    "right": {
+                      "_meta": {},
+                      "literalType": "INT",
+                      "loc": {
+                        "end": {
+                          "column": 19,
+                          "line": 5
+                        },
+                        "sourcefile": "examples/constants.go",
+                        "start": {
+                          "column": 18,
+                          "line": 5
+                        }
+                      },
+                      "type": "Literal",
+                      "value": "1"
+                    },
+                    "type": "BinaryExpression"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 19,
+                      "line": 5
+                    },
+                    "sourcefile": "examples/constants.go",
+                    "start": {
+                      "column": 8,
+                      "line": 5
+                    }
+                  },
+                  "type": "VariableDeclaration",
+                  "varType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "DynamicType",
+                    "typeArguments": null
+                  },
+                  "variableParam": false
+                }
+              ],
+              "language": "golang",
+              "languageVersion": "1.18",
+              "loc": {
+                "end": {
+                  "column": 2,
+                  "line": 6
+                },
+                "sourcefile": "examples/constants.go",
+                "start": {
+                  "column": 1,
+                  "line": 1
+                }
+              },
+              "type": "CompileUnit",
+              "uri": "",
+              "version": ""
+            },
+            "packageName": "__single__"
+          }
+        },
+        "subs": {}
+      }
+    }
+  }
+}

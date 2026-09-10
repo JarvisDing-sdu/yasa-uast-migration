@@ -1,0 +1,510 @@
+{
+  "moduleName": "__single_module__",
+  "packageInfo": {
+    "PathName": "",
+    "files": {},
+    "subs": {
+      "/": {
+        "PathName": "",
+        "files": {
+          "examples/struct_005_T.go": {
+            "node": {
+              "_meta": {},
+              "body": [
+                {
+                  "_meta": {},
+                  "loc": {
+                    "end": {
+                      "column": 17,
+                      "line": 12
+                    },
+                    "sourcefile": "examples/struct_005_T.go",
+                    "start": {
+                      "column": 9,
+                      "line": 12
+                    }
+                  },
+                  "packageName": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 17,
+                        "line": 12
+                      },
+                      "sourcefile": "examples/struct_005_T.go",
+                      "start": {
+                        "column": 9,
+                        "line": 12
+                      }
+                    },
+                    "name": "examples",
+                    "type": "Identifier"
+                  },
+                  "type": "PackageDeclaration"
+                },
+                {
+                  "_meta": {},
+                  "body": [
+                    {
+                      "_meta": {},
+                      "cloned": true,
+                      "id": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 13,
+                                "line": 24
+                              },
+                              "sourcefile": "examples/struct_005_T.go",
+                              "start": {
+                                "column": 7,
+                                "line": 24
+                              }
+                            },
+                            "name": "string",
+                            "type": "Identifier"
+                          }
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 6,
+                            "line": 24
+                          },
+                          "sourcefile": "examples/struct_005_T.go",
+                          "start": {
+                            "column": 2,
+                            "line": 24
+                          }
+                        },
+                        "name": "data",
+                        "type": "Identifier"
+                      },
+                      "init": null,
+                      "loc": {
+                        "end": {
+                          "column": 13,
+                          "line": 24
+                        },
+                        "sourcefile": "examples/struct_005_T.go",
+                        "start": {
+                          "column": 2,
+                          "line": 24
+                        }
+                      },
+                      "type": "VariableDeclaration",
+                      "varType": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 13,
+                            "line": 24
+                          },
+                          "sourcefile": "examples/struct_005_T.go",
+                          "start": {
+                            "column": 7,
+                            "line": 24
+                          }
+                        },
+                        "name": "string",
+                        "type": "Identifier"
+                      },
+                      "variableParam": false
+                    }
+                  ],
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 9,
+                        "line": 23
+                      },
+                      "sourcefile": "examples/struct_005_T.go",
+                      "start": {
+                        "column": 6,
+                        "line": 23
+                      }
+                    },
+                    "name": "AAA",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 25
+                    },
+                    "sourcefile": "examples/struct_005_T.go",
+                    "start": {
+                      "column": 6,
+                      "line": 23
+                    }
+                  },
+                  "supers": [],
+                  "type": "ClassDefinition"
+                },
+                {
+                  "_meta": {},
+                  "body": {
+                    "_meta": {},
+                    "body": [
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "id": null,
+                              "loc": null,
+                              "type": "DynamicType",
+                              "typeArguments": null
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 3,
+                              "line": 28
+                            },
+                            "sourcefile": "examples/struct_005_T.go",
+                            "start": {
+                              "column": 2,
+                              "line": 28
+                            }
+                          },
+                          "name": "p",
+                          "type": "Identifier"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "arguments": [],
+                          "callee": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 14,
+                                "line": 28
+                              },
+                              "sourcefile": "examples/struct_005_T.go",
+                              "start": {
+                                "column": 11,
+                                "line": 28
+                              }
+                            },
+                            "name": "AAA",
+                            "type": "Identifier"
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 15,
+                              "line": 28
+                            },
+                            "sourcefile": "examples/struct_005_T.go",
+                            "start": {
+                              "column": 7,
+                              "line": 28
+                            }
+                          },
+                          "type": "NewExpression"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 15,
+                            "line": 28
+                          },
+                          "sourcefile": "examples/struct_005_T.go",
+                          "start": {
+                            "column": 2,
+                            "line": 28
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "id": null,
+                          "loc": null,
+                          "type": "DynamicType",
+                          "typeArguments": null
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "left": {
+                          "_meta": {},
+                          "computed": false,
+                          "loc": {
+                            "end": {
+                              "column": 8,
+                              "line": 29
+                            },
+                            "sourcefile": "examples/struct_005_T.go",
+                            "start": {
+                              "column": 2,
+                              "line": 29
+                            }
+                          },
+                          "object": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 3,
+                                "line": 29
+                              },
+                              "sourcefile": "examples/struct_005_T.go",
+                              "start": {
+                                "column": 2,
+                                "line": 29
+                              }
+                            },
+                            "name": "p",
+                            "type": "Identifier"
+                          },
+                          "property": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 8,
+                                "line": 29
+                              },
+                              "sourcefile": "examples/struct_005_T.go",
+                              "start": {
+                                "column": 4,
+                                "line": 29
+                              }
+                            },
+                            "name": "data",
+                            "type": "Identifier"
+                          },
+                          "type": "MemberAccess"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 22,
+                            "line": 29
+                          },
+                          "sourcefile": "examples/struct_005_T.go",
+                          "start": {
+                            "column": 2,
+                            "line": 29
+                          }
+                        },
+                        "operator": "=",
+                        "right": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 22,
+                              "line": 29
+                            },
+                            "sourcefile": "examples/struct_005_T.go",
+                            "start": {
+                              "column": 11,
+                              "line": 29
+                            }
+                          },
+                          "name": "__taint_src",
+                          "type": "Identifier"
+                        },
+                        "type": "AssignmentExpression"
+                      },
+                      {
+                        "_meta": {},
+                        "arguments": [
+                          {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 16,
+                                "line": 30
+                              },
+                              "sourcefile": "examples/struct_005_T.go",
+                              "start": {
+                                "column": 15,
+                                "line": 30
+                              }
+                            },
+                            "name": "p",
+                            "type": "Identifier"
+                          }
+                        ],
+                        "callee": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 14,
+                              "line": 30
+                            },
+                            "sourcefile": "examples/struct_005_T.go",
+                            "start": {
+                              "column": 2,
+                              "line": 30
+                            }
+                          },
+                          "name": "__taint_sink",
+                          "type": "Identifier"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 17,
+                            "line": 30
+                          },
+                          "sourcefile": "examples/struct_005_T.go",
+                          "start": {
+                            "column": 2,
+                            "line": 30
+                          }
+                        },
+                        "type": "CallExpression"
+                      }
+                    ],
+                    "id": null,
+                    "loc": {
+                      "end": {
+                        "column": 2,
+                        "line": 31
+                      },
+                      "sourcefile": "examples/struct_005_T.go",
+                      "start": {
+                        "column": 39,
+                        "line": 27
+                      }
+                    },
+                    "type": "ScopedStatement"
+                  },
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 18,
+                        "line": 27
+                      },
+                      "sourcefile": "examples/struct_005_T.go",
+                      "start": {
+                        "column": 6,
+                        "line": 27
+                      }
+                    },
+                    "name": "struct_003_T",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 31
+                    },
+                    "sourcefile": "examples/struct_005_T.go",
+                    "start": {
+                      "column": 1,
+                      "line": 27
+                    }
+                  },
+                  "modifiers": null,
+                  "parameters": [
+                    {
+                      "_meta": {},
+                      "cloned": true,
+                      "id": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 37,
+                                "line": 27
+                              },
+                              "sourcefile": "examples/struct_005_T.go",
+                              "start": {
+                                "column": 31,
+                                "line": 27
+                              }
+                            },
+                            "name": "string",
+                            "type": "Identifier"
+                          }
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 30,
+                            "line": 27
+                          },
+                          "sourcefile": "examples/struct_005_T.go",
+                          "start": {
+                            "column": 19,
+                            "line": 27
+                          }
+                        },
+                        "name": "__taint_src",
+                        "type": "Identifier"
+                      },
+                      "init": null,
+                      "loc": {
+                        "end": {
+                          "column": 37,
+                          "line": 27
+                        },
+                        "sourcefile": "examples/struct_005_T.go",
+                        "start": {
+                          "column": 19,
+                          "line": 27
+                        }
+                      },
+                      "type": "VariableDeclaration",
+                      "varType": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 37,
+                            "line": 27
+                          },
+                          "sourcefile": "examples/struct_005_T.go",
+                          "start": {
+                            "column": 31,
+                            "line": 27
+                          }
+                        },
+                        "name": "string",
+                        "type": "Identifier"
+                      },
+                      "variableParam": false
+                    }
+                  ],
+                  "returnType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "VoidType",
+                    "typeArguments": null
+                  },
+                  "type": "FunctionDefinition"
+                }
+              ],
+              "language": "golang",
+              "languageVersion": "1.18",
+              "loc": {
+                "end": {
+                  "column": 2,
+                  "line": 31
+                },
+                "sourcefile": "examples/struct_005_T.go",
+                "start": {
+                  "column": 1,
+                  "line": 12
+                }
+              },
+              "type": "CompileUnit",
+              "uri": "",
+              "version": ""
+            },
+            "packageName": "__single__"
+          }
+        },
+        "subs": {}
+      }
+    }
+  }
+}

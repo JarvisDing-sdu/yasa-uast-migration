@@ -1,0 +1,188 @@
+{
+  "moduleName": "__single_module__",
+  "packageInfo": {
+    "PathName": "",
+    "files": {},
+    "subs": {
+      "/": {
+        "PathName": "",
+        "files": {
+          "examples/nil.go": {
+            "node": {
+              "_meta": {},
+              "body": [
+                {
+                  "_meta": {},
+                  "loc": {
+                    "end": {
+                      "column": 17,
+                      "line": 1
+                    },
+                    "sourcefile": "examples/nil.go",
+                    "start": {
+                      "column": 9,
+                      "line": 1
+                    }
+                  },
+                  "packageName": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 17,
+                        "line": 1
+                      },
+                      "sourcefile": "examples/nil.go",
+                      "start": {
+                        "column": 9,
+                        "line": 1
+                      }
+                    },
+                    "name": "examples",
+                    "type": "Identifier"
+                  },
+                  "type": "PackageDeclaration"
+                },
+                {
+                  "_meta": {},
+                  "cloned": false,
+                  "id": {
+                    "_meta": {
+                      "ReceiveCls": "",
+                      "type": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 13,
+                            "line": 3
+                          },
+                          "sourcefile": "examples/nil.go",
+                          "start": {
+                            "column": 9,
+                            "line": 3
+                          }
+                        },
+                        "name": "Type",
+                        "type": "Identifier"
+                      }
+                    },
+                    "loc": {
+                      "end": {
+                        "column": 8,
+                        "line": 3
+                      },
+                      "sourcefile": "examples/nil.go",
+                      "start": {
+                        "column": 5,
+                        "line": 3
+                      }
+                    },
+                    "name": "nil",
+                    "type": "Identifier"
+                  },
+                  "init": null,
+                  "loc": {
+                    "end": {
+                      "column": 13,
+                      "line": 3
+                    },
+                    "sourcefile": "examples/nil.go",
+                    "start": {
+                      "column": 5,
+                      "line": 3
+                    }
+                  },
+                  "type": "VariableDeclaration",
+                  "varType": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 13,
+                        "line": 3
+                      },
+                      "sourcefile": "examples/nil.go",
+                      "start": {
+                        "column": 9,
+                        "line": 3
+                      }
+                    },
+                    "name": "Type",
+                    "type": "Identifier"
+                  },
+                  "variableParam": false
+                },
+                {
+                  "_meta": {},
+                  "body": [],
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 10,
+                        "line": 5
+                      },
+                      "sourcefile": "examples/nil.go",
+                      "start": {
+                        "column": 6,
+                        "line": 5
+                      }
+                    },
+                    "name": "Type",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 14,
+                      "line": 5
+                    },
+                    "sourcefile": "examples/nil.go",
+                    "start": {
+                      "column": 6,
+                      "line": 5
+                    }
+                  },
+                  "supers": [
+                    {
+                      "_meta": {},
+                      "loc": {
+                        "end": {
+                          "column": 14,
+                          "line": 5
+                        },
+                        "sourcefile": "examples/nil.go",
+                        "start": {
+                          "column": 11,
+                          "line": 5
+                        }
+                      },
+                      "name": "int",
+                      "type": "Identifier"
+                    }
+                  ],
+                  "type": "ClassDefinition"
+                }
+              ],
+              "language": "golang",
+              "languageVersion": "1.18",
+              "loc": {
+                "end": {
+                  "column": 14,
+                  "line": 5
+                },
+                "sourcefile": "examples/nil.go",
+                "start": {
+                  "column": 1,
+                  "line": 1
+                }
+              },
+              "type": "CompileUnit",
+              "uri": "",
+              "version": ""
+            },
+            "packageName": "__single__"
+          }
+        },
+        "subs": {}
+      }
+    }
+  }
+}

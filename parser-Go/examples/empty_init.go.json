@@ -1,0 +1,942 @@
+{
+  "moduleName": "__single_module__",
+  "packageInfo": {
+    "PathName": "",
+    "files": {},
+    "subs": {
+      "/": {
+        "PathName": "",
+        "files": {
+          "examples/empty_init.go": {
+            "node": {
+              "_meta": {},
+              "body": [
+                {
+                  "_meta": {},
+                  "loc": {
+                    "end": {
+                      "column": 17,
+                      "line": 1
+                    },
+                    "sourcefile": "examples/empty_init.go",
+                    "start": {
+                      "column": 9,
+                      "line": 1
+                    }
+                  },
+                  "packageName": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 17,
+                        "line": 1
+                      },
+                      "sourcefile": "examples/empty_init.go",
+                      "start": {
+                        "column": 9,
+                        "line": 1
+                      }
+                    },
+                    "name": "examples",
+                    "type": "Identifier"
+                  },
+                  "type": "PackageDeclaration"
+                },
+                {
+                  "_meta": {
+                    "ReceiveCls": "",
+                    "isDefaultImport": true
+                  },
+                  "cloned": false,
+                  "id": {
+                    "_meta": {},
+                    "loc": null,
+                    "name": "fmt",
+                    "type": "Identifier"
+                  },
+                  "init": {
+                    "_meta": {},
+                    "from": {
+                      "_meta": {},
+                      "literalType": "string",
+                      "loc": {
+                        "end": {
+                          "column": 7,
+                          "line": 4
+                        },
+                        "sourcefile": "examples/empty_init.go",
+                        "start": {
+                          "column": 2,
+                          "line": 4
+                        }
+                      },
+                      "type": "Literal",
+                      "value": "fmt"
+                    },
+                    "imported": null,
+                    "loc": {
+                      "end": {
+                        "column": 7,
+                        "line": 4
+                      },
+                      "sourcefile": "examples/empty_init.go",
+                      "start": {
+                        "column": 2,
+                        "line": 4
+                      }
+                    },
+                    "local": null,
+                    "type": "ImportExpression"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 7,
+                      "line": 4
+                    },
+                    "sourcefile": "examples/empty_init.go",
+                    "start": {
+                      "column": 2,
+                      "line": 4
+                    }
+                  },
+                  "type": "VariableDeclaration",
+                  "varType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "DynamicType",
+                    "typeArguments": null
+                  },
+                  "variableParam": false
+                },
+                {
+                  "_meta": {},
+                  "body": {
+                    "_meta": {},
+                    "body": [
+                      {
+                        "_meta": {},
+                        "alternative": {
+                          "_meta": {},
+                          "loc": null,
+                          "type": "Noop"
+                        },
+                        "consequent": {
+                          "_meta": {},
+                          "body": [
+                            {
+                              "_meta": {},
+                              "arguments": [
+                                {
+                                  "_meta": {},
+                                  "literalType": "STRING",
+                                  "loc": {
+                                    "end": {
+                                      "column": 20,
+                                      "line": 9
+                                    },
+                                    "sourcefile": "examples/empty_init.go",
+                                    "start": {
+                                      "column": 13,
+                                      "line": 9
+                                    }
+                                  },
+                                  "type": "Literal",
+                                  "value": "\"Hello\""
+                                }
+                              ],
+                              "callee": {
+                                "_meta": {},
+                                "computed": false,
+                                "loc": {
+                                  "end": {
+                                    "column": 12,
+                                    "line": 9
+                                  },
+                                  "sourcefile": "examples/empty_init.go",
+                                  "start": {
+                                    "column": 3,
+                                    "line": 9
+                                  }
+                                },
+                                "object": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 6,
+                                      "line": 9
+                                    },
+                                    "sourcefile": "examples/empty_init.go",
+                                    "start": {
+                                      "column": 3,
+                                      "line": 9
+                                    }
+                                  },
+                                  "name": "fmt",
+                                  "type": "Identifier"
+                                },
+                                "property": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 12,
+                                      "line": 9
+                                    },
+                                    "sourcefile": "examples/empty_init.go",
+                                    "start": {
+                                      "column": 7,
+                                      "line": 9
+                                    }
+                                  },
+                                  "name": "Print",
+                                  "type": "Identifier"
+                                },
+                                "type": "MemberAccess"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 21,
+                                  "line": 9
+                                },
+                                "sourcefile": "examples/empty_init.go",
+                                "start": {
+                                  "column": 3,
+                                  "line": 9
+                                }
+                              },
+                              "type": "CallExpression"
+                            }
+                          ],
+                          "id": null,
+                          "loc": {
+                            "end": {
+                              "column": 3,
+                              "line": 10
+                            },
+                            "sourcefile": "examples/empty_init.go",
+                            "start": {
+                              "column": 10,
+                              "line": 8
+                            }
+                          },
+                          "type": "ScopedStatement"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 3,
+                            "line": 10
+                          },
+                          "sourcefile": "examples/empty_init.go",
+                          "start": {
+                            "column": 2,
+                            "line": 8
+                          }
+                        },
+                        "test": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 9,
+                              "line": 8
+                            },
+                            "sourcefile": "examples/empty_init.go",
+                            "start": {
+                              "column": 5,
+                              "line": 8
+                            }
+                          },
+                          "name": "true",
+                          "type": "Identifier"
+                        },
+                        "type": "IfStatement"
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "loc": null,
+                              "name": "int",
+                              "type": "Identifier"
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 3,
+                              "line": 12
+                            },
+                            "sourcefile": "examples/empty_init.go",
+                            "start": {
+                              "column": 2,
+                              "line": 12
+                            }
+                          },
+                          "name": "x",
+                          "type": "Identifier"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "literalType": "INT",
+                          "loc": {
+                            "end": {
+                              "column": 8,
+                              "line": 12
+                            },
+                            "sourcefile": "examples/empty_init.go",
+                            "start": {
+                              "column": 7,
+                              "line": 12
+                            }
+                          },
+                          "type": "Literal",
+                          "value": "1"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 8,
+                            "line": 12
+                          },
+                          "sourcefile": "examples/empty_init.go",
+                          "start": {
+                            "column": 2,
+                            "line": 12
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "loc": null,
+                          "name": "int",
+                          "type": "Identifier"
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "cases": [
+                          {
+                            "_meta": {},
+                            "body": {
+                              "_meta": {},
+                              "body": [
+                                {
+                                  "_meta": {},
+                                  "arguments": [
+                                    {
+                                      "_meta": {},
+                                      "literalType": "STRING",
+                                      "loc": {
+                                        "end": {
+                                          "column": 16,
+                                          "line": 16
+                                        },
+                                        "sourcefile": "examples/empty_init.go",
+                                        "start": {
+                                          "column": 13,
+                                          "line": 16
+                                        }
+                                      },
+                                      "type": "Literal",
+                                      "value": "\" \""
+                                    }
+                                  ],
+                                  "callee": {
+                                    "_meta": {},
+                                    "computed": false,
+                                    "loc": {
+                                      "end": {
+                                        "column": 12,
+                                        "line": 16
+                                      },
+                                      "sourcefile": "examples/empty_init.go",
+                                      "start": {
+                                        "column": 3,
+                                        "line": 16
+                                      }
+                                    },
+                                    "object": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 6,
+                                          "line": 16
+                                        },
+                                        "sourcefile": "examples/empty_init.go",
+                                        "start": {
+                                          "column": 3,
+                                          "line": 16
+                                        }
+                                      },
+                                      "name": "fmt",
+                                      "type": "Identifier"
+                                    },
+                                    "property": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 12,
+                                          "line": 16
+                                        },
+                                        "sourcefile": "examples/empty_init.go",
+                                        "start": {
+                                          "column": 7,
+                                          "line": 16
+                                        }
+                                      },
+                                      "name": "Print",
+                                      "type": "Identifier"
+                                    },
+                                    "type": "MemberAccess"
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 17,
+                                      "line": 16
+                                    },
+                                    "sourcefile": "examples/empty_init.go",
+                                    "start": {
+                                      "column": 3,
+                                      "line": 16
+                                    }
+                                  },
+                                  "type": "CallExpression"
+                                }
+                              ],
+                              "id": null,
+                              "loc": null,
+                              "type": "ScopedStatement"
+                            },
+                            "loc": {
+                              "end": {
+                                "column": 3,
+                                "line": 17
+                              },
+                              "sourcefile": "examples/empty_init.go",
+                              "start": {
+                                "column": 2,
+                                "line": 14
+                              }
+                            },
+                            "test": null,
+                            "type": "CaseClause"
+                          }
+                        ],
+                        "discriminant": {
+                          "_meta": {},
+                          "expressions": [
+                            {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 10,
+                                  "line": 14
+                                },
+                                "sourcefile": "examples/empty_init.go",
+                                "start": {
+                                  "column": 9,
+                                  "line": 14
+                                }
+                              },
+                              "name": "x",
+                              "type": "Identifier"
+                            }
+                          ],
+                          "loc": null,
+                          "type": "Sequence"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 3,
+                            "line": 17
+                          },
+                          "sourcefile": "examples/empty_init.go",
+                          "start": {
+                            "column": 2,
+                            "line": 14
+                          }
+                        },
+                        "type": "SwitchStatement"
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": false,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "id": null,
+                              "loc": {
+                                "end": {
+                                  "column": 19,
+                                  "line": 19
+                                },
+                                "sourcefile": "examples/empty_init.go",
+                                "start": {
+                                  "column": 8,
+                                  "line": 19
+                                }
+                              },
+                              "type": "DynamicType",
+                              "typeArguments": null
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 7,
+                              "line": 19
+                            },
+                            "sourcefile": "examples/empty_init.go",
+                            "start": {
+                              "column": 6,
+                              "line": 19
+                            }
+                          },
+                          "name": "y",
+                          "type": "Identifier"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "literalType": "INT",
+                          "loc": {
+                            "end": {
+                              "column": 23,
+                              "line": 19
+                            },
+                            "sourcefile": "examples/empty_init.go",
+                            "start": {
+                              "column": 22,
+                              "line": 19
+                            }
+                          },
+                          "type": "Literal",
+                          "value": "1"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 23,
+                            "line": 19
+                          },
+                          "sourcefile": "examples/empty_init.go",
+                          "start": {
+                            "column": 6,
+                            "line": 19
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "id": null,
+                          "loc": {
+                            "end": {
+                              "column": 19,
+                              "line": 19
+                            },
+                            "sourcefile": "examples/empty_init.go",
+                            "start": {
+                              "column": 8,
+                              "line": 19
+                            }
+                          },
+                          "type": "DynamicType",
+                          "typeArguments": null
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "cases": [
+                          {
+                            "_meta": {},
+                            "body": {
+                              "_meta": {},
+                              "body": [
+                                {
+                                  "_meta": {},
+                                  "arguments": [
+                                    {
+                                      "_meta": {},
+                                      "literalType": "STRING",
+                                      "loc": {
+                                        "end": {
+                                          "column": 22,
+                                          "line": 23
+                                        },
+                                        "sourcefile": "examples/empty_init.go",
+                                        "start": {
+                                          "column": 15,
+                                          "line": 23
+                                        }
+                                      },
+                                      "type": "Literal",
+                                      "value": "\"World\""
+                                    }
+                                  ],
+                                  "callee": {
+                                    "_meta": {},
+                                    "computed": false,
+                                    "loc": {
+                                      "end": {
+                                        "column": 14,
+                                        "line": 23
+                                      },
+                                      "sourcefile": "examples/empty_init.go",
+                                      "start": {
+                                        "column": 3,
+                                        "line": 23
+                                      }
+                                    },
+                                    "object": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 6,
+                                          "line": 23
+                                        },
+                                        "sourcefile": "examples/empty_init.go",
+                                        "start": {
+                                          "column": 3,
+                                          "line": 23
+                                        }
+                                      },
+                                      "name": "fmt",
+                                      "type": "Identifier"
+                                    },
+                                    "property": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 14,
+                                          "line": 23
+                                        },
+                                        "sourcefile": "examples/empty_init.go",
+                                        "start": {
+                                          "column": 7,
+                                          "line": 23
+                                        }
+                                      },
+                                      "name": "Println",
+                                      "type": "Identifier"
+                                    },
+                                    "type": "MemberAccess"
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 23,
+                                      "line": 23
+                                    },
+                                    "sourcefile": "examples/empty_init.go",
+                                    "start": {
+                                      "column": 3,
+                                      "line": 23
+                                    }
+                                  },
+                                  "type": "CallExpression"
+                                }
+                              ],
+                              "id": null,
+                              "loc": null,
+                              "type": "ScopedStatement"
+                            },
+                            "loc": {
+                              "end": {
+                                "column": 3,
+                                "line": 24
+                              },
+                              "sourcefile": "examples/empty_init.go",
+                              "start": {
+                                "column": 2,
+                                "line": 21
+                              }
+                            },
+                            "test": null,
+                            "type": "CaseClause"
+                          }
+                        ],
+                        "discriminant": {
+                          "_meta": {},
+                          "expressions": [
+                            {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "loc": null,
+                                  "type": ""
+                                }
+                              },
+                              "left": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 10,
+                                    "line": 21
+                                  },
+                                  "sourcefile": "examples/empty_init.go",
+                                  "start": {
+                                    "column": 9,
+                                    "line": 21
+                                  }
+                                },
+                                "name": "y",
+                                "type": "Identifier"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 17,
+                                  "line": 21
+                                },
+                                "sourcefile": "examples/empty_init.go",
+                                "start": {
+                                  "column": 9,
+                                  "line": 21
+                                }
+                              },
+                              "operator": "instanceof",
+                              "right": {
+                                "_meta": {},
+                                "loc": null,
+                                "type": "Noop"
+                              },
+                              "type": "BinaryExpression"
+                            }
+                          ],
+                          "loc": null,
+                          "type": "Sequence"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 3,
+                            "line": 24
+                          },
+                          "sourcefile": "examples/empty_init.go",
+                          "start": {
+                            "column": 2,
+                            "line": 21
+                          }
+                        },
+                        "type": "SwitchStatement"
+                      },
+                      {
+                        "_meta": {},
+                        "body": {
+                          "_meta": {},
+                          "body": [
+                            {
+                              "_meta": {},
+                              "arguments": [
+                                {
+                                  "_meta": {},
+                                  "literalType": "STRING",
+                                  "loc": {
+                                    "end": {
+                                      "column": 18,
+                                      "line": 27
+                                    },
+                                    "sourcefile": "examples/empty_init.go",
+                                    "start": {
+                                      "column": 15,
+                                      "line": 27
+                                    }
+                                  },
+                                  "type": "Literal",
+                                  "value": "\"!\""
+                                }
+                              ],
+                              "callee": {
+                                "_meta": {},
+                                "computed": false,
+                                "loc": {
+                                  "end": {
+                                    "column": 14,
+                                    "line": 27
+                                  },
+                                  "sourcefile": "examples/empty_init.go",
+                                  "start": {
+                                    "column": 3,
+                                    "line": 27
+                                  }
+                                },
+                                "object": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 6,
+                                      "line": 27
+                                    },
+                                    "sourcefile": "examples/empty_init.go",
+                                    "start": {
+                                      "column": 3,
+                                      "line": 27
+                                    }
+                                  },
+                                  "name": "fmt",
+                                  "type": "Identifier"
+                                },
+                                "property": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 14,
+                                      "line": 27
+                                    },
+                                    "sourcefile": "examples/empty_init.go",
+                                    "start": {
+                                      "column": 7,
+                                      "line": 27
+                                    }
+                                  },
+                                  "name": "Println",
+                                  "type": "Identifier"
+                                },
+                                "type": "MemberAccess"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 19,
+                                  "line": 27
+                                },
+                                "sourcefile": "examples/empty_init.go",
+                                "start": {
+                                  "column": 3,
+                                  "line": 27
+                                }
+                              },
+                              "type": "CallExpression"
+                            }
+                          ],
+                          "id": null,
+                          "loc": {
+                            "end": {
+                              "column": 3,
+                              "line": 28
+                            },
+                            "sourcefile": "examples/empty_init.go",
+                            "start": {
+                              "column": 11,
+                              "line": 26
+                            }
+                          },
+                          "type": "ScopedStatement"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "loc": null,
+                          "type": "Noop"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 3,
+                            "line": 28
+                          },
+                          "sourcefile": "examples/empty_init.go",
+                          "start": {
+                            "column": 2,
+                            "line": 26
+                          }
+                        },
+                        "test": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 10,
+                              "line": 26
+                            },
+                            "sourcefile": "examples/empty_init.go",
+                            "start": {
+                              "column": 6,
+                              "line": 26
+                            }
+                          },
+                          "name": "true",
+                          "type": "Identifier"
+                        },
+                        "type": "ForStatement",
+                        "update": {
+                          "_meta": {},
+                          "loc": null,
+                          "type": "Noop"
+                        }
+                      }
+                    ],
+                    "id": null,
+                    "loc": {
+                      "end": {
+                        "column": 2,
+                        "line": 30
+                      },
+                      "sourcefile": "examples/empty_init.go",
+                      "start": {
+                        "column": 13,
+                        "line": 7
+                      }
+                    },
+                    "type": "ScopedStatement"
+                  },
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 10,
+                        "line": 7
+                      },
+                      "sourcefile": "examples/empty_init.go",
+                      "start": {
+                        "column": 6,
+                        "line": 7
+                      }
+                    },
+                    "name": "main",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 30
+                    },
+                    "sourcefile": "examples/empty_init.go",
+                    "start": {
+                      "column": 1,
+                      "line": 7
+                    }
+                  },
+                  "modifiers": null,
+                  "parameters": [],
+                  "returnType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "VoidType",
+                    "typeArguments": null
+                  },
+                  "type": "FunctionDefinition"
+                }
+              ],
+              "language": "golang",
+              "languageVersion": "1.18",
+              "loc": {
+                "end": {
+                  "column": 2,
+                  "line": 30
+                },
+                "sourcefile": "examples/empty_init.go",
+                "start": {
+                  "column": 1,
+                  "line": 1
+                }
+              },
+              "type": "CompileUnit",
+              "uri": "",
+              "version": ""
+            },
+            "packageName": "__single__"
+          }
+        },
+        "subs": {}
+      }
+    }
+  }
+}

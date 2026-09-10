@@ -1,0 +1,2572 @@
+{
+  "moduleName": "__single_module__",
+  "packageInfo": {
+    "PathName": "",
+    "files": {},
+    "subs": {
+      "/": {
+        "PathName": "",
+        "files": {
+          "examples/foreachStmts.go": {
+            "node": {
+              "_meta": {},
+              "body": [
+                {
+                  "_meta": {},
+                  "loc": {
+                    "end": {
+                      "column": 17,
+                      "line": 1
+                    },
+                    "sourcefile": "examples/foreachStmts.go",
+                    "start": {
+                      "column": 9,
+                      "line": 1
+                    }
+                  },
+                  "packageName": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 17,
+                        "line": 1
+                      },
+                      "sourcefile": "examples/foreachStmts.go",
+                      "start": {
+                        "column": 9,
+                        "line": 1
+                      }
+                    },
+                    "name": "examples",
+                    "type": "Identifier"
+                  },
+                  "type": "PackageDeclaration"
+                },
+                {
+                  "_meta": {
+                    "ReceiveCls": "",
+                    "isDefaultImport": true
+                  },
+                  "cloned": false,
+                  "id": {
+                    "_meta": {},
+                    "loc": null,
+                    "name": "fmt",
+                    "type": "Identifier"
+                  },
+                  "init": {
+                    "_meta": {},
+                    "from": {
+                      "_meta": {},
+                      "literalType": "string",
+                      "loc": {
+                        "end": {
+                          "column": 13,
+                          "line": 3
+                        },
+                        "sourcefile": "examples/foreachStmts.go",
+                        "start": {
+                          "column": 8,
+                          "line": 3
+                        }
+                      },
+                      "type": "Literal",
+                      "value": "fmt"
+                    },
+                    "imported": null,
+                    "loc": {
+                      "end": {
+                        "column": 13,
+                        "line": 3
+                      },
+                      "sourcefile": "examples/foreachStmts.go",
+                      "start": {
+                        "column": 8,
+                        "line": 3
+                      }
+                    },
+                    "local": null,
+                    "type": "ImportExpression"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 13,
+                      "line": 3
+                    },
+                    "sourcefile": "examples/foreachStmts.go",
+                    "start": {
+                      "column": 8,
+                      "line": 3
+                    }
+                  },
+                  "type": "VariableDeclaration",
+                  "varType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "DynamicType",
+                    "typeArguments": null
+                  },
+                  "variableParam": false
+                },
+                {
+                  "_meta": {},
+                  "body": {
+                    "_meta": {},
+                    "body": [
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "element": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 15,
+                                    "line": 8
+                                  },
+                                  "sourcefile": "examples/foreachStmts.go",
+                                  "start": {
+                                    "column": 12,
+                                    "line": 8
+                                  }
+                                },
+                                "name": "int",
+                                "type": "Identifier"
+                              },
+                              "id": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 15,
+                                    "line": 8
+                                  },
+                                  "sourcefile": "examples/foreachStmts.go",
+                                  "start": {
+                                    "column": 10,
+                                    "line": 8
+                                  }
+                                },
+                                "name": "ArrayType",
+                                "type": "Identifier"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 15,
+                                  "line": 8
+                                },
+                                "sourcefile": "examples/foreachStmts.go",
+                                "start": {
+                                  "column": 10,
+                                  "line": 8
+                                }
+                              },
+                              "size": {
+                                "_meta": {},
+                                "loc": null,
+                                "type": "Noop"
+                              },
+                              "type": "ArrayType",
+                              "typeArguments": null
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 6,
+                              "line": 8
+                            },
+                            "sourcefile": "examples/foreachStmts.go",
+                            "start": {
+                              "column": 2,
+                              "line": 8
+                            }
+                          },
+                          "name": "nums",
+                          "type": "Identifier"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "expressions": [
+                            {
+                              "_meta": {},
+                              "cloned": false,
+                              "id": {
+                                "_meta": {
+                                  "ReceiveCls": "",
+                                  "type": {
+                                    "_meta": {},
+                                    "element": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 15,
+                                          "line": 8
+                                        },
+                                        "sourcefile": "examples/foreachStmts.go",
+                                        "start": {
+                                          "column": 12,
+                                          "line": 8
+                                        }
+                                      },
+                                      "name": "int",
+                                      "type": "Identifier"
+                                    },
+                                    "id": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 15,
+                                          "line": 8
+                                        },
+                                        "sourcefile": "examples/foreachStmts.go",
+                                        "start": {
+                                          "column": 10,
+                                          "line": 8
+                                        }
+                                      },
+                                      "name": "ArrayType",
+                                      "type": "Identifier"
+                                    },
+                                    "loc": {
+                                      "end": {
+                                        "column": 15,
+                                        "line": 8
+                                      },
+                                      "sourcefile": "examples/foreachStmts.go",
+                                      "start": {
+                                        "column": 10,
+                                        "line": 8
+                                      }
+                                    },
+                                    "size": {
+                                      "_meta": {},
+                                      "loc": null,
+                                      "type": "Noop"
+                                    },
+                                    "type": "ArrayType",
+                                    "typeArguments": null
+                                  }
+                                },
+                                "loc": {
+                                  "end": {
+                                    "column": 24,
+                                    "line": 8
+                                  },
+                                  "sourcefile": "examples/foreachStmts.go",
+                                  "start": {
+                                    "column": 10,
+                                    "line": 8
+                                  }
+                                },
+                                "name": "tmp1",
+                                "type": "Identifier"
+                              },
+                              "init": {
+                                "_meta": {},
+                                "arguments": [],
+                                "callee": {
+                                  "_meta": {},
+                                  "element": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 15,
+                                        "line": 8
+                                      },
+                                      "sourcefile": "examples/foreachStmts.go",
+                                      "start": {
+                                        "column": 12,
+                                        "line": 8
+                                      }
+                                    },
+                                    "name": "int",
+                                    "type": "Identifier"
+                                  },
+                                  "id": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 15,
+                                        "line": 8
+                                      },
+                                      "sourcefile": "examples/foreachStmts.go",
+                                      "start": {
+                                        "column": 10,
+                                        "line": 8
+                                      }
+                                    },
+                                    "name": "ArrayType",
+                                    "type": "Identifier"
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 15,
+                                      "line": 8
+                                    },
+                                    "sourcefile": "examples/foreachStmts.go",
+                                    "start": {
+                                      "column": 10,
+                                      "line": 8
+                                    }
+                                  },
+                                  "size": {
+                                    "_meta": {},
+                                    "loc": null,
+                                    "type": "Noop"
+                                  },
+                                  "type": "ArrayType",
+                                  "typeArguments": null
+                                },
+                                "loc": null,
+                                "type": "NewExpression"
+                              },
+                              "loc": null,
+                              "type": "VariableDeclaration",
+                              "varType": {
+                                "_meta": {},
+                                "element": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 15,
+                                      "line": 8
+                                    },
+                                    "sourcefile": "examples/foreachStmts.go",
+                                    "start": {
+                                      "column": 12,
+                                      "line": 8
+                                    }
+                                  },
+                                  "name": "int",
+                                  "type": "Identifier"
+                                },
+                                "id": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 15,
+                                      "line": 8
+                                    },
+                                    "sourcefile": "examples/foreachStmts.go",
+                                    "start": {
+                                      "column": 10,
+                                      "line": 8
+                                    }
+                                  },
+                                  "name": "ArrayType",
+                                  "type": "Identifier"
+                                },
+                                "loc": {
+                                  "end": {
+                                    "column": 15,
+                                    "line": 8
+                                  },
+                                  "sourcefile": "examples/foreachStmts.go",
+                                  "start": {
+                                    "column": 10,
+                                    "line": 8
+                                  }
+                                },
+                                "size": {
+                                  "_meta": {},
+                                  "loc": null,
+                                  "type": "Noop"
+                                },
+                                "type": "ArrayType",
+                                "typeArguments": null
+                              },
+                              "variableParam": false
+                            },
+                            {
+                              "_meta": {},
+                              "cloned": true,
+                              "left": {
+                                "_meta": {},
+                                "computed": false,
+                                "loc": null,
+                                "object": {
+                                  "_meta": {
+                                    "ReceiveCls": "",
+                                    "type": {
+                                      "_meta": {},
+                                      "element": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 15,
+                                            "line": 8
+                                          },
+                                          "sourcefile": "examples/foreachStmts.go",
+                                          "start": {
+                                            "column": 12,
+                                            "line": 8
+                                          }
+                                        },
+                                        "name": "int",
+                                        "type": "Identifier"
+                                      },
+                                      "id": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 15,
+                                            "line": 8
+                                          },
+                                          "sourcefile": "examples/foreachStmts.go",
+                                          "start": {
+                                            "column": 10,
+                                            "line": 8
+                                          }
+                                        },
+                                        "name": "ArrayType",
+                                        "type": "Identifier"
+                                      },
+                                      "loc": {
+                                        "end": {
+                                          "column": 15,
+                                          "line": 8
+                                        },
+                                        "sourcefile": "examples/foreachStmts.go",
+                                        "start": {
+                                          "column": 10,
+                                          "line": 8
+                                        }
+                                      },
+                                      "size": {
+                                        "_meta": {},
+                                        "loc": null,
+                                        "type": "Noop"
+                                      },
+                                      "type": "ArrayType",
+                                      "typeArguments": null
+                                    }
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 24,
+                                      "line": 8
+                                    },
+                                    "sourcefile": "examples/foreachStmts.go",
+                                    "start": {
+                                      "column": 10,
+                                      "line": 8
+                                    }
+                                  },
+                                  "name": "tmp1",
+                                  "type": "Identifier"
+                                },
+                                "property": {
+                                  "_meta": {},
+                                  "loc": null,
+                                  "name": "0",
+                                  "type": "Identifier"
+                                },
+                                "type": "MemberAccess"
+                              },
+                              "loc": null,
+                              "operator": "=",
+                              "right": {
+                                "_meta": {},
+                                "literalType": "INT",
+                                "loc": {
+                                  "end": {
+                                    "column": 17,
+                                    "line": 8
+                                  },
+                                  "sourcefile": "examples/foreachStmts.go",
+                                  "start": {
+                                    "column": 16,
+                                    "line": 8
+                                  }
+                                },
+                                "type": "Literal",
+                                "value": "2"
+                              },
+                              "type": "AssignmentExpression"
+                            },
+                            {
+                              "_meta": {},
+                              "cloned": true,
+                              "left": {
+                                "_meta": {},
+                                "computed": false,
+                                "loc": null,
+                                "object": {
+                                  "_meta": {
+                                    "ReceiveCls": "",
+                                    "type": {
+                                      "_meta": {},
+                                      "element": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 15,
+                                            "line": 8
+                                          },
+                                          "sourcefile": "examples/foreachStmts.go",
+                                          "start": {
+                                            "column": 12,
+                                            "line": 8
+                                          }
+                                        },
+                                        "name": "int",
+                                        "type": "Identifier"
+                                      },
+                                      "id": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 15,
+                                            "line": 8
+                                          },
+                                          "sourcefile": "examples/foreachStmts.go",
+                                          "start": {
+                                            "column": 10,
+                                            "line": 8
+                                          }
+                                        },
+                                        "name": "ArrayType",
+                                        "type": "Identifier"
+                                      },
+                                      "loc": {
+                                        "end": {
+                                          "column": 15,
+                                          "line": 8
+                                        },
+                                        "sourcefile": "examples/foreachStmts.go",
+                                        "start": {
+                                          "column": 10,
+                                          "line": 8
+                                        }
+                                      },
+                                      "size": {
+                                        "_meta": {},
+                                        "loc": null,
+                                        "type": "Noop"
+                                      },
+                                      "type": "ArrayType",
+                                      "typeArguments": null
+                                    }
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 24,
+                                      "line": 8
+                                    },
+                                    "sourcefile": "examples/foreachStmts.go",
+                                    "start": {
+                                      "column": 10,
+                                      "line": 8
+                                    }
+                                  },
+                                  "name": "tmp1",
+                                  "type": "Identifier"
+                                },
+                                "property": {
+                                  "_meta": {},
+                                  "loc": null,
+                                  "name": "1",
+                                  "type": "Identifier"
+                                },
+                                "type": "MemberAccess"
+                              },
+                              "loc": null,
+                              "operator": "=",
+                              "right": {
+                                "_meta": {},
+                                "literalType": "INT",
+                                "loc": {
+                                  "end": {
+                                    "column": 20,
+                                    "line": 8
+                                  },
+                                  "sourcefile": "examples/foreachStmts.go",
+                                  "start": {
+                                    "column": 19,
+                                    "line": 8
+                                  }
+                                },
+                                "type": "Literal",
+                                "value": "3"
+                              },
+                              "type": "AssignmentExpression"
+                            },
+                            {
+                              "_meta": {},
+                              "cloned": true,
+                              "left": {
+                                "_meta": {},
+                                "computed": false,
+                                "loc": null,
+                                "object": {
+                                  "_meta": {
+                                    "ReceiveCls": "",
+                                    "type": {
+                                      "_meta": {},
+                                      "element": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 15,
+                                            "line": 8
+                                          },
+                                          "sourcefile": "examples/foreachStmts.go",
+                                          "start": {
+                                            "column": 12,
+                                            "line": 8
+                                          }
+                                        },
+                                        "name": "int",
+                                        "type": "Identifier"
+                                      },
+                                      "id": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 15,
+                                            "line": 8
+                                          },
+                                          "sourcefile": "examples/foreachStmts.go",
+                                          "start": {
+                                            "column": 10,
+                                            "line": 8
+                                          }
+                                        },
+                                        "name": "ArrayType",
+                                        "type": "Identifier"
+                                      },
+                                      "loc": {
+                                        "end": {
+                                          "column": 15,
+                                          "line": 8
+                                        },
+                                        "sourcefile": "examples/foreachStmts.go",
+                                        "start": {
+                                          "column": 10,
+                                          "line": 8
+                                        }
+                                      },
+                                      "size": {
+                                        "_meta": {},
+                                        "loc": null,
+                                        "type": "Noop"
+                                      },
+                                      "type": "ArrayType",
+                                      "typeArguments": null
+                                    }
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 24,
+                                      "line": 8
+                                    },
+                                    "sourcefile": "examples/foreachStmts.go",
+                                    "start": {
+                                      "column": 10,
+                                      "line": 8
+                                    }
+                                  },
+                                  "name": "tmp1",
+                                  "type": "Identifier"
+                                },
+                                "property": {
+                                  "_meta": {},
+                                  "loc": null,
+                                  "name": "2",
+                                  "type": "Identifier"
+                                },
+                                "type": "MemberAccess"
+                              },
+                              "loc": null,
+                              "operator": "=",
+                              "right": {
+                                "_meta": {},
+                                "literalType": "INT",
+                                "loc": {
+                                  "end": {
+                                    "column": 23,
+                                    "line": 8
+                                  },
+                                  "sourcefile": "examples/foreachStmts.go",
+                                  "start": {
+                                    "column": 22,
+                                    "line": 8
+                                  }
+                                },
+                                "type": "Literal",
+                                "value": "4"
+                              },
+                              "type": "AssignmentExpression"
+                            },
+                            {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "element": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 15,
+                                        "line": 8
+                                      },
+                                      "sourcefile": "examples/foreachStmts.go",
+                                      "start": {
+                                        "column": 12,
+                                        "line": 8
+                                      }
+                                    },
+                                    "name": "int",
+                                    "type": "Identifier"
+                                  },
+                                  "id": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 15,
+                                        "line": 8
+                                      },
+                                      "sourcefile": "examples/foreachStmts.go",
+                                      "start": {
+                                        "column": 10,
+                                        "line": 8
+                                      }
+                                    },
+                                    "name": "ArrayType",
+                                    "type": "Identifier"
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 15,
+                                      "line": 8
+                                    },
+                                    "sourcefile": "examples/foreachStmts.go",
+                                    "start": {
+                                      "column": 10,
+                                      "line": 8
+                                    }
+                                  },
+                                  "size": {
+                                    "_meta": {},
+                                    "loc": null,
+                                    "type": "Noop"
+                                  },
+                                  "type": "ArrayType",
+                                  "typeArguments": null
+                                }
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 24,
+                                  "line": 8
+                                },
+                                "sourcefile": "examples/foreachStmts.go",
+                                "start": {
+                                  "column": 10,
+                                  "line": 8
+                                }
+                              },
+                              "name": "tmp1",
+                              "type": "Identifier"
+                            }
+                          ],
+                          "loc": {
+                            "end": {
+                              "column": 24,
+                              "line": 8
+                            },
+                            "sourcefile": "examples/foreachStmts.go",
+                            "start": {
+                              "column": 10,
+                              "line": 8
+                            }
+                          },
+                          "type": "Sequence"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 24,
+                            "line": 8
+                          },
+                          "sourcefile": "examples/foreachStmts.go",
+                          "start": {
+                            "column": 2,
+                            "line": 8
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "element": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 15,
+                                "line": 8
+                              },
+                              "sourcefile": "examples/foreachStmts.go",
+                              "start": {
+                                "column": 12,
+                                "line": 8
+                              }
+                            },
+                            "name": "int",
+                            "type": "Identifier"
+                          },
+                          "id": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 15,
+                                "line": 8
+                              },
+                              "sourcefile": "examples/foreachStmts.go",
+                              "start": {
+                                "column": 10,
+                                "line": 8
+                              }
+                            },
+                            "name": "ArrayType",
+                            "type": "Identifier"
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 15,
+                              "line": 8
+                            },
+                            "sourcefile": "examples/foreachStmts.go",
+                            "start": {
+                              "column": 10,
+                              "line": 8
+                            }
+                          },
+                          "size": {
+                            "_meta": {},
+                            "loc": null,
+                            "type": "Noop"
+                          },
+                          "type": "ArrayType",
+                          "typeArguments": null
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "loc": null,
+                              "name": "int",
+                              "type": "Identifier"
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 5,
+                              "line": 9
+                            },
+                            "sourcefile": "examples/foreachStmts.go",
+                            "start": {
+                              "column": 2,
+                              "line": 9
+                            }
+                          },
+                          "name": "sum",
+                          "type": "Identifier"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "literalType": "INT",
+                          "loc": {
+                            "end": {
+                              "column": 10,
+                              "line": 9
+                            },
+                            "sourcefile": "examples/foreachStmts.go",
+                            "start": {
+                              "column": 9,
+                              "line": 9
+                            }
+                          },
+                          "type": "Literal",
+                          "value": "0"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 10,
+                            "line": 9
+                          },
+                          "sourcefile": "examples/foreachStmts.go",
+                          "start": {
+                            "column": 2,
+                            "line": 9
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "loc": null,
+                          "name": "int",
+                          "type": "Identifier"
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "body": {
+                          "_meta": {},
+                          "body": [
+                            {
+                              "_meta": {},
+                              "cloned": true,
+                              "left": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 6,
+                                    "line": 11
+                                  },
+                                  "sourcefile": "examples/foreachStmts.go",
+                                  "start": {
+                                    "column": 3,
+                                    "line": 11
+                                  }
+                                },
+                                "name": "sum",
+                                "type": "Identifier"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 13,
+                                  "line": 11
+                                },
+                                "sourcefile": "examples/foreachStmts.go",
+                                "start": {
+                                  "column": 3,
+                                  "line": 11
+                                }
+                              },
+                              "operator": "+=",
+                              "right": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 13,
+                                    "line": 11
+                                  },
+                                  "sourcefile": "examples/foreachStmts.go",
+                                  "start": {
+                                    "column": 10,
+                                    "line": 11
+                                  }
+                                },
+                                "name": "num",
+                                "type": "Identifier"
+                              },
+                              "type": "AssignmentExpression"
+                            }
+                          ],
+                          "id": null,
+                          "loc": {
+                            "end": {
+                              "column": 3,
+                              "line": 12
+                            },
+                            "sourcefile": "examples/foreachStmts.go",
+                            "start": {
+                              "column": 27,
+                              "line": 10
+                            }
+                          },
+                          "type": "ScopedStatement"
+                        },
+                        "key": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 7,
+                              "line": 10
+                            },
+                            "sourcefile": "examples/foreachStmts.go",
+                            "start": {
+                              "column": 6,
+                              "line": 10
+                            }
+                          },
+                          "name": "_",
+                          "type": "Identifier"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 3,
+                            "line": 12
+                          },
+                          "sourcefile": "examples/foreachStmts.go",
+                          "start": {
+                            "column": 2,
+                            "line": 10
+                          }
+                        },
+                        "right": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 26,
+                              "line": 10
+                            },
+                            "sourcefile": "examples/foreachStmts.go",
+                            "start": {
+                              "column": 22,
+                              "line": 10
+                            }
+                          },
+                          "name": "nums",
+                          "type": "Identifier"
+                        },
+                        "type": "RangeStatement",
+                        "value": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 12,
+                              "line": 10
+                            },
+                            "sourcefile": "examples/foreachStmts.go",
+                            "start": {
+                              "column": 9,
+                              "line": 10
+                            }
+                          },
+                          "name": "num",
+                          "type": "Identifier"
+                        }
+                      },
+                      {
+                        "_meta": {},
+                        "arguments": [
+                          {
+                            "_meta": {},
+                            "literalType": "STRING",
+                            "loc": {
+                              "end": {
+                                "column": 20,
+                                "line": 13
+                              },
+                              "sourcefile": "examples/foreachStmts.go",
+                              "start": {
+                                "column": 14,
+                                "line": 13
+                              }
+                            },
+                            "type": "Literal",
+                            "value": "\"sum:\""
+                          },
+                          {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 25,
+                                "line": 13
+                              },
+                              "sourcefile": "examples/foreachStmts.go",
+                              "start": {
+                                "column": 22,
+                                "line": 13
+                              }
+                            },
+                            "name": "sum",
+                            "type": "Identifier"
+                          }
+                        ],
+                        "callee": {
+                          "_meta": {},
+                          "computed": false,
+                          "loc": {
+                            "end": {
+                              "column": 13,
+                              "line": 13
+                            },
+                            "sourcefile": "examples/foreachStmts.go",
+                            "start": {
+                              "column": 2,
+                              "line": 13
+                            }
+                          },
+                          "object": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 5,
+                                "line": 13
+                              },
+                              "sourcefile": "examples/foreachStmts.go",
+                              "start": {
+                                "column": 2,
+                                "line": 13
+                              }
+                            },
+                            "name": "fmt",
+                            "type": "Identifier"
+                          },
+                          "property": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 13,
+                                "line": 13
+                              },
+                              "sourcefile": "examples/foreachStmts.go",
+                              "start": {
+                                "column": 6,
+                                "line": 13
+                              }
+                            },
+                            "name": "Println",
+                            "type": "Identifier"
+                          },
+                          "type": "MemberAccess"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 26,
+                            "line": 13
+                          },
+                          "sourcefile": "examples/foreachStmts.go",
+                          "start": {
+                            "column": 2,
+                            "line": 13
+                          }
+                        },
+                        "type": "CallExpression"
+                      },
+                      {
+                        "_meta": {},
+                        "body": {
+                          "_meta": {},
+                          "body": [
+                            {
+                              "_meta": {},
+                              "alternative": {
+                                "_meta": {},
+                                "loc": null,
+                                "type": "Noop"
+                              },
+                              "consequent": {
+                                "_meta": {},
+                                "body": [
+                                  {
+                                    "_meta": {},
+                                    "arguments": [
+                                      {
+                                        "_meta": {},
+                                        "literalType": "STRING",
+                                        "loc": {
+                                          "end": {
+                                            "column": 24,
+                                            "line": 22
+                                          },
+                                          "sourcefile": "examples/foreachStmts.go",
+                                          "start": {
+                                            "column": 16,
+                                            "line": 22
+                                          }
+                                        },
+                                        "type": "Literal",
+                                        "value": "\"index:\""
+                                      },
+                                      {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 27,
+                                            "line": 22
+                                          },
+                                          "sourcefile": "examples/foreachStmts.go",
+                                          "start": {
+                                            "column": 26,
+                                            "line": 22
+                                          }
+                                        },
+                                        "name": "i",
+                                        "type": "Identifier"
+                                      }
+                                    ],
+                                    "callee": {
+                                      "_meta": {},
+                                      "computed": false,
+                                      "loc": {
+                                        "end": {
+                                          "column": 15,
+                                          "line": 22
+                                        },
+                                        "sourcefile": "examples/foreachStmts.go",
+                                        "start": {
+                                          "column": 4,
+                                          "line": 22
+                                        }
+                                      },
+                                      "object": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 7,
+                                            "line": 22
+                                          },
+                                          "sourcefile": "examples/foreachStmts.go",
+                                          "start": {
+                                            "column": 4,
+                                            "line": 22
+                                          }
+                                        },
+                                        "name": "fmt",
+                                        "type": "Identifier"
+                                      },
+                                      "property": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 15,
+                                            "line": 22
+                                          },
+                                          "sourcefile": "examples/foreachStmts.go",
+                                          "start": {
+                                            "column": 8,
+                                            "line": 22
+                                          }
+                                        },
+                                        "name": "Println",
+                                        "type": "Identifier"
+                                      },
+                                      "type": "MemberAccess"
+                                    },
+                                    "loc": {
+                                      "end": {
+                                        "column": 28,
+                                        "line": 22
+                                      },
+                                      "sourcefile": "examples/foreachStmts.go",
+                                      "start": {
+                                        "column": 4,
+                                        "line": 22
+                                      }
+                                    },
+                                    "type": "CallExpression"
+                                  }
+                                ],
+                                "id": null,
+                                "loc": {
+                                  "end": {
+                                    "column": 4,
+                                    "line": 23
+                                  },
+                                  "sourcefile": "examples/foreachStmts.go",
+                                  "start": {
+                                    "column": 15,
+                                    "line": 21
+                                  }
+                                },
+                                "type": "ScopedStatement"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 4,
+                                  "line": 23
+                                },
+                                "sourcefile": "examples/foreachStmts.go",
+                                "start": {
+                                  "column": 3,
+                                  "line": 21
+                                }
+                              },
+                              "test": {
+                                "_meta": {},
+                                "left": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 9,
+                                      "line": 21
+                                    },
+                                    "sourcefile": "examples/foreachStmts.go",
+                                    "start": {
+                                      "column": 6,
+                                      "line": 21
+                                    }
+                                  },
+                                  "name": "num",
+                                  "type": "Identifier"
+                                },
+                                "loc": {
+                                  "end": {
+                                    "column": 14,
+                                    "line": 21
+                                  },
+                                  "sourcefile": "examples/foreachStmts.go",
+                                  "start": {
+                                    "column": 6,
+                                    "line": 21
+                                  }
+                                },
+                                "operator": "==",
+                                "right": {
+                                  "_meta": {},
+                                  "literalType": "INT",
+                                  "loc": {
+                                    "end": {
+                                      "column": 14,
+                                      "line": 21
+                                    },
+                                    "sourcefile": "examples/foreachStmts.go",
+                                    "start": {
+                                      "column": 13,
+                                      "line": 21
+                                    }
+                                  },
+                                  "type": "Literal",
+                                  "value": "3"
+                                },
+                                "type": "BinaryExpression"
+                              },
+                              "type": "IfStatement"
+                            }
+                          ],
+                          "id": null,
+                          "loc": {
+                            "end": {
+                              "column": 3,
+                              "line": 24
+                            },
+                            "sourcefile": "examples/foreachStmts.go",
+                            "start": {
+                              "column": 27,
+                              "line": 20
+                            }
+                          },
+                          "type": "ScopedStatement"
+                        },
+                        "key": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 7,
+                              "line": 20
+                            },
+                            "sourcefile": "examples/foreachStmts.go",
+                            "start": {
+                              "column": 6,
+                              "line": 20
+                            }
+                          },
+                          "name": "i",
+                          "type": "Identifier"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 3,
+                            "line": 24
+                          },
+                          "sourcefile": "examples/foreachStmts.go",
+                          "start": {
+                            "column": 2,
+                            "line": 20
+                          }
+                        },
+                        "right": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 26,
+                              "line": 20
+                            },
+                            "sourcefile": "examples/foreachStmts.go",
+                            "start": {
+                              "column": 22,
+                              "line": 20
+                            }
+                          },
+                          "name": "nums",
+                          "type": "Identifier"
+                        },
+                        "type": "RangeStatement",
+                        "value": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 12,
+                              "line": 20
+                            },
+                            "sourcefile": "examples/foreachStmts.go",
+                            "start": {
+                              "column": 9,
+                              "line": 20
+                            }
+                          },
+                          "name": "num",
+                          "type": "Identifier"
+                        }
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "id": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 26,
+                                    "line": 27
+                                  },
+                                  "sourcefile": "examples/foreachStmts.go",
+                                  "start": {
+                                    "column": 9,
+                                    "line": 27
+                                  }
+                                },
+                                "name": "MapType",
+                                "type": "Identifier"
+                              },
+                              "keyType": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 19,
+                                    "line": 27
+                                  },
+                                  "sourcefile": "examples/foreachStmts.go",
+                                  "start": {
+                                    "column": 13,
+                                    "line": 27
+                                  }
+                                },
+                                "name": "string",
+                                "type": "Identifier"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 26,
+                                  "line": 27
+                                },
+                                "sourcefile": "examples/foreachStmts.go",
+                                "start": {
+                                  "column": 9,
+                                  "line": 27
+                                }
+                              },
+                              "type": "MapType",
+                              "typeArguments": null,
+                              "valueType": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 26,
+                                    "line": 27
+                                  },
+                                  "sourcefile": "examples/foreachStmts.go",
+                                  "start": {
+                                    "column": 20,
+                                    "line": 27
+                                  }
+                                },
+                                "name": "string",
+                                "type": "Identifier"
+                              }
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 5,
+                              "line": 27
+                            },
+                            "sourcefile": "examples/foreachStmts.go",
+                            "start": {
+                              "column": 2,
+                              "line": 27
+                            }
+                          },
+                          "name": "kvs",
+                          "type": "Identifier"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "expressions": [
+                            {
+                              "_meta": {},
+                              "cloned": false,
+                              "id": {
+                                "_meta": {
+                                  "ReceiveCls": "",
+                                  "type": {
+                                    "_meta": {},
+                                    "id": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 26,
+                                          "line": 27
+                                        },
+                                        "sourcefile": "examples/foreachStmts.go",
+                                        "start": {
+                                          "column": 9,
+                                          "line": 27
+                                        }
+                                      },
+                                      "name": "MapType",
+                                      "type": "Identifier"
+                                    },
+                                    "keyType": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 19,
+                                          "line": 27
+                                        },
+                                        "sourcefile": "examples/foreachStmts.go",
+                                        "start": {
+                                          "column": 13,
+                                          "line": 27
+                                        }
+                                      },
+                                      "name": "string",
+                                      "type": "Identifier"
+                                    },
+                                    "loc": {
+                                      "end": {
+                                        "column": 26,
+                                        "line": 27
+                                      },
+                                      "sourcefile": "examples/foreachStmts.go",
+                                      "start": {
+                                        "column": 9,
+                                        "line": 27
+                                      }
+                                    },
+                                    "type": "MapType",
+                                    "typeArguments": null,
+                                    "valueType": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 26,
+                                          "line": 27
+                                        },
+                                        "sourcefile": "examples/foreachStmts.go",
+                                        "start": {
+                                          "column": 20,
+                                          "line": 27
+                                        }
+                                      },
+                                      "name": "string",
+                                      "type": "Identifier"
+                                    }
+                                  }
+                                },
+                                "loc": {
+                                  "end": {
+                                    "column": 55,
+                                    "line": 27
+                                  },
+                                  "sourcefile": "examples/foreachStmts.go",
+                                  "start": {
+                                    "column": 9,
+                                    "line": 27
+                                  }
+                                },
+                                "name": "tmp2",
+                                "type": "Identifier"
+                              },
+                              "init": {
+                                "_meta": {},
+                                "arguments": [],
+                                "callee": {
+                                  "_meta": {},
+                                  "id": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 26,
+                                        "line": 27
+                                      },
+                                      "sourcefile": "examples/foreachStmts.go",
+                                      "start": {
+                                        "column": 9,
+                                        "line": 27
+                                      }
+                                    },
+                                    "name": "MapType",
+                                    "type": "Identifier"
+                                  },
+                                  "keyType": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 19,
+                                        "line": 27
+                                      },
+                                      "sourcefile": "examples/foreachStmts.go",
+                                      "start": {
+                                        "column": 13,
+                                        "line": 27
+                                      }
+                                    },
+                                    "name": "string",
+                                    "type": "Identifier"
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 26,
+                                      "line": 27
+                                    },
+                                    "sourcefile": "examples/foreachStmts.go",
+                                    "start": {
+                                      "column": 9,
+                                      "line": 27
+                                    }
+                                  },
+                                  "type": "MapType",
+                                  "typeArguments": null,
+                                  "valueType": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 26,
+                                        "line": 27
+                                      },
+                                      "sourcefile": "examples/foreachStmts.go",
+                                      "start": {
+                                        "column": 20,
+                                        "line": 27
+                                      }
+                                    },
+                                    "name": "string",
+                                    "type": "Identifier"
+                                  }
+                                },
+                                "loc": null,
+                                "type": "NewExpression"
+                              },
+                              "loc": null,
+                              "type": "VariableDeclaration",
+                              "varType": {
+                                "_meta": {},
+                                "id": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 26,
+                                      "line": 27
+                                    },
+                                    "sourcefile": "examples/foreachStmts.go",
+                                    "start": {
+                                      "column": 9,
+                                      "line": 27
+                                    }
+                                  },
+                                  "name": "MapType",
+                                  "type": "Identifier"
+                                },
+                                "keyType": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 19,
+                                      "line": 27
+                                    },
+                                    "sourcefile": "examples/foreachStmts.go",
+                                    "start": {
+                                      "column": 13,
+                                      "line": 27
+                                    }
+                                  },
+                                  "name": "string",
+                                  "type": "Identifier"
+                                },
+                                "loc": {
+                                  "end": {
+                                    "column": 26,
+                                    "line": 27
+                                  },
+                                  "sourcefile": "examples/foreachStmts.go",
+                                  "start": {
+                                    "column": 9,
+                                    "line": 27
+                                  }
+                                },
+                                "type": "MapType",
+                                "typeArguments": null,
+                                "valueType": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 26,
+                                      "line": 27
+                                    },
+                                    "sourcefile": "examples/foreachStmts.go",
+                                    "start": {
+                                      "column": 20,
+                                      "line": 27
+                                    }
+                                  },
+                                  "name": "string",
+                                  "type": "Identifier"
+                                }
+                              },
+                              "variableParam": false
+                            },
+                            {
+                              "_meta": {},
+                              "cloned": true,
+                              "left": {
+                                "_meta": {},
+                                "computed": false,
+                                "loc": null,
+                                "object": {
+                                  "_meta": {
+                                    "ReceiveCls": "",
+                                    "type": {
+                                      "_meta": {},
+                                      "id": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 26,
+                                            "line": 27
+                                          },
+                                          "sourcefile": "examples/foreachStmts.go",
+                                          "start": {
+                                            "column": 9,
+                                            "line": 27
+                                          }
+                                        },
+                                        "name": "MapType",
+                                        "type": "Identifier"
+                                      },
+                                      "keyType": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 19,
+                                            "line": 27
+                                          },
+                                          "sourcefile": "examples/foreachStmts.go",
+                                          "start": {
+                                            "column": 13,
+                                            "line": 27
+                                          }
+                                        },
+                                        "name": "string",
+                                        "type": "Identifier"
+                                      },
+                                      "loc": {
+                                        "end": {
+                                          "column": 26,
+                                          "line": 27
+                                        },
+                                        "sourcefile": "examples/foreachStmts.go",
+                                        "start": {
+                                          "column": 9,
+                                          "line": 27
+                                        }
+                                      },
+                                      "type": "MapType",
+                                      "typeArguments": null,
+                                      "valueType": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 26,
+                                            "line": 27
+                                          },
+                                          "sourcefile": "examples/foreachStmts.go",
+                                          "start": {
+                                            "column": 20,
+                                            "line": 27
+                                          }
+                                        },
+                                        "name": "string",
+                                        "type": "Identifier"
+                                      }
+                                    }
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 55,
+                                      "line": 27
+                                    },
+                                    "sourcefile": "examples/foreachStmts.go",
+                                    "start": {
+                                      "column": 9,
+                                      "line": 27
+                                    }
+                                  },
+                                  "name": "tmp2",
+                                  "type": "Identifier"
+                                },
+                                "property": {
+                                  "_meta": {},
+                                  "literalType": "STRING",
+                                  "loc": {
+                                    "end": {
+                                      "column": 30,
+                                      "line": 27
+                                    },
+                                    "sourcefile": "examples/foreachStmts.go",
+                                    "start": {
+                                      "column": 27,
+                                      "line": 27
+                                    }
+                                  },
+                                  "type": "Literal",
+                                  "value": "\"a\""
+                                },
+                                "type": "MemberAccess"
+                              },
+                              "loc": null,
+                              "operator": "=",
+                              "right": {
+                                "_meta": {},
+                                "literalType": "STRING",
+                                "loc": {
+                                  "end": {
+                                    "column": 39,
+                                    "line": 27
+                                  },
+                                  "sourcefile": "examples/foreachStmts.go",
+                                  "start": {
+                                    "column": 32,
+                                    "line": 27
+                                  }
+                                },
+                                "type": "Literal",
+                                "value": "\"apple\""
+                              },
+                              "type": "AssignmentExpression"
+                            },
+                            {
+                              "_meta": {},
+                              "cloned": true,
+                              "left": {
+                                "_meta": {},
+                                "computed": false,
+                                "loc": null,
+                                "object": {
+                                  "_meta": {
+                                    "ReceiveCls": "",
+                                    "type": {
+                                      "_meta": {},
+                                      "id": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 26,
+                                            "line": 27
+                                          },
+                                          "sourcefile": "examples/foreachStmts.go",
+                                          "start": {
+                                            "column": 9,
+                                            "line": 27
+                                          }
+                                        },
+                                        "name": "MapType",
+                                        "type": "Identifier"
+                                      },
+                                      "keyType": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 19,
+                                            "line": 27
+                                          },
+                                          "sourcefile": "examples/foreachStmts.go",
+                                          "start": {
+                                            "column": 13,
+                                            "line": 27
+                                          }
+                                        },
+                                        "name": "string",
+                                        "type": "Identifier"
+                                      },
+                                      "loc": {
+                                        "end": {
+                                          "column": 26,
+                                          "line": 27
+                                        },
+                                        "sourcefile": "examples/foreachStmts.go",
+                                        "start": {
+                                          "column": 9,
+                                          "line": 27
+                                        }
+                                      },
+                                      "type": "MapType",
+                                      "typeArguments": null,
+                                      "valueType": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 26,
+                                            "line": 27
+                                          },
+                                          "sourcefile": "examples/foreachStmts.go",
+                                          "start": {
+                                            "column": 20,
+                                            "line": 27
+                                          }
+                                        },
+                                        "name": "string",
+                                        "type": "Identifier"
+                                      }
+                                    }
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 55,
+                                      "line": 27
+                                    },
+                                    "sourcefile": "examples/foreachStmts.go",
+                                    "start": {
+                                      "column": 9,
+                                      "line": 27
+                                    }
+                                  },
+                                  "name": "tmp2",
+                                  "type": "Identifier"
+                                },
+                                "property": {
+                                  "_meta": {},
+                                  "literalType": "STRING",
+                                  "loc": {
+                                    "end": {
+                                      "column": 44,
+                                      "line": 27
+                                    },
+                                    "sourcefile": "examples/foreachStmts.go",
+                                    "start": {
+                                      "column": 41,
+                                      "line": 27
+                                    }
+                                  },
+                                  "type": "Literal",
+                                  "value": "\"b\""
+                                },
+                                "type": "MemberAccess"
+                              },
+                              "loc": null,
+                              "operator": "=",
+                              "right": {
+                                "_meta": {},
+                                "literalType": "STRING",
+                                "loc": {
+                                  "end": {
+                                    "column": 54,
+                                    "line": 27
+                                  },
+                                  "sourcefile": "examples/foreachStmts.go",
+                                  "start": {
+                                    "column": 46,
+                                    "line": 27
+                                  }
+                                },
+                                "type": "Literal",
+                                "value": "\"banana\""
+                              },
+                              "type": "AssignmentExpression"
+                            },
+                            {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "id": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 26,
+                                        "line": 27
+                                      },
+                                      "sourcefile": "examples/foreachStmts.go",
+                                      "start": {
+                                        "column": 9,
+                                        "line": 27
+                                      }
+                                    },
+                                    "name": "MapType",
+                                    "type": "Identifier"
+                                  },
+                                  "keyType": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 19,
+                                        "line": 27
+                                      },
+                                      "sourcefile": "examples/foreachStmts.go",
+                                      "start": {
+                                        "column": 13,
+                                        "line": 27
+                                      }
+                                    },
+                                    "name": "string",
+                                    "type": "Identifier"
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 26,
+                                      "line": 27
+                                    },
+                                    "sourcefile": "examples/foreachStmts.go",
+                                    "start": {
+                                      "column": 9,
+                                      "line": 27
+                                    }
+                                  },
+                                  "type": "MapType",
+                                  "typeArguments": null,
+                                  "valueType": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 26,
+                                        "line": 27
+                                      },
+                                      "sourcefile": "examples/foreachStmts.go",
+                                      "start": {
+                                        "column": 20,
+                                        "line": 27
+                                      }
+                                    },
+                                    "name": "string",
+                                    "type": "Identifier"
+                                  }
+                                }
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 55,
+                                  "line": 27
+                                },
+                                "sourcefile": "examples/foreachStmts.go",
+                                "start": {
+                                  "column": 9,
+                                  "line": 27
+                                }
+                              },
+                              "name": "tmp2",
+                              "type": "Identifier"
+                            }
+                          ],
+                          "loc": {
+                            "end": {
+                              "column": 55,
+                              "line": 27
+                            },
+                            "sourcefile": "examples/foreachStmts.go",
+                            "start": {
+                              "column": 9,
+                              "line": 27
+                            }
+                          },
+                          "type": "Sequence"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 55,
+                            "line": 27
+                          },
+                          "sourcefile": "examples/foreachStmts.go",
+                          "start": {
+                            "column": 2,
+                            "line": 27
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "id": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 26,
+                                "line": 27
+                              },
+                              "sourcefile": "examples/foreachStmts.go",
+                              "start": {
+                                "column": 9,
+                                "line": 27
+                              }
+                            },
+                            "name": "MapType",
+                            "type": "Identifier"
+                          },
+                          "keyType": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 19,
+                                "line": 27
+                              },
+                              "sourcefile": "examples/foreachStmts.go",
+                              "start": {
+                                "column": 13,
+                                "line": 27
+                              }
+                            },
+                            "name": "string",
+                            "type": "Identifier"
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 26,
+                              "line": 27
+                            },
+                            "sourcefile": "examples/foreachStmts.go",
+                            "start": {
+                              "column": 9,
+                              "line": 27
+                            }
+                          },
+                          "type": "MapType",
+                          "typeArguments": null,
+                          "valueType": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 26,
+                                "line": 27
+                              },
+                              "sourcefile": "examples/foreachStmts.go",
+                              "start": {
+                                "column": 20,
+                                "line": 27
+                              }
+                            },
+                            "name": "string",
+                            "type": "Identifier"
+                          }
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "body": {
+                          "_meta": {},
+                          "body": [
+                            {
+                              "_meta": {},
+                              "arguments": [
+                                {
+                                  "_meta": {},
+                                  "literalType": "STRING",
+                                  "loc": {
+                                    "end": {
+                                      "column": 26,
+                                      "line": 30
+                                    },
+                                    "sourcefile": "examples/foreachStmts.go",
+                                    "start": {
+                                      "column": 14,
+                                      "line": 30
+                                    }
+                                  },
+                                  "type": "Literal",
+                                  "value": "\"%s -\u003e %s\\n\""
+                                },
+                                {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 29,
+                                      "line": 30
+                                    },
+                                    "sourcefile": "examples/foreachStmts.go",
+                                    "start": {
+                                      "column": 28,
+                                      "line": 30
+                                    }
+                                  },
+                                  "name": "k",
+                                  "type": "Identifier"
+                                },
+                                {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 32,
+                                      "line": 30
+                                    },
+                                    "sourcefile": "examples/foreachStmts.go",
+                                    "start": {
+                                      "column": 31,
+                                      "line": 30
+                                    }
+                                  },
+                                  "name": "v",
+                                  "type": "Identifier"
+                                }
+                              ],
+                              "callee": {
+                                "_meta": {},
+                                "computed": false,
+                                "loc": {
+                                  "end": {
+                                    "column": 13,
+                                    "line": 30
+                                  },
+                                  "sourcefile": "examples/foreachStmts.go",
+                                  "start": {
+                                    "column": 3,
+                                    "line": 30
+                                  }
+                                },
+                                "object": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 6,
+                                      "line": 30
+                                    },
+                                    "sourcefile": "examples/foreachStmts.go",
+                                    "start": {
+                                      "column": 3,
+                                      "line": 30
+                                    }
+                                  },
+                                  "name": "fmt",
+                                  "type": "Identifier"
+                                },
+                                "property": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 13,
+                                      "line": 30
+                                    },
+                                    "sourcefile": "examples/foreachStmts.go",
+                                    "start": {
+                                      "column": 7,
+                                      "line": 30
+                                    }
+                                  },
+                                  "name": "Printf",
+                                  "type": "Identifier"
+                                },
+                                "type": "MemberAccess"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 33,
+                                  "line": 30
+                                },
+                                "sourcefile": "examples/foreachStmts.go",
+                                "start": {
+                                  "column": 3,
+                                  "line": 30
+                                }
+                              },
+                              "type": "CallExpression"
+                            }
+                          ],
+                          "id": null,
+                          "loc": {
+                            "end": {
+                              "column": 3,
+                              "line": 31
+                            },
+                            "sourcefile": "examples/foreachStmts.go",
+                            "start": {
+                              "column": 24,
+                              "line": 29
+                            }
+                          },
+                          "type": "ScopedStatement"
+                        },
+                        "key": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 7,
+                              "line": 29
+                            },
+                            "sourcefile": "examples/foreachStmts.go",
+                            "start": {
+                              "column": 6,
+                              "line": 29
+                            }
+                          },
+                          "name": "k",
+                          "type": "Identifier"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 3,
+                            "line": 31
+                          },
+                          "sourcefile": "examples/foreachStmts.go",
+                          "start": {
+                            "column": 2,
+                            "line": 29
+                          }
+                        },
+                        "right": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 23,
+                              "line": 29
+                            },
+                            "sourcefile": "examples/foreachStmts.go",
+                            "start": {
+                              "column": 20,
+                              "line": 29
+                            }
+                          },
+                          "name": "kvs",
+                          "type": "Identifier"
+                        },
+                        "type": "RangeStatement",
+                        "value": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 10,
+                              "line": 29
+                            },
+                            "sourcefile": "examples/foreachStmts.go",
+                            "start": {
+                              "column": 9,
+                              "line": 29
+                            }
+                          },
+                          "name": "v",
+                          "type": "Identifier"
+                        }
+                      },
+                      {
+                        "_meta": {},
+                        "body": {
+                          "_meta": {},
+                          "body": [
+                            {
+                              "_meta": {},
+                              "arguments": [
+                                {
+                                  "_meta": {},
+                                  "literalType": "STRING",
+                                  "loc": {
+                                    "end": {
+                                      "column": 29,
+                                      "line": 35
+                                    },
+                                    "sourcefile": "examples/foreachStmts.go",
+                                    "start": {
+                                      "column": 14,
+                                      "line": 35
+                                    }
+                                  },
+                                  "type": "Literal",
+                                  "value": "\"empty range\\n\""
+                                }
+                              ],
+                              "callee": {
+                                "_meta": {},
+                                "computed": false,
+                                "loc": {
+                                  "end": {
+                                    "column": 13,
+                                    "line": 35
+                                  },
+                                  "sourcefile": "examples/foreachStmts.go",
+                                  "start": {
+                                    "column": 3,
+                                    "line": 35
+                                  }
+                                },
+                                "object": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 6,
+                                      "line": 35
+                                    },
+                                    "sourcefile": "examples/foreachStmts.go",
+                                    "start": {
+                                      "column": 3,
+                                      "line": 35
+                                    }
+                                  },
+                                  "name": "fmt",
+                                  "type": "Identifier"
+                                },
+                                "property": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 13,
+                                      "line": 35
+                                    },
+                                    "sourcefile": "examples/foreachStmts.go",
+                                    "start": {
+                                      "column": 7,
+                                      "line": 35
+                                    }
+                                  },
+                                  "name": "Printf",
+                                  "type": "Identifier"
+                                },
+                                "type": "MemberAccess"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 30,
+                                  "line": 35
+                                },
+                                "sourcefile": "examples/foreachStmts.go",
+                                "start": {
+                                  "column": 3,
+                                  "line": 35
+                                }
+                              },
+                              "type": "CallExpression"
+                            }
+                          ],
+                          "id": null,
+                          "loc": {
+                            "end": {
+                              "column": 3,
+                              "line": 36
+                            },
+                            "sourcefile": "examples/foreachStmts.go",
+                            "start": {
+                              "column": 16,
+                              "line": 34
+                            }
+                          },
+                          "type": "ScopedStatement"
+                        },
+                        "key": {
+                          "_meta": {},
+                          "loc": null,
+                          "type": "Noop"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 3,
+                            "line": 36
+                          },
+                          "sourcefile": "examples/foreachStmts.go",
+                          "start": {
+                            "column": 2,
+                            "line": 34
+                          }
+                        },
+                        "right": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 15,
+                              "line": 34
+                            },
+                            "sourcefile": "examples/foreachStmts.go",
+                            "start": {
+                              "column": 12,
+                              "line": 34
+                            }
+                          },
+                          "name": "kvs",
+                          "type": "Identifier"
+                        },
+                        "type": "RangeStatement",
+                        "value": {
+                          "_meta": {},
+                          "loc": null,
+                          "type": "Noop"
+                        }
+                      }
+                    ],
+                    "id": null,
+                    "loc": {
+                      "end": {
+                        "column": 2,
+                        "line": 37
+                      },
+                      "sourcefile": "examples/foreachStmts.go",
+                      "start": {
+                        "column": 21,
+                        "line": 5
+                      }
+                    },
+                    "type": "ScopedStatement"
+                  },
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 18,
+                        "line": 5
+                      },
+                      "sourcefile": "examples/foreachStmts.go",
+                      "start": {
+                        "column": 6,
+                        "line": 5
+                      }
+                    },
+                    "name": "ForeachStmts",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 37
+                    },
+                    "sourcefile": "examples/foreachStmts.go",
+                    "start": {
+                      "column": 1,
+                      "line": 5
+                    }
+                  },
+                  "modifiers": null,
+                  "parameters": [],
+                  "returnType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "VoidType",
+                    "typeArguments": null
+                  },
+                  "type": "FunctionDefinition"
+                }
+              ],
+              "language": "golang",
+              "languageVersion": "1.18",
+              "loc": {
+                "end": {
+                  "column": 2,
+                  "line": 37
+                },
+                "sourcefile": "examples/foreachStmts.go",
+                "start": {
+                  "column": 1,
+                  "line": 1
+                }
+              },
+              "type": "CompileUnit",
+              "uri": "",
+              "version": ""
+            },
+            "packageName": "__single__"
+          }
+        },
+        "subs": {}
+      }
+    }
+  }
+}

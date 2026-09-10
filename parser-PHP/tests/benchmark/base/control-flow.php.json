@@ -1,0 +1,2011 @@
+{
+  "type": "CompileUnit",
+  "body": [
+    {
+      "type": "ForStatement",
+      "init": {
+        "type": "AssignmentExpression",
+        "left": {
+          "type": "Identifier",
+          "name": "i",
+          "_meta": {
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 6
+              },
+              "end": {
+                "line": 3,
+                "column": 8
+              },
+              "sourcefile": "control-flow.php"
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 6
+            },
+            "end": {
+              "line": 3,
+              "column": 8
+            },
+            "sourcefile": "control-flow.php"
+          }
+        },
+        "right": {
+          "type": "Literal",
+          "value": 0,
+          "literalType": "number",
+          "_meta": {
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 11
+              },
+              "end": {
+                "line": 3,
+                "column": 12
+              },
+              "sourcefile": "control-flow.php"
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 11
+            },
+            "end": {
+              "line": 3,
+              "column": 12
+            },
+            "sourcefile": "control-flow.php"
+          }
+        },
+        "operator": "=",
+        "cloned": false,
+        "_meta": {
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 6
+            },
+            "end": {
+              "line": 3,
+              "column": 12
+            },
+            "sourcefile": "control-flow.php"
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 3,
+            "column": 6
+          },
+          "end": {
+            "line": 3,
+            "column": 12
+          },
+          "sourcefile": "control-flow.php"
+        }
+      },
+      "test": {
+        "type": "BinaryExpression",
+        "operator": "<",
+        "left": {
+          "type": "Identifier",
+          "name": "i",
+          "_meta": {
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 14
+              },
+              "end": {
+                "line": 3,
+                "column": 16
+              },
+              "sourcefile": "control-flow.php"
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 14
+            },
+            "end": {
+              "line": 3,
+              "column": 16
+            },
+            "sourcefile": "control-flow.php"
+          }
+        },
+        "right": {
+          "type": "Literal",
+          "value": 3,
+          "literalType": "number",
+          "_meta": {
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 19
+              },
+              "end": {
+                "line": 3,
+                "column": 20
+              },
+              "sourcefile": "control-flow.php"
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 19
+            },
+            "end": {
+              "line": 3,
+              "column": 20
+            },
+            "sourcefile": "control-flow.php"
+          }
+        },
+        "_meta": {
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 14
+            },
+            "end": {
+              "line": 3,
+              "column": 20
+            },
+            "sourcefile": "control-flow.php"
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 3,
+            "column": 14
+          },
+          "end": {
+            "line": 3,
+            "column": 20
+          },
+          "sourcefile": "control-flow.php"
+        }
+      },
+      "update": {
+        "type": "UnaryExpression",
+        "operator": "++",
+        "argument": {
+          "type": "Identifier",
+          "name": "i",
+          "_meta": {
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 22
+              },
+              "end": {
+                "line": 3,
+                "column": 24
+              },
+              "sourcefile": "control-flow.php"
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 22
+            },
+            "end": {
+              "line": 3,
+              "column": 24
+            },
+            "sourcefile": "control-flow.php"
+          }
+        },
+        "isSuffix": true,
+        "_meta": {
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 22
+            },
+            "end": {
+              "line": 3,
+              "column": 26
+            },
+            "sourcefile": "control-flow.php"
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 3,
+            "column": 22
+          },
+          "end": {
+            "line": 3,
+            "column": 26
+          },
+          "sourcefile": "control-flow.php"
+        }
+      },
+      "body": {
+        "type": "ScopedStatement",
+        "body": [
+          {
+            "type": "ExpressionStatement",
+            "expression": {
+              "type": "CallExpression",
+              "callee": {
+                "type": "Identifier",
+                "name": "echo",
+                "_meta": {}
+              },
+              "arguments": [
+                {
+                  "type": "Identifier",
+                  "name": "i",
+                  "_meta": {
+                    "loc": {
+                      "start": {
+                        "line": 4,
+                        "column": 10
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 12
+                      },
+                      "sourcefile": "control-flow.php"
+                    }
+                  },
+                  "loc": {
+                    "start": {
+                      "line": 4,
+                      "column": 10
+                    },
+                    "end": {
+                      "line": 4,
+                      "column": 12
+                    },
+                    "sourcefile": "control-flow.php"
+                  }
+                }
+              ],
+              "_meta": {
+                "loc": {
+                  "start": {
+                    "line": 4,
+                    "column": 5
+                  },
+                  "end": {
+                    "line": 4,
+                    "column": 13
+                  },
+                  "sourcefile": "control-flow.php"
+                }
+              },
+              "loc": {
+                "start": {
+                  "line": 4,
+                  "column": 5
+                },
+                "end": {
+                  "line": 4,
+                  "column": 13
+                },
+                "sourcefile": "control-flow.php"
+              }
+            },
+            "_meta": {
+              "loc": {
+                "start": {
+                  "line": 4,
+                  "column": 5
+                },
+                "end": {
+                  "line": 4,
+                  "column": 13
+                },
+                "sourcefile": "control-flow.php"
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 4,
+                "column": 5
+              },
+              "end": {
+                "line": 4,
+                "column": 13
+              },
+              "sourcefile": "control-flow.php"
+            }
+          }
+        ],
+        "id": null,
+        "_meta": {
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 28
+            },
+            "end": {
+              "line": 5,
+              "column": 2
+            },
+            "sourcefile": "control-flow.php"
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 3,
+            "column": 28
+          },
+          "end": {
+            "line": 5,
+            "column": 2
+          },
+          "sourcefile": "control-flow.php"
+        }
+      },
+      "_meta": {
+        "loc": {
+          "start": {
+            "line": 3,
+            "column": 1
+          },
+          "end": {
+            "line": 5,
+            "column": 2
+          },
+          "sourcefile": "control-flow.php"
+        }
+      },
+      "loc": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 2
+        },
+        "sourcefile": "control-flow.php"
+      }
+    },
+    {
+      "type": "RangeStatement",
+      "key": {
+        "type": "VariableDeclaration",
+        "id": {
+          "type": "Identifier",
+          "name": "k",
+          "_meta": {
+            "loc": {
+              "start": {
+                "line": 7,
+                "column": 20
+              },
+              "end": {
+                "line": 7,
+                "column": 22
+              },
+              "sourcefile": "control-flow.php"
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 7,
+              "column": 20
+            },
+            "end": {
+              "line": 7,
+              "column": 22
+            },
+            "sourcefile": "control-flow.php"
+          }
+        },
+        "init": null,
+        "cloned": false,
+        "varType": {
+          "type": "DynamicType",
+          "id": null,
+          "_meta": {}
+        },
+        "_meta": {
+          "loc": {
+            "start": {
+              "line": 7,
+              "column": 20
+            },
+            "end": {
+              "line": 7,
+              "column": 22
+            },
+            "sourcefile": "control-flow.php"
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 7,
+            "column": 20
+          },
+          "end": {
+            "line": 7,
+            "column": 22
+          },
+          "sourcefile": "control-flow.php"
+        }
+      },
+      "value": {
+        "type": "VariableDeclaration",
+        "id": {
+          "type": "Identifier",
+          "name": "v",
+          "_meta": {
+            "loc": {
+              "start": {
+                "line": 7,
+                "column": 26
+              },
+              "end": {
+                "line": 7,
+                "column": 28
+              },
+              "sourcefile": "control-flow.php"
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 7,
+              "column": 26
+            },
+            "end": {
+              "line": 7,
+              "column": 28
+            },
+            "sourcefile": "control-flow.php"
+          }
+        },
+        "init": null,
+        "cloned": false,
+        "varType": {
+          "type": "DynamicType",
+          "id": null,
+          "_meta": {}
+        },
+        "_meta": {
+          "loc": {
+            "start": {
+              "line": 7,
+              "column": 26
+            },
+            "end": {
+              "line": 7,
+              "column": 28
+            },
+            "sourcefile": "control-flow.php"
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 7,
+            "column": 26
+          },
+          "end": {
+            "line": 7,
+            "column": 28
+          },
+          "sourcefile": "control-flow.php"
+        }
+      },
+      "right": {
+        "type": "Identifier",
+        "name": "items",
+        "_meta": {
+          "loc": {
+            "start": {
+              "line": 7,
+              "column": 10
+            },
+            "end": {
+              "line": 7,
+              "column": 16
+            },
+            "sourcefile": "control-flow.php"
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 7,
+            "column": 10
+          },
+          "end": {
+            "line": 7,
+            "column": 16
+          },
+          "sourcefile": "control-flow.php"
+        }
+      },
+      "body": {
+        "type": "ScopedStatement",
+        "body": [
+          {
+            "type": "IfStatement",
+            "test": {
+              "type": "Identifier",
+              "name": "v",
+              "_meta": {
+                "loc": {
+                  "start": {
+                    "line": 8,
+                    "column": 9
+                  },
+                  "end": {
+                    "line": 8,
+                    "column": 11
+                  },
+                  "sourcefile": "control-flow.php"
+                }
+              },
+              "loc": {
+                "start": {
+                  "line": 8,
+                  "column": 9
+                },
+                "end": {
+                  "line": 8,
+                  "column": 11
+                },
+                "sourcefile": "control-flow.php"
+              }
+            },
+            "consequent": {
+              "type": "ScopedStatement",
+              "body": [
+                {
+                  "type": "ContinueStatement",
+                  "label": null,
+                  "_meta": {
+                    "loc": {
+                      "start": {
+                        "line": 9,
+                        "column": 9
+                      },
+                      "end": {
+                        "line": 9,
+                        "column": 18
+                      },
+                      "sourcefile": "control-flow.php"
+                    }
+                  },
+                  "loc": {
+                    "start": {
+                      "line": 9,
+                      "column": 9
+                    },
+                    "end": {
+                      "line": 9,
+                      "column": 18
+                    },
+                    "sourcefile": "control-flow.php"
+                  }
+                }
+              ],
+              "id": null,
+              "_meta": {
+                "loc": {
+                  "start": {
+                    "line": 8,
+                    "column": 13
+                  },
+                  "end": {
+                    "line": 10,
+                    "column": 6
+                  },
+                  "sourcefile": "control-flow.php"
+                }
+              },
+              "loc": {
+                "start": {
+                  "line": 8,
+                  "column": 13
+                },
+                "end": {
+                  "line": 10,
+                  "column": 6
+                },
+                "sourcefile": "control-flow.php"
+              }
+            },
+            "alternative": null,
+            "_meta": {
+              "loc": {
+                "start": {
+                  "line": 8,
+                  "column": 5
+                },
+                "end": {
+                  "line": 10,
+                  "column": 6
+                },
+                "sourcefile": "control-flow.php"
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 8,
+                "column": 5
+              },
+              "end": {
+                "line": 10,
+                "column": 6
+              },
+              "sourcefile": "control-flow.php"
+            }
+          },
+          {
+            "type": "BreakStatement",
+            "label": null,
+            "_meta": {
+              "loc": {
+                "start": {
+                  "line": 11,
+                  "column": 5
+                },
+                "end": {
+                  "line": 11,
+                  "column": 11
+                },
+                "sourcefile": "control-flow.php"
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 11,
+                "column": 5
+              },
+              "end": {
+                "line": 11,
+                "column": 11
+              },
+              "sourcefile": "control-flow.php"
+            }
+          }
+        ],
+        "id": null,
+        "_meta": {
+          "loc": {
+            "start": {
+              "line": 7,
+              "column": 30
+            },
+            "end": {
+              "line": 12,
+              "column": 2
+            },
+            "sourcefile": "control-flow.php"
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 7,
+            "column": 30
+          },
+          "end": {
+            "line": 12,
+            "column": 2
+          },
+          "sourcefile": "control-flow.php"
+        }
+      },
+      "_meta": {
+        "loc": {
+          "start": {
+            "line": 7,
+            "column": 1
+          },
+          "end": {
+            "line": 12,
+            "column": 2
+          },
+          "sourcefile": "control-flow.php"
+        }
+      },
+      "loc": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 2
+        },
+        "sourcefile": "control-flow.php"
+      }
+    },
+    {
+      "type": "WhileStatement",
+      "test": {
+        "type": "Identifier",
+        "name": "ok",
+        "_meta": {
+          "loc": {
+            "start": {
+              "line": 14,
+              "column": 8
+            },
+            "end": {
+              "line": 14,
+              "column": 11
+            },
+            "sourcefile": "control-flow.php"
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 14,
+            "column": 8
+          },
+          "end": {
+            "line": 14,
+            "column": 11
+          },
+          "sourcefile": "control-flow.php"
+        }
+      },
+      "body": {
+        "type": "ScopedStatement",
+        "body": [
+          {
+            "type": "ExpressionStatement",
+            "expression": {
+              "type": "CallExpression",
+              "callee": {
+                "type": "Identifier",
+                "name": "risky",
+                "_meta": {
+                  "loc": {
+                    "start": {
+                      "line": 15,
+                      "column": 5
+                    },
+                    "end": {
+                      "line": 15,
+                      "column": 10
+                    },
+                    "sourcefile": "control-flow.php"
+                  }
+                },
+                "loc": {
+                  "start": {
+                    "line": 15,
+                    "column": 5
+                  },
+                  "end": {
+                    "line": 15,
+                    "column": 10
+                  },
+                  "sourcefile": "control-flow.php"
+                }
+              },
+              "arguments": [],
+              "_meta": {
+                "loc": {
+                  "start": {
+                    "line": 15,
+                    "column": 5
+                  },
+                  "end": {
+                    "line": 15,
+                    "column": 12
+                  },
+                  "sourcefile": "control-flow.php"
+                }
+              },
+              "loc": {
+                "start": {
+                  "line": 15,
+                  "column": 5
+                },
+                "end": {
+                  "line": 15,
+                  "column": 12
+                },
+                "sourcefile": "control-flow.php"
+              }
+            },
+            "_meta": {
+              "loc": {
+                "start": {
+                  "line": 15,
+                  "column": 5
+                },
+                "end": {
+                  "line": 15,
+                  "column": 13
+                },
+                "sourcefile": "control-flow.php"
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 15,
+                "column": 5
+              },
+              "end": {
+                "line": 15,
+                "column": 13
+              },
+              "sourcefile": "control-flow.php"
+            }
+          },
+          {
+            "type": "BreakStatement",
+            "label": null,
+            "_meta": {
+              "loc": {
+                "start": {
+                  "line": 16,
+                  "column": 5
+                },
+                "end": {
+                  "line": 16,
+                  "column": 11
+                },
+                "sourcefile": "control-flow.php"
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 16,
+                "column": 5
+              },
+              "end": {
+                "line": 16,
+                "column": 11
+              },
+              "sourcefile": "control-flow.php"
+            }
+          }
+        ],
+        "id": null,
+        "_meta": {
+          "loc": {
+            "start": {
+              "line": 14,
+              "column": 13
+            },
+            "end": {
+              "line": 17,
+              "column": 2
+            },
+            "sourcefile": "control-flow.php"
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 14,
+            "column": 13
+          },
+          "end": {
+            "line": 17,
+            "column": 2
+          },
+          "sourcefile": "control-flow.php"
+        }
+      },
+      "isPostTest": false,
+      "_meta": {
+        "loc": {
+          "start": {
+            "line": 14,
+            "column": 1
+          },
+          "end": {
+            "line": 17,
+            "column": 2
+          },
+          "sourcefile": "control-flow.php"
+        }
+      },
+      "loc": {
+        "start": {
+          "line": 14,
+          "column": 1
+        },
+        "end": {
+          "line": 17,
+          "column": 2
+        },
+        "sourcefile": "control-flow.php"
+      }
+    },
+    {
+      "type": "WhileStatement",
+      "test": {
+        "type": "Identifier",
+        "name": "flag",
+        "_meta": {
+          "loc": {
+            "start": {
+              "line": 21,
+              "column": 10
+            },
+            "end": {
+              "line": 21,
+              "column": 15
+            },
+            "sourcefile": "control-flow.php"
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 21,
+            "column": 10
+          },
+          "end": {
+            "line": 21,
+            "column": 15
+          },
+          "sourcefile": "control-flow.php"
+        }
+      },
+      "body": {
+        "type": "ScopedStatement",
+        "body": [
+          {
+            "type": "ExpressionStatement",
+            "expression": {
+              "type": "AssignmentExpression",
+              "left": {
+                "type": "Identifier",
+                "name": "x",
+                "_meta": {
+                  "loc": {
+                    "start": {
+                      "line": 20,
+                      "column": 5
+                    },
+                    "end": {
+                      "line": 20,
+                      "column": 7
+                    },
+                    "sourcefile": "control-flow.php"
+                  }
+                },
+                "loc": {
+                  "start": {
+                    "line": 20,
+                    "column": 5
+                  },
+                  "end": {
+                    "line": 20,
+                    "column": 7
+                  },
+                  "sourcefile": "control-flow.php"
+                }
+              },
+              "right": {
+                "type": "Literal",
+                "value": 1,
+                "literalType": "number",
+                "_meta": {
+                  "loc": {
+                    "start": {
+                      "line": 20,
+                      "column": 10
+                    },
+                    "end": {
+                      "line": 20,
+                      "column": 11
+                    },
+                    "sourcefile": "control-flow.php"
+                  }
+                },
+                "loc": {
+                  "start": {
+                    "line": 20,
+                    "column": 10
+                  },
+                  "end": {
+                    "line": 20,
+                    "column": 11
+                  },
+                  "sourcefile": "control-flow.php"
+                }
+              },
+              "operator": "=",
+              "cloned": false,
+              "_meta": {
+                "loc": {
+                  "start": {
+                    "line": 20,
+                    "column": 5
+                  },
+                  "end": {
+                    "line": 20,
+                    "column": 11
+                  },
+                  "sourcefile": "control-flow.php"
+                }
+              },
+              "loc": {
+                "start": {
+                  "line": 20,
+                  "column": 5
+                },
+                "end": {
+                  "line": 20,
+                  "column": 11
+                },
+                "sourcefile": "control-flow.php"
+              }
+            },
+            "_meta": {
+              "loc": {
+                "start": {
+                  "line": 20,
+                  "column": 5
+                },
+                "end": {
+                  "line": 20,
+                  "column": 12
+                },
+                "sourcefile": "control-flow.php"
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 20,
+                "column": 5
+              },
+              "end": {
+                "line": 20,
+                "column": 12
+              },
+              "sourcefile": "control-flow.php"
+            }
+          }
+        ],
+        "id": null,
+        "_meta": {
+          "loc": {
+            "start": {
+              "line": 19,
+              "column": 4
+            },
+            "end": {
+              "line": 21,
+              "column": 2
+            },
+            "sourcefile": "control-flow.php"
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 19,
+            "column": 4
+          },
+          "end": {
+            "line": 21,
+            "column": 2
+          },
+          "sourcefile": "control-flow.php"
+        }
+      },
+      "isPostTest": true,
+      "_meta": {
+        "loc": {
+          "start": {
+            "line": 19,
+            "column": 1
+          },
+          "end": {
+            "line": 21,
+            "column": 17
+          },
+          "sourcefile": "control-flow.php"
+        }
+      },
+      "loc": {
+        "start": {
+          "line": 19,
+          "column": 1
+        },
+        "end": {
+          "line": 21,
+          "column": 17
+        },
+        "sourcefile": "control-flow.php"
+      }
+    },
+    {
+      "type": "SwitchStatement",
+      "discriminant": {
+        "type": "Identifier",
+        "name": "x",
+        "_meta": {
+          "loc": {
+            "start": {
+              "line": 23,
+              "column": 9
+            },
+            "end": {
+              "line": 23,
+              "column": 11
+            },
+            "sourcefile": "control-flow.php"
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 23,
+            "column": 9
+          },
+          "end": {
+            "line": 23,
+            "column": 11
+          },
+          "sourcefile": "control-flow.php"
+        }
+      },
+      "cases": [
+        {
+          "type": "CaseClause",
+          "test": {
+            "type": "Literal",
+            "value": 1,
+            "literalType": "number",
+            "_meta": {
+              "loc": {
+                "start": {
+                  "line": 24,
+                  "column": 10
+                },
+                "end": {
+                  "line": 24,
+                  "column": 11
+                },
+                "sourcefile": "control-flow.php"
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 24,
+                "column": 10
+              },
+              "end": {
+                "line": 24,
+                "column": 11
+              },
+              "sourcefile": "control-flow.php"
+            }
+          },
+          "body": {
+            "type": "ScopedStatement",
+            "body": [
+              {
+                "type": "ExpressionStatement",
+                "expression": {
+                  "type": "CallExpression",
+                  "callee": {
+                    "type": "Identifier",
+                    "name": "foo",
+                    "_meta": {
+                      "loc": {
+                        "start": {
+                          "line": 25,
+                          "column": 9
+                        },
+                        "end": {
+                          "line": 25,
+                          "column": 12
+                        },
+                        "sourcefile": "control-flow.php"
+                      }
+                    },
+                    "loc": {
+                      "start": {
+                        "line": 25,
+                        "column": 9
+                      },
+                      "end": {
+                        "line": 25,
+                        "column": 12
+                      },
+                      "sourcefile": "control-flow.php"
+                    }
+                  },
+                  "arguments": [],
+                  "_meta": {
+                    "loc": {
+                      "start": {
+                        "line": 25,
+                        "column": 9
+                      },
+                      "end": {
+                        "line": 25,
+                        "column": 14
+                      },
+                      "sourcefile": "control-flow.php"
+                    }
+                  },
+                  "loc": {
+                    "start": {
+                      "line": 25,
+                      "column": 9
+                    },
+                    "end": {
+                      "line": 25,
+                      "column": 14
+                    },
+                    "sourcefile": "control-flow.php"
+                  }
+                },
+                "_meta": {
+                  "loc": {
+                    "start": {
+                      "line": 25,
+                      "column": 9
+                    },
+                    "end": {
+                      "line": 25,
+                      "column": 15
+                    },
+                    "sourcefile": "control-flow.php"
+                  }
+                },
+                "loc": {
+                  "start": {
+                    "line": 25,
+                    "column": 9
+                  },
+                  "end": {
+                    "line": 25,
+                    "column": 15
+                  },
+                  "sourcefile": "control-flow.php"
+                }
+              },
+              {
+                "type": "BreakStatement",
+                "label": null,
+                "_meta": {
+                  "loc": {
+                    "start": {
+                      "line": 26,
+                      "column": 9
+                    },
+                    "end": {
+                      "line": 26,
+                      "column": 15
+                    },
+                    "sourcefile": "control-flow.php"
+                  }
+                },
+                "loc": {
+                  "start": {
+                    "line": 26,
+                    "column": 9
+                  },
+                  "end": {
+                    "line": 26,
+                    "column": 15
+                  },
+                  "sourcefile": "control-flow.php"
+                }
+              }
+            ],
+            "id": null,
+            "_meta": {
+              "loc": {
+                "start": {
+                  "line": 24,
+                  "column": 5
+                },
+                "end": {
+                  "line": 26,
+                  "column": 15
+                },
+                "sourcefile": "control-flow.php"
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 24,
+                "column": 5
+              },
+              "end": {
+                "line": 26,
+                "column": 15
+              },
+              "sourcefile": "control-flow.php"
+            }
+          },
+          "_meta": {
+            "loc": {
+              "start": {
+                "line": 24,
+                "column": 5
+              },
+              "end": {
+                "line": 26,
+                "column": 15
+              },
+              "sourcefile": "control-flow.php"
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 24,
+              "column": 5
+            },
+            "end": {
+              "line": 26,
+              "column": 15
+            },
+            "sourcefile": "control-flow.php"
+          }
+        },
+        {
+          "type": "CaseClause",
+          "test": null,
+          "body": {
+            "type": "ScopedStatement",
+            "body": [
+              {
+                "type": "ExpressionStatement",
+                "expression": {
+                  "type": "CallExpression",
+                  "callee": {
+                    "type": "Identifier",
+                    "name": "bar",
+                    "_meta": {
+                      "loc": {
+                        "start": {
+                          "line": 28,
+                          "column": 9
+                        },
+                        "end": {
+                          "line": 28,
+                          "column": 12
+                        },
+                        "sourcefile": "control-flow.php"
+                      }
+                    },
+                    "loc": {
+                      "start": {
+                        "line": 28,
+                        "column": 9
+                      },
+                      "end": {
+                        "line": 28,
+                        "column": 12
+                      },
+                      "sourcefile": "control-flow.php"
+                    }
+                  },
+                  "arguments": [],
+                  "_meta": {
+                    "loc": {
+                      "start": {
+                        "line": 28,
+                        "column": 9
+                      },
+                      "end": {
+                        "line": 28,
+                        "column": 14
+                      },
+                      "sourcefile": "control-flow.php"
+                    }
+                  },
+                  "loc": {
+                    "start": {
+                      "line": 28,
+                      "column": 9
+                    },
+                    "end": {
+                      "line": 28,
+                      "column": 14
+                    },
+                    "sourcefile": "control-flow.php"
+                  }
+                },
+                "_meta": {
+                  "loc": {
+                    "start": {
+                      "line": 28,
+                      "column": 9
+                    },
+                    "end": {
+                      "line": 28,
+                      "column": 15
+                    },
+                    "sourcefile": "control-flow.php"
+                  }
+                },
+                "loc": {
+                  "start": {
+                    "line": 28,
+                    "column": 9
+                  },
+                  "end": {
+                    "line": 28,
+                    "column": 15
+                  },
+                  "sourcefile": "control-flow.php"
+                }
+              }
+            ],
+            "id": null,
+            "_meta": {
+              "loc": {
+                "start": {
+                  "line": 27,
+                  "column": 5
+                },
+                "end": {
+                  "line": 28,
+                  "column": 15
+                },
+                "sourcefile": "control-flow.php"
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 27,
+                "column": 5
+              },
+              "end": {
+                "line": 28,
+                "column": 15
+              },
+              "sourcefile": "control-flow.php"
+            }
+          },
+          "_meta": {
+            "loc": {
+              "start": {
+                "line": 27,
+                "column": 5
+              },
+              "end": {
+                "line": 28,
+                "column": 15
+              },
+              "sourcefile": "control-flow.php"
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 27,
+              "column": 5
+            },
+            "end": {
+              "line": 28,
+              "column": 15
+            },
+            "sourcefile": "control-flow.php"
+          }
+        }
+      ],
+      "_meta": {
+        "loc": {
+          "start": {
+            "line": 23,
+            "column": 1
+          },
+          "end": {
+            "line": 29,
+            "column": 2
+          },
+          "sourcefile": "control-flow.php"
+        }
+      },
+      "loc": {
+        "start": {
+          "line": 23,
+          "column": 1
+        },
+        "end": {
+          "line": 29,
+          "column": 2
+        },
+        "sourcefile": "control-flow.php"
+      }
+    },
+    {
+      "type": "TryStatement",
+      "body": {
+        "type": "ScopedStatement",
+        "body": [
+          {
+            "type": "ExpressionStatement",
+            "expression": {
+              "type": "CallExpression",
+              "callee": {
+                "type": "Identifier",
+                "name": "risky",
+                "_meta": {
+                  "loc": {
+                    "start": {
+                      "line": 32,
+                      "column": 5
+                    },
+                    "end": {
+                      "line": 32,
+                      "column": 10
+                    },
+                    "sourcefile": "control-flow.php"
+                  }
+                },
+                "loc": {
+                  "start": {
+                    "line": 32,
+                    "column": 5
+                  },
+                  "end": {
+                    "line": 32,
+                    "column": 10
+                  },
+                  "sourcefile": "control-flow.php"
+                }
+              },
+              "arguments": [],
+              "_meta": {
+                "loc": {
+                  "start": {
+                    "line": 32,
+                    "column": 5
+                  },
+                  "end": {
+                    "line": 32,
+                    "column": 12
+                  },
+                  "sourcefile": "control-flow.php"
+                }
+              },
+              "loc": {
+                "start": {
+                  "line": 32,
+                  "column": 5
+                },
+                "end": {
+                  "line": 32,
+                  "column": 12
+                },
+                "sourcefile": "control-flow.php"
+              }
+            },
+            "_meta": {
+              "loc": {
+                "start": {
+                  "line": 32,
+                  "column": 5
+                },
+                "end": {
+                  "line": 32,
+                  "column": 13
+                },
+                "sourcefile": "control-flow.php"
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 32,
+                "column": 5
+              },
+              "end": {
+                "line": 32,
+                "column": 13
+              },
+              "sourcefile": "control-flow.php"
+            }
+          }
+        ],
+        "id": null,
+        "_meta": {
+          "loc": {
+            "start": {
+              "line": 31,
+              "column": 5
+            },
+            "end": {
+              "line": 33,
+              "column": 2
+            },
+            "sourcefile": "control-flow.php"
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 31,
+            "column": 5
+          },
+          "end": {
+            "line": 33,
+            "column": 2
+          },
+          "sourcefile": "control-flow.php"
+        }
+      },
+      "handlers": [
+        {
+          "type": "CatchClause",
+          "parameter": [
+            {
+              "type": "VariableDeclaration",
+              "id": {
+                "type": "Identifier",
+                "name": "e",
+                "_meta": {
+                  "loc": {
+                    "start": {
+                      "line": 33,
+                      "column": 21
+                    },
+                    "end": {
+                      "line": 33,
+                      "column": 23
+                    },
+                    "sourcefile": "control-flow.php"
+                  }
+                },
+                "loc": {
+                  "start": {
+                    "line": 33,
+                    "column": 21
+                  },
+                  "end": {
+                    "line": 33,
+                    "column": 23
+                  },
+                  "sourcefile": "control-flow.php"
+                }
+              },
+              "init": null,
+              "cloned": false,
+              "varType": {
+                "type": "DynamicType",
+                "id": null,
+                "_meta": {}
+              },
+              "_meta": {
+                "catchTypes": [
+                  {
+                    "type": "Identifier",
+                    "name": "\\Exception",
+                    "_meta": {
+                      "loc": {
+                        "start": {
+                          "line": 33,
+                          "column": 10
+                        },
+                        "end": {
+                          "line": 33,
+                          "column": 20
+                        },
+                        "sourcefile": "control-flow.php"
+                      }
+                    },
+                    "loc": {
+                      "start": {
+                        "line": 33,
+                        "column": 10
+                      },
+                      "end": {
+                        "line": 33,
+                        "column": 20
+                      },
+                      "sourcefile": "control-flow.php"
+                    }
+                  }
+                ],
+                "isCatchParam": true,
+                "loc": {
+                  "start": {
+                    "line": 33,
+                    "column": 3
+                  },
+                  "end": {
+                    "line": 35,
+                    "column": 2
+                  },
+                  "sourcefile": "control-flow.php"
+                }
+              },
+              "loc": {
+                "start": {
+                  "line": 33,
+                  "column": 3
+                },
+                "end": {
+                  "line": 35,
+                  "column": 2
+                },
+                "sourcefile": "control-flow.php"
+              }
+            }
+          ],
+          "body": {
+            "type": "ScopedStatement",
+            "body": [
+              {
+                "type": "ThrowStatement",
+                "argument": {
+                  "type": "Identifier",
+                  "name": "e",
+                  "_meta": {
+                    "loc": {
+                      "start": {
+                        "line": 34,
+                        "column": 11
+                      },
+                      "end": {
+                        "line": 34,
+                        "column": 13
+                      },
+                      "sourcefile": "control-flow.php"
+                    }
+                  },
+                  "loc": {
+                    "start": {
+                      "line": 34,
+                      "column": 11
+                    },
+                    "end": {
+                      "line": 34,
+                      "column": 13
+                    },
+                    "sourcefile": "control-flow.php"
+                  }
+                },
+                "_meta": {
+                  "loc": {
+                    "start": {
+                      "line": 34,
+                      "column": 5
+                    },
+                    "end": {
+                      "line": 34,
+                      "column": 14
+                    },
+                    "sourcefile": "control-flow.php"
+                  }
+                },
+                "loc": {
+                  "start": {
+                    "line": 34,
+                    "column": 5
+                  },
+                  "end": {
+                    "line": 34,
+                    "column": 14
+                  },
+                  "sourcefile": "control-flow.php"
+                }
+              }
+            ],
+            "id": null,
+            "_meta": {
+              "loc": {
+                "start": {
+                  "line": 33,
+                  "column": 25
+                },
+                "end": {
+                  "line": 35,
+                  "column": 2
+                },
+                "sourcefile": "control-flow.php"
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 33,
+                "column": 25
+              },
+              "end": {
+                "line": 35,
+                "column": 2
+              },
+              "sourcefile": "control-flow.php"
+            }
+          },
+          "_meta": {
+            "loc": {
+              "start": {
+                "line": 33,
+                "column": 3
+              },
+              "end": {
+                "line": 35,
+                "column": 2
+              },
+              "sourcefile": "control-flow.php"
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 33,
+              "column": 3
+            },
+            "end": {
+              "line": 35,
+              "column": 2
+            },
+            "sourcefile": "control-flow.php"
+          }
+        }
+      ],
+      "finalizer": {
+        "type": "ScopedStatement",
+        "body": [
+          {
+            "type": "ExpressionStatement",
+            "expression": {
+              "type": "CallExpression",
+              "callee": {
+                "type": "Identifier",
+                "name": "cleanup",
+                "_meta": {
+                  "loc": {
+                    "start": {
+                      "line": 36,
+                      "column": 5
+                    },
+                    "end": {
+                      "line": 36,
+                      "column": 12
+                    },
+                    "sourcefile": "control-flow.php"
+                  }
+                },
+                "loc": {
+                  "start": {
+                    "line": 36,
+                    "column": 5
+                  },
+                  "end": {
+                    "line": 36,
+                    "column": 12
+                  },
+                  "sourcefile": "control-flow.php"
+                }
+              },
+              "arguments": [],
+              "_meta": {
+                "loc": {
+                  "start": {
+                    "line": 36,
+                    "column": 5
+                  },
+                  "end": {
+                    "line": 36,
+                    "column": 14
+                  },
+                  "sourcefile": "control-flow.php"
+                }
+              },
+              "loc": {
+                "start": {
+                  "line": 36,
+                  "column": 5
+                },
+                "end": {
+                  "line": 36,
+                  "column": 14
+                },
+                "sourcefile": "control-flow.php"
+              }
+            },
+            "_meta": {
+              "loc": {
+                "start": {
+                  "line": 36,
+                  "column": 5
+                },
+                "end": {
+                  "line": 36,
+                  "column": 15
+                },
+                "sourcefile": "control-flow.php"
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 36,
+                "column": 5
+              },
+              "end": {
+                "line": 36,
+                "column": 15
+              },
+              "sourcefile": "control-flow.php"
+            }
+          }
+        ],
+        "id": null,
+        "_meta": {
+          "loc": {
+            "start": {
+              "line": 35,
+              "column": 11
+            },
+            "end": {
+              "line": 37,
+              "column": 2
+            },
+            "sourcefile": "control-flow.php"
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 35,
+            "column": 11
+          },
+          "end": {
+            "line": 37,
+            "column": 2
+          },
+          "sourcefile": "control-flow.php"
+        }
+      },
+      "_meta": {
+        "loc": {
+          "start": {
+            "line": 31,
+            "column": 1
+          },
+          "end": {
+            "line": 37,
+            "column": 2
+          },
+          "sourcefile": "control-flow.php"
+        }
+      },
+      "loc": {
+        "start": {
+          "line": 31,
+          "column": 1
+        },
+        "end": {
+          "line": 37,
+          "column": 2
+        },
+        "sourcefile": "control-flow.php"
+      }
+    }
+  ],
+  "language": "php",
+  "languageVersion": null,
+  "uri": "control-flow.php",
+  "version": "0.0.0",
+  "_meta": {
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 1
+      },
+      "end": {
+        "line": 38,
+        "column": 1
+      },
+      "sourcefile": "control-flow.php"
+    }
+  },
+  "loc": {
+    "start": {
+      "line": 1,
+      "column": 1
+    },
+    "end": {
+      "line": 38,
+      "column": 1
+    },
+    "sourcefile": "control-flow.php"
+  }
+}

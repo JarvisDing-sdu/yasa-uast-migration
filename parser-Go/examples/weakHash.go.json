@@ -1,0 +1,1936 @@
+{
+  "moduleName": "__single_module__",
+  "packageInfo": {
+    "PathName": "",
+    "files": {},
+    "subs": {
+      "/": {
+        "PathName": "",
+        "files": {
+          "examples/weakHash.go": {
+            "node": {
+              "_meta": {},
+              "body": [
+                {
+                  "_meta": {},
+                  "loc": {
+                    "end": {
+                      "column": 17,
+                      "line": 1
+                    },
+                    "sourcefile": "examples/weakHash.go",
+                    "start": {
+                      "column": 9,
+                      "line": 1
+                    }
+                  },
+                  "packageName": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 17,
+                        "line": 1
+                      },
+                      "sourcefile": "examples/weakHash.go",
+                      "start": {
+                        "column": 9,
+                        "line": 1
+                      }
+                    },
+                    "name": "examples",
+                    "type": "Identifier"
+                  },
+                  "type": "PackageDeclaration"
+                },
+                {
+                  "_meta": {
+                    "ReceiveCls": "",
+                    "isDefaultImport": true
+                  },
+                  "cloned": false,
+                  "id": {
+                    "_meta": {},
+                    "loc": null,
+                    "name": "fmt",
+                    "type": "Identifier"
+                  },
+                  "init": {
+                    "_meta": {},
+                    "from": {
+                      "_meta": {},
+                      "literalType": "string",
+                      "loc": {
+                        "end": {
+                          "column": 13,
+                          "line": 3
+                        },
+                        "sourcefile": "examples/weakHash.go",
+                        "start": {
+                          "column": 8,
+                          "line": 3
+                        }
+                      },
+                      "type": "Literal",
+                      "value": "fmt"
+                    },
+                    "imported": null,
+                    "loc": {
+                      "end": {
+                        "column": 13,
+                        "line": 3
+                      },
+                      "sourcefile": "examples/weakHash.go",
+                      "start": {
+                        "column": 8,
+                        "line": 3
+                      }
+                    },
+                    "local": null,
+                    "type": "ImportExpression"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 13,
+                      "line": 3
+                    },
+                    "sourcefile": "examples/weakHash.go",
+                    "start": {
+                      "column": 8,
+                      "line": 3
+                    }
+                  },
+                  "type": "VariableDeclaration",
+                  "varType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "DynamicType",
+                    "typeArguments": null
+                  },
+                  "variableParam": false
+                },
+                {
+                  "_meta": {
+                    "ReceiveCls": "",
+                    "isDefaultImport": true
+                  },
+                  "cloned": false,
+                  "id": {
+                    "_meta": {},
+                    "loc": null,
+                    "name": "io",
+                    "type": "Identifier"
+                  },
+                  "init": {
+                    "_meta": {},
+                    "from": {
+                      "_meta": {},
+                      "literalType": "string",
+                      "loc": {
+                        "end": {
+                          "column": 12,
+                          "line": 4
+                        },
+                        "sourcefile": "examples/weakHash.go",
+                        "start": {
+                          "column": 8,
+                          "line": 4
+                        }
+                      },
+                      "type": "Literal",
+                      "value": "io"
+                    },
+                    "imported": null,
+                    "loc": {
+                      "end": {
+                        "column": 12,
+                        "line": 4
+                      },
+                      "sourcefile": "examples/weakHash.go",
+                      "start": {
+                        "column": 8,
+                        "line": 4
+                      }
+                    },
+                    "local": null,
+                    "type": "ImportExpression"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 12,
+                      "line": 4
+                    },
+                    "sourcefile": "examples/weakHash.go",
+                    "start": {
+                      "column": 8,
+                      "line": 4
+                    }
+                  },
+                  "type": "VariableDeclaration",
+                  "varType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "DynamicType",
+                    "typeArguments": null
+                  },
+                  "variableParam": false
+                },
+                {
+                  "_meta": {
+                    "ReceiveCls": "",
+                    "isDefaultImport": true
+                  },
+                  "cloned": false,
+                  "id": {
+                    "_meta": {},
+                    "loc": null,
+                    "name": "md5",
+                    "type": "Identifier"
+                  },
+                  "init": {
+                    "_meta": {},
+                    "from": {
+                      "_meta": {},
+                      "literalType": "string",
+                      "loc": {
+                        "end": {
+                          "column": 20,
+                          "line": 5
+                        },
+                        "sourcefile": "examples/weakHash.go",
+                        "start": {
+                          "column": 8,
+                          "line": 5
+                        }
+                      },
+                      "type": "Literal",
+                      "value": "crypto/md5"
+                    },
+                    "imported": null,
+                    "loc": {
+                      "end": {
+                        "column": 20,
+                        "line": 5
+                      },
+                      "sourcefile": "examples/weakHash.go",
+                      "start": {
+                        "column": 8,
+                        "line": 5
+                      }
+                    },
+                    "local": null,
+                    "type": "ImportExpression"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 20,
+                      "line": 5
+                    },
+                    "sourcefile": "examples/weakHash.go",
+                    "start": {
+                      "column": 8,
+                      "line": 5
+                    }
+                  },
+                  "type": "VariableDeclaration",
+                  "varType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "DynamicType",
+                    "typeArguments": null
+                  },
+                  "variableParam": false
+                },
+                {
+                  "_meta": {
+                    "ReceiveCls": "",
+                    "isDefaultImport": true
+                  },
+                  "cloned": false,
+                  "id": {
+                    "_meta": {},
+                    "loc": null,
+                    "name": "sha256",
+                    "type": "Identifier"
+                  },
+                  "init": {
+                    "_meta": {},
+                    "from": {
+                      "_meta": {},
+                      "literalType": "string",
+                      "loc": {
+                        "end": {
+                          "column": 23,
+                          "line": 6
+                        },
+                        "sourcefile": "examples/weakHash.go",
+                        "start": {
+                          "column": 8,
+                          "line": 6
+                        }
+                      },
+                      "type": "Literal",
+                      "value": "crypto/sha256"
+                    },
+                    "imported": null,
+                    "loc": {
+                      "end": {
+                        "column": 23,
+                        "line": 6
+                      },
+                      "sourcefile": "examples/weakHash.go",
+                      "start": {
+                        "column": 8,
+                        "line": 6
+                      }
+                    },
+                    "local": null,
+                    "type": "ImportExpression"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 23,
+                      "line": 6
+                    },
+                    "sourcefile": "examples/weakHash.go",
+                    "start": {
+                      "column": 8,
+                      "line": 6
+                    }
+                  },
+                  "type": "VariableDeclaration",
+                  "varType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "DynamicType",
+                    "typeArguments": null
+                  },
+                  "variableParam": false
+                },
+                {
+                  "_meta": {
+                    "ReceiveCls": "",
+                    "isDefaultImport": true
+                  },
+                  "cloned": false,
+                  "id": {
+                    "_meta": {},
+                    "loc": null,
+                    "name": "blake2s",
+                    "type": "Identifier"
+                  },
+                  "init": {
+                    "_meta": {},
+                    "from": {
+                      "_meta": {},
+                      "literalType": "string",
+                      "loc": {
+                        "end": {
+                          "column": 37,
+                          "line": 8
+                        },
+                        "sourcefile": "examples/weakHash.go",
+                        "start": {
+                          "column": 8,
+                          "line": 8
+                        }
+                      },
+                      "type": "Literal",
+                      "value": "golang.org/x/crypto/blake2s"
+                    },
+                    "imported": null,
+                    "loc": {
+                      "end": {
+                        "column": 37,
+                        "line": 8
+                      },
+                      "sourcefile": "examples/weakHash.go",
+                      "start": {
+                        "column": 8,
+                        "line": 8
+                      }
+                    },
+                    "local": null,
+                    "type": "ImportExpression"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 37,
+                      "line": 8
+                    },
+                    "sourcefile": "examples/weakHash.go",
+                    "start": {
+                      "column": 8,
+                      "line": 8
+                    }
+                  },
+                  "type": "VariableDeclaration",
+                  "varType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "DynamicType",
+                    "typeArguments": null
+                  },
+                  "variableParam": false
+                },
+                {
+                  "_meta": {},
+                  "body": {
+                    "_meta": {},
+                    "body": [
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "computed": false,
+                              "loc": {
+                                "end": {
+                                  "column": 17,
+                                  "line": 12
+                                },
+                                "sourcefile": "examples/weakHash.go",
+                                "start": {
+                                  "column": 10,
+                                  "line": 12
+                                }
+                              },
+                              "object": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 13,
+                                    "line": 12
+                                  },
+                                  "sourcefile": "examples/weakHash.go",
+                                  "start": {
+                                    "column": 10,
+                                    "line": 12
+                                  }
+                                },
+                                "name": "md5",
+                                "type": "Identifier"
+                              },
+                              "property": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 17,
+                                    "line": 12
+                                  },
+                                  "sourcefile": "examples/weakHash.go",
+                                  "start": {
+                                    "column": 14,
+                                    "line": 12
+                                  }
+                                },
+                                "name": "New",
+                                "type": "Identifier"
+                              },
+                              "type": "MemberAccess"
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 6,
+                              "line": 12
+                            },
+                            "sourcefile": "examples/weakHash.go",
+                            "start": {
+                              "column": 2,
+                              "line": 12
+                            }
+                          },
+                          "name": "hMd5",
+                          "type": "Identifier"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "arguments": [],
+                          "callee": {
+                            "_meta": {},
+                            "computed": false,
+                            "loc": {
+                              "end": {
+                                "column": 17,
+                                "line": 12
+                              },
+                              "sourcefile": "examples/weakHash.go",
+                              "start": {
+                                "column": 10,
+                                "line": 12
+                              }
+                            },
+                            "object": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 13,
+                                  "line": 12
+                                },
+                                "sourcefile": "examples/weakHash.go",
+                                "start": {
+                                  "column": 10,
+                                  "line": 12
+                                }
+                              },
+                              "name": "md5",
+                              "type": "Identifier"
+                            },
+                            "property": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 17,
+                                  "line": 12
+                                },
+                                "sourcefile": "examples/weakHash.go",
+                                "start": {
+                                  "column": 14,
+                                  "line": 12
+                                }
+                              },
+                              "name": "New",
+                              "type": "Identifier"
+                            },
+                            "type": "MemberAccess"
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 19,
+                              "line": 12
+                            },
+                            "sourcefile": "examples/weakHash.go",
+                            "start": {
+                              "column": 10,
+                              "line": 12
+                            }
+                          },
+                          "type": "CallExpression"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 19,
+                            "line": 12
+                          },
+                          "sourcefile": "examples/weakHash.go",
+                          "start": {
+                            "column": 2,
+                            "line": 12
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "computed": false,
+                          "loc": {
+                            "end": {
+                              "column": 17,
+                              "line": 12
+                            },
+                            "sourcefile": "examples/weakHash.go",
+                            "start": {
+                              "column": 10,
+                              "line": 12
+                            }
+                          },
+                          "object": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 13,
+                                "line": 12
+                              },
+                              "sourcefile": "examples/weakHash.go",
+                              "start": {
+                                "column": 10,
+                                "line": 12
+                              }
+                            },
+                            "name": "md5",
+                            "type": "Identifier"
+                          },
+                          "property": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 17,
+                                "line": 12
+                              },
+                              "sourcefile": "examples/weakHash.go",
+                              "start": {
+                                "column": 14,
+                                "line": 12
+                              }
+                            },
+                            "name": "New",
+                            "type": "Identifier"
+                          },
+                          "type": "MemberAccess"
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "computed": false,
+                              "loc": {
+                                "end": {
+                                  "column": 20,
+                                  "line": 13
+                                },
+                                "sourcefile": "examples/weakHash.go",
+                                "start": {
+                                  "column": 10,
+                                  "line": 13
+                                }
+                              },
+                              "object": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 16,
+                                    "line": 13
+                                  },
+                                  "sourcefile": "examples/weakHash.go",
+                                  "start": {
+                                    "column": 10,
+                                    "line": 13
+                                  }
+                                },
+                                "name": "sha256",
+                                "type": "Identifier"
+                              },
+                              "property": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 20,
+                                    "line": 13
+                                  },
+                                  "sourcefile": "examples/weakHash.go",
+                                  "start": {
+                                    "column": 17,
+                                    "line": 13
+                                  }
+                                },
+                                "name": "New",
+                                "type": "Identifier"
+                              },
+                              "type": "MemberAccess"
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 6,
+                              "line": 13
+                            },
+                            "sourcefile": "examples/weakHash.go",
+                            "start": {
+                              "column": 2,
+                              "line": 13
+                            }
+                          },
+                          "name": "hSha",
+                          "type": "Identifier"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "arguments": [],
+                          "callee": {
+                            "_meta": {},
+                            "computed": false,
+                            "loc": {
+                              "end": {
+                                "column": 20,
+                                "line": 13
+                              },
+                              "sourcefile": "examples/weakHash.go",
+                              "start": {
+                                "column": 10,
+                                "line": 13
+                              }
+                            },
+                            "object": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 16,
+                                  "line": 13
+                                },
+                                "sourcefile": "examples/weakHash.go",
+                                "start": {
+                                  "column": 10,
+                                  "line": 13
+                                }
+                              },
+                              "name": "sha256",
+                              "type": "Identifier"
+                            },
+                            "property": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 20,
+                                  "line": 13
+                                },
+                                "sourcefile": "examples/weakHash.go",
+                                "start": {
+                                  "column": 17,
+                                  "line": 13
+                                }
+                              },
+                              "name": "New",
+                              "type": "Identifier"
+                            },
+                            "type": "MemberAccess"
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 22,
+                              "line": 13
+                            },
+                            "sourcefile": "examples/weakHash.go",
+                            "start": {
+                              "column": 10,
+                              "line": 13
+                            }
+                          },
+                          "type": "CallExpression"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 22,
+                            "line": 13
+                          },
+                          "sourcefile": "examples/weakHash.go",
+                          "start": {
+                            "column": 2,
+                            "line": 13
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "computed": false,
+                          "loc": {
+                            "end": {
+                              "column": 20,
+                              "line": 13
+                            },
+                            "sourcefile": "examples/weakHash.go",
+                            "start": {
+                              "column": 10,
+                              "line": 13
+                            }
+                          },
+                          "object": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 16,
+                                "line": 13
+                              },
+                              "sourcefile": "examples/weakHash.go",
+                              "start": {
+                                "column": 10,
+                                "line": 13
+                              }
+                            },
+                            "name": "sha256",
+                            "type": "Identifier"
+                          },
+                          "property": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 20,
+                                "line": 13
+                              },
+                              "sourcefile": "examples/weakHash.go",
+                              "start": {
+                                "column": 17,
+                                "line": 13
+                              }
+                            },
+                            "name": "New",
+                            "type": "Identifier"
+                          },
+                          "type": "MemberAccess"
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "id": {
+                          "_meta": {},
+                          "elements": [
+                            {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 10,
+                                  "line": 14
+                                },
+                                "sourcefile": "examples/weakHash.go",
+                                "start": {
+                                  "column": 2,
+                                  "line": 14
+                                }
+                              },
+                              "name": "hBlake2s",
+                              "type": "Identifier"
+                            },
+                            {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 15,
+                                  "line": 14
+                                },
+                                "sourcefile": "examples/weakHash.go",
+                                "start": {
+                                  "column": 12,
+                                  "line": 14
+                                }
+                              },
+                              "name": "err",
+                              "type": "Identifier"
+                            }
+                          ],
+                          "loc": null,
+                          "modifiable": false,
+                          "type": "TupleExpression"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "arguments": [
+                            {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 37,
+                                  "line": 14
+                                },
+                                "sourcefile": "examples/weakHash.go",
+                                "start": {
+                                  "column": 34,
+                                  "line": 14
+                                }
+                              },
+                              "name": "nil",
+                              "type": "Identifier"
+                            }
+                          ],
+                          "callee": {
+                            "_meta": {},
+                            "computed": false,
+                            "loc": {
+                              "end": {
+                                "column": 33,
+                                "line": 14
+                              },
+                              "sourcefile": "examples/weakHash.go",
+                              "start": {
+                                "column": 19,
+                                "line": 14
+                              }
+                            },
+                            "object": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 26,
+                                  "line": 14
+                                },
+                                "sourcefile": "examples/weakHash.go",
+                                "start": {
+                                  "column": 19,
+                                  "line": 14
+                                }
+                              },
+                              "name": "blake2s",
+                              "type": "Identifier"
+                            },
+                            "property": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 33,
+                                  "line": 14
+                                },
+                                "sourcefile": "examples/weakHash.go",
+                                "start": {
+                                  "column": 27,
+                                  "line": 14
+                                }
+                              },
+                              "name": "New256",
+                              "type": "Identifier"
+                            },
+                            "type": "MemberAccess"
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 38,
+                              "line": 14
+                            },
+                            "sourcefile": "examples/weakHash.go",
+                            "start": {
+                              "column": 19,
+                              "line": 14
+                            }
+                          },
+                          "type": "CallExpression"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 38,
+                            "line": 14
+                          },
+                          "sourcefile": "examples/weakHash.go",
+                          "start": {
+                            "column": 2,
+                            "line": 14
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "id": null,
+                          "loc": null,
+                          "type": "DynamicType",
+                          "typeArguments": null
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "alternative": {
+                          "_meta": {},
+                          "loc": null,
+                          "type": "Noop"
+                        },
+                        "consequent": {
+                          "_meta": {},
+                          "body": [
+                            {
+                              "_meta": {},
+                              "arguments": [
+                                {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 22,
+                                      "line": 16
+                                    },
+                                    "sourcefile": "examples/weakHash.go",
+                                    "start": {
+                                      "column": 18,
+                                      "line": 16
+                                    }
+                                  },
+                                  "name": "hMd5",
+                                  "type": "Identifier"
+                                },
+                                {
+                                  "_meta": {},
+                                  "literalType": "STRING",
+                                  "loc": {
+                                    "end": {
+                                      "column": 72,
+                                      "line": 16
+                                    },
+                                    "sourcefile": "examples/weakHash.go",
+                                    "start": {
+                                      "column": 24,
+                                      "line": 16
+                                    }
+                                  },
+                                  "type": "Literal",
+                                  "value": "\"Welcome to Go Language Secure Coding Practices\""
+                                }
+                              ],
+                              "callee": {
+                                "_meta": {},
+                                "computed": false,
+                                "loc": {
+                                  "end": {
+                                    "column": 17,
+                                    "line": 16
+                                  },
+                                  "sourcefile": "examples/weakHash.go",
+                                  "start": {
+                                    "column": 3,
+                                    "line": 16
+                                  }
+                                },
+                                "object": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 5,
+                                      "line": 16
+                                    },
+                                    "sourcefile": "examples/weakHash.go",
+                                    "start": {
+                                      "column": 3,
+                                      "line": 16
+                                    }
+                                  },
+                                  "name": "io",
+                                  "type": "Identifier"
+                                },
+                                "property": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 17,
+                                      "line": 16
+                                    },
+                                    "sourcefile": "examples/weakHash.go",
+                                    "start": {
+                                      "column": 6,
+                                      "line": 16
+                                    }
+                                  },
+                                  "name": "WriteString",
+                                  "type": "Identifier"
+                                },
+                                "type": "MemberAccess"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 73,
+                                  "line": 16
+                                },
+                                "sourcefile": "examples/weakHash.go",
+                                "start": {
+                                  "column": 3,
+                                  "line": 16
+                                }
+                              },
+                              "type": "CallExpression"
+                            },
+                            {
+                              "_meta": {},
+                              "arguments": [
+                                {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 22,
+                                      "line": 17
+                                    },
+                                    "sourcefile": "examples/weakHash.go",
+                                    "start": {
+                                      "column": 18,
+                                      "line": 17
+                                    }
+                                  },
+                                  "name": "hSha",
+                                  "type": "Identifier"
+                                },
+                                {
+                                  "_meta": {},
+                                  "literalType": "STRING",
+                                  "loc": {
+                                    "end": {
+                                      "column": 72,
+                                      "line": 17
+                                    },
+                                    "sourcefile": "examples/weakHash.go",
+                                    "start": {
+                                      "column": 24,
+                                      "line": 17
+                                    }
+                                  },
+                                  "type": "Literal",
+                                  "value": "\"Welcome to Go Language Secure Coding Practices\""
+                                }
+                              ],
+                              "callee": {
+                                "_meta": {},
+                                "computed": false,
+                                "loc": {
+                                  "end": {
+                                    "column": 17,
+                                    "line": 17
+                                  },
+                                  "sourcefile": "examples/weakHash.go",
+                                  "start": {
+                                    "column": 3,
+                                    "line": 17
+                                  }
+                                },
+                                "object": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 5,
+                                      "line": 17
+                                    },
+                                    "sourcefile": "examples/weakHash.go",
+                                    "start": {
+                                      "column": 3,
+                                      "line": 17
+                                    }
+                                  },
+                                  "name": "io",
+                                  "type": "Identifier"
+                                },
+                                "property": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 17,
+                                      "line": 17
+                                    },
+                                    "sourcefile": "examples/weakHash.go",
+                                    "start": {
+                                      "column": 6,
+                                      "line": 17
+                                    }
+                                  },
+                                  "name": "WriteString",
+                                  "type": "Identifier"
+                                },
+                                "type": "MemberAccess"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 73,
+                                  "line": 17
+                                },
+                                "sourcefile": "examples/weakHash.go",
+                                "start": {
+                                  "column": 3,
+                                  "line": 17
+                                }
+                              },
+                              "type": "CallExpression"
+                            },
+                            {
+                              "_meta": {},
+                              "arguments": [
+                                {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 26,
+                                      "line": 18
+                                    },
+                                    "sourcefile": "examples/weakHash.go",
+                                    "start": {
+                                      "column": 18,
+                                      "line": 18
+                                    }
+                                  },
+                                  "name": "hBlake2s",
+                                  "type": "Identifier"
+                                },
+                                {
+                                  "_meta": {},
+                                  "literalType": "STRING",
+                                  "loc": {
+                                    "end": {
+                                      "column": 76,
+                                      "line": 18
+                                    },
+                                    "sourcefile": "examples/weakHash.go",
+                                    "start": {
+                                      "column": 28,
+                                      "line": 18
+                                    }
+                                  },
+                                  "type": "Literal",
+                                  "value": "\"Welcome to Go Language Secure Coding Practices\""
+                                }
+                              ],
+                              "callee": {
+                                "_meta": {},
+                                "computed": false,
+                                "loc": {
+                                  "end": {
+                                    "column": 17,
+                                    "line": 18
+                                  },
+                                  "sourcefile": "examples/weakHash.go",
+                                  "start": {
+                                    "column": 3,
+                                    "line": 18
+                                  }
+                                },
+                                "object": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 5,
+                                      "line": 18
+                                    },
+                                    "sourcefile": "examples/weakHash.go",
+                                    "start": {
+                                      "column": 3,
+                                      "line": 18
+                                    }
+                                  },
+                                  "name": "io",
+                                  "type": "Identifier"
+                                },
+                                "property": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 17,
+                                      "line": 18
+                                    },
+                                    "sourcefile": "examples/weakHash.go",
+                                    "start": {
+                                      "column": 6,
+                                      "line": 18
+                                    }
+                                  },
+                                  "name": "WriteString",
+                                  "type": "Identifier"
+                                },
+                                "type": "MemberAccess"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 77,
+                                  "line": 18
+                                },
+                                "sourcefile": "examples/weakHash.go",
+                                "start": {
+                                  "column": 3,
+                                  "line": 18
+                                }
+                              },
+                              "type": "CallExpression"
+                            },
+                            {
+                              "_meta": {},
+                              "arguments": [
+                                {
+                                  "_meta": {},
+                                  "literalType": "STRING",
+                                  "loc": {
+                                    "end": {
+                                      "column": 33,
+                                      "line": 19
+                                    },
+                                    "sourcefile": "examples/weakHash.go",
+                                    "start": {
+                                      "column": 14,
+                                      "line": 19
+                                    }
+                                  },
+                                  "type": "Literal",
+                                  "value": "\"MD5        : %x\\n\""
+                                },
+                                {
+                                  "_meta": {},
+                                  "arguments": [
+                                    {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 47,
+                                          "line": 19
+                                        },
+                                        "sourcefile": "examples/weakHash.go",
+                                        "start": {
+                                          "column": 44,
+                                          "line": 19
+                                        }
+                                      },
+                                      "name": "nil",
+                                      "type": "Identifier"
+                                    }
+                                  ],
+                                  "callee": {
+                                    "_meta": {},
+                                    "computed": false,
+                                    "loc": {
+                                      "end": {
+                                        "column": 43,
+                                        "line": 19
+                                      },
+                                      "sourcefile": "examples/weakHash.go",
+                                      "start": {
+                                        "column": 35,
+                                        "line": 19
+                                      }
+                                    },
+                                    "object": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 39,
+                                          "line": 19
+                                        },
+                                        "sourcefile": "examples/weakHash.go",
+                                        "start": {
+                                          "column": 35,
+                                          "line": 19
+                                        }
+                                      },
+                                      "name": "hMd5",
+                                      "type": "Identifier"
+                                    },
+                                    "property": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 43,
+                                          "line": 19
+                                        },
+                                        "sourcefile": "examples/weakHash.go",
+                                        "start": {
+                                          "column": 40,
+                                          "line": 19
+                                        }
+                                      },
+                                      "name": "Sum",
+                                      "type": "Identifier"
+                                    },
+                                    "type": "MemberAccess"
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 48,
+                                      "line": 19
+                                    },
+                                    "sourcefile": "examples/weakHash.go",
+                                    "start": {
+                                      "column": 35,
+                                      "line": 19
+                                    }
+                                  },
+                                  "type": "CallExpression"
+                                }
+                              ],
+                              "callee": {
+                                "_meta": {},
+                                "computed": false,
+                                "loc": {
+                                  "end": {
+                                    "column": 13,
+                                    "line": 19
+                                  },
+                                  "sourcefile": "examples/weakHash.go",
+                                  "start": {
+                                    "column": 3,
+                                    "line": 19
+                                  }
+                                },
+                                "object": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 6,
+                                      "line": 19
+                                    },
+                                    "sourcefile": "examples/weakHash.go",
+                                    "start": {
+                                      "column": 3,
+                                      "line": 19
+                                    }
+                                  },
+                                  "name": "fmt",
+                                  "type": "Identifier"
+                                },
+                                "property": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 13,
+                                      "line": 19
+                                    },
+                                    "sourcefile": "examples/weakHash.go",
+                                    "start": {
+                                      "column": 7,
+                                      "line": 19
+                                    }
+                                  },
+                                  "name": "Printf",
+                                  "type": "Identifier"
+                                },
+                                "type": "MemberAccess"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 49,
+                                  "line": 19
+                                },
+                                "sourcefile": "examples/weakHash.go",
+                                "start": {
+                                  "column": 3,
+                                  "line": 19
+                                }
+                              },
+                              "type": "CallExpression"
+                            },
+                            {
+                              "_meta": {},
+                              "arguments": [
+                                {
+                                  "_meta": {},
+                                  "literalType": "STRING",
+                                  "loc": {
+                                    "end": {
+                                      "column": 33,
+                                      "line": 20
+                                    },
+                                    "sourcefile": "examples/weakHash.go",
+                                    "start": {
+                                      "column": 14,
+                                      "line": 20
+                                    }
+                                  },
+                                  "type": "Literal",
+                                  "value": "\"SHA256     : %x\\n\""
+                                },
+                                {
+                                  "_meta": {},
+                                  "arguments": [
+                                    {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 47,
+                                          "line": 20
+                                        },
+                                        "sourcefile": "examples/weakHash.go",
+                                        "start": {
+                                          "column": 44,
+                                          "line": 20
+                                        }
+                                      },
+                                      "name": "nil",
+                                      "type": "Identifier"
+                                    }
+                                  ],
+                                  "callee": {
+                                    "_meta": {},
+                                    "computed": false,
+                                    "loc": {
+                                      "end": {
+                                        "column": 43,
+                                        "line": 20
+                                      },
+                                      "sourcefile": "examples/weakHash.go",
+                                      "start": {
+                                        "column": 35,
+                                        "line": 20
+                                      }
+                                    },
+                                    "object": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 39,
+                                          "line": 20
+                                        },
+                                        "sourcefile": "examples/weakHash.go",
+                                        "start": {
+                                          "column": 35,
+                                          "line": 20
+                                        }
+                                      },
+                                      "name": "hSha",
+                                      "type": "Identifier"
+                                    },
+                                    "property": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 43,
+                                          "line": 20
+                                        },
+                                        "sourcefile": "examples/weakHash.go",
+                                        "start": {
+                                          "column": 40,
+                                          "line": 20
+                                        }
+                                      },
+                                      "name": "Sum",
+                                      "type": "Identifier"
+                                    },
+                                    "type": "MemberAccess"
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 48,
+                                      "line": 20
+                                    },
+                                    "sourcefile": "examples/weakHash.go",
+                                    "start": {
+                                      "column": 35,
+                                      "line": 20
+                                    }
+                                  },
+                                  "type": "CallExpression"
+                                }
+                              ],
+                              "callee": {
+                                "_meta": {},
+                                "computed": false,
+                                "loc": {
+                                  "end": {
+                                    "column": 13,
+                                    "line": 20
+                                  },
+                                  "sourcefile": "examples/weakHash.go",
+                                  "start": {
+                                    "column": 3,
+                                    "line": 20
+                                  }
+                                },
+                                "object": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 6,
+                                      "line": 20
+                                    },
+                                    "sourcefile": "examples/weakHash.go",
+                                    "start": {
+                                      "column": 3,
+                                      "line": 20
+                                    }
+                                  },
+                                  "name": "fmt",
+                                  "type": "Identifier"
+                                },
+                                "property": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 13,
+                                      "line": 20
+                                    },
+                                    "sourcefile": "examples/weakHash.go",
+                                    "start": {
+                                      "column": 7,
+                                      "line": 20
+                                    }
+                                  },
+                                  "name": "Printf",
+                                  "type": "Identifier"
+                                },
+                                "type": "MemberAccess"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 49,
+                                  "line": 20
+                                },
+                                "sourcefile": "examples/weakHash.go",
+                                "start": {
+                                  "column": 3,
+                                  "line": 20
+                                }
+                              },
+                              "type": "CallExpression"
+                            },
+                            {
+                              "_meta": {},
+                              "arguments": [
+                                {
+                                  "_meta": {},
+                                  "literalType": "STRING",
+                                  "loc": {
+                                    "end": {
+                                      "column": 33,
+                                      "line": 21
+                                    },
+                                    "sourcefile": "examples/weakHash.go",
+                                    "start": {
+                                      "column": 14,
+                                      "line": 21
+                                    }
+                                  },
+                                  "type": "Literal",
+                                  "value": "\"Blake2s-256: %x\\n\""
+                                },
+                                {
+                                  "_meta": {},
+                                  "arguments": [
+                                    {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 51,
+                                          "line": 21
+                                        },
+                                        "sourcefile": "examples/weakHash.go",
+                                        "start": {
+                                          "column": 48,
+                                          "line": 21
+                                        }
+                                      },
+                                      "name": "nil",
+                                      "type": "Identifier"
+                                    }
+                                  ],
+                                  "callee": {
+                                    "_meta": {},
+                                    "computed": false,
+                                    "loc": {
+                                      "end": {
+                                        "column": 47,
+                                        "line": 21
+                                      },
+                                      "sourcefile": "examples/weakHash.go",
+                                      "start": {
+                                        "column": 35,
+                                        "line": 21
+                                      }
+                                    },
+                                    "object": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 43,
+                                          "line": 21
+                                        },
+                                        "sourcefile": "examples/weakHash.go",
+                                        "start": {
+                                          "column": 35,
+                                          "line": 21
+                                        }
+                                      },
+                                      "name": "hBlake2s",
+                                      "type": "Identifier"
+                                    },
+                                    "property": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 47,
+                                          "line": 21
+                                        },
+                                        "sourcefile": "examples/weakHash.go",
+                                        "start": {
+                                          "column": 44,
+                                          "line": 21
+                                        }
+                                      },
+                                      "name": "Sum",
+                                      "type": "Identifier"
+                                    },
+                                    "type": "MemberAccess"
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 52,
+                                      "line": 21
+                                    },
+                                    "sourcefile": "examples/weakHash.go",
+                                    "start": {
+                                      "column": 35,
+                                      "line": 21
+                                    }
+                                  },
+                                  "type": "CallExpression"
+                                }
+                              ],
+                              "callee": {
+                                "_meta": {},
+                                "computed": false,
+                                "loc": {
+                                  "end": {
+                                    "column": 13,
+                                    "line": 21
+                                  },
+                                  "sourcefile": "examples/weakHash.go",
+                                  "start": {
+                                    "column": 3,
+                                    "line": 21
+                                  }
+                                },
+                                "object": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 6,
+                                      "line": 21
+                                    },
+                                    "sourcefile": "examples/weakHash.go",
+                                    "start": {
+                                      "column": 3,
+                                      "line": 21
+                                    }
+                                  },
+                                  "name": "fmt",
+                                  "type": "Identifier"
+                                },
+                                "property": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 13,
+                                      "line": 21
+                                    },
+                                    "sourcefile": "examples/weakHash.go",
+                                    "start": {
+                                      "column": 7,
+                                      "line": 21
+                                    }
+                                  },
+                                  "name": "Printf",
+                                  "type": "Identifier"
+                                },
+                                "type": "MemberAccess"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 53,
+                                  "line": 21
+                                },
+                                "sourcefile": "examples/weakHash.go",
+                                "start": {
+                                  "column": 3,
+                                  "line": 21
+                                }
+                              },
+                              "type": "CallExpression"
+                            }
+                          ],
+                          "id": null,
+                          "loc": {
+                            "end": {
+                              "column": 3,
+                              "line": 22
+                            },
+                            "sourcefile": "examples/weakHash.go",
+                            "start": {
+                              "column": 16,
+                              "line": 15
+                            }
+                          },
+                          "type": "ScopedStatement"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 3,
+                            "line": 22
+                          },
+                          "sourcefile": "examples/weakHash.go",
+                          "start": {
+                            "column": 2,
+                            "line": 15
+                          }
+                        },
+                        "test": {
+                          "_meta": {},
+                          "left": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 8,
+                                "line": 15
+                              },
+                              "sourcefile": "examples/weakHash.go",
+                              "start": {
+                                "column": 5,
+                                "line": 15
+                              }
+                            },
+                            "name": "err",
+                            "type": "Identifier"
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 15,
+                              "line": 15
+                            },
+                            "sourcefile": "examples/weakHash.go",
+                            "start": {
+                              "column": 5,
+                              "line": 15
+                            }
+                          },
+                          "operator": "==",
+                          "right": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 15,
+                                "line": 15
+                              },
+                              "sourcefile": "examples/weakHash.go",
+                              "start": {
+                                "column": 12,
+                                "line": 15
+                              }
+                            },
+                            "name": "nil",
+                            "type": "Identifier"
+                          },
+                          "type": "BinaryExpression"
+                        },
+                        "type": "IfStatement"
+                      }
+                    ],
+                    "id": null,
+                    "loc": {
+                      "end": {
+                        "column": 2,
+                        "line": 23
+                      },
+                      "sourcefile": "examples/weakHash.go",
+                      "start": {
+                        "column": 24,
+                        "line": 11
+                      }
+                    },
+                    "type": "ScopedStatement"
+                  },
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 14,
+                        "line": 11
+                      },
+                      "sourcefile": "examples/weakHash.go",
+                      "start": {
+                        "column": 6,
+                        "line": 11
+                      }
+                    },
+                    "name": "WeakHash",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 23
+                    },
+                    "sourcefile": "examples/weakHash.go",
+                    "start": {
+                      "column": 1,
+                      "line": 11
+                    }
+                  },
+                  "modifiers": null,
+                  "parameters": [
+                    {
+                      "_meta": {},
+                      "cloned": true,
+                      "id": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 22,
+                                "line": 11
+                              },
+                              "sourcefile": "examples/weakHash.go",
+                              "start": {
+                                "column": 17,
+                                "line": 11
+                              }
+                            },
+                            "name": "int32",
+                            "type": "Identifier"
+                          }
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 16,
+                            "line": 11
+                          },
+                          "sourcefile": "examples/weakHash.go",
+                          "start": {
+                            "column": 15,
+                            "line": 11
+                          }
+                        },
+                        "name": "a",
+                        "type": "Identifier"
+                      },
+                      "init": null,
+                      "loc": {
+                        "end": {
+                          "column": 22,
+                          "line": 11
+                        },
+                        "sourcefile": "examples/weakHash.go",
+                        "start": {
+                          "column": 15,
+                          "line": 11
+                        }
+                      },
+                      "type": "VariableDeclaration",
+                      "varType": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 22,
+                            "line": 11
+                          },
+                          "sourcefile": "examples/weakHash.go",
+                          "start": {
+                            "column": 17,
+                            "line": 11
+                          }
+                        },
+                        "name": "int32",
+                        "type": "Identifier"
+                      },
+                      "variableParam": false
+                    }
+                  ],
+                  "returnType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "VoidType",
+                    "typeArguments": null
+                  },
+                  "type": "FunctionDefinition"
+                }
+              ],
+              "language": "golang",
+              "languageVersion": "1.18",
+              "loc": {
+                "end": {
+                  "column": 2,
+                  "line": 23
+                },
+                "sourcefile": "examples/weakHash.go",
+                "start": {
+                  "column": 1,
+                  "line": 1
+                }
+              },
+              "type": "CompileUnit",
+              "uri": "",
+              "version": ""
+            },
+            "packageName": "__single__"
+          }
+        },
+        "subs": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,872 @@
+{
+  "moduleName": "__single_module__",
+  "packageInfo": {
+    "PathName": "",
+    "files": {},
+    "subs": {
+      "/": {
+        "PathName": "",
+        "files": {
+          "examples/function2.go": {
+            "node": {
+              "_meta": {},
+              "body": [
+                {
+                  "_meta": {},
+                  "loc": {
+                    "end": {
+                      "column": 17,
+                      "line": 1
+                    },
+                    "sourcefile": "examples/function2.go",
+                    "start": {
+                      "column": 9,
+                      "line": 1
+                    }
+                  },
+                  "packageName": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 17,
+                        "line": 1
+                      },
+                      "sourcefile": "examples/function2.go",
+                      "start": {
+                        "column": 9,
+                        "line": 1
+                      }
+                    },
+                    "name": "examples",
+                    "type": "Identifier"
+                  },
+                  "type": "PackageDeclaration"
+                },
+                {
+                  "_meta": {},
+                  "body": [
+                    {
+                      "_meta": {},
+                      "cloned": true,
+                      "id": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 21,
+                                "line": 4
+                              },
+                              "sourcefile": "examples/function2.go",
+                              "start": {
+                                "column": 13,
+                                "line": 4
+                              }
+                            },
+                            "name": "OrderBys",
+                            "type": "Identifier"
+                          }
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 9,
+                            "line": 4
+                          },
+                          "sourcefile": "examples/function2.go",
+                          "start": {
+                            "column": 2,
+                            "line": 4
+                          }
+                        },
+                        "name": "OrderBy",
+                        "type": "Identifier"
+                      },
+                      "init": null,
+                      "loc": {
+                        "end": {
+                          "column": 21,
+                          "line": 4
+                        },
+                        "sourcefile": "examples/function2.go",
+                        "start": {
+                          "column": 2,
+                          "line": 4
+                        }
+                      },
+                      "type": "VariableDeclaration",
+                      "varType": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 21,
+                            "line": 4
+                          },
+                          "sourcefile": "examples/function2.go",
+                          "start": {
+                            "column": 13,
+                            "line": 4
+                          }
+                        },
+                        "name": "OrderBys",
+                        "type": "Identifier"
+                      },
+                      "variableParam": false
+                    },
+                    {
+                      "_meta": {},
+                      "cloned": true,
+                      "id": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 20,
+                                "line": 5
+                              },
+                              "sourcefile": "examples/function2.go",
+                              "start": {
+                                "column": 13,
+                                "line": 5
+                              }
+                            },
+                            "name": "Filters",
+                            "type": "Identifier"
+                          }
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 8,
+                            "line": 5
+                          },
+                          "sourcefile": "examples/function2.go",
+                          "start": {
+                            "column": 2,
+                            "line": 5
+                          }
+                        },
+                        "name": "Filter",
+                        "type": "Identifier"
+                      },
+                      "init": null,
+                      "loc": {
+                        "end": {
+                          "column": 20,
+                          "line": 5
+                        },
+                        "sourcefile": "examples/function2.go",
+                        "start": {
+                          "column": 2,
+                          "line": 5
+                        }
+                      },
+                      "type": "VariableDeclaration",
+                      "varType": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 20,
+                            "line": 5
+                          },
+                          "sourcefile": "examples/function2.go",
+                          "start": {
+                            "column": 13,
+                            "line": 5
+                          }
+                        },
+                        "name": "Filters",
+                        "type": "Identifier"
+                      },
+                      "variableParam": false
+                    },
+                    {
+                      "_meta": {},
+                      "cloned": true,
+                      "id": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 23,
+                                "line": 6
+                              },
+                              "sourcefile": "examples/function2.go",
+                              "start": {
+                                "column": 13,
+                                "line": 6
+                              }
+                            },
+                            "name": "Pagination",
+                            "type": "Identifier"
+                          }
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 12,
+                            "line": 6
+                          },
+                          "sourcefile": "examples/function2.go",
+                          "start": {
+                            "column": 2,
+                            "line": 6
+                          }
+                        },
+                        "name": "Pagination",
+                        "type": "Identifier"
+                      },
+                      "init": null,
+                      "loc": {
+                        "end": {
+                          "column": 23,
+                          "line": 6
+                        },
+                        "sourcefile": "examples/function2.go",
+                        "start": {
+                          "column": 2,
+                          "line": 6
+                        }
+                      },
+                      "type": "VariableDeclaration",
+                      "varType": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 23,
+                            "line": 6
+                          },
+                          "sourcefile": "examples/function2.go",
+                          "start": {
+                            "column": 13,
+                            "line": 6
+                          }
+                        },
+                        "name": "Pagination",
+                        "type": "Identifier"
+                      },
+                      "variableParam": false
+                    },
+                    {
+                      "_meta": {
+                        "ReceiveCls": "DataSelector"
+                      },
+                      "body": {
+                        "_meta": {},
+                        "body": [
+                          {
+                            "_meta": {},
+                            "cloned": true,
+                            "id": {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "element": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 22,
+                                        "line": 9
+                                      },
+                                      "sourcefile": "examples/function2.go",
+                                      "start": {
+                                        "column": 10,
+                                        "line": 9
+                                      }
+                                    },
+                                    "name": "DataSelector",
+                                    "type": "Identifier"
+                                  },
+                                  "id": null,
+                                  "kind": "pointer",
+                                  "loc": {
+                                    "end": {
+                                      "column": 22,
+                                      "line": 9
+                                    },
+                                    "sourcefile": "examples/function2.go",
+                                    "start": {
+                                      "column": 9,
+                                      "line": 9
+                                    }
+                                  },
+                                  "type": "PointerType",
+                                  "typeArguments": null
+                                }
+                              },
+                              "loc": null,
+                              "name": "d",
+                              "type": "Identifier"
+                            },
+                            "init": {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "element": null,
+                                  "id": null,
+                                  "kind": "",
+                                  "loc": null,
+                                  "type": "PointerType",
+                                  "typeArguments": null
+                                }
+                              },
+                              "loc": null,
+                              "type": "ThisExpression"
+                            },
+                            "loc": null,
+                            "type": "VariableDeclaration",
+                            "varType": {
+                              "_meta": {},
+                              "element": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 22,
+                                    "line": 9
+                                  },
+                                  "sourcefile": "examples/function2.go",
+                                  "start": {
+                                    "column": 10,
+                                    "line": 9
+                                  }
+                                },
+                                "name": "DataSelector",
+                                "type": "Identifier"
+                              },
+                              "id": null,
+                              "kind": "pointer",
+                              "loc": {
+                                "end": {
+                                  "column": 22,
+                                  "line": 9
+                                },
+                                "sourcefile": "examples/function2.go",
+                                "start": {
+                                  "column": 9,
+                                  "line": 9
+                                }
+                              },
+                              "type": "PointerType",
+                              "typeArguments": null
+                            },
+                            "variableParam": false
+                          },
+                          {
+                            "_meta": {},
+                            "cloned": true,
+                            "id": {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "id": null,
+                                  "loc": null,
+                                  "type": "DynamicType",
+                                  "typeArguments": null
+                                }
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 4,
+                                  "line": 11
+                                },
+                                "sourcefile": "examples/function2.go",
+                                "start": {
+                                  "column": 2,
+                                  "line": 11
+                                }
+                              },
+                              "name": "cc",
+                              "type": "Identifier"
+                            },
+                            "init": {
+                              "_meta": {},
+                              "computed": false,
+                              "loc": {
+                                "end": {
+                                  "column": 20,
+                                  "line": 11
+                                },
+                                "sourcefile": "examples/function2.go",
+                                "start": {
+                                  "column": 8,
+                                  "line": 11
+                                }
+                              },
+                              "object": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 10,
+                                    "line": 11
+                                  },
+                                  "sourcefile": "examples/function2.go",
+                                  "start": {
+                                    "column": 8,
+                                    "line": 11
+                                  }
+                                },
+                                "name": "db",
+                                "type": "Identifier"
+                              },
+                              "property": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 20,
+                                    "line": 11
+                                  },
+                                  "sourcefile": "examples/function2.go",
+                                  "start": {
+                                    "column": 11,
+                                    "line": 11
+                                  }
+                                },
+                                "name": "Statement",
+                                "type": "Identifier"
+                              },
+                              "type": "MemberAccess"
+                            },
+                            "loc": {
+                              "end": {
+                                "column": 20,
+                                "line": 11
+                              },
+                              "sourcefile": "examples/function2.go",
+                              "start": {
+                                "column": 2,
+                                "line": 11
+                              }
+                            },
+                            "type": "VariableDeclaration",
+                            "varType": {
+                              "_meta": {},
+                              "id": null,
+                              "loc": null,
+                              "type": "DynamicType",
+                              "typeArguments": null
+                            },
+                            "variableParam": false
+                          },
+                          {
+                            "_meta": {},
+                            "argument": {
+                              "_meta": {},
+                              "arguments": [],
+                              "callee": {
+                                "_meta": {},
+                                "computed": false,
+                                "loc": {
+                                  "end": {
+                                    "column": 17,
+                                    "line": 23
+                                  },
+                                  "sourcefile": "examples/function2.go",
+                                  "start": {
+                                    "column": 9,
+                                    "line": 23
+                                  }
+                                },
+                                "object": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 11,
+                                      "line": 23
+                                    },
+                                    "sourcefile": "examples/function2.go",
+                                    "start": {
+                                      "column": 9,
+                                      "line": 23
+                                    }
+                                  },
+                                  "name": "db",
+                                  "type": "Identifier"
+                                },
+                                "property": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 17,
+                                      "line": 23
+                                    },
+                                    "sourcefile": "examples/function2.go",
+                                    "start": {
+                                      "column": 12,
+                                      "line": 23
+                                    }
+                                  },
+                                  "name": "Debug",
+                                  "type": "Identifier"
+                                },
+                                "type": "MemberAccess"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 19,
+                                  "line": 23
+                                },
+                                "sourcefile": "examples/function2.go",
+                                "start": {
+                                  "column": 9,
+                                  "line": 23
+                                }
+                              },
+                              "type": "CallExpression"
+                            },
+                            "isYield": false,
+                            "loc": {
+                              "end": {
+                                "column": 19,
+                                "line": 23
+                              },
+                              "sourcefile": "examples/function2.go",
+                              "start": {
+                                "column": 2,
+                                "line": 23
+                              }
+                            },
+                            "type": "ReturnStatement"
+                          }
+                        ],
+                        "id": null,
+                        "loc": {
+                          "end": {
+                            "column": 2,
+                            "line": 24
+                          },
+                          "sourcefile": "examples/function2.go",
+                          "start": {
+                            "column": 52,
+                            "line": 9
+                          }
+                        },
+                        "type": "ScopedStatement"
+                      },
+                      "id": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 29,
+                            "line": 9
+                          },
+                          "sourcefile": "examples/function2.go",
+                          "start": {
+                            "column": 24,
+                            "line": 9
+                          }
+                        },
+                        "name": "Parse",
+                        "type": "Identifier"
+                      },
+                      "loc": {
+                        "end": {
+                          "column": 2,
+                          "line": 24
+                        },
+                        "sourcefile": "examples/function2.go",
+                        "start": {
+                          "column": 1,
+                          "line": 9
+                        }
+                      },
+                      "modifiers": null,
+                      "parameters": [
+                        {
+                          "_meta": {},
+                          "cloned": true,
+                          "id": {
+                            "_meta": {
+                              "ReceiveCls": "",
+                              "type": {
+                                "_meta": {},
+                                "element": {
+                                  "_meta": {},
+                                  "computed": false,
+                                  "loc": {
+                                    "end": {
+                                      "column": 41,
+                                      "line": 9
+                                    },
+                                    "sourcefile": "examples/function2.go",
+                                    "start": {
+                                      "column": 34,
+                                      "line": 9
+                                    }
+                                  },
+                                  "object": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 38,
+                                        "line": 9
+                                      },
+                                      "sourcefile": "examples/function2.go",
+                                      "start": {
+                                        "column": 34,
+                                        "line": 9
+                                      }
+                                    },
+                                    "name": "gorm",
+                                    "type": "Identifier"
+                                  },
+                                  "property": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 41,
+                                        "line": 9
+                                      },
+                                      "sourcefile": "examples/function2.go",
+                                      "start": {
+                                        "column": 39,
+                                        "line": 9
+                                      }
+                                    },
+                                    "name": "DB",
+                                    "type": "Identifier"
+                                  },
+                                  "type": "MemberAccess"
+                                },
+                                "id": null,
+                                "kind": "pointer",
+                                "loc": {
+                                  "end": {
+                                    "column": 41,
+                                    "line": 9
+                                  },
+                                  "sourcefile": "examples/function2.go",
+                                  "start": {
+                                    "column": 33,
+                                    "line": 9
+                                  }
+                                },
+                                "type": "PointerType",
+                                "typeArguments": null
+                              }
+                            },
+                            "loc": {
+                              "end": {
+                                "column": 32,
+                                "line": 9
+                              },
+                              "sourcefile": "examples/function2.go",
+                              "start": {
+                                "column": 30,
+                                "line": 9
+                              }
+                            },
+                            "name": "db",
+                            "type": "Identifier"
+                          },
+                          "init": null,
+                          "loc": {
+                            "end": {
+                              "column": 41,
+                              "line": 9
+                            },
+                            "sourcefile": "examples/function2.go",
+                            "start": {
+                              "column": 30,
+                              "line": 9
+                            }
+                          },
+                          "type": "VariableDeclaration",
+                          "varType": {
+                            "_meta": {},
+                            "element": {
+                              "_meta": {},
+                              "computed": false,
+                              "loc": {
+                                "end": {
+                                  "column": 41,
+                                  "line": 9
+                                },
+                                "sourcefile": "examples/function2.go",
+                                "start": {
+                                  "column": 34,
+                                  "line": 9
+                                }
+                              },
+                              "object": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 38,
+                                    "line": 9
+                                  },
+                                  "sourcefile": "examples/function2.go",
+                                  "start": {
+                                    "column": 34,
+                                    "line": 9
+                                  }
+                                },
+                                "name": "gorm",
+                                "type": "Identifier"
+                              },
+                              "property": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 41,
+                                    "line": 9
+                                  },
+                                  "sourcefile": "examples/function2.go",
+                                  "start": {
+                                    "column": 39,
+                                    "line": 9
+                                  }
+                                },
+                                "name": "DB",
+                                "type": "Identifier"
+                              },
+                              "type": "MemberAccess"
+                            },
+                            "id": null,
+                            "kind": "pointer",
+                            "loc": {
+                              "end": {
+                                "column": 41,
+                                "line": 9
+                              },
+                              "sourcefile": "examples/function2.go",
+                              "start": {
+                                "column": 33,
+                                "line": 9
+                              }
+                            },
+                            "type": "PointerType",
+                            "typeArguments": null
+                          },
+                          "variableParam": false
+                        }
+                      ],
+                      "returnType": {
+                        "_meta": {},
+                        "element": {
+                          "_meta": {},
+                          "computed": false,
+                          "loc": {
+                            "end": {
+                              "column": 51,
+                              "line": 9
+                            },
+                            "sourcefile": "examples/function2.go",
+                            "start": {
+                              "column": 44,
+                              "line": 9
+                            }
+                          },
+                          "object": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 48,
+                                "line": 9
+                              },
+                              "sourcefile": "examples/function2.go",
+                              "start": {
+                                "column": 44,
+                                "line": 9
+                              }
+                            },
+                            "name": "gorm",
+                            "type": "Identifier"
+                          },
+                          "property": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 51,
+                                "line": 9
+                              },
+                              "sourcefile": "examples/function2.go",
+                              "start": {
+                                "column": 49,
+                                "line": 9
+                              }
+                            },
+                            "name": "DB",
+                            "type": "Identifier"
+                          },
+                          "type": "MemberAccess"
+                        },
+                        "id": null,
+                        "kind": "pointer",
+                        "loc": {
+                          "end": {
+                            "column": 51,
+                            "line": 9
+                          },
+                          "sourcefile": "examples/function2.go",
+                          "start": {
+                            "column": 43,
+                            "line": 9
+                          }
+                        },
+                        "type": "PointerType",
+                        "typeArguments": null
+                      },
+                      "type": "FunctionDefinition"
+                    }
+                  ],
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 18,
+                        "line": 3
+                      },
+                      "sourcefile": "examples/function2.go",
+                      "start": {
+                        "column": 6,
+                        "line": 3
+                      }
+                    },
+                    "name": "DataSelector",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 7
+                    },
+                    "sourcefile": "examples/function2.go",
+                    "start": {
+                      "column": 6,
+                      "line": 3
+                    }
+                  },
+                  "supers": [],
+                  "type": "ClassDefinition"
+                }
+              ],
+              "language": "golang",
+              "languageVersion": "1.18",
+              "loc": {
+                "end": {
+                  "column": 2,
+                  "line": 24
+                },
+                "sourcefile": "examples/function2.go",
+                "start": {
+                  "column": 1,
+                  "line": 1
+                }
+              },
+              "type": "CompileUnit",
+              "uri": "",
+              "version": ""
+            },
+            "packageName": "__single__"
+          }
+        },
+        "subs": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,292 @@
+{
+  "type": "CompileUnit",
+  "body": [
+    {
+      "type": "ExpressionStatement",
+      "expression": {
+        "type": "AssignmentExpression",
+        "left": {
+          "type": "Identifier",
+          "name": "a",
+          "_meta": {
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 1
+              },
+              "end": {
+                "line": 2,
+                "column": 3
+              },
+              "sourcefile": "basic.php"
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 1
+            },
+            "end": {
+              "line": 2,
+              "column": 3
+            },
+            "sourcefile": "basic.php"
+          }
+        },
+        "right": {
+          "type": "MemberAccess",
+          "object": {
+            "type": "Identifier",
+            "name": "_GET",
+            "_meta": {
+              "loc": {
+                "start": {
+                  "line": 2,
+                  "column": 6
+                },
+                "end": {
+                  "line": 2,
+                  "column": 11
+                },
+                "sourcefile": "basic.php"
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 6
+              },
+              "end": {
+                "line": 2,
+                "column": 11
+              },
+              "sourcefile": "basic.php"
+            }
+          },
+          "property": {
+            "type": "Literal",
+            "value": "id",
+            "literalType": "string",
+            "_meta": {
+              "loc": {
+                "start": {
+                  "line": 2,
+                  "column": 12
+                },
+                "end": {
+                  "line": 2,
+                  "column": 16
+                },
+                "sourcefile": "basic.php"
+              },
+              "encapsed": true
+            },
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 12
+              },
+              "end": {
+                "line": 2,
+                "column": 16
+              },
+              "sourcefile": "basic.php"
+            }
+          },
+          "computed": true,
+          "_meta": {
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 6
+              },
+              "end": {
+                "line": 2,
+                "column": 17
+              },
+              "sourcefile": "basic.php"
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 6
+            },
+            "end": {
+              "line": 2,
+              "column": 17
+            },
+            "sourcefile": "basic.php"
+          }
+        },
+        "operator": "=",
+        "cloned": false,
+        "_meta": {
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 1
+            },
+            "end": {
+              "line": 2,
+              "column": 17
+            },
+            "sourcefile": "basic.php"
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 1
+          },
+          "end": {
+            "line": 2,
+            "column": 17
+          },
+          "sourcefile": "basic.php"
+        }
+      },
+      "_meta": {
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 1
+          },
+          "end": {
+            "line": 2,
+            "column": 18
+          },
+          "sourcefile": "basic.php"
+        }
+      },
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 1
+        },
+        "end": {
+          "line": 2,
+          "column": 18
+        },
+        "sourcefile": "basic.php"
+      }
+    },
+    {
+      "type": "ExpressionStatement",
+      "expression": {
+        "type": "CallExpression",
+        "callee": {
+          "type": "Identifier",
+          "name": "echo",
+          "_meta": {}
+        },
+        "arguments": [
+          {
+            "type": "Identifier",
+            "name": "a",
+            "_meta": {
+              "loc": {
+                "start": {
+                  "line": 3,
+                  "column": 6
+                },
+                "end": {
+                  "line": 3,
+                  "column": 8
+                },
+                "sourcefile": "basic.php"
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 6
+              },
+              "end": {
+                "line": 3,
+                "column": 8
+              },
+              "sourcefile": "basic.php"
+            }
+          }
+        ],
+        "_meta": {
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 1
+            },
+            "end": {
+              "line": 3,
+              "column": 9
+            },
+            "sourcefile": "basic.php"
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 3,
+            "column": 1
+          },
+          "end": {
+            "line": 3,
+            "column": 9
+          },
+          "sourcefile": "basic.php"
+        }
+      },
+      "_meta": {
+        "loc": {
+          "start": {
+            "line": 3,
+            "column": 1
+          },
+          "end": {
+            "line": 3,
+            "column": 9
+          },
+          "sourcefile": "basic.php"
+        }
+      },
+      "loc": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 9
+        },
+        "sourcefile": "basic.php"
+      }
+    }
+  ],
+  "language": "php",
+  "languageVersion": null,
+  "uri": "basic.php",
+  "version": "0.0.0",
+  "_meta": {
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 1
+      },
+      "end": {
+        "line": 4,
+        "column": 1
+      },
+      "sourcefile": "basic.php"
+    }
+  },
+  "loc": {
+    "start": {
+      "line": 1,
+      "column": 1
+    },
+    "end": {
+      "line": 4,
+      "column": 1
+    },
+    "sourcefile": "basic.php"
+  }
+}

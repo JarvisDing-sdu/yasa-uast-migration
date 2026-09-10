@@ -1,0 +1,1618 @@
+{
+  "moduleName": "__single_module__",
+  "packageInfo": {
+    "PathName": "",
+    "files": {},
+    "subs": {
+      "/": {
+        "PathName": "",
+        "files": {
+          "examples/map.go": {
+            "node": {
+              "_meta": {},
+              "body": [
+                {
+                  "_meta": {},
+                  "loc": {
+                    "end": {
+                      "column": 17,
+                      "line": 1
+                    },
+                    "sourcefile": "examples/map.go",
+                    "start": {
+                      "column": 9,
+                      "line": 1
+                    }
+                  },
+                  "packageName": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 17,
+                        "line": 1
+                      },
+                      "sourcefile": "examples/map.go",
+                      "start": {
+                        "column": 9,
+                        "line": 1
+                      }
+                    },
+                    "name": "examples",
+                    "type": "Identifier"
+                  },
+                  "type": "PackageDeclaration"
+                },
+                {
+                  "_meta": {},
+                  "body": {
+                    "_meta": {},
+                    "body": [
+                      {
+                        "_meta": {},
+                        "cloned": false,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "id": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 25,
+                                    "line": 4
+                                  },
+                                  "sourcefile": "examples/map.go",
+                                  "start": {
+                                    "column": 8,
+                                    "line": 4
+                                  }
+                                },
+                                "name": "MapType",
+                                "type": "Identifier"
+                              },
+                              "keyType": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 18,
+                                    "line": 4
+                                  },
+                                  "sourcefile": "examples/map.go",
+                                  "start": {
+                                    "column": 12,
+                                    "line": 4
+                                  }
+                                },
+                                "name": "string",
+                                "type": "Identifier"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 25,
+                                  "line": 4
+                                },
+                                "sourcefile": "examples/map.go",
+                                "start": {
+                                  "column": 8,
+                                  "line": 4
+                                }
+                              },
+                              "type": "MapType",
+                              "typeArguments": null,
+                              "valueType": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 25,
+                                    "line": 4
+                                  },
+                                  "sourcefile": "examples/map.go",
+                                  "start": {
+                                    "column": 19,
+                                    "line": 4
+                                  }
+                                },
+                                "name": "string",
+                                "type": "Identifier"
+                              }
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 7,
+                              "line": 4
+                            },
+                            "sourcefile": "examples/map.go",
+                            "start": {
+                              "column": 6,
+                              "line": 4
+                            }
+                          },
+                          "name": "m",
+                          "type": "Identifier"
+                        },
+                        "init": null,
+                        "loc": {
+                          "end": {
+                            "column": 25,
+                            "line": 4
+                          },
+                          "sourcefile": "examples/map.go",
+                          "start": {
+                            "column": 6,
+                            "line": 4
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "id": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 25,
+                                "line": 4
+                              },
+                              "sourcefile": "examples/map.go",
+                              "start": {
+                                "column": 8,
+                                "line": 4
+                              }
+                            },
+                            "name": "MapType",
+                            "type": "Identifier"
+                          },
+                          "keyType": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 18,
+                                "line": 4
+                              },
+                              "sourcefile": "examples/map.go",
+                              "start": {
+                                "column": 12,
+                                "line": 4
+                              }
+                            },
+                            "name": "string",
+                            "type": "Identifier"
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 25,
+                              "line": 4
+                            },
+                            "sourcefile": "examples/map.go",
+                            "start": {
+                              "column": 8,
+                              "line": 4
+                            }
+                          },
+                          "type": "MapType",
+                          "typeArguments": null,
+                          "valueType": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 25,
+                                "line": 4
+                              },
+                              "sourcefile": "examples/map.go",
+                              "start": {
+                                "column": 19,
+                                "line": 4
+                              }
+                            },
+                            "name": "string",
+                            "type": "Identifier"
+                          }
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "left": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 3,
+                              "line": 5
+                            },
+                            "sourcefile": "examples/map.go",
+                            "start": {
+                              "column": 2,
+                              "line": 5
+                            }
+                          },
+                          "name": "m",
+                          "type": "Identifier"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 29,
+                            "line": 5
+                          },
+                          "sourcefile": "examples/map.go",
+                          "start": {
+                            "column": 2,
+                            "line": 5
+                          }
+                        },
+                        "operator": "=",
+                        "right": {
+                          "_meta": {},
+                          "arguments": [
+                            {
+                              "_meta": {},
+                              "id": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 28,
+                                    "line": 5
+                                  },
+                                  "sourcefile": "examples/map.go",
+                                  "start": {
+                                    "column": 11,
+                                    "line": 5
+                                  }
+                                },
+                                "name": "MapType",
+                                "type": "Identifier"
+                              },
+                              "keyType": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 21,
+                                    "line": 5
+                                  },
+                                  "sourcefile": "examples/map.go",
+                                  "start": {
+                                    "column": 15,
+                                    "line": 5
+                                  }
+                                },
+                                "name": "string",
+                                "type": "Identifier"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 28,
+                                  "line": 5
+                                },
+                                "sourcefile": "examples/map.go",
+                                "start": {
+                                  "column": 11,
+                                  "line": 5
+                                }
+                              },
+                              "type": "MapType",
+                              "typeArguments": null,
+                              "valueType": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 28,
+                                    "line": 5
+                                  },
+                                  "sourcefile": "examples/map.go",
+                                  "start": {
+                                    "column": 22,
+                                    "line": 5
+                                  }
+                                },
+                                "name": "string",
+                                "type": "Identifier"
+                              }
+                            }
+                          ],
+                          "callee": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 10,
+                                "line": 5
+                              },
+                              "sourcefile": "examples/map.go",
+                              "start": {
+                                "column": 6,
+                                "line": 5
+                              }
+                            },
+                            "name": "make",
+                            "type": "Identifier"
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 29,
+                              "line": 5
+                            },
+                            "sourcefile": "examples/map.go",
+                            "start": {
+                              "column": 6,
+                              "line": 5
+                            }
+                          },
+                          "type": "CallExpression"
+                        },
+                        "type": "AssignmentExpression"
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": false,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "loc": null,
+                              "name": "string",
+                              "type": "Identifier"
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 17,
+                              "line": 6
+                            },
+                            "sourcefile": "examples/map.go",
+                            "start": {
+                              "column": 6,
+                              "line": 6
+                            }
+                          },
+                          "name": "__taint_src",
+                          "type": "Identifier"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "literalType": "STRING",
+                          "loc": {
+                            "end": {
+                              "column": 22,
+                              "line": 6
+                            },
+                            "sourcefile": "examples/map.go",
+                            "start": {
+                              "column": 20,
+                              "line": 6
+                            }
+                          },
+                          "type": "Literal",
+                          "value": "\"\""
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 22,
+                            "line": 6
+                          },
+                          "sourcefile": "examples/map.go",
+                          "start": {
+                            "column": 6,
+                            "line": 6
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "loc": null,
+                          "name": "string",
+                          "type": "Identifier"
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "left": {
+                          "_meta": {},
+                          "computed": true,
+                          "loc": {
+                            "end": {
+                              "column": 11,
+                              "line": 7
+                            },
+                            "sourcefile": "examples/map.go",
+                            "start": {
+                              "column": 2,
+                              "line": 7
+                            }
+                          },
+                          "object": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 3,
+                                "line": 7
+                              },
+                              "sourcefile": "examples/map.go",
+                              "start": {
+                                "column": 2,
+                                "line": 7
+                              }
+                            },
+                            "name": "m",
+                            "type": "Identifier"
+                          },
+                          "property": {
+                            "_meta": {},
+                            "literalType": "STRING",
+                            "loc": {
+                              "end": {
+                                "column": 10,
+                                "line": 7
+                              },
+                              "sourcefile": "examples/map.go",
+                              "start": {
+                                "column": 4,
+                                "line": 7
+                              }
+                            },
+                            "type": "Literal",
+                            "value": "\"key1\""
+                          },
+                          "type": "MemberAccess"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 25,
+                            "line": 7
+                          },
+                          "sourcefile": "examples/map.go",
+                          "start": {
+                            "column": 2,
+                            "line": 7
+                          }
+                        },
+                        "operator": "=",
+                        "right": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 25,
+                              "line": 7
+                            },
+                            "sourcefile": "examples/map.go",
+                            "start": {
+                              "column": 14,
+                              "line": 7
+                            }
+                          },
+                          "name": "__taint_src",
+                          "type": "Identifier"
+                        },
+                        "type": "AssignmentExpression"
+                      },
+                      {
+                        "_meta": {},
+                        "arguments": [
+                          {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 16,
+                                "line": 8
+                              },
+                              "sourcefile": "examples/map.go",
+                              "start": {
+                                "column": 15,
+                                "line": 8
+                              }
+                            },
+                            "name": "m",
+                            "type": "Identifier"
+                          }
+                        ],
+                        "callee": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 14,
+                              "line": 8
+                            },
+                            "sourcefile": "examples/map.go",
+                            "start": {
+                              "column": 2,
+                              "line": 8
+                            }
+                          },
+                          "name": "__taint_sink",
+                          "type": "Identifier"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 17,
+                            "line": 8
+                          },
+                          "sourcefile": "examples/map.go",
+                          "start": {
+                            "column": 2,
+                            "line": 8
+                          }
+                        },
+                        "type": "CallExpression"
+                      }
+                    ],
+                    "id": null,
+                    "loc": {
+                      "end": {
+                        "column": 2,
+                        "line": 9
+                      },
+                      "sourcefile": "examples/map.go",
+                      "start": {
+                        "column": 13,
+                        "line": 3
+                      }
+                    },
+                    "type": "ScopedStatement"
+                  },
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 10,
+                        "line": 3
+                      },
+                      "sourcefile": "examples/map.go",
+                      "start": {
+                        "column": 6,
+                        "line": 3
+                      }
+                    },
+                    "name": "main",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 9
+                    },
+                    "sourcefile": "examples/map.go",
+                    "start": {
+                      "column": 1,
+                      "line": 3
+                    }
+                  },
+                  "modifiers": null,
+                  "parameters": [],
+                  "returnType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "VoidType",
+                    "typeArguments": null
+                  },
+                  "type": "FunctionDefinition"
+                },
+                {
+                  "_meta": {},
+                  "cloned": false,
+                  "id": {
+                    "_meta": {
+                      "ReceiveCls": "",
+                      "type": {
+                        "_meta": {},
+                        "id": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 24,
+                              "line": 16
+                            },
+                            "sourcefile": "examples/map.go",
+                            "start": {
+                              "column": 13,
+                              "line": 16
+                            }
+                          },
+                          "name": "MapType",
+                          "type": "Identifier"
+                        },
+                        "keyType": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 20,
+                              "line": 16
+                            },
+                            "sourcefile": "examples/map.go",
+                            "start": {
+                              "column": 17,
+                              "line": 16
+                            }
+                          },
+                          "name": "int",
+                          "type": "Identifier"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 24,
+                            "line": 16
+                          },
+                          "sourcefile": "examples/map.go",
+                          "start": {
+                            "column": 13,
+                            "line": 16
+                          }
+                        },
+                        "type": "MapType",
+                        "typeArguments": null,
+                        "valueType": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 24,
+                              "line": 16
+                            },
+                            "sourcefile": "examples/map.go",
+                            "start": {
+                              "column": 21,
+                              "line": 16
+                            }
+                          },
+                          "name": "int",
+                          "type": "Identifier"
+                        }
+                      }
+                    },
+                    "loc": {
+                      "end": {
+                        "column": 10,
+                        "line": 16
+                      },
+                      "sourcefile": "examples/map.go",
+                      "start": {
+                        "column": 5,
+                        "line": 16
+                      }
+                    },
+                    "name": "myMap",
+                    "type": "Identifier"
+                  },
+                  "init": {
+                    "_meta": {},
+                    "expressions": [
+                      {
+                        "_meta": {},
+                        "cloned": false,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "id": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 24,
+                                    "line": 16
+                                  },
+                                  "sourcefile": "examples/map.go",
+                                  "start": {
+                                    "column": 13,
+                                    "line": 16
+                                  }
+                                },
+                                "name": "MapType",
+                                "type": "Identifier"
+                              },
+                              "keyType": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 20,
+                                    "line": 16
+                                  },
+                                  "sourcefile": "examples/map.go",
+                                  "start": {
+                                    "column": 17,
+                                    "line": 16
+                                  }
+                                },
+                                "name": "int",
+                                "type": "Identifier"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 24,
+                                  "line": 16
+                                },
+                                "sourcefile": "examples/map.go",
+                                "start": {
+                                  "column": 13,
+                                  "line": 16
+                                }
+                              },
+                              "type": "MapType",
+                              "typeArguments": null,
+                              "valueType": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 24,
+                                    "line": 16
+                                  },
+                                  "sourcefile": "examples/map.go",
+                                  "start": {
+                                    "column": 21,
+                                    "line": 16
+                                  }
+                                },
+                                "name": "int",
+                                "type": "Identifier"
+                              }
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 2,
+                              "line": 21
+                            },
+                            "sourcefile": "examples/map.go",
+                            "start": {
+                              "column": 13,
+                              "line": 16
+                            }
+                          },
+                          "name": "tmp1",
+                          "type": "Identifier"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "arguments": [],
+                          "callee": {
+                            "_meta": {},
+                            "id": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 24,
+                                  "line": 16
+                                },
+                                "sourcefile": "examples/map.go",
+                                "start": {
+                                  "column": 13,
+                                  "line": 16
+                                }
+                              },
+                              "name": "MapType",
+                              "type": "Identifier"
+                            },
+                            "keyType": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 20,
+                                  "line": 16
+                                },
+                                "sourcefile": "examples/map.go",
+                                "start": {
+                                  "column": 17,
+                                  "line": 16
+                                }
+                              },
+                              "name": "int",
+                              "type": "Identifier"
+                            },
+                            "loc": {
+                              "end": {
+                                "column": 24,
+                                "line": 16
+                              },
+                              "sourcefile": "examples/map.go",
+                              "start": {
+                                "column": 13,
+                                "line": 16
+                              }
+                            },
+                            "type": "MapType",
+                            "typeArguments": null,
+                            "valueType": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 24,
+                                  "line": 16
+                                },
+                                "sourcefile": "examples/map.go",
+                                "start": {
+                                  "column": 21,
+                                  "line": 16
+                                }
+                              },
+                              "name": "int",
+                              "type": "Identifier"
+                            }
+                          },
+                          "loc": null,
+                          "type": "NewExpression"
+                        },
+                        "loc": null,
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "id": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 24,
+                                "line": 16
+                              },
+                              "sourcefile": "examples/map.go",
+                              "start": {
+                                "column": 13,
+                                "line": 16
+                              }
+                            },
+                            "name": "MapType",
+                            "type": "Identifier"
+                          },
+                          "keyType": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 20,
+                                "line": 16
+                              },
+                              "sourcefile": "examples/map.go",
+                              "start": {
+                                "column": 17,
+                                "line": 16
+                              }
+                            },
+                            "name": "int",
+                            "type": "Identifier"
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 24,
+                              "line": 16
+                            },
+                            "sourcefile": "examples/map.go",
+                            "start": {
+                              "column": 13,
+                              "line": 16
+                            }
+                          },
+                          "type": "MapType",
+                          "typeArguments": null,
+                          "valueType": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 24,
+                                "line": 16
+                              },
+                              "sourcefile": "examples/map.go",
+                              "start": {
+                                "column": 21,
+                                "line": 16
+                              }
+                            },
+                            "name": "int",
+                            "type": "Identifier"
+                          }
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "left": {
+                          "_meta": {},
+                          "computed": false,
+                          "loc": null,
+                          "object": {
+                            "_meta": {
+                              "ReceiveCls": "",
+                              "type": {
+                                "_meta": {},
+                                "id": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 24,
+                                      "line": 16
+                                    },
+                                    "sourcefile": "examples/map.go",
+                                    "start": {
+                                      "column": 13,
+                                      "line": 16
+                                    }
+                                  },
+                                  "name": "MapType",
+                                  "type": "Identifier"
+                                },
+                                "keyType": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 20,
+                                      "line": 16
+                                    },
+                                    "sourcefile": "examples/map.go",
+                                    "start": {
+                                      "column": 17,
+                                      "line": 16
+                                    }
+                                  },
+                                  "name": "int",
+                                  "type": "Identifier"
+                                },
+                                "loc": {
+                                  "end": {
+                                    "column": 24,
+                                    "line": 16
+                                  },
+                                  "sourcefile": "examples/map.go",
+                                  "start": {
+                                    "column": 13,
+                                    "line": 16
+                                  }
+                                },
+                                "type": "MapType",
+                                "typeArguments": null,
+                                "valueType": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 24,
+                                      "line": 16
+                                    },
+                                    "sourcefile": "examples/map.go",
+                                    "start": {
+                                      "column": 21,
+                                      "line": 16
+                                    }
+                                  },
+                                  "name": "int",
+                                  "type": "Identifier"
+                                }
+                              }
+                            },
+                            "loc": {
+                              "end": {
+                                "column": 2,
+                                "line": 21
+                              },
+                              "sourcefile": "examples/map.go",
+                              "start": {
+                                "column": 13,
+                                "line": 16
+                              }
+                            },
+                            "name": "tmp1",
+                            "type": "Identifier"
+                          },
+                          "property": {
+                            "_meta": {},
+                            "literalType": "INT",
+                            "loc": {
+                              "end": {
+                                "column": 3,
+                                "line": 17
+                              },
+                              "sourcefile": "examples/map.go",
+                              "start": {
+                                "column": 2,
+                                "line": 17
+                              }
+                            },
+                            "type": "Literal",
+                            "value": "1"
+                          },
+                          "type": "MemberAccess"
+                        },
+                        "loc": null,
+                        "operator": "=",
+                        "right": {
+                          "_meta": {},
+                          "literalType": "INT",
+                          "loc": {
+                            "end": {
+                              "column": 6,
+                              "line": 17
+                            },
+                            "sourcefile": "examples/map.go",
+                            "start": {
+                              "column": 5,
+                              "line": 17
+                            }
+                          },
+                          "type": "Literal",
+                          "value": "1"
+                        },
+                        "type": "AssignmentExpression"
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "left": {
+                          "_meta": {},
+                          "computed": false,
+                          "loc": null,
+                          "object": {
+                            "_meta": {
+                              "ReceiveCls": "",
+                              "type": {
+                                "_meta": {},
+                                "id": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 24,
+                                      "line": 16
+                                    },
+                                    "sourcefile": "examples/map.go",
+                                    "start": {
+                                      "column": 13,
+                                      "line": 16
+                                    }
+                                  },
+                                  "name": "MapType",
+                                  "type": "Identifier"
+                                },
+                                "keyType": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 20,
+                                      "line": 16
+                                    },
+                                    "sourcefile": "examples/map.go",
+                                    "start": {
+                                      "column": 17,
+                                      "line": 16
+                                    }
+                                  },
+                                  "name": "int",
+                                  "type": "Identifier"
+                                },
+                                "loc": {
+                                  "end": {
+                                    "column": 24,
+                                    "line": 16
+                                  },
+                                  "sourcefile": "examples/map.go",
+                                  "start": {
+                                    "column": 13,
+                                    "line": 16
+                                  }
+                                },
+                                "type": "MapType",
+                                "typeArguments": null,
+                                "valueType": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 24,
+                                      "line": 16
+                                    },
+                                    "sourcefile": "examples/map.go",
+                                    "start": {
+                                      "column": 21,
+                                      "line": 16
+                                    }
+                                  },
+                                  "name": "int",
+                                  "type": "Identifier"
+                                }
+                              }
+                            },
+                            "loc": {
+                              "end": {
+                                "column": 2,
+                                "line": 21
+                              },
+                              "sourcefile": "examples/map.go",
+                              "start": {
+                                "column": 13,
+                                "line": 16
+                              }
+                            },
+                            "name": "tmp1",
+                            "type": "Identifier"
+                          },
+                          "property": {
+                            "_meta": {},
+                            "literalType": "INT",
+                            "loc": {
+                              "end": {
+                                "column": 3,
+                                "line": 18
+                              },
+                              "sourcefile": "examples/map.go",
+                              "start": {
+                                "column": 2,
+                                "line": 18
+                              }
+                            },
+                            "type": "Literal",
+                            "value": "2"
+                          },
+                          "type": "MemberAccess"
+                        },
+                        "loc": null,
+                        "operator": "=",
+                        "right": {
+                          "_meta": {},
+                          "literalType": "INT",
+                          "loc": {
+                            "end": {
+                              "column": 6,
+                              "line": 18
+                            },
+                            "sourcefile": "examples/map.go",
+                            "start": {
+                              "column": 5,
+                              "line": 18
+                            }
+                          },
+                          "type": "Literal",
+                          "value": "5"
+                        },
+                        "type": "AssignmentExpression"
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "left": {
+                          "_meta": {},
+                          "computed": false,
+                          "loc": null,
+                          "object": {
+                            "_meta": {
+                              "ReceiveCls": "",
+                              "type": {
+                                "_meta": {},
+                                "id": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 24,
+                                      "line": 16
+                                    },
+                                    "sourcefile": "examples/map.go",
+                                    "start": {
+                                      "column": 13,
+                                      "line": 16
+                                    }
+                                  },
+                                  "name": "MapType",
+                                  "type": "Identifier"
+                                },
+                                "keyType": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 20,
+                                      "line": 16
+                                    },
+                                    "sourcefile": "examples/map.go",
+                                    "start": {
+                                      "column": 17,
+                                      "line": 16
+                                    }
+                                  },
+                                  "name": "int",
+                                  "type": "Identifier"
+                                },
+                                "loc": {
+                                  "end": {
+                                    "column": 24,
+                                    "line": 16
+                                  },
+                                  "sourcefile": "examples/map.go",
+                                  "start": {
+                                    "column": 13,
+                                    "line": 16
+                                  }
+                                },
+                                "type": "MapType",
+                                "typeArguments": null,
+                                "valueType": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 24,
+                                      "line": 16
+                                    },
+                                    "sourcefile": "examples/map.go",
+                                    "start": {
+                                      "column": 21,
+                                      "line": 16
+                                    }
+                                  },
+                                  "name": "int",
+                                  "type": "Identifier"
+                                }
+                              }
+                            },
+                            "loc": {
+                              "end": {
+                                "column": 2,
+                                "line": 21
+                              },
+                              "sourcefile": "examples/map.go",
+                              "start": {
+                                "column": 13,
+                                "line": 16
+                              }
+                            },
+                            "name": "tmp1",
+                            "type": "Identifier"
+                          },
+                          "property": {
+                            "_meta": {},
+                            "literalType": "INT",
+                            "loc": {
+                              "end": {
+                                "column": 3,
+                                "line": 19
+                              },
+                              "sourcefile": "examples/map.go",
+                              "start": {
+                                "column": 2,
+                                "line": 19
+                              }
+                            },
+                            "type": "Literal",
+                            "value": "3"
+                          },
+                          "type": "MemberAccess"
+                        },
+                        "loc": null,
+                        "operator": "=",
+                        "right": {
+                          "_meta": {},
+                          "literalType": "INT",
+                          "loc": {
+                            "end": {
+                              "column": 7,
+                              "line": 19
+                            },
+                            "sourcefile": "examples/map.go",
+                            "start": {
+                              "column": 5,
+                              "line": 19
+                            }
+                          },
+                          "type": "Literal",
+                          "value": "10"
+                        },
+                        "type": "AssignmentExpression"
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "left": {
+                          "_meta": {},
+                          "computed": false,
+                          "loc": null,
+                          "object": {
+                            "_meta": {
+                              "ReceiveCls": "",
+                              "type": {
+                                "_meta": {},
+                                "id": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 24,
+                                      "line": 16
+                                    },
+                                    "sourcefile": "examples/map.go",
+                                    "start": {
+                                      "column": 13,
+                                      "line": 16
+                                    }
+                                  },
+                                  "name": "MapType",
+                                  "type": "Identifier"
+                                },
+                                "keyType": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 20,
+                                      "line": 16
+                                    },
+                                    "sourcefile": "examples/map.go",
+                                    "start": {
+                                      "column": 17,
+                                      "line": 16
+                                    }
+                                  },
+                                  "name": "int",
+                                  "type": "Identifier"
+                                },
+                                "loc": {
+                                  "end": {
+                                    "column": 24,
+                                    "line": 16
+                                  },
+                                  "sourcefile": "examples/map.go",
+                                  "start": {
+                                    "column": 13,
+                                    "line": 16
+                                  }
+                                },
+                                "type": "MapType",
+                                "typeArguments": null,
+                                "valueType": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 24,
+                                      "line": 16
+                                    },
+                                    "sourcefile": "examples/map.go",
+                                    "start": {
+                                      "column": 21,
+                                      "line": 16
+                                    }
+                                  },
+                                  "name": "int",
+                                  "type": "Identifier"
+                                }
+                              }
+                            },
+                            "loc": {
+                              "end": {
+                                "column": 2,
+                                "line": 21
+                              },
+                              "sourcefile": "examples/map.go",
+                              "start": {
+                                "column": 13,
+                                "line": 16
+                              }
+                            },
+                            "name": "tmp1",
+                            "type": "Identifier"
+                          },
+                          "property": {
+                            "_meta": {},
+                            "literalType": "INT",
+                            "loc": {
+                              "end": {
+                                "column": 3,
+                                "line": 20
+                              },
+                              "sourcefile": "examples/map.go",
+                              "start": {
+                                "column": 2,
+                                "line": 20
+                              }
+                            },
+                            "type": "Literal",
+                            "value": "4"
+                          },
+                          "type": "MemberAccess"
+                        },
+                        "loc": null,
+                        "operator": "=",
+                        "right": {
+                          "_meta": {},
+                          "literalType": "INT",
+                          "loc": {
+                            "end": {
+                              "column": 7,
+                              "line": 20
+                            },
+                            "sourcefile": "examples/map.go",
+                            "start": {
+                              "column": 5,
+                              "line": 20
+                            }
+                          },
+                          "type": "Literal",
+                          "value": "50"
+                        },
+                        "type": "AssignmentExpression"
+                      },
+                      {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "id": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 24,
+                                  "line": 16
+                                },
+                                "sourcefile": "examples/map.go",
+                                "start": {
+                                  "column": 13,
+                                  "line": 16
+                                }
+                              },
+                              "name": "MapType",
+                              "type": "Identifier"
+                            },
+                            "keyType": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 20,
+                                  "line": 16
+                                },
+                                "sourcefile": "examples/map.go",
+                                "start": {
+                                  "column": 17,
+                                  "line": 16
+                                }
+                              },
+                              "name": "int",
+                              "type": "Identifier"
+                            },
+                            "loc": {
+                              "end": {
+                                "column": 24,
+                                "line": 16
+                              },
+                              "sourcefile": "examples/map.go",
+                              "start": {
+                                "column": 13,
+                                "line": 16
+                              }
+                            },
+                            "type": "MapType",
+                            "typeArguments": null,
+                            "valueType": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 24,
+                                  "line": 16
+                                },
+                                "sourcefile": "examples/map.go",
+                                "start": {
+                                  "column": 21,
+                                  "line": 16
+                                }
+                              },
+                              "name": "int",
+                              "type": "Identifier"
+                            }
+                          }
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 2,
+                            "line": 21
+                          },
+                          "sourcefile": "examples/map.go",
+                          "start": {
+                            "column": 13,
+                            "line": 16
+                          }
+                        },
+                        "name": "tmp1",
+                        "type": "Identifier"
+                      }
+                    ],
+                    "loc": {
+                      "end": {
+                        "column": 2,
+                        "line": 21
+                      },
+                      "sourcefile": "examples/map.go",
+                      "start": {
+                        "column": 13,
+                        "line": 16
+                      }
+                    },
+                    "type": "Sequence"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 21
+                    },
+                    "sourcefile": "examples/map.go",
+                    "start": {
+                      "column": 5,
+                      "line": 16
+                    }
+                  },
+                  "type": "VariableDeclaration",
+                  "varType": {
+                    "_meta": {},
+                    "id": {
+                      "_meta": {},
+                      "loc": {
+                        "end": {
+                          "column": 24,
+                          "line": 16
+                        },
+                        "sourcefile": "examples/map.go",
+                        "start": {
+                          "column": 13,
+                          "line": 16
+                        }
+                      },
+                      "name": "MapType",
+                      "type": "Identifier"
+                    },
+                    "keyType": {
+                      "_meta": {},
+                      "loc": {
+                        "end": {
+                          "column": 20,
+                          "line": 16
+                        },
+                        "sourcefile": "examples/map.go",
+                        "start": {
+                          "column": 17,
+                          "line": 16
+                        }
+                      },
+                      "name": "int",
+                      "type": "Identifier"
+                    },
+                    "loc": {
+                      "end": {
+                        "column": 24,
+                        "line": 16
+                      },
+                      "sourcefile": "examples/map.go",
+                      "start": {
+                        "column": 13,
+                        "line": 16
+                      }
+                    },
+                    "type": "MapType",
+                    "typeArguments": null,
+                    "valueType": {
+                      "_meta": {},
+                      "loc": {
+                        "end": {
+                          "column": 24,
+                          "line": 16
+                        },
+                        "sourcefile": "examples/map.go",
+                        "start": {
+                          "column": 21,
+                          "line": 16
+                        }
+                      },
+                      "name": "int",
+                      "type": "Identifier"
+                    }
+                  },
+                  "variableParam": false
+                }
+              ],
+              "language": "golang",
+              "languageVersion": "1.18",
+              "loc": {
+                "end": {
+                  "column": 2,
+                  "line": 21
+                },
+                "sourcefile": "examples/map.go",
+                "start": {
+                  "column": 1,
+                  "line": 1
+                }
+              },
+              "type": "CompileUnit",
+              "uri": "",
+              "version": ""
+            },
+            "packageName": "__single__"
+          }
+        },
+        "subs": {}
+      }
+    }
+  }
+}

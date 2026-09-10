@@ -1,0 +1,914 @@
+{
+  "moduleName": "__single_module__",
+  "packageInfo": {
+    "PathName": "",
+    "files": {},
+    "subs": {
+      "/": {
+        "PathName": "",
+        "files": {
+          "examples/multiple_return_006_T.go": {
+            "node": {
+              "_meta": {},
+              "body": [
+                {
+                  "_meta": {},
+                  "loc": {
+                    "end": {
+                      "column": 17,
+                      "line": 12
+                    },
+                    "sourcefile": "examples/multiple_return_006_T.go",
+                    "start": {
+                      "column": 9,
+                      "line": 12
+                    }
+                  },
+                  "packageName": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 17,
+                        "line": 12
+                      },
+                      "sourcefile": "examples/multiple_return_006_T.go",
+                      "start": {
+                        "column": 9,
+                        "line": 12
+                      }
+                    },
+                    "name": "examples",
+                    "type": "Identifier"
+                  },
+                  "type": "PackageDeclaration"
+                },
+                {
+                  "_meta": {},
+                  "body": {
+                    "_meta": {},
+                    "body": [
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "loc": null,
+                              "name": "string",
+                              "type": "Identifier"
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 3,
+                              "line": 15
+                            },
+                            "sourcefile": "examples/multiple_return_006_T.go",
+                            "start": {
+                              "column": 2,
+                              "line": 15
+                            }
+                          },
+                          "name": "a",
+                          "type": "Identifier"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "literalType": "STRING",
+                          "loc": {
+                            "end": {
+                              "column": 10,
+                              "line": 15
+                            },
+                            "sourcefile": "examples/multiple_return_006_T.go",
+                            "start": {
+                              "column": 7,
+                              "line": 15
+                            }
+                          },
+                          "type": "Literal",
+                          "value": "\"_\""
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 10,
+                            "line": 15
+                          },
+                          "sourcefile": "examples/multiple_return_006_T.go",
+                          "start": {
+                            "column": 2,
+                            "line": 15
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "loc": null,
+                          "name": "string",
+                          "type": "Identifier"
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": false,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "id": null,
+                              "loc": {
+                                "end": {
+                                  "column": 22,
+                                  "line": 16
+                                },
+                                "sourcefile": "examples/multiple_return_006_T.go",
+                                "start": {
+                                  "column": 11,
+                                  "line": 16
+                                }
+                              },
+                              "type": "DynamicType",
+                              "typeArguments": null
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 10,
+                              "line": 16
+                            },
+                            "sourcefile": "examples/multiple_return_006_T.go",
+                            "start": {
+                              "column": 6,
+                              "line": 16
+                            }
+                          },
+                          "name": "ret1",
+                          "type": "Identifier"
+                        },
+                        "init": null,
+                        "loc": {
+                          "end": {
+                            "column": 22,
+                            "line": 16
+                          },
+                          "sourcefile": "examples/multiple_return_006_T.go",
+                          "start": {
+                            "column": 6,
+                            "line": 16
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "id": null,
+                          "loc": {
+                            "end": {
+                              "column": 22,
+                              "line": 16
+                            },
+                            "sourcefile": "examples/multiple_return_006_T.go",
+                            "start": {
+                              "column": 11,
+                              "line": 16
+                            }
+                          },
+                          "type": "DynamicType",
+                          "typeArguments": null
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": false,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "id": null,
+                              "loc": {
+                                "end": {
+                                  "column": 22,
+                                  "line": 17
+                                },
+                                "sourcefile": "examples/multiple_return_006_T.go",
+                                "start": {
+                                  "column": 11,
+                                  "line": 17
+                                }
+                              },
+                              "type": "DynamicType",
+                              "typeArguments": null
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 10,
+                              "line": 17
+                            },
+                            "sourcefile": "examples/multiple_return_006_T.go",
+                            "start": {
+                              "column": 6,
+                              "line": 17
+                            }
+                          },
+                          "name": "ret2",
+                          "type": "Identifier"
+                        },
+                        "init": null,
+                        "loc": {
+                          "end": {
+                            "column": 22,
+                            "line": 17
+                          },
+                          "sourcefile": "examples/multiple_return_006_T.go",
+                          "start": {
+                            "column": 6,
+                            "line": 17
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "id": null,
+                          "loc": {
+                            "end": {
+                              "column": 22,
+                              "line": 17
+                            },
+                            "sourcefile": "examples/multiple_return_006_T.go",
+                            "start": {
+                              "column": 11,
+                              "line": 17
+                            }
+                          },
+                          "type": "DynamicType",
+                          "typeArguments": null
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "left": {
+                          "_meta": {},
+                          "elements": [
+                            {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 6,
+                                  "line": 18
+                                },
+                                "sourcefile": "examples/multiple_return_006_T.go",
+                                "start": {
+                                  "column": 2,
+                                  "line": 18
+                                }
+                              },
+                              "name": "ret1",
+                              "type": "Identifier"
+                            },
+                            {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 12,
+                                  "line": 18
+                                },
+                                "sourcefile": "examples/multiple_return_006_T.go",
+                                "start": {
+                                  "column": 8,
+                                  "line": 18
+                                }
+                              },
+                              "name": "ret2",
+                              "type": "Identifier"
+                            }
+                          ],
+                          "loc": null,
+                          "modifiable": false,
+                          "type": "TupleExpression"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 42,
+                            "line": 18
+                          },
+                          "sourcefile": "examples/multiple_return_006_T.go",
+                          "start": {
+                            "column": 2,
+                            "line": 18
+                          }
+                        },
+                        "operator": "=",
+                        "right": {
+                          "_meta": {},
+                          "arguments": [
+                            {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 38,
+                                  "line": 18
+                                },
+                                "sourcefile": "examples/multiple_return_006_T.go",
+                                "start": {
+                                  "column": 27,
+                                  "line": 18
+                                }
+                              },
+                              "name": "__taint_src",
+                              "type": "Identifier"
+                            },
+                            {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 41,
+                                  "line": 18
+                                },
+                                "sourcefile": "examples/multiple_return_006_T.go",
+                                "start": {
+                                  "column": 40,
+                                  "line": 18
+                                }
+                              },
+                              "name": "a",
+                              "type": "Identifier"
+                            }
+                          ],
+                          "callee": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 26,
+                                "line": 18
+                              },
+                              "sourcefile": "examples/multiple_return_006_T.go",
+                              "start": {
+                                "column": 15,
+                                "line": 18
+                              }
+                            },
+                            "name": "processData",
+                            "type": "Identifier"
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 42,
+                              "line": 18
+                            },
+                            "sourcefile": "examples/multiple_return_006_T.go",
+                            "start": {
+                              "column": 15,
+                              "line": 18
+                            }
+                          },
+                          "type": "CallExpression"
+                        },
+                        "type": "AssignmentExpression"
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "left": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 3,
+                              "line": 19
+                            },
+                            "sourcefile": "examples/multiple_return_006_T.go",
+                            "start": {
+                              "column": 2,
+                              "line": 19
+                            }
+                          },
+                          "name": "_",
+                          "type": "Identifier"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 10,
+                            "line": 19
+                          },
+                          "sourcefile": "examples/multiple_return_006_T.go",
+                          "start": {
+                            "column": 2,
+                            "line": 19
+                          }
+                        },
+                        "operator": "=",
+                        "right": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 10,
+                              "line": 19
+                            },
+                            "sourcefile": "examples/multiple_return_006_T.go",
+                            "start": {
+                              "column": 6,
+                              "line": 19
+                            }
+                          },
+                          "name": "ret2",
+                          "type": "Identifier"
+                        },
+                        "type": "AssignmentExpression"
+                      },
+                      {
+                        "_meta": {},
+                        "arguments": [
+                          {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 19,
+                                "line": 20
+                              },
+                              "sourcefile": "examples/multiple_return_006_T.go",
+                              "start": {
+                                "column": 15,
+                                "line": 20
+                              }
+                            },
+                            "name": "ret1",
+                            "type": "Identifier"
+                          }
+                        ],
+                        "callee": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 14,
+                              "line": 20
+                            },
+                            "sourcefile": "examples/multiple_return_006_T.go",
+                            "start": {
+                              "column": 2,
+                              "line": 20
+                            }
+                          },
+                          "name": "__taint_sink",
+                          "type": "Identifier"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 20,
+                            "line": 20
+                          },
+                          "sourcefile": "examples/multiple_return_006_T.go",
+                          "start": {
+                            "column": 2,
+                            "line": 20
+                          }
+                        },
+                        "type": "CallExpression"
+                      }
+                    ],
+                    "id": null,
+                    "loc": {
+                      "end": {
+                        "column": 2,
+                        "line": 21
+                      },
+                      "sourcefile": "examples/multiple_return_006_T.go",
+                      "start": {
+                        "column": 53,
+                        "line": 14
+                      }
+                    },
+                    "type": "ScopedStatement"
+                  },
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 27,
+                        "line": 14
+                      },
+                      "sourcefile": "examples/multiple_return_006_T.go",
+                      "start": {
+                        "column": 6,
+                        "line": 14
+                      }
+                    },
+                    "name": "multiple_return_006_T",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 21
+                    },
+                    "sourcefile": "examples/multiple_return_006_T.go",
+                    "start": {
+                      "column": 1,
+                      "line": 14
+                    }
+                  },
+                  "modifiers": null,
+                  "parameters": [
+                    {
+                      "_meta": {},
+                      "cloned": true,
+                      "id": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "id": null,
+                            "loc": {
+                              "end": {
+                                "column": 51,
+                                "line": 14
+                              },
+                              "sourcefile": "examples/multiple_return_006_T.go",
+                              "start": {
+                                "column": 40,
+                                "line": 14
+                              }
+                            },
+                            "type": "DynamicType",
+                            "typeArguments": null
+                          }
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 39,
+                            "line": 14
+                          },
+                          "sourcefile": "examples/multiple_return_006_T.go",
+                          "start": {
+                            "column": 28,
+                            "line": 14
+                          }
+                        },
+                        "name": "__taint_src",
+                        "type": "Identifier"
+                      },
+                      "init": null,
+                      "loc": {
+                        "end": {
+                          "column": 51,
+                          "line": 14
+                        },
+                        "sourcefile": "examples/multiple_return_006_T.go",
+                        "start": {
+                          "column": 28,
+                          "line": 14
+                        }
+                      },
+                      "type": "VariableDeclaration",
+                      "varType": {
+                        "_meta": {},
+                        "id": null,
+                        "loc": {
+                          "end": {
+                            "column": 51,
+                            "line": 14
+                          },
+                          "sourcefile": "examples/multiple_return_006_T.go",
+                          "start": {
+                            "column": 40,
+                            "line": 14
+                          }
+                        },
+                        "type": "DynamicType",
+                        "typeArguments": null
+                      },
+                      "variableParam": false
+                    }
+                  ],
+                  "returnType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "VoidType",
+                    "typeArguments": null
+                  },
+                  "type": "FunctionDefinition"
+                },
+                {
+                  "_meta": {},
+                  "body": {
+                    "_meta": {},
+                    "body": [
+                      {
+                        "_meta": {},
+                        "argument": {
+                          "_meta": {},
+                          "elements": [
+                            {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 10,
+                                  "line": 24
+                                },
+                                "sourcefile": "examples/multiple_return_006_T.go",
+                                "start": {
+                                  "column": 9,
+                                  "line": 24
+                                }
+                              },
+                              "name": "s",
+                              "type": "Identifier"
+                            },
+                            {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 13,
+                                  "line": 24
+                                },
+                                "sourcefile": "examples/multiple_return_006_T.go",
+                                "start": {
+                                  "column": 12,
+                                  "line": 24
+                                }
+                              },
+                              "name": "i",
+                              "type": "Identifier"
+                            }
+                          ],
+                          "loc": null,
+                          "modifiable": false,
+                          "type": "TupleExpression"
+                        },
+                        "isYield": false,
+                        "loc": {
+                          "end": {
+                            "column": 13,
+                            "line": 24
+                          },
+                          "sourcefile": "examples/multiple_return_006_T.go",
+                          "start": {
+                            "column": 2,
+                            "line": 24
+                          }
+                        },
+                        "type": "ReturnStatement"
+                      }
+                    ],
+                    "id": null,
+                    "loc": {
+                      "end": {
+                        "column": 2,
+                        "line": 25
+                      },
+                      "sourcefile": "examples/multiple_return_006_T.go",
+                      "start": {
+                        "column": 75,
+                        "line": 23
+                      }
+                    },
+                    "type": "ScopedStatement"
+                  },
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 17,
+                        "line": 23
+                      },
+                      "sourcefile": "examples/multiple_return_006_T.go",
+                      "start": {
+                        "column": 6,
+                        "line": 23
+                      }
+                    },
+                    "name": "processData",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 25
+                    },
+                    "sourcefile": "examples/multiple_return_006_T.go",
+                    "start": {
+                      "column": 1,
+                      "line": 23
+                    }
+                  },
+                  "modifiers": null,
+                  "parameters": [
+                    {
+                      "_meta": {},
+                      "cloned": true,
+                      "id": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "id": null,
+                            "loc": {
+                              "end": {
+                                "column": 31,
+                                "line": 23
+                              },
+                              "sourcefile": "examples/multiple_return_006_T.go",
+                              "start": {
+                                "column": 20,
+                                "line": 23
+                              }
+                            },
+                            "type": "DynamicType",
+                            "typeArguments": null
+                          }
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 19,
+                            "line": 23
+                          },
+                          "sourcefile": "examples/multiple_return_006_T.go",
+                          "start": {
+                            "column": 18,
+                            "line": 23
+                          }
+                        },
+                        "name": "s",
+                        "type": "Identifier"
+                      },
+                      "init": null,
+                      "loc": {
+                        "end": {
+                          "column": 31,
+                          "line": 23
+                        },
+                        "sourcefile": "examples/multiple_return_006_T.go",
+                        "start": {
+                          "column": 18,
+                          "line": 23
+                        }
+                      },
+                      "type": "VariableDeclaration",
+                      "varType": {
+                        "_meta": {},
+                        "id": null,
+                        "loc": {
+                          "end": {
+                            "column": 31,
+                            "line": 23
+                          },
+                          "sourcefile": "examples/multiple_return_006_T.go",
+                          "start": {
+                            "column": 20,
+                            "line": 23
+                          }
+                        },
+                        "type": "DynamicType",
+                        "typeArguments": null
+                      },
+                      "variableParam": false
+                    },
+                    {
+                      "_meta": {},
+                      "cloned": true,
+                      "id": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "id": null,
+                            "loc": {
+                              "end": {
+                                "column": 46,
+                                "line": 23
+                              },
+                              "sourcefile": "examples/multiple_return_006_T.go",
+                              "start": {
+                                "column": 35,
+                                "line": 23
+                              }
+                            },
+                            "type": "DynamicType",
+                            "typeArguments": null
+                          }
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 34,
+                            "line": 23
+                          },
+                          "sourcefile": "examples/multiple_return_006_T.go",
+                          "start": {
+                            "column": 33,
+                            "line": 23
+                          }
+                        },
+                        "name": "i",
+                        "type": "Identifier"
+                      },
+                      "init": null,
+                      "loc": {
+                        "end": {
+                          "column": 46,
+                          "line": 23
+                        },
+                        "sourcefile": "examples/multiple_return_006_T.go",
+                        "start": {
+                          "column": 33,
+                          "line": 23
+                        }
+                      },
+                      "type": "VariableDeclaration",
+                      "varType": {
+                        "_meta": {},
+                        "id": null,
+                        "loc": {
+                          "end": {
+                            "column": 46,
+                            "line": 23
+                          },
+                          "sourcefile": "examples/multiple_return_006_T.go",
+                          "start": {
+                            "column": 35,
+                            "line": 23
+                          }
+                        },
+                        "type": "DynamicType",
+                        "typeArguments": null
+                      },
+                      "variableParam": false
+                    }
+                  ],
+                  "returnType": {
+                    "_meta": {},
+                    "elements": [
+                      {
+                        "_meta": {},
+                        "id": null,
+                        "loc": {
+                          "end": {
+                            "column": 60,
+                            "line": 23
+                          },
+                          "sourcefile": "examples/multiple_return_006_T.go",
+                          "start": {
+                            "column": 49,
+                            "line": 23
+                          }
+                        },
+                        "type": "DynamicType",
+                        "typeArguments": null
+                      },
+                      {
+                        "_meta": {},
+                        "id": null,
+                        "loc": {
+                          "end": {
+                            "column": 73,
+                            "line": 23
+                          },
+                          "sourcefile": "examples/multiple_return_006_T.go",
+                          "start": {
+                            "column": 62,
+                            "line": 23
+                          }
+                        },
+                        "type": "DynamicType",
+                        "typeArguments": null
+                      }
+                    ],
+                    "id": null,
+                    "loc": null,
+                    "type": "TupleType",
+                    "typeArguments": null
+                  },
+                  "type": "FunctionDefinition"
+                }
+              ],
+              "language": "golang",
+              "languageVersion": "1.18",
+              "loc": {
+                "end": {
+                  "column": 2,
+                  "line": 25
+                },
+                "sourcefile": "examples/multiple_return_006_T.go",
+                "start": {
+                  "column": 1,
+                  "line": 12
+                }
+              },
+              "type": "CompileUnit",
+              "uri": "",
+              "version": ""
+            },
+            "packageName": "__single__"
+          }
+        },
+        "subs": {}
+      }
+    }
+  }
+}

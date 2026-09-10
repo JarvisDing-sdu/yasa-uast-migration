@@ -1,0 +1,431 @@
+{
+  "moduleName": "__single_module__",
+  "packageInfo": {
+    "PathName": "",
+    "files": {},
+    "subs": {
+      "/": {
+        "PathName": "",
+        "files": {
+          "examples/defers.go": {
+            "node": {
+              "_meta": {},
+              "body": [
+                {
+                  "_meta": {},
+                  "loc": {
+                    "end": {
+                      "column": 17,
+                      "line": 1
+                    },
+                    "sourcefile": "examples/defers.go",
+                    "start": {
+                      "column": 9,
+                      "line": 1
+                    }
+                  },
+                  "packageName": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 17,
+                        "line": 1
+                      },
+                      "sourcefile": "examples/defers.go",
+                      "start": {
+                        "column": 9,
+                        "line": 1
+                      }
+                    },
+                    "name": "examples",
+                    "type": "Identifier"
+                  },
+                  "type": "PackageDeclaration"
+                },
+                {
+                  "_meta": {
+                    "ReceiveCls": "",
+                    "isDefaultImport": true
+                  },
+                  "cloned": false,
+                  "id": {
+                    "_meta": {},
+                    "loc": null,
+                    "name": "context",
+                    "type": "Identifier"
+                  },
+                  "init": {
+                    "_meta": {},
+                    "from": {
+                      "_meta": {},
+                      "literalType": "string",
+                      "loc": {
+                        "end": {
+                          "column": 11,
+                          "line": 4
+                        },
+                        "sourcefile": "examples/defers.go",
+                        "start": {
+                          "column": 2,
+                          "line": 4
+                        }
+                      },
+                      "type": "Literal",
+                      "value": "context"
+                    },
+                    "imported": null,
+                    "loc": {
+                      "end": {
+                        "column": 11,
+                        "line": 4
+                      },
+                      "sourcefile": "examples/defers.go",
+                      "start": {
+                        "column": 2,
+                        "line": 4
+                      }
+                    },
+                    "local": null,
+                    "type": "ImportExpression"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 11,
+                      "line": 4
+                    },
+                    "sourcefile": "examples/defers.go",
+                    "start": {
+                      "column": 2,
+                      "line": 4
+                    }
+                  },
+                  "type": "VariableDeclaration",
+                  "varType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "DynamicType",
+                    "typeArguments": null
+                  },
+                  "variableParam": false
+                },
+                {
+                  "_meta": {},
+                  "body": {
+                    "_meta": {},
+                    "body": [
+                      {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "defer": true
+                        },
+                        "arguments": [],
+                        "callee": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 16,
+                              "line": 8
+                            },
+                            "sourcefile": "examples/defers.go",
+                            "start": {
+                              "column": 8,
+                              "line": 8
+                            }
+                          },
+                          "name": "umountFn",
+                          "type": "Identifier"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 18,
+                            "line": 8
+                          },
+                          "sourcefile": "examples/defers.go",
+                          "start": {
+                            "column": 2,
+                            "line": 8
+                          }
+                        },
+                        "type": "CallExpression"
+                      }
+                    ],
+                    "id": null,
+                    "loc": {
+                      "end": {
+                        "column": 2,
+                        "line": 9
+                      },
+                      "sourcefile": "examples/defers.go",
+                      "start": {
+                        "column": 62,
+                        "line": 7
+                      }
+                    },
+                    "type": "ScopedStatement"
+                  },
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 25,
+                        "line": 7
+                      },
+                      "sourcefile": "examples/defers.go",
+                      "start": {
+                        "column": 6,
+                        "line": 7
+                      }
+                    },
+                    "name": "RunCommandInAntjail",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 9
+                    },
+                    "sourcefile": "examples/defers.go",
+                    "start": {
+                      "column": 1,
+                      "line": 7
+                    }
+                  },
+                  "modifiers": null,
+                  "parameters": [
+                    {
+                      "_meta": {},
+                      "cloned": true,
+                      "id": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "computed": false,
+                            "loc": {
+                              "end": {
+                                "column": 45,
+                                "line": 7
+                              },
+                              "sourcefile": "examples/defers.go",
+                              "start": {
+                                "column": 30,
+                                "line": 7
+                              }
+                            },
+                            "object": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 37,
+                                  "line": 7
+                                },
+                                "sourcefile": "examples/defers.go",
+                                "start": {
+                                  "column": 30,
+                                  "line": 7
+                                }
+                              },
+                              "name": "context",
+                              "type": "Identifier"
+                            },
+                            "property": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 45,
+                                  "line": 7
+                                },
+                                "sourcefile": "examples/defers.go",
+                                "start": {
+                                  "column": 38,
+                                  "line": 7
+                                }
+                              },
+                              "name": "Context",
+                              "type": "Identifier"
+                            },
+                            "type": "MemberAccess"
+                          }
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 29,
+                            "line": 7
+                          },
+                          "sourcefile": "examples/defers.go",
+                          "start": {
+                            "column": 26,
+                            "line": 7
+                          }
+                        },
+                        "name": "ctx",
+                        "type": "Identifier"
+                      },
+                      "init": null,
+                      "loc": {
+                        "end": {
+                          "column": 45,
+                          "line": 7
+                        },
+                        "sourcefile": "examples/defers.go",
+                        "start": {
+                          "column": 26,
+                          "line": 7
+                        }
+                      },
+                      "type": "VariableDeclaration",
+                      "varType": {
+                        "_meta": {},
+                        "computed": false,
+                        "loc": {
+                          "end": {
+                            "column": 45,
+                            "line": 7
+                          },
+                          "sourcefile": "examples/defers.go",
+                          "start": {
+                            "column": 30,
+                            "line": 7
+                          }
+                        },
+                        "object": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 37,
+                              "line": 7
+                            },
+                            "sourcefile": "examples/defers.go",
+                            "start": {
+                              "column": 30,
+                              "line": 7
+                            }
+                          },
+                          "name": "context",
+                          "type": "Identifier"
+                        },
+                        "property": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 45,
+                              "line": 7
+                            },
+                            "sourcefile": "examples/defers.go",
+                            "start": {
+                              "column": 38,
+                              "line": 7
+                            }
+                          },
+                          "name": "Context",
+                          "type": "Identifier"
+                        },
+                        "type": "MemberAccess"
+                      },
+                      "variableParam": false
+                    },
+                    {
+                      "_meta": {},
+                      "cloned": true,
+                      "id": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 60,
+                                "line": 7
+                              },
+                              "sourcefile": "examples/defers.go",
+                              "start": {
+                                "column": 54,
+                                "line": 7
+                              }
+                            },
+                            "name": "Option",
+                            "type": "Identifier"
+                          }
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 53,
+                            "line": 7
+                          },
+                          "sourcefile": "examples/defers.go",
+                          "start": {
+                            "column": 47,
+                            "line": 7
+                          }
+                        },
+                        "name": "option",
+                        "type": "Identifier"
+                      },
+                      "init": null,
+                      "loc": {
+                        "end": {
+                          "column": 60,
+                          "line": 7
+                        },
+                        "sourcefile": "examples/defers.go",
+                        "start": {
+                          "column": 47,
+                          "line": 7
+                        }
+                      },
+                      "type": "VariableDeclaration",
+                      "varType": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 60,
+                            "line": 7
+                          },
+                          "sourcefile": "examples/defers.go",
+                          "start": {
+                            "column": 54,
+                            "line": 7
+                          }
+                        },
+                        "name": "Option",
+                        "type": "Identifier"
+                      },
+                      "variableParam": false
+                    }
+                  ],
+                  "returnType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "VoidType",
+                    "typeArguments": null
+                  },
+                  "type": "FunctionDefinition"
+                }
+              ],
+              "language": "golang",
+              "languageVersion": "1.18",
+              "loc": {
+                "end": {
+                  "column": 2,
+                  "line": 9
+                },
+                "sourcefile": "examples/defers.go",
+                "start": {
+                  "column": 1,
+                  "line": 1
+                }
+              },
+              "type": "CompileUnit",
+              "uri": "",
+              "version": ""
+            },
+            "packageName": "__single__"
+          }
+        },
+        "subs": {}
+      }
+    }
+  }
+}

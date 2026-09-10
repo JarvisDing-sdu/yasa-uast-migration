@@ -1,0 +1,600 @@
+name: Release Pipeline
+
+on:
+  push:
+    tags:
+      - 'v*'  # 支持 v1.0.0 和 v1.0.0-beta.1
+
+permissions:
+  id-token: write  # Required for OIDC
+  contents: read
+
+jobs:
+  # 1. 提取版本和发布通道
+  get_version:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.extract.outputs.version }}
+      npm_tag: ${{ steps.extract.outputs.npm_tag }}
+    steps:
+      - name: Extract version and tag
+        id: extract
+        run: |
+          echo "🔍 Raw GITHUB_REF: $GITHUB_REF"
+          tag="${GITHUB_REF#refs/tags/v}"
+          echo "📦 Extracted version tag: $tag"
+          
+          echo "version=$tag" >> $GITHUB_OUTPUT
+          
+          if [[ "$tag" == *"-beta."* ]]; then
+            echo "🔖 Detected beta release, using npm tag: beta"
+            echo "npm_tag=beta" >> $GITHUB_OUTPUT
+          else
+            echo "🔖 Detected stable release, using npm tag: latest"
+            echo "npm_tag=latest" >> $GITHUB_OUTPUT
+          fi
+
+  # 2. 发布 specification
+  publish_spec:
+    needs: get_version
+    runs-on: ubuntu-latest
+    environment: release
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.20.2
+          registry-url: https://registry.npmjs.org/
+                
+      - name: Upgrade npm
+        run: |
+          npm install -g npm@11.6.4
+          echo "npm after upgrade:"
+          npm -v
+          echo "node after upgrade:"
+          node -v
+
+      - name: Publish specification
+        working-directory: specification
+        run: |
+          VERSION=${{ needs.get_version.outputs.version }}
+          NPM_TAG=${{ needs.get_version.outputs.npm_tag }}
+          
+          echo "🔍 Publishing @ant-yasa/uast-spec"
+          echo "📦 Version: $VERSION"
+          echo "🏷  NPM Tag: $NPM_TAG"
+          echo "🧾 package.json version before: $(cat package.json | grep version)"
+          
+          # 检查该版本是否已存在
+          if npm view @ant-yasa/uast-spec@$VERSION version > /dev/null 2>&1; then
+            echo "✅ Version $VERSION of @ant-yasa/uast-spec already published, skipping."
+            exit 0
+          fi
+          
+          # === 安装依赖 ===
+          echo "🟢 Installing dependencies..."
+          npm install
+          echo "✅ Dependencies installed."
+          
+          # === 构建项目 ===
+          echo "🏗️  Running build..."
+          npm run build
+          
+          # === 验证 dist/index.js 是否生成 ===
+          if [ ! -f dist/index.js ]; then
+            echo "❌ dist/index.js not found after build!"
+            echo "💡 Check your build script and .npmignore/.gitignore"
+            ls -R dist/ || echo "dist/ is empty or missing"
+            exit 1
+          fi
+          echo "✅ dist/index.js generated successfully."
+          
+          # === 验证 npm pack 是否包含 dist/ ===
+          echo "📦 Running 'npm pack --dry-run' to verify package contents..."
+          DRY_RUN_OUTPUT=$(npm pack --dry-run 2>&1)
+          echo "$DRY_RUN_OUTPUT"
+          
+          if echo "$DRY_RUN_OUTPUT" | grep -q "dist/index.js"; then
+            echo "✅ dist/index.js is included in the npm package."
+          else
+            echo "❌ dist/index.js is NOT included in the npm package!"
+            echo "💡 Check .npmignore and .gitignore – make sure 'dist/' is not ignored."
+            exit 1
+          fi
+          
+          # === 设置版本号 ===
+          echo "🔄 Setting version in package.json..."
+          npm version $VERSION --no-git-tag-version
+          
+          # === 发布到 npm ===
+          echo "🎯 Publishing to npm..."
+          npm publish --tag $NPM_TAG
+          
+          echo "✅ @ant-yasa/uast-spec@$VERSION published successfully!"
+
+  # 3. 发布 parser-Java-Js
+  publish_parser_js:
+    needs: [publish_spec, get_version]
+    runs-on: ubuntu-latest
+    environment: release
+    env:
+      VERSION: ${{ needs.get_version.outputs.version }}
+      NPM_TAG: ${{ needs.get_version.outputs.npm_tag }}
+    steps:
+      - name: Validate version
+        run: |
+          echo "🎯 VERSION: '$VERSION'"
+          echo "🎯 NPM_TAG: '$NPM_TAG'"
+          if [ -z "$VERSION" ]; then
+            echo "❌ ERROR: VERSION is empty!"
+            exit 1
+          fi
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.20.2
+          registry-url: https://registry.npmjs.org/
+      
+      - name: Upgrade npm
+        run: |
+          npm install -g npm@11.6.4
+          echo "npm after upgrade:"
+          npm -v
+          echo "node after upgrade:"
+          node -v
+
+      - name: Check and Publish
+        working-directory: parser-Java-Js
+        run: |
+          echo "🔍 Publishing @ant-yasa/uast-parser-java-js"
+          echo "📦 Version: $VERSION"
+          echo "🏷  NPM Tag: $NPM_TAG"
+      
+          if npm view @ant-yasa/uast-parser-java-js@$VERSION version > /dev/null 2>&1; then
+            echo "✅ Version $VERSION already published, skipping."
+            exit 0
+          fi
+
+          # 等待 uast-spec 发布完成
+          echo "⏳ Waiting for @ant-yasa/uast-spec@$VERSION to be available..."
+          for i in {1..30}; do
+            if npm view @ant-yasa/uast-spec@$VERSION version > /dev/null 2>&1; then
+              echo "✅ @ant-yasa/uast-spec@$VERSION is available."
+              break
+            else
+              echo "⏳ Attempt $i: @ant-yasa/uast-spec@$VERSION not found, retrying in 10s..."
+              sleep 10
+            fi
+          done
+
+          if ! npm view @ant-yasa/uast-spec@$VERSION version > /dev/null 2>&1; then
+            echo "❌ Failed to find @ant-yasa/uast-spec@$VERSION after waiting."
+            exit 1
+          fi
+          echo "📦 Installing dependencies for @ant-yasa/uast-parser-java-js..."
+          npm install
+
+          echo "📥 Installing @ant-yasa/uast-spec@$VERSION..."
+          npm install @ant-yasa/uast-spec@$VERSION --no-save
+
+          echo "🏗️  Running build..."
+          npm run build
+
+          # === 校验 dist/src/index.js 是否存在 ===
+          echo "🔍 Checking for dist/src/index.js..."
+          if [ ! -f dist/src/index.js ]; then
+            echo "❌ dist/src/index.js NOT found!"
+            echo "💡 Check your build script, output path, or tsconfig.json"
+            ls -R dist/ || echo "dist/ is empty or missing"
+            exit 1
+          else
+            echo "✅ dist/src/index.js exists"
+          fi
+
+          # === 校验 package.json 的 main 字段 ===
+          MAIN_FIELD=$(node -p "require('./package.json').main")
+          echo "🔗 package.json 'main' field: $MAIN_FIELD"
+          if [ "$MAIN_FIELD" != "dist/src/index.js" ]; then
+            echo "⚠️ Warning: 'main' field is not 'dist/src/index.js' — may cause runtime issues!"
+          fi
+
+          # === dry-run 打包，检查内容 ===
+          echo "📦 Running 'npm pack --dry-run' to verify package contents..."
+          DRY_RUN_OUTPUT=$(npm pack --dry-run 2>&1)
+          echo "$DRY_RUN_OUTPUT"
+
+          if echo "$DRY_RUN_OUTPUT" | grep -q "dist/src/index.js"; then
+            echo "✅ dist/src/index.js is included in the npm package."
+          else
+            echo "❌ dist/src/index.js is NOT included in the npm package!"
+            echo "💡 Check .npmignore, .gitignore, or files field in package.json"
+            exit 1
+          fi
+
+          # === 设置版本号 ===
+          echo "🔄 Setting version in package.json..."      
+          npm version $VERSION --no-git-tag-version
+          npm publish --tag $NPM_TAG
+
+          echo "✅ Published @ant-yasa/uast-parser-java-js@$VERSION"
+
+  # 3.5 发布 parser-PHP
+  publish_parser_php:
+    needs: [publish_spec, get_version]
+    runs-on: ubuntu-latest
+    environment: release
+    env:
+      VERSION: ${{ needs.get_version.outputs.version }}
+      NPM_TAG: ${{ needs.get_version.outputs.npm_tag }}
+    steps:
+      - name: Validate version
+        run: |
+          echo "🎯 VERSION: '$VERSION'"
+          echo "🎯 NPM_TAG: '$NPM_TAG'"
+          if [ -z "$VERSION" ]; then
+            echo "❌ ERROR: VERSION is empty!"
+            exit 1
+          fi
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.20.2
+          registry-url: https://registry.npmjs.org/
+
+      - name: Upgrade npm
+        run: |
+          npm install -g npm@11.6.4
+          echo "npm after upgrade:"
+          npm -v
+          echo "node after upgrade:"
+          node -v
+
+      - name: Check and Publish
+        working-directory: parser-PHP
+        run: |
+          echo "🔍 Publishing @ant-yasa/uast-parser-php"
+          echo "📦 Version: $VERSION"
+          echo "🏷  NPM Tag: $NPM_TAG"
+
+          if npm view @ant-yasa/uast-parser-php@$VERSION version > /dev/null 2>&1; then
+            echo "✅ Version $VERSION already published, skipping."
+            exit 0
+          fi
+
+          # 等待 uast-spec 发布完成
+          echo "⏳ Waiting for @ant-yasa/uast-spec@$VERSION to be available..."
+          for i in {1..30}; do
+            if npm view @ant-yasa/uast-spec@$VERSION version > /dev/null 2>&1; then
+              echo "✅ @ant-yasa/uast-spec@$VERSION is available."
+              break
+            else
+              echo "⏳ Attempt $i: @ant-yasa/uast-spec@$VERSION not found, retrying in 10s..."
+              sleep 10
+            fi
+          done
+
+          if ! npm view @ant-yasa/uast-spec@$VERSION version > /dev/null 2>&1; then
+            echo "❌ Failed to find @ant-yasa/uast-spec@$VERSION after waiting."
+            exit 1
+          fi
+          echo "📦 Installing dependencies for @ant-yasa/uast-parser-php..."
+          npm install
+
+          echo "📥 Installing @ant-yasa/uast-spec@$VERSION..."
+          npm install @ant-yasa/uast-spec@$VERSION --no-save
+
+          echo "🏗️  Running build..."
+          npm run build
+
+          # === 校验 dist/src/index.js 是否存在 ===
+          echo "🔍 Checking for dist/src/index.js..."
+          if [ ! -f dist/src/index.js ]; then
+            echo "❌ dist/src/index.js NOT found!"
+            echo "💡 Check your build script, output path, or tsconfig.json"
+            ls -R dist/ || echo "dist/ is empty or missing"
+            exit 1
+          else
+            echo "✅ dist/src/index.js exists"
+          fi
+
+          # === 校验 package.json 的 main 字段 ===
+          MAIN_FIELD=$(node -p "require('./package.json').main")
+          echo "🔗 package.json 'main' field: $MAIN_FIELD"
+          if [ "$MAIN_FIELD" != "dist/src/index.js" ]; then
+            echo "⚠️ Warning: 'main' field is not 'dist/src/index.js' — may cause runtime issues!"
+          fi
+
+          # === dry-run 打包，检查内容 ===
+          echo "📦 Running 'npm pack --dry-run' to verify package contents..."
+          DRY_RUN_OUTPUT=$(npm pack --dry-run 2>&1)
+          echo "$DRY_RUN_OUTPUT"
+
+          if echo "$DRY_RUN_OUTPUT" | grep -q "dist/src/index.js"; then
+            echo "✅ dist/src/index.js is included in the npm package."
+          else
+            echo "❌ dist/src/index.js is NOT included in the npm package!"
+            echo "💡 Check .npmignore, .gitignore, or files field in package.json"
+            exit 1
+          fi
+
+          # === 设置版本号 ===
+          echo "🔄 Setting version in package.json..."
+          npm version $VERSION --no-git-tag-version
+          npm publish --tag $NPM_TAG
+
+          echo "✅ Published @ant-yasa/uast-parser-php@$VERSION"
+
+  # Python now also provides the same npm API as PHP. Keep legacy binaries
+  # during the Engine migration so existing consumers continue to work.
+  publish_parser_python:
+    needs: [publish_spec, get_version]
+    runs-on: ubuntu-latest
+    environment: release
+    env:
+      VERSION: ${{ needs.get_version.outputs.version }}
+      NPM_TAG: ${{ needs.get_version.outputs.npm_tag }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org/
+      - name: Publish Python npm parser
+        working-directory: parser-Python
+        run: |
+          set -euo pipefail
+          test -n "$VERSION"
+          npm install -g npm@11.6.4
+          if npm view "@ant-yasa/uast-parser-python@$VERSION" version > /dev/null 2>&1; then
+            exit 0
+          fi
+          npm ci --ignore-scripts
+          npm install "@ant-yasa/uast-spec@$VERSION" --ignore-scripts
+          npm version "$VERSION" --no-git-tag-version
+          npm run build
+          npm test
+          npm pack --dry-run
+          npm publish --tag "$NPM_TAG" --access public
+
+  # 4. 构建 Go 可执行文件（多平台）
+  build_go:
+    needs: publish_parser_js
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          # ========== Linux ==========
+          - os: ubuntu-latest
+            goos: linux
+            goarch: amd64
+            artifact_name: go-linux-amd64
+            output_path: parser-Go/dist/uast4go-linux-amd64
+
+          # ========== macOS ==========
+          - os: macos-latest
+            goos: darwin
+            goarch: amd64
+            artifact_name: go-mac-amd64
+            output_path: parser-Go/dist/uast4go-mac-amd64
+
+          - os: macos-latest
+            goos: darwin
+            goarch: arm64
+            artifact_name: go-mac-arm64
+            output_path: parser-Go/dist/uast4go-mac-arm64
+
+          # ========== Windows ==========
+          # - os: windows-latest
+          #   goos: windows
+          #   goarch: amd64
+          #   artifact_name: go-windows-amd64
+          #   output_path: parser-Go/dist/uast4go-windows-amd64.exe
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.21'
+
+      - name: Build Go binary
+        working-directory: parser-Go
+        shell: bash
+        run: |
+          export CGO_ENABLED=0
+          export GOOS=${{ matrix.goos }}
+          export GOARCH=${{ matrix.goarch }}
+          [ -n "${{ matrix.goarm }}" ] && export GOARM=${{ matrix.goarm }}
+
+          echo "🏗️ Building for $GOOS/$GOARCH${GOARM:+/$GOARM}"
+          echo "Go version: $(go version)"
+
+          SUFFIX=""
+          OUTPUT_NAME="uast4go-${{ matrix.goos }}-${{ matrix.goarch }}"
+          if [ "$GOOS" = "windows" ]; then
+            SUFFIX=".exe"
+          elif [ "$GOOS" = "darwin" ]; then
+            OUTPUT_NAME="uast4go-mac-${{ matrix.goarch }}"
+          fi
+
+          go build -o "dist/${OUTPUT_NAME}${SUFFIX}" .
+          echo "✅ Built: ${OUTPUT_NAME}${SUFFIX}"
+
+          if [ ! -f "dist/${OUTPUT_NAME}${SUFFIX}" ]; then
+            echo "❌ Build failed: binary not found!"
+            exit 1
+          fi
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.artifact_name }}
+          path: ${{ matrix.output_path }}
+
+  # ========== 5. 构建 Python 可执行文件（多平台，拆分处理）==========
+
+  # Job 1: Build for Linux using Docker (for maximum compatibility)
+  build_python_linux:
+    name: Build Python Binary - Linux x64
+    needs: publish_parser_js
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # - name: Set up Docker
+      #   uses: docker/setup-docker-action@v3
+
+      - name: Build with Docker
+        run: |
+          echo "🐳 Building Linux binary in container..."
+          
+          # 构建镜像
+          docker build \
+            --build-arg GOOS=linux \
+            --build-arg GOARCH=amd64 \
+            -f parser-Python/Dockerfile.linux \
+            -t uast4py-linux .
+
+          # 创建容器提取产物
+          docker create --name temp-container uast4py-linux
+          mkdir -p dist
+          docker cp temp-container:/dist/uast4py-linux-amd64 dist/uast4py-linux-amd64
+          docker rm temp-container
+
+          # 添加可执行权限
+          chmod +x dist/uast4py-linux-amd64
+
+          echo "✅ Built: dist/uast4py-linux-amd64"
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: python-linux-amd64
+          path: dist/uast4py-linux-amd64
+
+
+  # Job 2: Build for macOS (Intel & Apple Silicon)
+  build_python_macos:
+    name: Build Python Binary - macOS Universal
+    needs: publish_parser_js
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        include:
+          - os: macos-15-intel
+            arch: amd64
+          - os: macos-latest
+            arch: arm64
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Python ${{ matrix.arch }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.13'
+
+      - name: Install Dependencies and Build
+        working-directory: parser-Python
+        shell: bash
+        run: |
+            echo "🏗️ Building for mac ${{ matrix.arch }}"
+            python -m venv .venv
+            source .venv/bin/activate
+            pip install -r requirements.txt
+            pip install pyinstaller
+            pyinstaller --onefile uast/builder.py
+
+            mkdir -p dist
+            OUTPUT_NAME="uast4py-mac-${{ matrix.arch }}"
+            mv dist/builder "dist/$OUTPUT_NAME"
+            echo "✅ Built: dist/$OUTPUT_NAME"
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: python-mac-${{ matrix.arch }}
+          path: parser-Python/dist/uast4py-mac-${{ matrix.arch }}
+
+
+  # # Job 3: Build for Windows
+  # build_python_windows:
+  #   name: Build Python Binary - Windows x64
+  #   needs: publish_parser_js
+  #   runs-on: windows-latest
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v4
+
+  #     - name: Setup Python
+  #       uses: actions/setup-python@v4
+  #       with:
+  #         python-version: '3.13'
+
+  #     - name: Install Dependencies and Build
+  #       working-directory: parser-Python
+  #       shell: pwsh
+  #       run: |
+  #         Write-Output "🏗️ Building for Windows x64..."
+
+  #         python -m venv .venv
+  #         .venv\Scripts\Activate.ps1
+
+  #         pip install --upgrade pip
+  #         pip install -r requirements.txt
+  #         pip install pyinstaller
+
+  #         pyinstaller --onefile uast\builder.py
+
+  #         New-Item -ItemType Directory -Path dist -ErrorAction SilentlyContinue
+  #         Move-Item -Path "dist\builder.exe" -Destination "dist\uast4py-windows-amd64.exe"
+          
+  #         Write-Output "✅ Built: dist\uast4py-windows-amd64.exe"
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: python-windows-amd64
+          path: parser-Python/dist/uast4py-windows-amd64.exe
+
+
+
+  # 6. 合并产物并创建 GitHub Release
+  create_release:
+    # needs: [build_go, build_python_linux, build_python_macos, build_python_windows]
+    needs: [build_go, build_python_linux, build_python_macos]
+    runs-on: ubuntu-latest
+    environment: release
+    permissions:
+      contents: write
+    steps:
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: releases/
+        continue-on-error: true  # 防止某个 artifact 下载失败导致中断
+
+      - name: List downloaded files
+        run: |
+          echo "📂 Downloaded artifacts:"
+          find releases -type f
+
+      - name: Create Release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ github.ref }}
+          name: Release ${{ github.ref }}
+          artifacts: "releases/**/*"
+          token: ${{ secrets.GITHUB_TOKEN }}

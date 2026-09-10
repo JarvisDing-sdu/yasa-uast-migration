@@ -1,0 +1,2690 @@
+{
+  "moduleName": "__single_module__",
+  "packageInfo": {
+    "PathName": "",
+    "files": {},
+    "subs": {
+      "/": {
+        "PathName": "",
+        "files": {
+          "examples/struct_promotion.go": {
+            "node": {
+              "_meta": {},
+              "body": [
+                {
+                  "_meta": {},
+                  "loc": {
+                    "end": {
+                      "column": 17,
+                      "line": 1
+                    },
+                    "sourcefile": "examples/struct_promotion.go",
+                    "start": {
+                      "column": 9,
+                      "line": 1
+                    }
+                  },
+                  "packageName": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 17,
+                        "line": 1
+                      },
+                      "sourcefile": "examples/struct_promotion.go",
+                      "start": {
+                        "column": 9,
+                        "line": 1
+                      }
+                    },
+                    "name": "examples",
+                    "type": "Identifier"
+                  },
+                  "type": "PackageDeclaration"
+                },
+                {
+                  "_meta": {
+                    "ReceiveCls": "",
+                    "isDefaultImport": true
+                  },
+                  "cloned": false,
+                  "id": {
+                    "_meta": {},
+                    "loc": null,
+                    "name": "fmt",
+                    "type": "Identifier"
+                  },
+                  "init": {
+                    "_meta": {},
+                    "from": {
+                      "_meta": {},
+                      "literalType": "string",
+                      "loc": {
+                        "end": {
+                          "column": 13,
+                          "line": 3
+                        },
+                        "sourcefile": "examples/struct_promotion.go",
+                        "start": {
+                          "column": 8,
+                          "line": 3
+                        }
+                      },
+                      "type": "Literal",
+                      "value": "fmt"
+                    },
+                    "imported": null,
+                    "loc": {
+                      "end": {
+                        "column": 13,
+                        "line": 3
+                      },
+                      "sourcefile": "examples/struct_promotion.go",
+                      "start": {
+                        "column": 8,
+                        "line": 3
+                      }
+                    },
+                    "local": null,
+                    "type": "ImportExpression"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 13,
+                      "line": 3
+                    },
+                    "sourcefile": "examples/struct_promotion.go",
+                    "start": {
+                      "column": 8,
+                      "line": 3
+                    }
+                  },
+                  "type": "VariableDeclaration",
+                  "varType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "DynamicType",
+                    "typeArguments": null
+                  },
+                  "variableParam": false
+                },
+                {
+                  "_meta": {},
+                  "body": [
+                    {
+                      "_meta": {},
+                      "cloned": true,
+                      "id": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 13,
+                                "line": 6
+                              },
+                              "sourcefile": "examples/struct_promotion.go",
+                              "start": {
+                                "column": 7,
+                                "line": 6
+                              }
+                            },
+                            "name": "string",
+                            "type": "Identifier"
+                          }
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 6,
+                            "line": 6
+                          },
+                          "sourcefile": "examples/struct_promotion.go",
+                          "start": {
+                            "column": 2,
+                            "line": 6
+                          }
+                        },
+                        "name": "name",
+                        "type": "Identifier"
+                      },
+                      "init": null,
+                      "loc": {
+                        "end": {
+                          "column": 13,
+                          "line": 6
+                        },
+                        "sourcefile": "examples/struct_promotion.go",
+                        "start": {
+                          "column": 2,
+                          "line": 6
+                        }
+                      },
+                      "type": "VariableDeclaration",
+                      "varType": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 13,
+                            "line": 6
+                          },
+                          "sourcefile": "examples/struct_promotion.go",
+                          "start": {
+                            "column": 7,
+                            "line": 6
+                          }
+                        },
+                        "name": "string",
+                        "type": "Identifier"
+                      },
+                      "variableParam": false
+                    },
+                    {
+                      "_meta": {},
+                      "cloned": true,
+                      "id": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 12,
+                                "line": 7
+                              },
+                              "sourcefile": "examples/struct_promotion.go",
+                              "start": {
+                                "column": 7,
+                                "line": 7
+                              }
+                            },
+                            "name": "int32",
+                            "type": "Identifier"
+                          }
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 5,
+                            "line": 7
+                          },
+                          "sourcefile": "examples/struct_promotion.go",
+                          "start": {
+                            "column": 2,
+                            "line": 7
+                          }
+                        },
+                        "name": "age",
+                        "type": "Identifier"
+                      },
+                      "init": null,
+                      "loc": {
+                        "end": {
+                          "column": 12,
+                          "line": 7
+                        },
+                        "sourcefile": "examples/struct_promotion.go",
+                        "start": {
+                          "column": 2,
+                          "line": 7
+                        }
+                      },
+                      "type": "VariableDeclaration",
+                      "varType": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 12,
+                            "line": 7
+                          },
+                          "sourcefile": "examples/struct_promotion.go",
+                          "start": {
+                            "column": 7,
+                            "line": 7
+                          }
+                        },
+                        "name": "int32",
+                        "type": "Identifier"
+                      },
+                      "variableParam": false
+                    },
+                    {
+                      "_meta": {
+                        "ReceiveCls": "Person"
+                      },
+                      "body": {
+                        "_meta": {},
+                        "body": [
+                          {
+                            "_meta": {},
+                            "cloned": true,
+                            "id": {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 15,
+                                      "line": 10
+                                    },
+                                    "sourcefile": "examples/struct_promotion.go",
+                                    "start": {
+                                      "column": 9,
+                                      "line": 10
+                                    }
+                                  },
+                                  "name": "Person",
+                                  "type": "Identifier"
+                                }
+                              },
+                              "loc": null,
+                              "name": "p",
+                              "type": "Identifier"
+                            },
+                            "init": {
+                              "_meta": {},
+                              "loc": null,
+                              "type": "ThisExpression"
+                            },
+                            "loc": null,
+                            "type": "VariableDeclaration",
+                            "varType": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 15,
+                                  "line": 10
+                                },
+                                "sourcefile": "examples/struct_promotion.go",
+                                "start": {
+                                  "column": 9,
+                                  "line": 10
+                                }
+                              },
+                              "name": "Person",
+                              "type": "Identifier"
+                            },
+                            "variableParam": false
+                          },
+                          {
+                            "_meta": {},
+                            "argument": {
+                              "_meta": {},
+                              "left": {
+                                "_meta": {},
+                                "computed": false,
+                                "loc": {
+                                  "end": {
+                                    "column": 14,
+                                    "line": 11
+                                  },
+                                  "sourcefile": "examples/struct_promotion.go",
+                                  "start": {
+                                    "column": 9,
+                                    "line": 11
+                                  }
+                                },
+                                "object": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 10,
+                                      "line": 11
+                                    },
+                                    "sourcefile": "examples/struct_promotion.go",
+                                    "start": {
+                                      "column": 9,
+                                      "line": 11
+                                    }
+                                  },
+                                  "name": "p",
+                                  "type": "Identifier"
+                                },
+                                "property": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 14,
+                                      "line": 11
+                                    },
+                                    "sourcefile": "examples/struct_promotion.go",
+                                    "start": {
+                                      "column": 11,
+                                      "line": 11
+                                    }
+                                  },
+                                  "name": "age",
+                                  "type": "Identifier"
+                                },
+                                "type": "MemberAccess"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 20,
+                                  "line": 11
+                                },
+                                "sourcefile": "examples/struct_promotion.go",
+                                "start": {
+                                  "column": 9,
+                                  "line": 11
+                                }
+                              },
+                              "operator": "\u003e=",
+                              "right": {
+                                "_meta": {},
+                                "literalType": "INT",
+                                "loc": {
+                                  "end": {
+                                    "column": 20,
+                                    "line": 11
+                                  },
+                                  "sourcefile": "examples/struct_promotion.go",
+                                  "start": {
+                                    "column": 18,
+                                    "line": 11
+                                  }
+                                },
+                                "type": "Literal",
+                                "value": "18"
+                              },
+                              "type": "BinaryExpression"
+                            },
+                            "isYield": false,
+                            "loc": {
+                              "end": {
+                                "column": 20,
+                                "line": 11
+                              },
+                              "sourcefile": "examples/struct_promotion.go",
+                              "start": {
+                                "column": 2,
+                                "line": 11
+                              }
+                            },
+                            "type": "ReturnStatement"
+                          }
+                        ],
+                        "id": null,
+                        "loc": {
+                          "end": {
+                            "column": 2,
+                            "line": 12
+                          },
+                          "sourcefile": "examples/struct_promotion.go",
+                          "start": {
+                            "column": 32,
+                            "line": 10
+                          }
+                        },
+                        "type": "ScopedStatement"
+                      },
+                      "id": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 24,
+                            "line": 10
+                          },
+                          "sourcefile": "examples/struct_promotion.go",
+                          "start": {
+                            "column": 17,
+                            "line": 10
+                          }
+                        },
+                        "name": "IsAdult",
+                        "type": "Identifier"
+                      },
+                      "loc": {
+                        "end": {
+                          "column": 2,
+                          "line": 12
+                        },
+                        "sourcefile": "examples/struct_promotion.go",
+                        "start": {
+                          "column": 1,
+                          "line": 10
+                        }
+                      },
+                      "modifiers": null,
+                      "parameters": [],
+                      "returnType": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 31,
+                            "line": 10
+                          },
+                          "sourcefile": "examples/struct_promotion.go",
+                          "start": {
+                            "column": 27,
+                            "line": 10
+                          }
+                        },
+                        "name": "bool",
+                        "type": "Identifier"
+                      },
+                      "type": "FunctionDefinition"
+                    }
+                  ],
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 12,
+                        "line": 5
+                      },
+                      "sourcefile": "examples/struct_promotion.go",
+                      "start": {
+                        "column": 6,
+                        "line": 5
+                      }
+                    },
+                    "name": "Person",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 8
+                    },
+                    "sourcefile": "examples/struct_promotion.go",
+                    "start": {
+                      "column": 6,
+                      "line": 5
+                    }
+                  },
+                  "supers": [],
+                  "type": "ClassDefinition"
+                },
+                {
+                  "_meta": {},
+                  "body": [
+                    {
+                      "_meta": {},
+                      "cloned": true,
+                      "id": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 17,
+                                "line": 15
+                              },
+                              "sourcefile": "examples/struct_promotion.go",
+                              "start": {
+                                "column": 11,
+                                "line": 15
+                              }
+                            },
+                            "name": "string",
+                            "type": "Identifier"
+                          }
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 10,
+                            "line": 15
+                          },
+                          "sourcefile": "examples/struct_promotion.go",
+                          "start": {
+                            "column": 2,
+                            "line": 15
+                          }
+                        },
+                        "name": "position",
+                        "type": "Identifier"
+                      },
+                      "init": null,
+                      "loc": {
+                        "end": {
+                          "column": 17,
+                          "line": 15
+                        },
+                        "sourcefile": "examples/struct_promotion.go",
+                        "start": {
+                          "column": 2,
+                          "line": 15
+                        }
+                      },
+                      "type": "VariableDeclaration",
+                      "varType": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 17,
+                            "line": 15
+                          },
+                          "sourcefile": "examples/struct_promotion.go",
+                          "start": {
+                            "column": 11,
+                            "line": 15
+                          }
+                        },
+                        "name": "string",
+                        "type": "Identifier"
+                      },
+                      "variableParam": false
+                    },
+                    {
+                      "_meta": {
+                        "ReceiveCls": "Employee"
+                      },
+                      "body": {
+                        "_meta": {},
+                        "body": [
+                          {
+                            "_meta": {},
+                            "cloned": true,
+                            "id": {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 17,
+                                      "line": 18
+                                    },
+                                    "sourcefile": "examples/struct_promotion.go",
+                                    "start": {
+                                      "column": 9,
+                                      "line": 18
+                                    }
+                                  },
+                                  "name": "Employee",
+                                  "type": "Identifier"
+                                }
+                              },
+                              "loc": null,
+                              "name": "e",
+                              "type": "Identifier"
+                            },
+                            "init": {
+                              "_meta": {},
+                              "loc": null,
+                              "type": "ThisExpression"
+                            },
+                            "loc": null,
+                            "type": "VariableDeclaration",
+                            "varType": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 17,
+                                  "line": 18
+                                },
+                                "sourcefile": "examples/struct_promotion.go",
+                                "start": {
+                                  "column": 9,
+                                  "line": 18
+                                }
+                              },
+                              "name": "Employee",
+                              "type": "Identifier"
+                            },
+                            "variableParam": false
+                          },
+                          {
+                            "_meta": {},
+                            "argument": {
+                              "_meta": {},
+                              "left": {
+                                "_meta": {},
+                                "computed": false,
+                                "loc": {
+                                  "end": {
+                                    "column": 19,
+                                    "line": 19
+                                  },
+                                  "sourcefile": "examples/struct_promotion.go",
+                                  "start": {
+                                    "column": 9,
+                                    "line": 19
+                                  }
+                                },
+                                "object": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 10,
+                                      "line": 19
+                                    },
+                                    "sourcefile": "examples/struct_promotion.go",
+                                    "start": {
+                                      "column": 9,
+                                      "line": 19
+                                    }
+                                  },
+                                  "name": "e",
+                                  "type": "Identifier"
+                                },
+                                "property": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 19,
+                                      "line": 19
+                                    },
+                                    "sourcefile": "examples/struct_promotion.go",
+                                    "start": {
+                                      "column": 11,
+                                      "line": 19
+                                    }
+                                  },
+                                  "name": "position",
+                                  "type": "Identifier"
+                                },
+                                "type": "MemberAccess"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 32,
+                                  "line": 19
+                                },
+                                "sourcefile": "examples/struct_promotion.go",
+                                "start": {
+                                  "column": 9,
+                                  "line": 19
+                                }
+                              },
+                              "operator": "==",
+                              "right": {
+                                "_meta": {},
+                                "literalType": "STRING",
+                                "loc": {
+                                  "end": {
+                                    "column": 32,
+                                    "line": 19
+                                  },
+                                  "sourcefile": "examples/struct_promotion.go",
+                                  "start": {
+                                    "column": 23,
+                                    "line": 19
+                                  }
+                                },
+                                "type": "Literal",
+                                "value": "\"manager\""
+                              },
+                              "type": "BinaryExpression"
+                            },
+                            "isYield": false,
+                            "loc": {
+                              "end": {
+                                "column": 32,
+                                "line": 19
+                              },
+                              "sourcefile": "examples/struct_promotion.go",
+                              "start": {
+                                "column": 2,
+                                "line": 19
+                              }
+                            },
+                            "type": "ReturnStatement"
+                          }
+                        ],
+                        "id": null,
+                        "loc": {
+                          "end": {
+                            "column": 2,
+                            "line": 20
+                          },
+                          "sourcefile": "examples/struct_promotion.go",
+                          "start": {
+                            "column": 36,
+                            "line": 18
+                          }
+                        },
+                        "type": "ScopedStatement"
+                      },
+                      "id": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 28,
+                            "line": 18
+                          },
+                          "sourcefile": "examples/struct_promotion.go",
+                          "start": {
+                            "column": 19,
+                            "line": 18
+                          }
+                        },
+                        "name": "IsManager",
+                        "type": "Identifier"
+                      },
+                      "loc": {
+                        "end": {
+                          "column": 2,
+                          "line": 20
+                        },
+                        "sourcefile": "examples/struct_promotion.go",
+                        "start": {
+                          "column": 1,
+                          "line": 18
+                        }
+                      },
+                      "modifiers": null,
+                      "parameters": [],
+                      "returnType": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 35,
+                            "line": 18
+                          },
+                          "sourcefile": "examples/struct_promotion.go",
+                          "start": {
+                            "column": 31,
+                            "line": 18
+                          }
+                        },
+                        "name": "bool",
+                        "type": "Identifier"
+                      },
+                      "type": "FunctionDefinition"
+                    }
+                  ],
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 14,
+                        "line": 14
+                      },
+                      "sourcefile": "examples/struct_promotion.go",
+                      "start": {
+                        "column": 6,
+                        "line": 14
+                      }
+                    },
+                    "name": "Employee",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 16
+                    },
+                    "sourcefile": "examples/struct_promotion.go",
+                    "start": {
+                      "column": 6,
+                      "line": 14
+                    }
+                  },
+                  "supers": [],
+                  "type": "ClassDefinition"
+                },
+                {
+                  "_meta": {},
+                  "body": [
+                    {
+                      "_meta": {},
+                      "argument": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 8,
+                                "line": 25
+                              },
+                              "sourcefile": "examples/struct_promotion.go",
+                              "start": {
+                                "column": 2,
+                                "line": 25
+                              }
+                            },
+                            "name": "Person",
+                            "type": "Identifier"
+                          }
+                        },
+                        "loc": null,
+                        "name": "Person",
+                        "type": "Identifier"
+                      },
+                      "loc": {
+                        "end": {
+                          "column": 8,
+                          "line": 25
+                        },
+                        "sourcefile": "examples/struct_promotion.go",
+                        "start": {
+                          "column": 2,
+                          "line": 25
+                        }
+                      },
+                      "type": "SpreadElement"
+                    },
+                    {
+                      "_meta": {},
+                      "cloned": true,
+                      "id": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 8,
+                                "line": 25
+                              },
+                              "sourcefile": "examples/struct_promotion.go",
+                              "start": {
+                                "column": 2,
+                                "line": 25
+                              }
+                            },
+                            "name": "Person",
+                            "type": "Identifier"
+                          }
+                        },
+                        "loc": null,
+                        "name": "Person",
+                        "type": "Identifier"
+                      },
+                      "init": null,
+                      "loc": {
+                        "end": {
+                          "column": 8,
+                          "line": 25
+                        },
+                        "sourcefile": "examples/struct_promotion.go",
+                        "start": {
+                          "column": 2,
+                          "line": 25
+                        }
+                      },
+                      "type": "VariableDeclaration",
+                      "varType": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 8,
+                            "line": 25
+                          },
+                          "sourcefile": "examples/struct_promotion.go",
+                          "start": {
+                            "column": 2,
+                            "line": 25
+                          }
+                        },
+                        "name": "Person",
+                        "type": "Identifier"
+                      },
+                      "variableParam": false
+                    },
+                    {
+                      "_meta": {},
+                      "argument": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 10,
+                                "line": 26
+                              },
+                              "sourcefile": "examples/struct_promotion.go",
+                              "start": {
+                                "column": 2,
+                                "line": 26
+                              }
+                            },
+                            "name": "Employee",
+                            "type": "Identifier"
+                          }
+                        },
+                        "loc": null,
+                        "name": "Employee",
+                        "type": "Identifier"
+                      },
+                      "loc": {
+                        "end": {
+                          "column": 10,
+                          "line": 26
+                        },
+                        "sourcefile": "examples/struct_promotion.go",
+                        "start": {
+                          "column": 2,
+                          "line": 26
+                        }
+                      },
+                      "type": "SpreadElement"
+                    },
+                    {
+                      "_meta": {},
+                      "cloned": true,
+                      "id": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 10,
+                                "line": 26
+                              },
+                              "sourcefile": "examples/struct_promotion.go",
+                              "start": {
+                                "column": 2,
+                                "line": 26
+                              }
+                            },
+                            "name": "Employee",
+                            "type": "Identifier"
+                          }
+                        },
+                        "loc": null,
+                        "name": "Employee",
+                        "type": "Identifier"
+                      },
+                      "init": null,
+                      "loc": {
+                        "end": {
+                          "column": 10,
+                          "line": 26
+                        },
+                        "sourcefile": "examples/struct_promotion.go",
+                        "start": {
+                          "column": 2,
+                          "line": 26
+                        }
+                      },
+                      "type": "VariableDeclaration",
+                      "varType": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 10,
+                            "line": 26
+                          },
+                          "sourcefile": "examples/struct_promotion.go",
+                          "start": {
+                            "column": 2,
+                            "line": 26
+                          }
+                        },
+                        "name": "Employee",
+                        "type": "Identifier"
+                      },
+                      "variableParam": false
+                    }
+                  ],
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 12,
+                        "line": 24
+                      },
+                      "sourcefile": "examples/struct_promotion.go",
+                      "start": {
+                        "column": 6,
+                        "line": 24
+                      }
+                    },
+                    "name": "Record",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 27
+                    },
+                    "sourcefile": "examples/struct_promotion.go",
+                    "start": {
+                      "column": 6,
+                      "line": 24
+                    }
+                  },
+                  "supers": [],
+                  "type": "ClassDefinition"
+                },
+                {
+                  "_meta": {},
+                  "body": {
+                    "_meta": {},
+                    "body": [
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 18,
+                                  "line": 30
+                                },
+                                "sourcefile": "examples/struct_promotion.go",
+                                "start": {
+                                  "column": 12,
+                                  "line": 30
+                                }
+                              },
+                              "name": "Person",
+                              "type": "Identifier"
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 8,
+                              "line": 30
+                            },
+                            "sourcefile": "examples/struct_promotion.go",
+                            "start": {
+                              "column": 2,
+                              "line": 30
+                            }
+                          },
+                          "name": "person",
+                          "type": "Identifier"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "expressions": [
+                            {
+                              "_meta": {},
+                              "cloned": false,
+                              "id": {
+                                "_meta": {
+                                  "ReceiveCls": "",
+                                  "type": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 18,
+                                        "line": 30
+                                      },
+                                      "sourcefile": "examples/struct_promotion.go",
+                                      "start": {
+                                        "column": 12,
+                                        "line": 30
+                                      }
+                                    },
+                                    "name": "Person",
+                                    "type": "Identifier"
+                                  }
+                                },
+                                "loc": {
+                                  "end": {
+                                    "column": 43,
+                                    "line": 30
+                                  },
+                                  "sourcefile": "examples/struct_promotion.go",
+                                  "start": {
+                                    "column": 12,
+                                    "line": 30
+                                  }
+                                },
+                                "name": "tmp1",
+                                "type": "Identifier"
+                              },
+                              "init": {
+                                "_meta": {},
+                                "arguments": [],
+                                "callee": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 18,
+                                      "line": 30
+                                    },
+                                    "sourcefile": "examples/struct_promotion.go",
+                                    "start": {
+                                      "column": 12,
+                                      "line": 30
+                                    }
+                                  },
+                                  "name": "Person",
+                                  "type": "Identifier"
+                                },
+                                "loc": null,
+                                "type": "NewExpression"
+                              },
+                              "loc": null,
+                              "type": "VariableDeclaration",
+                              "varType": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 18,
+                                    "line": 30
+                                  },
+                                  "sourcefile": "examples/struct_promotion.go",
+                                  "start": {
+                                    "column": 12,
+                                    "line": 30
+                                  }
+                                },
+                                "name": "Person",
+                                "type": "Identifier"
+                              },
+                              "variableParam": false
+                            },
+                            {
+                              "_meta": {},
+                              "cloned": true,
+                              "left": {
+                                "_meta": {},
+                                "computed": false,
+                                "loc": null,
+                                "object": {
+                                  "_meta": {
+                                    "ReceiveCls": "",
+                                    "type": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 18,
+                                          "line": 30
+                                        },
+                                        "sourcefile": "examples/struct_promotion.go",
+                                        "start": {
+                                          "column": 12,
+                                          "line": 30
+                                        }
+                                      },
+                                      "name": "Person",
+                                      "type": "Identifier"
+                                    }
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 43,
+                                      "line": 30
+                                    },
+                                    "sourcefile": "examples/struct_promotion.go",
+                                    "start": {
+                                      "column": 12,
+                                      "line": 30
+                                    }
+                                  },
+                                  "name": "tmp1",
+                                  "type": "Identifier"
+                                },
+                                "property": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 23,
+                                      "line": 30
+                                    },
+                                    "sourcefile": "examples/struct_promotion.go",
+                                    "start": {
+                                      "column": 19,
+                                      "line": 30
+                                    }
+                                  },
+                                  "name": "name",
+                                  "type": "Identifier"
+                                },
+                                "type": "MemberAccess"
+                              },
+                              "loc": null,
+                              "operator": "=",
+                              "right": {
+                                "_meta": {},
+                                "literalType": "STRING",
+                                "loc": {
+                                  "end": {
+                                    "column": 33,
+                                    "line": 30
+                                  },
+                                  "sourcefile": "examples/struct_promotion.go",
+                                  "start": {
+                                    "column": 25,
+                                    "line": 30
+                                  }
+                                },
+                                "type": "Literal",
+                                "value": "\"Michal\""
+                              },
+                              "type": "AssignmentExpression"
+                            },
+                            {
+                              "_meta": {},
+                              "cloned": true,
+                              "left": {
+                                "_meta": {},
+                                "computed": false,
+                                "loc": null,
+                                "object": {
+                                  "_meta": {
+                                    "ReceiveCls": "",
+                                    "type": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 18,
+                                          "line": 30
+                                        },
+                                        "sourcefile": "examples/struct_promotion.go",
+                                        "start": {
+                                          "column": 12,
+                                          "line": 30
+                                        }
+                                      },
+                                      "name": "Person",
+                                      "type": "Identifier"
+                                    }
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 43,
+                                      "line": 30
+                                    },
+                                    "sourcefile": "examples/struct_promotion.go",
+                                    "start": {
+                                      "column": 12,
+                                      "line": 30
+                                    }
+                                  },
+                                  "name": "tmp1",
+                                  "type": "Identifier"
+                                },
+                                "property": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 38,
+                                      "line": 30
+                                    },
+                                    "sourcefile": "examples/struct_promotion.go",
+                                    "start": {
+                                      "column": 35,
+                                      "line": 30
+                                    }
+                                  },
+                                  "name": "age",
+                                  "type": "Identifier"
+                                },
+                                "type": "MemberAccess"
+                              },
+                              "loc": null,
+                              "operator": "=",
+                              "right": {
+                                "_meta": {},
+                                "literalType": "INT",
+                                "loc": {
+                                  "end": {
+                                    "column": 42,
+                                    "line": 30
+                                  },
+                                  "sourcefile": "examples/struct_promotion.go",
+                                  "start": {
+                                    "column": 40,
+                                    "line": 30
+                                  }
+                                },
+                                "type": "Literal",
+                                "value": "29"
+                              },
+                              "type": "AssignmentExpression"
+                            },
+                            {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 18,
+                                      "line": 30
+                                    },
+                                    "sourcefile": "examples/struct_promotion.go",
+                                    "start": {
+                                      "column": 12,
+                                      "line": 30
+                                    }
+                                  },
+                                  "name": "Person",
+                                  "type": "Identifier"
+                                }
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 43,
+                                  "line": 30
+                                },
+                                "sourcefile": "examples/struct_promotion.go",
+                                "start": {
+                                  "column": 12,
+                                  "line": 30
+                                }
+                              },
+                              "name": "tmp1",
+                              "type": "Identifier"
+                            }
+                          ],
+                          "loc": {
+                            "end": {
+                              "column": 43,
+                              "line": 30
+                            },
+                            "sourcefile": "examples/struct_promotion.go",
+                            "start": {
+                              "column": 12,
+                              "line": 30
+                            }
+                          },
+                          "type": "Sequence"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 43,
+                            "line": 30
+                          },
+                          "sourcefile": "examples/struct_promotion.go",
+                          "start": {
+                            "column": 2,
+                            "line": 30
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 18,
+                              "line": 30
+                            },
+                            "sourcefile": "examples/struct_promotion.go",
+                            "start": {
+                              "column": 12,
+                              "line": 30
+                            }
+                          },
+                          "name": "Person",
+                          "type": "Identifier"
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "arguments": [
+                          {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 20,
+                                "line": 31
+                              },
+                              "sourcefile": "examples/struct_promotion.go",
+                              "start": {
+                                "column": 14,
+                                "line": 31
+                              }
+                            },
+                            "name": "person",
+                            "type": "Identifier"
+                          }
+                        ],
+                        "callee": {
+                          "_meta": {},
+                          "computed": false,
+                          "loc": {
+                            "end": {
+                              "column": 13,
+                              "line": 31
+                            },
+                            "sourcefile": "examples/struct_promotion.go",
+                            "start": {
+                              "column": 2,
+                              "line": 31
+                            }
+                          },
+                          "object": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 5,
+                                "line": 31
+                              },
+                              "sourcefile": "examples/struct_promotion.go",
+                              "start": {
+                                "column": 2,
+                                "line": 31
+                              }
+                            },
+                            "name": "fmt",
+                            "type": "Identifier"
+                          },
+                          "property": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 13,
+                                "line": 31
+                              },
+                              "sourcefile": "examples/struct_promotion.go",
+                              "start": {
+                                "column": 6,
+                                "line": 31
+                              }
+                            },
+                            "name": "Println",
+                            "type": "Identifier"
+                          },
+                          "type": "MemberAccess"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 21,
+                            "line": 31
+                          },
+                          "sourcefile": "examples/struct_promotion.go",
+                          "start": {
+                            "column": 2,
+                            "line": 31
+                          }
+                        },
+                        "type": "CallExpression"
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 18,
+                                  "line": 32
+                                },
+                                "sourcefile": "examples/struct_promotion.go",
+                                "start": {
+                                  "column": 12,
+                                  "line": 32
+                                }
+                              },
+                              "name": "Record",
+                              "type": "Identifier"
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 8,
+                              "line": 32
+                            },
+                            "sourcefile": "examples/struct_promotion.go",
+                            "start": {
+                              "column": 2,
+                              "line": 32
+                            }
+                          },
+                          "name": "record",
+                          "type": "Identifier"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "expressions": [
+                            {
+                              "_meta": {},
+                              "cloned": false,
+                              "id": {
+                                "_meta": {
+                                  "ReceiveCls": "",
+                                  "type": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 18,
+                                        "line": 32
+                                      },
+                                      "sourcefile": "examples/struct_promotion.go",
+                                      "start": {
+                                        "column": 12,
+                                        "line": 32
+                                      }
+                                    },
+                                    "name": "Record",
+                                    "type": "Identifier"
+                                  }
+                                },
+                                "loc": {
+                                  "end": {
+                                    "column": 20,
+                                    "line": 32
+                                  },
+                                  "sourcefile": "examples/struct_promotion.go",
+                                  "start": {
+                                    "column": 12,
+                                    "line": 32
+                                  }
+                                },
+                                "name": "tmp2",
+                                "type": "Identifier"
+                              },
+                              "init": {
+                                "_meta": {},
+                                "arguments": [],
+                                "callee": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 18,
+                                      "line": 32
+                                    },
+                                    "sourcefile": "examples/struct_promotion.go",
+                                    "start": {
+                                      "column": 12,
+                                      "line": 32
+                                    }
+                                  },
+                                  "name": "Record",
+                                  "type": "Identifier"
+                                },
+                                "loc": null,
+                                "type": "NewExpression"
+                              },
+                              "loc": null,
+                              "type": "VariableDeclaration",
+                              "varType": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 18,
+                                    "line": 32
+                                  },
+                                  "sourcefile": "examples/struct_promotion.go",
+                                  "start": {
+                                    "column": 12,
+                                    "line": 32
+                                  }
+                                },
+                                "name": "Record",
+                                "type": "Identifier"
+                              },
+                              "variableParam": false
+                            },
+                            {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 18,
+                                      "line": 32
+                                    },
+                                    "sourcefile": "examples/struct_promotion.go",
+                                    "start": {
+                                      "column": 12,
+                                      "line": 32
+                                    }
+                                  },
+                                  "name": "Record",
+                                  "type": "Identifier"
+                                }
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 20,
+                                  "line": 32
+                                },
+                                "sourcefile": "examples/struct_promotion.go",
+                                "start": {
+                                  "column": 12,
+                                  "line": 32
+                                }
+                              },
+                              "name": "tmp2",
+                              "type": "Identifier"
+                            }
+                          ],
+                          "loc": {
+                            "end": {
+                              "column": 20,
+                              "line": 32
+                            },
+                            "sourcefile": "examples/struct_promotion.go",
+                            "start": {
+                              "column": 12,
+                              "line": 32
+                            }
+                          },
+                          "type": "Sequence"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 20,
+                            "line": 32
+                          },
+                          "sourcefile": "examples/struct_promotion.go",
+                          "start": {
+                            "column": 2,
+                            "line": 32
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 18,
+                              "line": 32
+                            },
+                            "sourcefile": "examples/struct_promotion.go",
+                            "start": {
+                              "column": 12,
+                              "line": 32
+                            }
+                          },
+                          "name": "Record",
+                          "type": "Identifier"
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "left": {
+                          "_meta": {},
+                          "computed": false,
+                          "loc": {
+                            "end": {
+                              "column": 13,
+                              "line": 33
+                            },
+                            "sourcefile": "examples/struct_promotion.go",
+                            "start": {
+                              "column": 2,
+                              "line": 33
+                            }
+                          },
+                          "object": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 8,
+                                "line": 33
+                              },
+                              "sourcefile": "examples/struct_promotion.go",
+                              "start": {
+                                "column": 2,
+                                "line": 33
+                              }
+                            },
+                            "name": "record",
+                            "type": "Identifier"
+                          },
+                          "property": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 13,
+                                "line": 33
+                              },
+                              "sourcefile": "examples/struct_promotion.go",
+                              "start": {
+                                "column": 9,
+                                "line": 33
+                              }
+                            },
+                            "name": "name",
+                            "type": "Identifier"
+                          },
+                          "type": "MemberAccess"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 24,
+                            "line": 33
+                          },
+                          "sourcefile": "examples/struct_promotion.go",
+                          "start": {
+                            "column": 2,
+                            "line": 33
+                          }
+                        },
+                        "operator": "=",
+                        "right": {
+                          "_meta": {},
+                          "literalType": "STRING",
+                          "loc": {
+                            "end": {
+                              "column": 24,
+                              "line": 33
+                            },
+                            "sourcefile": "examples/struct_promotion.go",
+                            "start": {
+                              "column": 16,
+                              "line": 33
+                            }
+                          },
+                          "type": "Literal",
+                          "value": "\"Michal\""
+                        },
+                        "type": "AssignmentExpression"
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "left": {
+                          "_meta": {},
+                          "computed": false,
+                          "loc": {
+                            "end": {
+                              "column": 12,
+                              "line": 34
+                            },
+                            "sourcefile": "examples/struct_promotion.go",
+                            "start": {
+                              "column": 2,
+                              "line": 34
+                            }
+                          },
+                          "object": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 8,
+                                "line": 34
+                              },
+                              "sourcefile": "examples/struct_promotion.go",
+                              "start": {
+                                "column": 2,
+                                "line": 34
+                              }
+                            },
+                            "name": "record",
+                            "type": "Identifier"
+                          },
+                          "property": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 12,
+                                "line": 34
+                              },
+                              "sourcefile": "examples/struct_promotion.go",
+                              "start": {
+                                "column": 9,
+                                "line": 34
+                              }
+                            },
+                            "name": "age",
+                            "type": "Identifier"
+                          },
+                          "type": "MemberAccess"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 17,
+                            "line": 34
+                          },
+                          "sourcefile": "examples/struct_promotion.go",
+                          "start": {
+                            "column": 2,
+                            "line": 34
+                          }
+                        },
+                        "operator": "=",
+                        "right": {
+                          "_meta": {},
+                          "literalType": "INT",
+                          "loc": {
+                            "end": {
+                              "column": 17,
+                              "line": 34
+                            },
+                            "sourcefile": "examples/struct_promotion.go",
+                            "start": {
+                              "column": 15,
+                              "line": 34
+                            }
+                          },
+                          "type": "Literal",
+                          "value": "29"
+                        },
+                        "type": "AssignmentExpression"
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "left": {
+                          "_meta": {},
+                          "computed": false,
+                          "loc": {
+                            "end": {
+                              "column": 17,
+                              "line": 35
+                            },
+                            "sourcefile": "examples/struct_promotion.go",
+                            "start": {
+                              "column": 2,
+                              "line": 35
+                            }
+                          },
+                          "object": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 8,
+                                "line": 35
+                              },
+                              "sourcefile": "examples/struct_promotion.go",
+                              "start": {
+                                "column": 2,
+                                "line": 35
+                              }
+                            },
+                            "name": "record",
+                            "type": "Identifier"
+                          },
+                          "property": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 17,
+                                "line": 35
+                              },
+                              "sourcefile": "examples/struct_promotion.go",
+                              "start": {
+                                "column": 9,
+                                "line": 35
+                              }
+                            },
+                            "name": "position",
+                            "type": "Identifier"
+                          },
+                          "type": "MemberAccess"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 39,
+                            "line": 35
+                          },
+                          "sourcefile": "examples/struct_promotion.go",
+                          "start": {
+                            "column": 2,
+                            "line": 35
+                          }
+                        },
+                        "operator": "=",
+                        "right": {
+                          "_meta": {},
+                          "literalType": "STRING",
+                          "loc": {
+                            "end": {
+                              "column": 39,
+                              "line": 35
+                            },
+                            "sourcefile": "examples/struct_promotion.go",
+                            "start": {
+                              "column": 20,
+                              "line": 35
+                            }
+                          },
+                          "type": "Literal",
+                          "value": "\"software engineer\""
+                        },
+                        "type": "AssignmentExpression"
+                      },
+                      {
+                        "_meta": {},
+                        "arguments": [
+                          {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 20,
+                                "line": 37
+                              },
+                              "sourcefile": "examples/struct_promotion.go",
+                              "start": {
+                                "column": 14,
+                                "line": 37
+                              }
+                            },
+                            "name": "record",
+                            "type": "Identifier"
+                          }
+                        ],
+                        "callee": {
+                          "_meta": {},
+                          "computed": false,
+                          "loc": {
+                            "end": {
+                              "column": 13,
+                              "line": 37
+                            },
+                            "sourcefile": "examples/struct_promotion.go",
+                            "start": {
+                              "column": 2,
+                              "line": 37
+                            }
+                          },
+                          "object": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 5,
+                                "line": 37
+                              },
+                              "sourcefile": "examples/struct_promotion.go",
+                              "start": {
+                                "column": 2,
+                                "line": 37
+                              }
+                            },
+                            "name": "fmt",
+                            "type": "Identifier"
+                          },
+                          "property": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 13,
+                                "line": 37
+                              },
+                              "sourcefile": "examples/struct_promotion.go",
+                              "start": {
+                                "column": 6,
+                                "line": 37
+                              }
+                            },
+                            "name": "Println",
+                            "type": "Identifier"
+                          },
+                          "type": "MemberAccess"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 21,
+                            "line": 37
+                          },
+                          "sourcefile": "examples/struct_promotion.go",
+                          "start": {
+                            "column": 2,
+                            "line": 37
+                          }
+                        },
+                        "type": "CallExpression"
+                      },
+                      {
+                        "_meta": {},
+                        "arguments": [
+                          {
+                            "_meta": {},
+                            "computed": false,
+                            "loc": {
+                              "end": {
+                                "column": 25,
+                                "line": 38
+                              },
+                              "sourcefile": "examples/struct_promotion.go",
+                              "start": {
+                                "column": 14,
+                                "line": 38
+                              }
+                            },
+                            "object": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 20,
+                                  "line": 38
+                                },
+                                "sourcefile": "examples/struct_promotion.go",
+                                "start": {
+                                  "column": 14,
+                                  "line": 38
+                                }
+                              },
+                              "name": "record",
+                              "type": "Identifier"
+                            },
+                            "property": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 25,
+                                  "line": 38
+                                },
+                                "sourcefile": "examples/struct_promotion.go",
+                                "start": {
+                                  "column": 21,
+                                  "line": 38
+                                }
+                              },
+                              "name": "name",
+                              "type": "Identifier"
+                            },
+                            "type": "MemberAccess"
+                          }
+                        ],
+                        "callee": {
+                          "_meta": {},
+                          "computed": false,
+                          "loc": {
+                            "end": {
+                              "column": 13,
+                              "line": 38
+                            },
+                            "sourcefile": "examples/struct_promotion.go",
+                            "start": {
+                              "column": 2,
+                              "line": 38
+                            }
+                          },
+                          "object": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 5,
+                                "line": 38
+                              },
+                              "sourcefile": "examples/struct_promotion.go",
+                              "start": {
+                                "column": 2,
+                                "line": 38
+                              }
+                            },
+                            "name": "fmt",
+                            "type": "Identifier"
+                          },
+                          "property": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 13,
+                                "line": 38
+                              },
+                              "sourcefile": "examples/struct_promotion.go",
+                              "start": {
+                                "column": 6,
+                                "line": 38
+                              }
+                            },
+                            "name": "Println",
+                            "type": "Identifier"
+                          },
+                          "type": "MemberAccess"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 26,
+                            "line": 38
+                          },
+                          "sourcefile": "examples/struct_promotion.go",
+                          "start": {
+                            "column": 2,
+                            "line": 38
+                          }
+                        },
+                        "type": "CallExpression"
+                      },
+                      {
+                        "_meta": {},
+                        "arguments": [
+                          {
+                            "_meta": {},
+                            "computed": false,
+                            "loc": {
+                              "end": {
+                                "column": 24,
+                                "line": 39
+                              },
+                              "sourcefile": "examples/struct_promotion.go",
+                              "start": {
+                                "column": 14,
+                                "line": 39
+                              }
+                            },
+                            "object": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 20,
+                                  "line": 39
+                                },
+                                "sourcefile": "examples/struct_promotion.go",
+                                "start": {
+                                  "column": 14,
+                                  "line": 39
+                                }
+                              },
+                              "name": "record",
+                              "type": "Identifier"
+                            },
+                            "property": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 24,
+                                  "line": 39
+                                },
+                                "sourcefile": "examples/struct_promotion.go",
+                                "start": {
+                                  "column": 21,
+                                  "line": 39
+                                }
+                              },
+                              "name": "age",
+                              "type": "Identifier"
+                            },
+                            "type": "MemberAccess"
+                          }
+                        ],
+                        "callee": {
+                          "_meta": {},
+                          "computed": false,
+                          "loc": {
+                            "end": {
+                              "column": 13,
+                              "line": 39
+                            },
+                            "sourcefile": "examples/struct_promotion.go",
+                            "start": {
+                              "column": 2,
+                              "line": 39
+                            }
+                          },
+                          "object": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 5,
+                                "line": 39
+                              },
+                              "sourcefile": "examples/struct_promotion.go",
+                              "start": {
+                                "column": 2,
+                                "line": 39
+                              }
+                            },
+                            "name": "fmt",
+                            "type": "Identifier"
+                          },
+                          "property": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 13,
+                                "line": 39
+                              },
+                              "sourcefile": "examples/struct_promotion.go",
+                              "start": {
+                                "column": 6,
+                                "line": 39
+                              }
+                            },
+                            "name": "Println",
+                            "type": "Identifier"
+                          },
+                          "type": "MemberAccess"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 25,
+                            "line": 39
+                          },
+                          "sourcefile": "examples/struct_promotion.go",
+                          "start": {
+                            "column": 2,
+                            "line": 39
+                          }
+                        },
+                        "type": "CallExpression"
+                      },
+                      {
+                        "_meta": {},
+                        "arguments": [
+                          {
+                            "_meta": {},
+                            "computed": false,
+                            "loc": {
+                              "end": {
+                                "column": 29,
+                                "line": 40
+                              },
+                              "sourcefile": "examples/struct_promotion.go",
+                              "start": {
+                                "column": 14,
+                                "line": 40
+                              }
+                            },
+                            "object": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 20,
+                                  "line": 40
+                                },
+                                "sourcefile": "examples/struct_promotion.go",
+                                "start": {
+                                  "column": 14,
+                                  "line": 40
+                                }
+                              },
+                              "name": "record",
+                              "type": "Identifier"
+                            },
+                            "property": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 29,
+                                  "line": 40
+                                },
+                                "sourcefile": "examples/struct_promotion.go",
+                                "start": {
+                                  "column": 21,
+                                  "line": 40
+                                }
+                              },
+                              "name": "position",
+                              "type": "Identifier"
+                            },
+                            "type": "MemberAccess"
+                          }
+                        ],
+                        "callee": {
+                          "_meta": {},
+                          "computed": false,
+                          "loc": {
+                            "end": {
+                              "column": 13,
+                              "line": 40
+                            },
+                            "sourcefile": "examples/struct_promotion.go",
+                            "start": {
+                              "column": 2,
+                              "line": 40
+                            }
+                          },
+                          "object": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 5,
+                                "line": 40
+                              },
+                              "sourcefile": "examples/struct_promotion.go",
+                              "start": {
+                                "column": 2,
+                                "line": 40
+                              }
+                            },
+                            "name": "fmt",
+                            "type": "Identifier"
+                          },
+                          "property": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 13,
+                                "line": 40
+                              },
+                              "sourcefile": "examples/struct_promotion.go",
+                              "start": {
+                                "column": 6,
+                                "line": 40
+                              }
+                            },
+                            "name": "Println",
+                            "type": "Identifier"
+                          },
+                          "type": "MemberAccess"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 30,
+                            "line": 40
+                          },
+                          "sourcefile": "examples/struct_promotion.go",
+                          "start": {
+                            "column": 2,
+                            "line": 40
+                          }
+                        },
+                        "type": "CallExpression"
+                      },
+                      {
+                        "_meta": {},
+                        "arguments": [
+                          {
+                            "_meta": {},
+                            "arguments": [],
+                            "callee": {
+                              "_meta": {},
+                              "computed": false,
+                              "loc": {
+                                "end": {
+                                  "column": 28,
+                                  "line": 41
+                                },
+                                "sourcefile": "examples/struct_promotion.go",
+                                "start": {
+                                  "column": 14,
+                                  "line": 41
+                                }
+                              },
+                              "object": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 20,
+                                    "line": 41
+                                  },
+                                  "sourcefile": "examples/struct_promotion.go",
+                                  "start": {
+                                    "column": 14,
+                                    "line": 41
+                                  }
+                                },
+                                "name": "record",
+                                "type": "Identifier"
+                              },
+                              "property": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 28,
+                                    "line": 41
+                                  },
+                                  "sourcefile": "examples/struct_promotion.go",
+                                  "start": {
+                                    "column": 21,
+                                    "line": 41
+                                  }
+                                },
+                                "name": "IsAdult",
+                                "type": "Identifier"
+                              },
+                              "type": "MemberAccess"
+                            },
+                            "loc": {
+                              "end": {
+                                "column": 30,
+                                "line": 41
+                              },
+                              "sourcefile": "examples/struct_promotion.go",
+                              "start": {
+                                "column": 14,
+                                "line": 41
+                              }
+                            },
+                            "type": "CallExpression"
+                          }
+                        ],
+                        "callee": {
+                          "_meta": {},
+                          "computed": false,
+                          "loc": {
+                            "end": {
+                              "column": 13,
+                              "line": 41
+                            },
+                            "sourcefile": "examples/struct_promotion.go",
+                            "start": {
+                              "column": 2,
+                              "line": 41
+                            }
+                          },
+                          "object": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 5,
+                                "line": 41
+                              },
+                              "sourcefile": "examples/struct_promotion.go",
+                              "start": {
+                                "column": 2,
+                                "line": 41
+                              }
+                            },
+                            "name": "fmt",
+                            "type": "Identifier"
+                          },
+                          "property": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 13,
+                                "line": 41
+                              },
+                              "sourcefile": "examples/struct_promotion.go",
+                              "start": {
+                                "column": 6,
+                                "line": 41
+                              }
+                            },
+                            "name": "Println",
+                            "type": "Identifier"
+                          },
+                          "type": "MemberAccess"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 31,
+                            "line": 41
+                          },
+                          "sourcefile": "examples/struct_promotion.go",
+                          "start": {
+                            "column": 2,
+                            "line": 41
+                          }
+                        },
+                        "type": "CallExpression"
+                      },
+                      {
+                        "_meta": {},
+                        "arguments": [
+                          {
+                            "_meta": {},
+                            "arguments": [],
+                            "callee": {
+                              "_meta": {},
+                              "computed": false,
+                              "loc": {
+                                "end": {
+                                  "column": 30,
+                                  "line": 42
+                                },
+                                "sourcefile": "examples/struct_promotion.go",
+                                "start": {
+                                  "column": 14,
+                                  "line": 42
+                                }
+                              },
+                              "object": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 20,
+                                    "line": 42
+                                  },
+                                  "sourcefile": "examples/struct_promotion.go",
+                                  "start": {
+                                    "column": 14,
+                                    "line": 42
+                                  }
+                                },
+                                "name": "record",
+                                "type": "Identifier"
+                              },
+                              "property": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 30,
+                                    "line": 42
+                                  },
+                                  "sourcefile": "examples/struct_promotion.go",
+                                  "start": {
+                                    "column": 21,
+                                    "line": 42
+                                  }
+                                },
+                                "name": "IsManager",
+                                "type": "Identifier"
+                              },
+                              "type": "MemberAccess"
+                            },
+                            "loc": {
+                              "end": {
+                                "column": 32,
+                                "line": 42
+                              },
+                              "sourcefile": "examples/struct_promotion.go",
+                              "start": {
+                                "column": 14,
+                                "line": 42
+                              }
+                            },
+                            "type": "CallExpression"
+                          }
+                        ],
+                        "callee": {
+                          "_meta": {},
+                          "computed": false,
+                          "loc": {
+                            "end": {
+                              "column": 13,
+                              "line": 42
+                            },
+                            "sourcefile": "examples/struct_promotion.go",
+                            "start": {
+                              "column": 2,
+                              "line": 42
+                            }
+                          },
+                          "object": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 5,
+                                "line": 42
+                              },
+                              "sourcefile": "examples/struct_promotion.go",
+                              "start": {
+                                "column": 2,
+                                "line": 42
+                              }
+                            },
+                            "name": "fmt",
+                            "type": "Identifier"
+                          },
+                          "property": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 13,
+                                "line": 42
+                              },
+                              "sourcefile": "examples/struct_promotion.go",
+                              "start": {
+                                "column": 6,
+                                "line": 42
+                              }
+                            },
+                            "name": "Println",
+                            "type": "Identifier"
+                          },
+                          "type": "MemberAccess"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 33,
+                            "line": 42
+                          },
+                          "sourcefile": "examples/struct_promotion.go",
+                          "start": {
+                            "column": 2,
+                            "line": 42
+                          }
+                        },
+                        "type": "CallExpression"
+                      }
+                    ],
+                    "id": null,
+                    "loc": {
+                      "end": {
+                        "column": 2,
+                        "line": 43
+                      },
+                      "sourcefile": "examples/struct_promotion.go",
+                      "start": {
+                        "column": 13,
+                        "line": 29
+                      }
+                    },
+                    "type": "ScopedStatement"
+                  },
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 10,
+                        "line": 29
+                      },
+                      "sourcefile": "examples/struct_promotion.go",
+                      "start": {
+                        "column": 6,
+                        "line": 29
+                      }
+                    },
+                    "name": "main",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 43
+                    },
+                    "sourcefile": "examples/struct_promotion.go",
+                    "start": {
+                      "column": 1,
+                      "line": 29
+                    }
+                  },
+                  "modifiers": null,
+                  "parameters": [],
+                  "returnType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "VoidType",
+                    "typeArguments": null
+                  },
+                  "type": "FunctionDefinition"
+                }
+              ],
+              "language": "golang",
+              "languageVersion": "1.18",
+              "loc": {
+                "end": {
+                  "column": 2,
+                  "line": 43
+                },
+                "sourcefile": "examples/struct_promotion.go",
+                "start": {
+                  "column": 1,
+                  "line": 1
+                }
+              },
+              "type": "CompileUnit",
+              "uri": "",
+              "version": ""
+            },
+            "packageName": "__single__"
+          }
+        },
+        "subs": {}
+      }
+    }
+  }
+}

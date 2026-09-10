@@ -1,0 +1,811 @@
+{
+  "type": "CompileUnit",
+  "body": [
+    {
+      "type": "ExpressionStatement",
+      "expression": {
+        "type": "AssignmentExpression",
+        "left": {
+          "type": "Identifier",
+          "name": "x",
+          "_meta": {
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 1
+              },
+              "end": {
+                "line": 2,
+                "column": 3
+              },
+              "sourcefile": "exprs.php"
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 1
+            },
+            "end": {
+              "line": 2,
+              "column": 3
+            },
+            "sourcefile": "exprs.php"
+          }
+        },
+        "right": {
+          "type": "BinaryExpression",
+          "operator": "+",
+          "left": {
+            "type": "BinaryExpression",
+            "operator": "+",
+            "left": {
+              "type": "Identifier",
+              "name": "a",
+              "_meta": {
+                "loc": {
+                  "start": {
+                    "line": 2,
+                    "column": 6
+                  },
+                  "end": {
+                    "line": 2,
+                    "column": 8
+                  },
+                  "sourcefile": "exprs.php"
+                }
+              },
+              "loc": {
+                "start": {
+                  "line": 2,
+                  "column": 6
+                },
+                "end": {
+                  "line": 2,
+                  "column": 8
+                },
+                "sourcefile": "exprs.php"
+              }
+            },
+            "right": {
+              "type": "Literal",
+              "value": "-",
+              "literalType": "string",
+              "_meta": {
+                "loc": {
+                  "start": {
+                    "line": 2,
+                    "column": 11
+                  },
+                  "end": {
+                    "line": 2,
+                    "column": 14
+                  },
+                  "sourcefile": "exprs.php"
+                },
+                "encapsed": true
+              },
+              "loc": {
+                "start": {
+                  "line": 2,
+                  "column": 11
+                },
+                "end": {
+                  "line": 2,
+                  "column": 14
+                },
+                "sourcefile": "exprs.php"
+              }
+            },
+            "_meta": {
+              "loc": {
+                "start": {
+                  "line": 2,
+                  "column": 6
+                },
+                "end": {
+                  "line": 2,
+                  "column": 14
+                },
+                "sourcefile": "exprs.php"
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 6
+              },
+              "end": {
+                "line": 2,
+                "column": 14
+              },
+              "sourcefile": "exprs.php"
+            }
+          },
+          "right": {
+            "type": "ConditionalExpression",
+            "test": {
+              "type": "Identifier",
+              "name": "b",
+              "_meta": {
+                "loc": {
+                  "start": {
+                    "line": 2,
+                    "column": 18
+                  },
+                  "end": {
+                    "line": 2,
+                    "column": 20
+                  },
+                  "sourcefile": "exprs.php"
+                }
+              },
+              "loc": {
+                "start": {
+                  "line": 2,
+                  "column": 18
+                },
+                "end": {
+                  "line": 2,
+                  "column": 20
+                },
+                "sourcefile": "exprs.php"
+              }
+            },
+            "consequent": {
+              "type": "Literal",
+              "value": 1,
+              "literalType": "number",
+              "_meta": {
+                "loc": {
+                  "start": {
+                    "line": 2,
+                    "column": 23
+                  },
+                  "end": {
+                    "line": 2,
+                    "column": 24
+                  },
+                  "sourcefile": "exprs.php"
+                }
+              },
+              "loc": {
+                "start": {
+                  "line": 2,
+                  "column": 23
+                },
+                "end": {
+                  "line": 2,
+                  "column": 24
+                },
+                "sourcefile": "exprs.php"
+              }
+            },
+            "alternative": {
+              "type": "Literal",
+              "value": 2,
+              "literalType": "number",
+              "_meta": {
+                "loc": {
+                  "start": {
+                    "line": 2,
+                    "column": 27
+                  },
+                  "end": {
+                    "line": 2,
+                    "column": 28
+                  },
+                  "sourcefile": "exprs.php"
+                }
+              },
+              "loc": {
+                "start": {
+                  "line": 2,
+                  "column": 27
+                },
+                "end": {
+                  "line": 2,
+                  "column": 28
+                },
+                "sourcefile": "exprs.php"
+              }
+            },
+            "_meta": {
+              "loc": {
+                "start": {
+                  "line": 2,
+                  "column": 18
+                },
+                "end": {
+                  "line": 2,
+                  "column": 28
+                },
+                "sourcefile": "exprs.php"
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 18
+              },
+              "end": {
+                "line": 2,
+                "column": 28
+              },
+              "sourcefile": "exprs.php"
+            }
+          },
+          "_meta": {
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 6
+              },
+              "end": {
+                "line": 2,
+                "column": 29
+              },
+              "sourcefile": "exprs.php"
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 6
+            },
+            "end": {
+              "line": 2,
+              "column": 29
+            },
+            "sourcefile": "exprs.php"
+          }
+        },
+        "operator": "=",
+        "cloned": false,
+        "_meta": {
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 1
+            },
+            "end": {
+              "line": 2,
+              "column": 29
+            },
+            "sourcefile": "exprs.php"
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 1
+          },
+          "end": {
+            "line": 2,
+            "column": 29
+          },
+          "sourcefile": "exprs.php"
+        }
+      },
+      "_meta": {
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 1
+          },
+          "end": {
+            "line": 2,
+            "column": 30
+          },
+          "sourcefile": "exprs.php"
+        }
+      },
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 1
+        },
+        "end": {
+          "line": 2,
+          "column": 30
+        },
+        "sourcefile": "exprs.php"
+      }
+    },
+    {
+      "type": "ExpressionStatement",
+      "expression": {
+        "type": "AssignmentExpression",
+        "left": {
+          "type": "Identifier",
+          "name": "y",
+          "_meta": {
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 1
+              },
+              "end": {
+                "line": 3,
+                "column": 3
+              },
+              "sourcefile": "exprs.php"
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 1
+            },
+            "end": {
+              "line": 3,
+              "column": 3
+            },
+            "sourcefile": "exprs.php"
+          }
+        },
+        "right": {
+          "type": "UnaryExpression",
+          "operator": "!",
+          "argument": {
+            "type": "Identifier",
+            "name": "flag",
+            "_meta": {
+              "loc": {
+                "start": {
+                  "line": 3,
+                  "column": 7
+                },
+                "end": {
+                  "line": 3,
+                  "column": 12
+                },
+                "sourcefile": "exprs.php"
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 7
+              },
+              "end": {
+                "line": 3,
+                "column": 12
+              },
+              "sourcefile": "exprs.php"
+            }
+          },
+          "isSuffix": false,
+          "_meta": {
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 6
+              },
+              "end": {
+                "line": 3,
+                "column": 12
+              },
+              "sourcefile": "exprs.php"
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 6
+            },
+            "end": {
+              "line": 3,
+              "column": 12
+            },
+            "sourcefile": "exprs.php"
+          }
+        },
+        "operator": "=",
+        "cloned": false,
+        "_meta": {
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 1
+            },
+            "end": {
+              "line": 3,
+              "column": 12
+            },
+            "sourcefile": "exprs.php"
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 3,
+            "column": 1
+          },
+          "end": {
+            "line": 3,
+            "column": 12
+          },
+          "sourcefile": "exprs.php"
+        }
+      },
+      "_meta": {
+        "loc": {
+          "start": {
+            "line": 3,
+            "column": 1
+          },
+          "end": {
+            "line": 3,
+            "column": 13
+          },
+          "sourcefile": "exprs.php"
+        }
+      },
+      "loc": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 13
+        },
+        "sourcefile": "exprs.php"
+      }
+    },
+    {
+      "type": "ExpressionStatement",
+      "expression": {
+        "type": "AssignmentExpression",
+        "left": {
+          "type": "Identifier",
+          "name": "f",
+          "_meta": {
+            "loc": {
+              "start": {
+                "line": 4,
+                "column": 1
+              },
+              "end": {
+                "line": 4,
+                "column": 3
+              },
+              "sourcefile": "exprs.php"
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 4,
+              "column": 1
+            },
+            "end": {
+              "line": 4,
+              "column": 3
+            },
+            "sourcefile": "exprs.php"
+          }
+        },
+        "right": {
+          "type": "FunctionDefinition",
+          "id": null,
+          "parameters": [
+            {
+              "type": "VariableDeclaration",
+              "id": {
+                "type": "Identifier",
+                "name": "z",
+                "_meta": {
+                  "loc": {
+                    "start": {
+                      "line": 4,
+                      "column": 9
+                    },
+                    "end": {
+                      "line": 4,
+                      "column": 11
+                    },
+                    "sourcefile": "exprs.php"
+                  }
+                },
+                "loc": {
+                  "start": {
+                    "line": 4,
+                    "column": 9
+                  },
+                  "end": {
+                    "line": 4,
+                    "column": 11
+                  },
+                  "sourcefile": "exprs.php"
+                }
+              },
+              "init": null,
+              "cloned": false,
+              "varType": {
+                "type": "DynamicType",
+                "id": null,
+                "_meta": {}
+              },
+              "_meta": {
+                "variadic": false,
+                "loc": {
+                  "start": {
+                    "line": 4,
+                    "column": 9
+                  },
+                  "end": {
+                    "line": 4,
+                    "column": 11
+                  },
+                  "sourcefile": "exprs.php"
+                }
+              },
+              "loc": {
+                "start": {
+                  "line": 4,
+                  "column": 9
+                },
+                "end": {
+                  "line": 4,
+                  "column": 11
+                },
+                "sourcefile": "exprs.php"
+              }
+            }
+          ],
+          "returnType": {
+            "type": "DynamicType",
+            "id": null,
+            "_meta": {}
+          },
+          "body": {
+            "type": "ScopedStatement",
+            "body": [
+              {
+                "type": "ReturnStatement",
+                "argument": {
+                  "type": "BinaryExpression",
+                  "operator": "+",
+                  "left": {
+                    "type": "Identifier",
+                    "name": "z",
+                    "_meta": {
+                      "loc": {
+                        "start": {
+                          "line": 4,
+                          "column": 16
+                        },
+                        "end": {
+                          "line": 4,
+                          "column": 18
+                        },
+                        "sourcefile": "exprs.php"
+                      }
+                    },
+                    "loc": {
+                      "start": {
+                        "line": 4,
+                        "column": 16
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 18
+                      },
+                      "sourcefile": "exprs.php"
+                    }
+                  },
+                  "right": {
+                    "type": "Literal",
+                    "value": 1,
+                    "literalType": "number",
+                    "_meta": {
+                      "loc": {
+                        "start": {
+                          "line": 4,
+                          "column": 21
+                        },
+                        "end": {
+                          "line": 4,
+                          "column": 22
+                        },
+                        "sourcefile": "exprs.php"
+                      }
+                    },
+                    "loc": {
+                      "start": {
+                        "line": 4,
+                        "column": 21
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 22
+                      },
+                      "sourcefile": "exprs.php"
+                    }
+                  },
+                  "_meta": {
+                    "loc": {
+                      "start": {
+                        "line": 4,
+                        "column": 16
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 22
+                      },
+                      "sourcefile": "exprs.php"
+                    }
+                  },
+                  "loc": {
+                    "start": {
+                      "line": 4,
+                      "column": 16
+                    },
+                    "end": {
+                      "line": 4,
+                      "column": 22
+                    },
+                    "sourcefile": "exprs.php"
+                  }
+                },
+                "isYield": false,
+                "_meta": {
+                  "loc": {
+                    "start": {
+                      "line": 4,
+                      "column": 16
+                    },
+                    "end": {
+                      "line": 4,
+                      "column": 22
+                    },
+                    "sourcefile": "exprs.php"
+                  }
+                },
+                "loc": {
+                  "start": {
+                    "line": 4,
+                    "column": 16
+                  },
+                  "end": {
+                    "line": 4,
+                    "column": 22
+                  },
+                  "sourcefile": "exprs.php"
+                }
+              }
+            ],
+            "id": null,
+            "_meta": {
+              "loc": {
+                "start": {
+                  "line": 4,
+                  "column": 16
+                },
+                "end": {
+                  "line": 4,
+                  "column": 22
+                },
+                "sourcefile": "exprs.php"
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 4,
+                "column": 16
+              },
+              "end": {
+                "line": 4,
+                "column": 22
+              },
+              "sourcefile": "exprs.php"
+            }
+          },
+          "modifiers": [],
+          "_meta": {
+            "loc": {
+              "start": {
+                "line": 4,
+                "column": 6
+              },
+              "end": {
+                "line": 4,
+                "column": 22
+              },
+              "sourcefile": "exprs.php"
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 4,
+              "column": 6
+            },
+            "end": {
+              "line": 4,
+              "column": 22
+            },
+            "sourcefile": "exprs.php"
+          }
+        },
+        "operator": "=",
+        "cloned": false,
+        "_meta": {
+          "loc": {
+            "start": {
+              "line": 4,
+              "column": 1
+            },
+            "end": {
+              "line": 4,
+              "column": 22
+            },
+            "sourcefile": "exprs.php"
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 4,
+            "column": 1
+          },
+          "end": {
+            "line": 4,
+            "column": 22
+          },
+          "sourcefile": "exprs.php"
+        }
+      },
+      "_meta": {
+        "loc": {
+          "start": {
+            "line": 4,
+            "column": 1
+          },
+          "end": {
+            "line": 4,
+            "column": 23
+          },
+          "sourcefile": "exprs.php"
+        }
+      },
+      "loc": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 23
+        },
+        "sourcefile": "exprs.php"
+      }
+    }
+  ],
+  "language": "php",
+  "languageVersion": null,
+  "uri": "exprs.php",
+  "version": "0.0.0",
+  "_meta": {
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 1
+      },
+      "end": {
+        "line": 5,
+        "column": 1
+      },
+      "sourcefile": "exprs.php"
+    }
+  },
+  "loc": {
+    "start": {
+      "line": 1,
+      "column": 1
+    },
+    "end": {
+      "line": 5,
+      "column": 1
+    },
+    "sourcefile": "exprs.php"
+  }
+}

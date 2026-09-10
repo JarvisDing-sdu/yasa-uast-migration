@@ -1,0 +1,1145 @@
+{
+  "moduleName": "__single_module__",
+  "packageInfo": {
+    "PathName": "",
+    "files": {},
+    "subs": {
+      "/": {
+        "PathName": "",
+        "files": {
+          "examples/switchesType.go": {
+            "node": {
+              "_meta": {},
+              "body": [
+                {
+                  "_meta": {},
+                  "loc": {
+                    "end": {
+                      "column": 17,
+                      "line": 1
+                    },
+                    "sourcefile": "examples/switchesType.go",
+                    "start": {
+                      "column": 9,
+                      "line": 1
+                    }
+                  },
+                  "packageName": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 17,
+                        "line": 1
+                      },
+                      "sourcefile": "examples/switchesType.go",
+                      "start": {
+                        "column": 9,
+                        "line": 1
+                      }
+                    },
+                    "name": "examples",
+                    "type": "Identifier"
+                  },
+                  "type": "PackageDeclaration"
+                },
+                {
+                  "_meta": {
+                    "ReceiveCls": "",
+                    "isDefaultImport": true
+                  },
+                  "cloned": false,
+                  "id": {
+                    "_meta": {},
+                    "loc": null,
+                    "name": "fmt",
+                    "type": "Identifier"
+                  },
+                  "init": {
+                    "_meta": {},
+                    "from": {
+                      "_meta": {},
+                      "literalType": "string",
+                      "loc": {
+                        "end": {
+                          "column": 13,
+                          "line": 3
+                        },
+                        "sourcefile": "examples/switchesType.go",
+                        "start": {
+                          "column": 8,
+                          "line": 3
+                        }
+                      },
+                      "type": "Literal",
+                      "value": "fmt"
+                    },
+                    "imported": null,
+                    "loc": {
+                      "end": {
+                        "column": 13,
+                        "line": 3
+                      },
+                      "sourcefile": "examples/switchesType.go",
+                      "start": {
+                        "column": 8,
+                        "line": 3
+                      }
+                    },
+                    "local": null,
+                    "type": "ImportExpression"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 13,
+                      "line": 3
+                    },
+                    "sourcefile": "examples/switchesType.go",
+                    "start": {
+                      "column": 8,
+                      "line": 3
+                    }
+                  },
+                  "type": "VariableDeclaration",
+                  "varType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "DynamicType",
+                    "typeArguments": null
+                  },
+                  "variableParam": false
+                },
+                {
+                  "_meta": {},
+                  "body": [
+                    {
+                      "_meta": {
+                        "ReceiveCls": "O"
+                      },
+                      "body": {
+                        "_meta": {},
+                        "body": [],
+                        "id": null,
+                        "loc": {
+                          "end": {
+                            "column": 20,
+                            "line": 8
+                          },
+                          "sourcefile": "examples/switchesType.go",
+                          "start": {
+                            "column": 18,
+                            "line": 8
+                          }
+                        },
+                        "type": "ScopedStatement"
+                      },
+                      "id": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 15,
+                            "line": 8
+                          },
+                          "sourcefile": "examples/switchesType.go",
+                          "start": {
+                            "column": 10,
+                            "line": 8
+                          }
+                        },
+                        "name": "typee",
+                        "type": "Identifier"
+                      },
+                      "loc": {
+                        "end": {
+                          "column": 20,
+                          "line": 8
+                        },
+                        "sourcefile": "examples/switchesType.go",
+                        "start": {
+                          "column": 1,
+                          "line": 8
+                        }
+                      },
+                      "modifiers": null,
+                      "parameters": [],
+                      "returnType": {
+                        "_meta": {},
+                        "id": null,
+                        "loc": null,
+                        "type": "VoidType",
+                        "typeArguments": null
+                      },
+                      "type": "FunctionDefinition"
+                    }
+                  ],
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 7,
+                        "line": 5
+                      },
+                      "sourcefile": "examples/switchesType.go",
+                      "start": {
+                        "column": 6,
+                        "line": 5
+                      }
+                    },
+                    "name": "O",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 6
+                    },
+                    "sourcefile": "examples/switchesType.go",
+                    "start": {
+                      "column": 6,
+                      "line": 5
+                    }
+                  },
+                  "supers": [],
+                  "type": "ClassDefinition"
+                },
+                {
+                  "_meta": {},
+                  "body": {
+                    "_meta": {},
+                    "body": [
+                      {
+                        "_meta": {},
+                        "cases": [
+                          {
+                            "_meta": {},
+                            "body": {
+                              "_meta": {},
+                              "body": [
+                                {
+                                  "_meta": {},
+                                  "arguments": [
+                                    {
+                                      "_meta": {},
+                                      "literalType": "STRING",
+                                      "loc": {
+                                        "end": {
+                                          "column": 32,
+                                          "line": 13
+                                        },
+                                        "sourcefile": "examples/switchesType.go",
+                                        "start": {
+                                          "column": 14,
+                                          "line": 13
+                                        }
+                                      },
+                                      "type": "Literal",
+                                      "value": "\"Twice %v is %v\\n\""
+                                    },
+                                    {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 35,
+                                          "line": 13
+                                        },
+                                        "sourcefile": "examples/switchesType.go",
+                                        "start": {
+                                          "column": 34,
+                                          "line": 13
+                                        }
+                                      },
+                                      "name": "v",
+                                      "type": "Identifier"
+                                    },
+                                    {
+                                      "_meta": {},
+                                      "left": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 38,
+                                            "line": 13
+                                          },
+                                          "sourcefile": "examples/switchesType.go",
+                                          "start": {
+                                            "column": 37,
+                                            "line": 13
+                                          }
+                                        },
+                                        "name": "v",
+                                        "type": "Identifier"
+                                      },
+                                      "loc": {
+                                        "end": {
+                                          "column": 40,
+                                          "line": 13
+                                        },
+                                        "sourcefile": "examples/switchesType.go",
+                                        "start": {
+                                          "column": 37,
+                                          "line": 13
+                                        }
+                                      },
+                                      "operator": "*",
+                                      "right": {
+                                        "_meta": {},
+                                        "literalType": "INT",
+                                        "loc": {
+                                          "end": {
+                                            "column": 40,
+                                            "line": 13
+                                          },
+                                          "sourcefile": "examples/switchesType.go",
+                                          "start": {
+                                            "column": 39,
+                                            "line": 13
+                                          }
+                                        },
+                                        "type": "Literal",
+                                        "value": "2"
+                                      },
+                                      "type": "BinaryExpression"
+                                    }
+                                  ],
+                                  "callee": {
+                                    "_meta": {},
+                                    "computed": false,
+                                    "loc": {
+                                      "end": {
+                                        "column": 13,
+                                        "line": 13
+                                      },
+                                      "sourcefile": "examples/switchesType.go",
+                                      "start": {
+                                        "column": 3,
+                                        "line": 13
+                                      }
+                                    },
+                                    "object": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 6,
+                                          "line": 13
+                                        },
+                                        "sourcefile": "examples/switchesType.go",
+                                        "start": {
+                                          "column": 3,
+                                          "line": 13
+                                        }
+                                      },
+                                      "name": "fmt",
+                                      "type": "Identifier"
+                                    },
+                                    "property": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 13,
+                                          "line": 13
+                                        },
+                                        "sourcefile": "examples/switchesType.go",
+                                        "start": {
+                                          "column": 7,
+                                          "line": 13
+                                        }
+                                      },
+                                      "name": "Printf",
+                                      "type": "Identifier"
+                                    },
+                                    "type": "MemberAccess"
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 41,
+                                      "line": 13
+                                    },
+                                    "sourcefile": "examples/switchesType.go",
+                                    "start": {
+                                      "column": 3,
+                                      "line": 13
+                                    }
+                                  },
+                                  "type": "CallExpression"
+                                }
+                              ],
+                              "id": null,
+                              "loc": null,
+                              "type": "ScopedStatement"
+                            },
+                            "loc": {
+                              "end": {
+                                "column": 3,
+                                "line": 20
+                              },
+                              "sourcefile": "examples/switchesType.go",
+                              "start": {
+                                "column": 2,
+                                "line": 11
+                              }
+                            },
+                            "test": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 10,
+                                  "line": 12
+                                },
+                                "sourcefile": "examples/switchesType.go",
+                                "start": {
+                                  "column": 7,
+                                  "line": 12
+                                }
+                              },
+                              "name": "int",
+                              "type": "Identifier"
+                            },
+                            "type": "CaseClause"
+                          },
+                          {
+                            "_meta": {},
+                            "body": {
+                              "_meta": {},
+                              "body": [
+                                {
+                                  "_meta": {},
+                                  "arguments": [
+                                    {
+                                      "_meta": {},
+                                      "literalType": "STRING",
+                                      "loc": {
+                                        "end": {
+                                          "column": 37,
+                                          "line": 15
+                                        },
+                                        "sourcefile": "examples/switchesType.go",
+                                        "start": {
+                                          "column": 14,
+                                          "line": 15
+                                        }
+                                      },
+                                      "type": "Literal",
+                                      "value": "\"%q is %v bytes long\\n\""
+                                    },
+                                    {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 40,
+                                          "line": 15
+                                        },
+                                        "sourcefile": "examples/switchesType.go",
+                                        "start": {
+                                          "column": 39,
+                                          "line": 15
+                                        }
+                                      },
+                                      "name": "v",
+                                      "type": "Identifier"
+                                    },
+                                    {
+                                      "_meta": {},
+                                      "arguments": [
+                                        {
+                                          "_meta": {},
+                                          "loc": {
+                                            "end": {
+                                              "column": 47,
+                                              "line": 15
+                                            },
+                                            "sourcefile": "examples/switchesType.go",
+                                            "start": {
+                                              "column": 46,
+                                              "line": 15
+                                            }
+                                          },
+                                          "name": "v",
+                                          "type": "Identifier"
+                                        }
+                                      ],
+                                      "callee": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 45,
+                                            "line": 15
+                                          },
+                                          "sourcefile": "examples/switchesType.go",
+                                          "start": {
+                                            "column": 42,
+                                            "line": 15
+                                          }
+                                        },
+                                        "name": "len",
+                                        "type": "Identifier"
+                                      },
+                                      "loc": {
+                                        "end": {
+                                          "column": 48,
+                                          "line": 15
+                                        },
+                                        "sourcefile": "examples/switchesType.go",
+                                        "start": {
+                                          "column": 42,
+                                          "line": 15
+                                        }
+                                      },
+                                      "type": "CallExpression"
+                                    }
+                                  ],
+                                  "callee": {
+                                    "_meta": {},
+                                    "computed": false,
+                                    "loc": {
+                                      "end": {
+                                        "column": 13,
+                                        "line": 15
+                                      },
+                                      "sourcefile": "examples/switchesType.go",
+                                      "start": {
+                                        "column": 3,
+                                        "line": 15
+                                      }
+                                    },
+                                    "object": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 6,
+                                          "line": 15
+                                        },
+                                        "sourcefile": "examples/switchesType.go",
+                                        "start": {
+                                          "column": 3,
+                                          "line": 15
+                                        }
+                                      },
+                                      "name": "fmt",
+                                      "type": "Identifier"
+                                    },
+                                    "property": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 13,
+                                          "line": 15
+                                        },
+                                        "sourcefile": "examples/switchesType.go",
+                                        "start": {
+                                          "column": 7,
+                                          "line": 15
+                                        }
+                                      },
+                                      "name": "Printf",
+                                      "type": "Identifier"
+                                    },
+                                    "type": "MemberAccess"
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 49,
+                                      "line": 15
+                                    },
+                                    "sourcefile": "examples/switchesType.go",
+                                    "start": {
+                                      "column": 3,
+                                      "line": 15
+                                    }
+                                  },
+                                  "type": "CallExpression"
+                                }
+                              ],
+                              "id": null,
+                              "loc": null,
+                              "type": "ScopedStatement"
+                            },
+                            "loc": {
+                              "end": {
+                                "column": 3,
+                                "line": 20
+                              },
+                              "sourcefile": "examples/switchesType.go",
+                              "start": {
+                                "column": 2,
+                                "line": 11
+                              }
+                            },
+                            "test": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 13,
+                                  "line": 14
+                                },
+                                "sourcefile": "examples/switchesType.go",
+                                "start": {
+                                  "column": 7,
+                                  "line": 14
+                                }
+                              },
+                              "name": "string",
+                              "type": "Identifier"
+                            },
+                            "type": "CaseClause"
+                          },
+                          {
+                            "_meta": {},
+                            "body": {
+                              "_meta": {},
+                              "body": [
+                                {
+                                  "_meta": {},
+                                  "arguments": [
+                                    {
+                                      "_meta": {},
+                                      "literalType": "STRING",
+                                      "loc": {
+                                        "end": {
+                                          "column": 25,
+                                          "line": 17
+                                        },
+                                        "sourcefile": "examples/switchesType.go",
+                                        "start": {
+                                          "column": 14,
+                                          "line": 17
+                                        }
+                                      },
+                                      "type": "Literal",
+                                      "value": "\"Type i %T\""
+                                    },
+                                    {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 28,
+                                          "line": 17
+                                        },
+                                        "sourcefile": "examples/switchesType.go",
+                                        "start": {
+                                          "column": 27,
+                                          "line": 17
+                                        }
+                                      },
+                                      "name": "v",
+                                      "type": "Identifier"
+                                    }
+                                  ],
+                                  "callee": {
+                                    "_meta": {},
+                                    "computed": false,
+                                    "loc": {
+                                      "end": {
+                                        "column": 13,
+                                        "line": 17
+                                      },
+                                      "sourcefile": "examples/switchesType.go",
+                                      "start": {
+                                        "column": 3,
+                                        "line": 17
+                                      }
+                                    },
+                                    "object": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 6,
+                                          "line": 17
+                                        },
+                                        "sourcefile": "examples/switchesType.go",
+                                        "start": {
+                                          "column": 3,
+                                          "line": 17
+                                        }
+                                      },
+                                      "name": "fmt",
+                                      "type": "Identifier"
+                                    },
+                                    "property": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 13,
+                                          "line": 17
+                                        },
+                                        "sourcefile": "examples/switchesType.go",
+                                        "start": {
+                                          "column": 7,
+                                          "line": 17
+                                        }
+                                      },
+                                      "name": "Printf",
+                                      "type": "Identifier"
+                                    },
+                                    "type": "MemberAccess"
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 29,
+                                      "line": 17
+                                    },
+                                    "sourcefile": "examples/switchesType.go",
+                                    "start": {
+                                      "column": 3,
+                                      "line": 17
+                                    }
+                                  },
+                                  "type": "CallExpression"
+                                }
+                              ],
+                              "id": null,
+                              "loc": null,
+                              "type": "ScopedStatement"
+                            },
+                            "loc": {
+                              "end": {
+                                "column": 3,
+                                "line": 20
+                              },
+                              "sourcefile": "examples/switchesType.go",
+                              "start": {
+                                "column": 2,
+                                "line": 11
+                              }
+                            },
+                            "test": {
+                              "_meta": {},
+                              "left": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 11,
+                                    "line": 16
+                                  },
+                                  "sourcefile": "examples/switchesType.go",
+                                  "start": {
+                                    "column": 7,
+                                    "line": 16
+                                  }
+                                },
+                                "name": "byte",
+                                "type": "Identifier"
+                              },
+                              "loc": null,
+                              "operator": "||",
+                              "right": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 20,
+                                    "line": 16
+                                  },
+                                  "sourcefile": "examples/switchesType.go",
+                                  "start": {
+                                    "column": 13,
+                                    "line": 16
+                                  }
+                                },
+                                "name": "uintptr",
+                                "type": "Identifier"
+                              },
+                              "type": "BinaryExpression"
+                            },
+                            "type": "CaseClause"
+                          },
+                          {
+                            "_meta": {},
+                            "body": {
+                              "_meta": {},
+                              "body": [
+                                {
+                                  "_meta": {},
+                                  "arguments": [
+                                    {
+                                      "_meta": {},
+                                      "literalType": "STRING",
+                                      "loc": {
+                                        "end": {
+                                          "column": 45,
+                                          "line": 19
+                                        },
+                                        "sourcefile": "examples/switchesType.go",
+                                        "start": {
+                                          "column": 14,
+                                          "line": 19
+                                        }
+                                      },
+                                      "type": "Literal",
+                                      "value": "\"I don't know about type %T!\\n\""
+                                    },
+                                    {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 48,
+                                          "line": 19
+                                        },
+                                        "sourcefile": "examples/switchesType.go",
+                                        "start": {
+                                          "column": 47,
+                                          "line": 19
+                                        }
+                                      },
+                                      "name": "v",
+                                      "type": "Identifier"
+                                    }
+                                  ],
+                                  "callee": {
+                                    "_meta": {},
+                                    "computed": false,
+                                    "loc": {
+                                      "end": {
+                                        "column": 13,
+                                        "line": 19
+                                      },
+                                      "sourcefile": "examples/switchesType.go",
+                                      "start": {
+                                        "column": 3,
+                                        "line": 19
+                                      }
+                                    },
+                                    "object": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 6,
+                                          "line": 19
+                                        },
+                                        "sourcefile": "examples/switchesType.go",
+                                        "start": {
+                                          "column": 3,
+                                          "line": 19
+                                        }
+                                      },
+                                      "name": "fmt",
+                                      "type": "Identifier"
+                                    },
+                                    "property": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 13,
+                                          "line": 19
+                                        },
+                                        "sourcefile": "examples/switchesType.go",
+                                        "start": {
+                                          "column": 7,
+                                          "line": 19
+                                        }
+                                      },
+                                      "name": "Printf",
+                                      "type": "Identifier"
+                                    },
+                                    "type": "MemberAccess"
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 49,
+                                      "line": 19
+                                    },
+                                    "sourcefile": "examples/switchesType.go",
+                                    "start": {
+                                      "column": 3,
+                                      "line": 19
+                                    }
+                                  },
+                                  "type": "CallExpression"
+                                }
+                              ],
+                              "id": null,
+                              "loc": null,
+                              "type": "ScopedStatement"
+                            },
+                            "loc": {
+                              "end": {
+                                "column": 3,
+                                "line": 20
+                              },
+                              "sourcefile": "examples/switchesType.go",
+                              "start": {
+                                "column": 2,
+                                "line": 11
+                              }
+                            },
+                            "test": null,
+                            "type": "CaseClause"
+                          }
+                        ],
+                        "discriminant": {
+                          "_meta": {},
+                          "expressions": [
+                            {
+                              "_meta": {},
+                              "cloned": true,
+                              "id": {
+                                "_meta": {
+                                  "ReceiveCls": "",
+                                  "type": {
+                                    "_meta": {},
+                                    "id": null,
+                                    "loc": null,
+                                    "type": "DynamicType",
+                                    "typeArguments": null
+                                  }
+                                },
+                                "loc": {
+                                  "end": {
+                                    "column": 10,
+                                    "line": 11
+                                  },
+                                  "sourcefile": "examples/switchesType.go",
+                                  "start": {
+                                    "column": 9,
+                                    "line": 11
+                                  }
+                                },
+                                "name": "v",
+                                "type": "Identifier"
+                              },
+                              "init": {
+                                "_meta": {
+                                  "ReceiveCls": "",
+                                  "type": {
+                                    "_meta": {},
+                                    "loc": null,
+                                    "type": ""
+                                  }
+                                },
+                                "left": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 15,
+                                      "line": 11
+                                    },
+                                    "sourcefile": "examples/switchesType.go",
+                                    "start": {
+                                      "column": 14,
+                                      "line": 11
+                                    }
+                                  },
+                                  "name": "i",
+                                  "type": "Identifier"
+                                },
+                                "loc": {
+                                  "end": {
+                                    "column": 22,
+                                    "line": 11
+                                  },
+                                  "sourcefile": "examples/switchesType.go",
+                                  "start": {
+                                    "column": 14,
+                                    "line": 11
+                                  }
+                                },
+                                "operator": "instanceof",
+                                "right": {
+                                  "_meta": {},
+                                  "loc": null,
+                                  "type": "Noop"
+                                },
+                                "type": "BinaryExpression"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 22,
+                                  "line": 11
+                                },
+                                "sourcefile": "examples/switchesType.go",
+                                "start": {
+                                  "column": 9,
+                                  "line": 11
+                                }
+                              },
+                              "type": "VariableDeclaration",
+                              "varType": {
+                                "_meta": {},
+                                "id": null,
+                                "loc": null,
+                                "type": "DynamicType",
+                                "typeArguments": null
+                              },
+                              "variableParam": false
+                            },
+                            {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 10,
+                                  "line": 11
+                                },
+                                "sourcefile": "examples/switchesType.go",
+                                "start": {
+                                  "column": 9,
+                                  "line": 11
+                                }
+                              },
+                              "name": "v",
+                              "type": "Identifier"
+                            }
+                          ],
+                          "loc": null,
+                          "type": "Sequence"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 3,
+                            "line": 20
+                          },
+                          "sourcefile": "examples/switchesType.go",
+                          "start": {
+                            "column": 2,
+                            "line": 11
+                          }
+                        },
+                        "type": "SwitchStatement"
+                      }
+                    ],
+                    "id": null,
+                    "loc": {
+                      "end": {
+                        "column": 2,
+                        "line": 21
+                      },
+                      "sourcefile": "examples/switchesType.go",
+                      "start": {
+                        "column": 32,
+                        "line": 10
+                      }
+                    },
+                    "type": "ScopedStatement"
+                  },
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 16,
+                        "line": 10
+                      },
+                      "sourcefile": "examples/switchesType.go",
+                      "start": {
+                        "column": 6,
+                        "line": 10
+                      }
+                    },
+                    "name": "TypeSwitch",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 21
+                    },
+                    "sourcefile": "examples/switchesType.go",
+                    "start": {
+                      "column": 1,
+                      "line": 10
+                    }
+                  },
+                  "modifiers": null,
+                  "parameters": [
+                    {
+                      "_meta": {},
+                      "cloned": true,
+                      "id": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "id": null,
+                            "loc": {
+                              "end": {
+                                "column": 30,
+                                "line": 10
+                              },
+                              "sourcefile": "examples/switchesType.go",
+                              "start": {
+                                "column": 19,
+                                "line": 10
+                              }
+                            },
+                            "type": "DynamicType",
+                            "typeArguments": null
+                          }
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 18,
+                            "line": 10
+                          },
+                          "sourcefile": "examples/switchesType.go",
+                          "start": {
+                            "column": 17,
+                            "line": 10
+                          }
+                        },
+                        "name": "i",
+                        "type": "Identifier"
+                      },
+                      "init": null,
+                      "loc": {
+                        "end": {
+                          "column": 30,
+                          "line": 10
+                        },
+                        "sourcefile": "examples/switchesType.go",
+                        "start": {
+                          "column": 17,
+                          "line": 10
+                        }
+                      },
+                      "type": "VariableDeclaration",
+                      "varType": {
+                        "_meta": {},
+                        "id": null,
+                        "loc": {
+                          "end": {
+                            "column": 30,
+                            "line": 10
+                          },
+                          "sourcefile": "examples/switchesType.go",
+                          "start": {
+                            "column": 19,
+                            "line": 10
+                          }
+                        },
+                        "type": "DynamicType",
+                        "typeArguments": null
+                      },
+                      "variableParam": false
+                    }
+                  ],
+                  "returnType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "VoidType",
+                    "typeArguments": null
+                  },
+                  "type": "FunctionDefinition"
+                }
+              ],
+              "language": "golang",
+              "languageVersion": "1.18",
+              "loc": {
+                "end": {
+                  "column": 2,
+                  "line": 21
+                },
+                "sourcefile": "examples/switchesType.go",
+                "start": {
+                  "column": 1,
+                  "line": 1
+                }
+              },
+              "type": "CompileUnit",
+              "uri": "",
+              "version": ""
+            },
+            "packageName": "__single__"
+          }
+        },
+        "subs": {}
+      }
+    }
+  }
+}

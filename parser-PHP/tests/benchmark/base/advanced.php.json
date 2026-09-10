@@ -1,0 +1,1269 @@
+{
+  "type": "CompileUnit",
+  "body": [
+    {
+      "type": "VariableDeclaration",
+      "id": {
+        "type": "Identifier",
+        "name": "APP",
+        "_meta": {
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 7
+            },
+            "end": {
+              "line": 3,
+              "column": 10
+            },
+            "sourcefile": "advanced.php"
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 3,
+            "column": 7
+          },
+          "end": {
+            "line": 3,
+            "column": 10
+          },
+          "sourcefile": "advanced.php"
+        }
+      },
+      "init": {
+        "type": "Literal",
+        "value": 1,
+        "literalType": "number",
+        "_meta": {
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 13
+            },
+            "end": {
+              "line": 3,
+              "column": 14
+            },
+            "sourcefile": "advanced.php"
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 3,
+            "column": 13
+          },
+          "end": {
+            "line": 3,
+            "column": 14
+          },
+          "sourcefile": "advanced.php"
+        }
+      },
+      "cloned": false,
+      "varType": {
+        "type": "DynamicType",
+        "id": null,
+        "_meta": {}
+      },
+      "_meta": {
+        "constant": true,
+        "loc": {
+          "start": {
+            "line": 3,
+            "column": 7
+          },
+          "end": {
+            "line": 3,
+            "column": 14
+          },
+          "sourcefile": "advanced.php"
+        }
+      },
+      "loc": {
+        "start": {
+          "line": 3,
+          "column": 7
+        },
+        "end": {
+          "line": 3,
+          "column": 14
+        },
+        "sourcefile": "advanced.php"
+      }
+    },
+    {
+      "type": "Noop",
+      "_meta": {
+        "loc": {
+          "start": {
+            "line": 5,
+            "column": 1
+          },
+          "end": {
+            "line": 5,
+            "column": 25
+          },
+          "sourcefile": "advanced.php"
+        },
+        "declare": {
+          "directives": [
+            {
+              "key": {
+                "type": "Literal",
+                "value": 1,
+                "literalType": "number",
+                "_meta": {
+                  "loc": {
+                    "start": {
+                      "line": 5,
+                      "column": 22
+                    },
+                    "end": {
+                      "line": 5,
+                      "column": 23
+                    },
+                    "sourcefile": "advanced.php"
+                  }
+                },
+                "loc": {
+                  "start": {
+                    "line": 5,
+                    "column": 22
+                  },
+                  "end": {
+                    "line": 5,
+                    "column": 23
+                  },
+                  "sourcefile": "advanced.php"
+                }
+              },
+              "value": null
+            }
+          ]
+        }
+      },
+      "loc": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 25
+        },
+        "sourcefile": "advanced.php"
+      }
+    },
+    {
+      "type": "FunctionDefinition",
+      "id": {
+        "type": "Identifier",
+        "name": "choose",
+        "_meta": {
+          "loc": {
+            "start": {
+              "line": 7,
+              "column": 10
+            },
+            "end": {
+              "line": 7,
+              "column": 16
+            },
+            "sourcefile": "advanced.php"
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 7,
+            "column": 10
+          },
+          "end": {
+            "line": 7,
+            "column": 16
+          },
+          "sourcefile": "advanced.php"
+        }
+      },
+      "parameters": [
+        {
+          "type": "VariableDeclaration",
+          "id": {
+            "type": "Identifier",
+            "name": "v",
+            "_meta": {
+              "loc": {
+                "start": {
+                  "line": 7,
+                  "column": 17
+                },
+                "end": {
+                  "line": 7,
+                  "column": 19
+                },
+                "sourcefile": "advanced.php"
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 7,
+                "column": 17
+              },
+              "end": {
+                "line": 7,
+                "column": 19
+              },
+              "sourcefile": "advanced.php"
+            }
+          },
+          "init": null,
+          "cloned": false,
+          "varType": {
+            "type": "DynamicType",
+            "id": null,
+            "_meta": {}
+          },
+          "_meta": {
+            "variadic": false,
+            "loc": {
+              "start": {
+                "line": 7,
+                "column": 17
+              },
+              "end": {
+                "line": 7,
+                "column": 19
+              },
+              "sourcefile": "advanced.php"
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 7,
+              "column": 17
+            },
+            "end": {
+              "line": 7,
+              "column": 19
+            },
+            "sourcefile": "advanced.php"
+          }
+        }
+      ],
+      "returnType": {
+        "type": "DynamicType",
+        "id": null,
+        "_meta": {}
+      },
+      "body": {
+        "type": "ScopedStatement",
+        "body": [
+          {
+            "type": "ExpressionStatement",
+            "expression": {
+              "type": "AssignmentExpression",
+              "left": {
+                "type": "Identifier",
+                "name": "value",
+                "_meta": {
+                  "loc": {
+                    "start": {
+                      "line": 9,
+                      "column": 5
+                    },
+                    "end": {
+                      "line": 9,
+                      "column": 11
+                    },
+                    "sourcefile": "advanced.php"
+                  }
+                },
+                "loc": {
+                  "start": {
+                    "line": 9,
+                    "column": 5
+                  },
+                  "end": {
+                    "line": 9,
+                    "column": 11
+                  },
+                  "sourcefile": "advanced.php"
+                }
+              },
+              "right": {
+                "type": "CallExpression",
+                "callee": {
+                  "type": "Identifier",
+                  "name": "match",
+                  "_meta": {}
+                },
+                "arguments": [
+                  {
+                    "type": "Identifier",
+                    "name": "v",
+                    "_meta": {
+                      "loc": {
+                        "start": {
+                          "line": 9,
+                          "column": 21
+                        },
+                        "end": {
+                          "line": 9,
+                          "column": 23
+                        },
+                        "sourcefile": "advanced.php"
+                      }
+                    },
+                    "loc": {
+                      "start": {
+                        "line": 9,
+                        "column": 21
+                      },
+                      "end": {
+                        "line": 9,
+                        "column": 23
+                      },
+                      "sourcefile": "advanced.php"
+                    }
+                  },
+                  {
+                    "type": "TupleExpression",
+                    "elements": [
+                      {
+                        "type": "ObjectExpression",
+                        "properties": [
+                          {
+                            "type": "ObjectProperty",
+                            "key": {
+                              "type": "Identifier",
+                              "name": "conds",
+                              "_meta": {}
+                            },
+                            "value": {
+                              "type": "TupleExpression",
+                              "elements": [
+                                {
+                                  "type": "Literal",
+                                  "value": 1,
+                                  "literalType": "number",
+                                  "_meta": {
+                                    "loc": {
+                                      "start": {
+                                        "line": 10,
+                                        "column": 9
+                                      },
+                                      "end": {
+                                        "line": 10,
+                                        "column": 10
+                                      },
+                                      "sourcefile": "advanced.php"
+                                    }
+                                  },
+                                  "loc": {
+                                    "start": {
+                                      "line": 10,
+                                      "column": 9
+                                    },
+                                    "end": {
+                                      "line": 10,
+                                      "column": 10
+                                    },
+                                    "sourcefile": "advanced.php"
+                                  }
+                                }
+                              ],
+                              "_meta": {}
+                            },
+                            "_meta": {
+                              "loc": {
+                                "start": {
+                                  "line": 10,
+                                  "column": 9
+                                },
+                                "end": {
+                                  "line": 10,
+                                  "column": 19
+                                },
+                                "sourcefile": "advanced.php"
+                              }
+                            },
+                            "loc": {
+                              "start": {
+                                "line": 10,
+                                "column": 9
+                              },
+                              "end": {
+                                "line": 10,
+                                "column": 19
+                              },
+                              "sourcefile": "advanced.php"
+                            }
+                          },
+                          {
+                            "type": "ObjectProperty",
+                            "key": {
+                              "type": "Identifier",
+                              "name": "body",
+                              "_meta": {}
+                            },
+                            "value": {
+                              "type": "CallExpression",
+                              "callee": {
+                                "type": "Identifier",
+                                "name": "foo",
+                                "_meta": {
+                                  "loc": {
+                                    "start": {
+                                      "line": 10,
+                                      "column": 14
+                                    },
+                                    "end": {
+                                      "line": 10,
+                                      "column": 17
+                                    },
+                                    "sourcefile": "advanced.php"
+                                  }
+                                },
+                                "loc": {
+                                  "start": {
+                                    "line": 10,
+                                    "column": 14
+                                  },
+                                  "end": {
+                                    "line": 10,
+                                    "column": 17
+                                  },
+                                  "sourcefile": "advanced.php"
+                                }
+                              },
+                              "arguments": [],
+                              "_meta": {
+                                "loc": {
+                                  "start": {
+                                    "line": 10,
+                                    "column": 14
+                                  },
+                                  "end": {
+                                    "line": 10,
+                                    "column": 19
+                                  },
+                                  "sourcefile": "advanced.php"
+                                }
+                              },
+                              "loc": {
+                                "start": {
+                                  "line": 10,
+                                  "column": 14
+                                },
+                                "end": {
+                                  "line": 10,
+                                  "column": 19
+                                },
+                                "sourcefile": "advanced.php"
+                              }
+                            },
+                            "_meta": {
+                              "loc": {
+                                "start": {
+                                  "line": 10,
+                                  "column": 9
+                                },
+                                "end": {
+                                  "line": 10,
+                                  "column": 19
+                                },
+                                "sourcefile": "advanced.php"
+                              }
+                            },
+                            "loc": {
+                              "start": {
+                                "line": 10,
+                                "column": 9
+                              },
+                              "end": {
+                                "line": 10,
+                                "column": 19
+                              },
+                              "sourcefile": "advanced.php"
+                            }
+                          }
+                        ],
+                        "id": null,
+                        "_meta": {
+                          "loc": {
+                            "start": {
+                              "line": 10,
+                              "column": 9
+                            },
+                            "end": {
+                              "line": 10,
+                              "column": 19
+                            },
+                            "sourcefile": "advanced.php"
+                          }
+                        },
+                        "loc": {
+                          "start": {
+                            "line": 10,
+                            "column": 9
+                          },
+                          "end": {
+                            "line": 10,
+                            "column": 19
+                          },
+                          "sourcefile": "advanced.php"
+                        }
+                      },
+                      {
+                        "type": "ObjectExpression",
+                        "properties": [
+                          {
+                            "type": "ObjectProperty",
+                            "key": {
+                              "type": "Identifier",
+                              "name": "conds",
+                              "_meta": {}
+                            },
+                            "value": {
+                              "type": "TupleExpression",
+                              "elements": [
+                                {
+                                  "type": "Literal",
+                                  "value": 2,
+                                  "literalType": "number",
+                                  "_meta": {
+                                    "loc": {
+                                      "start": {
+                                        "line": 11,
+                                        "column": 9
+                                      },
+                                      "end": {
+                                        "line": 11,
+                                        "column": 10
+                                      },
+                                      "sourcefile": "advanced.php"
+                                    }
+                                  },
+                                  "loc": {
+                                    "start": {
+                                      "line": 11,
+                                      "column": 9
+                                    },
+                                    "end": {
+                                      "line": 11,
+                                      "column": 10
+                                    },
+                                    "sourcefile": "advanced.php"
+                                  }
+                                },
+                                {
+                                  "type": "Literal",
+                                  "value": 3,
+                                  "literalType": "number",
+                                  "_meta": {
+                                    "loc": {
+                                      "start": {
+                                        "line": 11,
+                                        "column": 12
+                                      },
+                                      "end": {
+                                        "line": 11,
+                                        "column": 13
+                                      },
+                                      "sourcefile": "advanced.php"
+                                    }
+                                  },
+                                  "loc": {
+                                    "start": {
+                                      "line": 11,
+                                      "column": 12
+                                    },
+                                    "end": {
+                                      "line": 11,
+                                      "column": 13
+                                    },
+                                    "sourcefile": "advanced.php"
+                                  }
+                                }
+                              ],
+                              "_meta": {}
+                            },
+                            "_meta": {
+                              "loc": {
+                                "start": {
+                                  "line": 11,
+                                  "column": 9
+                                },
+                                "end": {
+                                  "line": 11,
+                                  "column": 22
+                                },
+                                "sourcefile": "advanced.php"
+                              }
+                            },
+                            "loc": {
+                              "start": {
+                                "line": 11,
+                                "column": 9
+                              },
+                              "end": {
+                                "line": 11,
+                                "column": 22
+                              },
+                              "sourcefile": "advanced.php"
+                            }
+                          },
+                          {
+                            "type": "ObjectProperty",
+                            "key": {
+                              "type": "Identifier",
+                              "name": "body",
+                              "_meta": {}
+                            },
+                            "value": {
+                              "type": "CallExpression",
+                              "callee": {
+                                "type": "Identifier",
+                                "name": "bar",
+                                "_meta": {
+                                  "loc": {
+                                    "start": {
+                                      "line": 11,
+                                      "column": 17
+                                    },
+                                    "end": {
+                                      "line": 11,
+                                      "column": 20
+                                    },
+                                    "sourcefile": "advanced.php"
+                                  }
+                                },
+                                "loc": {
+                                  "start": {
+                                    "line": 11,
+                                    "column": 17
+                                  },
+                                  "end": {
+                                    "line": 11,
+                                    "column": 20
+                                  },
+                                  "sourcefile": "advanced.php"
+                                }
+                              },
+                              "arguments": [],
+                              "_meta": {
+                                "loc": {
+                                  "start": {
+                                    "line": 11,
+                                    "column": 17
+                                  },
+                                  "end": {
+                                    "line": 11,
+                                    "column": 22
+                                  },
+                                  "sourcefile": "advanced.php"
+                                }
+                              },
+                              "loc": {
+                                "start": {
+                                  "line": 11,
+                                  "column": 17
+                                },
+                                "end": {
+                                  "line": 11,
+                                  "column": 22
+                                },
+                                "sourcefile": "advanced.php"
+                              }
+                            },
+                            "_meta": {
+                              "loc": {
+                                "start": {
+                                  "line": 11,
+                                  "column": 9
+                                },
+                                "end": {
+                                  "line": 11,
+                                  "column": 22
+                                },
+                                "sourcefile": "advanced.php"
+                              }
+                            },
+                            "loc": {
+                              "start": {
+                                "line": 11,
+                                "column": 9
+                              },
+                              "end": {
+                                "line": 11,
+                                "column": 22
+                              },
+                              "sourcefile": "advanced.php"
+                            }
+                          }
+                        ],
+                        "id": null,
+                        "_meta": {
+                          "loc": {
+                            "start": {
+                              "line": 11,
+                              "column": 9
+                            },
+                            "end": {
+                              "line": 11,
+                              "column": 22
+                            },
+                            "sourcefile": "advanced.php"
+                          }
+                        },
+                        "loc": {
+                          "start": {
+                            "line": 11,
+                            "column": 9
+                          },
+                          "end": {
+                            "line": 11,
+                            "column": 22
+                          },
+                          "sourcefile": "advanced.php"
+                        }
+                      },
+                      {
+                        "type": "ObjectExpression",
+                        "properties": [
+                          {
+                            "type": "ObjectProperty",
+                            "key": {
+                              "type": "Identifier",
+                              "name": "conds",
+                              "_meta": {}
+                            },
+                            "value": {
+                              "type": "TupleExpression",
+                              "elements": [
+                                {
+                                  "type": "Literal",
+                                  "value": "default",
+                                  "literalType": "string",
+                                  "_meta": {}
+                                }
+                              ],
+                              "_meta": {}
+                            },
+                            "_meta": {
+                              "loc": {
+                                "start": {
+                                  "line": 12,
+                                  "column": 9
+                                },
+                                "end": {
+                                  "line": 12,
+                                  "column": 25
+                                },
+                                "sourcefile": "advanced.php"
+                              }
+                            },
+                            "loc": {
+                              "start": {
+                                "line": 12,
+                                "column": 9
+                              },
+                              "end": {
+                                "line": 12,
+                                "column": 25
+                              },
+                              "sourcefile": "advanced.php"
+                            }
+                          },
+                          {
+                            "type": "ObjectProperty",
+                            "key": {
+                              "type": "Identifier",
+                              "name": "body",
+                              "_meta": {}
+                            },
+                            "value": {
+                              "type": "CallExpression",
+                              "callee": {
+                                "type": "Identifier",
+                                "name": "baz",
+                                "_meta": {
+                                  "loc": {
+                                    "start": {
+                                      "line": 12,
+                                      "column": 20
+                                    },
+                                    "end": {
+                                      "line": 12,
+                                      "column": 23
+                                    },
+                                    "sourcefile": "advanced.php"
+                                  }
+                                },
+                                "loc": {
+                                  "start": {
+                                    "line": 12,
+                                    "column": 20
+                                  },
+                                  "end": {
+                                    "line": 12,
+                                    "column": 23
+                                  },
+                                  "sourcefile": "advanced.php"
+                                }
+                              },
+                              "arguments": [],
+                              "_meta": {
+                                "loc": {
+                                  "start": {
+                                    "line": 12,
+                                    "column": 20
+                                  },
+                                  "end": {
+                                    "line": 12,
+                                    "column": 25
+                                  },
+                                  "sourcefile": "advanced.php"
+                                }
+                              },
+                              "loc": {
+                                "start": {
+                                  "line": 12,
+                                  "column": 20
+                                },
+                                "end": {
+                                  "line": 12,
+                                  "column": 25
+                                },
+                                "sourcefile": "advanced.php"
+                              }
+                            },
+                            "_meta": {
+                              "loc": {
+                                "start": {
+                                  "line": 12,
+                                  "column": 9
+                                },
+                                "end": {
+                                  "line": 12,
+                                  "column": 25
+                                },
+                                "sourcefile": "advanced.php"
+                              }
+                            },
+                            "loc": {
+                              "start": {
+                                "line": 12,
+                                "column": 9
+                              },
+                              "end": {
+                                "line": 12,
+                                "column": 25
+                              },
+                              "sourcefile": "advanced.php"
+                            }
+                          }
+                        ],
+                        "id": null,
+                        "_meta": {
+                          "default": true,
+                          "loc": {
+                            "start": {
+                              "line": 12,
+                              "column": 9
+                            },
+                            "end": {
+                              "line": 12,
+                              "column": 25
+                            },
+                            "sourcefile": "advanced.php"
+                          }
+                        },
+                        "loc": {
+                          "start": {
+                            "line": 12,
+                            "column": 9
+                          },
+                          "end": {
+                            "line": 12,
+                            "column": 25
+                          },
+                          "sourcefile": "advanced.php"
+                        }
+                      }
+                    ],
+                    "_meta": {}
+                  }
+                ],
+                "_meta": {
+                  "synthetic": true,
+                  "loc": {
+                    "start": {
+                      "line": 9,
+                      "column": 14
+                    },
+                    "end": {
+                      "line": 13,
+                      "column": 6
+                    },
+                    "sourcefile": "advanced.php"
+                  }
+                },
+                "loc": {
+                  "start": {
+                    "line": 9,
+                    "column": 14
+                  },
+                  "end": {
+                    "line": 13,
+                    "column": 6
+                  },
+                  "sourcefile": "advanced.php"
+                }
+              },
+              "operator": "=",
+              "cloned": false,
+              "_meta": {
+                "loc": {
+                  "start": {
+                    "line": 9,
+                    "column": 5
+                  },
+                  "end": {
+                    "line": 13,
+                    "column": 6
+                  },
+                  "sourcefile": "advanced.php"
+                }
+              },
+              "loc": {
+                "start": {
+                  "line": 9,
+                  "column": 5
+                },
+                "end": {
+                  "line": 13,
+                  "column": 6
+                },
+                "sourcefile": "advanced.php"
+              }
+            },
+            "_meta": {
+              "loc": {
+                "start": {
+                  "line": 9,
+                  "column": 5
+                },
+                "end": {
+                  "line": 13,
+                  "column": 7
+                },
+                "sourcefile": "advanced.php"
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 9,
+                "column": 5
+              },
+              "end": {
+                "line": 13,
+                "column": 7
+              },
+              "sourcefile": "advanced.php"
+            }
+          },
+          {
+            "type": "ReturnStatement",
+            "argument": {
+              "type": "Identifier",
+              "name": "value",
+              "_meta": {
+                "loc": {
+                  "start": {
+                    "line": 15,
+                    "column": 12
+                  },
+                  "end": {
+                    "line": 15,
+                    "column": 18
+                  },
+                  "sourcefile": "advanced.php"
+                }
+              },
+              "loc": {
+                "start": {
+                  "line": 15,
+                  "column": 12
+                },
+                "end": {
+                  "line": 15,
+                  "column": 18
+                },
+                "sourcefile": "advanced.php"
+              }
+            },
+            "isYield": false,
+            "_meta": {
+              "loc": {
+                "start": {
+                  "line": 15,
+                  "column": 5
+                },
+                "end": {
+                  "line": 15,
+                  "column": 19
+                },
+                "sourcefile": "advanced.php"
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 15,
+                "column": 5
+              },
+              "end": {
+                "line": 15,
+                "column": 19
+              },
+              "sourcefile": "advanced.php"
+            }
+          }
+        ],
+        "id": null,
+        "_meta": {
+          "loc": {
+            "start": {
+              "line": 8,
+              "column": 1
+            },
+            "end": {
+              "line": 16,
+              "column": 2
+            },
+            "sourcefile": "advanced.php"
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 8,
+            "column": 1
+          },
+          "end": {
+            "line": 16,
+            "column": 2
+          },
+          "sourcefile": "advanced.php"
+        }
+      },
+      "modifiers": [],
+      "_meta": {
+        "loc": {
+          "start": {
+            "line": 7,
+            "column": 1
+          },
+          "end": {
+            "line": 16,
+            "column": 2
+          },
+          "sourcefile": "advanced.php"
+        }
+      },
+      "loc": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 16,
+          "column": 2
+        },
+        "sourcefile": "advanced.php"
+      }
+    },
+    {
+      "type": "ScopedStatement",
+      "body": [
+        {
+          "type": "ExpressionStatement",
+          "expression": {
+            "type": "CallExpression",
+            "callee": {
+              "type": "Identifier",
+              "name": "echo",
+              "_meta": {}
+            },
+            "arguments": [
+              {
+                "type": "Identifier",
+                "name": "APP",
+                "_meta": {
+                  "loc": {
+                    "start": {
+                      "line": 19,
+                      "column": 10
+                    },
+                    "end": {
+                      "line": 19,
+                      "column": 13
+                    },
+                    "sourcefile": "advanced.php"
+                  }
+                },
+                "loc": {
+                  "start": {
+                    "line": 19,
+                    "column": 10
+                  },
+                  "end": {
+                    "line": 19,
+                    "column": 13
+                  },
+                  "sourcefile": "advanced.php"
+                }
+              }
+            ],
+            "_meta": {
+              "loc": {
+                "start": {
+                  "line": 19,
+                  "column": 5
+                },
+                "end": {
+                  "line": 19,
+                  "column": 14
+                },
+                "sourcefile": "advanced.php"
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 19,
+                "column": 5
+              },
+              "end": {
+                "line": 19,
+                "column": 14
+              },
+              "sourcefile": "advanced.php"
+            }
+          },
+          "_meta": {
+            "loc": {
+              "start": {
+                "line": 19,
+                "column": 5
+              },
+              "end": {
+                "line": 19,
+                "column": 14
+              },
+              "sourcefile": "advanced.php"
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 19,
+              "column": 5
+            },
+            "end": {
+              "line": 19,
+              "column": 14
+            },
+            "sourcefile": "advanced.php"
+          }
+        }
+      ],
+      "id": null,
+      "_meta": {
+        "loc": {
+          "start": {
+            "line": 18,
+            "column": 1
+          },
+          "end": {
+            "line": 20,
+            "column": 2
+          },
+          "sourcefile": "advanced.php"
+        },
+        "declare": {
+          "directives": [
+            {
+              "key": {
+                "type": "Literal",
+                "value": 1,
+                "literalType": "number",
+                "_meta": {
+                  "loc": {
+                    "start": {
+                      "line": 18,
+                      "column": 15
+                    },
+                    "end": {
+                      "line": 18,
+                      "column": 16
+                    },
+                    "sourcefile": "advanced.php"
+                  }
+                },
+                "loc": {
+                  "start": {
+                    "line": 18,
+                    "column": 15
+                  },
+                  "end": {
+                    "line": 18,
+                    "column": 16
+                  },
+                  "sourcefile": "advanced.php"
+                }
+              },
+              "value": null
+            }
+          ]
+        }
+      },
+      "loc": {
+        "start": {
+          "line": 18,
+          "column": 1
+        },
+        "end": {
+          "line": 20,
+          "column": 2
+        },
+        "sourcefile": "advanced.php"
+      }
+    }
+  ],
+  "language": "php",
+  "languageVersion": null,
+  "uri": "advanced.php",
+  "version": "0.0.0",
+  "_meta": {
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 1
+      },
+      "end": {
+        "line": 21,
+        "column": 1
+      },
+      "sourcefile": "advanced.php"
+    }
+  },
+  "loc": {
+    "start": {
+      "line": 1,
+      "column": 1
+    },
+    "end": {
+      "line": 21,
+      "column": 1
+    },
+    "sourcefile": "advanced.php"
+  }
+}

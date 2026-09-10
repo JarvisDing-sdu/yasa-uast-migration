@@ -1,0 +1,1357 @@
+{
+  "type": "CompileUnit",
+  "body": [
+    {
+      "type": "ClassDefinition",
+      "id": {
+        "type": "Identifier",
+        "name": "Demo",
+        "_meta": {
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 7
+            },
+            "end": {
+              "line": 3,
+              "column": 11
+            },
+            "sourcefile": "strings-casts.php"
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 3,
+            "column": 7
+          },
+          "end": {
+            "line": 3,
+            "column": 11
+          },
+          "sourcefile": "strings-casts.php"
+        }
+      },
+      "body": [
+        {
+          "type": "VariableDeclaration",
+          "id": {
+            "type": "Identifier",
+            "name": "NAME",
+            "_meta": {
+              "loc": {
+                "start": {
+                  "line": 5,
+                  "column": 11
+                },
+                "end": {
+                  "line": 5,
+                  "column": 15
+                },
+                "sourcefile": "strings-casts.php"
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 5,
+                "column": 11
+              },
+              "end": {
+                "line": 5,
+                "column": 15
+              },
+              "sourcefile": "strings-casts.php"
+            }
+          },
+          "init": {
+            "type": "Literal",
+            "value": "demo",
+            "literalType": "string",
+            "_meta": {
+              "loc": {
+                "start": {
+                  "line": 5,
+                  "column": 18
+                },
+                "end": {
+                  "line": 5,
+                  "column": 24
+                },
+                "sourcefile": "strings-casts.php"
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 5,
+                "column": 18
+              },
+              "end": {
+                "line": 5,
+                "column": 24
+              },
+              "sourcefile": "strings-casts.php"
+            }
+          },
+          "cloned": false,
+          "varType": {
+            "type": "DynamicType",
+            "id": null,
+            "_meta": {}
+          },
+          "_meta": {
+            "constant": true,
+            "loc": {
+              "start": {
+                "line": 5,
+                "column": 11
+              },
+              "end": {
+                "line": 5,
+                "column": 24
+              },
+              "sourcefile": "strings-casts.php"
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 5,
+              "column": 11
+            },
+            "end": {
+              "line": 5,
+              "column": 24
+            },
+            "sourcefile": "strings-casts.php"
+          }
+        }
+      ],
+      "supers": [],
+      "_meta": {
+        "loc": {
+          "start": {
+            "line": 3,
+            "column": 1
+          },
+          "end": {
+            "line": 6,
+            "column": 2
+          },
+          "sourcefile": "strings-casts.php"
+        }
+      },
+      "loc": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 2
+        },
+        "sourcefile": "strings-casts.php"
+      }
+    },
+    {
+      "type": "ExpressionStatement",
+      "expression": {
+        "type": "AssignmentExpression",
+        "left": {
+          "type": "Identifier",
+          "name": "a",
+          "_meta": {
+            "loc": {
+              "start": {
+                "line": 8,
+                "column": 1
+              },
+              "end": {
+                "line": 8,
+                "column": 3
+              },
+              "sourcefile": "strings-casts.php"
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 8,
+              "column": 1
+            },
+            "end": {
+              "line": 8,
+              "column": 3
+            },
+            "sourcefile": "strings-casts.php"
+          }
+        },
+        "right": {
+          "type": "BinaryExpression",
+          "operator": "+",
+          "left": {
+            "type": "Literal",
+            "value": "Hello ",
+            "literalType": "string",
+            "_meta": {
+              "loc": {
+                "start": {
+                  "line": 8,
+                  "column": 7
+                },
+                "end": {
+                  "line": 8,
+                  "column": 13
+                },
+                "sourcefile": "strings-casts.php"
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 8,
+                "column": 7
+              },
+              "end": {
+                "line": 8,
+                "column": 13
+              },
+              "sourcefile": "strings-casts.php"
+            }
+          },
+          "right": {
+            "type": "Identifier",
+            "name": "name",
+            "_meta": {
+              "loc": {
+                "start": {
+                  "line": 8,
+                  "column": 13
+                },
+                "end": {
+                  "line": 8,
+                  "column": 18
+                },
+                "sourcefile": "strings-casts.php"
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 8,
+                "column": 13
+              },
+              "end": {
+                "line": 8,
+                "column": 18
+              },
+              "sourcefile": "strings-casts.php"
+            }
+          },
+          "_meta": {
+            "loc": {
+              "start": {
+                "line": 8,
+                "column": 6
+              },
+              "end": {
+                "line": 8,
+                "column": 19
+              },
+              "sourcefile": "strings-casts.php"
+            },
+            "encapsed": true
+          },
+          "loc": {
+            "start": {
+              "line": 8,
+              "column": 6
+            },
+            "end": {
+              "line": 8,
+              "column": 19
+            },
+            "sourcefile": "strings-casts.php"
+          }
+        },
+        "operator": "=",
+        "cloned": false,
+        "_meta": {
+          "loc": {
+            "start": {
+              "line": 8,
+              "column": 1
+            },
+            "end": {
+              "line": 8,
+              "column": 19
+            },
+            "sourcefile": "strings-casts.php"
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 8,
+            "column": 1
+          },
+          "end": {
+            "line": 8,
+            "column": 19
+          },
+          "sourcefile": "strings-casts.php"
+        }
+      },
+      "_meta": {
+        "loc": {
+          "start": {
+            "line": 8,
+            "column": 1
+          },
+          "end": {
+            "line": 8,
+            "column": 20
+          },
+          "sourcefile": "strings-casts.php"
+        }
+      },
+      "loc": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 8,
+          "column": 20
+        },
+        "sourcefile": "strings-casts.php"
+      }
+    },
+    {
+      "type": "ExpressionStatement",
+      "expression": {
+        "type": "AssignmentExpression",
+        "left": {
+          "type": "Identifier",
+          "name": "b",
+          "_meta": {
+            "loc": {
+              "start": {
+                "line": 9,
+                "column": 1
+              },
+              "end": {
+                "line": 9,
+                "column": 3
+              },
+              "sourcefile": "strings-casts.php"
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 9,
+              "column": 1
+            },
+            "end": {
+              "line": 9,
+              "column": 3
+            },
+            "sourcefile": "strings-casts.php"
+          }
+        },
+        "right": {
+          "type": "Literal",
+          "value": "raw",
+          "literalType": "string",
+          "_meta": {
+            "nowdoc": true,
+            "loc": {
+              "start": {
+                "line": 9,
+                "column": 6
+              },
+              "end": {
+                "line": 11,
+                "column": 4
+              },
+              "sourcefile": "strings-casts.php"
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 9,
+              "column": 6
+            },
+            "end": {
+              "line": 11,
+              "column": 4
+            },
+            "sourcefile": "strings-casts.php"
+          }
+        },
+        "operator": "=",
+        "cloned": false,
+        "_meta": {
+          "loc": {
+            "start": {
+              "line": 9,
+              "column": 1
+            },
+            "end": {
+              "line": 11,
+              "column": 4
+            },
+            "sourcefile": "strings-casts.php"
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 9,
+            "column": 1
+          },
+          "end": {
+            "line": 11,
+            "column": 4
+          },
+          "sourcefile": "strings-casts.php"
+        }
+      },
+      "_meta": {
+        "loc": {
+          "start": {
+            "line": 9,
+            "column": 1
+          },
+          "end": {
+            "line": 11,
+            "column": 5
+          },
+          "sourcefile": "strings-casts.php"
+        }
+      },
+      "loc": {
+        "start": {
+          "line": 9,
+          "column": 1
+        },
+        "end": {
+          "line": 11,
+          "column": 5
+        },
+        "sourcefile": "strings-casts.php"
+      }
+    },
+    {
+      "type": "ExpressionStatement",
+      "expression": {
+        "type": "AssignmentExpression",
+        "left": {
+          "type": "Identifier",
+          "name": "c",
+          "_meta": {
+            "loc": {
+              "start": {
+                "line": 12,
+                "column": 1
+              },
+              "end": {
+                "line": 12,
+                "column": 3
+              },
+              "sourcefile": "strings-casts.php"
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 12,
+              "column": 1
+            },
+            "end": {
+              "line": 12,
+              "column": 3
+            },
+            "sourcefile": "strings-casts.php"
+          }
+        },
+        "right": {
+          "type": "Identifier",
+          "name": "__FILE__",
+          "_meta": {
+            "loc": {
+              "start": {
+                "line": 12,
+                "column": 6
+              },
+              "end": {
+                "line": 12,
+                "column": 14
+              },
+              "sourcefile": "strings-casts.php"
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 12,
+              "column": 6
+            },
+            "end": {
+              "line": 12,
+              "column": 14
+            },
+            "sourcefile": "strings-casts.php"
+          }
+        },
+        "operator": "=",
+        "cloned": false,
+        "_meta": {
+          "loc": {
+            "start": {
+              "line": 12,
+              "column": 1
+            },
+            "end": {
+              "line": 12,
+              "column": 14
+            },
+            "sourcefile": "strings-casts.php"
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 12,
+            "column": 1
+          },
+          "end": {
+            "line": 12,
+            "column": 14
+          },
+          "sourcefile": "strings-casts.php"
+        }
+      },
+      "_meta": {
+        "loc": {
+          "start": {
+            "line": 12,
+            "column": 1
+          },
+          "end": {
+            "line": 12,
+            "column": 15
+          },
+          "sourcefile": "strings-casts.php"
+        }
+      },
+      "loc": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 15
+        },
+        "sourcefile": "strings-casts.php"
+      }
+    },
+    {
+      "type": "ExpressionStatement",
+      "expression": {
+        "type": "AssignmentExpression",
+        "left": {
+          "type": "Identifier",
+          "name": "d",
+          "_meta": {
+            "loc": {
+              "start": {
+                "line": 13,
+                "column": 1
+              },
+              "end": {
+                "line": 13,
+                "column": 3
+              },
+              "sourcefile": "strings-casts.php"
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 13,
+              "column": 1
+            },
+            "end": {
+              "line": 13,
+              "column": 3
+            },
+            "sourcefile": "strings-casts.php"
+          }
+        },
+        "right": {
+          "type": "MemberAccess",
+          "object": {
+            "type": "Identifier",
+            "name": "Demo",
+            "_meta": {
+              "loc": {
+                "start": {
+                  "line": 13,
+                  "column": 6
+                },
+                "end": {
+                  "line": 13,
+                  "column": 10
+                },
+                "sourcefile": "strings-casts.php"
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 13,
+                "column": 6
+              },
+              "end": {
+                "line": 13,
+                "column": 10
+              },
+              "sourcefile": "strings-casts.php"
+            }
+          },
+          "property": {
+            "type": "Identifier",
+            "name": "NAME",
+            "_meta": {
+              "loc": {
+                "start": {
+                  "line": 13,
+                  "column": 12
+                },
+                "end": {
+                  "line": 13,
+                  "column": 16
+                },
+                "sourcefile": "strings-casts.php"
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 13,
+                "column": 12
+              },
+              "end": {
+                "line": 13,
+                "column": 16
+              },
+              "sourcefile": "strings-casts.php"
+            }
+          },
+          "computed": false,
+          "_meta": {
+            "isStatic": true,
+            "loc": {
+              "start": {
+                "line": 13,
+                "column": 6
+              },
+              "end": {
+                "line": 13,
+                "column": 16
+              },
+              "sourcefile": "strings-casts.php"
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 13,
+              "column": 6
+            },
+            "end": {
+              "line": 13,
+              "column": 16
+            },
+            "sourcefile": "strings-casts.php"
+          }
+        },
+        "operator": "=",
+        "cloned": false,
+        "_meta": {
+          "loc": {
+            "start": {
+              "line": 13,
+              "column": 1
+            },
+            "end": {
+              "line": 13,
+              "column": 16
+            },
+            "sourcefile": "strings-casts.php"
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 13,
+            "column": 1
+          },
+          "end": {
+            "line": 13,
+            "column": 16
+          },
+          "sourcefile": "strings-casts.php"
+        }
+      },
+      "_meta": {
+        "loc": {
+          "start": {
+            "line": 13,
+            "column": 1
+          },
+          "end": {
+            "line": 13,
+            "column": 17
+          },
+          "sourcefile": "strings-casts.php"
+        }
+      },
+      "loc": {
+        "start": {
+          "line": 13,
+          "column": 1
+        },
+        "end": {
+          "line": 13,
+          "column": 17
+        },
+        "sourcefile": "strings-casts.php"
+      }
+    },
+    {
+      "type": "ExpressionStatement",
+      "expression": {
+        "type": "AssignmentExpression",
+        "left": {
+          "type": "Identifier",
+          "name": "e",
+          "_meta": {
+            "loc": {
+              "start": {
+                "line": 14,
+                "column": 1
+              },
+              "end": {
+                "line": 14,
+                "column": 3
+              },
+              "sourcefile": "strings-casts.php"
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 14,
+              "column": 1
+            },
+            "end": {
+              "line": 14,
+              "column": 3
+            },
+            "sourcefile": "strings-casts.php"
+          }
+        },
+        "right": {
+          "type": "MemberAccess",
+          "object": {
+            "type": "Identifier",
+            "name": "self",
+            "_meta": {
+              "loc": {
+                "start": {
+                  "line": 14,
+                  "column": 6
+                },
+                "end": {
+                  "line": 14,
+                  "column": 10
+                },
+                "sourcefile": "strings-casts.php"
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 14,
+                "column": 6
+              },
+              "end": {
+                "line": 14,
+                "column": 10
+              },
+              "sourcefile": "strings-casts.php"
+            }
+          },
+          "property": {
+            "type": "Identifier",
+            "name": "NAME",
+            "_meta": {
+              "loc": {
+                "start": {
+                  "line": 14,
+                  "column": 12
+                },
+                "end": {
+                  "line": 14,
+                  "column": 16
+                },
+                "sourcefile": "strings-casts.php"
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 14,
+                "column": 12
+              },
+              "end": {
+                "line": 14,
+                "column": 16
+              },
+              "sourcefile": "strings-casts.php"
+            }
+          },
+          "computed": false,
+          "_meta": {
+            "isStatic": true,
+            "loc": {
+              "start": {
+                "line": 14,
+                "column": 6
+              },
+              "end": {
+                "line": 14,
+                "column": 16
+              },
+              "sourcefile": "strings-casts.php"
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 14,
+              "column": 6
+            },
+            "end": {
+              "line": 14,
+              "column": 16
+            },
+            "sourcefile": "strings-casts.php"
+          }
+        },
+        "operator": "=",
+        "cloned": false,
+        "_meta": {
+          "loc": {
+            "start": {
+              "line": 14,
+              "column": 1
+            },
+            "end": {
+              "line": 14,
+              "column": 16
+            },
+            "sourcefile": "strings-casts.php"
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 14,
+            "column": 1
+          },
+          "end": {
+            "line": 14,
+            "column": 16
+          },
+          "sourcefile": "strings-casts.php"
+        }
+      },
+      "_meta": {
+        "loc": {
+          "start": {
+            "line": 14,
+            "column": 1
+          },
+          "end": {
+            "line": 14,
+            "column": 17
+          },
+          "sourcefile": "strings-casts.php"
+        }
+      },
+      "loc": {
+        "start": {
+          "line": 14,
+          "column": 1
+        },
+        "end": {
+          "line": 14,
+          "column": 17
+        },
+        "sourcefile": "strings-casts.php"
+      }
+    },
+    {
+      "type": "ExpressionStatement",
+      "expression": {
+        "type": "AssignmentExpression",
+        "left": {
+          "type": "Identifier",
+          "name": "i",
+          "_meta": {
+            "loc": {
+              "start": {
+                "line": 15,
+                "column": 1
+              },
+              "end": {
+                "line": 15,
+                "column": 3
+              },
+              "sourcefile": "strings-casts.php"
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 15,
+              "column": 1
+            },
+            "end": {
+              "line": 15,
+              "column": 3
+            },
+            "sourcefile": "strings-casts.php"
+          }
+        },
+        "right": {
+          "type": "CallExpression",
+          "callee": {
+            "type": "Identifier",
+            "name": "int",
+            "_meta": {}
+          },
+          "arguments": [
+            {
+              "type": "Identifier",
+              "name": "x",
+              "_meta": {
+                "loc": {
+                  "start": {
+                    "line": 15,
+                    "column": 11
+                  },
+                  "end": {
+                    "line": 15,
+                    "column": 13
+                  },
+                  "sourcefile": "strings-casts.php"
+                }
+              },
+              "loc": {
+                "start": {
+                  "line": 15,
+                  "column": 11
+                },
+                "end": {
+                  "line": 15,
+                  "column": 13
+                },
+                "sourcefile": "strings-casts.php"
+              }
+            }
+          ],
+          "_meta": {
+            "isCast": true,
+            "loc": {
+              "start": {
+                "line": 15,
+                "column": 6
+              },
+              "end": {
+                "line": 15,
+                "column": 13
+              },
+              "sourcefile": "strings-casts.php"
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 15,
+              "column": 6
+            },
+            "end": {
+              "line": 15,
+              "column": 13
+            },
+            "sourcefile": "strings-casts.php"
+          }
+        },
+        "operator": "=",
+        "cloned": false,
+        "_meta": {
+          "loc": {
+            "start": {
+              "line": 15,
+              "column": 1
+            },
+            "end": {
+              "line": 15,
+              "column": 13
+            },
+            "sourcefile": "strings-casts.php"
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 15,
+            "column": 1
+          },
+          "end": {
+            "line": 15,
+            "column": 13
+          },
+          "sourcefile": "strings-casts.php"
+        }
+      },
+      "_meta": {
+        "loc": {
+          "start": {
+            "line": 15,
+            "column": 1
+          },
+          "end": {
+            "line": 15,
+            "column": 14
+          },
+          "sourcefile": "strings-casts.php"
+        }
+      },
+      "loc": {
+        "start": {
+          "line": 15,
+          "column": 1
+        },
+        "end": {
+          "line": 15,
+          "column": 14
+        },
+        "sourcefile": "strings-casts.php"
+      }
+    },
+    {
+      "type": "ExpressionStatement",
+      "expression": {
+        "type": "AssignmentExpression",
+        "left": {
+          "type": "Identifier",
+          "name": "s",
+          "_meta": {
+            "loc": {
+              "start": {
+                "line": 16,
+                "column": 1
+              },
+              "end": {
+                "line": 16,
+                "column": 3
+              },
+              "sourcefile": "strings-casts.php"
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 16,
+              "column": 1
+            },
+            "end": {
+              "line": 16,
+              "column": 3
+            },
+            "sourcefile": "strings-casts.php"
+          }
+        },
+        "right": {
+          "type": "CallExpression",
+          "callee": {
+            "type": "Identifier",
+            "name": "string",
+            "_meta": {}
+          },
+          "arguments": [
+            {
+              "type": "Identifier",
+              "name": "y",
+              "_meta": {
+                "loc": {
+                  "start": {
+                    "line": 16,
+                    "column": 14
+                  },
+                  "end": {
+                    "line": 16,
+                    "column": 16
+                  },
+                  "sourcefile": "strings-casts.php"
+                }
+              },
+              "loc": {
+                "start": {
+                  "line": 16,
+                  "column": 14
+                },
+                "end": {
+                  "line": 16,
+                  "column": 16
+                },
+                "sourcefile": "strings-casts.php"
+              }
+            }
+          ],
+          "_meta": {
+            "isCast": true,
+            "loc": {
+              "start": {
+                "line": 16,
+                "column": 6
+              },
+              "end": {
+                "line": 16,
+                "column": 16
+              },
+              "sourcefile": "strings-casts.php"
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 16,
+              "column": 6
+            },
+            "end": {
+              "line": 16,
+              "column": 16
+            },
+            "sourcefile": "strings-casts.php"
+          }
+        },
+        "operator": "=",
+        "cloned": false,
+        "_meta": {
+          "loc": {
+            "start": {
+              "line": 16,
+              "column": 1
+            },
+            "end": {
+              "line": 16,
+              "column": 16
+            },
+            "sourcefile": "strings-casts.php"
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 16,
+            "column": 1
+          },
+          "end": {
+            "line": 16,
+            "column": 16
+          },
+          "sourcefile": "strings-casts.php"
+        }
+      },
+      "_meta": {
+        "loc": {
+          "start": {
+            "line": 16,
+            "column": 1
+          },
+          "end": {
+            "line": 16,
+            "column": 17
+          },
+          "sourcefile": "strings-casts.php"
+        }
+      },
+      "loc": {
+        "start": {
+          "line": 16,
+          "column": 1
+        },
+        "end": {
+          "line": 16,
+          "column": 17
+        },
+        "sourcefile": "strings-casts.php"
+      }
+    },
+    {
+      "type": "ExpressionStatement",
+      "expression": {
+        "type": "AssignmentExpression",
+        "left": {
+          "type": "Identifier",
+          "name": "arr",
+          "_meta": {
+            "loc": {
+              "start": {
+                "line": 17,
+                "column": 1
+              },
+              "end": {
+                "line": 17,
+                "column": 5
+              },
+              "sourcefile": "strings-casts.php"
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 17,
+              "column": 1
+            },
+            "end": {
+              "line": 17,
+              "column": 5
+            },
+            "sourcefile": "strings-casts.php"
+          }
+        },
+        "right": {
+          "type": "CallExpression",
+          "callee": {
+            "type": "Identifier",
+            "name": "array",
+            "_meta": {}
+          },
+          "arguments": [
+            {
+              "type": "Identifier",
+              "name": "z",
+              "_meta": {
+                "loc": {
+                  "start": {
+                    "line": 17,
+                    "column": 15
+                  },
+                  "end": {
+                    "line": 17,
+                    "column": 17
+                  },
+                  "sourcefile": "strings-casts.php"
+                }
+              },
+              "loc": {
+                "start": {
+                  "line": 17,
+                  "column": 15
+                },
+                "end": {
+                  "line": 17,
+                  "column": 17
+                },
+                "sourcefile": "strings-casts.php"
+              }
+            }
+          ],
+          "_meta": {
+            "isCast": true,
+            "loc": {
+              "start": {
+                "line": 17,
+                "column": 8
+              },
+              "end": {
+                "line": 17,
+                "column": 17
+              },
+              "sourcefile": "strings-casts.php"
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 17,
+              "column": 8
+            },
+            "end": {
+              "line": 17,
+              "column": 17
+            },
+            "sourcefile": "strings-casts.php"
+          }
+        },
+        "operator": "=",
+        "cloned": false,
+        "_meta": {
+          "loc": {
+            "start": {
+              "line": 17,
+              "column": 1
+            },
+            "end": {
+              "line": 17,
+              "column": 17
+            },
+            "sourcefile": "strings-casts.php"
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 17,
+            "column": 1
+          },
+          "end": {
+            "line": 17,
+            "column": 17
+          },
+          "sourcefile": "strings-casts.php"
+        }
+      },
+      "_meta": {
+        "loc": {
+          "start": {
+            "line": 17,
+            "column": 1
+          },
+          "end": {
+            "line": 17,
+            "column": 18
+          },
+          "sourcefile": "strings-casts.php"
+        }
+      },
+      "loc": {
+        "start": {
+          "line": 17,
+          "column": 1
+        },
+        "end": {
+          "line": 17,
+          "column": 18
+        },
+        "sourcefile": "strings-casts.php"
+      }
+    }
+  ],
+  "language": "php",
+  "languageVersion": null,
+  "uri": "strings-casts.php",
+  "version": "0.0.0",
+  "_meta": {
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 1
+      },
+      "end": {
+        "line": 18,
+        "column": 1
+      },
+      "sourcefile": "strings-casts.php"
+    }
+  },
+  "loc": {
+    "start": {
+      "line": 1,
+      "column": 1
+    },
+    "end": {
+      "line": 18,
+      "column": 1
+    },
+    "sourcefile": "strings-casts.php"
+  }
+}

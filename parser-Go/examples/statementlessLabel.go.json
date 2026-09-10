@@ -1,0 +1,1643 @@
+{
+  "moduleName": "__single_module__",
+  "packageInfo": {
+    "PathName": "",
+    "files": {},
+    "subs": {
+      "/": {
+        "PathName": "",
+        "files": {
+          "examples/statementlessLabel.go": {
+            "node": {
+              "_meta": {},
+              "body": [
+                {
+                  "_meta": {},
+                  "loc": {
+                    "end": {
+                      "column": 17,
+                      "line": 1
+                    },
+                    "sourcefile": "examples/statementlessLabel.go",
+                    "start": {
+                      "column": 9,
+                      "line": 1
+                    }
+                  },
+                  "packageName": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 17,
+                        "line": 1
+                      },
+                      "sourcefile": "examples/statementlessLabel.go",
+                      "start": {
+                        "column": 9,
+                        "line": 1
+                      }
+                    },
+                    "name": "examples",
+                    "type": "Identifier"
+                  },
+                  "type": "PackageDeclaration"
+                },
+                {
+                  "_meta": {},
+                  "body": {
+                    "_meta": {},
+                    "body": [
+                      {
+                        "_meta": {},
+                        "body": {
+                          "_meta": {},
+                          "body": [
+                            {
+                              "_meta": {},
+                              "alternative": {
+                                "_meta": {},
+                                "loc": null,
+                                "type": "Noop"
+                              },
+                              "consequent": {
+                                "_meta": {},
+                                "body": [
+                                  {
+                                    "_meta": {},
+                                    "arguments": [],
+                                    "callee": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 11,
+                                          "line": 6
+                                        },
+                                        "sourcefile": "examples/statementlessLabel.go",
+                                        "start": {
+                                          "column": 4,
+                                          "line": 6
+                                        }
+                                      },
+                                      "name": "println",
+                                      "type": "Identifier"
+                                    },
+                                    "loc": {
+                                      "end": {
+                                        "column": 13,
+                                        "line": 6
+                                      },
+                                      "sourcefile": "examples/statementlessLabel.go",
+                                      "start": {
+                                        "column": 4,
+                                        "line": 6
+                                      }
+                                    },
+                                    "type": "CallExpression"
+                                  }
+                                ],
+                                "id": null,
+                                "loc": {
+                                  "end": {
+                                    "column": 4,
+                                    "line": 7
+                                  },
+                                  "sourcefile": "examples/statementlessLabel.go",
+                                  "start": {
+                                    "column": 11,
+                                    "line": 5
+                                  }
+                                },
+                                "type": "ScopedStatement"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 4,
+                                  "line": 7
+                                },
+                                "sourcefile": "examples/statementlessLabel.go",
+                                "start": {
+                                  "column": 3,
+                                  "line": 5
+                                }
+                              },
+                              "test": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 10,
+                                    "line": 5
+                                  },
+                                  "sourcefile": "examples/statementlessLabel.go",
+                                  "start": {
+                                    "column": 6,
+                                    "line": 5
+                                  }
+                                },
+                                "name": "true",
+                                "type": "Identifier"
+                              },
+                              "type": "IfStatement"
+                            },
+                            {
+                              "_meta": {},
+                              "label": null,
+                              "loc": {
+                                "end": {
+                                  "column": 8,
+                                  "line": 8
+                                },
+                                "sourcefile": "examples/statementlessLabel.go",
+                                "start": {
+                                  "column": 3,
+                                  "line": 8
+                                }
+                              },
+                              "type": "BreakStatement"
+                            }
+                          ],
+                          "id": null,
+                          "loc": {
+                            "end": {
+                              "column": 3,
+                              "line": 9
+                            },
+                            "sourcefile": "examples/statementlessLabel.go",
+                            "start": {
+                              "column": 6,
+                              "line": 4
+                            }
+                          },
+                          "type": "ScopedStatement"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "loc": null,
+                          "type": "Noop"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 3,
+                            "line": 9
+                          },
+                          "sourcefile": "examples/statementlessLabel.go",
+                          "start": {
+                            "column": 2,
+                            "line": 4
+                          }
+                        },
+                        "test": {
+                          "_meta": {},
+                          "loc": null,
+                          "type": "Noop"
+                        },
+                        "type": "ForStatement",
+                        "update": {
+                          "_meta": {},
+                          "loc": null,
+                          "type": "Noop"
+                        }
+                      },
+                      {
+                        "_meta": {},
+                        "body": {
+                          "_meta": {},
+                          "body": [
+                            {
+                              "_meta": {},
+                              "alternative": {
+                                "_meta": {},
+                                "body": [
+                                  {
+                                    "_meta": {},
+                                    "label": null,
+                                    "loc": {
+                                      "end": {
+                                        "column": 9,
+                                        "line": 14
+                                      },
+                                      "sourcefile": "examples/statementlessLabel.go",
+                                      "start": {
+                                        "column": 4,
+                                        "line": 14
+                                      }
+                                    },
+                                    "type": "BreakStatement"
+                                  }
+                                ],
+                                "id": null,
+                                "loc": {
+                                  "end": {
+                                    "column": 4,
+                                    "line": 15
+                                  },
+                                  "sourcefile": "examples/statementlessLabel.go",
+                                  "start": {
+                                    "column": 10,
+                                    "line": 13
+                                  }
+                                },
+                                "type": "ScopedStatement"
+                              },
+                              "consequent": {
+                                "_meta": {},
+                                "body": [
+                                  {
+                                    "_meta": {},
+                                    "label": null,
+                                    "loc": {
+                                      "end": {
+                                        "column": 9,
+                                        "line": 12
+                                      },
+                                      "sourcefile": "examples/statementlessLabel.go",
+                                      "start": {
+                                        "column": 4,
+                                        "line": 12
+                                      }
+                                    },
+                                    "type": "BreakStatement"
+                                  }
+                                ],
+                                "id": null,
+                                "loc": {
+                                  "end": {
+                                    "column": 4,
+                                    "line": 13
+                                  },
+                                  "sourcefile": "examples/statementlessLabel.go",
+                                  "start": {
+                                    "column": 11,
+                                    "line": 11
+                                  }
+                                },
+                                "type": "ScopedStatement"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 4,
+                                  "line": 15
+                                },
+                                "sourcefile": "examples/statementlessLabel.go",
+                                "start": {
+                                  "column": 3,
+                                  "line": 11
+                                }
+                              },
+                              "test": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 10,
+                                    "line": 11
+                                  },
+                                  "sourcefile": "examples/statementlessLabel.go",
+                                  "start": {
+                                    "column": 6,
+                                    "line": 11
+                                  }
+                                },
+                                "name": "true",
+                                "type": "Identifier"
+                              },
+                              "type": "IfStatement"
+                            }
+                          ],
+                          "id": null,
+                          "loc": {
+                            "end": {
+                              "column": 3,
+                              "line": 16
+                            },
+                            "sourcefile": "examples/statementlessLabel.go",
+                            "start": {
+                              "column": 6,
+                              "line": 10
+                            }
+                          },
+                          "type": "ScopedStatement"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "loc": null,
+                          "type": "Noop"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 3,
+                            "line": 16
+                          },
+                          "sourcefile": "examples/statementlessLabel.go",
+                          "start": {
+                            "column": 2,
+                            "line": 10
+                          }
+                        },
+                        "test": {
+                          "_meta": {},
+                          "loc": null,
+                          "type": "Noop"
+                        },
+                        "type": "ForStatement",
+                        "update": {
+                          "_meta": {},
+                          "loc": null,
+                          "type": "Noop"
+                        }
+                      },
+                      {
+                        "_meta": {},
+                        "body": {
+                          "_meta": {},
+                          "body": [
+                            {
+                              "_meta": {},
+                              "alternative": {
+                                "_meta": {},
+                                "loc": null,
+                                "type": "Noop"
+                              },
+                              "consequent": {
+                                "_meta": {},
+                                "body": [
+                                  {
+                                    "_meta": {},
+                                    "arguments": [],
+                                    "callee": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 11,
+                                          "line": 19
+                                        },
+                                        "sourcefile": "examples/statementlessLabel.go",
+                                        "start": {
+                                          "column": 4,
+                                          "line": 19
+                                        }
+                                      },
+                                      "name": "println",
+                                      "type": "Identifier"
+                                    },
+                                    "loc": {
+                                      "end": {
+                                        "column": 13,
+                                        "line": 19
+                                      },
+                                      "sourcefile": "examples/statementlessLabel.go",
+                                      "start": {
+                                        "column": 4,
+                                        "line": 19
+                                      }
+                                    },
+                                    "type": "CallExpression"
+                                  }
+                                ],
+                                "id": null,
+                                "loc": {
+                                  "end": {
+                                    "column": 4,
+                                    "line": 20
+                                  },
+                                  "sourcefile": "examples/statementlessLabel.go",
+                                  "start": {
+                                    "column": 11,
+                                    "line": 18
+                                  }
+                                },
+                                "type": "ScopedStatement"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 4,
+                                  "line": 20
+                                },
+                                "sourcefile": "examples/statementlessLabel.go",
+                                "start": {
+                                  "column": 3,
+                                  "line": 18
+                                }
+                              },
+                              "test": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 10,
+                                    "line": 18
+                                  },
+                                  "sourcefile": "examples/statementlessLabel.go",
+                                  "start": {
+                                    "column": 6,
+                                    "line": 18
+                                  }
+                                },
+                                "name": "true",
+                                "type": "Identifier"
+                              },
+                              "type": "IfStatement"
+                            },
+                            {
+                              "_meta": {},
+                              "label": null,
+                              "loc": {
+                                "end": {
+                                  "column": 8,
+                                  "line": 21
+                                },
+                                "sourcefile": "examples/statementlessLabel.go",
+                                "start": {
+                                  "column": 3,
+                                  "line": 21
+                                }
+                              },
+                              "type": "BreakStatement"
+                            }
+                          ],
+                          "id": null,
+                          "loc": {
+                            "end": {
+                              "column": 3,
+                              "line": 22
+                            },
+                            "sourcefile": "examples/statementlessLabel.go",
+                            "start": {
+                              "column": 25,
+                              "line": 17
+                            }
+                          },
+                          "type": "ScopedStatement"
+                        },
+                        "key": {
+                          "_meta": {},
+                          "loc": null,
+                          "type": "Noop"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 3,
+                            "line": 22
+                          },
+                          "sourcefile": "examples/statementlessLabel.go",
+                          "start": {
+                            "column": 2,
+                            "line": 17
+                          }
+                        },
+                        "right": {
+                          "_meta": {},
+                          "arguments": [
+                            {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 23,
+                                  "line": 17
+                                },
+                                "sourcefile": "examples/statementlessLabel.go",
+                                "start": {
+                                  "column": 20,
+                                  "line": 17
+                                }
+                              },
+                              "name": "nil",
+                              "type": "Identifier"
+                            }
+                          ],
+                          "callee": {
+                            "_meta": {},
+                            "element": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 18,
+                                  "line": 17
+                                },
+                                "sourcefile": "examples/statementlessLabel.go",
+                                "start": {
+                                  "column": 15,
+                                  "line": 17
+                                }
+                              },
+                              "name": "int",
+                              "type": "Identifier"
+                            },
+                            "id": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 18,
+                                  "line": 17
+                                },
+                                "sourcefile": "examples/statementlessLabel.go",
+                                "start": {
+                                  "column": 13,
+                                  "line": 17
+                                }
+                              },
+                              "name": "ArrayType",
+                              "type": "Identifier"
+                            },
+                            "loc": {
+                              "end": {
+                                "column": 19,
+                                "line": 17
+                              },
+                              "sourcefile": "examples/statementlessLabel.go",
+                              "start": {
+                                "column": 12,
+                                "line": 17
+                              }
+                            },
+                            "size": {
+                              "_meta": {},
+                              "loc": null,
+                              "type": "Noop"
+                            },
+                            "type": "ArrayType",
+                            "typeArguments": null
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 24,
+                              "line": 17
+                            },
+                            "sourcefile": "examples/statementlessLabel.go",
+                            "start": {
+                              "column": 12,
+                              "line": 17
+                            }
+                          },
+                          "type": "CallExpression"
+                        },
+                        "type": "RangeStatement",
+                        "value": {
+                          "_meta": {},
+                          "loc": null,
+                          "type": "Noop"
+                        }
+                      },
+                      {
+                        "_meta": {},
+                        "body": {
+                          "_meta": {},
+                          "body": [
+                            {
+                              "_meta": {},
+                              "alternative": {
+                                "_meta": {},
+                                "loc": null,
+                                "type": "Noop"
+                              },
+                              "consequent": {
+                                "_meta": {},
+                                "body": [
+                                  {
+                                    "_meta": {},
+                                    "arguments": [],
+                                    "callee": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 11,
+                                          "line": 25
+                                        },
+                                        "sourcefile": "examples/statementlessLabel.go",
+                                        "start": {
+                                          "column": 4,
+                                          "line": 25
+                                        }
+                                      },
+                                      "name": "println",
+                                      "type": "Identifier"
+                                    },
+                                    "loc": {
+                                      "end": {
+                                        "column": 13,
+                                        "line": 25
+                                      },
+                                      "sourcefile": "examples/statementlessLabel.go",
+                                      "start": {
+                                        "column": 4,
+                                        "line": 25
+                                      }
+                                    },
+                                    "type": "CallExpression"
+                                  }
+                                ],
+                                "id": null,
+                                "loc": {
+                                  "end": {
+                                    "column": 4,
+                                    "line": 26
+                                  },
+                                  "sourcefile": "examples/statementlessLabel.go",
+                                  "start": {
+                                    "column": 11,
+                                    "line": 24
+                                  }
+                                },
+                                "type": "ScopedStatement"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 4,
+                                  "line": 26
+                                },
+                                "sourcefile": "examples/statementlessLabel.go",
+                                "start": {
+                                  "column": 3,
+                                  "line": 24
+                                }
+                              },
+                              "test": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 10,
+                                    "line": 24
+                                  },
+                                  "sourcefile": "examples/statementlessLabel.go",
+                                  "start": {
+                                    "column": 6,
+                                    "line": 24
+                                  }
+                                },
+                                "name": "true",
+                                "type": "Identifier"
+                              },
+                              "type": "IfStatement"
+                            },
+                            {
+                              "_meta": {},
+                              "label": null,
+                              "loc": {
+                                "end": {
+                                  "column": 8,
+                                  "line": 27
+                                },
+                                "sourcefile": "examples/statementlessLabel.go",
+                                "start": {
+                                  "column": 3,
+                                  "line": 27
+                                }
+                              },
+                              "type": "BreakStatement"
+                            }
+                          ],
+                          "id": null,
+                          "loc": {
+                            "end": {
+                              "column": 3,
+                              "line": 28
+                            },
+                            "sourcefile": "examples/statementlessLabel.go",
+                            "start": {
+                              "column": 31,
+                              "line": 23
+                            }
+                          },
+                          "type": "ScopedStatement"
+                        },
+                        "key": {
+                          "_meta": {},
+                          "loc": null,
+                          "type": "Noop"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 3,
+                            "line": 28
+                          },
+                          "sourcefile": "examples/statementlessLabel.go",
+                          "start": {
+                            "column": 2,
+                            "line": 23
+                          }
+                        },
+                        "right": {
+                          "_meta": {},
+                          "arguments": [
+                            {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 29,
+                                  "line": 23
+                                },
+                                "sourcefile": "examples/statementlessLabel.go",
+                                "start": {
+                                  "column": 26,
+                                  "line": 23
+                                }
+                              },
+                              "name": "nil",
+                              "type": "Identifier"
+                            }
+                          ],
+                          "callee": {
+                            "_meta": {},
+                            "id": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 24,
+                                  "line": 23
+                                },
+                                "sourcefile": "examples/statementlessLabel.go",
+                                "start": {
+                                  "column": 13,
+                                  "line": 23
+                                }
+                              },
+                              "name": "MapType",
+                              "type": "Identifier"
+                            },
+                            "keyType": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 20,
+                                  "line": 23
+                                },
+                                "sourcefile": "examples/statementlessLabel.go",
+                                "start": {
+                                  "column": 17,
+                                  "line": 23
+                                }
+                              },
+                              "name": "int",
+                              "type": "Identifier"
+                            },
+                            "loc": {
+                              "end": {
+                                "column": 25,
+                                "line": 23
+                              },
+                              "sourcefile": "examples/statementlessLabel.go",
+                              "start": {
+                                "column": 12,
+                                "line": 23
+                              }
+                            },
+                            "type": "MapType",
+                            "typeArguments": null,
+                            "valueType": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 24,
+                                  "line": 23
+                                },
+                                "sourcefile": "examples/statementlessLabel.go",
+                                "start": {
+                                  "column": 21,
+                                  "line": 23
+                                }
+                              },
+                              "name": "int",
+                              "type": "Identifier"
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 30,
+                              "line": 23
+                            },
+                            "sourcefile": "examples/statementlessLabel.go",
+                            "start": {
+                              "column": 12,
+                              "line": 23
+                            }
+                          },
+                          "type": "CallExpression"
+                        },
+                        "type": "RangeStatement",
+                        "value": {
+                          "_meta": {},
+                          "loc": null,
+                          "type": "Noop"
+                        }
+                      },
+                      {
+                        "_meta": {},
+                        "body": {
+                          "_meta": {},
+                          "body": [
+                            {
+                              "_meta": {},
+                              "alternative": {
+                                "_meta": {},
+                                "loc": null,
+                                "type": "Noop"
+                              },
+                              "consequent": {
+                                "_meta": {},
+                                "body": [
+                                  {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 14,
+                                        "line": 31
+                                      },
+                                      "sourcefile": "examples/statementlessLabel.go",
+                                      "start": {
+                                        "column": 4,
+                                        "line": 31
+                                      }
+                                    },
+                                    "type": "Noop"
+                                  }
+                                ],
+                                "id": null,
+                                "loc": {
+                                  "end": {
+                                    "column": 4,
+                                    "line": 32
+                                  },
+                                  "sourcefile": "examples/statementlessLabel.go",
+                                  "start": {
+                                    "column": 11,
+                                    "line": 30
+                                  }
+                                },
+                                "type": "ScopedStatement"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 4,
+                                  "line": 32
+                                },
+                                "sourcefile": "examples/statementlessLabel.go",
+                                "start": {
+                                  "column": 3,
+                                  "line": 30
+                                }
+                              },
+                              "test": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 10,
+                                    "line": 30
+                                  },
+                                  "sourcefile": "examples/statementlessLabel.go",
+                                  "start": {
+                                    "column": 6,
+                                    "line": 30
+                                  }
+                                },
+                                "name": "true",
+                                "type": "Identifier"
+                              },
+                              "type": "IfStatement"
+                            },
+                            {
+                              "_meta": {},
+                              "label": null,
+                              "loc": {
+                                "end": {
+                                  "column": 8,
+                                  "line": 33
+                                },
+                                "sourcefile": "examples/statementlessLabel.go",
+                                "start": {
+                                  "column": 3,
+                                  "line": 33
+                                }
+                              },
+                              "type": "BreakStatement"
+                            },
+                            {
+                              "_meta": {},
+                              "body": [
+                                {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 2,
+                                      "line": 35
+                                    },
+                                    "sourcefile": "examples/statementlessLabel.go",
+                                    "start": {
+                                      "column": 2,
+                                      "line": 35
+                                    }
+                                  },
+                                  "type": "Noop"
+                                }
+                              ],
+                              "id": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 7,
+                                    "line": 34
+                                  },
+                                  "sourcefile": "examples/statementlessLabel.go",
+                                  "start": {
+                                    "column": 2,
+                                    "line": 34
+                                  }
+                                },
+                                "name": "Label",
+                                "type": "Identifier"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 2,
+                                  "line": 35
+                                },
+                                "sourcefile": "examples/statementlessLabel.go",
+                                "start": {
+                                  "column": 2,
+                                  "line": 34
+                                }
+                              },
+                              "type": "ScopedStatement"
+                            }
+                          ],
+                          "id": null,
+                          "loc": {
+                            "end": {
+                              "column": 3,
+                              "line": 35
+                            },
+                            "sourcefile": "examples/statementlessLabel.go",
+                            "start": {
+                              "column": 6,
+                              "line": 29
+                            }
+                          },
+                          "type": "ScopedStatement"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "loc": null,
+                          "type": "Noop"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 3,
+                            "line": 35
+                          },
+                          "sourcefile": "examples/statementlessLabel.go",
+                          "start": {
+                            "column": 2,
+                            "line": 29
+                          }
+                        },
+                        "test": {
+                          "_meta": {},
+                          "loc": null,
+                          "type": "Noop"
+                        },
+                        "type": "ForStatement",
+                        "update": {
+                          "_meta": {},
+                          "loc": null,
+                          "type": "Noop"
+                        }
+                      },
+                      {
+                        "_meta": {},
+                        "body": {
+                          "_meta": {},
+                          "body": [
+                            {
+                              "_meta": {},
+                              "alternative": {
+                                "_meta": {},
+                                "loc": null,
+                                "type": "Noop"
+                              },
+                              "consequent": {
+                                "_meta": {},
+                                "body": [
+                                  {
+                                    "_meta": {},
+                                    "label": null,
+                                    "loc": {
+                                      "end": {
+                                        "column": 12,
+                                        "line": 38
+                                      },
+                                      "sourcefile": "examples/statementlessLabel.go",
+                                      "start": {
+                                        "column": 4,
+                                        "line": 38
+                                      }
+                                    },
+                                    "type": "ContinueStatement"
+                                  }
+                                ],
+                                "id": null,
+                                "loc": {
+                                  "end": {
+                                    "column": 4,
+                                    "line": 39
+                                  },
+                                  "sourcefile": "examples/statementlessLabel.go",
+                                  "start": {
+                                    "column": 11,
+                                    "line": 37
+                                  }
+                                },
+                                "type": "ScopedStatement"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 4,
+                                  "line": 39
+                                },
+                                "sourcefile": "examples/statementlessLabel.go",
+                                "start": {
+                                  "column": 3,
+                                  "line": 37
+                                }
+                              },
+                              "test": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 10,
+                                    "line": 37
+                                  },
+                                  "sourcefile": "examples/statementlessLabel.go",
+                                  "start": {
+                                    "column": 6,
+                                    "line": 37
+                                  }
+                                },
+                                "name": "true",
+                                "type": "Identifier"
+                              },
+                              "type": "IfStatement"
+                            },
+                            {
+                              "_meta": {},
+                              "label": null,
+                              "loc": {
+                                "end": {
+                                  "column": 8,
+                                  "line": 40
+                                },
+                                "sourcefile": "examples/statementlessLabel.go",
+                                "start": {
+                                  "column": 3,
+                                  "line": 40
+                                }
+                              },
+                              "type": "BreakStatement"
+                            }
+                          ],
+                          "id": null,
+                          "loc": {
+                            "end": {
+                              "column": 3,
+                              "line": 41
+                            },
+                            "sourcefile": "examples/statementlessLabel.go",
+                            "start": {
+                              "column": 6,
+                              "line": 36
+                            }
+                          },
+                          "type": "ScopedStatement"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "loc": null,
+                          "type": "Noop"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 3,
+                            "line": 41
+                          },
+                          "sourcefile": "examples/statementlessLabel.go",
+                          "start": {
+                            "column": 2,
+                            "line": 36
+                          }
+                        },
+                        "test": {
+                          "_meta": {},
+                          "loc": null,
+                          "type": "Noop"
+                        },
+                        "type": "ForStatement",
+                        "update": {
+                          "_meta": {},
+                          "loc": null,
+                          "type": "Noop"
+                        }
+                      },
+                      {
+                        "_meta": {},
+                        "body": {
+                          "_meta": {},
+                          "body": [
+                            {
+                              "_meta": {},
+                              "alternative": {
+                                "_meta": {},
+                                "loc": null,
+                                "type": "Noop"
+                              },
+                              "consequent": {
+                                "_meta": {},
+                                "body": [
+                                  {
+                                    "_meta": {},
+                                    "label": null,
+                                    "loc": {
+                                      "end": {
+                                        "column": 12,
+                                        "line": 44
+                                      },
+                                      "sourcefile": "examples/statementlessLabel.go",
+                                      "start": {
+                                        "column": 4,
+                                        "line": 44
+                                      }
+                                    },
+                                    "type": "ContinueStatement"
+                                  }
+                                ],
+                                "id": null,
+                                "loc": {
+                                  "end": {
+                                    "column": 4,
+                                    "line": 45
+                                  },
+                                  "sourcefile": "examples/statementlessLabel.go",
+                                  "start": {
+                                    "column": 11,
+                                    "line": 43
+                                  }
+                                },
+                                "type": "ScopedStatement"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 4,
+                                  "line": 45
+                                },
+                                "sourcefile": "examples/statementlessLabel.go",
+                                "start": {
+                                  "column": 3,
+                                  "line": 43
+                                }
+                              },
+                              "test": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 10,
+                                    "line": 43
+                                  },
+                                  "sourcefile": "examples/statementlessLabel.go",
+                                  "start": {
+                                    "column": 6,
+                                    "line": 43
+                                  }
+                                },
+                                "name": "true",
+                                "type": "Identifier"
+                              },
+                              "type": "IfStatement"
+                            },
+                            {
+                              "_meta": {},
+                              "label": null,
+                              "loc": {
+                                "end": {
+                                  "column": 8,
+                                  "line": 46
+                                },
+                                "sourcefile": "examples/statementlessLabel.go",
+                                "start": {
+                                  "column": 3,
+                                  "line": 46
+                                }
+                              },
+                              "type": "BreakStatement"
+                            }
+                          ],
+                          "id": null,
+                          "loc": {
+                            "end": {
+                              "column": 3,
+                              "line": 47
+                            },
+                            "sourcefile": "examples/statementlessLabel.go",
+                            "start": {
+                              "column": 6,
+                              "line": 42
+                            }
+                          },
+                          "type": "ScopedStatement"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "loc": null,
+                          "type": "Noop"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 3,
+                            "line": 47
+                          },
+                          "sourcefile": "examples/statementlessLabel.go",
+                          "start": {
+                            "column": 2,
+                            "line": 42
+                          }
+                        },
+                        "test": {
+                          "_meta": {},
+                          "loc": null,
+                          "type": "Noop"
+                        },
+                        "type": "ForStatement",
+                        "update": {
+                          "_meta": {},
+                          "loc": null,
+                          "type": "Noop"
+                        }
+                      }
+                    ],
+                    "id": null,
+                    "loc": {
+                      "end": {
+                        "column": 2,
+                        "line": 48
+                      },
+                      "sourcefile": "examples/statementlessLabel.go",
+                      "start": {
+                        "column": 11,
+                        "line": 3
+                      }
+                    },
+                    "type": "ScopedStatement"
+                  },
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 8,
+                        "line": 3
+                      },
+                      "sourcefile": "examples/statementlessLabel.go",
+                      "start": {
+                        "column": 6,
+                        "line": 3
+                      }
+                    },
+                    "name": "fn",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 48
+                    },
+                    "sourcefile": "examples/statementlessLabel.go",
+                    "start": {
+                      "column": 1,
+                      "line": 3
+                    }
+                  },
+                  "modifiers": null,
+                  "parameters": [],
+                  "returnType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "VoidType",
+                    "typeArguments": null
+                  },
+                  "type": "FunctionDefinition"
+                },
+                {
+                  "_meta": {},
+                  "cloned": false,
+                  "id": {
+                    "_meta": {
+                      "ReceiveCls": "",
+                      "type": {
+                        "_meta": {},
+                        "id": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 15,
+                              "line": 50
+                            },
+                            "sourcefile": "examples/statementlessLabel.go",
+                            "start": {
+                              "column": 9,
+                              "line": 50
+                            }
+                          },
+                          "name": "FuncType",
+                          "type": "Identifier"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 15,
+                            "line": 50
+                          },
+                          "sourcefile": "examples/statementlessLabel.go",
+                          "start": {
+                            "column": 9,
+                            "line": 50
+                          }
+                        },
+                        "params": null,
+                        "results": null,
+                        "type": "FuncType",
+                        "typeParams": null
+                      }
+                    },
+                    "loc": {
+                      "end": {
+                        "column": 6,
+                        "line": 50
+                      },
+                      "sourcefile": "examples/statementlessLabel.go",
+                      "start": {
+                        "column": 5,
+                        "line": 50
+                      }
+                    },
+                    "name": "z",
+                    "type": "Identifier"
+                  },
+                  "init": {
+                    "_meta": {},
+                    "body": {
+                      "_meta": {},
+                      "body": [
+                        {
+                          "_meta": {},
+                          "body": {
+                            "_meta": {},
+                            "body": [
+                              {
+                                "_meta": {},
+                                "alternative": {
+                                  "_meta": {},
+                                  "loc": null,
+                                  "type": "Noop"
+                                },
+                                "consequent": {
+                                  "_meta": {},
+                                  "body": [
+                                    {
+                                      "_meta": {},
+                                      "arguments": [],
+                                      "callee": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 11,
+                                            "line": 53
+                                          },
+                                          "sourcefile": "examples/statementlessLabel.go",
+                                          "start": {
+                                            "column": 4,
+                                            "line": 53
+                                          }
+                                        },
+                                        "name": "println",
+                                        "type": "Identifier"
+                                      },
+                                      "loc": {
+                                        "end": {
+                                          "column": 13,
+                                          "line": 53
+                                        },
+                                        "sourcefile": "examples/statementlessLabel.go",
+                                        "start": {
+                                          "column": 4,
+                                          "line": 53
+                                        }
+                                      },
+                                      "type": "CallExpression"
+                                    }
+                                  ],
+                                  "id": null,
+                                  "loc": {
+                                    "end": {
+                                      "column": 4,
+                                      "line": 54
+                                    },
+                                    "sourcefile": "examples/statementlessLabel.go",
+                                    "start": {
+                                      "column": 11,
+                                      "line": 52
+                                    }
+                                  },
+                                  "type": "ScopedStatement"
+                                },
+                                "loc": {
+                                  "end": {
+                                    "column": 4,
+                                    "line": 54
+                                  },
+                                  "sourcefile": "examples/statementlessLabel.go",
+                                  "start": {
+                                    "column": 3,
+                                    "line": 52
+                                  }
+                                },
+                                "test": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 10,
+                                      "line": 52
+                                    },
+                                    "sourcefile": "examples/statementlessLabel.go",
+                                    "start": {
+                                      "column": 6,
+                                      "line": 52
+                                    }
+                                  },
+                                  "name": "true",
+                                  "type": "Identifier"
+                                },
+                                "type": "IfStatement"
+                              },
+                              {
+                                "_meta": {},
+                                "label": null,
+                                "loc": {
+                                  "end": {
+                                    "column": 8,
+                                    "line": 55
+                                  },
+                                  "sourcefile": "examples/statementlessLabel.go",
+                                  "start": {
+                                    "column": 3,
+                                    "line": 55
+                                  }
+                                },
+                                "type": "BreakStatement"
+                              }
+                            ],
+                            "id": null,
+                            "loc": {
+                              "end": {
+                                "column": 3,
+                                "line": 56
+                              },
+                              "sourcefile": "examples/statementlessLabel.go",
+                              "start": {
+                                "column": 6,
+                                "line": 51
+                              }
+                            },
+                            "type": "ScopedStatement"
+                          },
+                          "init": {
+                            "_meta": {},
+                            "loc": null,
+                            "type": "Noop"
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 3,
+                              "line": 56
+                            },
+                            "sourcefile": "examples/statementlessLabel.go",
+                            "start": {
+                              "column": 2,
+                              "line": 51
+                            }
+                          },
+                          "test": {
+                            "_meta": {},
+                            "loc": null,
+                            "type": "Noop"
+                          },
+                          "type": "ForStatement",
+                          "update": {
+                            "_meta": {},
+                            "loc": null,
+                            "type": "Noop"
+                          }
+                        }
+                      ],
+                      "id": null,
+                      "loc": {
+                        "end": {
+                          "column": 2,
+                          "line": 57
+                        },
+                        "sourcefile": "examples/statementlessLabel.go",
+                        "start": {
+                          "column": 16,
+                          "line": 50
+                        }
+                      },
+                      "type": "ScopedStatement"
+                    },
+                    "id": null,
+                    "loc": {
+                      "end": {
+                        "column": 2,
+                        "line": 57
+                      },
+                      "sourcefile": "examples/statementlessLabel.go",
+                      "start": {
+                        "column": 9,
+                        "line": 50
+                      }
+                    },
+                    "modifiers": null,
+                    "parameters": [],
+                    "returnType": {
+                      "_meta": {},
+                      "id": null,
+                      "loc": null,
+                      "type": "VoidType",
+                      "typeArguments": null
+                    },
+                    "type": "FunctionDefinition"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 57
+                    },
+                    "sourcefile": "examples/statementlessLabel.go",
+                    "start": {
+                      "column": 5,
+                      "line": 50
+                    }
+                  },
+                  "type": "VariableDeclaration",
+                  "varType": {
+                    "_meta": {},
+                    "id": {
+                      "_meta": {},
+                      "loc": {
+                        "end": {
+                          "column": 15,
+                          "line": 50
+                        },
+                        "sourcefile": "examples/statementlessLabel.go",
+                        "start": {
+                          "column": 9,
+                          "line": 50
+                        }
+                      },
+                      "name": "FuncType",
+                      "type": "Identifier"
+                    },
+                    "loc": {
+                      "end": {
+                        "column": 15,
+                        "line": 50
+                      },
+                      "sourcefile": "examples/statementlessLabel.go",
+                      "start": {
+                        "column": 9,
+                        "line": 50
+                      }
+                    },
+                    "params": null,
+                    "results": null,
+                    "type": "FuncType",
+                    "typeParams": null
+                  },
+                  "variableParam": false
+                }
+              ],
+              "language": "golang",
+              "languageVersion": "1.18",
+              "loc": {
+                "end": {
+                  "column": 2,
+                  "line": 57
+                },
+                "sourcefile": "examples/statementlessLabel.go",
+                "start": {
+                  "column": 1,
+                  "line": 1
+                }
+              },
+              "type": "CompileUnit",
+              "uri": "",
+              "version": ""
+            },
+            "packageName": "__single__"
+          }
+        },
+        "subs": {}
+      }
+    }
+  }
+}

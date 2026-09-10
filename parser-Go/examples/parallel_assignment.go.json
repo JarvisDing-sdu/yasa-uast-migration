@@ -1,0 +1,3047 @@
+{
+  "moduleName": "__single_module__",
+  "packageInfo": {
+    "PathName": "",
+    "files": {},
+    "subs": {
+      "/": {
+        "PathName": "",
+        "files": {
+          "examples/parallel_assignment.go": {
+            "node": {
+              "_meta": {},
+              "body": [
+                {
+                  "_meta": {},
+                  "loc": {
+                    "end": {
+                      "column": 17,
+                      "line": 1
+                    },
+                    "sourcefile": "examples/parallel_assignment.go",
+                    "start": {
+                      "column": 9,
+                      "line": 1
+                    }
+                  },
+                  "packageName": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 17,
+                        "line": 1
+                      },
+                      "sourcefile": "examples/parallel_assignment.go",
+                      "start": {
+                        "column": 9,
+                        "line": 1
+                      }
+                    },
+                    "name": "examples",
+                    "type": "Identifier"
+                  },
+                  "type": "PackageDeclaration"
+                },
+                {
+                  "_meta": {
+                    "ReceiveCls": "",
+                    "isDefaultImport": true
+                  },
+                  "cloned": false,
+                  "id": {
+                    "_meta": {},
+                    "loc": null,
+                    "name": "fmt",
+                    "type": "Identifier"
+                  },
+                  "init": {
+                    "_meta": {},
+                    "from": {
+                      "_meta": {},
+                      "literalType": "string",
+                      "loc": {
+                        "end": {
+                          "column": 13,
+                          "line": 3
+                        },
+                        "sourcefile": "examples/parallel_assignment.go",
+                        "start": {
+                          "column": 8,
+                          "line": 3
+                        }
+                      },
+                      "type": "Literal",
+                      "value": "fmt"
+                    },
+                    "imported": null,
+                    "loc": {
+                      "end": {
+                        "column": 13,
+                        "line": 3
+                      },
+                      "sourcefile": "examples/parallel_assignment.go",
+                      "start": {
+                        "column": 8,
+                        "line": 3
+                      }
+                    },
+                    "local": null,
+                    "type": "ImportExpression"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 13,
+                      "line": 3
+                    },
+                    "sourcefile": "examples/parallel_assignment.go",
+                    "start": {
+                      "column": 8,
+                      "line": 3
+                    }
+                  },
+                  "type": "VariableDeclaration",
+                  "varType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "DynamicType",
+                    "typeArguments": null
+                  },
+                  "variableParam": false
+                },
+                {
+                  "_meta": {
+                    "ReceiveCls": "",
+                    "isDefaultImport": true
+                  },
+                  "cloned": false,
+                  "id": {
+                    "_meta": {},
+                    "loc": null,
+                    "name": "sync",
+                    "type": "Identifier"
+                  },
+                  "init": {
+                    "_meta": {},
+                    "from": {
+                      "_meta": {},
+                      "literalType": "string",
+                      "loc": {
+                        "end": {
+                          "column": 14,
+                          "line": 4
+                        },
+                        "sourcefile": "examples/parallel_assignment.go",
+                        "start": {
+                          "column": 8,
+                          "line": 4
+                        }
+                      },
+                      "type": "Literal",
+                      "value": "sync"
+                    },
+                    "imported": null,
+                    "loc": {
+                      "end": {
+                        "column": 14,
+                        "line": 4
+                      },
+                      "sourcefile": "examples/parallel_assignment.go",
+                      "start": {
+                        "column": 8,
+                        "line": 4
+                      }
+                    },
+                    "local": null,
+                    "type": "ImportExpression"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 14,
+                      "line": 4
+                    },
+                    "sourcefile": "examples/parallel_assignment.go",
+                    "start": {
+                      "column": 8,
+                      "line": 4
+                    }
+                  },
+                  "type": "VariableDeclaration",
+                  "varType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "DynamicType",
+                    "typeArguments": null
+                  },
+                  "variableParam": false
+                },
+                {
+                  "_meta": {},
+                  "expressions": [
+                    {
+                      "_meta": {},
+                      "cloned": false,
+                      "id": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "loc": null,
+                            "name": "int",
+                            "type": "Identifier"
+                          }
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 8,
+                            "line": 10
+                          },
+                          "sourcefile": "examples/parallel_assignment.go",
+                          "start": {
+                            "column": 7,
+                            "line": 10
+                          }
+                        },
+                        "name": "a",
+                        "type": "Identifier"
+                      },
+                      "init": {
+                        "_meta": {},
+                        "literalType": "INT",
+                        "loc": {
+                          "end": {
+                            "column": 18,
+                            "line": 10
+                          },
+                          "sourcefile": "examples/parallel_assignment.go",
+                          "start": {
+                            "column": 17,
+                            "line": 10
+                          }
+                        },
+                        "type": "Literal",
+                        "value": "3"
+                      },
+                      "loc": null,
+                      "type": "VariableDeclaration",
+                      "varType": {
+                        "_meta": {},
+                        "loc": null,
+                        "name": "int",
+                        "type": "Identifier"
+                      },
+                      "variableParam": false
+                    },
+                    {
+                      "_meta": {},
+                      "cloned": false,
+                      "id": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "loc": null,
+                            "name": "int",
+                            "type": "Identifier"
+                          }
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 11,
+                            "line": 10
+                          },
+                          "sourcefile": "examples/parallel_assignment.go",
+                          "start": {
+                            "column": 10,
+                            "line": 10
+                          }
+                        },
+                        "name": "b",
+                        "type": "Identifier"
+                      },
+                      "init": {
+                        "_meta": {},
+                        "literalType": "INT",
+                        "loc": {
+                          "end": {
+                            "column": 21,
+                            "line": 10
+                          },
+                          "sourcefile": "examples/parallel_assignment.go",
+                          "start": {
+                            "column": 20,
+                            "line": 10
+                          }
+                        },
+                        "type": "Literal",
+                        "value": "4"
+                      },
+                      "loc": null,
+                      "type": "VariableDeclaration",
+                      "varType": {
+                        "_meta": {},
+                        "loc": null,
+                        "name": "int",
+                        "type": "Identifier"
+                      },
+                      "variableParam": false
+                    },
+                    {
+                      "_meta": {},
+                      "cloned": false,
+                      "id": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "loc": null,
+                            "name": "string",
+                            "type": "Identifier"
+                          }
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 14,
+                            "line": 10
+                          },
+                          "sourcefile": "examples/parallel_assignment.go",
+                          "start": {
+                            "column": 13,
+                            "line": 10
+                          }
+                        },
+                        "name": "c",
+                        "type": "Identifier"
+                      },
+                      "init": {
+                        "_meta": {},
+                        "literalType": "STRING",
+                        "loc": {
+                          "end": {
+                            "column": 28,
+                            "line": 10
+                          },
+                          "sourcefile": "examples/parallel_assignment.go",
+                          "start": {
+                            "column": 23,
+                            "line": 10
+                          }
+                        },
+                        "type": "Literal",
+                        "value": "\"foo\""
+                      },
+                      "loc": null,
+                      "type": "VariableDeclaration",
+                      "varType": {
+                        "_meta": {},
+                        "loc": null,
+                        "name": "string",
+                        "type": "Identifier"
+                      },
+                      "variableParam": false
+                    }
+                  ],
+                  "loc": {
+                    "end": {
+                      "column": 28,
+                      "line": 10
+                    },
+                    "sourcefile": "examples/parallel_assignment.go",
+                    "start": {
+                      "column": 7,
+                      "line": 10
+                    }
+                  },
+                  "type": "Sequence"
+                },
+                {
+                  "_meta": {},
+                  "body": {
+                    "_meta": {},
+                    "body": [
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "dir": "",
+                              "id": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 24,
+                                    "line": 36
+                                  },
+                                  "sourcefile": "examples/parallel_assignment.go",
+                                  "start": {
+                                    "column": 13,
+                                    "line": 36
+                                  }
+                                },
+                                "name": "ChanType",
+                                "type": "Identifier"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 24,
+                                  "line": 36
+                                },
+                                "sourcefile": "examples/parallel_assignment.go",
+                                "start": {
+                                  "column": 13,
+                                  "line": 36
+                                }
+                              },
+                              "type": "ChanType",
+                              "valueType": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 24,
+                                    "line": 36
+                                  },
+                                  "sourcefile": "examples/parallel_assignment.go",
+                                  "start": {
+                                    "column": 18,
+                                    "line": 36
+                                  }
+                                },
+                                "name": "string",
+                                "type": "Identifier"
+                              }
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 4,
+                              "line": 36
+                            },
+                            "sourcefile": "examples/parallel_assignment.go",
+                            "start": {
+                              "column": 2,
+                              "line": 36
+                            }
+                          },
+                          "name": "ch",
+                          "type": "Identifier"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "arguments": [
+                            {
+                              "_meta": {},
+                              "dir": "",
+                              "id": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 24,
+                                    "line": 36
+                                  },
+                                  "sourcefile": "examples/parallel_assignment.go",
+                                  "start": {
+                                    "column": 13,
+                                    "line": 36
+                                  }
+                                },
+                                "name": "ChanType",
+                                "type": "Identifier"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 24,
+                                  "line": 36
+                                },
+                                "sourcefile": "examples/parallel_assignment.go",
+                                "start": {
+                                  "column": 13,
+                                  "line": 36
+                                }
+                              },
+                              "type": "ChanType",
+                              "valueType": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 24,
+                                    "line": 36
+                                  },
+                                  "sourcefile": "examples/parallel_assignment.go",
+                                  "start": {
+                                    "column": 18,
+                                    "line": 36
+                                  }
+                                },
+                                "name": "string",
+                                "type": "Identifier"
+                              }
+                            },
+                            {
+                              "_meta": {},
+                              "literalType": "INT",
+                              "loc": {
+                                "end": {
+                                  "column": 27,
+                                  "line": 36
+                                },
+                                "sourcefile": "examples/parallel_assignment.go",
+                                "start": {
+                                  "column": 26,
+                                  "line": 36
+                                }
+                              },
+                              "type": "Literal",
+                              "value": "2"
+                            }
+                          ],
+                          "callee": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 12,
+                                "line": 36
+                              },
+                              "sourcefile": "examples/parallel_assignment.go",
+                              "start": {
+                                "column": 8,
+                                "line": 36
+                              }
+                            },
+                            "name": "make",
+                            "type": "Identifier"
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 28,
+                              "line": 36
+                            },
+                            "sourcefile": "examples/parallel_assignment.go",
+                            "start": {
+                              "column": 8,
+                              "line": 36
+                            }
+                          },
+                          "type": "CallExpression"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 28,
+                            "line": 36
+                          },
+                          "sourcefile": "examples/parallel_assignment.go",
+                          "start": {
+                            "column": 2,
+                            "line": 36
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "dir": "",
+                          "id": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 24,
+                                "line": 36
+                              },
+                              "sourcefile": "examples/parallel_assignment.go",
+                              "start": {
+                                "column": 13,
+                                "line": 36
+                              }
+                            },
+                            "name": "ChanType",
+                            "type": "Identifier"
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 24,
+                              "line": 36
+                            },
+                            "sourcefile": "examples/parallel_assignment.go",
+                            "start": {
+                              "column": 13,
+                              "line": 36
+                            }
+                          },
+                          "type": "ChanType",
+                          "valueType": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 24,
+                                "line": 36
+                              },
+                              "sourcefile": "examples/parallel_assignment.go",
+                              "start": {
+                                "column": 18,
+                                "line": 36
+                              }
+                            },
+                            "name": "string",
+                            "type": "Identifier"
+                          }
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "left": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 4,
+                              "line": 37
+                            },
+                            "sourcefile": "examples/parallel_assignment.go",
+                            "start": {
+                              "column": 2,
+                              "line": 37
+                            }
+                          },
+                          "name": "ch",
+                          "type": "Identifier"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 19,
+                            "line": 37
+                          },
+                          "sourcefile": "examples/parallel_assignment.go",
+                          "start": {
+                            "column": 2,
+                            "line": 37
+                          }
+                        },
+                        "operator": "push",
+                        "right": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 19,
+                              "line": 37
+                            },
+                            "sourcefile": "examples/parallel_assignment.go",
+                            "start": {
+                              "column": 8,
+                              "line": 37
+                            }
+                          },
+                          "name": "__taint_src",
+                          "type": "Identifier"
+                        },
+                        "type": "BinaryExpression"
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "id": {
+                          "_meta": {},
+                          "elements": [
+                            {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 8,
+                                  "line": 38
+                                },
+                                "sourcefile": "examples/parallel_assignment.go",
+                                "start": {
+                                  "column": 2,
+                                  "line": 38
+                                }
+                              },
+                              "name": "result",
+                              "type": "Identifier"
+                            },
+                            {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 12,
+                                  "line": 38
+                                },
+                                "sourcefile": "examples/parallel_assignment.go",
+                                "start": {
+                                  "column": 10,
+                                  "line": 38
+                                }
+                              },
+                              "name": "ok",
+                              "type": "Identifier"
+                            }
+                          ],
+                          "loc": null,
+                          "modifiable": false,
+                          "type": "TupleExpression"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "argument": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 20,
+                                "line": 38
+                              },
+                              "sourcefile": "examples/parallel_assignment.go",
+                              "start": {
+                                "column": 18,
+                                "line": 38
+                              }
+                            },
+                            "name": "ch",
+                            "type": "Identifier"
+                          },
+                          "isSuffix": false,
+                          "loc": {
+                            "end": {
+                              "column": 20,
+                              "line": 38
+                            },
+                            "sourcefile": "examples/parallel_assignment.go",
+                            "start": {
+                              "column": 16,
+                              "line": 38
+                            }
+                          },
+                          "operator": "pop",
+                          "type": "UnaryExpression"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 20,
+                            "line": 38
+                          },
+                          "sourcefile": "examples/parallel_assignment.go",
+                          "start": {
+                            "column": 2,
+                            "line": 38
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "id": null,
+                          "loc": null,
+                          "type": "DynamicType",
+                          "typeArguments": null
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "alternative": {
+                          "_meta": {},
+                          "loc": null,
+                          "type": "Noop"
+                        },
+                        "consequent": {
+                          "_meta": {},
+                          "body": [],
+                          "id": null,
+                          "loc": {
+                            "end": {
+                              "column": 3,
+                              "line": 41
+                            },
+                            "sourcefile": "examples/parallel_assignment.go",
+                            "start": {
+                              "column": 8,
+                              "line": 39
+                            }
+                          },
+                          "type": "ScopedStatement"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 3,
+                            "line": 41
+                          },
+                          "sourcefile": "examples/parallel_assignment.go",
+                          "start": {
+                            "column": 2,
+                            "line": 39
+                          }
+                        },
+                        "test": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 7,
+                              "line": 39
+                            },
+                            "sourcefile": "examples/parallel_assignment.go",
+                            "start": {
+                              "column": 5,
+                              "line": 39
+                            }
+                          },
+                          "name": "ok",
+                          "type": "Identifier"
+                        },
+                        "type": "IfStatement"
+                      },
+                      {
+                        "_meta": {},
+                        "arguments": [
+                          {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 21,
+                                "line": 42
+                              },
+                              "sourcefile": "examples/parallel_assignment.go",
+                              "start": {
+                                "column": 15,
+                                "line": 42
+                              }
+                            },
+                            "name": "result",
+                            "type": "Identifier"
+                          }
+                        ],
+                        "callee": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 14,
+                              "line": 42
+                            },
+                            "sourcefile": "examples/parallel_assignment.go",
+                            "start": {
+                              "column": 2,
+                              "line": 42
+                            }
+                          },
+                          "name": "__taint_sink",
+                          "type": "Identifier"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 22,
+                            "line": 42
+                          },
+                          "sourcefile": "examples/parallel_assignment.go",
+                          "start": {
+                            "column": 2,
+                            "line": 42
+                          }
+                        },
+                        "type": "CallExpression"
+                      }
+                    ],
+                    "id": null,
+                    "loc": {
+                      "end": {
+                        "column": 2,
+                        "line": 43
+                      },
+                      "sourcefile": "examples/parallel_assignment.go",
+                      "start": {
+                        "column": 58,
+                        "line": 35
+                      }
+                    },
+                    "type": "ScopedStatement"
+                  },
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 37,
+                        "line": 35
+                      },
+                      "sourcefile": "examples/parallel_assignment.go",
+                      "start": {
+                        "column": 6,
+                        "line": 35
+                      }
+                    },
+                    "name": "synchronization_primitive_003_T",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 43
+                    },
+                    "sourcefile": "examples/parallel_assignment.go",
+                    "start": {
+                      "column": 1,
+                      "line": 35
+                    }
+                  },
+                  "modifiers": null,
+                  "parameters": [
+                    {
+                      "_meta": {},
+                      "cloned": true,
+                      "id": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 56,
+                                "line": 35
+                              },
+                              "sourcefile": "examples/parallel_assignment.go",
+                              "start": {
+                                "column": 50,
+                                "line": 35
+                              }
+                            },
+                            "name": "string",
+                            "type": "Identifier"
+                          }
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 49,
+                            "line": 35
+                          },
+                          "sourcefile": "examples/parallel_assignment.go",
+                          "start": {
+                            "column": 38,
+                            "line": 35
+                          }
+                        },
+                        "name": "__taint_src",
+                        "type": "Identifier"
+                      },
+                      "init": null,
+                      "loc": {
+                        "end": {
+                          "column": 56,
+                          "line": 35
+                        },
+                        "sourcefile": "examples/parallel_assignment.go",
+                        "start": {
+                          "column": 38,
+                          "line": 35
+                        }
+                      },
+                      "type": "VariableDeclaration",
+                      "varType": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 56,
+                            "line": 35
+                          },
+                          "sourcefile": "examples/parallel_assignment.go",
+                          "start": {
+                            "column": 50,
+                            "line": 35
+                          }
+                        },
+                        "name": "string",
+                        "type": "Identifier"
+                      },
+                      "variableParam": false
+                    }
+                  ],
+                  "returnType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "VoidType",
+                    "typeArguments": null
+                  },
+                  "type": "FunctionDefinition"
+                },
+                {
+                  "_meta": {},
+                  "body": {
+                    "_meta": {},
+                    "body": [
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "id": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 21,
+                                    "line": 46
+                                  },
+                                  "sourcefile": "examples/parallel_assignment.go",
+                                  "start": {
+                                    "column": 7,
+                                    "line": 46
+                                  }
+                                },
+                                "name": "MapType",
+                                "type": "Identifier"
+                              },
+                              "keyType": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 17,
+                                    "line": 46
+                                  },
+                                  "sourcefile": "examples/parallel_assignment.go",
+                                  "start": {
+                                    "column": 11,
+                                    "line": 46
+                                  }
+                                },
+                                "name": "string",
+                                "type": "Identifier"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 21,
+                                  "line": 46
+                                },
+                                "sourcefile": "examples/parallel_assignment.go",
+                                "start": {
+                                  "column": 7,
+                                  "line": 46
+                                }
+                              },
+                              "type": "MapType",
+                              "typeArguments": null,
+                              "valueType": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 21,
+                                    "line": 46
+                                  },
+                                  "sourcefile": "examples/parallel_assignment.go",
+                                  "start": {
+                                    "column": 18,
+                                    "line": 46
+                                  }
+                                },
+                                "name": "int",
+                                "type": "Identifier"
+                              }
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 3,
+                              "line": 46
+                            },
+                            "sourcefile": "examples/parallel_assignment.go",
+                            "start": {
+                              "column": 2,
+                              "line": 46
+                            }
+                          },
+                          "name": "m",
+                          "type": "Identifier"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "expressions": [
+                            {
+                              "_meta": {},
+                              "cloned": false,
+                              "id": {
+                                "_meta": {
+                                  "ReceiveCls": "",
+                                  "type": {
+                                    "_meta": {},
+                                    "id": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 21,
+                                          "line": 46
+                                        },
+                                        "sourcefile": "examples/parallel_assignment.go",
+                                        "start": {
+                                          "column": 7,
+                                          "line": 46
+                                        }
+                                      },
+                                      "name": "MapType",
+                                      "type": "Identifier"
+                                    },
+                                    "keyType": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 17,
+                                          "line": 46
+                                        },
+                                        "sourcefile": "examples/parallel_assignment.go",
+                                        "start": {
+                                          "column": 11,
+                                          "line": 46
+                                        }
+                                      },
+                                      "name": "string",
+                                      "type": "Identifier"
+                                    },
+                                    "loc": {
+                                      "end": {
+                                        "column": 21,
+                                        "line": 46
+                                      },
+                                      "sourcefile": "examples/parallel_assignment.go",
+                                      "start": {
+                                        "column": 7,
+                                        "line": 46
+                                      }
+                                    },
+                                    "type": "MapType",
+                                    "typeArguments": null,
+                                    "valueType": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 21,
+                                          "line": 46
+                                        },
+                                        "sourcefile": "examples/parallel_assignment.go",
+                                        "start": {
+                                          "column": 18,
+                                          "line": 46
+                                        }
+                                      },
+                                      "name": "int",
+                                      "type": "Identifier"
+                                    }
+                                  }
+                                },
+                                "loc": {
+                                  "end": {
+                                    "column": 3,
+                                    "line": 49
+                                  },
+                                  "sourcefile": "examples/parallel_assignment.go",
+                                  "start": {
+                                    "column": 7,
+                                    "line": 46
+                                  }
+                                },
+                                "name": "tmp1",
+                                "type": "Identifier"
+                              },
+                              "init": {
+                                "_meta": {},
+                                "arguments": [],
+                                "callee": {
+                                  "_meta": {},
+                                  "id": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 21,
+                                        "line": 46
+                                      },
+                                      "sourcefile": "examples/parallel_assignment.go",
+                                      "start": {
+                                        "column": 7,
+                                        "line": 46
+                                      }
+                                    },
+                                    "name": "MapType",
+                                    "type": "Identifier"
+                                  },
+                                  "keyType": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 17,
+                                        "line": 46
+                                      },
+                                      "sourcefile": "examples/parallel_assignment.go",
+                                      "start": {
+                                        "column": 11,
+                                        "line": 46
+                                      }
+                                    },
+                                    "name": "string",
+                                    "type": "Identifier"
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 21,
+                                      "line": 46
+                                    },
+                                    "sourcefile": "examples/parallel_assignment.go",
+                                    "start": {
+                                      "column": 7,
+                                      "line": 46
+                                    }
+                                  },
+                                  "type": "MapType",
+                                  "typeArguments": null,
+                                  "valueType": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 21,
+                                        "line": 46
+                                      },
+                                      "sourcefile": "examples/parallel_assignment.go",
+                                      "start": {
+                                        "column": 18,
+                                        "line": 46
+                                      }
+                                    },
+                                    "name": "int",
+                                    "type": "Identifier"
+                                  }
+                                },
+                                "loc": null,
+                                "type": "NewExpression"
+                              },
+                              "loc": null,
+                              "type": "VariableDeclaration",
+                              "varType": {
+                                "_meta": {},
+                                "id": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 21,
+                                      "line": 46
+                                    },
+                                    "sourcefile": "examples/parallel_assignment.go",
+                                    "start": {
+                                      "column": 7,
+                                      "line": 46
+                                    }
+                                  },
+                                  "name": "MapType",
+                                  "type": "Identifier"
+                                },
+                                "keyType": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 17,
+                                      "line": 46
+                                    },
+                                    "sourcefile": "examples/parallel_assignment.go",
+                                    "start": {
+                                      "column": 11,
+                                      "line": 46
+                                    }
+                                  },
+                                  "name": "string",
+                                  "type": "Identifier"
+                                },
+                                "loc": {
+                                  "end": {
+                                    "column": 21,
+                                    "line": 46
+                                  },
+                                  "sourcefile": "examples/parallel_assignment.go",
+                                  "start": {
+                                    "column": 7,
+                                    "line": 46
+                                  }
+                                },
+                                "type": "MapType",
+                                "typeArguments": null,
+                                "valueType": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 21,
+                                      "line": 46
+                                    },
+                                    "sourcefile": "examples/parallel_assignment.go",
+                                    "start": {
+                                      "column": 18,
+                                      "line": 46
+                                    }
+                                  },
+                                  "name": "int",
+                                  "type": "Identifier"
+                                }
+                              },
+                              "variableParam": false
+                            },
+                            {
+                              "_meta": {},
+                              "cloned": true,
+                              "left": {
+                                "_meta": {},
+                                "computed": false,
+                                "loc": null,
+                                "object": {
+                                  "_meta": {
+                                    "ReceiveCls": "",
+                                    "type": {
+                                      "_meta": {},
+                                      "id": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 21,
+                                            "line": 46
+                                          },
+                                          "sourcefile": "examples/parallel_assignment.go",
+                                          "start": {
+                                            "column": 7,
+                                            "line": 46
+                                          }
+                                        },
+                                        "name": "MapType",
+                                        "type": "Identifier"
+                                      },
+                                      "keyType": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 17,
+                                            "line": 46
+                                          },
+                                          "sourcefile": "examples/parallel_assignment.go",
+                                          "start": {
+                                            "column": 11,
+                                            "line": 46
+                                          }
+                                        },
+                                        "name": "string",
+                                        "type": "Identifier"
+                                      },
+                                      "loc": {
+                                        "end": {
+                                          "column": 21,
+                                          "line": 46
+                                        },
+                                        "sourcefile": "examples/parallel_assignment.go",
+                                        "start": {
+                                          "column": 7,
+                                          "line": 46
+                                        }
+                                      },
+                                      "type": "MapType",
+                                      "typeArguments": null,
+                                      "valueType": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 21,
+                                            "line": 46
+                                          },
+                                          "sourcefile": "examples/parallel_assignment.go",
+                                          "start": {
+                                            "column": 18,
+                                            "line": 46
+                                          }
+                                        },
+                                        "name": "int",
+                                        "type": "Identifier"
+                                      }
+                                    }
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 3,
+                                      "line": 49
+                                    },
+                                    "sourcefile": "examples/parallel_assignment.go",
+                                    "start": {
+                                      "column": 7,
+                                      "line": 46
+                                    }
+                                  },
+                                  "name": "tmp1",
+                                  "type": "Identifier"
+                                },
+                                "property": {
+                                  "_meta": {},
+                                  "literalType": "STRING",
+                                  "loc": {
+                                    "end": {
+                                      "column": 10,
+                                      "line": 47
+                                    },
+                                    "sourcefile": "examples/parallel_assignment.go",
+                                    "start": {
+                                      "column": 3,
+                                      "line": 47
+                                    }
+                                  },
+                                  "type": "Literal",
+                                  "value": "\"apple\""
+                                },
+                                "type": "MemberAccess"
+                              },
+                              "loc": null,
+                              "operator": "=",
+                              "right": {
+                                "_meta": {},
+                                "literalType": "INT",
+                                "loc": {
+                                  "end": {
+                                    "column": 14,
+                                    "line": 47
+                                  },
+                                  "sourcefile": "examples/parallel_assignment.go",
+                                  "start": {
+                                    "column": 13,
+                                    "line": 47
+                                  }
+                                },
+                                "type": "Literal",
+                                "value": "5"
+                              },
+                              "type": "AssignmentExpression"
+                            },
+                            {
+                              "_meta": {},
+                              "cloned": true,
+                              "left": {
+                                "_meta": {},
+                                "computed": false,
+                                "loc": null,
+                                "object": {
+                                  "_meta": {
+                                    "ReceiveCls": "",
+                                    "type": {
+                                      "_meta": {},
+                                      "id": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 21,
+                                            "line": 46
+                                          },
+                                          "sourcefile": "examples/parallel_assignment.go",
+                                          "start": {
+                                            "column": 7,
+                                            "line": 46
+                                          }
+                                        },
+                                        "name": "MapType",
+                                        "type": "Identifier"
+                                      },
+                                      "keyType": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 17,
+                                            "line": 46
+                                          },
+                                          "sourcefile": "examples/parallel_assignment.go",
+                                          "start": {
+                                            "column": 11,
+                                            "line": 46
+                                          }
+                                        },
+                                        "name": "string",
+                                        "type": "Identifier"
+                                      },
+                                      "loc": {
+                                        "end": {
+                                          "column": 21,
+                                          "line": 46
+                                        },
+                                        "sourcefile": "examples/parallel_assignment.go",
+                                        "start": {
+                                          "column": 7,
+                                          "line": 46
+                                        }
+                                      },
+                                      "type": "MapType",
+                                      "typeArguments": null,
+                                      "valueType": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 21,
+                                            "line": 46
+                                          },
+                                          "sourcefile": "examples/parallel_assignment.go",
+                                          "start": {
+                                            "column": 18,
+                                            "line": 46
+                                          }
+                                        },
+                                        "name": "int",
+                                        "type": "Identifier"
+                                      }
+                                    }
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 3,
+                                      "line": 49
+                                    },
+                                    "sourcefile": "examples/parallel_assignment.go",
+                                    "start": {
+                                      "column": 7,
+                                      "line": 46
+                                    }
+                                  },
+                                  "name": "tmp1",
+                                  "type": "Identifier"
+                                },
+                                "property": {
+                                  "_meta": {},
+                                  "literalType": "STRING",
+                                  "loc": {
+                                    "end": {
+                                      "column": 11,
+                                      "line": 48
+                                    },
+                                    "sourcefile": "examples/parallel_assignment.go",
+                                    "start": {
+                                      "column": 3,
+                                      "line": 48
+                                    }
+                                  },
+                                  "type": "Literal",
+                                  "value": "\"banana\""
+                                },
+                                "type": "MemberAccess"
+                              },
+                              "loc": null,
+                              "operator": "=",
+                              "right": {
+                                "_meta": {},
+                                "literalType": "INT",
+                                "loc": {
+                                  "end": {
+                                    "column": 14,
+                                    "line": 48
+                                  },
+                                  "sourcefile": "examples/parallel_assignment.go",
+                                  "start": {
+                                    "column": 13,
+                                    "line": 48
+                                  }
+                                },
+                                "type": "Literal",
+                                "value": "3"
+                              },
+                              "type": "AssignmentExpression"
+                            },
+                            {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "id": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 21,
+                                        "line": 46
+                                      },
+                                      "sourcefile": "examples/parallel_assignment.go",
+                                      "start": {
+                                        "column": 7,
+                                        "line": 46
+                                      }
+                                    },
+                                    "name": "MapType",
+                                    "type": "Identifier"
+                                  },
+                                  "keyType": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 17,
+                                        "line": 46
+                                      },
+                                      "sourcefile": "examples/parallel_assignment.go",
+                                      "start": {
+                                        "column": 11,
+                                        "line": 46
+                                      }
+                                    },
+                                    "name": "string",
+                                    "type": "Identifier"
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 21,
+                                      "line": 46
+                                    },
+                                    "sourcefile": "examples/parallel_assignment.go",
+                                    "start": {
+                                      "column": 7,
+                                      "line": 46
+                                    }
+                                  },
+                                  "type": "MapType",
+                                  "typeArguments": null,
+                                  "valueType": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 21,
+                                        "line": 46
+                                      },
+                                      "sourcefile": "examples/parallel_assignment.go",
+                                      "start": {
+                                        "column": 18,
+                                        "line": 46
+                                      }
+                                    },
+                                    "name": "int",
+                                    "type": "Identifier"
+                                  }
+                                }
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 3,
+                                  "line": 49
+                                },
+                                "sourcefile": "examples/parallel_assignment.go",
+                                "start": {
+                                  "column": 7,
+                                  "line": 46
+                                }
+                              },
+                              "name": "tmp1",
+                              "type": "Identifier"
+                            }
+                          ],
+                          "loc": {
+                            "end": {
+                              "column": 3,
+                              "line": 49
+                            },
+                            "sourcefile": "examples/parallel_assignment.go",
+                            "start": {
+                              "column": 7,
+                              "line": 46
+                            }
+                          },
+                          "type": "Sequence"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 3,
+                            "line": 49
+                          },
+                          "sourcefile": "examples/parallel_assignment.go",
+                          "start": {
+                            "column": 2,
+                            "line": 46
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "id": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 21,
+                                "line": 46
+                              },
+                              "sourcefile": "examples/parallel_assignment.go",
+                              "start": {
+                                "column": 7,
+                                "line": 46
+                              }
+                            },
+                            "name": "MapType",
+                            "type": "Identifier"
+                          },
+                          "keyType": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 17,
+                                "line": 46
+                              },
+                              "sourcefile": "examples/parallel_assignment.go",
+                              "start": {
+                                "column": 11,
+                                "line": 46
+                              }
+                            },
+                            "name": "string",
+                            "type": "Identifier"
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 21,
+                              "line": 46
+                            },
+                            "sourcefile": "examples/parallel_assignment.go",
+                            "start": {
+                              "column": 7,
+                              "line": 46
+                            }
+                          },
+                          "type": "MapType",
+                          "typeArguments": null,
+                          "valueType": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 21,
+                                "line": 46
+                              },
+                              "sourcefile": "examples/parallel_assignment.go",
+                              "start": {
+                                "column": 18,
+                                "line": 46
+                              }
+                            },
+                            "name": "int",
+                            "type": "Identifier"
+                          }
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "body": {
+                          "_meta": {},
+                          "body": [
+                            {
+                              "_meta": {},
+                              "arguments": [
+                                {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 18,
+                                      "line": 52
+                                    },
+                                    "sourcefile": "examples/parallel_assignment.go",
+                                    "start": {
+                                      "column": 15,
+                                      "line": 52
+                                    }
+                                  },
+                                  "name": "key",
+                                  "type": "Identifier"
+                                },
+                                {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 25,
+                                      "line": 52
+                                    },
+                                    "sourcefile": "examples/parallel_assignment.go",
+                                    "start": {
+                                      "column": 20,
+                                      "line": 52
+                                    }
+                                  },
+                                  "name": "value",
+                                  "type": "Identifier"
+                                }
+                              ],
+                              "callee": {
+                                "_meta": {},
+                                "computed": false,
+                                "loc": {
+                                  "end": {
+                                    "column": 14,
+                                    "line": 52
+                                  },
+                                  "sourcefile": "examples/parallel_assignment.go",
+                                  "start": {
+                                    "column": 3,
+                                    "line": 52
+                                  }
+                                },
+                                "object": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 6,
+                                      "line": 52
+                                    },
+                                    "sourcefile": "examples/parallel_assignment.go",
+                                    "start": {
+                                      "column": 3,
+                                      "line": 52
+                                    }
+                                  },
+                                  "name": "fmt",
+                                  "type": "Identifier"
+                                },
+                                "property": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 14,
+                                      "line": 52
+                                    },
+                                    "sourcefile": "examples/parallel_assignment.go",
+                                    "start": {
+                                      "column": 7,
+                                      "line": 52
+                                    }
+                                  },
+                                  "name": "Println",
+                                  "type": "Identifier"
+                                },
+                                "type": "MemberAccess"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 26,
+                                  "line": 52
+                                },
+                                "sourcefile": "examples/parallel_assignment.go",
+                                "start": {
+                                  "column": 3,
+                                  "line": 52
+                                }
+                              },
+                              "type": "CallExpression"
+                            }
+                          ],
+                          "id": null,
+                          "loc": {
+                            "end": {
+                              "column": 3,
+                              "line": 53
+                            },
+                            "sourcefile": "examples/parallel_assignment.go",
+                            "start": {
+                              "column": 28,
+                              "line": 51
+                            }
+                          },
+                          "type": "ScopedStatement"
+                        },
+                        "key": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 9,
+                              "line": 51
+                            },
+                            "sourcefile": "examples/parallel_assignment.go",
+                            "start": {
+                              "column": 6,
+                              "line": 51
+                            }
+                          },
+                          "name": "key",
+                          "type": "Identifier"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 3,
+                            "line": 53
+                          },
+                          "sourcefile": "examples/parallel_assignment.go",
+                          "start": {
+                            "column": 2,
+                            "line": 51
+                          }
+                        },
+                        "right": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 27,
+                              "line": 51
+                            },
+                            "sourcefile": "examples/parallel_assignment.go",
+                            "start": {
+                              "column": 26,
+                              "line": 51
+                            }
+                          },
+                          "name": "m",
+                          "type": "Identifier"
+                        },
+                        "type": "RangeStatement",
+                        "value": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 16,
+                              "line": 51
+                            },
+                            "sourcefile": "examples/parallel_assignment.go",
+                            "start": {
+                              "column": 11,
+                              "line": 51
+                            }
+                          },
+                          "name": "value",
+                          "type": "Identifier"
+                        }
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "id": {
+                          "_meta": {},
+                          "elements": [
+                            {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 7,
+                                  "line": 55
+                                },
+                                "sourcefile": "examples/parallel_assignment.go",
+                                "start": {
+                                  "column": 2,
+                                  "line": 55
+                                }
+                              },
+                              "name": "value",
+                              "type": "Identifier"
+                            },
+                            {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 11,
+                                  "line": 55
+                                },
+                                "sourcefile": "examples/parallel_assignment.go",
+                                "start": {
+                                  "column": 9,
+                                  "line": 55
+                                }
+                              },
+                              "name": "ok",
+                              "type": "Identifier"
+                            }
+                          ],
+                          "loc": null,
+                          "modifiable": false,
+                          "type": "TupleExpression"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "computed": true,
+                          "loc": {
+                            "end": {
+                              "column": 26,
+                              "line": 55
+                            },
+                            "sourcefile": "examples/parallel_assignment.go",
+                            "start": {
+                              "column": 15,
+                              "line": 55
+                            }
+                          },
+                          "object": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 16,
+                                "line": 55
+                              },
+                              "sourcefile": "examples/parallel_assignment.go",
+                              "start": {
+                                "column": 15,
+                                "line": 55
+                              }
+                            },
+                            "name": "m",
+                            "type": "Identifier"
+                          },
+                          "property": {
+                            "_meta": {},
+                            "literalType": "STRING",
+                            "loc": {
+                              "end": {
+                                "column": 25,
+                                "line": 55
+                              },
+                              "sourcefile": "examples/parallel_assignment.go",
+                              "start": {
+                                "column": 17,
+                                "line": 55
+                              }
+                            },
+                            "type": "Literal",
+                            "value": "\"orange\""
+                          },
+                          "type": "MemberAccess"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 26,
+                            "line": 55
+                          },
+                          "sourcefile": "examples/parallel_assignment.go",
+                          "start": {
+                            "column": 2,
+                            "line": 55
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "id": null,
+                          "loc": null,
+                          "type": "DynamicType",
+                          "typeArguments": null
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "arguments": [
+                          {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 19,
+                                "line": 56
+                              },
+                              "sourcefile": "examples/parallel_assignment.go",
+                              "start": {
+                                "column": 14,
+                                "line": 56
+                              }
+                            },
+                            "name": "value",
+                            "type": "Identifier"
+                          },
+                          {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 23,
+                                "line": 56
+                              },
+                              "sourcefile": "examples/parallel_assignment.go",
+                              "start": {
+                                "column": 21,
+                                "line": 56
+                              }
+                            },
+                            "name": "ok",
+                            "type": "Identifier"
+                          }
+                        ],
+                        "callee": {
+                          "_meta": {},
+                          "computed": false,
+                          "loc": {
+                            "end": {
+                              "column": 13,
+                              "line": 56
+                            },
+                            "sourcefile": "examples/parallel_assignment.go",
+                            "start": {
+                              "column": 2,
+                              "line": 56
+                            }
+                          },
+                          "object": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 5,
+                                "line": 56
+                              },
+                              "sourcefile": "examples/parallel_assignment.go",
+                              "start": {
+                                "column": 2,
+                                "line": 56
+                              }
+                            },
+                            "name": "fmt",
+                            "type": "Identifier"
+                          },
+                          "property": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 13,
+                                "line": 56
+                              },
+                              "sourcefile": "examples/parallel_assignment.go",
+                              "start": {
+                                "column": 6,
+                                "line": 56
+                              }
+                            },
+                            "name": "Println",
+                            "type": "Identifier"
+                          },
+                          "type": "MemberAccess"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 24,
+                            "line": 56
+                          },
+                          "sourcefile": "examples/parallel_assignment.go",
+                          "start": {
+                            "column": 2,
+                            "line": 56
+                          }
+                        },
+                        "type": "CallExpression"
+                      }
+                    ],
+                    "id": null,
+                    "loc": {
+                      "end": {
+                        "column": 2,
+                        "line": 57
+                      },
+                      "sourcefile": "examples/parallel_assignment.go",
+                      "start": {
+                        "column": 23,
+                        "line": 45
+                      }
+                    },
+                    "type": "ScopedStatement"
+                  },
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 20,
+                        "line": 45
+                      },
+                      "sourcefile": "examples/parallel_assignment.go",
+                      "start": {
+                        "column": 6,
+                        "line": 45
+                      }
+                    },
+                    "name": "parallel_range",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 57
+                    },
+                    "sourcefile": "examples/parallel_assignment.go",
+                    "start": {
+                      "column": 1,
+                      "line": 45
+                    }
+                  },
+                  "modifiers": null,
+                  "parameters": [],
+                  "returnType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "VoidType",
+                    "typeArguments": null
+                  },
+                  "type": "FunctionDefinition"
+                },
+                {
+                  "_meta": {},
+                  "body": {
+                    "_meta": {},
+                    "body": [
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "id": null,
+                              "loc": null,
+                              "type": "DynamicType",
+                              "typeArguments": null
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 3,
+                              "line": 60
+                            },
+                            "sourcefile": "examples/parallel_assignment.go",
+                            "start": {
+                              "column": 2,
+                              "line": 60
+                            }
+                          },
+                          "name": "m",
+                          "type": "Identifier"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "argument": {
+                            "_meta": {},
+                            "expressions": [
+                              {
+                                "_meta": {},
+                                "cloned": false,
+                                "id": {
+                                  "_meta": {
+                                    "ReceiveCls": "",
+                                    "type": {
+                                      "_meta": {},
+                                      "computed": false,
+                                      "loc": {
+                                        "end": {
+                                          "column": 16,
+                                          "line": 60
+                                        },
+                                        "sourcefile": "examples/parallel_assignment.go",
+                                        "start": {
+                                          "column": 8,
+                                          "line": 60
+                                        }
+                                      },
+                                      "object": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 12,
+                                            "line": 60
+                                          },
+                                          "sourcefile": "examples/parallel_assignment.go",
+                                          "start": {
+                                            "column": 8,
+                                            "line": 60
+                                          }
+                                        },
+                                        "name": "sync",
+                                        "type": "Identifier"
+                                      },
+                                      "property": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 16,
+                                            "line": 60
+                                          },
+                                          "sourcefile": "examples/parallel_assignment.go",
+                                          "start": {
+                                            "column": 13,
+                                            "line": 60
+                                          }
+                                        },
+                                        "name": "Map",
+                                        "type": "Identifier"
+                                      },
+                                      "type": "MemberAccess"
+                                    }
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 18,
+                                      "line": 60
+                                    },
+                                    "sourcefile": "examples/parallel_assignment.go",
+                                    "start": {
+                                      "column": 8,
+                                      "line": 60
+                                    }
+                                  },
+                                  "name": "tmp2",
+                                  "type": "Identifier"
+                                },
+                                "init": {
+                                  "_meta": {},
+                                  "arguments": [],
+                                  "callee": {
+                                    "_meta": {},
+                                    "computed": false,
+                                    "loc": {
+                                      "end": {
+                                        "column": 16,
+                                        "line": 60
+                                      },
+                                      "sourcefile": "examples/parallel_assignment.go",
+                                      "start": {
+                                        "column": 8,
+                                        "line": 60
+                                      }
+                                    },
+                                    "object": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 12,
+                                          "line": 60
+                                        },
+                                        "sourcefile": "examples/parallel_assignment.go",
+                                        "start": {
+                                          "column": 8,
+                                          "line": 60
+                                        }
+                                      },
+                                      "name": "sync",
+                                      "type": "Identifier"
+                                    },
+                                    "property": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 16,
+                                          "line": 60
+                                        },
+                                        "sourcefile": "examples/parallel_assignment.go",
+                                        "start": {
+                                          "column": 13,
+                                          "line": 60
+                                        }
+                                      },
+                                      "name": "Map",
+                                      "type": "Identifier"
+                                    },
+                                    "type": "MemberAccess"
+                                  },
+                                  "loc": null,
+                                  "type": "NewExpression"
+                                },
+                                "loc": null,
+                                "type": "VariableDeclaration",
+                                "varType": {
+                                  "_meta": {},
+                                  "computed": false,
+                                  "loc": {
+                                    "end": {
+                                      "column": 16,
+                                      "line": 60
+                                    },
+                                    "sourcefile": "examples/parallel_assignment.go",
+                                    "start": {
+                                      "column": 8,
+                                      "line": 60
+                                    }
+                                  },
+                                  "object": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 12,
+                                        "line": 60
+                                      },
+                                      "sourcefile": "examples/parallel_assignment.go",
+                                      "start": {
+                                        "column": 8,
+                                        "line": 60
+                                      }
+                                    },
+                                    "name": "sync",
+                                    "type": "Identifier"
+                                  },
+                                  "property": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 16,
+                                        "line": 60
+                                      },
+                                      "sourcefile": "examples/parallel_assignment.go",
+                                      "start": {
+                                        "column": 13,
+                                        "line": 60
+                                      }
+                                    },
+                                    "name": "Map",
+                                    "type": "Identifier"
+                                  },
+                                  "type": "MemberAccess"
+                                },
+                                "variableParam": false
+                              },
+                              {
+                                "_meta": {
+                                  "ReceiveCls": "",
+                                  "type": {
+                                    "_meta": {},
+                                    "computed": false,
+                                    "loc": {
+                                      "end": {
+                                        "column": 16,
+                                        "line": 60
+                                      },
+                                      "sourcefile": "examples/parallel_assignment.go",
+                                      "start": {
+                                        "column": 8,
+                                        "line": 60
+                                      }
+                                    },
+                                    "object": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 12,
+                                          "line": 60
+                                        },
+                                        "sourcefile": "examples/parallel_assignment.go",
+                                        "start": {
+                                          "column": 8,
+                                          "line": 60
+                                        }
+                                      },
+                                      "name": "sync",
+                                      "type": "Identifier"
+                                    },
+                                    "property": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 16,
+                                          "line": 60
+                                        },
+                                        "sourcefile": "examples/parallel_assignment.go",
+                                        "start": {
+                                          "column": 13,
+                                          "line": 60
+                                        }
+                                      },
+                                      "name": "Map",
+                                      "type": "Identifier"
+                                    },
+                                    "type": "MemberAccess"
+                                  }
+                                },
+                                "loc": {
+                                  "end": {
+                                    "column": 18,
+                                    "line": 60
+                                  },
+                                  "sourcefile": "examples/parallel_assignment.go",
+                                  "start": {
+                                    "column": 8,
+                                    "line": 60
+                                  }
+                                },
+                                "name": "tmp2",
+                                "type": "Identifier"
+                              }
+                            ],
+                            "loc": {
+                              "end": {
+                                "column": 18,
+                                "line": 60
+                              },
+                              "sourcefile": "examples/parallel_assignment.go",
+                              "start": {
+                                "column": 8,
+                                "line": 60
+                              }
+                            },
+                            "type": "Sequence"
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 18,
+                              "line": 60
+                            },
+                            "sourcefile": "examples/parallel_assignment.go",
+                            "start": {
+                              "column": 7,
+                              "line": 60
+                            }
+                          },
+                          "type": "ReferenceExpression"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 18,
+                            "line": 60
+                          },
+                          "sourcefile": "examples/parallel_assignment.go",
+                          "start": {
+                            "column": 2,
+                            "line": 60
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "id": null,
+                          "loc": null,
+                          "type": "DynamicType",
+                          "typeArguments": null
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "arguments": [
+                          {
+                            "_meta": {},
+                            "literalType": "STRING",
+                            "loc": {
+                              "end": {
+                                "column": 17,
+                                "line": 62
+                              },
+                              "sourcefile": "examples/parallel_assignment.go",
+                              "start": {
+                                "column": 10,
+                                "line": 62
+                              }
+                            },
+                            "type": "Literal",
+                            "value": "\"apple\""
+                          },
+                          {
+                            "_meta": {},
+                            "literalType": "INT",
+                            "loc": {
+                              "end": {
+                                "column": 20,
+                                "line": 62
+                              },
+                              "sourcefile": "examples/parallel_assignment.go",
+                              "start": {
+                                "column": 19,
+                                "line": 62
+                              }
+                            },
+                            "type": "Literal",
+                            "value": "5"
+                          }
+                        ],
+                        "callee": {
+                          "_meta": {},
+                          "computed": false,
+                          "loc": {
+                            "end": {
+                              "column": 9,
+                              "line": 62
+                            },
+                            "sourcefile": "examples/parallel_assignment.go",
+                            "start": {
+                              "column": 2,
+                              "line": 62
+                            }
+                          },
+                          "object": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 3,
+                                "line": 62
+                              },
+                              "sourcefile": "examples/parallel_assignment.go",
+                              "start": {
+                                "column": 2,
+                                "line": 62
+                              }
+                            },
+                            "name": "m",
+                            "type": "Identifier"
+                          },
+                          "property": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 9,
+                                "line": 62
+                              },
+                              "sourcefile": "examples/parallel_assignment.go",
+                              "start": {
+                                "column": 4,
+                                "line": 62
+                              }
+                            },
+                            "name": "Store",
+                            "type": "Identifier"
+                          },
+                          "type": "MemberAccess"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 21,
+                            "line": 62
+                          },
+                          "sourcefile": "examples/parallel_assignment.go",
+                          "start": {
+                            "column": 2,
+                            "line": 62
+                          }
+                        },
+                        "type": "CallExpression"
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "id": {
+                          "_meta": {},
+                          "elements": [
+                            {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 7,
+                                  "line": 64
+                                },
+                                "sourcefile": "examples/parallel_assignment.go",
+                                "start": {
+                                  "column": 2,
+                                  "line": 64
+                                }
+                              },
+                              "name": "value",
+                              "type": "Identifier"
+                            },
+                            {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 11,
+                                  "line": 64
+                                },
+                                "sourcefile": "examples/parallel_assignment.go",
+                                "start": {
+                                  "column": 9,
+                                  "line": 64
+                                }
+                              },
+                              "name": "ok",
+                              "type": "Identifier"
+                            }
+                          ],
+                          "loc": null,
+                          "modifiable": false,
+                          "type": "TupleExpression"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "arguments": [
+                            {
+                              "_meta": {},
+                              "literalType": "STRING",
+                              "loc": {
+                                "end": {
+                                  "column": 30,
+                                  "line": 64
+                                },
+                                "sourcefile": "examples/parallel_assignment.go",
+                                "start": {
+                                  "column": 22,
+                                  "line": 64
+                                }
+                              },
+                              "type": "Literal",
+                              "value": "\"orange\""
+                            }
+                          ],
+                          "callee": {
+                            "_meta": {},
+                            "computed": false,
+                            "loc": {
+                              "end": {
+                                "column": 21,
+                                "line": 64
+                              },
+                              "sourcefile": "examples/parallel_assignment.go",
+                              "start": {
+                                "column": 15,
+                                "line": 64
+                              }
+                            },
+                            "object": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 16,
+                                  "line": 64
+                                },
+                                "sourcefile": "examples/parallel_assignment.go",
+                                "start": {
+                                  "column": 15,
+                                  "line": 64
+                                }
+                              },
+                              "name": "m",
+                              "type": "Identifier"
+                            },
+                            "property": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 21,
+                                  "line": 64
+                                },
+                                "sourcefile": "examples/parallel_assignment.go",
+                                "start": {
+                                  "column": 17,
+                                  "line": 64
+                                }
+                              },
+                              "name": "Load",
+                              "type": "Identifier"
+                            },
+                            "type": "MemberAccess"
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 31,
+                              "line": 64
+                            },
+                            "sourcefile": "examples/parallel_assignment.go",
+                            "start": {
+                              "column": 15,
+                              "line": 64
+                            }
+                          },
+                          "type": "CallExpression"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 31,
+                            "line": 64
+                          },
+                          "sourcefile": "examples/parallel_assignment.go",
+                          "start": {
+                            "column": 2,
+                            "line": 64
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "id": null,
+                          "loc": null,
+                          "type": "DynamicType",
+                          "typeArguments": null
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "alternative": {
+                          "_meta": {},
+                          "body": [
+                            {
+                              "_meta": {},
+                              "arguments": [
+                                {
+                                  "_meta": {},
+                                  "literalType": "STRING",
+                                  "loc": {
+                                    "end": {
+                                      "column": 30,
+                                      "line": 68
+                                    },
+                                    "sourcefile": "examples/parallel_assignment.go",
+                                    "start": {
+                                      "column": 15,
+                                      "line": 68
+                                    }
+                                  },
+                                  "type": "Literal",
+                                  "value": "\"Key not found\""
+                                }
+                              ],
+                              "callee": {
+                                "_meta": {},
+                                "computed": false,
+                                "loc": {
+                                  "end": {
+                                    "column": 14,
+                                    "line": 68
+                                  },
+                                  "sourcefile": "examples/parallel_assignment.go",
+                                  "start": {
+                                    "column": 3,
+                                    "line": 68
+                                  }
+                                },
+                                "object": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 6,
+                                      "line": 68
+                                    },
+                                    "sourcefile": "examples/parallel_assignment.go",
+                                    "start": {
+                                      "column": 3,
+                                      "line": 68
+                                    }
+                                  },
+                                  "name": "fmt",
+                                  "type": "Identifier"
+                                },
+                                "property": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 14,
+                                      "line": 68
+                                    },
+                                    "sourcefile": "examples/parallel_assignment.go",
+                                    "start": {
+                                      "column": 7,
+                                      "line": 68
+                                    }
+                                  },
+                                  "name": "Println",
+                                  "type": "Identifier"
+                                },
+                                "type": "MemberAccess"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 31,
+                                  "line": 68
+                                },
+                                "sourcefile": "examples/parallel_assignment.go",
+                                "start": {
+                                  "column": 3,
+                                  "line": 68
+                                }
+                              },
+                              "type": "CallExpression"
+                            }
+                          ],
+                          "id": null,
+                          "loc": {
+                            "end": {
+                              "column": 3,
+                              "line": 69
+                            },
+                            "sourcefile": "examples/parallel_assignment.go",
+                            "start": {
+                              "column": 9,
+                              "line": 67
+                            }
+                          },
+                          "type": "ScopedStatement"
+                        },
+                        "consequent": {
+                          "_meta": {},
+                          "body": [
+                            {
+                              "_meta": {},
+                              "arguments": [
+                                {
+                                  "_meta": {},
+                                  "literalType": "STRING",
+                                  "loc": {
+                                    "end": {
+                                      "column": 23,
+                                      "line": 66
+                                    },
+                                    "sourcefile": "examples/parallel_assignment.go",
+                                    "start": {
+                                      "column": 15,
+                                      "line": 66
+                                    }
+                                  },
+                                  "type": "Literal",
+                                  "value": "\"Value:\""
+                                },
+                                {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 30,
+                                      "line": 66
+                                    },
+                                    "sourcefile": "examples/parallel_assignment.go",
+                                    "start": {
+                                      "column": 25,
+                                      "line": 66
+                                    }
+                                  },
+                                  "name": "value",
+                                  "type": "Identifier"
+                                }
+                              ],
+                              "callee": {
+                                "_meta": {},
+                                "computed": false,
+                                "loc": {
+                                  "end": {
+                                    "column": 14,
+                                    "line": 66
+                                  },
+                                  "sourcefile": "examples/parallel_assignment.go",
+                                  "start": {
+                                    "column": 3,
+                                    "line": 66
+                                  }
+                                },
+                                "object": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 6,
+                                      "line": 66
+                                    },
+                                    "sourcefile": "examples/parallel_assignment.go",
+                                    "start": {
+                                      "column": 3,
+                                      "line": 66
+                                    }
+                                  },
+                                  "name": "fmt",
+                                  "type": "Identifier"
+                                },
+                                "property": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 14,
+                                      "line": 66
+                                    },
+                                    "sourcefile": "examples/parallel_assignment.go",
+                                    "start": {
+                                      "column": 7,
+                                      "line": 66
+                                    }
+                                  },
+                                  "name": "Println",
+                                  "type": "Identifier"
+                                },
+                                "type": "MemberAccess"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 31,
+                                  "line": 66
+                                },
+                                "sourcefile": "examples/parallel_assignment.go",
+                                "start": {
+                                  "column": 3,
+                                  "line": 66
+                                }
+                              },
+                              "type": "CallExpression"
+                            }
+                          ],
+                          "id": null,
+                          "loc": {
+                            "end": {
+                              "column": 3,
+                              "line": 67
+                            },
+                            "sourcefile": "examples/parallel_assignment.go",
+                            "start": {
+                              "column": 8,
+                              "line": 65
+                            }
+                          },
+                          "type": "ScopedStatement"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 3,
+                            "line": 69
+                          },
+                          "sourcefile": "examples/parallel_assignment.go",
+                          "start": {
+                            "column": 2,
+                            "line": 65
+                          }
+                        },
+                        "test": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 7,
+                              "line": 65
+                            },
+                            "sourcefile": "examples/parallel_assignment.go",
+                            "start": {
+                              "column": 5,
+                              "line": 65
+                            }
+                          },
+                          "name": "ok",
+                          "type": "Identifier"
+                        },
+                        "type": "IfStatement"
+                      }
+                    ],
+                    "id": null,
+                    "loc": {
+                      "end": {
+                        "column": 2,
+                        "line": 70
+                      },
+                      "sourcefile": "examples/parallel_assignment.go",
+                      "start": {
+                        "column": 20,
+                        "line": 59
+                      }
+                    },
+                    "type": "ScopedStatement"
+                  },
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 17,
+                        "line": 59
+                      },
+                      "sourcefile": "examples/parallel_assignment.go",
+                      "start": {
+                        "column": 6,
+                        "line": 59
+                      }
+                    },
+                    "name": "libFunction",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 70
+                    },
+                    "sourcefile": "examples/parallel_assignment.go",
+                    "start": {
+                      "column": 1,
+                      "line": 59
+                    }
+                  },
+                  "modifiers": null,
+                  "parameters": [],
+                  "returnType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "VoidType",
+                    "typeArguments": null
+                  },
+                  "type": "FunctionDefinition"
+                }
+              ],
+              "language": "golang",
+              "languageVersion": "1.18",
+              "loc": {
+                "end": {
+                  "column": 2,
+                  "line": 70
+                },
+                "sourcefile": "examples/parallel_assignment.go",
+                "start": {
+                  "column": 1,
+                  "line": 1
+                }
+              },
+              "type": "CompileUnit",
+              "uri": "",
+              "version": ""
+            },
+            "packageName": "__single__"
+          }
+        },
+        "subs": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,562 @@
+{
+  "moduleName": "__single_module__",
+  "packageInfo": {
+    "PathName": "",
+    "files": {},
+    "subs": {
+      "/": {
+        "PathName": "",
+        "files": {
+          "examples/auth.go": {
+            "node": {
+              "_meta": {},
+              "body": [
+                {
+                  "_meta": {},
+                  "loc": {
+                    "end": {
+                      "column": 17,
+                      "line": 1
+                    },
+                    "sourcefile": "examples/auth.go",
+                    "start": {
+                      "column": 9,
+                      "line": 1
+                    }
+                  },
+                  "packageName": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 17,
+                        "line": 1
+                      },
+                      "sourcefile": "examples/auth.go",
+                      "start": {
+                        "column": 9,
+                        "line": 1
+                      }
+                    },
+                    "name": "examples",
+                    "type": "Identifier"
+                  },
+                  "type": "PackageDeclaration"
+                },
+                {
+                  "_meta": {},
+                  "cloned": false,
+                  "id": {
+                    "_meta": {
+                      "ReceiveCls": "",
+                      "type": {
+                        "_meta": {},
+                        "element": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 24,
+                              "line": 3
+                            },
+                            "sourcefile": "examples/auth.go",
+                            "start": {
+                              "column": 20,
+                              "line": 3
+                            }
+                          },
+                          "name": "byte",
+                          "type": "Identifier"
+                        },
+                        "id": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 24,
+                              "line": 3
+                            },
+                            "sourcefile": "examples/auth.go",
+                            "start": {
+                              "column": 18,
+                              "line": 3
+                            }
+                          },
+                          "name": "ArrayType",
+                          "type": "Identifier"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 24,
+                            "line": 3
+                          },
+                          "sourcefile": "examples/auth.go",
+                          "start": {
+                            "column": 18,
+                            "line": 3
+                          }
+                        },
+                        "size": {
+                          "_meta": {},
+                          "loc": null,
+                          "type": "Noop"
+                        },
+                        "type": "ArrayType",
+                        "typeArguments": null
+                      }
+                    },
+                    "loc": {
+                      "end": {
+                        "column": 15,
+                        "line": 3
+                      },
+                      "sourcefile": "examples/auth.go",
+                      "start": {
+                        "column": 5,
+                        "line": 3
+                      }
+                    },
+                    "name": "testPubKey",
+                    "type": "Identifier"
+                  },
+                  "init": {
+                    "_meta": {},
+                    "arguments": [
+                      {
+                        "_meta": {},
+                        "left": {
+                          "_meta": {},
+                          "left": {
+                            "_meta": {},
+                            "left": {
+                              "_meta": {},
+                              "left": {
+                                "_meta": {},
+                                "left": {
+                                  "_meta": {},
+                                  "left": {
+                                    "_meta": {},
+                                    "left": {
+                                      "_meta": {},
+                                      "left": {
+                                        "_meta": {},
+                                        "literalType": "STRING",
+                                        "loc": {
+                                          "end": {
+                                            "column": 55,
+                                            "line": 3
+                                          },
+                                          "sourcefile": "examples/auth.go",
+                                          "start": {
+                                            "column": 25,
+                                            "line": 3
+                                          }
+                                        },
+                                        "type": "Literal",
+                                        "value": "\"-----BEGIN PUBLIC KEY-----\\n\""
+                                      },
+                                      "loc": {
+                                        "end": {
+                                          "column": 70,
+                                          "line": 4
+                                        },
+                                        "sourcefile": "examples/auth.go",
+                                        "start": {
+                                          "column": 25,
+                                          "line": 3
+                                        }
+                                      },
+                                      "operator": "+",
+                                      "right": {
+                                        "_meta": {},
+                                        "literalType": "STRING",
+                                        "loc": {
+                                          "end": {
+                                            "column": 70,
+                                            "line": 4
+                                          },
+                                          "sourcefile": "examples/auth.go",
+                                          "start": {
+                                            "column": 2,
+                                            "line": 4
+                                          }
+                                        },
+                                        "type": "Literal",
+                                        "value": "\"MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAol0Z8G8U+25Btxk/g/fm\\n\""
+                                      },
+                                      "type": "BinaryExpression"
+                                    },
+                                    "loc": {
+                                      "end": {
+                                        "column": 70,
+                                        "line": 5
+                                      },
+                                      "sourcefile": "examples/auth.go",
+                                      "start": {
+                                        "column": 25,
+                                        "line": 3
+                                      }
+                                    },
+                                    "operator": "+",
+                                    "right": {
+                                      "_meta": {},
+                                      "literalType": "STRING",
+                                      "loc": {
+                                        "end": {
+                                          "column": 70,
+                                          "line": 5
+                                        },
+                                        "sourcefile": "examples/auth.go",
+                                        "start": {
+                                          "column": 2,
+                                          "line": 5
+                                        }
+                                      },
+                                      "type": "Literal",
+                                      "value": "\"UAW/wEKjQCTjkibDE4B+qkuWeiumg6miIRhtilU6m9BFmLQSy1ltYQuu4k17A4tQ\\n\""
+                                    },
+                                    "type": "BinaryExpression"
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 70,
+                                      "line": 6
+                                    },
+                                    "sourcefile": "examples/auth.go",
+                                    "start": {
+                                      "column": 25,
+                                      "line": 3
+                                    }
+                                  },
+                                  "operator": "+",
+                                  "right": {
+                                    "_meta": {},
+                                    "literalType": "STRING",
+                                    "loc": {
+                                      "end": {
+                                        "column": 70,
+                                        "line": 6
+                                      },
+                                      "sourcefile": "examples/auth.go",
+                                      "start": {
+                                        "column": 2,
+                                        "line": 6
+                                      }
+                                    },
+                                    "type": "Literal",
+                                    "value": "\"rIPpOQYZges/qsDFkZh3wyK5jL5WEFVdOasf6wsfszExnPmcZS4axxoYJfiuilrN\\n\""
+                                  },
+                                  "type": "BinaryExpression"
+                                },
+                                "loc": {
+                                  "end": {
+                                    "column": 70,
+                                    "line": 7
+                                  },
+                                  "sourcefile": "examples/auth.go",
+                                  "start": {
+                                    "column": 25,
+                                    "line": 3
+                                  }
+                                },
+                                "operator": "+",
+                                "right": {
+                                  "_meta": {},
+                                  "literalType": "STRING",
+                                  "loc": {
+                                    "end": {
+                                      "column": 70,
+                                      "line": 7
+                                    },
+                                    "sourcefile": "examples/auth.go",
+                                    "start": {
+                                      "column": 2,
+                                      "line": 7
+                                    }
+                                  },
+                                  "type": "Literal",
+                                  "value": "\"hnwinBAqfi3S0sw5MpSI4Zl1AbOrHG4zDI62Gti2PKiMGyYDZTS9xPrBLbN95Kby\\n\""
+                                },
+                                "type": "BinaryExpression"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 70,
+                                  "line": 8
+                                },
+                                "sourcefile": "examples/auth.go",
+                                "start": {
+                                  "column": 25,
+                                  "line": 3
+                                }
+                              },
+                              "operator": "+",
+                              "right": {
+                                "_meta": {},
+                                "literalType": "STRING",
+                                "loc": {
+                                  "end": {
+                                    "column": 70,
+                                    "line": 8
+                                  },
+                                  "sourcefile": "examples/auth.go",
+                                  "start": {
+                                    "column": 2,
+                                    "line": 8
+                                  }
+                                },
+                                "type": "Literal",
+                                "value": "\"FFclQLEzA9RJcS1nHFsWtRgHjGPhhjCQxEm9NQ1nePFhCfBfApyfH1VM2VCOQum6\\n\""
+                              },
+                              "type": "BinaryExpression"
+                            },
+                            "loc": {
+                              "end": {
+                                "column": 70,
+                                "line": 9
+                              },
+                              "sourcefile": "examples/auth.go",
+                              "start": {
+                                "column": 25,
+                                "line": 3
+                              }
+                            },
+                            "operator": "+",
+                            "right": {
+                              "_meta": {},
+                              "literalType": "STRING",
+                              "loc": {
+                                "end": {
+                                  "column": 70,
+                                  "line": 9
+                                },
+                                "sourcefile": "examples/auth.go",
+                                "start": {
+                                  "column": 2,
+                                  "line": 9
+                                }
+                              },
+                              "type": "Literal",
+                              "value": "\"Ci9bMuHWjTjckC84mzF99kOxOWVU7mwS6gnJqBzpuz8t3zq8/iQ2y7QrmZV+jTJP\\n\""
+                            },
+                            "type": "BinaryExpression"
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 14,
+                              "line": 10
+                            },
+                            "sourcefile": "examples/auth.go",
+                            "start": {
+                              "column": 25,
+                              "line": 3
+                            }
+                          },
+                          "operator": "+",
+                          "right": {
+                            "_meta": {},
+                            "literalType": "STRING",
+                            "loc": {
+                              "end": {
+                                "column": 14,
+                                "line": 10
+                              },
+                              "sourcefile": "examples/auth.go",
+                              "start": {
+                                "column": 2,
+                                "line": 10
+                              }
+                            },
+                            "type": "Literal",
+                            "value": "\"WQIDAQAB\\n\""
+                          },
+                          "type": "BinaryExpression"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 30,
+                            "line": 11
+                          },
+                          "sourcefile": "examples/auth.go",
+                          "start": {
+                            "column": 25,
+                            "line": 3
+                          }
+                        },
+                        "operator": "+",
+                        "right": {
+                          "_meta": {},
+                          "literalType": "STRING",
+                          "loc": {
+                            "end": {
+                              "column": 30,
+                              "line": 11
+                            },
+                            "sourcefile": "examples/auth.go",
+                            "start": {
+                              "column": 2,
+                              "line": 11
+                            }
+                          },
+                          "type": "Literal",
+                          "value": "\"-----END PUBLIC KEY-----\\n\""
+                        },
+                        "type": "BinaryExpression"
+                      }
+                    ],
+                    "callee": {
+                      "_meta": {},
+                      "element": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 24,
+                            "line": 3
+                          },
+                          "sourcefile": "examples/auth.go",
+                          "start": {
+                            "column": 20,
+                            "line": 3
+                          }
+                        },
+                        "name": "byte",
+                        "type": "Identifier"
+                      },
+                      "id": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 24,
+                            "line": 3
+                          },
+                          "sourcefile": "examples/auth.go",
+                          "start": {
+                            "column": 18,
+                            "line": 3
+                          }
+                        },
+                        "name": "ArrayType",
+                        "type": "Identifier"
+                      },
+                      "loc": {
+                        "end": {
+                          "column": 24,
+                          "line": 3
+                        },
+                        "sourcefile": "examples/auth.go",
+                        "start": {
+                          "column": 18,
+                          "line": 3
+                        }
+                      },
+                      "size": {
+                        "_meta": {},
+                        "loc": null,
+                        "type": "Noop"
+                      },
+                      "type": "ArrayType",
+                      "typeArguments": null
+                    },
+                    "loc": {
+                      "end": {
+                        "column": 31,
+                        "line": 11
+                      },
+                      "sourcefile": "examples/auth.go",
+                      "start": {
+                        "column": 18,
+                        "line": 3
+                      }
+                    },
+                    "type": "CallExpression"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 31,
+                      "line": 11
+                    },
+                    "sourcefile": "examples/auth.go",
+                    "start": {
+                      "column": 5,
+                      "line": 3
+                    }
+                  },
+                  "type": "VariableDeclaration",
+                  "varType": {
+                    "_meta": {},
+                    "element": {
+                      "_meta": {},
+                      "loc": {
+                        "end": {
+                          "column": 24,
+                          "line": 3
+                        },
+                        "sourcefile": "examples/auth.go",
+                        "start": {
+                          "column": 20,
+                          "line": 3
+                        }
+                      },
+                      "name": "byte",
+                      "type": "Identifier"
+                    },
+                    "id": {
+                      "_meta": {},
+                      "loc": {
+                        "end": {
+                          "column": 24,
+                          "line": 3
+                        },
+                        "sourcefile": "examples/auth.go",
+                        "start": {
+                          "column": 18,
+                          "line": 3
+                        }
+                      },
+                      "name": "ArrayType",
+                      "type": "Identifier"
+                    },
+                    "loc": {
+                      "end": {
+                        "column": 24,
+                        "line": 3
+                      },
+                      "sourcefile": "examples/auth.go",
+                      "start": {
+                        "column": 18,
+                        "line": 3
+                      }
+                    },
+                    "size": {
+                      "_meta": {},
+                      "loc": null,
+                      "type": "Noop"
+                    },
+                    "type": "ArrayType",
+                    "typeArguments": null
+                  },
+                  "variableParam": false
+                }
+              ],
+              "language": "golang",
+              "languageVersion": "1.18",
+              "loc": {
+                "end": {
+                  "column": 31,
+                  "line": 11
+                },
+                "sourcefile": "examples/auth.go",
+                "start": {
+                  "column": 1,
+                  "line": 1
+                }
+              },
+              "type": "CompileUnit",
+              "uri": "",
+              "version": ""
+            },
+            "packageName": "__single__"
+          }
+        },
+        "subs": {}
+      }
+    }
+  }
+}

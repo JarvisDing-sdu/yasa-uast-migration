@@ -1,0 +1,1999 @@
+{
+  "moduleName": "__single_module__",
+  "packageInfo": {
+    "PathName": "",
+    "files": {},
+    "subs": {
+      "/": {
+        "PathName": "",
+        "files": {
+          "examples/constDecl.go": {
+            "node": {
+              "_meta": {},
+              "body": [
+                {
+                  "_meta": {},
+                  "loc": {
+                    "end": {
+                      "column": 17,
+                      "line": 1
+                    },
+                    "sourcefile": "examples/constDecl.go",
+                    "start": {
+                      "column": 9,
+                      "line": 1
+                    }
+                  },
+                  "packageName": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 17,
+                        "line": 1
+                      },
+                      "sourcefile": "examples/constDecl.go",
+                      "start": {
+                        "column": 9,
+                        "line": 1
+                      }
+                    },
+                    "name": "examples",
+                    "type": "Identifier"
+                  },
+                  "type": "PackageDeclaration"
+                },
+                {
+                  "_meta": {
+                    "ReceiveCls": "",
+                    "isDefaultImport": true
+                  },
+                  "cloned": false,
+                  "id": {
+                    "_meta": {},
+                    "loc": null,
+                    "name": "fmt",
+                    "type": "Identifier"
+                  },
+                  "init": {
+                    "_meta": {},
+                    "from": {
+                      "_meta": {},
+                      "literalType": "string",
+                      "loc": {
+                        "end": {
+                          "column": 13,
+                          "line": 3
+                        },
+                        "sourcefile": "examples/constDecl.go",
+                        "start": {
+                          "column": 8,
+                          "line": 3
+                        }
+                      },
+                      "type": "Literal",
+                      "value": "fmt"
+                    },
+                    "imported": null,
+                    "loc": {
+                      "end": {
+                        "column": 13,
+                        "line": 3
+                      },
+                      "sourcefile": "examples/constDecl.go",
+                      "start": {
+                        "column": 8,
+                        "line": 3
+                      }
+                    },
+                    "local": null,
+                    "type": "ImportExpression"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 13,
+                      "line": 3
+                    },
+                    "sourcefile": "examples/constDecl.go",
+                    "start": {
+                      "column": 8,
+                      "line": 3
+                    }
+                  },
+                  "type": "VariableDeclaration",
+                  "varType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "DynamicType",
+                    "typeArguments": null
+                  },
+                  "variableParam": false
+                },
+                {
+                  "_meta": {},
+                  "body": {
+                    "_meta": {},
+                    "body": [
+                      {
+                        "_meta": {},
+                        "argument": {
+                          "_meta": {},
+                          "elements": [
+                            {
+                              "_meta": {},
+                              "literalType": "INT",
+                              "loc": {
+                                "end": {
+                                  "column": 10,
+                                  "line": 8
+                                },
+                                "sourcefile": "examples/constDecl.go",
+                                "start": {
+                                  "column": 9,
+                                  "line": 8
+                                }
+                              },
+                              "type": "Literal",
+                              "value": "1"
+                            },
+                            {
+                              "_meta": {},
+                              "literalType": "INT",
+                              "loc": {
+                                "end": {
+                                  "column": 13,
+                                  "line": 8
+                                },
+                                "sourcefile": "examples/constDecl.go",
+                                "start": {
+                                  "column": 12,
+                                  "line": 8
+                                }
+                              },
+                              "type": "Literal",
+                              "value": "2"
+                            }
+                          ],
+                          "loc": null,
+                          "modifiable": false,
+                          "type": "TupleExpression"
+                        },
+                        "isYield": false,
+                        "loc": {
+                          "end": {
+                            "column": 13,
+                            "line": 8
+                          },
+                          "sourcefile": "examples/constDecl.go",
+                          "start": {
+                            "column": 2,
+                            "line": 8
+                          }
+                        },
+                        "type": "ReturnStatement"
+                      }
+                    ],
+                    "id": null,
+                    "loc": {
+                      "end": {
+                        "column": 2,
+                        "line": 9
+                      },
+                      "sourcefile": "examples/constDecl.go",
+                      "start": {
+                        "column": 33,
+                        "line": 7
+                      }
+                    },
+                    "type": "ScopedStatement"
+                  },
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 19,
+                        "line": 7
+                      },
+                      "sourcefile": "examples/constDecl.go",
+                      "start": {
+                        "column": 6,
+                        "line": 7
+                      }
+                    },
+                    "name": "constMultiRet",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 9
+                    },
+                    "sourcefile": "examples/constDecl.go",
+                    "start": {
+                      "column": 1,
+                      "line": 7
+                    }
+                  },
+                  "modifiers": null,
+                  "parameters": [],
+                  "returnType": {
+                    "_meta": {},
+                    "elements": [
+                      {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 26,
+                            "line": 7
+                          },
+                          "sourcefile": "examples/constDecl.go",
+                          "start": {
+                            "column": 23,
+                            "line": 7
+                          }
+                        },
+                        "name": "int",
+                        "type": "Identifier"
+                      },
+                      {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 31,
+                            "line": 7
+                          },
+                          "sourcefile": "examples/constDecl.go",
+                          "start": {
+                            "column": 28,
+                            "line": 7
+                          }
+                        },
+                        "name": "int",
+                        "type": "Identifier"
+                      }
+                    ],
+                    "id": null,
+                    "loc": null,
+                    "type": "TupleType",
+                    "typeArguments": null
+                  },
+                  "type": "FunctionDefinition"
+                },
+                {
+                  "_meta": {},
+                  "body": {
+                    "_meta": {},
+                    "body": [
+                      {
+                        "_meta": {},
+                        "cloned": false,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "id": null,
+                              "loc": null,
+                              "type": "DynamicType",
+                              "typeArguments": null
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 5,
+                              "line": 13
+                            },
+                            "sourcefile": "examples/constDecl.go",
+                            "start": {
+                              "column": 3,
+                              "line": 13
+                            }
+                          },
+                          "name": "c0",
+                          "type": "Identifier"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 12,
+                              "line": 13
+                            },
+                            "sourcefile": "examples/constDecl.go",
+                            "start": {
+                              "column": 8,
+                              "line": 13
+                            }
+                          },
+                          "name": "iota",
+                          "type": "Identifier"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 12,
+                            "line": 13
+                          },
+                          "sourcefile": "examples/constDecl.go",
+                          "start": {
+                            "column": 3,
+                            "line": 13
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "id": null,
+                          "loc": null,
+                          "type": "DynamicType",
+                          "typeArguments": null
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": false,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "id": null,
+                              "loc": null,
+                              "type": "DynamicType",
+                              "typeArguments": null
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 5,
+                              "line": 14
+                            },
+                            "sourcefile": "examples/constDecl.go",
+                            "start": {
+                              "column": 3,
+                              "line": 14
+                            }
+                          },
+                          "name": "c1",
+                          "type": "Identifier"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 12,
+                              "line": 14
+                            },
+                            "sourcefile": "examples/constDecl.go",
+                            "start": {
+                              "column": 8,
+                              "line": 14
+                            }
+                          },
+                          "name": "iota",
+                          "type": "Identifier"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 12,
+                            "line": 14
+                          },
+                          "sourcefile": "examples/constDecl.go",
+                          "start": {
+                            "column": 3,
+                            "line": 14
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "id": null,
+                          "loc": null,
+                          "type": "DynamicType",
+                          "typeArguments": null
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": false,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "id": null,
+                              "loc": null,
+                              "type": "DynamicType",
+                              "typeArguments": null
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 5,
+                              "line": 15
+                            },
+                            "sourcefile": "examples/constDecl.go",
+                            "start": {
+                              "column": 3,
+                              "line": 15
+                            }
+                          },
+                          "name": "c2",
+                          "type": "Identifier"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 12,
+                              "line": 15
+                            },
+                            "sourcefile": "examples/constDecl.go",
+                            "start": {
+                              "column": 8,
+                              "line": 15
+                            }
+                          },
+                          "name": "iota",
+                          "type": "Identifier"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 12,
+                            "line": 15
+                          },
+                          "sourcefile": "examples/constDecl.go",
+                          "start": {
+                            "column": 3,
+                            "line": 15
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "id": null,
+                          "loc": null,
+                          "type": "DynamicType",
+                          "typeArguments": null
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": false,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "id": null,
+                              "loc": null,
+                              "type": "DynamicType",
+                              "typeArguments": null
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 9,
+                              "line": 18
+                            },
+                            "sourcefile": "examples/constDecl.go",
+                            "start": {
+                              "column": 3,
+                              "line": 18
+                            }
+                          },
+                          "name": "Sunday",
+                          "type": "Identifier"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 16,
+                              "line": 18
+                            },
+                            "sourcefile": "examples/constDecl.go",
+                            "start": {
+                              "column": 12,
+                              "line": 18
+                            }
+                          },
+                          "name": "iota",
+                          "type": "Identifier"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 16,
+                            "line": 18
+                          },
+                          "sourcefile": "examples/constDecl.go",
+                          "start": {
+                            "column": 3,
+                            "line": 18
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "id": null,
+                          "loc": null,
+                          "type": "DynamicType",
+                          "typeArguments": null
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": false,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "id": null,
+                              "loc": null,
+                              "type": "DynamicType",
+                              "typeArguments": null
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 9,
+                              "line": 19
+                            },
+                            "sourcefile": "examples/constDecl.go",
+                            "start": {
+                              "column": 3,
+                              "line": 19
+                            }
+                          },
+                          "name": "Monday",
+                          "type": "Identifier"
+                        },
+                        "init": null,
+                        "loc": {
+                          "end": {
+                            "column": 9,
+                            "line": 19
+                          },
+                          "sourcefile": "examples/constDecl.go",
+                          "start": {
+                            "column": 3,
+                            "line": 19
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "id": null,
+                          "loc": null,
+                          "type": "DynamicType",
+                          "typeArguments": null
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": false,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "id": null,
+                              "loc": null,
+                              "type": "DynamicType",
+                              "typeArguments": null
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 10,
+                              "line": 20
+                            },
+                            "sourcefile": "examples/constDecl.go",
+                            "start": {
+                              "column": 3,
+                              "line": 20
+                            }
+                          },
+                          "name": "Tuesday",
+                          "type": "Identifier"
+                        },
+                        "init": null,
+                        "loc": {
+                          "end": {
+                            "column": 10,
+                            "line": 20
+                          },
+                          "sourcefile": "examples/constDecl.go",
+                          "start": {
+                            "column": 3,
+                            "line": 20
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "id": null,
+                          "loc": null,
+                          "type": "DynamicType",
+                          "typeArguments": null
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": false,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "id": null,
+                              "loc": null,
+                              "type": "DynamicType",
+                              "typeArguments": null
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 12,
+                              "line": 21
+                            },
+                            "sourcefile": "examples/constDecl.go",
+                            "start": {
+                              "column": 3,
+                              "line": 21
+                            }
+                          },
+                          "name": "Wednesday",
+                          "type": "Identifier"
+                        },
+                        "init": null,
+                        "loc": {
+                          "end": {
+                            "column": 12,
+                            "line": 21
+                          },
+                          "sourcefile": "examples/constDecl.go",
+                          "start": {
+                            "column": 3,
+                            "line": 21
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "id": null,
+                          "loc": null,
+                          "type": "DynamicType",
+                          "typeArguments": null
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": false,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "id": null,
+                              "loc": null,
+                              "type": "DynamicType",
+                              "typeArguments": null
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 11,
+                              "line": 22
+                            },
+                            "sourcefile": "examples/constDecl.go",
+                            "start": {
+                              "column": 3,
+                              "line": 22
+                            }
+                          },
+                          "name": "Thursday",
+                          "type": "Identifier"
+                        },
+                        "init": null,
+                        "loc": {
+                          "end": {
+                            "column": 11,
+                            "line": 22
+                          },
+                          "sourcefile": "examples/constDecl.go",
+                          "start": {
+                            "column": 3,
+                            "line": 22
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "id": null,
+                          "loc": null,
+                          "type": "DynamicType",
+                          "typeArguments": null
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": false,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "id": null,
+                              "loc": null,
+                              "type": "DynamicType",
+                              "typeArguments": null
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 9,
+                              "line": 23
+                            },
+                            "sourcefile": "examples/constDecl.go",
+                            "start": {
+                              "column": 3,
+                              "line": 23
+                            }
+                          },
+                          "name": "Friday",
+                          "type": "Identifier"
+                        },
+                        "init": null,
+                        "loc": {
+                          "end": {
+                            "column": 9,
+                            "line": 23
+                          },
+                          "sourcefile": "examples/constDecl.go",
+                          "start": {
+                            "column": 3,
+                            "line": 23
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "id": null,
+                          "loc": null,
+                          "type": "DynamicType",
+                          "typeArguments": null
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": false,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "id": null,
+                              "loc": null,
+                              "type": "DynamicType",
+                              "typeArguments": null
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 11,
+                              "line": 24
+                            },
+                            "sourcefile": "examples/constDecl.go",
+                            "start": {
+                              "column": 3,
+                              "line": 24
+                            }
+                          },
+                          "name": "Partyday",
+                          "type": "Identifier"
+                        },
+                        "init": null,
+                        "loc": {
+                          "end": {
+                            "column": 11,
+                            "line": 24
+                          },
+                          "sourcefile": "examples/constDecl.go",
+                          "start": {
+                            "column": 3,
+                            "line": 24
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "id": null,
+                          "loc": null,
+                          "type": "DynamicType",
+                          "typeArguments": null
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": false,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "id": null,
+                              "loc": null,
+                              "type": "DynamicType",
+                              "typeArguments": null
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 15,
+                              "line": 25
+                            },
+                            "sourcefile": "examples/constDecl.go",
+                            "start": {
+                              "column": 3,
+                              "line": 25
+                            }
+                          },
+                          "name": "numberOfDays",
+                          "type": "Identifier"
+                        },
+                        "init": null,
+                        "loc": {
+                          "end": {
+                            "column": 15,
+                            "line": 25
+                          },
+                          "sourcefile": "examples/constDecl.go",
+                          "start": {
+                            "column": 3,
+                            "line": 25
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "id": null,
+                          "loc": null,
+                          "type": "DynamicType",
+                          "typeArguments": null
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": false,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 18,
+                                  "line": 27
+                                },
+                                "sourcefile": "examples/constDecl.go",
+                                "start": {
+                                  "column": 11,
+                                  "line": 27
+                                }
+                              },
+                              "name": "float64",
+                              "type": "Identifier"
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 10,
+                              "line": 27
+                            },
+                            "sourcefile": "examples/constDecl.go",
+                            "start": {
+                              "column": 8,
+                              "line": 27
+                            }
+                          },
+                          "name": "Pi",
+                          "type": "Identifier"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "literalType": "FLOAT",
+                          "loc": {
+                            "end": {
+                              "column": 43,
+                              "line": 27
+                            },
+                            "sourcefile": "examples/constDecl.go",
+                            "start": {
+                              "column": 21,
+                              "line": 27
+                            }
+                          },
+                          "type": "Literal",
+                          "value": "3.14159265358979323846"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 43,
+                            "line": 27
+                          },
+                          "sourcefile": "examples/constDecl.go",
+                          "start": {
+                            "column": 8,
+                            "line": 27
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 18,
+                              "line": 27
+                            },
+                            "sourcefile": "examples/constDecl.go",
+                            "start": {
+                              "column": 11,
+                              "line": 27
+                            }
+                          },
+                          "name": "float64",
+                          "type": "Identifier"
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": false,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "loc": null,
+                              "name": "float",
+                              "type": "Identifier"
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 12,
+                              "line": 28
+                            },
+                            "sourcefile": "examples/constDecl.go",
+                            "start": {
+                              "column": 8,
+                              "line": 28
+                            }
+                          },
+                          "name": "zero",
+                          "type": "Identifier"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "literalType": "FLOAT",
+                          "loc": {
+                            "end": {
+                              "column": 18,
+                              "line": 28
+                            },
+                            "sourcefile": "examples/constDecl.go",
+                            "start": {
+                              "column": 15,
+                              "line": 28
+                            }
+                          },
+                          "type": "Literal",
+                          "value": "0.0"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 18,
+                            "line": 28
+                          },
+                          "sourcefile": "examples/constDecl.go",
+                          "start": {
+                            "column": 8,
+                            "line": 28
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "loc": null,
+                          "name": "float",
+                          "type": "Identifier"
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": false,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 13,
+                                  "line": 30
+                                },
+                                "sourcefile": "examples/constDecl.go",
+                                "start": {
+                                  "column": 8,
+                                  "line": 30
+                                }
+                              },
+                              "name": "int64",
+                              "type": "Identifier"
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 7,
+                              "line": 30
+                            },
+                            "sourcefile": "examples/constDecl.go",
+                            "start": {
+                              "column": 3,
+                              "line": 30
+                            }
+                          },
+                          "name": "size",
+                          "type": "Identifier"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "literalType": "INT",
+                          "loc": {
+                            "end": {
+                              "column": 20,
+                              "line": 30
+                            },
+                            "sourcefile": "examples/constDecl.go",
+                            "start": {
+                              "column": 16,
+                              "line": 30
+                            }
+                          },
+                          "type": "Literal",
+                          "value": "1024"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 20,
+                            "line": 30
+                          },
+                          "sourcefile": "examples/constDecl.go",
+                          "start": {
+                            "column": 3,
+                            "line": 30
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 13,
+                              "line": 30
+                            },
+                            "sourcefile": "examples/constDecl.go",
+                            "start": {
+                              "column": 8,
+                              "line": 30
+                            }
+                          },
+                          "name": "int64",
+                          "type": "Identifier"
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": false,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "id": null,
+                              "loc": null,
+                              "type": "DynamicType",
+                              "typeArguments": null
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 6,
+                              "line": 31
+                            },
+                            "sourcefile": "examples/constDecl.go",
+                            "start": {
+                              "column": 3,
+                              "line": 31
+                            }
+                          },
+                          "name": "eof",
+                          "type": "Identifier"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "argument": {
+                            "_meta": {},
+                            "literalType": "INT",
+                            "loc": {
+                              "end": {
+                                "column": 18,
+                                "line": 31
+                              },
+                              "sourcefile": "examples/constDecl.go",
+                              "start": {
+                                "column": 17,
+                                "line": 31
+                              }
+                            },
+                            "type": "Literal",
+                            "value": "1"
+                          },
+                          "isSuffix": false,
+                          "loc": {
+                            "end": {
+                              "column": 18,
+                              "line": 31
+                            },
+                            "sourcefile": "examples/constDecl.go",
+                            "start": {
+                              "column": 16,
+                              "line": 31
+                            }
+                          },
+                          "operator": "-",
+                          "type": "UnaryExpression"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 18,
+                            "line": 31
+                          },
+                          "sourcefile": "examples/constDecl.go",
+                          "start": {
+                            "column": 3,
+                            "line": 31
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "id": null,
+                          "loc": null,
+                          "type": "DynamicType",
+                          "typeArguments": null
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "expressions": [
+                          {
+                            "_meta": {},
+                            "cloned": false,
+                            "id": {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "loc": null,
+                                  "name": "int",
+                                  "type": "Identifier"
+                                }
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 9,
+                                  "line": 33
+                                },
+                                "sourcefile": "examples/constDecl.go",
+                                "start": {
+                                  "column": 8,
+                                  "line": 33
+                                }
+                              },
+                              "name": "a",
+                              "type": "Identifier"
+                            },
+                            "init": {
+                              "_meta": {},
+                              "literalType": "INT",
+                              "loc": {
+                                "end": {
+                                  "column": 19,
+                                  "line": 33
+                                },
+                                "sourcefile": "examples/constDecl.go",
+                                "start": {
+                                  "column": 18,
+                                  "line": 33
+                                }
+                              },
+                              "type": "Literal",
+                              "value": "3"
+                            },
+                            "loc": null,
+                            "type": "VariableDeclaration",
+                            "varType": {
+                              "_meta": {},
+                              "loc": null,
+                              "name": "int",
+                              "type": "Identifier"
+                            },
+                            "variableParam": false
+                          },
+                          {
+                            "_meta": {},
+                            "cloned": false,
+                            "id": {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "loc": null,
+                                  "name": "int",
+                                  "type": "Identifier"
+                                }
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 12,
+                                  "line": 33
+                                },
+                                "sourcefile": "examples/constDecl.go",
+                                "start": {
+                                  "column": 11,
+                                  "line": 33
+                                }
+                              },
+                              "name": "b",
+                              "type": "Identifier"
+                            },
+                            "init": {
+                              "_meta": {},
+                              "literalType": "INT",
+                              "loc": {
+                                "end": {
+                                  "column": 22,
+                                  "line": 33
+                                },
+                                "sourcefile": "examples/constDecl.go",
+                                "start": {
+                                  "column": 21,
+                                  "line": 33
+                                }
+                              },
+                              "type": "Literal",
+                              "value": "4"
+                            },
+                            "loc": null,
+                            "type": "VariableDeclaration",
+                            "varType": {
+                              "_meta": {},
+                              "loc": null,
+                              "name": "int",
+                              "type": "Identifier"
+                            },
+                            "variableParam": false
+                          },
+                          {
+                            "_meta": {},
+                            "cloned": false,
+                            "id": {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "loc": null,
+                                  "name": "string",
+                                  "type": "Identifier"
+                                }
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 15,
+                                  "line": 33
+                                },
+                                "sourcefile": "examples/constDecl.go",
+                                "start": {
+                                  "column": 14,
+                                  "line": 33
+                                }
+                              },
+                              "name": "c",
+                              "type": "Identifier"
+                            },
+                            "init": {
+                              "_meta": {},
+                              "literalType": "STRING",
+                              "loc": {
+                                "end": {
+                                  "column": 29,
+                                  "line": 33
+                                },
+                                "sourcefile": "examples/constDecl.go",
+                                "start": {
+                                  "column": 24,
+                                  "line": 33
+                                }
+                              },
+                              "type": "Literal",
+                              "value": "\"foo\""
+                            },
+                            "loc": null,
+                            "type": "VariableDeclaration",
+                            "varType": {
+                              "_meta": {},
+                              "loc": null,
+                              "name": "string",
+                              "type": "Identifier"
+                            },
+                            "variableParam": false
+                          }
+                        ],
+                        "loc": {
+                          "end": {
+                            "column": 29,
+                            "line": 33
+                          },
+                          "sourcefile": "examples/constDecl.go",
+                          "start": {
+                            "column": 8,
+                            "line": 33
+                          }
+                        },
+                        "type": "Sequence"
+                      },
+                      {
+                        "_meta": {},
+                        "expressions": [
+                          {
+                            "_meta": {},
+                            "cloned": false,
+                            "id": {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 20,
+                                      "line": 34
+                                    },
+                                    "sourcefile": "examples/constDecl.go",
+                                    "start": {
+                                      "column": 13,
+                                      "line": 34
+                                    }
+                                  },
+                                  "name": "float32",
+                                  "type": "Identifier"
+                                }
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 9,
+                                  "line": 34
+                                },
+                                "sourcefile": "examples/constDecl.go",
+                                "start": {
+                                  "column": 8,
+                                  "line": 34
+                                }
+                              },
+                              "name": "u",
+                              "type": "Identifier"
+                            },
+                            "init": {
+                              "_meta": {},
+                              "literalType": "INT",
+                              "loc": {
+                                "end": {
+                                  "column": 24,
+                                  "line": 34
+                                },
+                                "sourcefile": "examples/constDecl.go",
+                                "start": {
+                                  "column": 23,
+                                  "line": 34
+                                }
+                              },
+                              "type": "Literal",
+                              "value": "0"
+                            },
+                            "loc": null,
+                            "type": "VariableDeclaration",
+                            "varType": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 20,
+                                  "line": 34
+                                },
+                                "sourcefile": "examples/constDecl.go",
+                                "start": {
+                                  "column": 13,
+                                  "line": 34
+                                }
+                              },
+                              "name": "float32",
+                              "type": "Identifier"
+                            },
+                            "variableParam": false
+                          },
+                          {
+                            "_meta": {},
+                            "cloned": false,
+                            "id": {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 20,
+                                      "line": 34
+                                    },
+                                    "sourcefile": "examples/constDecl.go",
+                                    "start": {
+                                      "column": 13,
+                                      "line": 34
+                                    }
+                                  },
+                                  "name": "float32",
+                                  "type": "Identifier"
+                                }
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 12,
+                                  "line": 34
+                                },
+                                "sourcefile": "examples/constDecl.go",
+                                "start": {
+                                  "column": 11,
+                                  "line": 34
+                                }
+                              },
+                              "name": "v",
+                              "type": "Identifier"
+                            },
+                            "init": {
+                              "_meta": {},
+                              "literalType": "INT",
+                              "loc": {
+                                "end": {
+                                  "column": 27,
+                                  "line": 34
+                                },
+                                "sourcefile": "examples/constDecl.go",
+                                "start": {
+                                  "column": 26,
+                                  "line": 34
+                                }
+                              },
+                              "type": "Literal",
+                              "value": "3"
+                            },
+                            "loc": null,
+                            "type": "VariableDeclaration",
+                            "varType": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 20,
+                                  "line": 34
+                                },
+                                "sourcefile": "examples/constDecl.go",
+                                "start": {
+                                  "column": 13,
+                                  "line": 34
+                                }
+                              },
+                              "name": "float32",
+                              "type": "Identifier"
+                            },
+                            "variableParam": false
+                          }
+                        ],
+                        "loc": {
+                          "end": {
+                            "column": 27,
+                            "line": 34
+                          },
+                          "sourcefile": "examples/constDecl.go",
+                          "start": {
+                            "column": 8,
+                            "line": 34
+                          }
+                        },
+                        "type": "Sequence"
+                      },
+                      {
+                        "_meta": {},
+                        "arguments": [
+                          {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 16,
+                                "line": 35
+                              },
+                              "sourcefile": "examples/constDecl.go",
+                              "start": {
+                                "column": 14,
+                                "line": 35
+                              }
+                            },
+                            "name": "c0",
+                            "type": "Identifier"
+                          },
+                          {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 20,
+                                "line": 35
+                              },
+                              "sourcefile": "examples/constDecl.go",
+                              "start": {
+                                "column": 18,
+                                "line": 35
+                              }
+                            },
+                            "name": "c1",
+                            "type": "Identifier"
+                          },
+                          {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 24,
+                                "line": 35
+                              },
+                              "sourcefile": "examples/constDecl.go",
+                              "start": {
+                                "column": 22,
+                                "line": 35
+                              }
+                            },
+                            "name": "c2",
+                            "type": "Identifier"
+                          },
+                          {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 32,
+                                "line": 35
+                              },
+                              "sourcefile": "examples/constDecl.go",
+                              "start": {
+                                "column": 26,
+                                "line": 35
+                              }
+                            },
+                            "name": "Sunday",
+                            "type": "Identifier"
+                          },
+                          {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 40,
+                                "line": 35
+                              },
+                              "sourcefile": "examples/constDecl.go",
+                              "start": {
+                                "column": 34,
+                                "line": 35
+                              }
+                            },
+                            "name": "Monday",
+                            "type": "Identifier"
+                          },
+                          {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 49,
+                                "line": 35
+                              },
+                              "sourcefile": "examples/constDecl.go",
+                              "start": {
+                                "column": 42,
+                                "line": 35
+                              }
+                            },
+                            "name": "Tuesday",
+                            "type": "Identifier"
+                          },
+                          {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 60,
+                                "line": 35
+                              },
+                              "sourcefile": "examples/constDecl.go",
+                              "start": {
+                                "column": 51,
+                                "line": 35
+                              }
+                            },
+                            "name": "Wednesday",
+                            "type": "Identifier"
+                          },
+                          {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 70,
+                                "line": 35
+                              },
+                              "sourcefile": "examples/constDecl.go",
+                              "start": {
+                                "column": 62,
+                                "line": 35
+                              }
+                            },
+                            "name": "Thursday",
+                            "type": "Identifier"
+                          },
+                          {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 78,
+                                "line": 35
+                              },
+                              "sourcefile": "examples/constDecl.go",
+                              "start": {
+                                "column": 72,
+                                "line": 35
+                              }
+                            },
+                            "name": "Friday",
+                            "type": "Identifier"
+                          },
+                          {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 88,
+                                "line": 35
+                              },
+                              "sourcefile": "examples/constDecl.go",
+                              "start": {
+                                "column": 80,
+                                "line": 35
+                              }
+                            },
+                            "name": "Partyday",
+                            "type": "Identifier"
+                          },
+                          {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 102,
+                                "line": 35
+                              },
+                              "sourcefile": "examples/constDecl.go",
+                              "start": {
+                                "column": 90,
+                                "line": 35
+                              }
+                            },
+                            "name": "numberOfDays",
+                            "type": "Identifier"
+                          },
+                          {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 106,
+                                "line": 35
+                              },
+                              "sourcefile": "examples/constDecl.go",
+                              "start": {
+                                "column": 104,
+                                "line": 35
+                              }
+                            },
+                            "name": "Pi",
+                            "type": "Identifier"
+                          },
+                          {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 112,
+                                "line": 35
+                              },
+                              "sourcefile": "examples/constDecl.go",
+                              "start": {
+                                "column": 108,
+                                "line": 35
+                              }
+                            },
+                            "name": "zero",
+                            "type": "Identifier"
+                          },
+                          {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 118,
+                                "line": 35
+                              },
+                              "sourcefile": "examples/constDecl.go",
+                              "start": {
+                                "column": 114,
+                                "line": 35
+                              }
+                            },
+                            "name": "size",
+                            "type": "Identifier"
+                          },
+                          {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 123,
+                                "line": 35
+                              },
+                              "sourcefile": "examples/constDecl.go",
+                              "start": {
+                                "column": 120,
+                                "line": 35
+                              }
+                            },
+                            "name": "eof",
+                            "type": "Identifier"
+                          },
+                          {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 126,
+                                "line": 35
+                              },
+                              "sourcefile": "examples/constDecl.go",
+                              "start": {
+                                "column": 125,
+                                "line": 35
+                              }
+                            },
+                            "name": "a",
+                            "type": "Identifier"
+                          },
+                          {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 129,
+                                "line": 35
+                              },
+                              "sourcefile": "examples/constDecl.go",
+                              "start": {
+                                "column": 128,
+                                "line": 35
+                              }
+                            },
+                            "name": "b",
+                            "type": "Identifier"
+                          },
+                          {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 132,
+                                "line": 35
+                              },
+                              "sourcefile": "examples/constDecl.go",
+                              "start": {
+                                "column": 131,
+                                "line": 35
+                              }
+                            },
+                            "name": "c",
+                            "type": "Identifier"
+                          },
+                          {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 135,
+                                "line": 35
+                              },
+                              "sourcefile": "examples/constDecl.go",
+                              "start": {
+                                "column": 134,
+                                "line": 35
+                              }
+                            },
+                            "name": "u",
+                            "type": "Identifier"
+                          },
+                          {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 138,
+                                "line": 35
+                              },
+                              "sourcefile": "examples/constDecl.go",
+                              "start": {
+                                "column": 137,
+                                "line": 35
+                              }
+                            },
+                            "name": "v",
+                            "type": "Identifier"
+                          }
+                        ],
+                        "callee": {
+                          "_meta": {},
+                          "computed": false,
+                          "loc": {
+                            "end": {
+                              "column": 13,
+                              "line": 35
+                            },
+                            "sourcefile": "examples/constDecl.go",
+                            "start": {
+                              "column": 2,
+                              "line": 35
+                            }
+                          },
+                          "object": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 5,
+                                "line": 35
+                              },
+                              "sourcefile": "examples/constDecl.go",
+                              "start": {
+                                "column": 2,
+                                "line": 35
+                              }
+                            },
+                            "name": "fmt",
+                            "type": "Identifier"
+                          },
+                          "property": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 13,
+                                "line": 35
+                              },
+                              "sourcefile": "examples/constDecl.go",
+                              "start": {
+                                "column": 6,
+                                "line": 35
+                              }
+                            },
+                            "name": "Println",
+                            "type": "Identifier"
+                          },
+                          "type": "MemberAccess"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 139,
+                            "line": 35
+                          },
+                          "sourcefile": "examples/constDecl.go",
+                          "start": {
+                            "column": 2,
+                            "line": 35
+                          }
+                        },
+                        "type": "CallExpression"
+                      }
+                    ],
+                    "id": null,
+                    "loc": {
+                      "end": {
+                        "column": 2,
+                        "line": 36
+                      },
+                      "sourcefile": "examples/constDecl.go",
+                      "start": {
+                        "column": 19,
+                        "line": 11
+                      }
+                    },
+                    "type": "ScopedStatement"
+                  },
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 16,
+                        "line": 11
+                      },
+                      "sourcefile": "examples/constDecl.go",
+                      "start": {
+                        "column": 6,
+                        "line": 11
+                      }
+                    },
+                    "name": "ConstDecls",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 36
+                    },
+                    "sourcefile": "examples/constDecl.go",
+                    "start": {
+                      "column": 1,
+                      "line": 11
+                    }
+                  },
+                  "modifiers": null,
+                  "parameters": [],
+                  "returnType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "VoidType",
+                    "typeArguments": null
+                  },
+                  "type": "FunctionDefinition"
+                }
+              ],
+              "language": "golang",
+              "languageVersion": "1.18",
+              "loc": {
+                "end": {
+                  "column": 2,
+                  "line": 36
+                },
+                "sourcefile": "examples/constDecl.go",
+                "start": {
+                  "column": 1,
+                  "line": 1
+                }
+              },
+              "type": "CompileUnit",
+              "uri": "",
+              "version": ""
+            },
+            "packageName": "__single__"
+          }
+        },
+        "subs": {}
+      }
+    }
+  }
+}

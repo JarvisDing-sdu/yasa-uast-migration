@@ -1,0 +1,2461 @@
+{
+  "moduleName": "__single_module__",
+  "packageInfo": {
+    "PathName": "",
+    "files": {},
+    "subs": {
+      "/": {
+        "PathName": "",
+        "files": {
+          "examples/select.go": {
+            "node": {
+              "_meta": {},
+              "body": [
+                {
+                  "_meta": {},
+                  "loc": {
+                    "end": {
+                      "column": 17,
+                      "line": 1
+                    },
+                    "sourcefile": "examples/select.go",
+                    "start": {
+                      "column": 9,
+                      "line": 1
+                    }
+                  },
+                  "packageName": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 17,
+                        "line": 1
+                      },
+                      "sourcefile": "examples/select.go",
+                      "start": {
+                        "column": 9,
+                        "line": 1
+                      }
+                    },
+                    "name": "examples",
+                    "type": "Identifier"
+                  },
+                  "type": "PackageDeclaration"
+                },
+                {
+                  "_meta": {},
+                  "body": {
+                    "_meta": {},
+                    "body": [
+                      {
+                        "_meta": {},
+                        "cloned": false,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "element": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 13,
+                                    "line": 4
+                                  },
+                                  "sourcefile": "examples/select.go",
+                                  "start": {
+                                    "column": 10,
+                                    "line": 4
+                                  }
+                                },
+                                "name": "int",
+                                "type": "Identifier"
+                              },
+                              "id": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 13,
+                                    "line": 4
+                                  },
+                                  "sourcefile": "examples/select.go",
+                                  "start": {
+                                    "column": 8,
+                                    "line": 4
+                                  }
+                                },
+                                "name": "ArrayType",
+                                "type": "Identifier"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 13,
+                                  "line": 4
+                                },
+                                "sourcefile": "examples/select.go",
+                                "start": {
+                                  "column": 8,
+                                  "line": 4
+                                }
+                              },
+                              "size": {
+                                "_meta": {},
+                                "loc": null,
+                                "type": "Noop"
+                              },
+                              "type": "ArrayType",
+                              "typeArguments": null
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 7,
+                              "line": 4
+                            },
+                            "sourcefile": "examples/select.go",
+                            "start": {
+                              "column": 6,
+                              "line": 4
+                            }
+                          },
+                          "name": "a",
+                          "type": "Identifier"
+                        },
+                        "init": null,
+                        "loc": {
+                          "end": {
+                            "column": 13,
+                            "line": 4
+                          },
+                          "sourcefile": "examples/select.go",
+                          "start": {
+                            "column": 6,
+                            "line": 4
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "element": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 13,
+                                "line": 4
+                              },
+                              "sourcefile": "examples/select.go",
+                              "start": {
+                                "column": 10,
+                                "line": 4
+                              }
+                            },
+                            "name": "int",
+                            "type": "Identifier"
+                          },
+                          "id": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 13,
+                                "line": 4
+                              },
+                              "sourcefile": "examples/select.go",
+                              "start": {
+                                "column": 8,
+                                "line": 4
+                              }
+                            },
+                            "name": "ArrayType",
+                            "type": "Identifier"
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 13,
+                              "line": 4
+                            },
+                            "sourcefile": "examples/select.go",
+                            "start": {
+                              "column": 8,
+                              "line": 4
+                            }
+                          },
+                          "size": {
+                            "_meta": {},
+                            "loc": null,
+                            "type": "Noop"
+                          },
+                          "type": "ArrayType",
+                          "typeArguments": null
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "expressions": [
+                          {
+                            "_meta": {},
+                            "cloned": false,
+                            "id": {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "dir": "",
+                                  "id": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 36,
+                                        "line": 5
+                                      },
+                                      "sourcefile": "examples/select.go",
+                                      "start": {
+                                        "column": 28,
+                                        "line": 5
+                                      }
+                                    },
+                                    "name": "ChanType",
+                                    "type": "Identifier"
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 36,
+                                      "line": 5
+                                    },
+                                    "sourcefile": "examples/select.go",
+                                    "start": {
+                                      "column": 28,
+                                      "line": 5
+                                    }
+                                  },
+                                  "type": "ChanType",
+                                  "valueType": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 36,
+                                        "line": 5
+                                      },
+                                      "sourcefile": "examples/select.go",
+                                      "start": {
+                                        "column": 33,
+                                        "line": 5
+                                      }
+                                    },
+                                    "name": "int",
+                                    "type": "Identifier"
+                                  }
+                                }
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 7,
+                                  "line": 5
+                                },
+                                "sourcefile": "examples/select.go",
+                                "start": {
+                                  "column": 6,
+                                  "line": 5
+                                }
+                              },
+                              "name": "c",
+                              "type": "Identifier"
+                            },
+                            "init": null,
+                            "loc": null,
+                            "type": "VariableDeclaration",
+                            "varType": {
+                              "_meta": {},
+                              "dir": "",
+                              "id": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 36,
+                                    "line": 5
+                                  },
+                                  "sourcefile": "examples/select.go",
+                                  "start": {
+                                    "column": 28,
+                                    "line": 5
+                                  }
+                                },
+                                "name": "ChanType",
+                                "type": "Identifier"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 36,
+                                  "line": 5
+                                },
+                                "sourcefile": "examples/select.go",
+                                "start": {
+                                  "column": 28,
+                                  "line": 5
+                                }
+                              },
+                              "type": "ChanType",
+                              "valueType": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 36,
+                                    "line": 5
+                                  },
+                                  "sourcefile": "examples/select.go",
+                                  "start": {
+                                    "column": 33,
+                                    "line": 5
+                                  }
+                                },
+                                "name": "int",
+                                "type": "Identifier"
+                              }
+                            },
+                            "variableParam": false
+                          },
+                          {
+                            "_meta": {},
+                            "cloned": false,
+                            "id": {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "dir": "",
+                                  "id": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 36,
+                                        "line": 5
+                                      },
+                                      "sourcefile": "examples/select.go",
+                                      "start": {
+                                        "column": 28,
+                                        "line": 5
+                                      }
+                                    },
+                                    "name": "ChanType",
+                                    "type": "Identifier"
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 36,
+                                      "line": 5
+                                    },
+                                    "sourcefile": "examples/select.go",
+                                    "start": {
+                                      "column": 28,
+                                      "line": 5
+                                    }
+                                  },
+                                  "type": "ChanType",
+                                  "valueType": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 36,
+                                        "line": 5
+                                      },
+                                      "sourcefile": "examples/select.go",
+                                      "start": {
+                                        "column": 33,
+                                        "line": 5
+                                      }
+                                    },
+                                    "name": "int",
+                                    "type": "Identifier"
+                                  }
+                                }
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 11,
+                                  "line": 5
+                                },
+                                "sourcefile": "examples/select.go",
+                                "start": {
+                                  "column": 9,
+                                  "line": 5
+                                }
+                              },
+                              "name": "c1",
+                              "type": "Identifier"
+                            },
+                            "init": null,
+                            "loc": null,
+                            "type": "VariableDeclaration",
+                            "varType": {
+                              "_meta": {},
+                              "dir": "",
+                              "id": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 36,
+                                    "line": 5
+                                  },
+                                  "sourcefile": "examples/select.go",
+                                  "start": {
+                                    "column": 28,
+                                    "line": 5
+                                  }
+                                },
+                                "name": "ChanType",
+                                "type": "Identifier"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 36,
+                                  "line": 5
+                                },
+                                "sourcefile": "examples/select.go",
+                                "start": {
+                                  "column": 28,
+                                  "line": 5
+                                }
+                              },
+                              "type": "ChanType",
+                              "valueType": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 36,
+                                    "line": 5
+                                  },
+                                  "sourcefile": "examples/select.go",
+                                  "start": {
+                                    "column": 33,
+                                    "line": 5
+                                  }
+                                },
+                                "name": "int",
+                                "type": "Identifier"
+                              }
+                            },
+                            "variableParam": false
+                          },
+                          {
+                            "_meta": {},
+                            "cloned": false,
+                            "id": {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "dir": "",
+                                  "id": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 36,
+                                        "line": 5
+                                      },
+                                      "sourcefile": "examples/select.go",
+                                      "start": {
+                                        "column": 28,
+                                        "line": 5
+                                      }
+                                    },
+                                    "name": "ChanType",
+                                    "type": "Identifier"
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 36,
+                                      "line": 5
+                                    },
+                                    "sourcefile": "examples/select.go",
+                                    "start": {
+                                      "column": 28,
+                                      "line": 5
+                                    }
+                                  },
+                                  "type": "ChanType",
+                                  "valueType": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 36,
+                                        "line": 5
+                                      },
+                                      "sourcefile": "examples/select.go",
+                                      "start": {
+                                        "column": 33,
+                                        "line": 5
+                                      }
+                                    },
+                                    "name": "int",
+                                    "type": "Identifier"
+                                  }
+                                }
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 15,
+                                  "line": 5
+                                },
+                                "sourcefile": "examples/select.go",
+                                "start": {
+                                  "column": 13,
+                                  "line": 5
+                                }
+                              },
+                              "name": "c2",
+                              "type": "Identifier"
+                            },
+                            "init": null,
+                            "loc": null,
+                            "type": "VariableDeclaration",
+                            "varType": {
+                              "_meta": {},
+                              "dir": "",
+                              "id": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 36,
+                                    "line": 5
+                                  },
+                                  "sourcefile": "examples/select.go",
+                                  "start": {
+                                    "column": 28,
+                                    "line": 5
+                                  }
+                                },
+                                "name": "ChanType",
+                                "type": "Identifier"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 36,
+                                  "line": 5
+                                },
+                                "sourcefile": "examples/select.go",
+                                "start": {
+                                  "column": 28,
+                                  "line": 5
+                                }
+                              },
+                              "type": "ChanType",
+                              "valueType": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 36,
+                                    "line": 5
+                                  },
+                                  "sourcefile": "examples/select.go",
+                                  "start": {
+                                    "column": 33,
+                                    "line": 5
+                                  }
+                                },
+                                "name": "int",
+                                "type": "Identifier"
+                              }
+                            },
+                            "variableParam": false
+                          },
+                          {
+                            "_meta": {},
+                            "cloned": false,
+                            "id": {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "dir": "",
+                                  "id": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 36,
+                                        "line": 5
+                                      },
+                                      "sourcefile": "examples/select.go",
+                                      "start": {
+                                        "column": 28,
+                                        "line": 5
+                                      }
+                                    },
+                                    "name": "ChanType",
+                                    "type": "Identifier"
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 36,
+                                      "line": 5
+                                    },
+                                    "sourcefile": "examples/select.go",
+                                    "start": {
+                                      "column": 28,
+                                      "line": 5
+                                    }
+                                  },
+                                  "type": "ChanType",
+                                  "valueType": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 36,
+                                        "line": 5
+                                      },
+                                      "sourcefile": "examples/select.go",
+                                      "start": {
+                                        "column": 33,
+                                        "line": 5
+                                      }
+                                    },
+                                    "name": "int",
+                                    "type": "Identifier"
+                                  }
+                                }
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 19,
+                                  "line": 5
+                                },
+                                "sourcefile": "examples/select.go",
+                                "start": {
+                                  "column": 17,
+                                  "line": 5
+                                }
+                              },
+                              "name": "c3",
+                              "type": "Identifier"
+                            },
+                            "init": null,
+                            "loc": null,
+                            "type": "VariableDeclaration",
+                            "varType": {
+                              "_meta": {},
+                              "dir": "",
+                              "id": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 36,
+                                    "line": 5
+                                  },
+                                  "sourcefile": "examples/select.go",
+                                  "start": {
+                                    "column": 28,
+                                    "line": 5
+                                  }
+                                },
+                                "name": "ChanType",
+                                "type": "Identifier"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 36,
+                                  "line": 5
+                                },
+                                "sourcefile": "examples/select.go",
+                                "start": {
+                                  "column": 28,
+                                  "line": 5
+                                }
+                              },
+                              "type": "ChanType",
+                              "valueType": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 36,
+                                    "line": 5
+                                  },
+                                  "sourcefile": "examples/select.go",
+                                  "start": {
+                                    "column": 33,
+                                    "line": 5
+                                  }
+                                },
+                                "name": "int",
+                                "type": "Identifier"
+                              }
+                            },
+                            "variableParam": false
+                          },
+                          {
+                            "_meta": {},
+                            "cloned": false,
+                            "id": {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "dir": "",
+                                  "id": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 36,
+                                        "line": 5
+                                      },
+                                      "sourcefile": "examples/select.go",
+                                      "start": {
+                                        "column": 28,
+                                        "line": 5
+                                      }
+                                    },
+                                    "name": "ChanType",
+                                    "type": "Identifier"
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 36,
+                                      "line": 5
+                                    },
+                                    "sourcefile": "examples/select.go",
+                                    "start": {
+                                      "column": 28,
+                                      "line": 5
+                                    }
+                                  },
+                                  "type": "ChanType",
+                                  "valueType": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 36,
+                                        "line": 5
+                                      },
+                                      "sourcefile": "examples/select.go",
+                                      "start": {
+                                        "column": 33,
+                                        "line": 5
+                                      }
+                                    },
+                                    "name": "int",
+                                    "type": "Identifier"
+                                  }
+                                }
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 23,
+                                  "line": 5
+                                },
+                                "sourcefile": "examples/select.go",
+                                "start": {
+                                  "column": 21,
+                                  "line": 5
+                                }
+                              },
+                              "name": "c4",
+                              "type": "Identifier"
+                            },
+                            "init": null,
+                            "loc": null,
+                            "type": "VariableDeclaration",
+                            "varType": {
+                              "_meta": {},
+                              "dir": "",
+                              "id": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 36,
+                                    "line": 5
+                                  },
+                                  "sourcefile": "examples/select.go",
+                                  "start": {
+                                    "column": 28,
+                                    "line": 5
+                                  }
+                                },
+                                "name": "ChanType",
+                                "type": "Identifier"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 36,
+                                  "line": 5
+                                },
+                                "sourcefile": "examples/select.go",
+                                "start": {
+                                  "column": 28,
+                                  "line": 5
+                                }
+                              },
+                              "type": "ChanType",
+                              "valueType": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 36,
+                                    "line": 5
+                                  },
+                                  "sourcefile": "examples/select.go",
+                                  "start": {
+                                    "column": 33,
+                                    "line": 5
+                                  }
+                                },
+                                "name": "int",
+                                "type": "Identifier"
+                              }
+                            },
+                            "variableParam": false
+                          },
+                          {
+                            "_meta": {},
+                            "cloned": false,
+                            "id": {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "dir": "",
+                                  "id": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 36,
+                                        "line": 5
+                                      },
+                                      "sourcefile": "examples/select.go",
+                                      "start": {
+                                        "column": 28,
+                                        "line": 5
+                                      }
+                                    },
+                                    "name": "ChanType",
+                                    "type": "Identifier"
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 36,
+                                      "line": 5
+                                    },
+                                    "sourcefile": "examples/select.go",
+                                    "start": {
+                                      "column": 28,
+                                      "line": 5
+                                    }
+                                  },
+                                  "type": "ChanType",
+                                  "valueType": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 36,
+                                        "line": 5
+                                      },
+                                      "sourcefile": "examples/select.go",
+                                      "start": {
+                                        "column": 33,
+                                        "line": 5
+                                      }
+                                    },
+                                    "name": "int",
+                                    "type": "Identifier"
+                                  }
+                                }
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 27,
+                                  "line": 5
+                                },
+                                "sourcefile": "examples/select.go",
+                                "start": {
+                                  "column": 25,
+                                  "line": 5
+                                }
+                              },
+                              "name": "c5",
+                              "type": "Identifier"
+                            },
+                            "init": null,
+                            "loc": null,
+                            "type": "VariableDeclaration",
+                            "varType": {
+                              "_meta": {},
+                              "dir": "",
+                              "id": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 36,
+                                    "line": 5
+                                  },
+                                  "sourcefile": "examples/select.go",
+                                  "start": {
+                                    "column": 28,
+                                    "line": 5
+                                  }
+                                },
+                                "name": "ChanType",
+                                "type": "Identifier"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 36,
+                                  "line": 5
+                                },
+                                "sourcefile": "examples/select.go",
+                                "start": {
+                                  "column": 28,
+                                  "line": 5
+                                }
+                              },
+                              "type": "ChanType",
+                              "valueType": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 36,
+                                    "line": 5
+                                  },
+                                  "sourcefile": "examples/select.go",
+                                  "start": {
+                                    "column": 33,
+                                    "line": 5
+                                  }
+                                },
+                                "name": "int",
+                                "type": "Identifier"
+                              }
+                            },
+                            "variableParam": false
+                          }
+                        ],
+                        "loc": {
+                          "end": {
+                            "column": 36,
+                            "line": 5
+                          },
+                          "sourcefile": "examples/select.go",
+                          "start": {
+                            "column": 6,
+                            "line": 5
+                          }
+                        },
+                        "type": "Sequence"
+                      },
+                      {
+                        "_meta": {},
+                        "expressions": [
+                          {
+                            "_meta": {},
+                            "cloned": false,
+                            "id": {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 16,
+                                      "line": 6
+                                    },
+                                    "sourcefile": "examples/select.go",
+                                    "start": {
+                                      "column": 13,
+                                      "line": 6
+                                    }
+                                  },
+                                  "name": "int",
+                                  "type": "Identifier"
+                                }
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 8,
+                                  "line": 6
+                                },
+                                "sourcefile": "examples/select.go",
+                                "start": {
+                                  "column": 6,
+                                  "line": 6
+                                }
+                              },
+                              "name": "i1",
+                              "type": "Identifier"
+                            },
+                            "init": null,
+                            "loc": null,
+                            "type": "VariableDeclaration",
+                            "varType": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 16,
+                                  "line": 6
+                                },
+                                "sourcefile": "examples/select.go",
+                                "start": {
+                                  "column": 13,
+                                  "line": 6
+                                }
+                              },
+                              "name": "int",
+                              "type": "Identifier"
+                            },
+                            "variableParam": false
+                          },
+                          {
+                            "_meta": {},
+                            "cloned": false,
+                            "id": {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 16,
+                                      "line": 6
+                                    },
+                                    "sourcefile": "examples/select.go",
+                                    "start": {
+                                      "column": 13,
+                                      "line": 6
+                                    }
+                                  },
+                                  "name": "int",
+                                  "type": "Identifier"
+                                }
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 12,
+                                  "line": 6
+                                },
+                                "sourcefile": "examples/select.go",
+                                "start": {
+                                  "column": 10,
+                                  "line": 6
+                                }
+                              },
+                              "name": "i2",
+                              "type": "Identifier"
+                            },
+                            "init": null,
+                            "loc": null,
+                            "type": "VariableDeclaration",
+                            "varType": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 16,
+                                  "line": 6
+                                },
+                                "sourcefile": "examples/select.go",
+                                "start": {
+                                  "column": 13,
+                                  "line": 6
+                                }
+                              },
+                              "name": "int",
+                              "type": "Identifier"
+                            },
+                            "variableParam": false
+                          }
+                        ],
+                        "loc": {
+                          "end": {
+                            "column": 16,
+                            "line": 6
+                          },
+                          "sourcefile": "examples/select.go",
+                          "start": {
+                            "column": 6,
+                            "line": 6
+                          }
+                        },
+                        "type": "Sequence"
+                      },
+                      {
+                        "_meta": {},
+                        "body": [
+                          {
+                            "_meta": {},
+                            "body": [
+                              {
+                                "_meta": {},
+                                "cloned": true,
+                                "left": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 9,
+                                      "line": 8
+                                    },
+                                    "sourcefile": "examples/select.go",
+                                    "start": {
+                                      "column": 7,
+                                      "line": 8
+                                    }
+                                  },
+                                  "name": "i1",
+                                  "type": "Identifier"
+                                },
+                                "loc": {
+                                  "end": {
+                                    "column": 16,
+                                    "line": 8
+                                  },
+                                  "sourcefile": "examples/select.go",
+                                  "start": {
+                                    "column": 7,
+                                    "line": 8
+                                  }
+                                },
+                                "operator": "=",
+                                "right": {
+                                  "_meta": {},
+                                  "argument": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 16,
+                                        "line": 8
+                                      },
+                                      "sourcefile": "examples/select.go",
+                                      "start": {
+                                        "column": 14,
+                                        "line": 8
+                                      }
+                                    },
+                                    "name": "c1",
+                                    "type": "Identifier"
+                                  },
+                                  "isSuffix": false,
+                                  "loc": {
+                                    "end": {
+                                      "column": 16,
+                                      "line": 8
+                                    },
+                                    "sourcefile": "examples/select.go",
+                                    "start": {
+                                      "column": 12,
+                                      "line": 8
+                                    }
+                                  },
+                                  "operator": "pop",
+                                  "type": "UnaryExpression"
+                                },
+                                "type": "AssignmentExpression"
+                              },
+                              {
+                                "_meta": {},
+                                "arguments": [
+                                  {
+                                    "_meta": {},
+                                    "literalType": "STRING",
+                                    "loc": {
+                                      "end": {
+                                        "column": 20,
+                                        "line": 9
+                                      },
+                                      "sourcefile": "examples/select.go",
+                                      "start": {
+                                        "column": 9,
+                                        "line": 9
+                                      }
+                                    },
+                                    "type": "Literal",
+                                    "value": "\"received \""
+                                  },
+                                  {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 24,
+                                        "line": 9
+                                      },
+                                      "sourcefile": "examples/select.go",
+                                      "start": {
+                                        "column": 22,
+                                        "line": 9
+                                      }
+                                    },
+                                    "name": "i1",
+                                    "type": "Identifier"
+                                  },
+                                  {
+                                    "_meta": {},
+                                    "literalType": "STRING",
+                                    "loc": {
+                                      "end": {
+                                        "column": 38,
+                                        "line": 9
+                                      },
+                                      "sourcefile": "examples/select.go",
+                                      "start": {
+                                        "column": 26,
+                                        "line": 9
+                                      }
+                                    },
+                                    "type": "Literal",
+                                    "value": "\" from c1\\n\""
+                                  }
+                                ],
+                                "callee": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 8,
+                                      "line": 9
+                                    },
+                                    "sourcefile": "examples/select.go",
+                                    "start": {
+                                      "column": 3,
+                                      "line": 9
+                                    }
+                                  },
+                                  "name": "print",
+                                  "type": "Identifier"
+                                },
+                                "loc": {
+                                  "end": {
+                                    "column": 39,
+                                    "line": 9
+                                  },
+                                  "sourcefile": "examples/select.go",
+                                  "start": {
+                                    "column": 3,
+                                    "line": 9
+                                  }
+                                },
+                                "type": "CallExpression"
+                              }
+                            ],
+                            "id": null,
+                            "loc": {
+                              "end": {
+                                "column": 39,
+                                "line": 9
+                              },
+                              "sourcefile": "examples/select.go",
+                              "start": {
+                                "column": 2,
+                                "line": 8
+                              }
+                            },
+                            "type": "ScopedStatement"
+                          },
+                          {
+                            "_meta": {},
+                            "body": [
+                              {
+                                "_meta": {},
+                                "left": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 9,
+                                      "line": 10
+                                    },
+                                    "sourcefile": "examples/select.go",
+                                    "start": {
+                                      "column": 7,
+                                      "line": 10
+                                    }
+                                  },
+                                  "name": "c2",
+                                  "type": "Identifier"
+                                },
+                                "loc": {
+                                  "end": {
+                                    "column": 15,
+                                    "line": 10
+                                  },
+                                  "sourcefile": "examples/select.go",
+                                  "start": {
+                                    "column": 7,
+                                    "line": 10
+                                  }
+                                },
+                                "operator": "push",
+                                "right": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 15,
+                                      "line": 10
+                                    },
+                                    "sourcefile": "examples/select.go",
+                                    "start": {
+                                      "column": 13,
+                                      "line": 10
+                                    }
+                                  },
+                                  "name": "i2",
+                                  "type": "Identifier"
+                                },
+                                "type": "BinaryExpression"
+                              },
+                              {
+                                "_meta": {},
+                                "arguments": [
+                                  {
+                                    "_meta": {},
+                                    "literalType": "STRING",
+                                    "loc": {
+                                      "end": {
+                                        "column": 16,
+                                        "line": 11
+                                      },
+                                      "sourcefile": "examples/select.go",
+                                      "start": {
+                                        "column": 9,
+                                        "line": 11
+                                      }
+                                    },
+                                    "type": "Literal",
+                                    "value": "\"sent \""
+                                  },
+                                  {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 20,
+                                        "line": 11
+                                      },
+                                      "sourcefile": "examples/select.go",
+                                      "start": {
+                                        "column": 18,
+                                        "line": 11
+                                      }
+                                    },
+                                    "name": "i2",
+                                    "type": "Identifier"
+                                  },
+                                  {
+                                    "_meta": {},
+                                    "literalType": "STRING",
+                                    "loc": {
+                                      "end": {
+                                        "column": 32,
+                                        "line": 11
+                                      },
+                                      "sourcefile": "examples/select.go",
+                                      "start": {
+                                        "column": 22,
+                                        "line": 11
+                                      }
+                                    },
+                                    "type": "Literal",
+                                    "value": "\" to c2\\n\""
+                                  }
+                                ],
+                                "callee": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 8,
+                                      "line": 11
+                                    },
+                                    "sourcefile": "examples/select.go",
+                                    "start": {
+                                      "column": 3,
+                                      "line": 11
+                                    }
+                                  },
+                                  "name": "print",
+                                  "type": "Identifier"
+                                },
+                                "loc": {
+                                  "end": {
+                                    "column": 33,
+                                    "line": 11
+                                  },
+                                  "sourcefile": "examples/select.go",
+                                  "start": {
+                                    "column": 3,
+                                    "line": 11
+                                  }
+                                },
+                                "type": "CallExpression"
+                              }
+                            ],
+                            "id": null,
+                            "loc": {
+                              "end": {
+                                "column": 33,
+                                "line": 11
+                              },
+                              "sourcefile": "examples/select.go",
+                              "start": {
+                                "column": 2,
+                                "line": 10
+                              }
+                            },
+                            "type": "ScopedStatement"
+                          },
+                          {
+                            "_meta": {},
+                            "body": [
+                              {
+                                "_meta": {},
+                                "cloned": true,
+                                "id": {
+                                  "_meta": {},
+                                  "elements": [
+                                    {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 9,
+                                          "line": 12
+                                        },
+                                        "sourcefile": "examples/select.go",
+                                        "start": {
+                                          "column": 7,
+                                          "line": 12
+                                        }
+                                      },
+                                      "name": "i3",
+                                      "type": "Identifier"
+                                    },
+                                    {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 13,
+                                          "line": 12
+                                        },
+                                        "sourcefile": "examples/select.go",
+                                        "start": {
+                                          "column": 11,
+                                          "line": 12
+                                        }
+                                      },
+                                      "name": "ok",
+                                      "type": "Identifier"
+                                    }
+                                  ],
+                                  "loc": null,
+                                  "modifiable": false,
+                                  "type": "TupleExpression"
+                                },
+                                "init": {
+                                  "_meta": {},
+                                  "argument": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 22,
+                                        "line": 12
+                                      },
+                                      "sourcefile": "examples/select.go",
+                                      "start": {
+                                        "column": 20,
+                                        "line": 12
+                                      }
+                                    },
+                                    "name": "c3",
+                                    "type": "Identifier"
+                                  },
+                                  "isSuffix": false,
+                                  "loc": {
+                                    "end": {
+                                      "column": 23,
+                                      "line": 12
+                                    },
+                                    "sourcefile": "examples/select.go",
+                                    "start": {
+                                      "column": 17,
+                                      "line": 12
+                                    }
+                                  },
+                                  "operator": "pop",
+                                  "type": "UnaryExpression"
+                                },
+                                "loc": {
+                                  "end": {
+                                    "column": 23,
+                                    "line": 12
+                                  },
+                                  "sourcefile": "examples/select.go",
+                                  "start": {
+                                    "column": 7,
+                                    "line": 12
+                                  }
+                                },
+                                "type": "VariableDeclaration",
+                                "varType": {
+                                  "_meta": {},
+                                  "id": null,
+                                  "loc": null,
+                                  "type": "DynamicType",
+                                  "typeArguments": null
+                                },
+                                "variableParam": false
+                              },
+                              {
+                                "_meta": {},
+                                "alternative": {
+                                  "_meta": {},
+                                  "body": [
+                                    {
+                                      "_meta": {},
+                                      "arguments": [
+                                        {
+                                          "_meta": {},
+                                          "literalType": "STRING",
+                                          "loc": {
+                                            "end": {
+                                              "column": 26,
+                                              "line": 16
+                                            },
+                                            "sourcefile": "examples/select.go",
+                                            "start": {
+                                              "column": 10,
+                                              "line": 16
+                                            }
+                                          },
+                                          "type": "Literal",
+                                          "value": "\"c3 is closed\\n\""
+                                        }
+                                      ],
+                                      "callee": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 9,
+                                            "line": 16
+                                          },
+                                          "sourcefile": "examples/select.go",
+                                          "start": {
+                                            "column": 4,
+                                            "line": 16
+                                          }
+                                        },
+                                        "name": "print",
+                                        "type": "Identifier"
+                                      },
+                                      "loc": {
+                                        "end": {
+                                          "column": 27,
+                                          "line": 16
+                                        },
+                                        "sourcefile": "examples/select.go",
+                                        "start": {
+                                          "column": 4,
+                                          "line": 16
+                                        }
+                                      },
+                                      "type": "CallExpression"
+                                    }
+                                  ],
+                                  "id": null,
+                                  "loc": {
+                                    "end": {
+                                      "column": 4,
+                                      "line": 17
+                                    },
+                                    "sourcefile": "examples/select.go",
+                                    "start": {
+                                      "column": 10,
+                                      "line": 15
+                                    }
+                                  },
+                                  "type": "ScopedStatement"
+                                },
+                                "consequent": {
+                                  "_meta": {},
+                                  "body": [
+                                    {
+                                      "_meta": {},
+                                      "arguments": [
+                                        {
+                                          "_meta": {},
+                                          "literalType": "STRING",
+                                          "loc": {
+                                            "end": {
+                                              "column": 21,
+                                              "line": 14
+                                            },
+                                            "sourcefile": "examples/select.go",
+                                            "start": {
+                                              "column": 10,
+                                              "line": 14
+                                            }
+                                          },
+                                          "type": "Literal",
+                                          "value": "\"received \""
+                                        },
+                                        {
+                                          "_meta": {},
+                                          "loc": {
+                                            "end": {
+                                              "column": 25,
+                                              "line": 14
+                                            },
+                                            "sourcefile": "examples/select.go",
+                                            "start": {
+                                              "column": 23,
+                                              "line": 14
+                                            }
+                                          },
+                                          "name": "i3",
+                                          "type": "Identifier"
+                                        },
+                                        {
+                                          "_meta": {},
+                                          "literalType": "STRING",
+                                          "loc": {
+                                            "end": {
+                                              "column": 39,
+                                              "line": 14
+                                            },
+                                            "sourcefile": "examples/select.go",
+                                            "start": {
+                                              "column": 27,
+                                              "line": 14
+                                            }
+                                          },
+                                          "type": "Literal",
+                                          "value": "\" from c3\\n\""
+                                        }
+                                      ],
+                                      "callee": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 9,
+                                            "line": 14
+                                          },
+                                          "sourcefile": "examples/select.go",
+                                          "start": {
+                                            "column": 4,
+                                            "line": 14
+                                          }
+                                        },
+                                        "name": "print",
+                                        "type": "Identifier"
+                                      },
+                                      "loc": {
+                                        "end": {
+                                          "column": 40,
+                                          "line": 14
+                                        },
+                                        "sourcefile": "examples/select.go",
+                                        "start": {
+                                          "column": 4,
+                                          "line": 14
+                                        }
+                                      },
+                                      "type": "CallExpression"
+                                    }
+                                  ],
+                                  "id": null,
+                                  "loc": {
+                                    "end": {
+                                      "column": 4,
+                                      "line": 15
+                                    },
+                                    "sourcefile": "examples/select.go",
+                                    "start": {
+                                      "column": 9,
+                                      "line": 13
+                                    }
+                                  },
+                                  "type": "ScopedStatement"
+                                },
+                                "loc": {
+                                  "end": {
+                                    "column": 4,
+                                    "line": 17
+                                  },
+                                  "sourcefile": "examples/select.go",
+                                  "start": {
+                                    "column": 3,
+                                    "line": 13
+                                  }
+                                },
+                                "test": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 8,
+                                      "line": 13
+                                    },
+                                    "sourcefile": "examples/select.go",
+                                    "start": {
+                                      "column": 6,
+                                      "line": 13
+                                    }
+                                  },
+                                  "name": "ok",
+                                  "type": "Identifier"
+                                },
+                                "type": "IfStatement"
+                              }
+                            ],
+                            "id": null,
+                            "loc": {
+                              "end": {
+                                "column": 4,
+                                "line": 17
+                              },
+                              "sourcefile": "examples/select.go",
+                              "start": {
+                                "column": 2,
+                                "line": 12
+                              }
+                            },
+                            "type": "ScopedStatement"
+                          },
+                          {
+                            "_meta": {},
+                            "body": [
+                              {
+                                "_meta": {},
+                                "argument": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 11,
+                                      "line": 18
+                                    },
+                                    "sourcefile": "examples/select.go",
+                                    "start": {
+                                      "column": 9,
+                                      "line": 18
+                                    }
+                                  },
+                                  "name": "c5",
+                                  "type": "Identifier"
+                                },
+                                "isSuffix": false,
+                                "loc": {
+                                  "end": {
+                                    "column": 11,
+                                    "line": 18
+                                  },
+                                  "sourcefile": "examples/select.go",
+                                  "start": {
+                                    "column": 7,
+                                    "line": 18
+                                  }
+                                },
+                                "operator": "pop",
+                                "type": "UnaryExpression"
+                              },
+                              {
+                                "_meta": {},
+                                "arguments": [
+                                  {
+                                    "_meta": {},
+                                    "literalType": "STRING",
+                                    "loc": {
+                                      "end": {
+                                        "column": 41,
+                                        "line": 19
+                                      },
+                                      "sourcefile": "examples/select.go",
+                                      "start": {
+                                        "column": 9,
+                                        "line": 19
+                                      }
+                                    },
+                                    "type": "Literal",
+                                    "value": "\"received without an assignment\""
+                                  }
+                                ],
+                                "callee": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 8,
+                                      "line": 19
+                                    },
+                                    "sourcefile": "examples/select.go",
+                                    "start": {
+                                      "column": 3,
+                                      "line": 19
+                                    }
+                                  },
+                                  "name": "print",
+                                  "type": "Identifier"
+                                },
+                                "loc": {
+                                  "end": {
+                                    "column": 42,
+                                    "line": 19
+                                  },
+                                  "sourcefile": "examples/select.go",
+                                  "start": {
+                                    "column": 3,
+                                    "line": 19
+                                  }
+                                },
+                                "type": "CallExpression"
+                              }
+                            ],
+                            "id": null,
+                            "loc": {
+                              "end": {
+                                "column": 42,
+                                "line": 19
+                              },
+                              "sourcefile": "examples/select.go",
+                              "start": {
+                                "column": 2,
+                                "line": 18
+                              }
+                            },
+                            "type": "ScopedStatement"
+                          },
+                          {
+                            "_meta": {},
+                            "body": [
+                              {
+                                "_meta": {},
+                                "cloned": true,
+                                "left": {
+                                  "_meta": {},
+                                  "computed": true,
+                                  "loc": {
+                                    "end": {
+                                      "column": 13,
+                                      "line": 20
+                                    },
+                                    "sourcefile": "examples/select.go",
+                                    "start": {
+                                      "column": 7,
+                                      "line": 20
+                                    }
+                                  },
+                                  "object": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 8,
+                                        "line": 20
+                                      },
+                                      "sourcefile": "examples/select.go",
+                                      "start": {
+                                        "column": 7,
+                                        "line": 20
+                                      }
+                                    },
+                                    "name": "a",
+                                    "type": "Identifier"
+                                  },
+                                  "property": {
+                                    "_meta": {},
+                                    "arguments": [],
+                                    "callee": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 10,
+                                          "line": 20
+                                        },
+                                        "sourcefile": "examples/select.go",
+                                        "start": {
+                                          "column": 9,
+                                          "line": 20
+                                        }
+                                      },
+                                      "name": "f",
+                                      "type": "Identifier"
+                                    },
+                                    "loc": {
+                                      "end": {
+                                        "column": 12,
+                                        "line": 20
+                                      },
+                                      "sourcefile": "examples/select.go",
+                                      "start": {
+                                        "column": 9,
+                                        "line": 20
+                                      }
+                                    },
+                                    "type": "CallExpression"
+                                  },
+                                  "type": "MemberAccess"
+                                },
+                                "loc": {
+                                  "end": {
+                                    "column": 20,
+                                    "line": 20
+                                  },
+                                  "sourcefile": "examples/select.go",
+                                  "start": {
+                                    "column": 7,
+                                    "line": 20
+                                  }
+                                },
+                                "operator": "=",
+                                "right": {
+                                  "_meta": {},
+                                  "argument": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 20,
+                                        "line": 20
+                                      },
+                                      "sourcefile": "examples/select.go",
+                                      "start": {
+                                        "column": 18,
+                                        "line": 20
+                                      }
+                                    },
+                                    "name": "c4",
+                                    "type": "Identifier"
+                                  },
+                                  "isSuffix": false,
+                                  "loc": {
+                                    "end": {
+                                      "column": 20,
+                                      "line": 20
+                                    },
+                                    "sourcefile": "examples/select.go",
+                                    "start": {
+                                      "column": 16,
+                                      "line": 20
+                                    }
+                                  },
+                                  "operator": "pop",
+                                  "type": "UnaryExpression"
+                                },
+                                "type": "AssignmentExpression"
+                              }
+                            ],
+                            "id": null,
+                            "loc": {
+                              "end": {
+                                "column": 21,
+                                "line": 20
+                              },
+                              "sourcefile": "examples/select.go",
+                              "start": {
+                                "column": 2,
+                                "line": 20
+                              }
+                            },
+                            "type": "ScopedStatement"
+                          },
+                          {
+                            "_meta": {},
+                            "body": [
+                              {
+                                "_meta": {},
+                                "loc": null,
+                                "type": "Noop"
+                              },
+                              {
+                                "_meta": {},
+                                "arguments": [
+                                  {
+                                    "_meta": {},
+                                    "literalType": "STRING",
+                                    "loc": {
+                                      "end": {
+                                        "column": 29,
+                                        "line": 25
+                                      },
+                                      "sourcefile": "examples/select.go",
+                                      "start": {
+                                        "column": 9,
+                                        "line": 25
+                                      }
+                                    },
+                                    "type": "Literal",
+                                    "value": "\"no communication\\n\""
+                                  }
+                                ],
+                                "callee": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 8,
+                                      "line": 25
+                                    },
+                                    "sourcefile": "examples/select.go",
+                                    "start": {
+                                      "column": 3,
+                                      "line": 25
+                                    }
+                                  },
+                                  "name": "print",
+                                  "type": "Identifier"
+                                },
+                                "loc": {
+                                  "end": {
+                                    "column": 30,
+                                    "line": 25
+                                  },
+                                  "sourcefile": "examples/select.go",
+                                  "start": {
+                                    "column": 3,
+                                    "line": 25
+                                  }
+                                },
+                                "type": "CallExpression"
+                              }
+                            ],
+                            "id": null,
+                            "loc": {
+                              "end": {
+                                "column": 30,
+                                "line": 25
+                              },
+                              "sourcefile": "examples/select.go",
+                              "start": {
+                                "column": 2,
+                                "line": 24
+                              }
+                            },
+                            "type": "ScopedStatement"
+                          }
+                        ],
+                        "id": null,
+                        "loc": {
+                          "end": {
+                            "column": 3,
+                            "line": 26
+                          },
+                          "sourcefile": "examples/select.go",
+                          "start": {
+                            "column": 2,
+                            "line": 7
+                          }
+                        },
+                        "type": "ScopedStatement"
+                      },
+                      {
+                        "_meta": {},
+                        "body": {
+                          "_meta": {},
+                          "body": [
+                            {
+                              "_meta": {},
+                              "body": [
+                                {
+                                  "_meta": {},
+                                  "body": [
+                                    {
+                                      "_meta": {},
+                                      "left": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 9,
+                                            "line": 30
+                                          },
+                                          "sourcefile": "examples/select.go",
+                                          "start": {
+                                            "column": 8,
+                                            "line": 30
+                                          }
+                                        },
+                                        "name": "c",
+                                        "type": "Identifier"
+                                      },
+                                      "loc": {
+                                        "end": {
+                                          "column": 14,
+                                          "line": 30
+                                        },
+                                        "sourcefile": "examples/select.go",
+                                        "start": {
+                                          "column": 8,
+                                          "line": 30
+                                        }
+                                      },
+                                      "operator": "push",
+                                      "right": {
+                                        "_meta": {},
+                                        "literalType": "INT",
+                                        "loc": {
+                                          "end": {
+                                            "column": 14,
+                                            "line": 30
+                                          },
+                                          "sourcefile": "examples/select.go",
+                                          "start": {
+                                            "column": 13,
+                                            "line": 30
+                                          }
+                                        },
+                                        "type": "Literal",
+                                        "value": "0"
+                                      },
+                                      "type": "BinaryExpression"
+                                    }
+                                  ],
+                                  "id": null,
+                                  "loc": {
+                                    "end": {
+                                      "column": 15,
+                                      "line": 30
+                                    },
+                                    "sourcefile": "examples/select.go",
+                                    "start": {
+                                      "column": 3,
+                                      "line": 30
+                                    }
+                                  },
+                                  "type": "ScopedStatement"
+                                },
+                                {
+                                  "_meta": {},
+                                  "body": [
+                                    {
+                                      "_meta": {},
+                                      "left": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 9,
+                                            "line": 31
+                                          },
+                                          "sourcefile": "examples/select.go",
+                                          "start": {
+                                            "column": 8,
+                                            "line": 31
+                                          }
+                                        },
+                                        "name": "c",
+                                        "type": "Identifier"
+                                      },
+                                      "loc": {
+                                        "end": {
+                                          "column": 14,
+                                          "line": 31
+                                        },
+                                        "sourcefile": "examples/select.go",
+                                        "start": {
+                                          "column": 8,
+                                          "line": 31
+                                        }
+                                      },
+                                      "operator": "push",
+                                      "right": {
+                                        "_meta": {},
+                                        "literalType": "INT",
+                                        "loc": {
+                                          "end": {
+                                            "column": 14,
+                                            "line": 31
+                                          },
+                                          "sourcefile": "examples/select.go",
+                                          "start": {
+                                            "column": 13,
+                                            "line": 31
+                                          }
+                                        },
+                                        "type": "Literal",
+                                        "value": "1"
+                                      },
+                                      "type": "BinaryExpression"
+                                    }
+                                  ],
+                                  "id": null,
+                                  "loc": {
+                                    "end": {
+                                      "column": 15,
+                                      "line": 31
+                                    },
+                                    "sourcefile": "examples/select.go",
+                                    "start": {
+                                      "column": 3,
+                                      "line": 31
+                                    }
+                                  },
+                                  "type": "ScopedStatement"
+                                },
+                                {
+                                  "_meta": {},
+                                  "body": [
+                                    {
+                                      "_meta": {},
+                                      "loc": null,
+                                      "type": "Noop"
+                                    }
+                                  ],
+                                  "id": null,
+                                  "loc": {
+                                    "end": {
+                                      "column": 11,
+                                      "line": 32
+                                    },
+                                    "sourcefile": "examples/select.go",
+                                    "start": {
+                                      "column": 3,
+                                      "line": 32
+                                    }
+                                  },
+                                  "type": "ScopedStatement"
+                                }
+                              ],
+                              "id": null,
+                              "loc": {
+                                "end": {
+                                  "column": 4,
+                                  "line": 33
+                                },
+                                "sourcefile": "examples/select.go",
+                                "start": {
+                                  "column": 3,
+                                  "line": 29
+                                }
+                              },
+                              "type": "ScopedStatement"
+                            }
+                          ],
+                          "id": null,
+                          "loc": {
+                            "end": {
+                              "column": 3,
+                              "line": 34
+                            },
+                            "sourcefile": "examples/select.go",
+                            "start": {
+                              "column": 26,
+                              "line": 28
+                            }
+                          },
+                          "type": "ScopedStatement"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "cloned": true,
+                          "id": {
+                            "_meta": {
+                              "ReceiveCls": "",
+                              "type": {
+                                "_meta": {},
+                                "loc": null,
+                                "name": "int",
+                                "type": "Identifier"
+                              }
+                            },
+                            "loc": {
+                              "end": {
+                                "column": 7,
+                                "line": 28
+                              },
+                              "sourcefile": "examples/select.go",
+                              "start": {
+                                "column": 6,
+                                "line": 28
+                              }
+                            },
+                            "name": "i",
+                            "type": "Identifier"
+                          },
+                          "init": {
+                            "_meta": {},
+                            "literalType": "INT",
+                            "loc": {
+                              "end": {
+                                "column": 12,
+                                "line": 28
+                              },
+                              "sourcefile": "examples/select.go",
+                              "start": {
+                                "column": 11,
+                                "line": 28
+                              }
+                            },
+                            "type": "Literal",
+                            "value": "0"
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 12,
+                              "line": 28
+                            },
+                            "sourcefile": "examples/select.go",
+                            "start": {
+                              "column": 6,
+                              "line": 28
+                            }
+                          },
+                          "type": "VariableDeclaration",
+                          "varType": {
+                            "_meta": {},
+                            "loc": null,
+                            "name": "int",
+                            "type": "Identifier"
+                          },
+                          "variableParam": false
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 3,
+                            "line": 34
+                          },
+                          "sourcefile": "examples/select.go",
+                          "start": {
+                            "column": 2,
+                            "line": 28
+                          }
+                        },
+                        "test": {
+                          "_meta": {},
+                          "left": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 15,
+                                "line": 28
+                              },
+                              "sourcefile": "examples/select.go",
+                              "start": {
+                                "column": 14,
+                                "line": 28
+                              }
+                            },
+                            "name": "i",
+                            "type": "Identifier"
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 20,
+                              "line": 28
+                            },
+                            "sourcefile": "examples/select.go",
+                            "start": {
+                              "column": 14,
+                              "line": 28
+                            }
+                          },
+                          "operator": "\u003c",
+                          "right": {
+                            "_meta": {},
+                            "literalType": "INT",
+                            "loc": {
+                              "end": {
+                                "column": 20,
+                                "line": 28
+                              },
+                              "sourcefile": "examples/select.go",
+                              "start": {
+                                "column": 18,
+                                "line": 28
+                              }
+                            },
+                            "type": "Literal",
+                            "value": "10"
+                          },
+                          "type": "BinaryExpression"
+                        },
+                        "type": "ForStatement",
+                        "update": {
+                          "_meta": {},
+                          "argument": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 23,
+                                "line": 28
+                              },
+                              "sourcefile": "examples/select.go",
+                              "start": {
+                                "column": 22,
+                                "line": 28
+                              }
+                            },
+                            "name": "i",
+                            "type": "Identifier"
+                          },
+                          "isSuffix": true,
+                          "loc": {
+                            "end": {
+                              "column": 25,
+                              "line": 28
+                            },
+                            "sourcefile": "examples/select.go",
+                            "start": {
+                              "column": 22,
+                              "line": 28
+                            }
+                          },
+                          "operator": "++",
+                          "type": "UnaryExpression"
+                        }
+                      }
+                    ],
+                    "id": null,
+                    "loc": {
+                      "end": {
+                        "column": 2,
+                        "line": 36
+                      },
+                      "sourcefile": "examples/select.go",
+                      "start": {
+                        "column": 16,
+                        "line": 3
+                      }
+                    },
+                    "type": "ScopedStatement"
+                  },
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 13,
+                        "line": 3
+                      },
+                      "sourcefile": "examples/select.go",
+                      "start": {
+                        "column": 6,
+                        "line": 3
+                      }
+                    },
+                    "name": "Selects",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 36
+                    },
+                    "sourcefile": "examples/select.go",
+                    "start": {
+                      "column": 1,
+                      "line": 3
+                    }
+                  },
+                  "modifiers": null,
+                  "parameters": [],
+                  "returnType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "VoidType",
+                    "typeArguments": null
+                  },
+                  "type": "FunctionDefinition"
+                }
+              ],
+              "language": "golang",
+              "languageVersion": "1.18",
+              "loc": {
+                "end": {
+                  "column": 2,
+                  "line": 36
+                },
+                "sourcefile": "examples/select.go",
+                "start": {
+                  "column": 1,
+                  "line": 1
+                }
+              },
+              "type": "CompileUnit",
+              "uri": "",
+              "version": ""
+            },
+            "packageName": "__single__"
+          }
+        },
+        "subs": {}
+      }
+    }
+  }
+}

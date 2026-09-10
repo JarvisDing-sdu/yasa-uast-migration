@@ -1,0 +1,427 @@
+{
+  "moduleName": "__single_module__",
+  "packageInfo": {
+    "PathName": "",
+    "files": {},
+    "subs": {
+      "/": {
+        "PathName": "",
+        "files": {
+          "examples/type_cast_003_T.go": {
+            "node": {
+              "_meta": {},
+              "body": [
+                {
+                  "_meta": {},
+                  "loc": {
+                    "end": {
+                      "column": 17,
+                      "line": 12
+                    },
+                    "sourcefile": "examples/type_cast_003_T.go",
+                    "start": {
+                      "column": 9,
+                      "line": 12
+                    }
+                  },
+                  "packageName": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 17,
+                        "line": 12
+                      },
+                      "sourcefile": "examples/type_cast_003_T.go",
+                      "start": {
+                        "column": 9,
+                        "line": 12
+                      }
+                    },
+                    "name": "examples",
+                    "type": "Identifier"
+                  },
+                  "type": "PackageDeclaration"
+                },
+                {
+                  "_meta": {},
+                  "body": {
+                    "_meta": {},
+                    "body": [
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "id": {
+                          "_meta": {},
+                          "elements": [
+                            {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 8,
+                                  "line": 15
+                                },
+                                "sourcefile": "examples/type_cast_003_T.go",
+                                "start": {
+                                  "column": 2,
+                                  "line": 15
+                                }
+                              },
+                              "name": "result",
+                              "type": "Identifier"
+                            },
+                            {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 12,
+                                  "line": 15
+                                },
+                                "sourcefile": "examples/type_cast_003_T.go",
+                                "start": {
+                                  "column": 10,
+                                  "line": 15
+                                }
+                              },
+                              "name": "ok",
+                              "type": "Identifier"
+                            }
+                          ],
+                          "loc": null,
+                          "modifiable": false,
+                          "type": "TupleExpression"
+                        },
+                        "init": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 35,
+                                  "line": 15
+                                },
+                                "sourcefile": "examples/type_cast_003_T.go",
+                                "start": {
+                                  "column": 29,
+                                  "line": 15
+                                }
+                              },
+                              "name": "string",
+                              "type": "Identifier"
+                            }
+                          },
+                          "left": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 27,
+                                "line": 15
+                              },
+                              "sourcefile": "examples/type_cast_003_T.go",
+                              "start": {
+                                "column": 16,
+                                "line": 15
+                              }
+                            },
+                            "name": "__taint_src",
+                            "type": "Identifier"
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 36,
+                              "line": 15
+                            },
+                            "sourcefile": "examples/type_cast_003_T.go",
+                            "start": {
+                              "column": 16,
+                              "line": 15
+                            }
+                          },
+                          "operator": "instanceof",
+                          "right": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 35,
+                                "line": 15
+                              },
+                              "sourcefile": "examples/type_cast_003_T.go",
+                              "start": {
+                                "column": 29,
+                                "line": 15
+                              }
+                            },
+                            "name": "string",
+                            "type": "Identifier"
+                          },
+                          "type": "BinaryExpression"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 36,
+                            "line": 15
+                          },
+                          "sourcefile": "examples/type_cast_003_T.go",
+                          "start": {
+                            "column": 2,
+                            "line": 15
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "id": null,
+                          "loc": null,
+                          "type": "DynamicType",
+                          "typeArguments": null
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "left": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 3,
+                              "line": 16
+                            },
+                            "sourcefile": "examples/type_cast_003_T.go",
+                            "start": {
+                              "column": 2,
+                              "line": 16
+                            }
+                          },
+                          "name": "_",
+                          "type": "Identifier"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 8,
+                            "line": 16
+                          },
+                          "sourcefile": "examples/type_cast_003_T.go",
+                          "start": {
+                            "column": 2,
+                            "line": 16
+                          }
+                        },
+                        "operator": "=",
+                        "right": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 8,
+                              "line": 16
+                            },
+                            "sourcefile": "examples/type_cast_003_T.go",
+                            "start": {
+                              "column": 6,
+                              "line": 16
+                            }
+                          },
+                          "name": "ok",
+                          "type": "Identifier"
+                        },
+                        "type": "AssignmentExpression"
+                      },
+                      {
+                        "_meta": {},
+                        "arguments": [
+                          {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 21,
+                                "line": 17
+                              },
+                              "sourcefile": "examples/type_cast_003_T.go",
+                              "start": {
+                                "column": 15,
+                                "line": 17
+                              }
+                            },
+                            "name": "result",
+                            "type": "Identifier"
+                          }
+                        ],
+                        "callee": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 14,
+                              "line": 17
+                            },
+                            "sourcefile": "examples/type_cast_003_T.go",
+                            "start": {
+                              "column": 2,
+                              "line": 17
+                            }
+                          },
+                          "name": "__taint_sink",
+                          "type": "Identifier"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 22,
+                            "line": 17
+                          },
+                          "sourcefile": "examples/type_cast_003_T.go",
+                          "start": {
+                            "column": 2,
+                            "line": 17
+                          }
+                        },
+                        "type": "CallExpression"
+                      }
+                    ],
+                    "id": null,
+                    "loc": {
+                      "end": {
+                        "column": 2,
+                        "line": 18
+                      },
+                      "sourcefile": "examples/type_cast_003_T.go",
+                      "start": {
+                        "column": 47,
+                        "line": 14
+                      }
+                    },
+                    "type": "ScopedStatement"
+                  },
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 21,
+                        "line": 14
+                      },
+                      "sourcefile": "examples/type_cast_003_T.go",
+                      "start": {
+                        "column": 6,
+                        "line": 14
+                      }
+                    },
+                    "name": "type_cast_003_T",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 18
+                    },
+                    "sourcefile": "examples/type_cast_003_T.go",
+                    "start": {
+                      "column": 1,
+                      "line": 14
+                    }
+                  },
+                  "modifiers": null,
+                  "parameters": [
+                    {
+                      "_meta": {},
+                      "cloned": true,
+                      "id": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "id": null,
+                            "loc": {
+                              "end": {
+                                "column": 45,
+                                "line": 14
+                              },
+                              "sourcefile": "examples/type_cast_003_T.go",
+                              "start": {
+                                "column": 34,
+                                "line": 14
+                              }
+                            },
+                            "type": "DynamicType",
+                            "typeArguments": null
+                          }
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 33,
+                            "line": 14
+                          },
+                          "sourcefile": "examples/type_cast_003_T.go",
+                          "start": {
+                            "column": 22,
+                            "line": 14
+                          }
+                        },
+                        "name": "__taint_src",
+                        "type": "Identifier"
+                      },
+                      "init": null,
+                      "loc": {
+                        "end": {
+                          "column": 45,
+                          "line": 14
+                        },
+                        "sourcefile": "examples/type_cast_003_T.go",
+                        "start": {
+                          "column": 22,
+                          "line": 14
+                        }
+                      },
+                      "type": "VariableDeclaration",
+                      "varType": {
+                        "_meta": {},
+                        "id": null,
+                        "loc": {
+                          "end": {
+                            "column": 45,
+                            "line": 14
+                          },
+                          "sourcefile": "examples/type_cast_003_T.go",
+                          "start": {
+                            "column": 34,
+                            "line": 14
+                          }
+                        },
+                        "type": "DynamicType",
+                        "typeArguments": null
+                      },
+                      "variableParam": false
+                    }
+                  ],
+                  "returnType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "VoidType",
+                    "typeArguments": null
+                  },
+                  "type": "FunctionDefinition"
+                }
+              ],
+              "language": "golang",
+              "languageVersion": "1.18",
+              "loc": {
+                "end": {
+                  "column": 2,
+                  "line": 18
+                },
+                "sourcefile": "examples/type_cast_003_T.go",
+                "start": {
+                  "column": 1,
+                  "line": 12
+                }
+              },
+              "type": "CompileUnit",
+              "uri": "",
+              "version": ""
+            },
+            "packageName": "__single__"
+          }
+        },
+        "subs": {}
+      }
+    }
+  }
+}

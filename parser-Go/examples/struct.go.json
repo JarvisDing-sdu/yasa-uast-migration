@@ -1,0 +1,1610 @@
+{
+  "moduleName": "__single_module__",
+  "packageInfo": {
+    "PathName": "",
+    "files": {},
+    "subs": {
+      "/": {
+        "PathName": "",
+        "files": {
+          "examples/struct.go": {
+            "node": {
+              "_meta": {},
+              "body": [
+                {
+                  "_meta": {},
+                  "loc": {
+                    "end": {
+                      "column": 17,
+                      "line": 1
+                    },
+                    "sourcefile": "examples/struct.go",
+                    "start": {
+                      "column": 9,
+                      "line": 1
+                    }
+                  },
+                  "packageName": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 17,
+                        "line": 1
+                      },
+                      "sourcefile": "examples/struct.go",
+                      "start": {
+                        "column": 9,
+                        "line": 1
+                      }
+                    },
+                    "name": "examples",
+                    "type": "Identifier"
+                  },
+                  "type": "PackageDeclaration"
+                },
+                {
+                  "_meta": {},
+                  "body": [
+                    {
+                      "_meta": {},
+                      "cloned": true,
+                      "id": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 13,
+                                "line": 4
+                              },
+                              "sourcefile": "examples/struct.go",
+                              "start": {
+                                "column": 7,
+                                "line": 4
+                              }
+                            },
+                            "name": "string",
+                            "type": "Identifier"
+                          }
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 6,
+                            "line": 4
+                          },
+                          "sourcefile": "examples/struct.go",
+                          "start": {
+                            "column": 2,
+                            "line": 4
+                          }
+                        },
+                        "name": "Name",
+                        "type": "Identifier"
+                      },
+                      "init": null,
+                      "loc": {
+                        "end": {
+                          "column": 13,
+                          "line": 4
+                        },
+                        "sourcefile": "examples/struct.go",
+                        "start": {
+                          "column": 2,
+                          "line": 4
+                        }
+                      },
+                      "type": "VariableDeclaration",
+                      "varType": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 13,
+                            "line": 4
+                          },
+                          "sourcefile": "examples/struct.go",
+                          "start": {
+                            "column": 7,
+                            "line": 4
+                          }
+                        },
+                        "name": "string",
+                        "type": "Identifier"
+                      },
+                      "variableParam": false
+                    },
+                    {
+                      "_meta": {
+                        "ReceiveCls": "Personw"
+                      },
+                      "body": {
+                        "_meta": {},
+                        "body": [
+                          {
+                            "_meta": {},
+                            "cloned": true,
+                            "id": {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "element": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 17,
+                                        "line": 15
+                                      },
+                                      "sourcefile": "examples/struct.go",
+                                      "start": {
+                                        "column": 10,
+                                        "line": 15
+                                      }
+                                    },
+                                    "name": "Personw",
+                                    "type": "Identifier"
+                                  },
+                                  "id": null,
+                                  "kind": "pointer",
+                                  "loc": {
+                                    "end": {
+                                      "column": 17,
+                                      "line": 15
+                                    },
+                                    "sourcefile": "examples/struct.go",
+                                    "start": {
+                                      "column": 9,
+                                      "line": 15
+                                    }
+                                  },
+                                  "type": "PointerType",
+                                  "typeArguments": null
+                                }
+                              },
+                              "loc": null,
+                              "name": "p",
+                              "type": "Identifier"
+                            },
+                            "init": {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "element": null,
+                                  "id": null,
+                                  "kind": "",
+                                  "loc": null,
+                                  "type": "PointerType",
+                                  "typeArguments": null
+                                }
+                              },
+                              "loc": null,
+                              "type": "ThisExpression"
+                            },
+                            "loc": null,
+                            "type": "VariableDeclaration",
+                            "varType": {
+                              "_meta": {},
+                              "element": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 17,
+                                    "line": 15
+                                  },
+                                  "sourcefile": "examples/struct.go",
+                                  "start": {
+                                    "column": 10,
+                                    "line": 15
+                                  }
+                                },
+                                "name": "Personw",
+                                "type": "Identifier"
+                              },
+                              "id": null,
+                              "kind": "pointer",
+                              "loc": {
+                                "end": {
+                                  "column": 17,
+                                  "line": 15
+                                },
+                                "sourcefile": "examples/struct.go",
+                                "start": {
+                                  "column": 9,
+                                  "line": 15
+                                }
+                              },
+                              "type": "PointerType",
+                              "typeArguments": null
+                            },
+                            "variableParam": false
+                          },
+                          {
+                            "_meta": {},
+                            "cloned": true,
+                            "left": {
+                              "_meta": {},
+                              "computed": false,
+                              "loc": {
+                                "end": {
+                                  "column": 8,
+                                  "line": 16
+                                },
+                                "sourcefile": "examples/struct.go",
+                                "start": {
+                                  "column": 2,
+                                  "line": 16
+                                }
+                              },
+                              "object": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 3,
+                                    "line": 16
+                                  },
+                                  "sourcefile": "examples/struct.go",
+                                  "start": {
+                                    "column": 2,
+                                    "line": 16
+                                  }
+                                },
+                                "name": "p",
+                                "type": "Identifier"
+                              },
+                              "property": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 8,
+                                    "line": 16
+                                  },
+                                  "sourcefile": "examples/struct.go",
+                                  "start": {
+                                    "column": 4,
+                                    "line": 16
+                                  }
+                                },
+                                "name": "Name",
+                                "type": "Identifier"
+                              },
+                              "type": "MemberAccess"
+                            },
+                            "loc": {
+                              "end": {
+                                "column": 18,
+                                "line": 16
+                              },
+                              "sourcefile": "examples/struct.go",
+                              "start": {
+                                "column": 2,
+                                "line": 16
+                              }
+                            },
+                            "operator": "=",
+                            "right": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 18,
+                                  "line": 16
+                                },
+                                "sourcefile": "examples/struct.go",
+                                "start": {
+                                  "column": 11,
+                                  "line": 16
+                                }
+                              },
+                              "name": "newName",
+                              "type": "Identifier"
+                            },
+                            "type": "AssignmentExpression"
+                          }
+                        ],
+                        "id": null,
+                        "loc": {
+                          "end": {
+                            "column": 2,
+                            "line": 17
+                          },
+                          "sourcefile": "examples/struct.go",
+                          "start": {
+                            "column": 53,
+                            "line": 15
+                          }
+                        },
+                        "type": "ScopedStatement"
+                      },
+                      "id": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 36,
+                            "line": 15
+                          },
+                          "sourcefile": "examples/struct.go",
+                          "start": {
+                            "column": 19,
+                            "line": 15
+                          }
+                        },
+                        "name": "UpdateNamePointer",
+                        "type": "Identifier"
+                      },
+                      "loc": {
+                        "end": {
+                          "column": 2,
+                          "line": 17
+                        },
+                        "sourcefile": "examples/struct.go",
+                        "start": {
+                          "column": 1,
+                          "line": 15
+                        }
+                      },
+                      "modifiers": null,
+                      "parameters": [
+                        {
+                          "_meta": {},
+                          "cloned": true,
+                          "id": {
+                            "_meta": {
+                              "ReceiveCls": "",
+                              "type": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 51,
+                                    "line": 15
+                                  },
+                                  "sourcefile": "examples/struct.go",
+                                  "start": {
+                                    "column": 45,
+                                    "line": 15
+                                  }
+                                },
+                                "name": "string",
+                                "type": "Identifier"
+                              }
+                            },
+                            "loc": {
+                              "end": {
+                                "column": 44,
+                                "line": 15
+                              },
+                              "sourcefile": "examples/struct.go",
+                              "start": {
+                                "column": 37,
+                                "line": 15
+                              }
+                            },
+                            "name": "newName",
+                            "type": "Identifier"
+                          },
+                          "init": null,
+                          "loc": {
+                            "end": {
+                              "column": 51,
+                              "line": 15
+                            },
+                            "sourcefile": "examples/struct.go",
+                            "start": {
+                              "column": 37,
+                              "line": 15
+                            }
+                          },
+                          "type": "VariableDeclaration",
+                          "varType": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 51,
+                                "line": 15
+                              },
+                              "sourcefile": "examples/struct.go",
+                              "start": {
+                                "column": 45,
+                                "line": 15
+                              }
+                            },
+                            "name": "string",
+                            "type": "Identifier"
+                          },
+                          "variableParam": false
+                        }
+                      ],
+                      "returnType": {
+                        "_meta": {},
+                        "id": null,
+                        "loc": null,
+                        "type": "VoidType",
+                        "typeArguments": null
+                      },
+                      "type": "FunctionDefinition"
+                    },
+                    {
+                      "_meta": {
+                        "ReceiveCls": "Personw"
+                      },
+                      "body": {
+                        "_meta": {},
+                        "body": [
+                          {
+                            "_meta": {},
+                            "cloned": true,
+                            "id": {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "element": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 17,
+                                        "line": 19
+                                      },
+                                      "sourcefile": "examples/struct.go",
+                                      "start": {
+                                        "column": 10,
+                                        "line": 19
+                                      }
+                                    },
+                                    "name": "Personw",
+                                    "type": "Identifier"
+                                  },
+                                  "id": null,
+                                  "kind": "pointer",
+                                  "loc": {
+                                    "end": {
+                                      "column": 17,
+                                      "line": 19
+                                    },
+                                    "sourcefile": "examples/struct.go",
+                                    "start": {
+                                      "column": 9,
+                                      "line": 19
+                                    }
+                                  },
+                                  "type": "PointerType",
+                                  "typeArguments": null
+                                }
+                              },
+                              "loc": null,
+                              "name": "p",
+                              "type": "Identifier"
+                            },
+                            "init": {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "element": null,
+                                  "id": null,
+                                  "kind": "",
+                                  "loc": null,
+                                  "type": "PointerType",
+                                  "typeArguments": null
+                                }
+                              },
+                              "loc": null,
+                              "type": "ThisExpression"
+                            },
+                            "loc": null,
+                            "type": "VariableDeclaration",
+                            "varType": {
+                              "_meta": {},
+                              "element": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 17,
+                                    "line": 19
+                                  },
+                                  "sourcefile": "examples/struct.go",
+                                  "start": {
+                                    "column": 10,
+                                    "line": 19
+                                  }
+                                },
+                                "name": "Personw",
+                                "type": "Identifier"
+                              },
+                              "id": null,
+                              "kind": "pointer",
+                              "loc": {
+                                "end": {
+                                  "column": 17,
+                                  "line": 19
+                                },
+                                "sourcefile": "examples/struct.go",
+                                "start": {
+                                  "column": 9,
+                                  "line": 19
+                                }
+                              },
+                              "type": "PointerType",
+                              "typeArguments": null
+                            },
+                            "variableParam": false
+                          },
+                          {
+                            "_meta": {},
+                            "argument": {
+                              "_meta": {},
+                              "computed": false,
+                              "loc": {
+                                "end": {
+                                  "column": 15,
+                                  "line": 20
+                                },
+                                "sourcefile": "examples/struct.go",
+                                "start": {
+                                  "column": 9,
+                                  "line": 20
+                                }
+                              },
+                              "object": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 10,
+                                    "line": 20
+                                  },
+                                  "sourcefile": "examples/struct.go",
+                                  "start": {
+                                    "column": 9,
+                                    "line": 20
+                                  }
+                                },
+                                "name": "p",
+                                "type": "Identifier"
+                              },
+                              "property": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 15,
+                                    "line": 20
+                                  },
+                                  "sourcefile": "examples/struct.go",
+                                  "start": {
+                                    "column": 11,
+                                    "line": 20
+                                  }
+                                },
+                                "name": "Name",
+                                "type": "Identifier"
+                              },
+                              "type": "MemberAccess"
+                            },
+                            "isYield": false,
+                            "loc": {
+                              "end": {
+                                "column": 15,
+                                "line": 20
+                              },
+                              "sourcefile": "examples/struct.go",
+                              "start": {
+                                "column": 2,
+                                "line": 20
+                              }
+                            },
+                            "type": "ReturnStatement"
+                          }
+                        ],
+                        "id": null,
+                        "loc": {
+                          "end": {
+                            "column": 2,
+                            "line": 21
+                          },
+                          "sourcefile": "examples/struct.go",
+                          "start": {
+                            "column": 43,
+                            "line": 19
+                          }
+                        },
+                        "type": "ScopedStatement"
+                      },
+                      "id": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 33,
+                            "line": 19
+                          },
+                          "sourcefile": "examples/struct.go",
+                          "start": {
+                            "column": 19,
+                            "line": 19
+                          }
+                        },
+                        "name": "GetNamePointer",
+                        "type": "Identifier"
+                      },
+                      "loc": {
+                        "end": {
+                          "column": 2,
+                          "line": 21
+                        },
+                        "sourcefile": "examples/struct.go",
+                        "start": {
+                          "column": 1,
+                          "line": 19
+                        }
+                      },
+                      "modifiers": null,
+                      "parameters": [],
+                      "returnType": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 42,
+                            "line": 19
+                          },
+                          "sourcefile": "examples/struct.go",
+                          "start": {
+                            "column": 36,
+                            "line": 19
+                          }
+                        },
+                        "name": "string",
+                        "type": "Identifier"
+                      },
+                      "type": "FunctionDefinition"
+                    }
+                  ],
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 13,
+                        "line": 3
+                      },
+                      "sourcefile": "examples/struct.go",
+                      "start": {
+                        "column": 6,
+                        "line": 3
+                      }
+                    },
+                    "name": "Personw",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 5
+                    },
+                    "sourcefile": "examples/struct.go",
+                    "start": {
+                      "column": 6,
+                      "line": 3
+                    }
+                  },
+                  "supers": [],
+                  "type": "ClassDefinition"
+                },
+                {
+                  "_meta": {},
+                  "body": {
+                    "_meta": {},
+                    "body": [
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 19,
+                                  "line": 8
+                                },
+                                "sourcefile": "examples/struct.go",
+                                "start": {
+                                  "column": 12,
+                                  "line": 8
+                                }
+                              },
+                              "name": "Personw",
+                              "type": "Identifier"
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 8,
+                              "line": 8
+                            },
+                            "sourcefile": "examples/struct.go",
+                            "start": {
+                              "column": 2,
+                              "line": 8
+                            }
+                          },
+                          "name": "person",
+                          "type": "Identifier"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "expressions": [
+                            {
+                              "_meta": {},
+                              "cloned": false,
+                              "id": {
+                                "_meta": {
+                                  "ReceiveCls": "",
+                                  "type": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 19,
+                                        "line": 8
+                                      },
+                                      "sourcefile": "examples/struct.go",
+                                      "start": {
+                                        "column": 12,
+                                        "line": 8
+                                      }
+                                    },
+                                    "name": "Personw",
+                                    "type": "Identifier"
+                                  }
+                                },
+                                "loc": {
+                                  "end": {
+                                    "column": 33,
+                                    "line": 8
+                                  },
+                                  "sourcefile": "examples/struct.go",
+                                  "start": {
+                                    "column": 12,
+                                    "line": 8
+                                  }
+                                },
+                                "name": "tmp1",
+                                "type": "Identifier"
+                              },
+                              "init": {
+                                "_meta": {},
+                                "arguments": [],
+                                "callee": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 19,
+                                      "line": 8
+                                    },
+                                    "sourcefile": "examples/struct.go",
+                                    "start": {
+                                      "column": 12,
+                                      "line": 8
+                                    }
+                                  },
+                                  "name": "Personw",
+                                  "type": "Identifier"
+                                },
+                                "loc": null,
+                                "type": "NewExpression"
+                              },
+                              "loc": null,
+                              "type": "VariableDeclaration",
+                              "varType": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 19,
+                                    "line": 8
+                                  },
+                                  "sourcefile": "examples/struct.go",
+                                  "start": {
+                                    "column": 12,
+                                    "line": 8
+                                  }
+                                },
+                                "name": "Personw",
+                                "type": "Identifier"
+                              },
+                              "variableParam": false
+                            },
+                            {
+                              "_meta": {},
+                              "cloned": true,
+                              "left": {
+                                "_meta": {},
+                                "computed": false,
+                                "loc": null,
+                                "object": {
+                                  "_meta": {
+                                    "ReceiveCls": "",
+                                    "type": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 19,
+                                          "line": 8
+                                        },
+                                        "sourcefile": "examples/struct.go",
+                                        "start": {
+                                          "column": 12,
+                                          "line": 8
+                                        }
+                                      },
+                                      "name": "Personw",
+                                      "type": "Identifier"
+                                    }
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 33,
+                                      "line": 8
+                                    },
+                                    "sourcefile": "examples/struct.go",
+                                    "start": {
+                                      "column": 12,
+                                      "line": 8
+                                    }
+                                  },
+                                  "name": "tmp1",
+                                  "type": "Identifier"
+                                },
+                                "property": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 24,
+                                      "line": 8
+                                    },
+                                    "sourcefile": "examples/struct.go",
+                                    "start": {
+                                      "column": 20,
+                                      "line": 8
+                                    }
+                                  },
+                                  "name": "Name",
+                                  "type": "Identifier"
+                                },
+                                "type": "MemberAccess"
+                              },
+                              "loc": null,
+                              "operator": "=",
+                              "right": {
+                                "_meta": {},
+                                "literalType": "STRING",
+                                "loc": {
+                                  "end": {
+                                    "column": 32,
+                                    "line": 8
+                                  },
+                                  "sourcefile": "examples/struct.go",
+                                  "start": {
+                                    "column": 26,
+                                    "line": 8
+                                  }
+                                },
+                                "type": "Literal",
+                                "value": "\"safe\""
+                              },
+                              "type": "AssignmentExpression"
+                            },
+                            {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 19,
+                                      "line": 8
+                                    },
+                                    "sourcefile": "examples/struct.go",
+                                    "start": {
+                                      "column": 12,
+                                      "line": 8
+                                    }
+                                  },
+                                  "name": "Personw",
+                                  "type": "Identifier"
+                                }
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 33,
+                                  "line": 8
+                                },
+                                "sourcefile": "examples/struct.go",
+                                "start": {
+                                  "column": 12,
+                                  "line": 8
+                                }
+                              },
+                              "name": "tmp1",
+                              "type": "Identifier"
+                            }
+                          ],
+                          "loc": {
+                            "end": {
+                              "column": 33,
+                              "line": 8
+                            },
+                            "sourcefile": "examples/struct.go",
+                            "start": {
+                              "column": 12,
+                              "line": 8
+                            }
+                          },
+                          "type": "Sequence"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 33,
+                            "line": 8
+                          },
+                          "sourcefile": "examples/struct.go",
+                          "start": {
+                            "column": 2,
+                            "line": 8
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 19,
+                              "line": 8
+                            },
+                            "sourcefile": "examples/struct.go",
+                            "start": {
+                              "column": 12,
+                              "line": 8
+                            }
+                          },
+                          "name": "Personw",
+                          "type": "Identifier"
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "arguments": [
+                          {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 41,
+                                "line": 10
+                              },
+                              "sourcefile": "examples/struct.go",
+                              "start": {
+                                "column": 30,
+                                "line": 10
+                              }
+                            },
+                            "name": "__taint_src",
+                            "type": "Identifier"
+                          }
+                        ],
+                        "callee": {
+                          "_meta": {},
+                          "computed": false,
+                          "loc": {
+                            "end": {
+                              "column": 29,
+                              "line": 10
+                            },
+                            "sourcefile": "examples/struct.go",
+                            "start": {
+                              "column": 2,
+                              "line": 10
+                            }
+                          },
+                          "object": {
+                            "_meta": {},
+                            "argument": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 10,
+                                  "line": 10
+                                },
+                                "sourcefile": "examples/struct.go",
+                                "start": {
+                                  "column": 4,
+                                  "line": 10
+                                }
+                              },
+                              "name": "person",
+                              "type": "Identifier"
+                            },
+                            "loc": {
+                              "end": {
+                                "column": 11,
+                                "line": 10
+                              },
+                              "sourcefile": "examples/struct.go",
+                              "start": {
+                                "column": 2,
+                                "line": 10
+                              }
+                            },
+                            "type": "ReferenceExpression"
+                          },
+                          "property": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 29,
+                                "line": 10
+                              },
+                              "sourcefile": "examples/struct.go",
+                              "start": {
+                                "column": 12,
+                                "line": 10
+                              }
+                            },
+                            "name": "UpdateNamePointer",
+                            "type": "Identifier"
+                          },
+                          "type": "MemberAccess"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 42,
+                            "line": 10
+                          },
+                          "sourcefile": "examples/struct.go",
+                          "start": {
+                            "column": 2,
+                            "line": 10
+                          }
+                        },
+                        "type": "CallExpression"
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "computed": false,
+                              "loc": {
+                                "end": {
+                                  "column": 40,
+                                  "line": 11
+                                },
+                                "sourcefile": "examples/struct.go",
+                                "start": {
+                                  "column": 16,
+                                  "line": 11
+                                }
+                              },
+                              "object": {
+                                "_meta": {},
+                                "argument": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 24,
+                                      "line": 11
+                                    },
+                                    "sourcefile": "examples/struct.go",
+                                    "start": {
+                                      "column": 18,
+                                      "line": 11
+                                    }
+                                  },
+                                  "name": "person",
+                                  "type": "Identifier"
+                                },
+                                "loc": {
+                                  "end": {
+                                    "column": 25,
+                                    "line": 11
+                                  },
+                                  "sourcefile": "examples/struct.go",
+                                  "start": {
+                                    "column": 16,
+                                    "line": 11
+                                  }
+                                },
+                                "type": "ReferenceExpression"
+                              },
+                              "property": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 40,
+                                    "line": 11
+                                  },
+                                  "sourcefile": "examples/struct.go",
+                                  "start": {
+                                    "column": 26,
+                                    "line": 11
+                                  }
+                                },
+                                "name": "GetNamePointer",
+                                "type": "Identifier"
+                              },
+                              "type": "MemberAccess"
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 12,
+                              "line": 11
+                            },
+                            "sourcefile": "examples/struct.go",
+                            "start": {
+                              "column": 2,
+                              "line": 11
+                            }
+                          },
+                          "name": "personName",
+                          "type": "Identifier"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "arguments": [],
+                          "callee": {
+                            "_meta": {},
+                            "computed": false,
+                            "loc": {
+                              "end": {
+                                "column": 40,
+                                "line": 11
+                              },
+                              "sourcefile": "examples/struct.go",
+                              "start": {
+                                "column": 16,
+                                "line": 11
+                              }
+                            },
+                            "object": {
+                              "_meta": {},
+                              "argument": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 24,
+                                    "line": 11
+                                  },
+                                  "sourcefile": "examples/struct.go",
+                                  "start": {
+                                    "column": 18,
+                                    "line": 11
+                                  }
+                                },
+                                "name": "person",
+                                "type": "Identifier"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 25,
+                                  "line": 11
+                                },
+                                "sourcefile": "examples/struct.go",
+                                "start": {
+                                  "column": 16,
+                                  "line": 11
+                                }
+                              },
+                              "type": "ReferenceExpression"
+                            },
+                            "property": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 40,
+                                  "line": 11
+                                },
+                                "sourcefile": "examples/struct.go",
+                                "start": {
+                                  "column": 26,
+                                  "line": 11
+                                }
+                              },
+                              "name": "GetNamePointer",
+                              "type": "Identifier"
+                            },
+                            "type": "MemberAccess"
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 42,
+                              "line": 11
+                            },
+                            "sourcefile": "examples/struct.go",
+                            "start": {
+                              "column": 16,
+                              "line": 11
+                            }
+                          },
+                          "type": "CallExpression"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 42,
+                            "line": 11
+                          },
+                          "sourcefile": "examples/struct.go",
+                          "start": {
+                            "column": 2,
+                            "line": 11
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "computed": false,
+                          "loc": {
+                            "end": {
+                              "column": 40,
+                              "line": 11
+                            },
+                            "sourcefile": "examples/struct.go",
+                            "start": {
+                              "column": 16,
+                              "line": 11
+                            }
+                          },
+                          "object": {
+                            "_meta": {},
+                            "argument": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 24,
+                                  "line": 11
+                                },
+                                "sourcefile": "examples/struct.go",
+                                "start": {
+                                  "column": 18,
+                                  "line": 11
+                                }
+                              },
+                              "name": "person",
+                              "type": "Identifier"
+                            },
+                            "loc": {
+                              "end": {
+                                "column": 25,
+                                "line": 11
+                              },
+                              "sourcefile": "examples/struct.go",
+                              "start": {
+                                "column": 16,
+                                "line": 11
+                              }
+                            },
+                            "type": "ReferenceExpression"
+                          },
+                          "property": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 40,
+                                "line": 11
+                              },
+                              "sourcefile": "examples/struct.go",
+                              "start": {
+                                "column": 26,
+                                "line": 11
+                              }
+                            },
+                            "name": "GetNamePointer",
+                            "type": "Identifier"
+                          },
+                          "type": "MemberAccess"
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "arguments": [
+                          {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 25,
+                                "line": 12
+                              },
+                              "sourcefile": "examples/struct.go",
+                              "start": {
+                                "column": 15,
+                                "line": 12
+                              }
+                            },
+                            "name": "personName",
+                            "type": "Identifier"
+                          }
+                        ],
+                        "callee": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 14,
+                              "line": 12
+                            },
+                            "sourcefile": "examples/struct.go",
+                            "start": {
+                              "column": 2,
+                              "line": 12
+                            }
+                          },
+                          "name": "__taint_sink",
+                          "type": "Identifier"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 26,
+                            "line": 12
+                          },
+                          "sourcefile": "examples/struct.go",
+                          "start": {
+                            "column": 2,
+                            "line": 12
+                          }
+                        },
+                        "type": "CallExpression"
+                      }
+                    ],
+                    "id": null,
+                    "loc": {
+                      "end": {
+                        "column": 2,
+                        "line": 13
+                      },
+                      "sourcefile": "examples/struct.go",
+                      "start": {
+                        "column": 59,
+                        "line": 7
+                      }
+                    },
+                    "type": "ScopedStatement"
+                  },
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 38,
+                        "line": 7
+                      },
+                      "sourcefile": "examples/struct.go",
+                      "start": {
+                        "column": 6,
+                        "line": 7
+                      }
+                    },
+                    "name": "argument_passing_reference_007_T",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 13
+                    },
+                    "sourcefile": "examples/struct.go",
+                    "start": {
+                      "column": 1,
+                      "line": 7
+                    }
+                  },
+                  "modifiers": null,
+                  "parameters": [
+                    {
+                      "_meta": {},
+                      "cloned": true,
+                      "id": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 57,
+                                "line": 7
+                              },
+                              "sourcefile": "examples/struct.go",
+                              "start": {
+                                "column": 51,
+                                "line": 7
+                              }
+                            },
+                            "name": "string",
+                            "type": "Identifier"
+                          }
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 50,
+                            "line": 7
+                          },
+                          "sourcefile": "examples/struct.go",
+                          "start": {
+                            "column": 39,
+                            "line": 7
+                          }
+                        },
+                        "name": "__taint_src",
+                        "type": "Identifier"
+                      },
+                      "init": null,
+                      "loc": {
+                        "end": {
+                          "column": 57,
+                          "line": 7
+                        },
+                        "sourcefile": "examples/struct.go",
+                        "start": {
+                          "column": 39,
+                          "line": 7
+                        }
+                      },
+                      "type": "VariableDeclaration",
+                      "varType": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 57,
+                            "line": 7
+                          },
+                          "sourcefile": "examples/struct.go",
+                          "start": {
+                            "column": 51,
+                            "line": 7
+                          }
+                        },
+                        "name": "string",
+                        "type": "Identifier"
+                      },
+                      "variableParam": false
+                    }
+                  ],
+                  "returnType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "VoidType",
+                    "typeArguments": null
+                  },
+                  "type": "FunctionDefinition"
+                },
+                {
+                  "_meta": {},
+                  "body": {
+                    "_meta": {},
+                    "body": [
+                      {
+                        "_meta": {},
+                        "arguments": [
+                          {
+                            "_meta": {},
+                            "literalType": "STRING",
+                            "loc": {
+                              "end": {
+                                "column": 48,
+                                "line": 24
+                              },
+                              "sourcefile": "examples/struct.go",
+                              "start": {
+                                "column": 35,
+                                "line": 24
+                              }
+                            },
+                            "type": "Literal",
+                            "value": "\"__taint_src\""
+                          }
+                        ],
+                        "callee": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 34,
+                              "line": 24
+                            },
+                            "sourcefile": "examples/struct.go",
+                            "start": {
+                              "column": 2,
+                              "line": 24
+                            }
+                          },
+                          "name": "argument_passing_reference_007_T",
+                          "type": "Identifier"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 49,
+                            "line": 24
+                          },
+                          "sourcefile": "examples/struct.go",
+                          "start": {
+                            "column": 2,
+                            "line": 24
+                          }
+                        },
+                        "type": "CallExpression"
+                      }
+                    ],
+                    "id": null,
+                    "loc": {
+                      "end": {
+                        "column": 2,
+                        "line": 25
+                      },
+                      "sourcefile": "examples/struct.go",
+                      "start": {
+                        "column": 13,
+                        "line": 23
+                      }
+                    },
+                    "type": "ScopedStatement"
+                  },
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 10,
+                        "line": 23
+                      },
+                      "sourcefile": "examples/struct.go",
+                      "start": {
+                        "column": 6,
+                        "line": 23
+                      }
+                    },
+                    "name": "main",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 25
+                    },
+                    "sourcefile": "examples/struct.go",
+                    "start": {
+                      "column": 1,
+                      "line": 23
+                    }
+                  },
+                  "modifiers": null,
+                  "parameters": [],
+                  "returnType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "VoidType",
+                    "typeArguments": null
+                  },
+                  "type": "FunctionDefinition"
+                }
+              ],
+              "language": "golang",
+              "languageVersion": "1.18",
+              "loc": {
+                "end": {
+                  "column": 2,
+                  "line": 25
+                },
+                "sourcefile": "examples/struct.go",
+                "start": {
+                  "column": 1,
+                  "line": 1
+                }
+              },
+              "type": "CompileUnit",
+              "uri": "",
+              "version": ""
+            },
+            "packageName": "__single__"
+          }
+        },
+        "subs": {}
+      }
+    }
+  }
+}

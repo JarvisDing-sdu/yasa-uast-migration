@@ -1,0 +1,428 @@
+{
+  "type": "CompileUnit",
+  "body": [
+    {
+      "type": "ExpressionStatement",
+      "expression": {
+        "type": "AssignmentExpression",
+        "left": {
+          "type": "Identifier",
+          "name": "obj",
+          "_meta": {
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 1
+              },
+              "end": {
+                "line": 2,
+                "column": 5
+              },
+              "sourcefile": "new-static.php"
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 1
+            },
+            "end": {
+              "line": 2,
+              "column": 5
+            },
+            "sourcefile": "new-static.php"
+          }
+        },
+        "right": {
+          "type": "NewExpression",
+          "callee": {
+            "type": "Identifier",
+            "name": "User",
+            "_meta": {
+              "loc": {
+                "start": {
+                  "line": 2,
+                  "column": 12
+                },
+                "end": {
+                  "line": 2,
+                  "column": 16
+                },
+                "sourcefile": "new-static.php"
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 12
+              },
+              "end": {
+                "line": 2,
+                "column": 16
+              },
+              "sourcefile": "new-static.php"
+            }
+          },
+          "arguments": [
+            {
+              "type": "Identifier",
+              "name": "id",
+              "_meta": {
+                "loc": {
+                  "start": {
+                    "line": 2,
+                    "column": 17
+                  },
+                  "end": {
+                    "line": 2,
+                    "column": 20
+                  },
+                  "sourcefile": "new-static.php"
+                }
+              },
+              "loc": {
+                "start": {
+                  "line": 2,
+                  "column": 17
+                },
+                "end": {
+                  "line": 2,
+                  "column": 20
+                },
+                "sourcefile": "new-static.php"
+              }
+            }
+          ],
+          "_meta": {
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 8
+              },
+              "end": {
+                "line": 2,
+                "column": 21
+              },
+              "sourcefile": "new-static.php"
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 8
+            },
+            "end": {
+              "line": 2,
+              "column": 21
+            },
+            "sourcefile": "new-static.php"
+          }
+        },
+        "operator": "=",
+        "cloned": false,
+        "_meta": {
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 1
+            },
+            "end": {
+              "line": 2,
+              "column": 21
+            },
+            "sourcefile": "new-static.php"
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 1
+          },
+          "end": {
+            "line": 2,
+            "column": 21
+          },
+          "sourcefile": "new-static.php"
+        }
+      },
+      "_meta": {
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 1
+          },
+          "end": {
+            "line": 2,
+            "column": 22
+          },
+          "sourcefile": "new-static.php"
+        }
+      },
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 1
+        },
+        "end": {
+          "line": 2,
+          "column": 22
+        },
+        "sourcefile": "new-static.php"
+      }
+    },
+    {
+      "type": "ExpressionStatement",
+      "expression": {
+        "type": "AssignmentExpression",
+        "left": {
+          "type": "Identifier",
+          "name": "v",
+          "_meta": {
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 1
+              },
+              "end": {
+                "line": 3,
+                "column": 3
+              },
+              "sourcefile": "new-static.php"
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 1
+            },
+            "end": {
+              "line": 3,
+              "column": 3
+            },
+            "sourcefile": "new-static.php"
+          }
+        },
+        "right": {
+          "type": "CallExpression",
+          "callee": {
+            "type": "MemberAccess",
+            "object": {
+              "type": "Identifier",
+              "name": "Foo",
+              "_meta": {
+                "loc": {
+                  "start": {
+                    "line": 3,
+                    "column": 6
+                  },
+                  "end": {
+                    "line": 3,
+                    "column": 9
+                  },
+                  "sourcefile": "new-static.php"
+                }
+              },
+              "loc": {
+                "start": {
+                  "line": 3,
+                  "column": 6
+                },
+                "end": {
+                  "line": 3,
+                  "column": 9
+                },
+                "sourcefile": "new-static.php"
+              }
+            },
+            "property": {
+              "type": "Identifier",
+              "name": "bar",
+              "_meta": {
+                "loc": {
+                  "start": {
+                    "line": 3,
+                    "column": 11
+                  },
+                  "end": {
+                    "line": 3,
+                    "column": 14
+                  },
+                  "sourcefile": "new-static.php"
+                }
+              },
+              "loc": {
+                "start": {
+                  "line": 3,
+                  "column": 11
+                },
+                "end": {
+                  "line": 3,
+                  "column": 14
+                },
+                "sourcefile": "new-static.php"
+              }
+            },
+            "computed": false,
+            "_meta": {
+              "isStatic": true,
+              "loc": {
+                "start": {
+                  "line": 3,
+                  "column": 6
+                },
+                "end": {
+                  "line": 3,
+                  "column": 20
+                },
+                "sourcefile": "new-static.php"
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 6
+              },
+              "end": {
+                "line": 3,
+                "column": 20
+              },
+              "sourcefile": "new-static.php"
+            }
+          },
+          "arguments": [
+            {
+              "type": "Identifier",
+              "name": "obj",
+              "_meta": {
+                "loc": {
+                  "start": {
+                    "line": 3,
+                    "column": 15
+                  },
+                  "end": {
+                    "line": 3,
+                    "column": 19
+                  },
+                  "sourcefile": "new-static.php"
+                }
+              },
+              "loc": {
+                "start": {
+                  "line": 3,
+                  "column": 15
+                },
+                "end": {
+                  "line": 3,
+                  "column": 19
+                },
+                "sourcefile": "new-static.php"
+              }
+            }
+          ],
+          "_meta": {
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 6
+              },
+              "end": {
+                "line": 3,
+                "column": 20
+              },
+              "sourcefile": "new-static.php"
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 6
+            },
+            "end": {
+              "line": 3,
+              "column": 20
+            },
+            "sourcefile": "new-static.php"
+          }
+        },
+        "operator": "=",
+        "cloned": false,
+        "_meta": {
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 1
+            },
+            "end": {
+              "line": 3,
+              "column": 20
+            },
+            "sourcefile": "new-static.php"
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 3,
+            "column": 1
+          },
+          "end": {
+            "line": 3,
+            "column": 20
+          },
+          "sourcefile": "new-static.php"
+        }
+      },
+      "_meta": {
+        "loc": {
+          "start": {
+            "line": 3,
+            "column": 1
+          },
+          "end": {
+            "line": 3,
+            "column": 21
+          },
+          "sourcefile": "new-static.php"
+        }
+      },
+      "loc": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 21
+        },
+        "sourcefile": "new-static.php"
+      }
+    }
+  ],
+  "language": "php",
+  "languageVersion": null,
+  "uri": "new-static.php",
+  "version": "0.0.0",
+  "_meta": {
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 1
+      },
+      "end": {
+        "line": 4,
+        "column": 1
+      },
+      "sourcefile": "new-static.php"
+    }
+  },
+  "loc": {
+    "start": {
+      "line": 1,
+      "column": 1
+    },
+    "end": {
+      "line": 4,
+      "column": 1
+    },
+    "sourcefile": "new-static.php"
+  }
+}

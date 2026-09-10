@@ -1,0 +1,2298 @@
+{
+  "moduleName": "__single_module__",
+  "packageInfo": {
+    "PathName": "",
+    "files": {},
+    "subs": {
+      "/": {
+        "PathName": "",
+        "files": {
+          "examples/test/IndexListExpr.go": {
+            "node": {
+              "_meta": {},
+              "body": [
+                {
+                  "_meta": {},
+                  "loc": {
+                    "end": {
+                      "column": 13,
+                      "line": 1
+                    },
+                    "sourcefile": "examples/test/IndexListExpr.go",
+                    "start": {
+                      "column": 9,
+                      "line": 1
+                    }
+                  },
+                  "packageName": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 13,
+                        "line": 1
+                      },
+                      "sourcefile": "examples/test/IndexListExpr.go",
+                      "start": {
+                        "column": 9,
+                        "line": 1
+                      }
+                    },
+                    "name": "main",
+                    "type": "Identifier"
+                  },
+                  "type": "PackageDeclaration"
+                },
+                {
+                  "_meta": {
+                    "ReceiveCls": "",
+                    "isDefaultImport": true
+                  },
+                  "cloned": false,
+                  "id": {
+                    "_meta": {},
+                    "loc": null,
+                    "name": "fmt",
+                    "type": "Identifier"
+                  },
+                  "init": {
+                    "_meta": {},
+                    "from": {
+                      "_meta": {},
+                      "literalType": "string",
+                      "loc": {
+                        "end": {
+                          "column": 13,
+                          "line": 3
+                        },
+                        "sourcefile": "examples/test/IndexListExpr.go",
+                        "start": {
+                          "column": 8,
+                          "line": 3
+                        }
+                      },
+                      "type": "Literal",
+                      "value": "fmt"
+                    },
+                    "imported": null,
+                    "loc": {
+                      "end": {
+                        "column": 13,
+                        "line": 3
+                      },
+                      "sourcefile": "examples/test/IndexListExpr.go",
+                      "start": {
+                        "column": 8,
+                        "line": 3
+                      }
+                    },
+                    "local": null,
+                    "type": "ImportExpression"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 13,
+                      "line": 3
+                    },
+                    "sourcefile": "examples/test/IndexListExpr.go",
+                    "start": {
+                      "column": 8,
+                      "line": 3
+                    }
+                  },
+                  "type": "VariableDeclaration",
+                  "varType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "DynamicType",
+                    "typeArguments": null
+                  },
+                  "variableParam": false
+                },
+                {
+                  "_meta": {},
+                  "body": [
+                    {
+                      "_meta": {},
+                      "cloned": true,
+                      "id": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "id": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 14,
+                                  "line": 7
+                                },
+                                "sourcefile": "examples/test/IndexListExpr.go",
+                                "start": {
+                                  "column": 7,
+                                  "line": 7
+                                }
+                              },
+                              "name": "MapType",
+                              "type": "Identifier"
+                            },
+                            "keyType": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 12,
+                                  "line": 7
+                                },
+                                "sourcefile": "examples/test/IndexListExpr.go",
+                                "start": {
+                                  "column": 11,
+                                  "line": 7
+                                }
+                              },
+                              "name": "K",
+                              "type": "Identifier"
+                            },
+                            "loc": {
+                              "end": {
+                                "column": 14,
+                                "line": 7
+                              },
+                              "sourcefile": "examples/test/IndexListExpr.go",
+                              "start": {
+                                "column": 7,
+                                "line": 7
+                              }
+                            },
+                            "type": "MapType",
+                            "typeArguments": null,
+                            "valueType": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 14,
+                                  "line": 7
+                                },
+                                "sourcefile": "examples/test/IndexListExpr.go",
+                                "start": {
+                                  "column": 13,
+                                  "line": 7
+                                }
+                              },
+                              "name": "V",
+                              "type": "Identifier"
+                            }
+                          }
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 6,
+                            "line": 7
+                          },
+                          "sourcefile": "examples/test/IndexListExpr.go",
+                          "start": {
+                            "column": 2,
+                            "line": 7
+                          }
+                        },
+                        "name": "data",
+                        "type": "Identifier"
+                      },
+                      "init": null,
+                      "loc": {
+                        "end": {
+                          "column": 14,
+                          "line": 7
+                        },
+                        "sourcefile": "examples/test/IndexListExpr.go",
+                        "start": {
+                          "column": 2,
+                          "line": 7
+                        }
+                      },
+                      "type": "VariableDeclaration",
+                      "varType": {
+                        "_meta": {},
+                        "id": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 14,
+                              "line": 7
+                            },
+                            "sourcefile": "examples/test/IndexListExpr.go",
+                            "start": {
+                              "column": 7,
+                              "line": 7
+                            }
+                          },
+                          "name": "MapType",
+                          "type": "Identifier"
+                        },
+                        "keyType": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 12,
+                              "line": 7
+                            },
+                            "sourcefile": "examples/test/IndexListExpr.go",
+                            "start": {
+                              "column": 11,
+                              "line": 7
+                            }
+                          },
+                          "name": "K",
+                          "type": "Identifier"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 14,
+                            "line": 7
+                          },
+                          "sourcefile": "examples/test/IndexListExpr.go",
+                          "start": {
+                            "column": 7,
+                            "line": 7
+                          }
+                        },
+                        "type": "MapType",
+                        "typeArguments": null,
+                        "valueType": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 14,
+                              "line": 7
+                            },
+                            "sourcefile": "examples/test/IndexListExpr.go",
+                            "start": {
+                              "column": 13,
+                              "line": 7
+                            }
+                          },
+                          "name": "V",
+                          "type": "Identifier"
+                        }
+                      },
+                      "variableParam": false
+                    }
+                  ],
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 9,
+                        "line": 6
+                      },
+                      "sourcefile": "examples/test/IndexListExpr.go",
+                      "start": {
+                        "column": 6,
+                        "line": 6
+                      }
+                    },
+                    "name": "Map",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 8
+                    },
+                    "sourcefile": "examples/test/IndexListExpr.go",
+                    "start": {
+                      "column": 6,
+                      "line": 6
+                    }
+                  },
+                  "supers": [],
+                  "type": "ClassDefinition"
+                },
+                {
+                  "_meta": {},
+                  "body": {
+                    "_meta": {},
+                    "body": [
+                      {
+                        "_meta": {},
+                        "argument": {
+                          "_meta": {},
+                          "argument": {
+                            "_meta": {},
+                            "expressions": [
+                              {
+                                "_meta": {},
+                                "cloned": false,
+                                "id": {
+                                  "_meta": {
+                                    "ReceiveCls": "",
+                                    "type": {
+                                      "_meta": {},
+                                      "computed": true,
+                                      "loc": {
+                                        "end": {
+                                          "column": 19,
+                                          "line": 12
+                                        },
+                                        "sourcefile": "examples/test/IndexListExpr.go",
+                                        "start": {
+                                          "column": 10,
+                                          "line": 12
+                                        }
+                                      },
+                                      "object": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 13,
+                                            "line": 12
+                                          },
+                                          "sourcefile": "examples/test/IndexListExpr.go",
+                                          "start": {
+                                            "column": 10,
+                                            "line": 12
+                                          }
+                                        },
+                                        "name": "Map",
+                                        "type": "Identifier"
+                                      },
+                                      "property": {
+                                        "_meta": {},
+                                        "expressions": [
+                                          {
+                                            "_meta": {},
+                                            "loc": {
+                                              "end": {
+                                                "column": 15,
+                                                "line": 12
+                                              },
+                                              "sourcefile": "examples/test/IndexListExpr.go",
+                                              "start": {
+                                                "column": 14,
+                                                "line": 12
+                                              }
+                                            },
+                                            "name": "K",
+                                            "type": "Identifier"
+                                          },
+                                          {
+                                            "_meta": {},
+                                            "loc": {
+                                              "end": {
+                                                "column": 18,
+                                                "line": 12
+                                              },
+                                              "sourcefile": "examples/test/IndexListExpr.go",
+                                              "start": {
+                                                "column": 17,
+                                                "line": 12
+                                              }
+                                            },
+                                            "name": "V",
+                                            "type": "Identifier"
+                                          }
+                                        ],
+                                        "loc": null,
+                                        "type": "Sequence"
+                                      },
+                                      "type": "MemberAccess"
+                                    }
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 40,
+                                      "line": 12
+                                    },
+                                    "sourcefile": "examples/test/IndexListExpr.go",
+                                    "start": {
+                                      "column": 10,
+                                      "line": 12
+                                    }
+                                  },
+                                  "name": "tmp1",
+                                  "type": "Identifier"
+                                },
+                                "init": {
+                                  "_meta": {},
+                                  "arguments": [],
+                                  "callee": {
+                                    "_meta": {},
+                                    "computed": true,
+                                    "loc": {
+                                      "end": {
+                                        "column": 19,
+                                        "line": 12
+                                      },
+                                      "sourcefile": "examples/test/IndexListExpr.go",
+                                      "start": {
+                                        "column": 10,
+                                        "line": 12
+                                      }
+                                    },
+                                    "object": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 13,
+                                          "line": 12
+                                        },
+                                        "sourcefile": "examples/test/IndexListExpr.go",
+                                        "start": {
+                                          "column": 10,
+                                          "line": 12
+                                        }
+                                      },
+                                      "name": "Map",
+                                      "type": "Identifier"
+                                    },
+                                    "property": {
+                                      "_meta": {},
+                                      "expressions": [
+                                        {
+                                          "_meta": {},
+                                          "loc": {
+                                            "end": {
+                                              "column": 15,
+                                              "line": 12
+                                            },
+                                            "sourcefile": "examples/test/IndexListExpr.go",
+                                            "start": {
+                                              "column": 14,
+                                              "line": 12
+                                            }
+                                          },
+                                          "name": "K",
+                                          "type": "Identifier"
+                                        },
+                                        {
+                                          "_meta": {},
+                                          "loc": {
+                                            "end": {
+                                              "column": 18,
+                                              "line": 12
+                                            },
+                                            "sourcefile": "examples/test/IndexListExpr.go",
+                                            "start": {
+                                              "column": 17,
+                                              "line": 12
+                                            }
+                                          },
+                                          "name": "V",
+                                          "type": "Identifier"
+                                        }
+                                      ],
+                                      "loc": null,
+                                      "type": "Sequence"
+                                    },
+                                    "type": "MemberAccess"
+                                  },
+                                  "loc": null,
+                                  "type": "NewExpression"
+                                },
+                                "loc": null,
+                                "type": "VariableDeclaration",
+                                "varType": {
+                                  "_meta": {},
+                                  "computed": true,
+                                  "loc": {
+                                    "end": {
+                                      "column": 19,
+                                      "line": 12
+                                    },
+                                    "sourcefile": "examples/test/IndexListExpr.go",
+                                    "start": {
+                                      "column": 10,
+                                      "line": 12
+                                    }
+                                  },
+                                  "object": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 13,
+                                        "line": 12
+                                      },
+                                      "sourcefile": "examples/test/IndexListExpr.go",
+                                      "start": {
+                                        "column": 10,
+                                        "line": 12
+                                      }
+                                    },
+                                    "name": "Map",
+                                    "type": "Identifier"
+                                  },
+                                  "property": {
+                                    "_meta": {},
+                                    "expressions": [
+                                      {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 15,
+                                            "line": 12
+                                          },
+                                          "sourcefile": "examples/test/IndexListExpr.go",
+                                          "start": {
+                                            "column": 14,
+                                            "line": 12
+                                          }
+                                        },
+                                        "name": "K",
+                                        "type": "Identifier"
+                                      },
+                                      {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 18,
+                                            "line": 12
+                                          },
+                                          "sourcefile": "examples/test/IndexListExpr.go",
+                                          "start": {
+                                            "column": 17,
+                                            "line": 12
+                                          }
+                                        },
+                                        "name": "V",
+                                        "type": "Identifier"
+                                      }
+                                    ],
+                                    "loc": null,
+                                    "type": "Sequence"
+                                  },
+                                  "type": "MemberAccess"
+                                },
+                                "variableParam": false
+                              },
+                              {
+                                "_meta": {},
+                                "cloned": true,
+                                "left": {
+                                  "_meta": {},
+                                  "computed": false,
+                                  "loc": null,
+                                  "object": {
+                                    "_meta": {
+                                      "ReceiveCls": "",
+                                      "type": {
+                                        "_meta": {},
+                                        "computed": true,
+                                        "loc": {
+                                          "end": {
+                                            "column": 19,
+                                            "line": 12
+                                          },
+                                          "sourcefile": "examples/test/IndexListExpr.go",
+                                          "start": {
+                                            "column": 10,
+                                            "line": 12
+                                          }
+                                        },
+                                        "object": {
+                                          "_meta": {},
+                                          "loc": {
+                                            "end": {
+                                              "column": 13,
+                                              "line": 12
+                                            },
+                                            "sourcefile": "examples/test/IndexListExpr.go",
+                                            "start": {
+                                              "column": 10,
+                                              "line": 12
+                                            }
+                                          },
+                                          "name": "Map",
+                                          "type": "Identifier"
+                                        },
+                                        "property": {
+                                          "_meta": {},
+                                          "expressions": [
+                                            {
+                                              "_meta": {},
+                                              "loc": {
+                                                "end": {
+                                                  "column": 15,
+                                                  "line": 12
+                                                },
+                                                "sourcefile": "examples/test/IndexListExpr.go",
+                                                "start": {
+                                                  "column": 14,
+                                                  "line": 12
+                                                }
+                                              },
+                                              "name": "K",
+                                              "type": "Identifier"
+                                            },
+                                            {
+                                              "_meta": {},
+                                              "loc": {
+                                                "end": {
+                                                  "column": 18,
+                                                  "line": 12
+                                                },
+                                                "sourcefile": "examples/test/IndexListExpr.go",
+                                                "start": {
+                                                  "column": 17,
+                                                  "line": 12
+                                                }
+                                              },
+                                              "name": "V",
+                                              "type": "Identifier"
+                                            }
+                                          ],
+                                          "loc": null,
+                                          "type": "Sequence"
+                                        },
+                                        "type": "MemberAccess"
+                                      }
+                                    },
+                                    "loc": {
+                                      "end": {
+                                        "column": 40,
+                                        "line": 12
+                                      },
+                                      "sourcefile": "examples/test/IndexListExpr.go",
+                                      "start": {
+                                        "column": 10,
+                                        "line": 12
+                                      }
+                                    },
+                                    "name": "tmp1",
+                                    "type": "Identifier"
+                                  },
+                                  "property": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 24,
+                                        "line": 12
+                                      },
+                                      "sourcefile": "examples/test/IndexListExpr.go",
+                                      "start": {
+                                        "column": 20,
+                                        "line": 12
+                                      }
+                                    },
+                                    "name": "data",
+                                    "type": "Identifier"
+                                  },
+                                  "type": "MemberAccess"
+                                },
+                                "loc": null,
+                                "operator": "=",
+                                "right": {
+                                  "_meta": {},
+                                  "arguments": [
+                                    {
+                                      "_meta": {},
+                                      "id": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 38,
+                                            "line": 12
+                                          },
+                                          "sourcefile": "examples/test/IndexListExpr.go",
+                                          "start": {
+                                            "column": 31,
+                                            "line": 12
+                                          }
+                                        },
+                                        "name": "MapType",
+                                        "type": "Identifier"
+                                      },
+                                      "keyType": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 36,
+                                            "line": 12
+                                          },
+                                          "sourcefile": "examples/test/IndexListExpr.go",
+                                          "start": {
+                                            "column": 35,
+                                            "line": 12
+                                          }
+                                        },
+                                        "name": "K",
+                                        "type": "Identifier"
+                                      },
+                                      "loc": {
+                                        "end": {
+                                          "column": 38,
+                                          "line": 12
+                                        },
+                                        "sourcefile": "examples/test/IndexListExpr.go",
+                                        "start": {
+                                          "column": 31,
+                                          "line": 12
+                                        }
+                                      },
+                                      "type": "MapType",
+                                      "typeArguments": null,
+                                      "valueType": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 38,
+                                            "line": 12
+                                          },
+                                          "sourcefile": "examples/test/IndexListExpr.go",
+                                          "start": {
+                                            "column": 37,
+                                            "line": 12
+                                          }
+                                        },
+                                        "name": "V",
+                                        "type": "Identifier"
+                                      }
+                                    }
+                                  ],
+                                  "callee": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 30,
+                                        "line": 12
+                                      },
+                                      "sourcefile": "examples/test/IndexListExpr.go",
+                                      "start": {
+                                        "column": 26,
+                                        "line": 12
+                                      }
+                                    },
+                                    "name": "make",
+                                    "type": "Identifier"
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 39,
+                                      "line": 12
+                                    },
+                                    "sourcefile": "examples/test/IndexListExpr.go",
+                                    "start": {
+                                      "column": 26,
+                                      "line": 12
+                                    }
+                                  },
+                                  "type": "CallExpression"
+                                },
+                                "type": "AssignmentExpression"
+                              },
+                              {
+                                "_meta": {
+                                  "ReceiveCls": "",
+                                  "type": {
+                                    "_meta": {},
+                                    "computed": true,
+                                    "loc": {
+                                      "end": {
+                                        "column": 19,
+                                        "line": 12
+                                      },
+                                      "sourcefile": "examples/test/IndexListExpr.go",
+                                      "start": {
+                                        "column": 10,
+                                        "line": 12
+                                      }
+                                    },
+                                    "object": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 13,
+                                          "line": 12
+                                        },
+                                        "sourcefile": "examples/test/IndexListExpr.go",
+                                        "start": {
+                                          "column": 10,
+                                          "line": 12
+                                        }
+                                      },
+                                      "name": "Map",
+                                      "type": "Identifier"
+                                    },
+                                    "property": {
+                                      "_meta": {},
+                                      "expressions": [
+                                        {
+                                          "_meta": {},
+                                          "loc": {
+                                            "end": {
+                                              "column": 15,
+                                              "line": 12
+                                            },
+                                            "sourcefile": "examples/test/IndexListExpr.go",
+                                            "start": {
+                                              "column": 14,
+                                              "line": 12
+                                            }
+                                          },
+                                          "name": "K",
+                                          "type": "Identifier"
+                                        },
+                                        {
+                                          "_meta": {},
+                                          "loc": {
+                                            "end": {
+                                              "column": 18,
+                                              "line": 12
+                                            },
+                                            "sourcefile": "examples/test/IndexListExpr.go",
+                                            "start": {
+                                              "column": 17,
+                                              "line": 12
+                                            }
+                                          },
+                                          "name": "V",
+                                          "type": "Identifier"
+                                        }
+                                      ],
+                                      "loc": null,
+                                      "type": "Sequence"
+                                    },
+                                    "type": "MemberAccess"
+                                  }
+                                },
+                                "loc": {
+                                  "end": {
+                                    "column": 40,
+                                    "line": 12
+                                  },
+                                  "sourcefile": "examples/test/IndexListExpr.go",
+                                  "start": {
+                                    "column": 10,
+                                    "line": 12
+                                  }
+                                },
+                                "name": "tmp1",
+                                "type": "Identifier"
+                              }
+                            ],
+                            "loc": {
+                              "end": {
+                                "column": 40,
+                                "line": 12
+                              },
+                              "sourcefile": "examples/test/IndexListExpr.go",
+                              "start": {
+                                "column": 10,
+                                "line": 12
+                              }
+                            },
+                            "type": "Sequence"
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 40,
+                              "line": 12
+                            },
+                            "sourcefile": "examples/test/IndexListExpr.go",
+                            "start": {
+                              "column": 9,
+                              "line": 12
+                            }
+                          },
+                          "type": "ReferenceExpression"
+                        },
+                        "isYield": false,
+                        "loc": {
+                          "end": {
+                            "column": 40,
+                            "line": 12
+                          },
+                          "sourcefile": "examples/test/IndexListExpr.go",
+                          "start": {
+                            "column": 2,
+                            "line": 12
+                          }
+                        },
+                        "type": "ReturnStatement"
+                      }
+                    ],
+                    "id": null,
+                    "loc": {
+                      "end": {
+                        "column": 2,
+                        "line": 13
+                      },
+                      "sourcefile": "examples/test/IndexListExpr.go",
+                      "start": {
+                        "column": 47,
+                        "line": 11
+                      }
+                    },
+                    "type": "ScopedStatement"
+                  },
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 12,
+                        "line": 11
+                      },
+                      "sourcefile": "examples/test/IndexListExpr.go",
+                      "start": {
+                        "column": 6,
+                        "line": 11
+                      }
+                    },
+                    "name": "NewMap",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 13
+                    },
+                    "sourcefile": "examples/test/IndexListExpr.go",
+                    "start": {
+                      "column": 1,
+                      "line": 11
+                    }
+                  },
+                  "modifiers": null,
+                  "parameters": [],
+                  "returnType": {
+                    "_meta": {},
+                    "element": {
+                      "_meta": {},
+                      "computed": true,
+                      "loc": {
+                        "end": {
+                          "column": 46,
+                          "line": 11
+                        },
+                        "sourcefile": "examples/test/IndexListExpr.go",
+                        "start": {
+                          "column": 37,
+                          "line": 11
+                        }
+                      },
+                      "object": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 40,
+                            "line": 11
+                          },
+                          "sourcefile": "examples/test/IndexListExpr.go",
+                          "start": {
+                            "column": 37,
+                            "line": 11
+                          }
+                        },
+                        "name": "Map",
+                        "type": "Identifier"
+                      },
+                      "property": {
+                        "_meta": {},
+                        "expressions": [
+                          {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 42,
+                                "line": 11
+                              },
+                              "sourcefile": "examples/test/IndexListExpr.go",
+                              "start": {
+                                "column": 41,
+                                "line": 11
+                              }
+                            },
+                            "name": "K",
+                            "type": "Identifier"
+                          },
+                          {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 45,
+                                "line": 11
+                              },
+                              "sourcefile": "examples/test/IndexListExpr.go",
+                              "start": {
+                                "column": 44,
+                                "line": 11
+                              }
+                            },
+                            "name": "V",
+                            "type": "Identifier"
+                          }
+                        ],
+                        "loc": null,
+                        "type": "Sequence"
+                      },
+                      "type": "MemberAccess"
+                    },
+                    "id": null,
+                    "kind": "pointer",
+                    "loc": {
+                      "end": {
+                        "column": 46,
+                        "line": 11
+                      },
+                      "sourcefile": "examples/test/IndexListExpr.go",
+                      "start": {
+                        "column": 36,
+                        "line": 11
+                      }
+                    },
+                    "type": "PointerType",
+                    "typeArguments": null
+                  },
+                  "type": "FunctionDefinition"
+                },
+                {
+                  "_meta": {},
+                  "body": {
+                    "_meta": {},
+                    "body": [
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "element": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 20,
+                                    "line": 22
+                                  },
+                                  "sourcefile": "examples/test/IndexListExpr.go",
+                                  "start": {
+                                    "column": 14,
+                                    "line": 22
+                                  }
+                                },
+                                "name": "string",
+                                "type": "Identifier"
+                              },
+                              "id": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 20,
+                                    "line": 22
+                                  },
+                                  "sourcefile": "examples/test/IndexListExpr.go",
+                                  "start": {
+                                    "column": 12,
+                                    "line": 22
+                                  }
+                                },
+                                "name": "ArrayType",
+                                "type": "Identifier"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 20,
+                                  "line": 22
+                                },
+                                "sourcefile": "examples/test/IndexListExpr.go",
+                                "start": {
+                                  "column": 12,
+                                  "line": 22
+                                }
+                              },
+                              "size": {
+                                "_meta": {},
+                                "loc": null,
+                                "type": "Noop"
+                              },
+                              "type": "ArrayType",
+                              "typeArguments": null
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 3,
+                              "line": 22
+                            },
+                            "sourcefile": "examples/test/IndexListExpr.go",
+                            "start": {
+                              "column": 2,
+                              "line": 22
+                            }
+                          },
+                          "name": "s",
+                          "type": "Identifier"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "arguments": [
+                            {
+                              "_meta": {},
+                              "element": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 20,
+                                    "line": 22
+                                  },
+                                  "sourcefile": "examples/test/IndexListExpr.go",
+                                  "start": {
+                                    "column": 14,
+                                    "line": 22
+                                  }
+                                },
+                                "name": "string",
+                                "type": "Identifier"
+                              },
+                              "id": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 20,
+                                    "line": 22
+                                  },
+                                  "sourcefile": "examples/test/IndexListExpr.go",
+                                  "start": {
+                                    "column": 12,
+                                    "line": 22
+                                  }
+                                },
+                                "name": "ArrayType",
+                                "type": "Identifier"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 20,
+                                  "line": 22
+                                },
+                                "sourcefile": "examples/test/IndexListExpr.go",
+                                "start": {
+                                  "column": 12,
+                                  "line": 22
+                                }
+                              },
+                              "size": {
+                                "_meta": {},
+                                "loc": null,
+                                "type": "Noop"
+                              },
+                              "type": "ArrayType",
+                              "typeArguments": null
+                            },
+                            {
+                              "_meta": {},
+                              "literalType": "INT",
+                              "loc": {
+                                "end": {
+                                  "column": 23,
+                                  "line": 22
+                                },
+                                "sourcefile": "examples/test/IndexListExpr.go",
+                                "start": {
+                                  "column": 22,
+                                  "line": 22
+                                }
+                              },
+                              "type": "Literal",
+                              "value": "3"
+                            }
+                          ],
+                          "callee": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 11,
+                                "line": 22
+                              },
+                              "sourcefile": "examples/test/IndexListExpr.go",
+                              "start": {
+                                "column": 7,
+                                "line": 22
+                              }
+                            },
+                            "name": "make",
+                            "type": "Identifier"
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 24,
+                              "line": 22
+                            },
+                            "sourcefile": "examples/test/IndexListExpr.go",
+                            "start": {
+                              "column": 7,
+                              "line": 22
+                            }
+                          },
+                          "type": "CallExpression"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 24,
+                            "line": 22
+                          },
+                          "sourcefile": "examples/test/IndexListExpr.go",
+                          "start": {
+                            "column": 2,
+                            "line": 22
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "element": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 20,
+                                "line": 22
+                              },
+                              "sourcefile": "examples/test/IndexListExpr.go",
+                              "start": {
+                                "column": 14,
+                                "line": 22
+                              }
+                            },
+                            "name": "string",
+                            "type": "Identifier"
+                          },
+                          "id": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 20,
+                                "line": 22
+                              },
+                              "sourcefile": "examples/test/IndexListExpr.go",
+                              "start": {
+                                "column": 12,
+                                "line": 22
+                              }
+                            },
+                            "name": "ArrayType",
+                            "type": "Identifier"
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 20,
+                              "line": 22
+                            },
+                            "sourcefile": "examples/test/IndexListExpr.go",
+                            "start": {
+                              "column": 12,
+                              "line": 22
+                            }
+                          },
+                          "size": {
+                            "_meta": {},
+                            "loc": null,
+                            "type": "Noop"
+                          },
+                          "type": "ArrayType",
+                          "typeArguments": null
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "left": {
+                          "_meta": {},
+                          "computed": true,
+                          "loc": {
+                            "end": {
+                              "column": 6,
+                              "line": 24
+                            },
+                            "sourcefile": "examples/test/IndexListExpr.go",
+                            "start": {
+                              "column": 2,
+                              "line": 24
+                            }
+                          },
+                          "object": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 3,
+                                "line": 24
+                              },
+                              "sourcefile": "examples/test/IndexListExpr.go",
+                              "start": {
+                                "column": 2,
+                                "line": 24
+                              }
+                            },
+                            "name": "s",
+                            "type": "Identifier"
+                          },
+                          "property": {
+                            "_meta": {},
+                            "literalType": "INT",
+                            "loc": {
+                              "end": {
+                                "column": 5,
+                                "line": 24
+                              },
+                              "sourcefile": "examples/test/IndexListExpr.go",
+                              "start": {
+                                "column": 4,
+                                "line": 24
+                              }
+                            },
+                            "type": "Literal",
+                            "value": "0"
+                          },
+                          "type": "MemberAccess"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 12,
+                            "line": 24
+                          },
+                          "sourcefile": "examples/test/IndexListExpr.go",
+                          "start": {
+                            "column": 2,
+                            "line": 24
+                          }
+                        },
+                        "operator": "=",
+                        "right": {
+                          "_meta": {},
+                          "literalType": "STRING",
+                          "loc": {
+                            "end": {
+                              "column": 12,
+                              "line": 24
+                            },
+                            "sourcefile": "examples/test/IndexListExpr.go",
+                            "start": {
+                              "column": 9,
+                              "line": 24
+                            }
+                          },
+                          "type": "Literal",
+                          "value": "\"a\""
+                        },
+                        "type": "AssignmentExpression"
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "left": {
+                          "_meta": {},
+                          "computed": true,
+                          "loc": {
+                            "end": {
+                              "column": 6,
+                              "line": 25
+                            },
+                            "sourcefile": "examples/test/IndexListExpr.go",
+                            "start": {
+                              "column": 2,
+                              "line": 25
+                            }
+                          },
+                          "object": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 3,
+                                "line": 25
+                              },
+                              "sourcefile": "examples/test/IndexListExpr.go",
+                              "start": {
+                                "column": 2,
+                                "line": 25
+                              }
+                            },
+                            "name": "s",
+                            "type": "Identifier"
+                          },
+                          "property": {
+                            "_meta": {},
+                            "literalType": "INT",
+                            "loc": {
+                              "end": {
+                                "column": 5,
+                                "line": 25
+                              },
+                              "sourcefile": "examples/test/IndexListExpr.go",
+                              "start": {
+                                "column": 4,
+                                "line": 25
+                              }
+                            },
+                            "type": "Literal",
+                            "value": "1"
+                          },
+                          "type": "MemberAccess"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 12,
+                            "line": 25
+                          },
+                          "sourcefile": "examples/test/IndexListExpr.go",
+                          "start": {
+                            "column": 2,
+                            "line": 25
+                          }
+                        },
+                        "operator": "=",
+                        "right": {
+                          "_meta": {},
+                          "literalType": "STRING",
+                          "loc": {
+                            "end": {
+                              "column": 12,
+                              "line": 25
+                            },
+                            "sourcefile": "examples/test/IndexListExpr.go",
+                            "start": {
+                              "column": 9,
+                              "line": 25
+                            }
+                          },
+                          "type": "Literal",
+                          "value": "\"b\""
+                        },
+                        "type": "AssignmentExpression"
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "left": {
+                          "_meta": {},
+                          "computed": true,
+                          "loc": {
+                            "end": {
+                              "column": 6,
+                              "line": 26
+                            },
+                            "sourcefile": "examples/test/IndexListExpr.go",
+                            "start": {
+                              "column": 2,
+                              "line": 26
+                            }
+                          },
+                          "object": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 3,
+                                "line": 26
+                              },
+                              "sourcefile": "examples/test/IndexListExpr.go",
+                              "start": {
+                                "column": 2,
+                                "line": 26
+                              }
+                            },
+                            "name": "s",
+                            "type": "Identifier"
+                          },
+                          "property": {
+                            "_meta": {},
+                            "literalType": "INT",
+                            "loc": {
+                              "end": {
+                                "column": 5,
+                                "line": 26
+                              },
+                              "sourcefile": "examples/test/IndexListExpr.go",
+                              "start": {
+                                "column": 4,
+                                "line": 26
+                              }
+                            },
+                            "type": "Literal",
+                            "value": "2"
+                          },
+                          "type": "MemberAccess"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 12,
+                            "line": 26
+                          },
+                          "sourcefile": "examples/test/IndexListExpr.go",
+                          "start": {
+                            "column": 2,
+                            "line": 26
+                          }
+                        },
+                        "operator": "=",
+                        "right": {
+                          "_meta": {},
+                          "literalType": "STRING",
+                          "loc": {
+                            "end": {
+                              "column": 12,
+                              "line": 26
+                            },
+                            "sourcefile": "examples/test/IndexListExpr.go",
+                            "start": {
+                              "column": 9,
+                              "line": 26
+                            }
+                          },
+                          "type": "Literal",
+                          "value": "\"c\""
+                        },
+                        "type": "AssignmentExpression"
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "id": null,
+                              "loc": null,
+                              "type": "DynamicType",
+                              "typeArguments": null
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 4,
+                              "line": 28
+                            },
+                            "sourcefile": "examples/test/IndexListExpr.go",
+                            "start": {
+                              "column": 2,
+                              "line": 28
+                            }
+                          },
+                          "name": "l2",
+                          "type": "Identifier"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "computed": false,
+                          "loc": {
+                            "end": {
+                              "column": 13,
+                              "line": 28
+                            },
+                            "sourcefile": "examples/test/IndexListExpr.go",
+                            "start": {
+                              "column": 8,
+                              "line": 28
+                            }
+                          },
+                          "object": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 9,
+                                "line": 28
+                              },
+                              "sourcefile": "examples/test/IndexListExpr.go",
+                              "start": {
+                                "column": 8,
+                                "line": 28
+                              }
+                            },
+                            "name": "s",
+                            "type": "Identifier"
+                          },
+                          "property": {
+                            "_meta": {},
+                            "end": {
+                              "_meta": {},
+                              "loc": null,
+                              "type": "Noop"
+                            },
+                            "loc": null,
+                            "start": {
+                              "_meta": {},
+                              "literalType": "INT",
+                              "loc": {
+                                "end": {
+                                  "column": 11,
+                                  "line": 28
+                                },
+                                "sourcefile": "examples/test/IndexListExpr.go",
+                                "start": {
+                                  "column": 10,
+                                  "line": 28
+                                }
+                              },
+                              "type": "Literal",
+                              "value": "1"
+                            },
+                            "step": null,
+                            "type": "SliceExpression"
+                          },
+                          "type": "MemberAccess"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 13,
+                            "line": 28
+                          },
+                          "sourcefile": "examples/test/IndexListExpr.go",
+                          "start": {
+                            "column": 2,
+                            "line": 28
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "id": null,
+                          "loc": null,
+                          "type": "DynamicType",
+                          "typeArguments": null
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "arguments": [
+                          {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 16,
+                                "line": 29
+                              },
+                              "sourcefile": "examples/test/IndexListExpr.go",
+                              "start": {
+                                "column": 14,
+                                "line": 29
+                              }
+                            },
+                            "name": "l2",
+                            "type": "Identifier"
+                          }
+                        ],
+                        "callee": {
+                          "_meta": {},
+                          "computed": false,
+                          "loc": {
+                            "end": {
+                              "column": 13,
+                              "line": 29
+                            },
+                            "sourcefile": "examples/test/IndexListExpr.go",
+                            "start": {
+                              "column": 2,
+                              "line": 29
+                            }
+                          },
+                          "object": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 5,
+                                "line": 29
+                              },
+                              "sourcefile": "examples/test/IndexListExpr.go",
+                              "start": {
+                                "column": 2,
+                                "line": 29
+                              }
+                            },
+                            "name": "fmt",
+                            "type": "Identifier"
+                          },
+                          "property": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 13,
+                                "line": 29
+                              },
+                              "sourcefile": "examples/test/IndexListExpr.go",
+                              "start": {
+                                "column": 6,
+                                "line": 29
+                              }
+                            },
+                            "name": "Println",
+                            "type": "Identifier"
+                          },
+                          "type": "MemberAccess"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 17,
+                            "line": 29
+                          },
+                          "sourcefile": "examples/test/IndexListExpr.go",
+                          "start": {
+                            "column": 2,
+                            "line": 29
+                          }
+                        },
+                        "type": "CallExpression"
+                      }
+                    ],
+                    "id": null,
+                    "loc": {
+                      "end": {
+                        "column": 2,
+                        "line": 30
+                      },
+                      "sourcefile": "examples/test/IndexListExpr.go",
+                      "start": {
+                        "column": 13,
+                        "line": 15
+                      }
+                    },
+                    "type": "ScopedStatement"
+                  },
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 10,
+                        "line": 15
+                      },
+                      "sourcefile": "examples/test/IndexListExpr.go",
+                      "start": {
+                        "column": 6,
+                        "line": 15
+                      }
+                    },
+                    "name": "main",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 30
+                    },
+                    "sourcefile": "examples/test/IndexListExpr.go",
+                    "start": {
+                      "column": 1,
+                      "line": 15
+                    }
+                  },
+                  "modifiers": null,
+                  "parameters": [],
+                  "returnType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "VoidType",
+                    "typeArguments": null
+                  },
+                  "type": "FunctionDefinition"
+                },
+                {
+                  "_meta": {},
+                  "body": {
+                    "_meta": {},
+                    "body": [
+                      {
+                        "_meta": {},
+                        "argument": {
+                          "_meta": {},
+                          "argument": {
+                            "_meta": {},
+                            "expressions": [
+                              {
+                                "_meta": {},
+                                "cloned": false,
+                                "id": {
+                                  "_meta": {
+                                    "ReceiveCls": "",
+                                    "type": {
+                                      "_meta": {},
+                                      "id": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 24,
+                                            "line": 33
+                                          },
+                                          "sourcefile": "examples/test/IndexListExpr.go",
+                                          "start": {
+                                            "column": 10,
+                                            "line": 33
+                                          }
+                                        },
+                                        "name": "MapType",
+                                        "type": "Identifier"
+                                      },
+                                      "keyType": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 17,
+                                            "line": 33
+                                          },
+                                          "sourcefile": "examples/test/IndexListExpr.go",
+                                          "start": {
+                                            "column": 14,
+                                            "line": 33
+                                          }
+                                        },
+                                        "name": "int",
+                                        "type": "Identifier"
+                                      },
+                                      "loc": {
+                                        "end": {
+                                          "column": 24,
+                                          "line": 33
+                                        },
+                                        "sourcefile": "examples/test/IndexListExpr.go",
+                                        "start": {
+                                          "column": 10,
+                                          "line": 33
+                                        }
+                                      },
+                                      "type": "MapType",
+                                      "typeArguments": null,
+                                      "valueType": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 24,
+                                            "line": 33
+                                          },
+                                          "sourcefile": "examples/test/IndexListExpr.go",
+                                          "start": {
+                                            "column": 18,
+                                            "line": 33
+                                          }
+                                        },
+                                        "name": "string",
+                                        "type": "Identifier"
+                                      }
+                                    }
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 26,
+                                      "line": 33
+                                    },
+                                    "sourcefile": "examples/test/IndexListExpr.go",
+                                    "start": {
+                                      "column": 10,
+                                      "line": 33
+                                    }
+                                  },
+                                  "name": "tmp2",
+                                  "type": "Identifier"
+                                },
+                                "init": {
+                                  "_meta": {},
+                                  "arguments": [],
+                                  "callee": {
+                                    "_meta": {},
+                                    "id": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 24,
+                                          "line": 33
+                                        },
+                                        "sourcefile": "examples/test/IndexListExpr.go",
+                                        "start": {
+                                          "column": 10,
+                                          "line": 33
+                                        }
+                                      },
+                                      "name": "MapType",
+                                      "type": "Identifier"
+                                    },
+                                    "keyType": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 17,
+                                          "line": 33
+                                        },
+                                        "sourcefile": "examples/test/IndexListExpr.go",
+                                        "start": {
+                                          "column": 14,
+                                          "line": 33
+                                        }
+                                      },
+                                      "name": "int",
+                                      "type": "Identifier"
+                                    },
+                                    "loc": {
+                                      "end": {
+                                        "column": 24,
+                                        "line": 33
+                                      },
+                                      "sourcefile": "examples/test/IndexListExpr.go",
+                                      "start": {
+                                        "column": 10,
+                                        "line": 33
+                                      }
+                                    },
+                                    "type": "MapType",
+                                    "typeArguments": null,
+                                    "valueType": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 24,
+                                          "line": 33
+                                        },
+                                        "sourcefile": "examples/test/IndexListExpr.go",
+                                        "start": {
+                                          "column": 18,
+                                          "line": 33
+                                        }
+                                      },
+                                      "name": "string",
+                                      "type": "Identifier"
+                                    }
+                                  },
+                                  "loc": null,
+                                  "type": "NewExpression"
+                                },
+                                "loc": null,
+                                "type": "VariableDeclaration",
+                                "varType": {
+                                  "_meta": {},
+                                  "id": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 24,
+                                        "line": 33
+                                      },
+                                      "sourcefile": "examples/test/IndexListExpr.go",
+                                      "start": {
+                                        "column": 10,
+                                        "line": 33
+                                      }
+                                    },
+                                    "name": "MapType",
+                                    "type": "Identifier"
+                                  },
+                                  "keyType": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 17,
+                                        "line": 33
+                                      },
+                                      "sourcefile": "examples/test/IndexListExpr.go",
+                                      "start": {
+                                        "column": 14,
+                                        "line": 33
+                                      }
+                                    },
+                                    "name": "int",
+                                    "type": "Identifier"
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 24,
+                                      "line": 33
+                                    },
+                                    "sourcefile": "examples/test/IndexListExpr.go",
+                                    "start": {
+                                      "column": 10,
+                                      "line": 33
+                                    }
+                                  },
+                                  "type": "MapType",
+                                  "typeArguments": null,
+                                  "valueType": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 24,
+                                        "line": 33
+                                      },
+                                      "sourcefile": "examples/test/IndexListExpr.go",
+                                      "start": {
+                                        "column": 18,
+                                        "line": 33
+                                      }
+                                    },
+                                    "name": "string",
+                                    "type": "Identifier"
+                                  }
+                                },
+                                "variableParam": false
+                              },
+                              {
+                                "_meta": {
+                                  "ReceiveCls": "",
+                                  "type": {
+                                    "_meta": {},
+                                    "id": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 24,
+                                          "line": 33
+                                        },
+                                        "sourcefile": "examples/test/IndexListExpr.go",
+                                        "start": {
+                                          "column": 10,
+                                          "line": 33
+                                        }
+                                      },
+                                      "name": "MapType",
+                                      "type": "Identifier"
+                                    },
+                                    "keyType": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 17,
+                                          "line": 33
+                                        },
+                                        "sourcefile": "examples/test/IndexListExpr.go",
+                                        "start": {
+                                          "column": 14,
+                                          "line": 33
+                                        }
+                                      },
+                                      "name": "int",
+                                      "type": "Identifier"
+                                    },
+                                    "loc": {
+                                      "end": {
+                                        "column": 24,
+                                        "line": 33
+                                      },
+                                      "sourcefile": "examples/test/IndexListExpr.go",
+                                      "start": {
+                                        "column": 10,
+                                        "line": 33
+                                      }
+                                    },
+                                    "type": "MapType",
+                                    "typeArguments": null,
+                                    "valueType": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 24,
+                                          "line": 33
+                                        },
+                                        "sourcefile": "examples/test/IndexListExpr.go",
+                                        "start": {
+                                          "column": 18,
+                                          "line": 33
+                                        }
+                                      },
+                                      "name": "string",
+                                      "type": "Identifier"
+                                    }
+                                  }
+                                },
+                                "loc": {
+                                  "end": {
+                                    "column": 26,
+                                    "line": 33
+                                  },
+                                  "sourcefile": "examples/test/IndexListExpr.go",
+                                  "start": {
+                                    "column": 10,
+                                    "line": 33
+                                  }
+                                },
+                                "name": "tmp2",
+                                "type": "Identifier"
+                              }
+                            ],
+                            "loc": {
+                              "end": {
+                                "column": 26,
+                                "line": 33
+                              },
+                              "sourcefile": "examples/test/IndexListExpr.go",
+                              "start": {
+                                "column": 10,
+                                "line": 33
+                              }
+                            },
+                            "type": "Sequence"
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 26,
+                              "line": 33
+                            },
+                            "sourcefile": "examples/test/IndexListExpr.go",
+                            "start": {
+                              "column": 9,
+                              "line": 33
+                            }
+                          },
+                          "type": "ReferenceExpression"
+                        },
+                        "isYield": false,
+                        "loc": {
+                          "end": {
+                            "column": 26,
+                            "line": 33
+                          },
+                          "sourcefile": "examples/test/IndexListExpr.go",
+                          "start": {
+                            "column": 2,
+                            "line": 33
+                          }
+                        },
+                        "type": "ReturnStatement"
+                      }
+                    ],
+                    "id": null,
+                    "loc": {
+                      "end": {
+                        "column": 2,
+                        "line": 34
+                      },
+                      "sourcefile": "examples/test/IndexListExpr.go",
+                      "start": {
+                        "column": 32,
+                        "line": 32
+                      }
+                    },
+                    "type": "ScopedStatement"
+                  },
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 13,
+                        "line": 32
+                      },
+                      "sourcefile": "examples/test/IndexListExpr.go",
+                      "start": {
+                        "column": 6,
+                        "line": 32
+                      }
+                    },
+                    "name": "newMap2",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 34
+                    },
+                    "sourcefile": "examples/test/IndexListExpr.go",
+                    "start": {
+                      "column": 1,
+                      "line": 32
+                    }
+                  },
+                  "modifiers": null,
+                  "parameters": [],
+                  "returnType": {
+                    "_meta": {},
+                    "element": {
+                      "_meta": {},
+                      "id": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 31,
+                            "line": 32
+                          },
+                          "sourcefile": "examples/test/IndexListExpr.go",
+                          "start": {
+                            "column": 17,
+                            "line": 32
+                          }
+                        },
+                        "name": "MapType",
+                        "type": "Identifier"
+                      },
+                      "keyType": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 24,
+                            "line": 32
+                          },
+                          "sourcefile": "examples/test/IndexListExpr.go",
+                          "start": {
+                            "column": 21,
+                            "line": 32
+                          }
+                        },
+                        "name": "int",
+                        "type": "Identifier"
+                      },
+                      "loc": {
+                        "end": {
+                          "column": 31,
+                          "line": 32
+                        },
+                        "sourcefile": "examples/test/IndexListExpr.go",
+                        "start": {
+                          "column": 17,
+                          "line": 32
+                        }
+                      },
+                      "type": "MapType",
+                      "typeArguments": null,
+                      "valueType": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 31,
+                            "line": 32
+                          },
+                          "sourcefile": "examples/test/IndexListExpr.go",
+                          "start": {
+                            "column": 25,
+                            "line": 32
+                          }
+                        },
+                        "name": "string",
+                        "type": "Identifier"
+                      }
+                    },
+                    "id": null,
+                    "kind": "pointer",
+                    "loc": {
+                      "end": {
+                        "column": 31,
+                        "line": 32
+                      },
+                      "sourcefile": "examples/test/IndexListExpr.go",
+                      "start": {
+                        "column": 16,
+                        "line": 32
+                      }
+                    },
+                    "type": "PointerType",
+                    "typeArguments": null
+                  },
+                  "type": "FunctionDefinition"
+                }
+              ],
+              "language": "golang",
+              "languageVersion": "1.18",
+              "loc": {
+                "end": {
+                  "column": 2,
+                  "line": 34
+                },
+                "sourcefile": "examples/test/IndexListExpr.go",
+                "start": {
+                  "column": 1,
+                  "line": 1
+                }
+              },
+              "type": "CompileUnit",
+              "uri": "",
+              "version": ""
+            },
+            "packageName": "__single__"
+          }
+        },
+        "subs": {}
+      }
+    }
+  }
+}

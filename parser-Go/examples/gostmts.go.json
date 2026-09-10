@@ -1,0 +1,724 @@
+{
+  "moduleName": "__single_module__",
+  "packageInfo": {
+    "PathName": "",
+    "files": {},
+    "subs": {
+      "/": {
+        "PathName": "",
+        "files": {
+          "examples/gostmts.go": {
+            "node": {
+              "_meta": {},
+              "body": [
+                {
+                  "_meta": {},
+                  "loc": {
+                    "end": {
+                      "column": 17,
+                      "line": 1
+                    },
+                    "sourcefile": "examples/gostmts.go",
+                    "start": {
+                      "column": 9,
+                      "line": 1
+                    }
+                  },
+                  "packageName": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 17,
+                        "line": 1
+                      },
+                      "sourcefile": "examples/gostmts.go",
+                      "start": {
+                        "column": 9,
+                        "line": 1
+                      }
+                    },
+                    "name": "examples",
+                    "type": "Identifier"
+                  },
+                  "type": "PackageDeclaration"
+                },
+                {
+                  "_meta": {},
+                  "argument": {
+                    "_meta": {},
+                    "from": {
+                      "_meta": {},
+                      "literalType": "string",
+                      "loc": {
+                        "end": {
+                          "column": 10,
+                          "line": 5
+                        },
+                        "sourcefile": "examples/gostmts.go",
+                        "start": {
+                          "column": 4,
+                          "line": 5
+                        }
+                      },
+                      "type": "Literal",
+                      "value": "time"
+                    },
+                    "imported": null,
+                    "loc": null,
+                    "local": null,
+                    "type": "ImportExpression"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 10,
+                      "line": 5
+                    },
+                    "sourcefile": "examples/gostmts.go",
+                    "start": {
+                      "column": 2,
+                      "line": 5
+                    }
+                  },
+                  "type": "SpreadElement"
+                },
+                {
+                  "_meta": {},
+                  "body": {
+                    "_meta": {},
+                    "body": [],
+                    "id": null,
+                    "loc": {
+                      "end": {
+                        "column": 2,
+                        "line": 9
+                      },
+                      "sourcefile": "examples/gostmts.go",
+                      "start": {
+                        "column": 15,
+                        "line": 8
+                      }
+                    },
+                    "type": "ScopedStatement"
+                  },
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 12,
+                        "line": 8
+                      },
+                      "sourcefile": "examples/gostmts.go",
+                      "start": {
+                        "column": 6,
+                        "line": 8
+                      }
+                    },
+                    "name": "Server",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 9
+                    },
+                    "sourcefile": "examples/gostmts.go",
+                    "start": {
+                      "column": 1,
+                      "line": 8
+                    }
+                  },
+                  "modifiers": null,
+                  "parameters": [],
+                  "returnType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "VoidType",
+                    "typeArguments": null
+                  },
+                  "type": "FunctionDefinition"
+                },
+                {
+                  "_meta": {},
+                  "body": {
+                    "_meta": {},
+                    "body": [
+                      {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "async": true
+                        },
+                        "arguments": [],
+                        "callee": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 11,
+                              "line": 12
+                            },
+                            "sourcefile": "examples/gostmts.go",
+                            "start": {
+                              "column": 5,
+                              "line": 12
+                            }
+                          },
+                          "name": "Server",
+                          "type": "Identifier"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 13,
+                            "line": 12
+                          },
+                          "sourcefile": "examples/gostmts.go",
+                          "start": {
+                            "column": 2,
+                            "line": 12
+                          }
+                        },
+                        "type": "CallExpression"
+                      },
+                      {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "async": true
+                        },
+                        "arguments": [],
+                        "callee": {
+                          "_meta": {},
+                          "body": {
+                            "_meta": {},
+                            "body": [
+                              {
+                                "_meta": {},
+                                "arguments": [
+                                  {
+                                    "_meta": {},
+                                    "literalType": "INT",
+                                    "loc": {
+                                      "end": {
+                                        "column": 22,
+                                        "line": 13
+                                      },
+                                      "sourcefile": "examples/gostmts.go",
+                                      "start": {
+                                        "column": 20,
+                                        "line": 13
+                                      }
+                                    },
+                                    "type": "Literal",
+                                    "value": "10"
+                                  }
+                                ],
+                                "callee": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 19,
+                                      "line": 13
+                                    },
+                                    "sourcefile": "examples/gostmts.go",
+                                    "start": {
+                                      "column": 14,
+                                      "line": 13
+                                    }
+                                  },
+                                  "name": "Sleep",
+                                  "type": "Identifier"
+                                },
+                                "loc": {
+                                  "end": {
+                                    "column": 23,
+                                    "line": 13
+                                  },
+                                  "sourcefile": "examples/gostmts.go",
+                                  "start": {
+                                    "column": 14,
+                                    "line": 13
+                                  }
+                                },
+                                "type": "CallExpression"
+                              }
+                            ],
+                            "id": null,
+                            "loc": {
+                              "end": {
+                                "column": 25,
+                                "line": 13
+                              },
+                              "sourcefile": "examples/gostmts.go",
+                              "start": {
+                                "column": 12,
+                                "line": 13
+                              }
+                            },
+                            "type": "ScopedStatement"
+                          },
+                          "id": null,
+                          "loc": {
+                            "end": {
+                              "column": 25,
+                              "line": 13
+                            },
+                            "sourcefile": "examples/gostmts.go",
+                            "start": {
+                              "column": 5,
+                              "line": 13
+                            }
+                          },
+                          "modifiers": null,
+                          "parameters": [],
+                          "returnType": {
+                            "_meta": {},
+                            "id": null,
+                            "loc": null,
+                            "type": "VoidType",
+                            "typeArguments": null
+                          },
+                          "type": "FunctionDefinition"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 27,
+                            "line": 13
+                          },
+                          "sourcefile": "examples/gostmts.go",
+                          "start": {
+                            "column": 2,
+                            "line": 13
+                          }
+                        },
+                        "type": "CallExpression"
+                      }
+                    ],
+                    "id": null,
+                    "loc": {
+                      "end": {
+                        "column": 2,
+                        "line": 16
+                      },
+                      "sourcefile": "examples/gostmts.go",
+                      "start": {
+                        "column": 16,
+                        "line": 11
+                      }
+                    },
+                    "type": "ScopedStatement"
+                  },
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 13,
+                        "line": 11
+                      },
+                      "sourcefile": "examples/gostmts.go",
+                      "start": {
+                        "column": 6,
+                        "line": 11
+                      }
+                    },
+                    "name": "GoStmts",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 16
+                    },
+                    "sourcefile": "examples/gostmts.go",
+                    "start": {
+                      "column": 1,
+                      "line": 11
+                    }
+                  },
+                  "modifiers": null,
+                  "parameters": [],
+                  "returnType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "VoidType",
+                    "typeArguments": null
+                  },
+                  "type": "FunctionDefinition"
+                },
+                {
+                  "_meta": {},
+                  "body": {
+                    "_meta": {},
+                    "body": [
+                      {
+                        "_meta": {},
+                        "arguments": [
+                          {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 19,
+                                "line": 19
+                              },
+                              "sourcefile": "examples/gostmts.go",
+                              "start": {
+                                "column": 15,
+                                "line": 19
+                              }
+                            },
+                            "name": "data",
+                            "type": "Identifier"
+                          }
+                        ],
+                        "callee": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 14,
+                              "line": 19
+                            },
+                            "sourcefile": "examples/gostmts.go",
+                            "start": {
+                              "column": 2,
+                              "line": 19
+                            }
+                          },
+                          "name": "__taint_sink",
+                          "type": "Identifier"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 20,
+                            "line": 19
+                          },
+                          "sourcefile": "examples/gostmts.go",
+                          "start": {
+                            "column": 2,
+                            "line": 19
+                          }
+                        },
+                        "type": "CallExpression"
+                      }
+                    ],
+                    "id": null,
+                    "loc": {
+                      "end": {
+                        "column": 2,
+                        "line": 20
+                      },
+                      "sourcefile": "examples/gostmts.go",
+                      "start": {
+                        "column": 43,
+                        "line": 18
+                      }
+                    },
+                    "type": "ScopedStatement"
+                  },
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 24,
+                        "line": 18
+                      },
+                      "sourcefile": "examples/gostmts.go",
+                      "start": {
+                        "column": 6,
+                        "line": 18
+                      }
+                    },
+                    "name": "processTaintedData",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 20
+                    },
+                    "sourcefile": "examples/gostmts.go",
+                    "start": {
+                      "column": 1,
+                      "line": 18
+                    }
+                  },
+                  "modifiers": null,
+                  "parameters": [
+                    {
+                      "_meta": {},
+                      "cloned": true,
+                      "id": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "id": null,
+                            "loc": {
+                              "end": {
+                                "column": 41,
+                                "line": 18
+                              },
+                              "sourcefile": "examples/gostmts.go",
+                              "start": {
+                                "column": 30,
+                                "line": 18
+                              }
+                            },
+                            "type": "DynamicType",
+                            "typeArguments": null
+                          }
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 29,
+                            "line": 18
+                          },
+                          "sourcefile": "examples/gostmts.go",
+                          "start": {
+                            "column": 25,
+                            "line": 18
+                          }
+                        },
+                        "name": "data",
+                        "type": "Identifier"
+                      },
+                      "init": null,
+                      "loc": {
+                        "end": {
+                          "column": 41,
+                          "line": 18
+                        },
+                        "sourcefile": "examples/gostmts.go",
+                        "start": {
+                          "column": 25,
+                          "line": 18
+                        }
+                      },
+                      "type": "VariableDeclaration",
+                      "varType": {
+                        "_meta": {},
+                        "id": null,
+                        "loc": {
+                          "end": {
+                            "column": 41,
+                            "line": 18
+                          },
+                          "sourcefile": "examples/gostmts.go",
+                          "start": {
+                            "column": 30,
+                            "line": 18
+                          }
+                        },
+                        "type": "DynamicType",
+                        "typeArguments": null
+                      },
+                      "variableParam": false
+                    }
+                  ],
+                  "returnType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "VoidType",
+                    "typeArguments": null
+                  },
+                  "type": "FunctionDefinition"
+                },
+                {
+                  "_meta": {},
+                  "body": {
+                    "_meta": {},
+                    "body": [
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "id": null,
+                              "loc": null,
+                              "type": "DynamicType",
+                              "typeArguments": null
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 6,
+                              "line": 24
+                            },
+                            "sourcefile": "examples/gostmts.go",
+                            "start": {
+                              "column": 2,
+                              "line": 24
+                            }
+                          },
+                          "name": "data",
+                          "type": "Identifier"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 21,
+                              "line": 24
+                            },
+                            "sourcefile": "examples/gostmts.go",
+                            "start": {
+                              "column": 10,
+                              "line": 24
+                            }
+                          },
+                          "name": "__taint_src",
+                          "type": "Identifier"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 21,
+                            "line": 24
+                          },
+                          "sourcefile": "examples/gostmts.go",
+                          "start": {
+                            "column": 2,
+                            "line": 24
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "id": null,
+                          "loc": null,
+                          "type": "DynamicType",
+                          "typeArguments": null
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "async": true
+                        },
+                        "arguments": [
+                          {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 28,
+                                "line": 26
+                              },
+                              "sourcefile": "examples/gostmts.go",
+                              "start": {
+                                "column": 24,
+                                "line": 26
+                              }
+                            },
+                            "name": "data",
+                            "type": "Identifier"
+                          }
+                        ],
+                        "callee": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 23,
+                              "line": 26
+                            },
+                            "sourcefile": "examples/gostmts.go",
+                            "start": {
+                              "column": 5,
+                              "line": 26
+                            }
+                          },
+                          "name": "processTaintedData",
+                          "type": "Identifier"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 29,
+                            "line": 26
+                          },
+                          "sourcefile": "examples/gostmts.go",
+                          "start": {
+                            "column": 2,
+                            "line": 26
+                          }
+                        },
+                        "type": "CallExpression"
+                      }
+                    ],
+                    "id": null,
+                    "loc": {
+                      "end": {
+                        "column": 2,
+                        "line": 27
+                      },
+                      "sourcefile": "examples/gostmts.go",
+                      "start": {
+                        "column": 13,
+                        "line": 22
+                      }
+                    },
+                    "type": "ScopedStatement"
+                  },
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 10,
+                        "line": 22
+                      },
+                      "sourcefile": "examples/gostmts.go",
+                      "start": {
+                        "column": 6,
+                        "line": 22
+                      }
+                    },
+                    "name": "main",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 27
+                    },
+                    "sourcefile": "examples/gostmts.go",
+                    "start": {
+                      "column": 1,
+                      "line": 22
+                    }
+                  },
+                  "modifiers": null,
+                  "parameters": [],
+                  "returnType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "VoidType",
+                    "typeArguments": null
+                  },
+                  "type": "FunctionDefinition"
+                }
+              ],
+              "language": "golang",
+              "languageVersion": "1.18",
+              "loc": {
+                "end": {
+                  "column": 2,
+                  "line": 27
+                },
+                "sourcefile": "examples/gostmts.go",
+                "start": {
+                  "column": 1,
+                  "line": 1
+                }
+              },
+              "type": "CompileUnit",
+              "uri": "",
+              "version": ""
+            },
+            "packageName": "__single__"
+          }
+        },
+        "subs": {}
+      }
+    }
+  }
+}

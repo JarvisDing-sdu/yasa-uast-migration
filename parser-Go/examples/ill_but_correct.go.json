@@ -1,0 +1,406 @@
+{
+  "moduleName": "__single_module__",
+  "packageInfo": {
+    "PathName": "",
+    "files": {},
+    "subs": {
+      "/": {
+        "PathName": "",
+        "files": {
+          "examples/ill_but_correct.go": {
+            "node": {
+              "_meta": {},
+              "body": [
+                {
+                  "_meta": {},
+                  "loc": {
+                    "end": {
+                      "column": 17,
+                      "line": 1
+                    },
+                    "sourcefile": "examples/ill_but_correct.go",
+                    "start": {
+                      "column": 9,
+                      "line": 1
+                    }
+                  },
+                  "packageName": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 17,
+                        "line": 1
+                      },
+                      "sourcefile": "examples/ill_but_correct.go",
+                      "start": {
+                        "column": 9,
+                        "line": 1
+                      }
+                    },
+                    "name": "examples",
+                    "type": "Identifier"
+                  },
+                  "type": "PackageDeclaration"
+                },
+                {
+                  "_meta": {},
+                  "body": {
+                    "_meta": {},
+                    "body": [
+                      {
+                        "_meta": {},
+                        "cloned": false,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "dir": "",
+                              "id": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 24,
+                                    "line": 4
+                                  },
+                                  "sourcefile": "examples/ill_but_correct.go",
+                                  "start": {
+                                    "column": 16,
+                                    "line": 4
+                                  }
+                                },
+                                "name": "ChanType",
+                                "type": "Identifier"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 24,
+                                  "line": 4
+                                },
+                                "sourcefile": "examples/ill_but_correct.go",
+                                "start": {
+                                  "column": 16,
+                                  "line": 4
+                                }
+                              },
+                              "type": "ChanType",
+                              "valueType": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 24,
+                                    "line": 4
+                                  },
+                                  "sourcefile": "examples/ill_but_correct.go",
+                                  "start": {
+                                    "column": 21,
+                                    "line": 4
+                                  }
+                                },
+                                "name": "int",
+                                "type": "Identifier"
+                              }
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 8,
+                              "line": 4
+                            },
+                            "sourcefile": "examples/ill_but_correct.go",
+                            "start": {
+                              "column": 6,
+                              "line": 4
+                            }
+                          },
+                          "name": "ch",
+                          "type": "Identifier"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "arguments": [
+                            {
+                              "_meta": {},
+                              "dir": "",
+                              "id": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 24,
+                                    "line": 4
+                                  },
+                                  "sourcefile": "examples/ill_but_correct.go",
+                                  "start": {
+                                    "column": 16,
+                                    "line": 4
+                                  }
+                                },
+                                "name": "ChanType",
+                                "type": "Identifier"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 24,
+                                  "line": 4
+                                },
+                                "sourcefile": "examples/ill_but_correct.go",
+                                "start": {
+                                  "column": 16,
+                                  "line": 4
+                                }
+                              },
+                              "type": "ChanType",
+                              "valueType": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 24,
+                                    "line": 4
+                                  },
+                                  "sourcefile": "examples/ill_but_correct.go",
+                                  "start": {
+                                    "column": 21,
+                                    "line": 4
+                                  }
+                                },
+                                "name": "int",
+                                "type": "Identifier"
+                              }
+                            },
+                            {
+                              "_meta": {},
+                              "literalType": "INT",
+                              "loc": {
+                                "end": {
+                                  "column": 27,
+                                  "line": 4
+                                },
+                                "sourcefile": "examples/ill_but_correct.go",
+                                "start": {
+                                  "column": 26,
+                                  "line": 4
+                                }
+                              },
+                              "type": "Literal",
+                              "value": "1"
+                            }
+                          ],
+                          "callee": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 15,
+                                "line": 4
+                              },
+                              "sourcefile": "examples/ill_but_correct.go",
+                              "start": {
+                                "column": 11,
+                                "line": 4
+                              }
+                            },
+                            "name": "make",
+                            "type": "Identifier"
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 28,
+                              "line": 4
+                            },
+                            "sourcefile": "examples/ill_but_correct.go",
+                            "start": {
+                              "column": 11,
+                              "line": 4
+                            }
+                          },
+                          "type": "CallExpression"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 28,
+                            "line": 4
+                          },
+                          "sourcefile": "examples/ill_but_correct.go",
+                          "start": {
+                            "column": 6,
+                            "line": 4
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "dir": "",
+                          "id": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 24,
+                                "line": 4
+                              },
+                              "sourcefile": "examples/ill_but_correct.go",
+                              "start": {
+                                "column": 16,
+                                "line": 4
+                              }
+                            },
+                            "name": "ChanType",
+                            "type": "Identifier"
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 24,
+                              "line": 4
+                            },
+                            "sourcefile": "examples/ill_but_correct.go",
+                            "start": {
+                              "column": 16,
+                              "line": 4
+                            }
+                          },
+                          "type": "ChanType",
+                          "valueType": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 24,
+                                "line": 4
+                              },
+                              "sourcefile": "examples/ill_but_correct.go",
+                              "start": {
+                                "column": 21,
+                                "line": 4
+                              }
+                            },
+                            "name": "int",
+                            "type": "Identifier"
+                          }
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "left": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 4,
+                              "line": 5
+                            },
+                            "sourcefile": "examples/ill_but_correct.go",
+                            "start": {
+                              "column": 2,
+                              "line": 5
+                            }
+                          },
+                          "name": "ch",
+                          "type": "Identifier"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 9,
+                            "line": 5
+                          },
+                          "sourcefile": "examples/ill_but_correct.go",
+                          "start": {
+                            "column": 2,
+                            "line": 5
+                          }
+                        },
+                        "operator": "push",
+                        "right": {
+                          "_meta": {},
+                          "literalType": "INT",
+                          "loc": {
+                            "end": {
+                              "column": 9,
+                              "line": 5
+                            },
+                            "sourcefile": "examples/ill_but_correct.go",
+                            "start": {
+                              "column": 8,
+                              "line": 5
+                            }
+                          },
+                          "type": "Literal",
+                          "value": "1"
+                        },
+                        "type": "BinaryExpression"
+                      }
+                    ],
+                    "id": null,
+                    "loc": {
+                      "end": {
+                        "column": 2,
+                        "line": 6
+                      },
+                      "sourcefile": "examples/ill_but_correct.go",
+                      "start": {
+                        "column": 13,
+                        "line": 3
+                      }
+                    },
+                    "type": "ScopedStatement"
+                  },
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 10,
+                        "line": 3
+                      },
+                      "sourcefile": "examples/ill_but_correct.go",
+                      "start": {
+                        "column": 6,
+                        "line": 3
+                      }
+                    },
+                    "name": "main",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 6
+                    },
+                    "sourcefile": "examples/ill_but_correct.go",
+                    "start": {
+                      "column": 1,
+                      "line": 3
+                    }
+                  },
+                  "modifiers": null,
+                  "parameters": [],
+                  "returnType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "VoidType",
+                    "typeArguments": null
+                  },
+                  "type": "FunctionDefinition"
+                }
+              ],
+              "language": "golang",
+              "languageVersion": "1.18",
+              "loc": {
+                "end": {
+                  "column": 2,
+                  "line": 6
+                },
+                "sourcefile": "examples/ill_but_correct.go",
+                "start": {
+                  "column": 1,
+                  "line": 1
+                }
+              },
+              "type": "CompileUnit",
+              "uri": "",
+              "version": ""
+            },
+            "packageName": "__single__"
+          }
+        },
+        "subs": {}
+      }
+    }
+  }
+}

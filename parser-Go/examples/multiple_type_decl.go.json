@@ -1,0 +1,2129 @@
+{
+  "moduleName": "__single_module__",
+  "packageInfo": {
+    "PathName": "",
+    "files": {},
+    "subs": {
+      "/": {
+        "PathName": "",
+        "files": {
+          "examples/multiple_type_decl.go": {
+            "node": {
+              "_meta": {},
+              "body": [
+                {
+                  "_meta": {},
+                  "loc": {
+                    "end": {
+                      "column": 17,
+                      "line": 1
+                    },
+                    "sourcefile": "examples/multiple_type_decl.go",
+                    "start": {
+                      "column": 9,
+                      "line": 1
+                    }
+                  },
+                  "packageName": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 17,
+                        "line": 1
+                      },
+                      "sourcefile": "examples/multiple_type_decl.go",
+                      "start": {
+                        "column": 9,
+                        "line": 1
+                      }
+                    },
+                    "name": "examples",
+                    "type": "Identifier"
+                  },
+                  "type": "PackageDeclaration"
+                },
+                {
+                  "_meta": {
+                    "ReceiveCls": "",
+                    "isDefaultImport": true
+                  },
+                  "cloned": false,
+                  "id": {
+                    "_meta": {},
+                    "loc": null,
+                    "name": "fmt",
+                    "type": "Identifier"
+                  },
+                  "init": {
+                    "_meta": {},
+                    "from": {
+                      "_meta": {},
+                      "literalType": "string",
+                      "loc": {
+                        "end": {
+                          "column": 7,
+                          "line": 4
+                        },
+                        "sourcefile": "examples/multiple_type_decl.go",
+                        "start": {
+                          "column": 2,
+                          "line": 4
+                        }
+                      },
+                      "type": "Literal",
+                      "value": "fmt"
+                    },
+                    "imported": null,
+                    "loc": {
+                      "end": {
+                        "column": 7,
+                        "line": 4
+                      },
+                      "sourcefile": "examples/multiple_type_decl.go",
+                      "start": {
+                        "column": 2,
+                        "line": 4
+                      }
+                    },
+                    "local": null,
+                    "type": "ImportExpression"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 7,
+                      "line": 4
+                    },
+                    "sourcefile": "examples/multiple_type_decl.go",
+                    "start": {
+                      "column": 2,
+                      "line": 4
+                    }
+                  },
+                  "type": "VariableDeclaration",
+                  "varType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "DynamicType",
+                    "typeArguments": null
+                  },
+                  "variableParam": false
+                },
+                {
+                  "_meta": {
+                    "ReceiveCls": "",
+                    "isDefaultImport": true
+                  },
+                  "cloned": false,
+                  "id": {
+                    "_meta": {},
+                    "loc": null,
+                    "name": "time",
+                    "type": "Identifier"
+                  },
+                  "init": {
+                    "_meta": {},
+                    "from": {
+                      "_meta": {},
+                      "literalType": "string",
+                      "loc": {
+                        "end": {
+                          "column": 8,
+                          "line": 5
+                        },
+                        "sourcefile": "examples/multiple_type_decl.go",
+                        "start": {
+                          "column": 2,
+                          "line": 5
+                        }
+                      },
+                      "type": "Literal",
+                      "value": "time"
+                    },
+                    "imported": null,
+                    "loc": {
+                      "end": {
+                        "column": 8,
+                        "line": 5
+                      },
+                      "sourcefile": "examples/multiple_type_decl.go",
+                      "start": {
+                        "column": 2,
+                        "line": 5
+                      }
+                    },
+                    "local": null,
+                    "type": "ImportExpression"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 8,
+                      "line": 5
+                    },
+                    "sourcefile": "examples/multiple_type_decl.go",
+                    "start": {
+                      "column": 2,
+                      "line": 5
+                    }
+                  },
+                  "type": "VariableDeclaration",
+                  "varType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "DynamicType",
+                    "typeArguments": null
+                  },
+                  "variableParam": false
+                },
+                {
+                  "_meta": {
+                    "ReceiveCls": "",
+                    "isInterface": true
+                  },
+                  "body": [
+                    {
+                      "_meta": {},
+                      "id": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 16,
+                            "line": 10
+                          },
+                          "sourcefile": "examples/multiple_type_decl.go",
+                          "start": {
+                            "column": 6,
+                            "line": 10
+                          }
+                        },
+                        "name": "Abs",
+                        "type": "Identifier"
+                      },
+                      "loc": {
+                        "end": {
+                          "column": 16,
+                          "line": 10
+                        },
+                        "sourcefile": "examples/multiple_type_decl.go",
+                        "start": {
+                          "column": 6,
+                          "line": 10
+                        }
+                      },
+                      "params": null,
+                      "results": [
+                        {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 16,
+                              "line": 10
+                            },
+                            "sourcefile": "examples/multiple_type_decl.go",
+                            "start": {
+                              "column": 9,
+                              "line": 10
+                            }
+                          },
+                          "name": "float64",
+                          "type": "Identifier"
+                        }
+                      ],
+                      "type": "FuncType",
+                      "typeParams": null
+                    }
+                  ],
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 7,
+                        "line": 9
+                      },
+                      "sourcefile": "examples/multiple_type_decl.go",
+                      "start": {
+                        "column": 2,
+                        "line": 9
+                      }
+                    },
+                    "name": "Abser",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 3,
+                      "line": 11
+                    },
+                    "sourcefile": "examples/multiple_type_decl.go",
+                    "start": {
+                      "column": 2,
+                      "line": 9
+                    }
+                  },
+                  "supers": [],
+                  "type": "ClassDefinition"
+                },
+                {
+                  "_meta": {},
+                  "body": [
+                    {
+                      "_meta": {},
+                      "cloned": true,
+                      "id": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "computed": false,
+                            "loc": {
+                              "end": {
+                                "column": 17,
+                                "line": 14
+                              },
+                              "sourcefile": "examples/multiple_type_decl.go",
+                              "start": {
+                                "column": 8,
+                                "line": 14
+                              }
+                            },
+                            "object": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 12,
+                                  "line": 14
+                                },
+                                "sourcefile": "examples/multiple_type_decl.go",
+                                "start": {
+                                  "column": 8,
+                                  "line": 14
+                                }
+                              },
+                              "name": "time",
+                              "type": "Identifier"
+                            },
+                            "property": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 17,
+                                  "line": 14
+                                },
+                                "sourcefile": "examples/multiple_type_decl.go",
+                                "start": {
+                                  "column": 13,
+                                  "line": 14
+                                }
+                              },
+                              "name": "Time",
+                              "type": "Identifier"
+                            },
+                            "type": "MemberAccess"
+                          }
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 7,
+                            "line": 14
+                          },
+                          "sourcefile": "examples/multiple_type_decl.go",
+                          "start": {
+                            "column": 3,
+                            "line": 14
+                          }
+                        },
+                        "name": "When",
+                        "type": "Identifier"
+                      },
+                      "init": null,
+                      "loc": {
+                        "end": {
+                          "column": 17,
+                          "line": 14
+                        },
+                        "sourcefile": "examples/multiple_type_decl.go",
+                        "start": {
+                          "column": 3,
+                          "line": 14
+                        }
+                      },
+                      "type": "VariableDeclaration",
+                      "varType": {
+                        "_meta": {},
+                        "computed": false,
+                        "loc": {
+                          "end": {
+                            "column": 17,
+                            "line": 14
+                          },
+                          "sourcefile": "examples/multiple_type_decl.go",
+                          "start": {
+                            "column": 8,
+                            "line": 14
+                          }
+                        },
+                        "object": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 12,
+                              "line": 14
+                            },
+                            "sourcefile": "examples/multiple_type_decl.go",
+                            "start": {
+                              "column": 8,
+                              "line": 14
+                            }
+                          },
+                          "name": "time",
+                          "type": "Identifier"
+                        },
+                        "property": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 17,
+                              "line": 14
+                            },
+                            "sourcefile": "examples/multiple_type_decl.go",
+                            "start": {
+                              "column": 13,
+                              "line": 14
+                            }
+                          },
+                          "name": "Time",
+                          "type": "Identifier"
+                        },
+                        "type": "MemberAccess"
+                      },
+                      "variableParam": false
+                    },
+                    {
+                      "_meta": {},
+                      "cloned": true,
+                      "id": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 14,
+                                "line": 15
+                              },
+                              "sourcefile": "examples/multiple_type_decl.go",
+                              "start": {
+                                "column": 8,
+                                "line": 15
+                              }
+                            },
+                            "name": "string",
+                            "type": "Identifier"
+                          }
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 7,
+                            "line": 15
+                          },
+                          "sourcefile": "examples/multiple_type_decl.go",
+                          "start": {
+                            "column": 3,
+                            "line": 15
+                          }
+                        },
+                        "name": "What",
+                        "type": "Identifier"
+                      },
+                      "init": null,
+                      "loc": {
+                        "end": {
+                          "column": 14,
+                          "line": 15
+                        },
+                        "sourcefile": "examples/multiple_type_decl.go",
+                        "start": {
+                          "column": 3,
+                          "line": 15
+                        }
+                      },
+                      "type": "VariableDeclaration",
+                      "varType": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 14,
+                            "line": 15
+                          },
+                          "sourcefile": "examples/multiple_type_decl.go",
+                          "start": {
+                            "column": 8,
+                            "line": 15
+                          }
+                        },
+                        "name": "string",
+                        "type": "Identifier"
+                      },
+                      "variableParam": false
+                    }
+                  ],
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 9,
+                        "line": 13
+                      },
+                      "sourcefile": "examples/multiple_type_decl.go",
+                      "start": {
+                        "column": 2,
+                        "line": 13
+                      }
+                    },
+                    "name": "MyError",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 3,
+                      "line": 16
+                    },
+                    "sourcefile": "examples/multiple_type_decl.go",
+                    "start": {
+                      "column": 2,
+                      "line": 13
+                    }
+                  },
+                  "supers": [],
+                  "type": "ClassDefinition"
+                },
+                {
+                  "_meta": {},
+                  "body": [
+                    {
+                      "_meta": {},
+                      "cloned": true,
+                      "id": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 17,
+                                "line": 19
+                              },
+                              "sourcefile": "examples/multiple_type_decl.go",
+                              "start": {
+                                "column": 11,
+                                "line": 19
+                              }
+                            },
+                            "name": "string",
+                            "type": "Identifier"
+                          }
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 10,
+                            "line": 19
+                          },
+                          "sourcefile": "examples/multiple_type_decl.go",
+                          "start": {
+                            "column": 3,
+                            "line": 19
+                          }
+                        },
+                        "name": "Message",
+                        "type": "Identifier"
+                      },
+                      "init": null,
+                      "loc": {
+                        "end": {
+                          "column": 17,
+                          "line": 19
+                        },
+                        "sourcefile": "examples/multiple_type_decl.go",
+                        "start": {
+                          "column": 3,
+                          "line": 19
+                        }
+                      },
+                      "type": "VariableDeclaration",
+                      "varType": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 17,
+                            "line": 19
+                          },
+                          "sourcefile": "examples/multiple_type_decl.go",
+                          "start": {
+                            "column": 11,
+                            "line": 19
+                          }
+                        },
+                        "name": "string",
+                        "type": "Identifier"
+                      },
+                      "variableParam": false
+                    },
+                    {
+                      "_meta": {},
+                      "argument": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 8,
+                                "line": 20
+                              },
+                              "sourcefile": "examples/multiple_type_decl.go",
+                              "start": {
+                                "column": 3,
+                                "line": 20
+                              }
+                            },
+                            "name": "Abser",
+                            "type": "Identifier"
+                          }
+                        },
+                        "loc": null,
+                        "name": "Abser",
+                        "type": "Identifier"
+                      },
+                      "loc": {
+                        "end": {
+                          "column": 8,
+                          "line": 20
+                        },
+                        "sourcefile": "examples/multiple_type_decl.go",
+                        "start": {
+                          "column": 3,
+                          "line": 20
+                        }
+                      },
+                      "type": "SpreadElement"
+                    },
+                    {
+                      "_meta": {},
+                      "cloned": true,
+                      "id": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 8,
+                                "line": 20
+                              },
+                              "sourcefile": "examples/multiple_type_decl.go",
+                              "start": {
+                                "column": 3,
+                                "line": 20
+                              }
+                            },
+                            "name": "Abser",
+                            "type": "Identifier"
+                          }
+                        },
+                        "loc": null,
+                        "name": "Abser",
+                        "type": "Identifier"
+                      },
+                      "init": null,
+                      "loc": {
+                        "end": {
+                          "column": 8,
+                          "line": 20
+                        },
+                        "sourcefile": "examples/multiple_type_decl.go",
+                        "start": {
+                          "column": 3,
+                          "line": 20
+                        }
+                      },
+                      "type": "VariableDeclaration",
+                      "varType": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 8,
+                            "line": 20
+                          },
+                          "sourcefile": "examples/multiple_type_decl.go",
+                          "start": {
+                            "column": 3,
+                            "line": 20
+                          }
+                        },
+                        "name": "Abser",
+                        "type": "Identifier"
+                      },
+                      "variableParam": false
+                    },
+                    {
+                      "_meta": {},
+                      "argument": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 10,
+                                "line": 21
+                              },
+                              "sourcefile": "examples/multiple_type_decl.go",
+                              "start": {
+                                "column": 3,
+                                "line": 21
+                              }
+                            },
+                            "name": "MyError",
+                            "type": "Identifier"
+                          }
+                        },
+                        "loc": null,
+                        "name": "MyError",
+                        "type": "Identifier"
+                      },
+                      "loc": {
+                        "end": {
+                          "column": 10,
+                          "line": 21
+                        },
+                        "sourcefile": "examples/multiple_type_decl.go",
+                        "start": {
+                          "column": 3,
+                          "line": 21
+                        }
+                      },
+                      "type": "SpreadElement"
+                    },
+                    {
+                      "_meta": {},
+                      "cloned": true,
+                      "id": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 10,
+                                "line": 21
+                              },
+                              "sourcefile": "examples/multiple_type_decl.go",
+                              "start": {
+                                "column": 3,
+                                "line": 21
+                              }
+                            },
+                            "name": "MyError",
+                            "type": "Identifier"
+                          }
+                        },
+                        "loc": null,
+                        "name": "MyError",
+                        "type": "Identifier"
+                      },
+                      "init": null,
+                      "loc": {
+                        "end": {
+                          "column": 10,
+                          "line": 21
+                        },
+                        "sourcefile": "examples/multiple_type_decl.go",
+                        "start": {
+                          "column": 3,
+                          "line": 21
+                        }
+                      },
+                      "type": "VariableDeclaration",
+                      "varType": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 10,
+                            "line": 21
+                          },
+                          "sourcefile": "examples/multiple_type_decl.go",
+                          "start": {
+                            "column": 3,
+                            "line": 21
+                          }
+                        },
+                        "name": "MyError",
+                        "type": "Identifier"
+                      },
+                      "variableParam": false
+                    },
+                    {
+                      "_meta": {
+                        "ReceiveCls": "MyCustomError"
+                      },
+                      "body": {
+                        "_meta": {},
+                        "body": [
+                          {
+                            "_meta": {},
+                            "cloned": true,
+                            "id": {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "element": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 27,
+                                        "line": 26
+                                      },
+                                      "sourcefile": "examples/multiple_type_decl.go",
+                                      "start": {
+                                        "column": 14,
+                                        "line": 26
+                                      }
+                                    },
+                                    "name": "MyCustomError",
+                                    "type": "Identifier"
+                                  },
+                                  "id": null,
+                                  "kind": "pointer",
+                                  "loc": {
+                                    "end": {
+                                      "column": 27,
+                                      "line": 26
+                                    },
+                                    "sourcefile": "examples/multiple_type_decl.go",
+                                    "start": {
+                                      "column": 13,
+                                      "line": 26
+                                    }
+                                  },
+                                  "type": "PointerType",
+                                  "typeArguments": null
+                                }
+                              },
+                              "loc": null,
+                              "name": "myErr",
+                              "type": "Identifier"
+                            },
+                            "init": {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "element": null,
+                                  "id": null,
+                                  "kind": "",
+                                  "loc": null,
+                                  "type": "PointerType",
+                                  "typeArguments": null
+                                }
+                              },
+                              "loc": null,
+                              "type": "ThisExpression"
+                            },
+                            "loc": null,
+                            "type": "VariableDeclaration",
+                            "varType": {
+                              "_meta": {},
+                              "element": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 27,
+                                    "line": 26
+                                  },
+                                  "sourcefile": "examples/multiple_type_decl.go",
+                                  "start": {
+                                    "column": 14,
+                                    "line": 26
+                                  }
+                                },
+                                "name": "MyCustomError",
+                                "type": "Identifier"
+                              },
+                              "id": null,
+                              "kind": "pointer",
+                              "loc": {
+                                "end": {
+                                  "column": 27,
+                                  "line": 26
+                                },
+                                "sourcefile": "examples/multiple_type_decl.go",
+                                "start": {
+                                  "column": 13,
+                                  "line": 26
+                                }
+                              },
+                              "type": "PointerType",
+                              "typeArguments": null
+                            },
+                            "variableParam": false
+                          },
+                          {
+                            "_meta": {},
+                            "argument": {
+                              "_meta": {},
+                              "literalType": "FLOAT",
+                              "loc": {
+                                "end": {
+                                  "column": 12,
+                                  "line": 27
+                                },
+                                "sourcefile": "examples/multiple_type_decl.go",
+                                "start": {
+                                  "column": 9,
+                                  "line": 27
+                                }
+                              },
+                              "type": "Literal",
+                              "value": "0.0"
+                            },
+                            "isYield": false,
+                            "loc": {
+                              "end": {
+                                "column": 12,
+                                "line": 27
+                              },
+                              "sourcefile": "examples/multiple_type_decl.go",
+                              "start": {
+                                "column": 2,
+                                "line": 27
+                              }
+                            },
+                            "type": "ReturnStatement"
+                          }
+                        ],
+                        "id": null,
+                        "loc": {
+                          "end": {
+                            "column": 2,
+                            "line": 28
+                          },
+                          "sourcefile": "examples/multiple_type_decl.go",
+                          "start": {
+                            "column": 43,
+                            "line": 26
+                          }
+                        },
+                        "type": "ScopedStatement"
+                      },
+                      "id": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 32,
+                            "line": 26
+                          },
+                          "sourcefile": "examples/multiple_type_decl.go",
+                          "start": {
+                            "column": 29,
+                            "line": 26
+                          }
+                        },
+                        "name": "Abs",
+                        "type": "Identifier"
+                      },
+                      "loc": {
+                        "end": {
+                          "column": 2,
+                          "line": 28
+                        },
+                        "sourcefile": "examples/multiple_type_decl.go",
+                        "start": {
+                          "column": 1,
+                          "line": 26
+                        }
+                      },
+                      "modifiers": null,
+                      "parameters": [],
+                      "returnType": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 42,
+                            "line": 26
+                          },
+                          "sourcefile": "examples/multiple_type_decl.go",
+                          "start": {
+                            "column": 35,
+                            "line": 26
+                          }
+                        },
+                        "name": "float64",
+                        "type": "Identifier"
+                      },
+                      "type": "FunctionDefinition"
+                    }
+                  ],
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 15,
+                        "line": 18
+                      },
+                      "sourcefile": "examples/multiple_type_decl.go",
+                      "start": {
+                        "column": 2,
+                        "line": 18
+                      }
+                    },
+                    "name": "MyCustomError",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 3,
+                      "line": 22
+                    },
+                    "sourcefile": "examples/multiple_type_decl.go",
+                    "start": {
+                      "column": 2,
+                      "line": 18
+                    }
+                  },
+                  "supers": [],
+                  "type": "ClassDefinition"
+                },
+                {
+                  "_meta": {},
+                  "body": {
+                    "_meta": {},
+                    "body": [
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "id": {
+                          "_meta": {
+                            "ReceiveCls": "",
+                            "type": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 20,
+                                  "line": 31
+                                },
+                                "sourcefile": "examples/multiple_type_decl.go",
+                                "start": {
+                                  "column": 7,
+                                  "line": 31
+                                }
+                              },
+                              "name": "MyCustomError",
+                              "type": "Identifier"
+                            }
+                          },
+                          "loc": {
+                            "end": {
+                              "column": 3,
+                              "line": 31
+                            },
+                            "sourcefile": "examples/multiple_type_decl.go",
+                            "start": {
+                              "column": 2,
+                              "line": 31
+                            }
+                          },
+                          "name": "a",
+                          "type": "Identifier"
+                        },
+                        "init": {
+                          "_meta": {},
+                          "expressions": [
+                            {
+                              "_meta": {},
+                              "cloned": false,
+                              "id": {
+                                "_meta": {
+                                  "ReceiveCls": "",
+                                  "type": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 20,
+                                        "line": 31
+                                      },
+                                      "sourcefile": "examples/multiple_type_decl.go",
+                                      "start": {
+                                        "column": 7,
+                                        "line": 31
+                                      }
+                                    },
+                                    "name": "MyCustomError",
+                                    "type": "Identifier"
+                                  }
+                                },
+                                "loc": {
+                                  "end": {
+                                    "column": 66,
+                                    "line": 31
+                                  },
+                                  "sourcefile": "examples/multiple_type_decl.go",
+                                  "start": {
+                                    "column": 7,
+                                    "line": 31
+                                  }
+                                },
+                                "name": "tmp1",
+                                "type": "Identifier"
+                              },
+                              "init": {
+                                "_meta": {},
+                                "arguments": [],
+                                "callee": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 20,
+                                      "line": 31
+                                    },
+                                    "sourcefile": "examples/multiple_type_decl.go",
+                                    "start": {
+                                      "column": 7,
+                                      "line": 31
+                                    }
+                                  },
+                                  "name": "MyCustomError",
+                                  "type": "Identifier"
+                                },
+                                "loc": null,
+                                "type": "NewExpression"
+                              },
+                              "loc": null,
+                              "type": "VariableDeclaration",
+                              "varType": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 20,
+                                    "line": 31
+                                  },
+                                  "sourcefile": "examples/multiple_type_decl.go",
+                                  "start": {
+                                    "column": 7,
+                                    "line": 31
+                                  }
+                                },
+                                "name": "MyCustomError",
+                                "type": "Identifier"
+                              },
+                              "variableParam": false
+                            },
+                            {
+                              "_meta": {},
+                              "cloned": true,
+                              "left": {
+                                "_meta": {},
+                                "computed": false,
+                                "loc": null,
+                                "object": {
+                                  "_meta": {
+                                    "ReceiveCls": "",
+                                    "type": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 20,
+                                          "line": 31
+                                        },
+                                        "sourcefile": "examples/multiple_type_decl.go",
+                                        "start": {
+                                          "column": 7,
+                                          "line": 31
+                                        }
+                                      },
+                                      "name": "MyCustomError",
+                                      "type": "Identifier"
+                                    }
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 66,
+                                      "line": 31
+                                    },
+                                    "sourcefile": "examples/multiple_type_decl.go",
+                                    "start": {
+                                      "column": 7,
+                                      "line": 31
+                                    }
+                                  },
+                                  "name": "tmp1",
+                                  "type": "Identifier"
+                                },
+                                "property": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 10,
+                                      "line": 19
+                                    },
+                                    "sourcefile": "examples/multiple_type_decl.go",
+                                    "start": {
+                                      "column": 3,
+                                      "line": 19
+                                    }
+                                  },
+                                  "name": "Message",
+                                  "type": "Identifier"
+                                },
+                                "type": "MemberAccess"
+                              },
+                              "loc": null,
+                              "operator": "=",
+                              "right": {
+                                "_meta": {},
+                                "literalType": "STRING",
+                                "loc": {
+                                  "end": {
+                                    "column": 30,
+                                    "line": 31
+                                  },
+                                  "sourcefile": "examples/multiple_type_decl.go",
+                                  "start": {
+                                    "column": 21,
+                                    "line": 31
+                                  }
+                                },
+                                "type": "Literal",
+                                "value": "\"New One\""
+                              },
+                              "type": "AssignmentExpression"
+                            },
+                            {
+                              "_meta": {},
+                              "cloned": true,
+                              "left": {
+                                "_meta": {},
+                                "computed": false,
+                                "loc": null,
+                                "object": {
+                                  "_meta": {
+                                    "ReceiveCls": "",
+                                    "type": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 20,
+                                          "line": 31
+                                        },
+                                        "sourcefile": "examples/multiple_type_decl.go",
+                                        "start": {
+                                          "column": 7,
+                                          "line": 31
+                                        }
+                                      },
+                                      "name": "MyCustomError",
+                                      "type": "Identifier"
+                                    }
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 66,
+                                      "line": 31
+                                    },
+                                    "sourcefile": "examples/multiple_type_decl.go",
+                                    "start": {
+                                      "column": 7,
+                                      "line": 31
+                                    }
+                                  },
+                                  "name": "tmp1",
+                                  "type": "Identifier"
+                                },
+                                "property": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 8,
+                                      "line": 20
+                                    },
+                                    "sourcefile": "examples/multiple_type_decl.go",
+                                    "start": {
+                                      "column": 3,
+                                      "line": 20
+                                    }
+                                  },
+                                  "name": "Abser",
+                                  "type": "Identifier"
+                                },
+                                "type": "MemberAccess"
+                              },
+                              "loc": null,
+                              "operator": "=",
+                              "right": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 35,
+                                    "line": 31
+                                  },
+                                  "sourcefile": "examples/multiple_type_decl.go",
+                                  "start": {
+                                    "column": 32,
+                                    "line": 31
+                                  }
+                                },
+                                "name": "nil",
+                                "type": "Identifier"
+                              },
+                              "type": "AssignmentExpression"
+                            },
+                            {
+                              "_meta": {},
+                              "cloned": true,
+                              "left": {
+                                "_meta": {},
+                                "computed": false,
+                                "loc": null,
+                                "object": {
+                                  "_meta": {
+                                    "ReceiveCls": "",
+                                    "type": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 20,
+                                          "line": 31
+                                        },
+                                        "sourcefile": "examples/multiple_type_decl.go",
+                                        "start": {
+                                          "column": 7,
+                                          "line": 31
+                                        }
+                                      },
+                                      "name": "MyCustomError",
+                                      "type": "Identifier"
+                                    }
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 66,
+                                      "line": 31
+                                    },
+                                    "sourcefile": "examples/multiple_type_decl.go",
+                                    "start": {
+                                      "column": 7,
+                                      "line": 31
+                                    }
+                                  },
+                                  "name": "tmp1",
+                                  "type": "Identifier"
+                                },
+                                "property": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 10,
+                                      "line": 21
+                                    },
+                                    "sourcefile": "examples/multiple_type_decl.go",
+                                    "start": {
+                                      "column": 3,
+                                      "line": 21
+                                    }
+                                  },
+                                  "name": "MyError",
+                                  "type": "Identifier"
+                                },
+                                "type": "MemberAccess"
+                              },
+                              "loc": null,
+                              "operator": "=",
+                              "right": {
+                                "_meta": {},
+                                "expressions": [
+                                  {
+                                    "_meta": {},
+                                    "cloned": false,
+                                    "id": {
+                                      "_meta": {
+                                        "ReceiveCls": "",
+                                        "type": {
+                                          "_meta": {},
+                                          "loc": {
+                                            "end": {
+                                              "column": 44,
+                                              "line": 31
+                                            },
+                                            "sourcefile": "examples/multiple_type_decl.go",
+                                            "start": {
+                                              "column": 37,
+                                              "line": 31
+                                            }
+                                          },
+                                          "name": "MyError",
+                                          "type": "Identifier"
+                                        }
+                                      },
+                                      "loc": {
+                                        "end": {
+                                          "column": 65,
+                                          "line": 31
+                                        },
+                                        "sourcefile": "examples/multiple_type_decl.go",
+                                        "start": {
+                                          "column": 37,
+                                          "line": 31
+                                        }
+                                      },
+                                      "name": "tmp2",
+                                      "type": "Identifier"
+                                    },
+                                    "init": {
+                                      "_meta": {},
+                                      "arguments": [],
+                                      "callee": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 44,
+                                            "line": 31
+                                          },
+                                          "sourcefile": "examples/multiple_type_decl.go",
+                                          "start": {
+                                            "column": 37,
+                                            "line": 31
+                                          }
+                                        },
+                                        "name": "MyError",
+                                        "type": "Identifier"
+                                      },
+                                      "loc": null,
+                                      "type": "NewExpression"
+                                    },
+                                    "loc": null,
+                                    "type": "VariableDeclaration",
+                                    "varType": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 44,
+                                          "line": 31
+                                        },
+                                        "sourcefile": "examples/multiple_type_decl.go",
+                                        "start": {
+                                          "column": 37,
+                                          "line": 31
+                                        }
+                                      },
+                                      "name": "MyError",
+                                      "type": "Identifier"
+                                    },
+                                    "variableParam": false
+                                  },
+                                  {
+                                    "_meta": {},
+                                    "cloned": true,
+                                    "left": {
+                                      "_meta": {},
+                                      "computed": false,
+                                      "loc": null,
+                                      "object": {
+                                        "_meta": {
+                                          "ReceiveCls": "",
+                                          "type": {
+                                            "_meta": {},
+                                            "loc": {
+                                              "end": {
+                                                "column": 44,
+                                                "line": 31
+                                              },
+                                              "sourcefile": "examples/multiple_type_decl.go",
+                                              "start": {
+                                                "column": 37,
+                                                "line": 31
+                                              }
+                                            },
+                                            "name": "MyError",
+                                            "type": "Identifier"
+                                          }
+                                        },
+                                        "loc": {
+                                          "end": {
+                                            "column": 65,
+                                            "line": 31
+                                          },
+                                          "sourcefile": "examples/multiple_type_decl.go",
+                                          "start": {
+                                            "column": 37,
+                                            "line": 31
+                                          }
+                                        },
+                                        "name": "tmp2",
+                                        "type": "Identifier"
+                                      },
+                                      "property": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 7,
+                                            "line": 14
+                                          },
+                                          "sourcefile": "examples/multiple_type_decl.go",
+                                          "start": {
+                                            "column": 3,
+                                            "line": 14
+                                          }
+                                        },
+                                        "name": "When",
+                                        "type": "Identifier"
+                                      },
+                                      "type": "MemberAccess"
+                                    },
+                                    "loc": null,
+                                    "operator": "=",
+                                    "right": {
+                                      "_meta": {},
+                                      "arguments": [],
+                                      "callee": {
+                                        "_meta": {},
+                                        "computed": false,
+                                        "loc": {
+                                          "end": {
+                                            "column": 53,
+                                            "line": 31
+                                          },
+                                          "sourcefile": "examples/multiple_type_decl.go",
+                                          "start": {
+                                            "column": 45,
+                                            "line": 31
+                                          }
+                                        },
+                                        "object": {
+                                          "_meta": {},
+                                          "loc": {
+                                            "end": {
+                                              "column": 49,
+                                              "line": 31
+                                            },
+                                            "sourcefile": "examples/multiple_type_decl.go",
+                                            "start": {
+                                              "column": 45,
+                                              "line": 31
+                                            }
+                                          },
+                                          "name": "time",
+                                          "type": "Identifier"
+                                        },
+                                        "property": {
+                                          "_meta": {},
+                                          "loc": {
+                                            "end": {
+                                              "column": 53,
+                                              "line": 31
+                                            },
+                                            "sourcefile": "examples/multiple_type_decl.go",
+                                            "start": {
+                                              "column": 50,
+                                              "line": 31
+                                            }
+                                          },
+                                          "name": "Now",
+                                          "type": "Identifier"
+                                        },
+                                        "type": "MemberAccess"
+                                      },
+                                      "loc": {
+                                        "end": {
+                                          "column": 55,
+                                          "line": 31
+                                        },
+                                        "sourcefile": "examples/multiple_type_decl.go",
+                                        "start": {
+                                          "column": 45,
+                                          "line": 31
+                                        }
+                                      },
+                                      "type": "CallExpression"
+                                    },
+                                    "type": "AssignmentExpression"
+                                  },
+                                  {
+                                    "_meta": {},
+                                    "cloned": true,
+                                    "left": {
+                                      "_meta": {},
+                                      "computed": false,
+                                      "loc": null,
+                                      "object": {
+                                        "_meta": {
+                                          "ReceiveCls": "",
+                                          "type": {
+                                            "_meta": {},
+                                            "loc": {
+                                              "end": {
+                                                "column": 44,
+                                                "line": 31
+                                              },
+                                              "sourcefile": "examples/multiple_type_decl.go",
+                                              "start": {
+                                                "column": 37,
+                                                "line": 31
+                                              }
+                                            },
+                                            "name": "MyError",
+                                            "type": "Identifier"
+                                          }
+                                        },
+                                        "loc": {
+                                          "end": {
+                                            "column": 65,
+                                            "line": 31
+                                          },
+                                          "sourcefile": "examples/multiple_type_decl.go",
+                                          "start": {
+                                            "column": 37,
+                                            "line": 31
+                                          }
+                                        },
+                                        "name": "tmp2",
+                                        "type": "Identifier"
+                                      },
+                                      "property": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 7,
+                                            "line": 15
+                                          },
+                                          "sourcefile": "examples/multiple_type_decl.go",
+                                          "start": {
+                                            "column": 3,
+                                            "line": 15
+                                          }
+                                        },
+                                        "name": "What",
+                                        "type": "Identifier"
+                                      },
+                                      "type": "MemberAccess"
+                                    },
+                                    "loc": null,
+                                    "operator": "=",
+                                    "right": {
+                                      "_meta": {},
+                                      "literalType": "STRING",
+                                      "loc": {
+                                        "end": {
+                                          "column": 64,
+                                          "line": 31
+                                        },
+                                        "sourcefile": "examples/multiple_type_decl.go",
+                                        "start": {
+                                          "column": 57,
+                                          "line": 31
+                                        }
+                                      },
+                                      "type": "Literal",
+                                      "value": "\"Hello\""
+                                    },
+                                    "type": "AssignmentExpression"
+                                  },
+                                  {
+                                    "_meta": {
+                                      "ReceiveCls": "",
+                                      "type": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 44,
+                                            "line": 31
+                                          },
+                                          "sourcefile": "examples/multiple_type_decl.go",
+                                          "start": {
+                                            "column": 37,
+                                            "line": 31
+                                          }
+                                        },
+                                        "name": "MyError",
+                                        "type": "Identifier"
+                                      }
+                                    },
+                                    "loc": {
+                                      "end": {
+                                        "column": 65,
+                                        "line": 31
+                                      },
+                                      "sourcefile": "examples/multiple_type_decl.go",
+                                      "start": {
+                                        "column": 37,
+                                        "line": 31
+                                      }
+                                    },
+                                    "name": "tmp2",
+                                    "type": "Identifier"
+                                  }
+                                ],
+                                "loc": {
+                                  "end": {
+                                    "column": 65,
+                                    "line": 31
+                                  },
+                                  "sourcefile": "examples/multiple_type_decl.go",
+                                  "start": {
+                                    "column": 37,
+                                    "line": 31
+                                  }
+                                },
+                                "type": "Sequence"
+                              },
+                              "type": "AssignmentExpression"
+                            },
+                            {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 20,
+                                      "line": 31
+                                    },
+                                    "sourcefile": "examples/multiple_type_decl.go",
+                                    "start": {
+                                      "column": 7,
+                                      "line": 31
+                                    }
+                                  },
+                                  "name": "MyCustomError",
+                                  "type": "Identifier"
+                                }
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 66,
+                                  "line": 31
+                                },
+                                "sourcefile": "examples/multiple_type_decl.go",
+                                "start": {
+                                  "column": 7,
+                                  "line": 31
+                                }
+                              },
+                              "name": "tmp1",
+                              "type": "Identifier"
+                            }
+                          ],
+                          "loc": {
+                            "end": {
+                              "column": 66,
+                              "line": 31
+                            },
+                            "sourcefile": "examples/multiple_type_decl.go",
+                            "start": {
+                              "column": 7,
+                              "line": 31
+                            }
+                          },
+                          "type": "Sequence"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 66,
+                            "line": 31
+                          },
+                          "sourcefile": "examples/multiple_type_decl.go",
+                          "start": {
+                            "column": 2,
+                            "line": 31
+                          }
+                        },
+                        "type": "VariableDeclaration",
+                        "varType": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 20,
+                              "line": 31
+                            },
+                            "sourcefile": "examples/multiple_type_decl.go",
+                            "start": {
+                              "column": 7,
+                              "line": 31
+                            }
+                          },
+                          "name": "MyCustomError",
+                          "type": "Identifier"
+                        },
+                        "variableParam": false
+                      },
+                      {
+                        "_meta": {},
+                        "arguments": [],
+                        "callee": {
+                          "_meta": {},
+                          "computed": false,
+                          "loc": {
+                            "end": {
+                              "column": 7,
+                              "line": 32
+                            },
+                            "sourcefile": "examples/multiple_type_decl.go",
+                            "start": {
+                              "column": 2,
+                              "line": 32
+                            }
+                          },
+                          "object": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 3,
+                                "line": 32
+                              },
+                              "sourcefile": "examples/multiple_type_decl.go",
+                              "start": {
+                                "column": 2,
+                                "line": 32
+                              }
+                            },
+                            "name": "a",
+                            "type": "Identifier"
+                          },
+                          "property": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 7,
+                                "line": 32
+                              },
+                              "sourcefile": "examples/multiple_type_decl.go",
+                              "start": {
+                                "column": 4,
+                                "line": 32
+                              }
+                            },
+                            "name": "Abs",
+                            "type": "Identifier"
+                          },
+                          "type": "MemberAccess"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 9,
+                            "line": 32
+                          },
+                          "sourcefile": "examples/multiple_type_decl.go",
+                          "start": {
+                            "column": 2,
+                            "line": 32
+                          }
+                        },
+                        "type": "CallExpression"
+                      },
+                      {
+                        "_meta": {},
+                        "cloned": true,
+                        "left": {
+                          "_meta": {},
+                          "computed": false,
+                          "loc": {
+                            "end": {
+                              "column": 11,
+                              "line": 33
+                            },
+                            "sourcefile": "examples/multiple_type_decl.go",
+                            "start": {
+                              "column": 2,
+                              "line": 33
+                            }
+                          },
+                          "object": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 3,
+                                "line": 33
+                              },
+                              "sourcefile": "examples/multiple_type_decl.go",
+                              "start": {
+                                "column": 2,
+                                "line": 33
+                              }
+                            },
+                            "name": "a",
+                            "type": "Identifier"
+                          },
+                          "property": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 11,
+                                "line": 33
+                              },
+                              "sourcefile": "examples/multiple_type_decl.go",
+                              "start": {
+                                "column": 4,
+                                "line": 33
+                              }
+                            },
+                            "name": "Message",
+                            "type": "Identifier"
+                          },
+                          "type": "MemberAccess"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 19,
+                            "line": 33
+                          },
+                          "sourcefile": "examples/multiple_type_decl.go",
+                          "start": {
+                            "column": 2,
+                            "line": 33
+                          }
+                        },
+                        "operator": "=",
+                        "right": {
+                          "_meta": {},
+                          "literalType": "STRING",
+                          "loc": {
+                            "end": {
+                              "column": 19,
+                              "line": 33
+                            },
+                            "sourcefile": "examples/multiple_type_decl.go",
+                            "start": {
+                              "column": 14,
+                              "line": 33
+                            }
+                          },
+                          "type": "Literal",
+                          "value": "\"New\""
+                        },
+                        "type": "AssignmentExpression"
+                      },
+                      {
+                        "_meta": {},
+                        "arguments": [
+                          {
+                            "_meta": {},
+                            "literalType": "STRING",
+                            "loc": {
+                              "end": {
+                                "column": 41,
+                                "line": 34
+                              },
+                              "sourcefile": "examples/multiple_type_decl.go",
+                              "start": {
+                                "column": 14,
+                                "line": 34
+                              }
+                            },
+                            "type": "Literal",
+                            "value": "\"MyCustomError method = %v\""
+                          },
+                          {
+                            "_meta": {},
+                            "arguments": [],
+                            "callee": {
+                              "_meta": {},
+                              "computed": false,
+                              "loc": {
+                                "end": {
+                                  "column": 48,
+                                  "line": 34
+                                },
+                                "sourcefile": "examples/multiple_type_decl.go",
+                                "start": {
+                                  "column": 43,
+                                  "line": 34
+                                }
+                              },
+                              "object": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 44,
+                                    "line": 34
+                                  },
+                                  "sourcefile": "examples/multiple_type_decl.go",
+                                  "start": {
+                                    "column": 43,
+                                    "line": 34
+                                  }
+                                },
+                                "name": "a",
+                                "type": "Identifier"
+                              },
+                              "property": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 48,
+                                    "line": 34
+                                  },
+                                  "sourcefile": "examples/multiple_type_decl.go",
+                                  "start": {
+                                    "column": 45,
+                                    "line": 34
+                                  }
+                                },
+                                "name": "Abs",
+                                "type": "Identifier"
+                              },
+                              "type": "MemberAccess"
+                            },
+                            "loc": {
+                              "end": {
+                                "column": 50,
+                                "line": 34
+                              },
+                              "sourcefile": "examples/multiple_type_decl.go",
+                              "start": {
+                                "column": 43,
+                                "line": 34
+                              }
+                            },
+                            "type": "CallExpression"
+                          }
+                        ],
+                        "callee": {
+                          "_meta": {},
+                          "computed": false,
+                          "loc": {
+                            "end": {
+                              "column": 13,
+                              "line": 34
+                            },
+                            "sourcefile": "examples/multiple_type_decl.go",
+                            "start": {
+                              "column": 2,
+                              "line": 34
+                            }
+                          },
+                          "object": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 5,
+                                "line": 34
+                              },
+                              "sourcefile": "examples/multiple_type_decl.go",
+                              "start": {
+                                "column": 2,
+                                "line": 34
+                              }
+                            },
+                            "name": "fmt",
+                            "type": "Identifier"
+                          },
+                          "property": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 13,
+                                "line": 34
+                              },
+                              "sourcefile": "examples/multiple_type_decl.go",
+                              "start": {
+                                "column": 6,
+                                "line": 34
+                              }
+                            },
+                            "name": "Println",
+                            "type": "Identifier"
+                          },
+                          "type": "MemberAccess"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 51,
+                            "line": 34
+                          },
+                          "sourcefile": "examples/multiple_type_decl.go",
+                          "start": {
+                            "column": 2,
+                            "line": 34
+                          }
+                        },
+                        "type": "CallExpression"
+                      }
+                    ],
+                    "id": null,
+                    "loc": {
+                      "end": {
+                        "column": 2,
+                        "line": 35
+                      },
+                      "sourcefile": "examples/multiple_type_decl.go",
+                      "start": {
+                        "column": 13,
+                        "line": 30
+                      }
+                    },
+                    "type": "ScopedStatement"
+                  },
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 10,
+                        "line": 30
+                      },
+                      "sourcefile": "examples/multiple_type_decl.go",
+                      "start": {
+                        "column": 6,
+                        "line": 30
+                      }
+                    },
+                    "name": "main",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 35
+                    },
+                    "sourcefile": "examples/multiple_type_decl.go",
+                    "start": {
+                      "column": 1,
+                      "line": 30
+                    }
+                  },
+                  "modifiers": null,
+                  "parameters": [],
+                  "returnType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "VoidType",
+                    "typeArguments": null
+                  },
+                  "type": "FunctionDefinition"
+                }
+              ],
+              "language": "golang",
+              "languageVersion": "1.18",
+              "loc": {
+                "end": {
+                  "column": 2,
+                  "line": 35
+                },
+                "sourcefile": "examples/multiple_type_decl.go",
+                "start": {
+                  "column": 1,
+                  "line": 1
+                }
+              },
+              "type": "CompileUnit",
+              "uri": "",
+              "version": ""
+            },
+            "packageName": "__single__"
+          }
+        },
+        "subs": {}
+      }
+    }
+  }
+}

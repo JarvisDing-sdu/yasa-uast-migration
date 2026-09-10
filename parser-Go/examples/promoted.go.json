@@ -1,0 +1,738 @@
+{
+  "moduleName": "__single_module__",
+  "packageInfo": {
+    "PathName": "",
+    "files": {},
+    "subs": {
+      "/": {
+        "PathName": "",
+        "files": {
+          "examples/promoted.go": {
+            "node": {
+              "_meta": {},
+              "body": [
+                {
+                  "_meta": {},
+                  "loc": {
+                    "end": {
+                      "column": 17,
+                      "line": 1
+                    },
+                    "sourcefile": "examples/promoted.go",
+                    "start": {
+                      "column": 9,
+                      "line": 1
+                    }
+                  },
+                  "packageName": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 17,
+                        "line": 1
+                      },
+                      "sourcefile": "examples/promoted.go",
+                      "start": {
+                        "column": 9,
+                        "line": 1
+                      }
+                    },
+                    "name": "examples",
+                    "type": "Identifier"
+                  },
+                  "type": "PackageDeclaration"
+                },
+                {
+                  "_meta": {
+                    "ReceiveCls": "",
+                    "isDefaultImport": true
+                  },
+                  "cloned": false,
+                  "id": {
+                    "_meta": {},
+                    "loc": null,
+                    "name": "fmt",
+                    "type": "Identifier"
+                  },
+                  "init": {
+                    "_meta": {},
+                    "from": {
+                      "_meta": {},
+                      "literalType": "string",
+                      "loc": {
+                        "end": {
+                          "column": 7,
+                          "line": 4
+                        },
+                        "sourcefile": "examples/promoted.go",
+                        "start": {
+                          "column": 2,
+                          "line": 4
+                        }
+                      },
+                      "type": "Literal",
+                      "value": "fmt"
+                    },
+                    "imported": null,
+                    "loc": {
+                      "end": {
+                        "column": 7,
+                        "line": 4
+                      },
+                      "sourcefile": "examples/promoted.go",
+                      "start": {
+                        "column": 2,
+                        "line": 4
+                      }
+                    },
+                    "local": null,
+                    "type": "ImportExpression"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 7,
+                      "line": 4
+                    },
+                    "sourcefile": "examples/promoted.go",
+                    "start": {
+                      "column": 2,
+                      "line": 4
+                    }
+                  },
+                  "type": "VariableDeclaration",
+                  "varType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "DynamicType",
+                    "typeArguments": null
+                  },
+                  "variableParam": false
+                },
+                {
+                  "_meta": {
+                    "ReceiveCls": "",
+                    "isDefaultImport": true
+                  },
+                  "cloned": false,
+                  "id": {
+                    "_meta": {},
+                    "loc": null,
+                    "name": "http",
+                    "type": "Identifier"
+                  },
+                  "init": {
+                    "_meta": {},
+                    "from": {
+                      "_meta": {},
+                      "literalType": "string",
+                      "loc": {
+                        "end": {
+                          "column": 12,
+                          "line": 5
+                        },
+                        "sourcefile": "examples/promoted.go",
+                        "start": {
+                          "column": 2,
+                          "line": 5
+                        }
+                      },
+                      "type": "Literal",
+                      "value": "net/http"
+                    },
+                    "imported": null,
+                    "loc": {
+                      "end": {
+                        "column": 12,
+                        "line": 5
+                      },
+                      "sourcefile": "examples/promoted.go",
+                      "start": {
+                        "column": 2,
+                        "line": 5
+                      }
+                    },
+                    "local": null,
+                    "type": "ImportExpression"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 12,
+                      "line": 5
+                    },
+                    "sourcefile": "examples/promoted.go",
+                    "start": {
+                      "column": 2,
+                      "line": 5
+                    }
+                  },
+                  "type": "VariableDeclaration",
+                  "varType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "DynamicType",
+                    "typeArguments": null
+                  },
+                  "variableParam": false
+                },
+                {
+                  "_meta": {},
+                  "body": [],
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 10,
+                        "line": 8
+                      },
+                      "sourcefile": "examples/promoted.go",
+                      "start": {
+                        "column": 6,
+                        "line": 8
+                      }
+                    },
+                    "name": "Foo1",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 26,
+                      "line": 8
+                    },
+                    "sourcefile": "examples/promoted.go",
+                    "start": {
+                      "column": 6,
+                      "line": 8
+                    }
+                  },
+                  "supers": [],
+                  "type": "ClassDefinition"
+                },
+                {
+                  "_meta": {},
+                  "body": [],
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 10,
+                        "line": 10
+                      },
+                      "sourcefile": "examples/promoted.go",
+                      "start": {
+                        "column": 6,
+                        "line": 10
+                      }
+                    },
+                    "name": "Foo2",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 26,
+                      "line": 10
+                    },
+                    "sourcefile": "examples/promoted.go",
+                    "start": {
+                      "column": 6,
+                      "line": 10
+                    }
+                  },
+                  "supers": [],
+                  "type": "ClassDefinition"
+                },
+                {
+                  "_meta": {},
+                  "body": [],
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 13,
+                        "line": 12
+                      },
+                      "sourcefile": "examples/promoted.go",
+                      "start": {
+                        "column": 6,
+                        "line": 12
+                      }
+                    },
+                    "name": "Request",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 22,
+                      "line": 12
+                    },
+                    "sourcefile": "examples/promoted.go",
+                    "start": {
+                      "column": 6,
+                      "line": 12
+                    }
+                  },
+                  "supers": [],
+                  "type": "ClassDefinition"
+                },
+                {
+                  "_meta": {},
+                  "body": [
+                    {
+                      "_meta": {},
+                      "argument": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "computed": false,
+                            "loc": {
+                              "end": {
+                                "column": 14,
+                                "line": 16
+                              },
+                              "sourcefile": "examples/promoted.go",
+                              "start": {
+                                "column": 2,
+                                "line": 16
+                              }
+                            },
+                            "object": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 6,
+                                  "line": 16
+                                },
+                                "sourcefile": "examples/promoted.go",
+                                "start": {
+                                  "column": 2,
+                                  "line": 16
+                                }
+                              },
+                              "name": "http",
+                              "type": "Identifier"
+                            },
+                            "property": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 14,
+                                  "line": 16
+                                },
+                                "sourcefile": "examples/promoted.go",
+                                "start": {
+                                  "column": 7,
+                                  "line": 16
+                                }
+                              },
+                              "name": "Request",
+                              "type": "Identifier"
+                            },
+                            "type": "MemberAccess"
+                          }
+                        },
+                        "loc": null,
+                        "name": "Request",
+                        "type": "Identifier"
+                      },
+                      "loc": {
+                        "end": {
+                          "column": 14,
+                          "line": 16
+                        },
+                        "sourcefile": "examples/promoted.go",
+                        "start": {
+                          "column": 2,
+                          "line": 16
+                        }
+                      },
+                      "type": "SpreadElement"
+                    },
+                    {
+                      "_meta": {},
+                      "cloned": true,
+                      "id": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "computed": false,
+                            "loc": {
+                              "end": {
+                                "column": 14,
+                                "line": 16
+                              },
+                              "sourcefile": "examples/promoted.go",
+                              "start": {
+                                "column": 2,
+                                "line": 16
+                              }
+                            },
+                            "object": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 6,
+                                  "line": 16
+                                },
+                                "sourcefile": "examples/promoted.go",
+                                "start": {
+                                  "column": 2,
+                                  "line": 16
+                                }
+                              },
+                              "name": "http",
+                              "type": "Identifier"
+                            },
+                            "property": {
+                              "_meta": {},
+                              "loc": {
+                                "end": {
+                                  "column": 14,
+                                  "line": 16
+                                },
+                                "sourcefile": "examples/promoted.go",
+                                "start": {
+                                  "column": 7,
+                                  "line": 16
+                                }
+                              },
+                              "name": "Request",
+                              "type": "Identifier"
+                            },
+                            "type": "MemberAccess"
+                          }
+                        },
+                        "loc": null,
+                        "name": "Request",
+                        "type": "Identifier"
+                      },
+                      "init": null,
+                      "loc": {
+                        "end": {
+                          "column": 14,
+                          "line": 16
+                        },
+                        "sourcefile": "examples/promoted.go",
+                        "start": {
+                          "column": 2,
+                          "line": 16
+                        }
+                      },
+                      "type": "VariableDeclaration",
+                      "varType": {
+                        "_meta": {},
+                        "computed": false,
+                        "loc": {
+                          "end": {
+                            "column": 14,
+                            "line": 16
+                          },
+                          "sourcefile": "examples/promoted.go",
+                          "start": {
+                            "column": 2,
+                            "line": 16
+                          }
+                        },
+                        "object": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 6,
+                              "line": 16
+                            },
+                            "sourcefile": "examples/promoted.go",
+                            "start": {
+                              "column": 2,
+                              "line": 16
+                            }
+                          },
+                          "name": "http",
+                          "type": "Identifier"
+                        },
+                        "property": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 14,
+                              "line": 16
+                            },
+                            "sourcefile": "examples/promoted.go",
+                            "start": {
+                              "column": 7,
+                              "line": 16
+                            }
+                          },
+                          "name": "Request",
+                          "type": "Identifier"
+                        },
+                        "type": "MemberAccess"
+                      },
+                      "variableParam": false
+                    },
+                    {
+                      "_meta": {},
+                      "cloned": true,
+                      "id": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 20,
+                                "line": 17
+                              },
+                              "sourcefile": "examples/promoted.go",
+                              "start": {
+                                "column": 15,
+                                "line": 17
+                              }
+                            },
+                            "name": "int32",
+                            "type": "Identifier"
+                          }
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 5,
+                            "line": 17
+                          },
+                          "sourcefile": "examples/promoted.go",
+                          "start": {
+                            "column": 2,
+                            "line": 17
+                          }
+                        },
+                        "name": "age",
+                        "type": "Identifier"
+                      },
+                      "init": null,
+                      "loc": {
+                        "end": {
+                          "column": 20,
+                          "line": 17
+                        },
+                        "sourcefile": "examples/promoted.go",
+                        "start": {
+                          "column": 2,
+                          "line": 17
+                        }
+                      },
+                      "type": "VariableDeclaration",
+                      "varType": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 20,
+                            "line": 17
+                          },
+                          "sourcefile": "examples/promoted.go",
+                          "start": {
+                            "column": 15,
+                            "line": 17
+                          }
+                        },
+                        "name": "int32",
+                        "type": "Identifier"
+                      },
+                      "variableParam": false
+                    }
+                  ],
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 8,
+                        "line": 15
+                      },
+                      "sourcefile": "examples/promoted.go",
+                      "start": {
+                        "column": 6,
+                        "line": 15
+                      }
+                    },
+                    "name": "T2",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 18
+                    },
+                    "sourcefile": "examples/promoted.go",
+                    "start": {
+                      "column": 6,
+                      "line": 15
+                    }
+                  },
+                  "supers": [],
+                  "type": "ClassDefinition"
+                },
+                {
+                  "_meta": {},
+                  "body": {
+                    "_meta": {},
+                    "body": [
+                      {
+                        "_meta": {},
+                        "arguments": [
+                          {
+                            "_meta": {},
+                            "literalType": "STRING",
+                            "loc": {
+                              "end": {
+                                "column": 19,
+                                "line": 23
+                              },
+                              "sourcefile": "examples/promoted.go",
+                              "start": {
+                                "column": 14,
+                                "line": 23
+                              }
+                            },
+                            "type": "Literal",
+                            "value": "\"123\""
+                          }
+                        ],
+                        "callee": {
+                          "_meta": {},
+                          "computed": false,
+                          "loc": {
+                            "end": {
+                              "column": 13,
+                              "line": 23
+                            },
+                            "sourcefile": "examples/promoted.go",
+                            "start": {
+                              "column": 2,
+                              "line": 23
+                            }
+                          },
+                          "object": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 5,
+                                "line": 23
+                              },
+                              "sourcefile": "examples/promoted.go",
+                              "start": {
+                                "column": 2,
+                                "line": 23
+                              }
+                            },
+                            "name": "fmt",
+                            "type": "Identifier"
+                          },
+                          "property": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 13,
+                                "line": 23
+                              },
+                              "sourcefile": "examples/promoted.go",
+                              "start": {
+                                "column": 6,
+                                "line": 23
+                              }
+                            },
+                            "name": "Println",
+                            "type": "Identifier"
+                          },
+                          "type": "MemberAccess"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 20,
+                            "line": 23
+                          },
+                          "sourcefile": "examples/promoted.go",
+                          "start": {
+                            "column": 2,
+                            "line": 23
+                          }
+                        },
+                        "type": "CallExpression"
+                      }
+                    ],
+                    "id": null,
+                    "loc": {
+                      "end": {
+                        "column": 2,
+                        "line": 24
+                      },
+                      "sourcefile": "examples/promoted.go",
+                      "start": {
+                        "column": 14,
+                        "line": 20
+                      }
+                    },
+                    "type": "ScopedStatement"
+                  },
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 11,
+                        "line": 20
+                      },
+                      "sourcefile": "examples/promoted.go",
+                      "start": {
+                        "column": 6,
+                        "line": 20
+                      }
+                    },
+                    "name": "Types",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 24
+                    },
+                    "sourcefile": "examples/promoted.go",
+                    "start": {
+                      "column": 1,
+                      "line": 20
+                    }
+                  },
+                  "modifiers": null,
+                  "parameters": [],
+                  "returnType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "VoidType",
+                    "typeArguments": null
+                  },
+                  "type": "FunctionDefinition"
+                }
+              ],
+              "language": "golang",
+              "languageVersion": "1.18",
+              "loc": {
+                "end": {
+                  "column": 2,
+                  "line": 24
+                },
+                "sourcefile": "examples/promoted.go",
+                "start": {
+                  "column": 1,
+                  "line": 1
+                }
+              },
+              "type": "CompileUnit",
+              "uri": "",
+              "version": ""
+            },
+            "packageName": "__single__"
+          }
+        },
+        "subs": {}
+      }
+    }
+  }
+}

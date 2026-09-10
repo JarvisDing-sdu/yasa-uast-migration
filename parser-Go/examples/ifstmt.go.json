@@ -1,0 +1,598 @@
+{
+  "moduleName": "__single_module__",
+  "packageInfo": {
+    "PathName": "",
+    "files": {},
+    "subs": {
+      "/": {
+        "PathName": "",
+        "files": {
+          "examples/ifstmt.go": {
+            "node": {
+              "_meta": {},
+              "body": [
+                {
+                  "_meta": {},
+                  "loc": {
+                    "end": {
+                      "column": 17,
+                      "line": 1
+                    },
+                    "sourcefile": "examples/ifstmt.go",
+                    "start": {
+                      "column": 9,
+                      "line": 1
+                    }
+                  },
+                  "packageName": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 17,
+                        "line": 1
+                      },
+                      "sourcefile": "examples/ifstmt.go",
+                      "start": {
+                        "column": 9,
+                        "line": 1
+                      }
+                    },
+                    "name": "examples",
+                    "type": "Identifier"
+                  },
+                  "type": "PackageDeclaration"
+                },
+                {
+                  "_meta": {
+                    "ReceiveCls": "",
+                    "isDefaultImport": true
+                  },
+                  "cloned": false,
+                  "id": {
+                    "_meta": {},
+                    "loc": null,
+                    "name": "fmt",
+                    "type": "Identifier"
+                  },
+                  "init": {
+                    "_meta": {},
+                    "from": {
+                      "_meta": {},
+                      "literalType": "string",
+                      "loc": {
+                        "end": {
+                          "column": 13,
+                          "line": 3
+                        },
+                        "sourcefile": "examples/ifstmt.go",
+                        "start": {
+                          "column": 8,
+                          "line": 3
+                        }
+                      },
+                      "type": "Literal",
+                      "value": "fmt"
+                    },
+                    "imported": null,
+                    "loc": {
+                      "end": {
+                        "column": 13,
+                        "line": 3
+                      },
+                      "sourcefile": "examples/ifstmt.go",
+                      "start": {
+                        "column": 8,
+                        "line": 3
+                      }
+                    },
+                    "local": null,
+                    "type": "ImportExpression"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 13,
+                      "line": 3
+                    },
+                    "sourcefile": "examples/ifstmt.go",
+                    "start": {
+                      "column": 8,
+                      "line": 3
+                    }
+                  },
+                  "type": "VariableDeclaration",
+                  "varType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "DynamicType",
+                    "typeArguments": null
+                  },
+                  "variableParam": false
+                },
+                {
+                  "_meta": {},
+                  "body": {
+                    "_meta": {},
+                    "body": [
+                      {
+                        "_meta": {},
+                        "body": [
+                          {
+                            "_meta": {},
+                            "cloned": true,
+                            "id": {
+                              "_meta": {
+                                "ReceiveCls": "",
+                                "type": {
+                                  "_meta": {},
+                                  "computed": false,
+                                  "loc": {
+                                    "end": {
+                                      "column": 20,
+                                      "line": 6
+                                    },
+                                    "sourcefile": "examples/ifstmt.go",
+                                    "start": {
+                                      "column": 12,
+                                      "line": 6
+                                    }
+                                  },
+                                  "object": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 15,
+                                        "line": 6
+                                      },
+                                      "sourcefile": "examples/ifstmt.go",
+                                      "start": {
+                                        "column": 12,
+                                        "line": 6
+                                      }
+                                    },
+                                    "name": "ctx",
+                                    "type": "Identifier"
+                                  },
+                                  "property": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 20,
+                                        "line": 6
+                                      },
+                                      "sourcefile": "examples/ifstmt.go",
+                                      "start": {
+                                        "column": 16,
+                                        "line": 6
+                                      }
+                                    },
+                                    "name": "Bind",
+                                    "type": "Identifier"
+                                  },
+                                  "type": "MemberAccess"
+                                }
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 8,
+                                  "line": 6
+                                },
+                                "sourcefile": "examples/ifstmt.go",
+                                "start": {
+                                  "column": 5,
+                                  "line": 6
+                                }
+                              },
+                              "name": "err",
+                              "type": "Identifier"
+                            },
+                            "init": {
+                              "_meta": {},
+                              "arguments": [
+                                {
+                                  "_meta": {},
+                                  "argument": {
+                                    "_meta": {},
+                                    "loc": {
+                                      "end": {
+                                        "column": 29,
+                                        "line": 6
+                                      },
+                                      "sourcefile": "examples/ifstmt.go",
+                                      "start": {
+                                        "column": 22,
+                                        "line": 6
+                                      }
+                                    },
+                                    "name": "taskObj",
+                                    "type": "Identifier"
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 29,
+                                      "line": 6
+                                    },
+                                    "sourcefile": "examples/ifstmt.go",
+                                    "start": {
+                                      "column": 21,
+                                      "line": 6
+                                    }
+                                  },
+                                  "type": "ReferenceExpression"
+                                }
+                              ],
+                              "callee": {
+                                "_meta": {},
+                                "computed": false,
+                                "loc": {
+                                  "end": {
+                                    "column": 20,
+                                    "line": 6
+                                  },
+                                  "sourcefile": "examples/ifstmt.go",
+                                  "start": {
+                                    "column": 12,
+                                    "line": 6
+                                  }
+                                },
+                                "object": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 15,
+                                      "line": 6
+                                    },
+                                    "sourcefile": "examples/ifstmt.go",
+                                    "start": {
+                                      "column": 12,
+                                      "line": 6
+                                    }
+                                  },
+                                  "name": "ctx",
+                                  "type": "Identifier"
+                                },
+                                "property": {
+                                  "_meta": {},
+                                  "loc": {
+                                    "end": {
+                                      "column": 20,
+                                      "line": 6
+                                    },
+                                    "sourcefile": "examples/ifstmt.go",
+                                    "start": {
+                                      "column": 16,
+                                      "line": 6
+                                    }
+                                  },
+                                  "name": "Bind",
+                                  "type": "Identifier"
+                                },
+                                "type": "MemberAccess"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 30,
+                                  "line": 6
+                                },
+                                "sourcefile": "examples/ifstmt.go",
+                                "start": {
+                                  "column": 12,
+                                  "line": 6
+                                }
+                              },
+                              "type": "CallExpression"
+                            },
+                            "loc": {
+                              "end": {
+                                "column": 30,
+                                "line": 6
+                              },
+                              "sourcefile": "examples/ifstmt.go",
+                              "start": {
+                                "column": 5,
+                                "line": 6
+                              }
+                            },
+                            "type": "VariableDeclaration",
+                            "varType": {
+                              "_meta": {},
+                              "computed": false,
+                              "loc": {
+                                "end": {
+                                  "column": 20,
+                                  "line": 6
+                                },
+                                "sourcefile": "examples/ifstmt.go",
+                                "start": {
+                                  "column": 12,
+                                  "line": 6
+                                }
+                              },
+                              "object": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 15,
+                                    "line": 6
+                                  },
+                                  "sourcefile": "examples/ifstmt.go",
+                                  "start": {
+                                    "column": 12,
+                                    "line": 6
+                                  }
+                                },
+                                "name": "ctx",
+                                "type": "Identifier"
+                              },
+                              "property": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 20,
+                                    "line": 6
+                                  },
+                                  "sourcefile": "examples/ifstmt.go",
+                                  "start": {
+                                    "column": 16,
+                                    "line": 6
+                                  }
+                                },
+                                "name": "Bind",
+                                "type": "Identifier"
+                              },
+                              "type": "MemberAccess"
+                            },
+                            "variableParam": false
+                          },
+                          {
+                            "_meta": {},
+                            "alternative": {
+                              "_meta": {},
+                              "loc": null,
+                              "type": "Noop"
+                            },
+                            "consequent": {
+                              "_meta": {},
+                              "body": [
+                                {
+                                  "_meta": {},
+                                  "arguments": [
+                                    {
+                                      "_meta": {},
+                                      "literalType": "STRING",
+                                      "loc": {
+                                        "end": {
+                                          "column": 37,
+                                          "line": 7
+                                        },
+                                        "sourcefile": "examples/ifstmt.go",
+                                        "start": {
+                                          "column": 15,
+                                          "line": 7
+                                        }
+                                      },
+                                      "type": "Literal",
+                                      "value": "\"x is greater than 5.\""
+                                    }
+                                  ],
+                                  "callee": {
+                                    "_meta": {},
+                                    "computed": false,
+                                    "loc": {
+                                      "end": {
+                                        "column": 14,
+                                        "line": 7
+                                      },
+                                      "sourcefile": "examples/ifstmt.go",
+                                      "start": {
+                                        "column": 3,
+                                        "line": 7
+                                      }
+                                    },
+                                    "object": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 6,
+                                          "line": 7
+                                        },
+                                        "sourcefile": "examples/ifstmt.go",
+                                        "start": {
+                                          "column": 3,
+                                          "line": 7
+                                        }
+                                      },
+                                      "name": "fmt",
+                                      "type": "Identifier"
+                                    },
+                                    "property": {
+                                      "_meta": {},
+                                      "loc": {
+                                        "end": {
+                                          "column": 14,
+                                          "line": 7
+                                        },
+                                        "sourcefile": "examples/ifstmt.go",
+                                        "start": {
+                                          "column": 7,
+                                          "line": 7
+                                        }
+                                      },
+                                      "name": "Println",
+                                      "type": "Identifier"
+                                    },
+                                    "type": "MemberAccess"
+                                  },
+                                  "loc": {
+                                    "end": {
+                                      "column": 38,
+                                      "line": 7
+                                    },
+                                    "sourcefile": "examples/ifstmt.go",
+                                    "start": {
+                                      "column": 3,
+                                      "line": 7
+                                    }
+                                  },
+                                  "type": "CallExpression"
+                                }
+                              ],
+                              "id": null,
+                              "loc": {
+                                "end": {
+                                  "column": 3,
+                                  "line": 8
+                                },
+                                "sourcefile": "examples/ifstmt.go",
+                                "start": {
+                                  "column": 43,
+                                  "line": 6
+                                }
+                              },
+                              "type": "ScopedStatement"
+                            },
+                            "loc": null,
+                            "test": {
+                              "_meta": {},
+                              "left": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 35,
+                                    "line": 6
+                                  },
+                                  "sourcefile": "examples/ifstmt.go",
+                                  "start": {
+                                    "column": 32,
+                                    "line": 6
+                                  }
+                                },
+                                "name": "err",
+                                "type": "Identifier"
+                              },
+                              "loc": {
+                                "end": {
+                                  "column": 42,
+                                  "line": 6
+                                },
+                                "sourcefile": "examples/ifstmt.go",
+                                "start": {
+                                  "column": 32,
+                                  "line": 6
+                                }
+                              },
+                              "operator": "!=",
+                              "right": {
+                                "_meta": {},
+                                "loc": {
+                                  "end": {
+                                    "column": 42,
+                                    "line": 6
+                                  },
+                                  "sourcefile": "examples/ifstmt.go",
+                                  "start": {
+                                    "column": 39,
+                                    "line": 6
+                                  }
+                                },
+                                "name": "nil",
+                                "type": "Identifier"
+                              },
+                              "type": "BinaryExpression"
+                            },
+                            "type": "IfStatement"
+                          }
+                        ],
+                        "id": null,
+                        "loc": {
+                          "end": {
+                            "column": 3,
+                            "line": 8
+                          },
+                          "sourcefile": "examples/ifstmt.go",
+                          "start": {
+                            "column": 2,
+                            "line": 6
+                          }
+                        },
+                        "type": "ScopedStatement"
+                      }
+                    ],
+                    "id": null,
+                    "loc": {
+                      "end": {
+                        "column": 2,
+                        "line": 9
+                      },
+                      "sourcefile": "examples/ifstmt.go",
+                      "start": {
+                        "column": 15,
+                        "line": 5
+                      }
+                    },
+                    "type": "ScopedStatement"
+                  },
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 12,
+                        "line": 5
+                      },
+                      "sourcefile": "examples/ifstmt.go",
+                      "start": {
+                        "column": 6,
+                        "line": 5
+                      }
+                    },
+                    "name": "ifstmt",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 9
+                    },
+                    "sourcefile": "examples/ifstmt.go",
+                    "start": {
+                      "column": 1,
+                      "line": 5
+                    }
+                  },
+                  "modifiers": null,
+                  "parameters": [],
+                  "returnType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "VoidType",
+                    "typeArguments": null
+                  },
+                  "type": "FunctionDefinition"
+                }
+              ],
+              "language": "golang",
+              "languageVersion": "1.18",
+              "loc": {
+                "end": {
+                  "column": 2,
+                  "line": 9
+                },
+                "sourcefile": "examples/ifstmt.go",
+                "start": {
+                  "column": 1,
+                  "line": 1
+                }
+              },
+              "type": "CompileUnit",
+              "uri": "",
+              "version": ""
+            },
+            "packageName": "__single__"
+          }
+        },
+        "subs": {}
+      }
+    }
+  }
+}

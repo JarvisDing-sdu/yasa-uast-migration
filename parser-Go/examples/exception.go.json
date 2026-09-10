@@ -1,0 +1,769 @@
+{
+  "moduleName": "__single_module__",
+  "packageInfo": {
+    "PathName": "",
+    "files": {},
+    "subs": {
+      "/": {
+        "PathName": "",
+        "files": {
+          "examples/exception.go": {
+            "node": {
+              "_meta": {},
+              "body": [
+                {
+                  "_meta": {},
+                  "loc": {
+                    "end": {
+                      "column": 17,
+                      "line": 1
+                    },
+                    "sourcefile": "examples/exception.go",
+                    "start": {
+                      "column": 9,
+                      "line": 1
+                    }
+                  },
+                  "packageName": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 17,
+                        "line": 1
+                      },
+                      "sourcefile": "examples/exception.go",
+                      "start": {
+                        "column": 9,
+                        "line": 1
+                      }
+                    },
+                    "name": "examples",
+                    "type": "Identifier"
+                  },
+                  "type": "PackageDeclaration"
+                },
+                {
+                  "_meta": {},
+                  "body": {
+                    "_meta": {},
+                    "body": [
+                      {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "defer": true
+                        },
+                        "arguments": [],
+                        "callee": {
+                          "_meta": {},
+                          "body": {
+                            "_meta": {},
+                            "body": [
+                              {
+                                "_meta": {},
+                                "body": [
+                                  {
+                                    "_meta": {},
+                                    "cloned": true,
+                                    "id": {
+                                      "_meta": {
+                                        "ReceiveCls": "",
+                                        "type": {
+                                          "_meta": {},
+                                          "id": null,
+                                          "loc": null,
+                                          "type": "DynamicType",
+                                          "typeArguments": null
+                                        }
+                                      },
+                                      "loc": {
+                                        "end": {
+                                          "column": 7,
+                                          "line": 5
+                                        },
+                                        "sourcefile": "examples/exception.go",
+                                        "start": {
+                                          "column": 6,
+                                          "line": 5
+                                        }
+                                      },
+                                      "name": "r",
+                                      "type": "Identifier"
+                                    },
+                                    "init": {
+                                      "_meta": {},
+                                      "arguments": [],
+                                      "callee": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 18,
+                                            "line": 5
+                                          },
+                                          "sourcefile": "examples/exception.go",
+                                          "start": {
+                                            "column": 11,
+                                            "line": 5
+                                          }
+                                        },
+                                        "name": "recover",
+                                        "type": "Identifier"
+                                      },
+                                      "loc": {
+                                        "end": {
+                                          "column": 20,
+                                          "line": 5
+                                        },
+                                        "sourcefile": "examples/exception.go",
+                                        "start": {
+                                          "column": 11,
+                                          "line": 5
+                                        }
+                                      },
+                                      "type": "CallExpression"
+                                    },
+                                    "loc": {
+                                      "end": {
+                                        "column": 20,
+                                        "line": 5
+                                      },
+                                      "sourcefile": "examples/exception.go",
+                                      "start": {
+                                        "column": 6,
+                                        "line": 5
+                                      }
+                                    },
+                                    "type": "VariableDeclaration",
+                                    "varType": {
+                                      "_meta": {},
+                                      "id": null,
+                                      "loc": null,
+                                      "type": "DynamicType",
+                                      "typeArguments": null
+                                    },
+                                    "variableParam": false
+                                  },
+                                  {
+                                    "_meta": {},
+                                    "alternative": {
+                                      "_meta": {},
+                                      "loc": null,
+                                      "type": "Noop"
+                                    },
+                                    "consequent": {
+                                      "_meta": {},
+                                      "body": [
+                                        {
+                                          "_meta": {},
+                                          "arguments": [
+                                            {
+                                              "_meta": {},
+                                              "loc": {
+                                                "end": {
+                                                  "column": 18,
+                                                  "line": 6
+                                                },
+                                                "sourcefile": "examples/exception.go",
+                                                "start": {
+                                                  "column": 17,
+                                                  "line": 6
+                                                }
+                                              },
+                                              "name": "r",
+                                              "type": "Identifier"
+                                            }
+                                          ],
+                                          "callee": {
+                                            "_meta": {},
+                                            "loc": {
+                                              "end": {
+                                                "column": 16,
+                                                "line": 6
+                                              },
+                                              "sourcefile": "examples/exception.go",
+                                              "start": {
+                                                "column": 4,
+                                                "line": 6
+                                              }
+                                            },
+                                            "name": "__taint_sink",
+                                            "type": "Identifier"
+                                          },
+                                          "loc": {
+                                            "end": {
+                                              "column": 19,
+                                              "line": 6
+                                            },
+                                            "sourcefile": "examples/exception.go",
+                                            "start": {
+                                              "column": 4,
+                                              "line": 6
+                                            }
+                                          },
+                                          "type": "CallExpression"
+                                        }
+                                      ],
+                                      "id": null,
+                                      "loc": {
+                                        "end": {
+                                          "column": 4,
+                                          "line": 7
+                                        },
+                                        "sourcefile": "examples/exception.go",
+                                        "start": {
+                                          "column": 31,
+                                          "line": 5
+                                        }
+                                      },
+                                      "type": "ScopedStatement"
+                                    },
+                                    "loc": null,
+                                    "test": {
+                                      "_meta": {},
+                                      "left": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 23,
+                                            "line": 5
+                                          },
+                                          "sourcefile": "examples/exception.go",
+                                          "start": {
+                                            "column": 22,
+                                            "line": 5
+                                          }
+                                        },
+                                        "name": "r",
+                                        "type": "Identifier"
+                                      },
+                                      "loc": {
+                                        "end": {
+                                          "column": 30,
+                                          "line": 5
+                                        },
+                                        "sourcefile": "examples/exception.go",
+                                        "start": {
+                                          "column": 22,
+                                          "line": 5
+                                        }
+                                      },
+                                      "operator": "!=",
+                                      "right": {
+                                        "_meta": {},
+                                        "loc": {
+                                          "end": {
+                                            "column": 30,
+                                            "line": 5
+                                          },
+                                          "sourcefile": "examples/exception.go",
+                                          "start": {
+                                            "column": 27,
+                                            "line": 5
+                                          }
+                                        },
+                                        "name": "nil",
+                                        "type": "Identifier"
+                                      },
+                                      "type": "BinaryExpression"
+                                    },
+                                    "type": "IfStatement"
+                                  }
+                                ],
+                                "id": null,
+                                "loc": {
+                                  "end": {
+                                    "column": 4,
+                                    "line": 7
+                                  },
+                                  "sourcefile": "examples/exception.go",
+                                  "start": {
+                                    "column": 3,
+                                    "line": 5
+                                  }
+                                },
+                                "type": "ScopedStatement"
+                              }
+                            ],
+                            "id": null,
+                            "loc": {
+                              "end": {
+                                "column": 3,
+                                "line": 8
+                              },
+                              "sourcefile": "examples/exception.go",
+                              "start": {
+                                "column": 15,
+                                "line": 4
+                              }
+                            },
+                            "type": "ScopedStatement"
+                          },
+                          "id": null,
+                          "loc": {
+                            "end": {
+                              "column": 3,
+                              "line": 8
+                            },
+                            "sourcefile": "examples/exception.go",
+                            "start": {
+                              "column": 8,
+                              "line": 4
+                            }
+                          },
+                          "modifiers": null,
+                          "parameters": [],
+                          "returnType": {
+                            "_meta": {},
+                            "id": null,
+                            "loc": null,
+                            "type": "VoidType",
+                            "typeArguments": null
+                          },
+                          "type": "FunctionDefinition"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 5,
+                            "line": 8
+                          },
+                          "sourcefile": "examples/exception.go",
+                          "start": {
+                            "column": 2,
+                            "line": 4
+                          }
+                        },
+                        "type": "CallExpression"
+                      },
+                      {
+                        "_meta": {},
+                        "arguments": [
+                          {
+                            "_meta": {},
+                            "literalType": "STRING",
+                            "loc": {
+                              "end": {
+                                "column": 11,
+                                "line": 10
+                              },
+                              "sourcefile": "examples/exception.go",
+                              "start": {
+                                "column": 8,
+                                "line": 10
+                              }
+                            },
+                            "type": "Literal",
+                            "value": "\"_\""
+                          }
+                        ],
+                        "callee": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 7,
+                              "line": 10
+                            },
+                            "sourcefile": "examples/exception.go",
+                            "start": {
+                              "column": 2,
+                              "line": 10
+                            }
+                          },
+                          "name": "panic",
+                          "type": "Identifier"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 12,
+                            "line": 10
+                          },
+                          "sourcefile": "examples/exception.go",
+                          "start": {
+                            "column": 2,
+                            "line": 10
+                          }
+                        },
+                        "type": "CallExpression"
+                      }
+                    ],
+                    "id": null,
+                    "loc": {
+                      "end": {
+                        "column": 2,
+                        "line": 12
+                      },
+                      "sourcefile": "examples/exception.go",
+                      "start": {
+                        "column": 48,
+                        "line": 3
+                      }
+                    },
+                    "type": "ScopedStatement"
+                  },
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 27,
+                        "line": 3
+                      },
+                      "sourcefile": "examples/exception.go",
+                      "start": {
+                        "column": 6,
+                        "line": 3
+                      }
+                    },
+                    "name": "exception_throw_002_F",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 12
+                    },
+                    "sourcefile": "examples/exception.go",
+                    "start": {
+                      "column": 1,
+                      "line": 3
+                    }
+                  },
+                  "modifiers": null,
+                  "parameters": [
+                    {
+                      "_meta": {},
+                      "cloned": true,
+                      "id": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "loc": {
+                              "end": {
+                                "column": 46,
+                                "line": 3
+                              },
+                              "sourcefile": "examples/exception.go",
+                              "start": {
+                                "column": 40,
+                                "line": 3
+                              }
+                            },
+                            "name": "string",
+                            "type": "Identifier"
+                          }
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 39,
+                            "line": 3
+                          },
+                          "sourcefile": "examples/exception.go",
+                          "start": {
+                            "column": 28,
+                            "line": 3
+                          }
+                        },
+                        "name": "__taint_src",
+                        "type": "Identifier"
+                      },
+                      "init": null,
+                      "loc": {
+                        "end": {
+                          "column": 46,
+                          "line": 3
+                        },
+                        "sourcefile": "examples/exception.go",
+                        "start": {
+                          "column": 28,
+                          "line": 3
+                        }
+                      },
+                      "type": "VariableDeclaration",
+                      "varType": {
+                        "_meta": {},
+                        "loc": {
+                          "end": {
+                            "column": 46,
+                            "line": 3
+                          },
+                          "sourcefile": "examples/exception.go",
+                          "start": {
+                            "column": 40,
+                            "line": 3
+                          }
+                        },
+                        "name": "string",
+                        "type": "Identifier"
+                      },
+                      "variableParam": false
+                    }
+                  ],
+                  "returnType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "VoidType",
+                    "typeArguments": null
+                  },
+                  "type": "FunctionDefinition"
+                },
+                {
+                  "_meta": {},
+                  "body": {
+                    "_meta": {},
+                    "body": [],
+                    "id": null,
+                    "loc": {
+                      "end": {
+                        "column": 36,
+                        "line": 14
+                      },
+                      "sourcefile": "examples/exception.go",
+                      "start": {
+                        "column": 34,
+                        "line": 14
+                      }
+                    },
+                    "type": "ScopedStatement"
+                  },
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 18,
+                        "line": 14
+                      },
+                      "sourcefile": "examples/exception.go",
+                      "start": {
+                        "column": 6,
+                        "line": 14
+                      }
+                    },
+                    "name": "__taint_sink",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 36,
+                      "line": 14
+                    },
+                    "sourcefile": "examples/exception.go",
+                    "start": {
+                      "column": 1,
+                      "line": 14
+                    }
+                  },
+                  "modifiers": null,
+                  "parameters": [
+                    {
+                      "_meta": {},
+                      "cloned": true,
+                      "id": {
+                        "_meta": {
+                          "ReceiveCls": "",
+                          "type": {
+                            "_meta": {},
+                            "id": null,
+                            "loc": {
+                              "end": {
+                                "column": 32,
+                                "line": 14
+                              },
+                              "sourcefile": "examples/exception.go",
+                              "start": {
+                                "column": 21,
+                                "line": 14
+                              }
+                            },
+                            "type": "DynamicType",
+                            "typeArguments": null
+                          }
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 20,
+                            "line": 14
+                          },
+                          "sourcefile": "examples/exception.go",
+                          "start": {
+                            "column": 19,
+                            "line": 14
+                          }
+                        },
+                        "name": "o",
+                        "type": "Identifier"
+                      },
+                      "init": null,
+                      "loc": {
+                        "end": {
+                          "column": 32,
+                          "line": 14
+                        },
+                        "sourcefile": "examples/exception.go",
+                        "start": {
+                          "column": 19,
+                          "line": 14
+                        }
+                      },
+                      "type": "VariableDeclaration",
+                      "varType": {
+                        "_meta": {},
+                        "id": null,
+                        "loc": {
+                          "end": {
+                            "column": 32,
+                            "line": 14
+                          },
+                          "sourcefile": "examples/exception.go",
+                          "start": {
+                            "column": 21,
+                            "line": 14
+                          }
+                        },
+                        "type": "DynamicType",
+                        "typeArguments": null
+                      },
+                      "variableParam": false
+                    }
+                  ],
+                  "returnType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "VoidType",
+                    "typeArguments": null
+                  },
+                  "type": "FunctionDefinition"
+                },
+                {
+                  "_meta": {},
+                  "body": {
+                    "_meta": {},
+                    "body": [
+                      {
+                        "_meta": {},
+                        "arguments": [
+                          {
+                            "_meta": {},
+                            "literalType": "STRING",
+                            "loc": {
+                              "end": {
+                                "column": 37,
+                                "line": 17
+                              },
+                              "sourcefile": "examples/exception.go",
+                              "start": {
+                                "column": 24,
+                                "line": 17
+                              }
+                            },
+                            "type": "Literal",
+                            "value": "\"__taint_src\""
+                          }
+                        ],
+                        "callee": {
+                          "_meta": {},
+                          "loc": {
+                            "end": {
+                              "column": 23,
+                              "line": 17
+                            },
+                            "sourcefile": "examples/exception.go",
+                            "start": {
+                              "column": 2,
+                              "line": 17
+                            }
+                          },
+                          "name": "exception_throw_002_F",
+                          "type": "Identifier"
+                        },
+                        "loc": {
+                          "end": {
+                            "column": 38,
+                            "line": 17
+                          },
+                          "sourcefile": "examples/exception.go",
+                          "start": {
+                            "column": 2,
+                            "line": 17
+                          }
+                        },
+                        "type": "CallExpression"
+                      }
+                    ],
+                    "id": null,
+                    "loc": {
+                      "end": {
+                        "column": 2,
+                        "line": 18
+                      },
+                      "sourcefile": "examples/exception.go",
+                      "start": {
+                        "column": 13,
+                        "line": 16
+                      }
+                    },
+                    "type": "ScopedStatement"
+                  },
+                  "id": {
+                    "_meta": {},
+                    "loc": {
+                      "end": {
+                        "column": 10,
+                        "line": 16
+                      },
+                      "sourcefile": "examples/exception.go",
+                      "start": {
+                        "column": 6,
+                        "line": 16
+                      }
+                    },
+                    "name": "main",
+                    "type": "Identifier"
+                  },
+                  "loc": {
+                    "end": {
+                      "column": 2,
+                      "line": 18
+                    },
+                    "sourcefile": "examples/exception.go",
+                    "start": {
+                      "column": 1,
+                      "line": 16
+                    }
+                  },
+                  "modifiers": null,
+                  "parameters": [],
+                  "returnType": {
+                    "_meta": {},
+                    "id": null,
+                    "loc": null,
+                    "type": "VoidType",
+                    "typeArguments": null
+                  },
+                  "type": "FunctionDefinition"
+                }
+              ],
+              "language": "golang",
+              "languageVersion": "1.18",
+              "loc": {
+                "end": {
+                  "column": 2,
+                  "line": 18
+                },
+                "sourcefile": "examples/exception.go",
+                "start": {
+                  "column": 1,
+                  "line": 1
+                }
+              },
+              "type": "CompileUnit",
+              "uri": "",
+              "version": ""
+            },
+            "packageName": "__single__"
+          }
+        },
+        "subs": {}
+      }
+    }
+  }
+}
