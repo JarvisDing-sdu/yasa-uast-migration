@@ -146,12 +146,12 @@ PYTHON_UAST_ORACLE=/tmp/yasa-python-oracle/bin/python npm run test-python-tree-s
 
 ## 7. 仓库分支布局
 
-由于提交时没有独立的 YASA-UAST/YASA-Engine fork，本迁移仓库使用两个
-可直接获取的快照分支承载子模块，避免根仓库引用无法从远端下载的本地提交：
+项目已 fork 到 `infinitepwn` 账号，子模块保留完整上游历史：
 
-- `submodule/uast-python-tree-sitter`：包含本次 Parser 实现的完整 UAST 快照。
-- `submodule/engine-python-tree-sitter`：包含本次 Engine 接入的完整快照。
-- `main`：迁移说明、总结文档和上述两个子模块的精确提交引用。
+- `infinitepwn/YASA-UAST` 的 `migration/python-tree-sitter` 分支：Python Parser 实现。
+- `infinitepwn/YASA-Engine` 的 `migration/python-tree-sitter` 分支：Engine 接入。
+- `infinitepwn/yasa-uast-migration` 的 `main` 分支：迁移说明、总结文档和两个
+  子模块的精确提交引用。
 
-两个快照都是无父提交，以避免把上游仓库的完整历史重复推入迁移仓库。
-本地仍保留基于上游固定提交的正常开发分支，可用于后续生成上游补丁或 PR。
+`.gitmodules` 直接指向上述两个 fork，普通 clone + submodule 初始化即可获取代码，
+也便于后续从迁移分支向 antgroup 上游仓库提交 Pull Request。
