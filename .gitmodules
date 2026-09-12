@@ -1,6 +1,8 @@
 [submodule "engine"]
 	path = engine
-	url = https://github.com/antgroup/YASA-Engine.git
+	url = https://github.com/JarvisDing-sdu/yasa-uast-migration.git
+	branch = submodule/engine-python-tree-sitter
 [submodule "uast"]
 	path = uast
-	url = https://github.com/antgroup/YASA-UAST.git
+	url = https://github.com/JarvisDing-sdu/yasa-uast-migration.git
+	branch = submodule/uast-python-tree-sitter
