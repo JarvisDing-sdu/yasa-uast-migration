@@ -8,9 +8,17 @@ const Core = require('../../src/engine/parser/parser-core')
 const { execute } = require('../../src/interface/starter')
 const { recordFindingStr } = require('../test-utils')
 
+function* walkPyFiles(dir: string): Generator<string> {
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const full = path.join(dir, entry.name)
+    if (entry.isDirectory()) yield* walkPyFiles(full)
+    else if (entry.isFile() && entry.name.endsWith('.py')) yield full
+  }
+}
+
 if (process.argv[2] === 'legacy') {
   Parser.parseProject = async (dir: string, options: any) => {
-    const files = fs.readdirSync(dir).filter(f => f.endsWith('.py')).sort().map(f => path.join(dir, f))
+    const files = Array.from(walkPyFiles(dir)).sort()
     const sources = files.map(f => fs.readFileSync(f, 'utf8'))
     const oracle = path.resolve(__dirname, '../../../uast/parser-Python/tests/legacy.py')
     const result = spawnSync(process.env.PYTHON_UAST_ORACLE!, [oracle, '--batch', '--unit'], {
@@ -37,10 +45,11 @@ if (process.argv[2] === 'legacy') {
 }
 
 async function main() {
+  const targetDir = process.argv[3] || path.resolve(__dirname, 'no-init-dispatch-cases')
   const recorder = recordFindingStr()
   recorder.clearResult()
   await execute(null, [
-    path.resolve(__dirname, 'no-init-dispatch-cases'),
+    targetDir,
     '--ruleConfigFile', path.resolve(__dirname, 'rule_config_xast_python3.json'),
     '--analyzer', 'PythonAnalyzer', '--checkerIds', 'taint_flow_test',
   ], recorder.printAndAppend)
