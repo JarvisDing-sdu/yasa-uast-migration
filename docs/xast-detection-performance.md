@@ -46,6 +46,39 @@
 `sast-python3` 样本语法较为基础，未命中新解析器已知的语法缺口
 （命名 Unicode 转义、3.14 template string、部分泛型默认值）。
 
+### 本机补充复测：606 文件 UAST 差分（2026-09-13）
+
+本节是对上述 macOS / CPython 3.14.5 结果的独立复测，不能与 800 文件结果混为一谈。
+本机使用 Linux（WSL）、Node.js v20.20.0、CPython 3.10.12，以及先前由
+`prepare-python-benchmark.ts` 准备的
+`engine/test/python/benchmarks/sast-python3/case/`。该目录包含 606 个 Python 文件，
+与上文的 800 文件、`d825758` 输入版本不同。
+
+命令如下：
+
+```bash
+cd uast/parser-Python
+PYTHON_UAST_ORACLE="$PWD/.venv/bin/python" \
+  npm run test:compare -- ../../engine/test/python/benchmarks/sast-python3/case
+```
+
+`test:compare` 将新 Tree-sitter Visitor 输出的 `body` 与仓库保留的旧 Python Visitor
+(`tests/legacy.py`) 逐字段比较；它**不会**删除 `loc` 或 `_meta`，因此位置差也会计入差异。
+
+| 结果 | 文件数 | 含义 |
+| --- | ---: | --- |
+| 完全一致 | 588 | UAST 所有比较字段一致。 |
+| 仅 `loc.column` 不同 | 16 | 语义节点字段、操作符、参数和 `_meta` 一致，仅列号范围不同。 |
+| 旧 oracle 无法解析 | 2 | `except*` 异常组语法；本机 CPython 3.10 不支持该 Python 3.11 语法。 |
+| 已发现的非位置语义差异 | 0 | 在双方都可解析的 604 个文件中未发现。 |
+
+16 个位置差集中在 `for enumerate/zip` 样例和 f-string/template literal 的字符串片段位置。
+例如 Tree-sitter 给出的表达式片段列范围与旧 CPython AST Visitor 的范围不同；这会影响严格的
+源码位置回归，但不等价于数据流语义改变。随后使用新 parser 对同一 606 文件执行完整 Engine
+`taint_flow_test` 扫描，得到 **332 个 findings**，与该本地旧 parser xAST 基线的 finding
+总数相同。该 finding 数一致是补充证据；严格的“逐条 finding / trace 文本一致”仍应在使用
+支持 `except*` 的旧 oracle（Python 3.11+）时完成。
+
 ## 检出对比结果
 
 | 指标 | new（tree-sitter） | legacy（Python oracle） |
