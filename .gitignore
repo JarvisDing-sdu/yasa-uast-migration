@@ -7,3 +7,8 @@ node_modules/
 dist/
 __pycache__/
 .venv/
+workstreams/dl-cross-language-research/.venv/
+workstreams/dl-cross-language-research/benchmarks/
+workstreams/dl-cross-language-research/fixtures/generated/
+workstreams/yasa-python-migration/docs/YASA迁移技术总结.md
+workstreams/dl-cross-language-research/docs/UAST跨语言代码生成方案.md

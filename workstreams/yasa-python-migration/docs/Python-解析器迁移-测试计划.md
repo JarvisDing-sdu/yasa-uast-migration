@@ -42,7 +42,7 @@
 
 ## 3. 基线
 
-基线是“替换前已经确认正确、以后可重复比较的结果”。本项目已有的 Python 最小基线记录在 [python-baseline.md](python-baseline.md)：
+基线是“替换前已经确认正确、以后可重复比较的结果”。本项目已有的 Python 最小基线记录在 [Python UAST 旧基线](Python-UAST-旧基线.md)：
 
 ```text
 Engine: v0.3.2 / 249420d
@@ -233,7 +233,7 @@ xAST commit、规则文件 hash、版本信息
 
 结果应放在工作区的 `artifacts/`（该目录不提交）和一份可提交的摘要文档中。
 
-2026-09-07 已完成这一步的官方 Python 3 xAST 基线：`main-forYasaTest` / `32a74f8`，606 个 Python 文件，332 个 finding，官方快照比较 `332 passing`；Engine 总扫描时间 8,605 ms，shell 墙钟时间 10.44 s，峰值 RSS 约 446 MiB。详见 [python-baseline.md](python-baseline.md)。
+2026-09-07 已完成这一步的官方 Python 3 xAST 基线：`main-forYasaTest` / `32a74f8`，606 个 Python 文件，332 个 finding，官方快照比较 `332 passing`；Engine 总扫描时间 8,605 ms，shell 墙钟时间 10.44 s，峰值 RSS 约 446 MiB。详见 [Python UAST 旧基线](Python-UAST-旧基线.md)。
 
 ### 7.3 迁移后（Node parser）
 

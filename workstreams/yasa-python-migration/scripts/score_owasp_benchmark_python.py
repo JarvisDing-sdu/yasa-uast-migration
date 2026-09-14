@@ -50,20 +50,49 @@ def load_flagged_tests(path: Path):
     return results, flagged, sorted(set(unmatched))
 
 
+def case_name_from_result(result):
+    locations = result.get("locations", [])
+    uri = ""
+    if locations:
+        uri = locations[0].get("physicalLocation", {}).get("artifactLocation", {}).get("uri", "")
+    match = TEST_NAME_RE.search(uri)
+    return match.group(1) if match else None
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--expected", required=True, type=Path)
     parser.add_argument("--sarif", required=True, type=Path)
     parser.add_argument("--out", type=Path)
+    parser.add_argument(
+        "--include-categories",
+        help="Comma-separated OWASP categories to score; default scores every category.",
+    )
+    parser.add_argument(
+        "--scope-name",
+        help="Optional human-readable name for the selected category scope.",
+    )
     args = parser.parse_args()
 
-    expected = load_expected(args.expected)
+    expected_all = load_expected(args.expected)
+    included_categories = None
+    if args.include_categories:
+        included_categories = sorted({item.strip() for item in args.include_categories.split(",") if item.strip()})
+        unknown = sorted(set(included_categories) - {item["category"] for item in expected_all.values()})
+        if unknown:
+            raise SystemExit(f"Unknown OWASP categories: {unknown}")
+    expected = {
+        name: metadata for name, metadata in expected_all.items()
+        if included_categories is None or metadata["category"] in included_categories
+    }
     raw_results, flagged, unmatched = load_flagged_tests(args.sarif)
+    scoped_results = [result for result in raw_results if case_name_from_result(result) in expected]
+    scoped_flagged = flagged & set(expected)
     totals = {"TP": 0, "FN": 0, "TN": 0, "FP": 0}
     categories = defaultdict(lambda: {"TP": 0, "FN": 0, "TN": 0, "FP": 0, "total": 0})
 
     for name, metadata in expected.items():
-        hit = name in flagged
+        hit = name in scoped_flagged
         outcome = "TP" if metadata["real"] and hit else "FN" if metadata["real"] else "FP" if hit else "TN"
         totals[outcome] += 1
         bucket = categories[metadata["category"]]
@@ -73,14 +102,17 @@ def main():
     summary = {
         "scoring": "file-level: any SARIF result in BenchmarkTestNNNNN.py marks that case flagged",
         "limitation": "not OWASP's CWE-aware official score; YASA SARIF lacks OWASP CWE/category IDs",
+        "scope_name": args.scope_name,
+        "included_categories": included_categories,
         "expected_cases": len(expected),
         "expected_positive_cases": totals["TP"] + totals["FN"],
         "expected_negative_cases": totals["TN"] + totals["FP"],
         "raw_sarif_results": len(raw_results),
-        "unique_flagged_cases": len(flagged),
+        "scoped_raw_sarif_results": len(scoped_results),
+        "unique_flagged_cases": len(scoped_flagged),
         "outcomes": totals,
         "categories": dict(sorted(categories.items())),
-        "flagged_cases_missing_from_expected": sorted(flagged - set(expected)),
+        "flagged_cases_missing_from_expected": sorted(scoped_flagged - set(expected)),
         "sarif_locations_not_matching_benchmark_test_file": unmatched,
     }
     payload = json.dumps(summary, indent=2) + "\n"

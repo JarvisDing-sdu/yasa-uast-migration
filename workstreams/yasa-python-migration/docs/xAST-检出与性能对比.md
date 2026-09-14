@@ -91,6 +91,52 @@ PYTHON_UAST_ORACLE="$PWD/.venv/bin/python" \
 `new` 与 `legacy` 的输出无任何差异。tree-sitter 迁移在完整 xAST 检出层
 与旧解析器完全对齐，未发现回归。
 
+### 本机 606 文件完整 SARIF / trace 对比（2026-09-14）
+
+本机固定 xAST Python 3 输入为 `engine/test/python/benchmarks/sast-python3/case/`，共 606
+个文件。旧基线 SARIF 为 `engine/test/python/report/report.sarif`；新 Tree-sitter parser 使用
+相同 `taint_flow_test`、同一 rule config、单 worker 重跑，输出到 Git 忽略目录：
+
+```text
+artifacts/xast-python3-new-tree-sitter-taint-regression/
+```
+
+新扫描结果：
+
+```text
+606 files
+332 findings
+1,993 marked sources
+3,682 matched sinks
+1,295 entrypoints
+```
+
+比较器：
+
+```text
+workstreams/yasa-python-migration/scripts/compare_yasa_sarif.py
+```
+
+比较原则是保留 rule、文件、行列、sink、entrypoint 与完整 `codeFlow/threadFlow`，只规范化：
+
+```text
+nodeHash：新旧 UAST 节点对象的派生 hash，不是漏洞语义
+/case/ → /：旧 binary 在 trace 中使用的历史 xAST source-root 拼写
+```
+
+比较结果：
+
+| 指标 | 结果 |
+| --- | --- |
+| old finding | 332 |
+| new finding | 332 |
+| finding identity | 完全一致 |
+| old-only / new-only finding | 0 / 0 |
+| 规范化后完整 SARIF result | 完全一致 |
+
+因此，本机 606 文件的 c 项不仅是“332 对 332”，而是所有 finding 和每条污点链在去除
+派生环境字段后完全一致。
+
 ## 性能对比
 
 数据均为 3 次运行的中位数。

@@ -1,6 +1,6 @@
 # Python UAST 基线（中文）
 
-本文是 [python-baseline.md](python-baseline.md) 的中文说明，用于 Python parser 从外部 `uast4py` binary 迁移到 Node.js 进程内实现前后的回归比较。
+本文是 [Python UAST 旧基线](Python-UAST-旧基线.md) 的中文说明，用于 Python parser 从外部 `uast4py` binary 迁移到 Node.js 进程内实现前后的回归比较。
 
 日期：2026-09-07
 

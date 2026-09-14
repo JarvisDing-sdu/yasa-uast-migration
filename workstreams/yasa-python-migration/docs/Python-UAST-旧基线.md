@@ -33,7 +33,7 @@ The upstream `run_regression.py` references a `chatbot_backend` fixture that is 
 
 ## Source/Binary UAST Equivalence
 
-`scripts/verify_python_uast_baseline.py` parses each source file with both the official Python source parser and the official `uast4py-linux-amd64` binary. It removes only `sourcefile` before structural comparison.
+`workstreams/yasa-python-migration/scripts/verify_python_uast_baseline.py` parses each source file with both the official Python source parser and the official `uast4py-linux-amd64` binary. It removes only `sourcefile` before structural comparison.
 
 | Input | Source nodes | Binary nodes | Normalized SHA-256 | Equal |
 | --- | ---: | ---: | --- | --- |
@@ -143,7 +143,7 @@ PYTHON="$PARSER_ROOT/.venv/bin/python"
 
 "$PYTHON" "$PARSER_ROOT/test/test_compat_keywords.py"
 
-"$PYTHON" scripts/verify_python_uast_baseline.py \
+"$PYTHON" workstreams/yasa-python-migration/scripts/verify_python_uast_baseline.py \
   --source-parser-root "$PARSER_ROOT" \
   --binary runtime/uast-v0.2.18/uast4py-linux-amd64 \
   --source "$PARSER_ROOT/test/test_type_annotations.py" \
