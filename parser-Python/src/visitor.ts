@@ -441,6 +441,21 @@ export class Visitor {
             case 'float': {
                 const text = n.text.replaceAll('_', '');
                 if (/[jJ]$/.test(text)) return this.literal('...', null, n);
+                // Python integers are arbitrary precision, while JavaScript
+                // Number silently rounds above Number.MAX_SAFE_INTEGER. Keep
+                // an unsafe integer token as text; literalType='number'
+                // preserves its Python/UAST meaning and downstream emitters
+                // can reproduce the exact token.
+                if (n.type === 'integer') {
+                    try {
+                        const integer = BigInt(text);
+                        if (integer > BigInt(Number.MAX_SAFE_INTEGER) || integer < BigInt(Number.MIN_SAFE_INTEGER)) {
+                            return this.literal(text, 'number', n);
+                        }
+                    } catch {
+                        // Fall through to the existing finite-number handling.
+                    }
+                }
                 const value = Number(text);
                 return this.literal(
                     Number.isFinite(value) ? value : 'inf',
@@ -463,15 +478,36 @@ export class Visitor {
                     .map((child) => this.string(child))
                     .filter((part): part is Node => part !== null);
                 if (!parts.length) return null;
-                if (parts.every((p) => p.type === 'Literal'))
+                // CPython folds adjacent constant f-string pieces before the
+                // legacy visitor sees them. Flatten the local '+' trees and
+                // merge only adjacent string literals to retain that UAST
+                // shape without changing interpolation order.
+                const flatten = (part: any): Node[] =>
+                    part?.type === 'BinaryExpression' && part.operator === '+'
+                        ? [...flatten(part.left), ...flatten(part.right)]
+                        : [part];
+                const merged: Node[] = [];
+                for (const part of parts.flatMap(flatten)) {
+                    const previous: any = merged.at(-1);
+                    if (
+                        previous?.type === 'Literal' &&
+                        previous.literalType === 'string' &&
+                        part?.type === 'Literal' &&
+                        part.literalType === 'string'
+                    ) {
+                        previous.value += part.value;
+                        if (previous.loc?.end && part.loc?.end) previous.loc.end = part.loc.end;
+                    } else merged.push(part);
+                }
+                if (merged.every((p) => p.type === 'Literal'))
                     return this.literal(
-                        parts[0].literalType === 'bytes'
-                            ? parts.flatMap((p) => p.value)
-                            : parts.map((p) => p.value).join(''),
-                        parts[0].literalType,
+                        merged[0].literalType === 'bytes'
+                            ? merged.flatMap((p) => p.value)
+                            : merged.map((p) => p.value).join(''),
+                        merged[0].literalType,
                         n
                     );
-                return parts.reduce((a, b) => this.binary('+', a, b, n));
+                return merged.reduce((a, b) => this.binary('+', a, b, n));
             }
             case 'expression_statement': {
                 if (c.length > 1)

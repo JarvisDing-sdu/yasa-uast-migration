@@ -1,0 +1,13 @@
+{
+  "name": "@ant-yasa/uast-emitter-python",
+  "version": "0.1.0",
+  "description": "Deterministic Python source emitter for YASA UAST",
+  "main": "src/python-emitter.js",
+  "bin": {
+    "uast2py": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node test/python-emitter.test.js"
+  },
+  "license": "Apache-2.0"
+}

@@ -33,6 +33,14 @@ test('debug f-strings preserve labels, whitespace, expressions and text merging'
     assert.equal(only.left.loc.end.column - only.left.loc.start.column, 7);
 });
 
+test('adjacent f-strings merge adjacent constant pieces', () => {
+    const result: any = body('x = f"prefix=" f"{value}" f", suffix={other}"')[0].right;
+    assert.equal(result.left.left.left.value, 'prefix=');
+    assert.equal(result.left.left.right.name, 'value');
+    assert.equal(result.left.right.value, ', suffix=');
+    assert.equal(result.right.name, 'other');
+});
+
 test('assignments, imports, calls, self and parameter kinds retain Python UAST conventions', () => {
     const result = body(
         'from os import system as run\nclass A:\n def __init__(self, x:int=1, /, *args, flag=True, **kwargs):\n  self.x = x\n  run(flag=flag, **kwargs)\n'
@@ -86,6 +94,15 @@ test('UTF-8 locations and per-call source filenames', () => {
     assert.equal(ast.body[0].right.loc.start.column, 10);
     assert.equal(ast.body[0].loc.sourcefile, 'unicode.py');
     assert.equal(body('x=1')[0].loc.sourcefile, 'fixture.py');
+});
+
+test('preserves Python integers outside JavaScript safe-number range', () => {
+    const maximum: any = body('INT64_MAX = 9223372036854775807')[0].right;
+    const minimum: any = body('INT64_MIN = -9223372036854775808')[0].right;
+    assert.equal(maximum.literalType, 'number');
+    assert.equal(maximum.value, '9223372036854775807');
+    assert.equal(minimum.argument.literalType, 'number');
+    assert.equal(minimum.argument.value, '9223372036854775808');
 });
 
 test('nested comprehensions retain each loop and condition and reset temporary IDs', () => {
