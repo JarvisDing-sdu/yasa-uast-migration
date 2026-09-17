@@ -47,14 +47,14 @@ python3 workstreams/yasa-python-migration/scripts/verify_old_new_emitter_corpus.
 
 逐文件 UAST、还原源码、fidelity report 和 `summary.json` 都在 Git 忽略的 artifact 目录中。
 
-## 2026-09-13 结果
+## 2026-09-17 结果
 
 | 指标 | 结果 |
 | --- | ---: |
 | 真实 Python 文件 | 122 |
 | old binary 成功解析 | 122 / 122 |
 | new Tree-sitter 成功解析 | 122 / 122 |
-| old/new 语义 UAST 一致 | 104 / 122 |
+| old/new 语义 UAST 一致 | 106 / 122 |
 | old UAST 成功 emitter | 75 / 122 |
 | new UAST 成功 emitter | 75 / 122 |
 | old emitter 输出经新 parser 语义 round-trip | 39 / 122 |
@@ -96,7 +96,8 @@ f"prefix=" f"{value}" f", suffix={other}"
 ```
 
 不再因旧/new 的 `BinaryExpression('+')` 结合方式不同而产生差异。修复后 old/new
-语义 UAST 一致数从 80 提升到 **104 / 122**；parser 回归测试增加到 **20 / 20** 通过。
+语义 UAST 一致数从 80 提升到 **104 / 122**。后续差异分类又发现并修复了 f-string
+插值加法边界与 list-splat call 绑定问题；最新全量结果为 **106 / 122**，parser 测试通过。
 
 ## 已知失败分类
 
@@ -137,13 +138,12 @@ fail-closed，而不是生成看似成功但语义错误的 Python。
 修复后不再存在 `old-reparse` 语法失败；剩余 47 个失败均为下文的 fail-closed
 `VariableDeclaration` 情形。
 
-### 3. old/new UAST 仍有 18 个语义差异
+### 3. old/new UAST 剩余 16 个已分类差异
 
-104/122 一致并不表示其余 18 个都是新 parser 错误。复杂相邻 f-string 的字符串片段和
-拼接树差异已修复；剩余差异包括临时变量编号、推导式降级、Tuple/Sequence 表示和类型泛型
-表示；其中一部分可能是旧 Visitor 已有的降级/缺失，一部分需要专项
-分类。当前报告保留 `semanticOldNewDifference` 首个路径，后续应按语法类别建立最小化 case，
-再判断是新 parser bug、旧 parser bug，还是批准的 UAST canonical 化。
+最新 106/122 严格一致。剩余 16 个已逐文件对照源码并完成分类：临时变量编号 7、旧
+comprehension 错误降级 2、Tuple/Sequence 精确建模 2、PEP 604 Union 类型建模 2、旧
+parser 对 `self` 的误判/漏判 3。详见
+[PyTorch旧新UAST差异分类](PyTorch旧新UAST差异分类.md)。
 
 ## 性能观察（非 e 项最终结论）
 
@@ -165,4 +165,4 @@ emitter 的成功率与 UAST 的逆向信息缺失。
 
 因此可以说 b 已完成“真实大项目解析与还原评估”，但不能声称“122 个文件全部可无损还原”。
 后续工作是对 47 个推导式/生成器降级 case 设计更高层的 UAST 表达或明确列为不可逆限制，
-并分类剩余 18 个 old/new UAST 差异。
+剩余 16 个严格 JSON 差异已有逐项证据，不应通过丢弃新 parser 的准确信息强行归零。
