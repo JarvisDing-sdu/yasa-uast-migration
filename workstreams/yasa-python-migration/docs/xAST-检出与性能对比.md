@@ -219,3 +219,50 @@ node --import tsx tests/corpus.ts /path/to/sast-python3
 /usr/bin/time -l runtime/uast-v0.2.18/uast4py-mac-arm64 \
   --rootDir /path/to/sast-python3 --output /tmp/legacy-uast.json -j 1
 ```
+
+## 独立复测补充（2026-09-17）
+
+本次在 macOS ARM64、Node.js v25.9.0、CPython 3.11.15 下，对
+`main-forYasaTest@32a74f8` 经 Engine 官方准备脚本裁剪后的 606 文件重新测试。上游与本地
+文件名及逐文件 SHA-256 完全一致；旧 oracle 对 606 文件全部解析成功。
+
+为防止 legacy 链路遗漏文件后回落到新 parser，本次让旧链路使用与
+`PythonAnalyzer.scanModules` 相同的 globby 规则，并监测 `Parser.parseSingleFile` 回落次数。
+5 轮 legacy 扫描的回落次数均为 0；主动从 oracle 结果中删除 3 个文件时，扫描因新 parser
+未初始化而直接失败，证明不会静默混用两种 parser。
+
+### 检出与 UAST 结果
+
+5 轮独立进程扫描中，新旧两侧每轮均为 606 文件、332 finding。10 份
+`findings.result` 只有一个 MD5，10 份原始 `report.sarif` 也只有一个 MD5；无需规范化
+`nodeHash` 或路径即可逐字节一致。
+
+解析器层面的逐字段比较仍发现 18 个文件存在差异：
+
+| 结果 | 文件数 |
+| --- | ---: |
+| UAST 完全一致 | 588 |
+| 仅 `loc.start/end.column` 不同 | 18 |
+| 非位置差异 | 0 |
+| oracle 解析失败 | 0 |
+
+此前 CPython 3.10 复测中的 16 个位置差和 2 个 `except*` 解析失败，在 3.11.15 下变为
+18 个位置差。18 个差异文件中有 8 个进入 finding 或 trace，但 SARIF 仍逐字节一致：
+差异位于 f-string 文本片段等内部节点，而 trace 使用的是外层调用表达式的位置。
+
+Engine 的 `execInstCount` 稳定相差 2（new 28,784，legacy 28,782），不影响 finding。
+因此更精确的表述是：**检出与污点链逐字节一致，但 UAST 和内部执行计数并非完全相同**。
+
+### 本机性能
+
+旧侧使用单批 CPython Visitor oracle，不包含官方二进制的启动、临时 JSON 写入与读取开销。
+5 轮中位数如下：
+
+| 指标 | new | legacy | 对比 |
+| --- | ---: | ---: | --- |
+| 端到端墙钟 | 2,713 ms | 4,020 ms | new 快约 32.5% |
+| Engine `parseCode` | 520 ms | 1,825 ms | new 快约 3.51 倍 |
+| 峰值 RSS | 556.1 MB | 563.4 MB | 本口径下基本相当 |
+
+峰值 RSS 为整个 Node 进程的 `/usr/bin/time -l` 结果，未计 legacy Python 子进程内存，
+因此不能据此评价两个 parser 本身的内存优劣。

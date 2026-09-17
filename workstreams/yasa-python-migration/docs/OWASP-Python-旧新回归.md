@@ -197,3 +197,68 @@ python3 workstreams/yasa-python-migration/scripts/score_owasp_benchmark_python.p
   --sarif artifacts/owasp-benchmark-python-v0.1-old-uast4py-full-rules/report.sarif \
   --out artifacts/owasp-benchmark-python-v0.1-old-uast4py-full-rules/file-score.json
 ```
+
+## 独立复测与 UAST 差异补充（2026-09-17）
+
+本次在 macOS ARM64、Node.js v25.9.0 上，以同一 OWASP commit、1,230 文件、规则文件和
+三个 checker 独立复测。真值 CSV SHA-256 与上文一致。旧侧使用仓库保留的 CPython Visitor
+源码，不是 external `uast4py` 二进制，因此本节性能数字只用于该本机两条链路的对照。
+
+### CPython 版本影响
+
+CPython 3.11.15 无法解析其中 470 个文件（38.2%），原因是靶场大量使用 Python 3.12
+引入的 PEP 701 f-string 语法，例如：
+
+```python
+f'Your XPATH query results are: <br>[ {', '.join(node_strings)} ]'
+```
+
+改用 CPython 3.13.13 后，旧 oracle 与新 parser 均可解析全部 1,230 文件。旧 parser 的
+语法支持随宿主 CPython 版本变化；新 Tree-sitter parser 不依赖本机 Python 解释器。
+
+### 检出结果
+
+3 轮独立进程扫描中，两侧每轮均为 1,230 文件、190 finding、85 个命中文件，且
+TP/FN/TN/FP 均为 `41/411/734/44`。6 份 `findings.result` 逐字节一致。SARIF 中 1,892 个
+`nodeHash` 的取值全部不同，但剔除该派生字段后，包含 `codeFlow/threadFlow` 的完整结果一致。
+
+legacy 链路采用与 `PythonAnalyzer.scanModules` 相同的文件枚举规则，3 轮
+`Parser.parseSingleFile` 回落次数均为 0，未混用新 parser。
+
+### UAST 差异分类
+
+保留 `loc` 与 `_meta` 对 1,230 个文件逐字段比较：
+
+| 结果 | 文件数 |
+| --- | ---: |
+| UAST 完全一致 | 0 |
+| 仅位置差异 | 542 |
+| 含非位置差异 | 688 |
+| 任一 parser 解析失败 | 0 |
+
+差异主要收敛为三类：
+
+1. **被装饰函数的 body 起始行**：命中全部 1,230 个文件。新 parser 以装饰器行为起点，
+   旧 CPython AST Visitor 以 `def` 行为起点。`nodeHash` 包含父节点 hash，祖先位置差异会
+   链式改变后代 hash，这解释了本次 1,892 个 SARIF `nodeHash` 全部不同。
+2. **裸 `except:` 的 handler 参数**：351 个文件。新 parser 生成占位
+   `VariableDeclaration`，旧 parser 为 `null`。
+3. **f-string / 相邻字符串的 `BinaryExpression` 树形**：326 个文件。两侧字符串片段的
+   嵌套结构不同。
+
+这些差异未改变本次规则覆盖下的 source、sink、finding 或污点链，但 UAST 本身并不等价；
+因此结论应限定为“当前 checker 的检出无回归”，不能写成“新旧 UAST 完全一致”。
+
+### 本机性能
+
+3 轮中位数：
+
+| 指标 | new | legacy source oracle | 对比 |
+| --- | ---: | ---: | --- |
+| 端到端墙钟 | 60,697 ms | 69,752 ms | new 快约 13.0% |
+| Engine `parseCode` | 1,605 ms | 14,074 ms | new 快约 8.77 倍 |
+| 峰值 RSS | 2,886 MB | 2,177 MB | new 中位数较高，但波动较大 |
+
+新侧 `parseCode` 只占端到端时间约 2.6%，所以解析阶段的 8.77 倍加速只转化为约 13%
+端到端收益。峰值 RSS 的新侧范围为 2,144–3,057 MB，3 个样本波动较大；同时该口径不含
+legacy Python 子进程内存，因此不据此下 parser 内存优劣结论。
