@@ -38,6 +38,10 @@ const operators: Record<string, string> = {
 
 export class Visitor {
     private temporary = 0;
+    // Marks only the synthetic `+` nodes used to join f-string parts. A plain
+    // BinaryExpression inside an interpolation (for example `{len(x) + 1}`)
+    // must never be flattened as though it were part of the surrounding text.
+    private readonly fStringJoins = new WeakSet<object>();
     private readonly lines: string[];
     constructor(
         private readonly source: string,
@@ -483,7 +487,9 @@ export class Visitor {
                 // merge only adjacent string literals to retain that UAST
                 // shape without changing interpolation order.
                 const flatten = (part: any): Node[] =>
-                    part?.type === 'BinaryExpression' && part.operator === '+'
+                    part?.type === 'BinaryExpression' &&
+                    part.operator === '+' &&
+                    this.fStringJoins.has(part)
                         ? [...flatten(part.left), ...flatten(part.right)]
                         : [part];
                 const merged: Node[] = [];
@@ -616,13 +622,19 @@ export class Visitor {
                 });
             }
             case 'call': {
-                if (f('function')?.text === 'super') return this.make('SuperExpression', n);
+                const functionNode = f('function')!;
+                if (functionNode?.text === 'super') return this.make('SuperExpression', n);
                 const argumentsNode = f('arguments')!;
                 const args = this.children(argumentsNode);
                 const isKeyword = (a: SyntaxNode) =>
                     ['keyword_argument', 'dictionary_splat'].includes(a.type);
-                return this.make('CallExpression', n, {
-                    callee: v('function'),
+                // In a list such as `[*product(xs)]`, tree-sitter attaches the
+                // splat node to the call's function field. The star applies to
+                // the result of the complete call, not to the callee name.
+                const result = this.make('CallExpression', n, {
+                    callee: ['list_splat', 'dictionary_splat'].includes(functionNode.type)
+                        ? this.visit(this.children(functionNode)[0])
+                        : this.visit(functionNode),
                     arguments:
                         argumentsNode.type === 'generator_expression'
                             ? [this.visit(argumentsNode)]
@@ -630,6 +642,11 @@ export class Visitor {
                                   (a) => this.visit(a)
                               ),
                 });
+                if (functionNode.type === 'list_splat')
+                    return this.make('DereferenceExpression', n, { argument: result });
+                if (functionNode.type === 'dictionary_splat')
+                    return this.make('SpreadElement', n, { argument: result });
+                return result;
             }
             case 'keyword_argument':
                 return this.variable(this.id(this.text(f('name')!)), v('value'), n);
@@ -1186,7 +1203,11 @@ export class Visitor {
         }
         // Empty JoinedStr is null in the existing Python UAST contract.
         if (!parts.length) return null;
-        const result = parts.reduce((a, b) => this.binary('+', a, b));
+        const result = parts.reduce((a, b) => {
+            const join = this.binary('+', a, b);
+            this.fStringJoins.add(join);
+            return join;
+        });
         if (!result.loc.start) result.loc = this.location(n);
         return result;
     }

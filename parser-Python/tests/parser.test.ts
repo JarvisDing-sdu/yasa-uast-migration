@@ -41,6 +41,15 @@ test('adjacent f-strings merge adjacent constant pieces', () => {
     assert.equal(result.right.name, 'other');
 });
 
+test('f-string interpolation keeps an inner addition grouped', () => {
+    const result: any = body('x = f"value={len(args) + 1}"')[0].right;
+    assert.equal(result.left.value, 'value=');
+    assert.equal(result.right.type, 'BinaryExpression');
+    assert.equal(result.right.operator, '+');
+    assert.equal(result.right.left.type, 'CallExpression');
+    assert.equal(result.right.right.value, 1);
+});
+
 test('assignments, imports, calls, self and parameter kinds retain Python UAST conventions', () => {
     const result = body(
         'from os import system as run\nclass A:\n def __init__(self, x:int=1, /, *args, flag=True, **kwargs):\n  self.x = x\n  run(flag=flag, **kwargs)\n'
@@ -147,6 +156,10 @@ test('real-project regressions: comments, continuations, with items, bytes and w
     assert.equal(body('x = f""')[0].right, null);
     const call = body('f(key=1, *args)')[0].expression;
     assert.equal(call.arguments[0].type, 'DereferenceExpression');
+    const splattedCall = body('x = [*product(xs)]')[0].right.properties[0].value;
+    assert.equal(splattedCall.type, 'DereferenceExpression');
+    assert.equal(splattedCall.argument.type, 'CallExpression');
+    assert.equal(splattedCall.argument.callee.name, 'product');
 });
 
 const oracle = process.env.PYTHON_UAST_ORACLE;
@@ -166,6 +179,7 @@ test('debug f-string semantics match the legacy visitor', { skip: !oracle }, () 
         'x = f"hi { x = } after {y=}"',
         'x = f"{x=} { x = !r:>3}"',
         'x = f"{名字=}"',
+        'x = f"value={len(args) + 1}"',
     ]) {
         const old = spawnSync(oracle!, [fileURLToPath(new URL('./legacy.py', import.meta.url))], {
             input: source,
