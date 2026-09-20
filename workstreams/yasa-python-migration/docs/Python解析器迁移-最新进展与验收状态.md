@@ -61,8 +61,10 @@ generator/comprehension 降级为 `Sequence + __tmpN__ + RangeStatement` 后丢�
 | 小样例双侧还原 | [Python-UAST双侧还原-小样例](Python-UAST双侧还原-小样例.md) |
 | PyTorch 真实源码评估 | [PyTorch真实源码-解析与还原](PyTorch真实源码-解析与还原.md) |
 | PyTorch 剩余差异分类 | [PyTorch旧新UAST差异分类](PyTorch旧新UAST差异分类.md) |
+| 五项验收与 106/122 说明 | [五项验收与PyTorch-UAST差异说明](五项验收与PyTorch-UAST差异说明.md) |
 | xAST finding/trace 对比 | [xAST-检出与性能对比](xAST-检出与性能对比.md) |
 | OWASP 安全靶场回归 | [OWASP-Python-旧新回归](OWASP-Python-旧新回归.md) |
+| 现场验收命令 | [Python解析器迁移-现场验收手册](Python解析器迁移-现场验收手册.md) |
 
 ## 接下来
 
