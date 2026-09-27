@@ -197,7 +197,6 @@ python3 workstreams/yasa-python-migration/scripts/score_owasp_benchmark_python.p
   --sarif artifacts/owasp-benchmark-python-v0.1-old-uast4py-full-rules/report.sarif \
   --out artifacts/owasp-benchmark-python-v0.1-old-uast4py-full-rules/file-score.json
 ```
-<<<<<<< HEAD
 
 ## 独立复测与 UAST 差异补充（2026-09-17）
 
@@ -263,5 +262,3 @@ legacy 链路采用与 `PythonAnalyzer.scanModules` 相同的文件枚举规则�
 新侧 `parseCode` 只占端到端时间约 2.6%，所以解析阶段的 8.77 倍加速只转化为约 13%
 端到端收益。峰值 RSS 的新侧范围为 2,144–3,057 MB，3 个样本波动较大；同时该口径不含
 legacy Python 子进程内存，因此不据此下 parser 内存优劣结论。
-=======
->>>>>>> 259b6fc (feat: complete Python parser migration validation workflow)

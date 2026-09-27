@@ -46,7 +46,6 @@
 `sast-python3` 样本语法较为基础，未命中新解析器已知的语法缺口
 （命名 Unicode 转义、3.14 template string、部分泛型默认值）。
 
-<<<<<<< HEAD
 ### 本机补充复测：606 文件 UAST 差分（2026-09-13）
 
 本节是对上述 macOS / CPython 3.14.5 结果的独立复测，不能与 800 文件结果混为一谈。
@@ -80,8 +79,6 @@ PYTHON_UAST_ORACLE="$PWD/.venv/bin/python" \
 总数相同。该 finding 数一致是补充证据；严格的“逐条 finding / trace 文本一致”仍应在使用
 支持 `except*` 的旧 oracle（Python 3.11+）时完成。
 
-=======
->>>>>>> 259b6fc (feat: complete Python parser migration validation workflow)
 ## 检出对比结果
 
 | 指标 | new（tree-sitter） | legacy（Python oracle） |
@@ -222,7 +219,6 @@ node --import tsx tests/corpus.ts /path/to/sast-python3
 /usr/bin/time -l runtime/uast-v0.2.18/uast4py-mac-arm64 \
   --rootDir /path/to/sast-python3 --output /tmp/legacy-uast.json -j 1
 ```
-<<<<<<< HEAD
 
 ## 独立复测补充（2026-09-17）
 
@@ -270,5 +266,3 @@ Engine 的 `execInstCount` 稳定相差 2（new 28,784，legacy 28,782），不�
 
 峰值 RSS 为整个 Node 进程的 `/usr/bin/time -l` 结果，未计 legacy Python 子进程内存，
 因此不能据此评价两个 parser 本身的内存优劣。
-=======
->>>>>>> 259b6fc (feat: complete Python parser migration validation workflow)
