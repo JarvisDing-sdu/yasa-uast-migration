@@ -7,12 +7,10 @@ node_modules/
 dist/
 __pycache__/
 .venv/
-<<<<<<< HEAD
 workstreams/dl-cross-language-research/
-=======
 workstreams/dl-cross-language-research/.venv/
 workstreams/dl-cross-language-research/benchmarks/
 workstreams/dl-cross-language-research/fixtures/generated/
->>>>>>> 259b6fc (feat: complete Python parser migration validation workflow)
 workstreams/yasa-python-migration/docs/YASA迁移技术总结.md
 workstreams/dl-cross-language-research/docs/UAST跨语言代码生成方案.md
+ppt-output/
