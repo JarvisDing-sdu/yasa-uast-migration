@@ -3,7 +3,7 @@
 本文解释新 Python parser 为什么出现在 Node.js/npm 体系中，以及它与 PHP parser、
 Engine 的关系。
 
-## 1. 一句话结论
+## 1. 流程
 
 新 Python parser 的结构是：
 
