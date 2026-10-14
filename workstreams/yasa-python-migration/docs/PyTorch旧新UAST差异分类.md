@@ -22,9 +22,25 @@
 | old/new 严格语义 UAST 一致 | **106 / 122** |
 | 仍有差异 | **16 / 122** |
 
-剩余 16 个文件均已分类：7 个仅为临时变量编号，9 个是新 parser 更准确地保存原始源码
-结构或旧 parser 的既有降级。没有遗留“已确认的新 parser 语义 bug”。这不代表 16 份 JSON
-可直接判相等，而是说明每项差异已有源码依据和处置结论。
+剩余 16 个文件均已分类：7 个仅为临时变量编号；5 个暴露旧 parser 的作用域／上下文问题；
+4 个是 UAST 表示粒度或 canonical 树形不同。没有遗留“已确认的新 parser 语义 bug”。这不代表
+16 份 JSON 可直接判相等，而是说明每项差异已有源码依据和处置结论。
+
+### 可精确定位的差异：5 个旧 parser 问题，4 个表示差异
+
+这里的“旧 parser 问题”不是指它无法解析文件，而是指它生成的 UAST 丢失作用域或上下文：
+多层推导式 2 个、`self` 3 个。tuple 2 个保留了更多表示信息，但两种树都可表达相同含义；
+PEP 604 Union 2 个是语义等价的 canonical 树形不同。其余 7 个差异只是内部 `__tmpN__` 编号不同。
+
+| 类别 | 原始 PyTorch 源码位置 | 分类结论 | 新 parser 的处理 |
+| --- | --- | --- | --- |
+| 多层推导式 | `test/test_nn.py:11177`；`torch/nn/modules/utils.py:32` | 多个 `for` 被并列降级为 `Sequence`，内层循环变量脱离外层作用域 | 将内层 `RangeStatement` 放入外层 body |
+| tuple 语义 | `test/test_torch.py:866,919,9837`；`torch/onnx/_internal/exporter/_building.py:290,697` | 表示粒度改进：旧版用通用 `Sequence`，新版显式标记 tuple | 使用 `TupleExpression(elements, modifiable=false)` |
+| PEP 604 Union | `torch/onnx/_internal/exporter/_input_observer.py:449`；`torch/onnx/_internal/exporter/_registration.py:58` | canonical 树形差异：旧版最外层摊平连续并集运算 | 生成嵌套 `Union` `DynamicType`；集合语义等价，但不是逐字保留 Python AST 的左结合方向 |
+| `self` 上下文 | `torch/onnx/_internal/fx/passes/type_promotion.py:153`；`torch/onnx/_internal/torchscript_exporter/symbolic_opset13.py:309`；`torch/onnx/_internal/torchscript_exporter/symbolic_opset9.py:2251` | 仅按参数名判断：漏掉类方法的 `self`，或把顶层函数的普通参数误作 `ThisExpression` | 结合是否位于 `ClassDefinition` 内判断 |
+
+因此汇报时应说“16 个严格差异中，7 个是临时变量 alpha-equivalence，5 个是旧 parser 的
+作用域／上下文问题，4 个是表示或 canonical 差异”，不要把全部 9 个都说成旧 parser 错误。
 
 ## 判定原则
 
@@ -145,15 +161,16 @@ CallExpression(
 | `torch/onnx/_internal/exporter/_input_observer.py:449` | `set[int | str] | bool | None` |
 | `torch/onnx/_internal/exporter/_registration.py:58` | `Literal[...] | str | None` |
 
-旧 parser 把 union 成员摊平成外层 typeArguments；新 parser 使用嵌套的 `Union` DynamicType
-表达 `|` 组合。两者对 Union 的集合含义接近，但新结构更忠实于原始类型表达式树。此项归为
-类型 canonical 差异，不是运行语义回归。
+旧 parser 把最外层连续 `|` 的成员摊平成外层 `typeArguments`；新 parser 使用嵌套的 `Union`
+`DynamicType` 表达组合。对这两份源码，Python AST 的 `|` 实际为左结合，而新产物为右嵌套；
+两者在 Union 的集合语义上等价，但树形 canonical 不同。因此此项归为类型 canonical 差异，
+不是运行语义回归，也不应表述为新版逐字保留了 Python AST 的结合方向。
 
 ### E. `self` 合成声明：3 个，旧 parser 误判或漏判
 
 | 文件 | 结论 |
 | --- | --- |
-| `torch/onnx/_internal/fx/passes/type_promotion.py` | `__eq__(self, other, /)` 是类方法；旧 parser 漏掉 synthetic self，新 parser 正确保留 |
+| `torch/onnx/_internal/fx/passes/type_promotion.py:153` | `__eq__(self, other, /)` 是类方法；旧 parser 漏掉 synthetic self，新 parser 正确保留 |
 | `torch/onnx/_internal/torchscript_exporter/symbolic_opset13.py` | `where(g, condition, self, ...)` 是顶层函数；旧 parser 因参数名 `self` 错加 `ThisExpression`，新 parser 正确不加 |
 | `torch/onnx/_internal/torchscript_exporter/symbolic_opset9.py` | 同上，顶层 `where()` 的 `self` 只是普通参数 |
 
