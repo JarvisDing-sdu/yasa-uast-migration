@@ -26,3 +26,16 @@ Private DL cross-language research remains physically available under the local
 public repository and managed by its own private repository.
 
 See [workstreams/README.md](workstreams/README.md) for the public ownership boundary.
+
+## Public repository boundary
+
+Private workstream files and `.env` credentials must never be added to this
+repository, including with `git add -f`. Enable the local commit/push guard after
+cloning:
+
+```bash
+git config core.hooksPath .githooks
+```
+
+The guard checks the index and proposed pushed tree. It does not erase files
+from old commits, and local hooks do not replace a review of staged changes.

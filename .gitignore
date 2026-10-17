@@ -1,3 +1,6 @@
+# Credentials and editor backup copies. Only the empty example may be tracked.
+.env*
+!.env.example
 config/local-tools.env
 runtime/
 benchmarks/

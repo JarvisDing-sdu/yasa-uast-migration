@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Check the proposed tree/index, not history. This intentionally permits a
+# normal cleanup commit without rewriting collaborators' shared history.
+if [[ "${1:-}" == "--index" ]]; then
+  paths="$(git ls-files)"
+else
+  paths="$(git ls-tree -r --name-only "${1:?commit required}")"
+fi
+while IFS= read -r file; do
+  case "$file" in
+    workstreams/dl-cross-language-research/*)
+      echo 'Blocked: the public repository must not track the private research directory.' >&2
+      exit 1 ;;
+  esac
+  base="${file##*/}"
+  case "$base" in
+    .env.example) ;;
+    .env*)
+      echo 'Blocked: environment credentials or backup files must not be committed.' >&2
+      exit 1 ;;
+  esac
+done <<< "$paths"
