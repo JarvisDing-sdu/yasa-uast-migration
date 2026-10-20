@@ -3,14 +3,25 @@
 This workspace isolates the Python UAST migration from the Code Scanner application and
 the follow-on DL cross-language research work.
 
-`engine/` and `uast/` are Git submodules pinned to official upstream commits. Changes remain focused in their respective repositories so they can be prepared as upstream pull requests.
+`engine/` and `uast/` are Git submodules pinned to commits in the separately
+maintained `JarvisDing-sdu/yasa-engine` and `JarvisDing-sdu/yasa-uast`
+repositories. Each repository has its own `main` branch and history.
 
-## Baseline
+## Repository structure
 
-- `engine/` is pinned to official upstream `249420d`.
-- `uast/` is pinned to official upstream `07e3823`.
-- The prior local Engine baseline, including C support changes, is preserved in local branch `migration/local-engine-baseline` at `1012bbc`.
-- Legacy parser binaries stay outside this workspace and are used only for compatibility baselines.
+```text
+JarvisDing-sdu/yasa-uast-migration     public integration workspace
+├── engine/ -> JarvisDing-sdu/yasa-engine (submodule)
+└── uast/   -> JarvisDing-sdu/yasa-uast   (submodule)
+
+JarvisDing-sdu/yasa-dl-cross-language private independent research repository
+```
+
+The integration repository pins exact component commits. Updating a component
+therefore requires two commits: first push the component repository, then update
+the corresponding submodule pointer here. The former special component branches
+in this repository are retained only as recoverable history and are no longer
+the active submodule remotes.
 
 ## Local Setup
 
