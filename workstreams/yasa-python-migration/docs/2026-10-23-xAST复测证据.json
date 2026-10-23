@@ -1,0 +1,339 @@
+{
+  "date": "2026-10-23",
+  "original_document": "xast-detection-performance.md",
+  "input": {
+    "repo": "https://github.com/alipay/ant-application-security-testing-benchmark",
+    "commit": "d825758202b89066f48f4ff87d4d3539b944f513",
+    "sast_python3_git_tree": "26d186433dd6fc301cc4ab24f475a817a4968f25",
+    "py_files": 800,
+    "py_bytes": 513514,
+    "temporary_snapshot": "/private/tmp/yasa-xast-d825758/sast-python3"
+  },
+  "versions": {
+    "historical_engine": "9f6157601feeff173155f838b57a837129e9a2ec",
+    "historical_engine_note": "Compared with document Engine 0e69c5f, only recursive runner source differs; current Engine runner also lacks directory argument. All repository code tested from temp snapshots.",
+    "historical_new_uast": "c64cb8a",
+    "old_visitor": "v0.2.18",
+    "official_binary_sha256": "071ec14f24ab82f5cfbf988563dec716918dd2902eb359a39c687edc13d8b538",
+    "original_engine_sdk": {
+      "path": "/Users/infinite/Downloads/YASA-Engine/deps/uast4py/uast4py",
+      "sha256": "c34abf48bcde27673ff3d8dbe3d781e8cf2b426f520668706e05f9f2da9888e1",
+      "matches_official_release": "v0.2.19 macOS ARM64 uast4py-mac-arm64"
+    },
+    "node": "24.14.1",
+    "python_oracle": "3.14.8",
+    "python_dependencies": "pure Python dependencies loaded via PYTHONPATH from local Python 3.13.13 venv; not same interpreter/dependency environment as 2026-09-12 document"
+  },
+  "uast_compare": {
+    "total": 800,
+    "equal": 800,
+    "different": 0,
+    "locationOnly": 0,
+    "failures": []
+  },
+  "new_corpus_historical": {
+    "rounds": [
+      {
+        "parsed": 800,
+        "failed": 0,
+        "initializationMs": 6.721000000000004,
+        "parseAndReadMs": 195.55337500000002,
+        "rssMiB": 128.953125
+      },
+      {
+        "parsed": 800,
+        "failed": 0,
+        "initializationMs": 5.067875000000001,
+        "parseAndReadMs": 205.717667,
+        "rssMiB": 114.25
+      },
+      {
+        "parsed": 800,
+        "failed": 0,
+        "initializationMs": 5.186040999999996,
+        "parseAndReadMs": 154.3855,
+        "rssMiB": 113.96875
+      }
+    ],
+    "median_parse_and_read_ms": 195.55337500000002,
+    "median_rss_mib": 114.25
+  },
+  "new_corpus_current": {
+    "rounds": [
+      {
+        "parsed": 800,
+        "failed": 0,
+        "initializationMs": 10.687457999999992,
+        "parseAndReadMs": 191.29375,
+        "rssMiB": 128.953125
+      },
+      {
+        "parsed": 800,
+        "failed": 0,
+        "initializationMs": 5.0575000000000045,
+        "parseAndReadMs": 156.866416,
+        "rssMiB": 121.15625
+      },
+      {
+        "parsed": 800,
+        "failed": 0,
+        "initializationMs": 5.074916000000002,
+        "parseAndReadMs": 157.96829200000002,
+        "rssMiB": 114.46875
+      }
+    ],
+    "median_parse_and_read_ms": 157.96829200000002
+  },
+  "official_binary": {
+    "rounds": [
+      {
+        "files": 800,
+        "success": 800,
+        "failure": 0,
+        "internal_s": 2.83,
+        "wall_s": 11.64,
+        "user_s": 2.1,
+        "sys_s": 0.23,
+        "peak_rss_mib": 34.546875,
+        "output_files": 800,
+        "output_bytes": 15532177,
+        "log": "/private/tmp/yasa-xast-d825758/binary-1.log"
+      },
+      {
+        "files": 800,
+        "success": 800,
+        "failure": 0,
+        "internal_s": 2.3,
+        "wall_s": 13.92,
+        "user_s": 2.03,
+        "sys_s": 0.23,
+        "peak_rss_mib": 34.75,
+        "output_files": 800,
+        "output_bytes": 15532177,
+        "log": "/private/tmp/yasa-xast-d825758/binary-2.log"
+      },
+      {
+        "files": 800,
+        "success": 800,
+        "failure": 0,
+        "internal_s": 2.36,
+        "wall_s": 15.15,
+        "user_s": 2.17,
+        "sys_s": 0.23,
+        "peak_rss_mib": 34.453125,
+        "output_files": 800,
+        "output_bytes": 15532177,
+        "log": "/private/tmp/yasa-xast-d825758/binary-3.log"
+      }
+    ],
+    "median_wall_s": 13.92,
+    "median_internal_s": 2.36,
+    "median_peak_rss_mib": 34.546875,
+    "empty_input_runs": [
+      {
+        "wall_s": 10.18,
+        "user_s": 0.19,
+        "sys_s": 0.07,
+        "log": "/private/tmp/yasa-xast-d825758/binary-empty.log"
+      },
+      {
+        "wall_s": 19.89,
+        "user_s": 0.21,
+        "sys_s": 0.07,
+        "log": "/private/tmp/yasa-xast-d825758/binary-empty-2.log"
+      }
+    ]
+  },
+  "direct_in_process": {
+    "scope": "preloaded source, 100 files warmup, 3 rounds in each of 3 processes per side, exclude file I/O, startup, and JSON serialization; construct UAST CompileUnit on both sides",
+    "old_rounds_ms": [
+      [
+        86.170542,
+        85.151375,
+        83.908083
+      ],
+      [
+        85.305584,
+        84.945834,
+        85.195375
+      ],
+      [
+        86.566208,
+        84.234792,
+        96.124
+      ]
+    ],
+    "new_rounds_ms": [
+      [
+        113.22033299999998,
+        118.596541,
+        128.258583
+      ],
+      [
+        109.281375,
+        102.295083,
+        106.373291
+      ],
+      [
+        112.73691699999999,
+        106.35179199999999,
+        108.45754099999999
+      ]
+    ],
+    "old_nine_round_median_ms": 85.195375,
+    "new_nine_round_median_ms": 109.281375,
+    "temporary_benchmark_scripts": [
+      "/private/tmp/yasa-xast-d825758/direct_old.py",
+      "/private/tmp/yasa-xast-d825758/direct_new.mjs"
+    ]
+  },
+  "engine": {
+    "new_rounds": [
+      {
+        "internal_total_ms": 3400,
+        "parseCode_ms": 543,
+        "wall_s": 3.85,
+        "files": 800,
+        "findings": 351,
+        "findings_sha256": "0c06162f155ad7dd453417be59ef0eec693474ba594551c88df72fad102c1415",
+        "findings_chars": 500075,
+        "findings_newlines": 9109,
+        "log": "/private/tmp/yasa-xast-d825758/engine-new-1.log"
+      },
+      {
+        "internal_total_ms": 3262,
+        "parseCode_ms": 509,
+        "wall_s": 3.55,
+        "files": 800,
+        "findings": 351,
+        "findings_sha256": "0c06162f155ad7dd453417be59ef0eec693474ba594551c88df72fad102c1415",
+        "findings_chars": 500075,
+        "findings_newlines": 9109,
+        "log": "/private/tmp/yasa-xast-d825758/engine-new-2.log"
+      },
+      {
+        "internal_total_ms": 3111,
+        "parseCode_ms": 499,
+        "wall_s": 3.36,
+        "files": 800,
+        "findings": 351,
+        "findings_sha256": "0c06162f155ad7dd453417be59ef0eec693474ba594551c88df72fad102c1415",
+        "findings_chars": 500075,
+        "findings_newlines": 9109,
+        "log": "/private/tmp/yasa-xast-d825758/engine-new-3.log"
+      }
+    ],
+    "legacy_rounds": [
+      {
+        "internal_total_ms": 4861,
+        "parseCode_ms": 2227,
+        "wall_s": 5.09,
+        "files": 800,
+        "findings": 351,
+        "findings_sha256": "0c06162f155ad7dd453417be59ef0eec693474ba594551c88df72fad102c1415",
+        "findings_chars": 500075,
+        "findings_newlines": 9109,
+        "log": "/private/tmp/yasa-xast-d825758/engine-legacy314-1.log"
+      },
+      {
+        "internal_total_ms": 4809,
+        "parseCode_ms": 2167,
+        "wall_s": 5.03,
+        "files": 800,
+        "findings": 351,
+        "findings_sha256": "0c06162f155ad7dd453417be59ef0eec693474ba594551c88df72fad102c1415",
+        "findings_chars": 500075,
+        "findings_newlines": 9109,
+        "log": "/private/tmp/yasa-xast-d825758/engine-legacy314-2.log"
+      },
+      {
+        "internal_total_ms": 4819,
+        "parseCode_ms": 2178,
+        "wall_s": 5.05,
+        "files": 800,
+        "findings": 351,
+        "findings_sha256": "0c06162f155ad7dd453417be59ef0eec693474ba594551c88df72fad102c1415",
+        "findings_chars": 500075,
+        "findings_newlines": 9109,
+        "log": "/private/tmp/yasa-xast-d825758/engine-legacy314-3.log"
+      }
+    ],
+    "new_median_internal_ms": 3262,
+    "legacy_median_internal_ms": 4819,
+    "new_median_wall_s": 3.55,
+    "legacy_median_wall_s": 5.05,
+    "new_median_parseCode_ms": 509,
+    "legacy_median_parseCode_ms": 2178,
+    "peak_node_rss_mib": {
+      "new_rounds": [
+        529.609375,
+        563.8125,
+        528.234375
+      ],
+      "legacy_rounds": [
+        585.515625,
+        589.140625,
+        594.78125
+      ],
+      "new_median": 529.609375,
+      "legacy_median": 589.140625,
+      "measurement": "Python resource.getrusage(RUSAGE_CHILDREN).ru_maxrss for direct Node child; does not include legacy Python oracle child peak"
+    },
+    "finding_text_equal_across_all_six": true
+  },
+  "known_limitations": [
+    "Original document Node 25.9.0 and CPython 3.14.5 differ from this retest.",
+    "The original 606-file old SARIF was not available; its comparator output was recreated from the historical v0.2.18 Visitor on the restored input.",
+    "/usr/bin/time -l on binary and resource.getrusage on Engine Node process measure different processes and cannot be compared as parser-only memory."
+  ],
+  "reconstructed_606": {
+    "source_commit": "32a74f8dec9dcacfd99a9053ebd8b545a34e09c7",
+    "selection": "sast-python3/case excluding cross_file_package_namespace tree, following engine/test/python/prepare-python-benchmark.ts",
+    "py_files": 606,
+    "py_bytes": 446493,
+    "manifest_sha256": "7a105503ee3957b6d3e42455be29d3540b8c2d0dfb99b0fd85b5b46ff42ce6b6",
+    "temporary_input": "/private/tmp/yasa-xast-606-retest/case",
+    "historical_old_sarif_available": false,
+    "old_sarif_recreated_from_v0.2.18_visitor": true,
+    "runs": {
+      "new": {
+        "files": 606,
+        "findings": 332,
+        "finding_text_chars": 453242,
+        "finding_text_sha256": "e53dca276ced07a017efd97b4b8adec63d6698bf49269ecc3b6064cb37b74dc1",
+        "wall_s": 3.7,
+        "sarif_sha256": "f46c45e18b95848d7726589962465337e202d3947caeb4bd7403ec30aaacbd13",
+        "sarif_result_count": 332,
+        "log": "/private/tmp/yasa-xast-606-retest/engine-new.log",
+        "sarif_path": "/private/tmp/yasa-xast-606-retest/new.sarif"
+      },
+      "legacy": {
+        "files": 606,
+        "findings": 332,
+        "finding_text_chars": 453242,
+        "finding_text_sha256": "e53dca276ced07a017efd97b4b8adec63d6698bf49269ecc3b6064cb37b74dc1",
+        "wall_s": 4.71,
+        "sarif_sha256": "f46c45e18b95848d7726589962465337e202d3947caeb4bd7403ec30aaacbd13",
+        "sarif_result_count": 332,
+        "log": "/private/tmp/yasa-xast-606-retest/engine-legacy.log",
+        "sarif_path": "/private/tmp/yasa-xast-606-retest/legacy.sarif"
+      }
+    },
+    "compare_yasa_sarif": {
+      "ignoredDerivedFields": [
+        "nodeHash"
+      ],
+      "normalizedEnvironmentFields": [
+        "legacy xAST source-root: /case/ → /"
+      ],
+      "oldRawFindings": 332,
+      "newRawFindings": 332,
+      "identityEqual": true,
+      "normalizedResultsEqual": true,
+      "firstNormalizedDifference": null,
+      "oldOnlyIdentities": [],
+      "newOnlyIdentities": []
+    },
+    "raw_sarif_equal": true
+  }
+}
