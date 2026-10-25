@@ -1,0 +1,21 @@
+CWE78_OS_Command_Injection (wchar_t): 1900 test cases; unmapped findings: 0
+                                TP    FN    TN    FP
+TOTAL                         1900     0  1900     0   TPR 100.0%  FPR   0.0%
+-- by source
+connect_socket                 380     0   380     0   TPR 100.0%  FPR   0.0%
+console                        380     0   380     0   TPR 100.0%  FPR   0.0%
+environment                    380     0   380     0   TPR 100.0%  FPR   0.0%
+file                           380     0   380     0   TPR 100.0%  FPR   0.0%
+listen_socket                  380     0   380     0   TPR 100.0%  FPR   0.0%
+-- by sink
+execl                          190     0   190     0   TPR 100.0%  FPR   0.0%
+execlp                         190     0   190     0   TPR 100.0%  FPR   0.0%
+popen                          190     0   190     0   TPR 100.0%  FPR   0.0%
+system                         190     0   190     0   TPR 100.0%  FPR   0.0%
+w32_execv                      190     0   190     0   TPR 100.0%  FPR   0.0%
+w32_execvp                     190     0   190     0   TPR 100.0%  FPR   0.0%
+w32_spawnlp                    190     0   190     0   TPR 100.0%  FPR   0.0%
+w32_spawnv                     190     0   190     0   TPR 100.0%  FPR   0.0%
+w32_spawnvp                    190     0   190     0   TPR 100.0%  FPR   0.0%
+w32spawnl                      190     0   190     0   TPR 100.0%  FPR   0.0%
+-- by flow variant (FN or FP only)

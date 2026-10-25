@@ -30,8 +30,9 @@ Copy `config/local-tools.env.example` to `config/local-tools.env` and adjust pat
 ## Layout
 
 - `engine/`: YASA-Engine source and Engine-side integration tests.
-- `uast/`: YASA-UAST source; Go/Python parser implementation belongs here.
+- `uast/`: YASA-UAST source; Go/Python/C parser implementation belongs here.
 - `workstreams/yasa-python-migration/`: parser migration documents, baseline scripts and reports.
+- `workstreams/yasa-c-extension/`: C language support design, C benchmark, Juliet/CASTLE evaluation.
 Private DL cross-language research remains physically available under the local
 `workstreams/dl-cross-language-research/` directory, but is deliberately Git-ignored by this
 public repository and managed by its own private repository.

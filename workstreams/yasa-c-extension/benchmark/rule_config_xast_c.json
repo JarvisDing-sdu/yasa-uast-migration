@@ -1,0 +1,800 @@
+[
+  {
+    "checkerIds": [
+      "taint_flow_c_input"
+    ],
+    "sources": {
+      "FuncCallArgTaintSource": [
+        {
+          "fsig": "gets",
+          "args": [
+            "0"
+          ],
+          "kind": "C_INPUT"
+        },
+        {
+          "fsig": "fgets",
+          "args": [
+            "0"
+          ],
+          "kind": "C_INPUT"
+        },
+        {
+          "fsig": "fgetws",
+          "args": [
+            "0"
+          ],
+          "kind": "C_INPUT"
+        },
+        {
+          "fsig": "scanf",
+          "args": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9"
+          ],
+          "kind": "C_INPUT"
+        },
+        {
+          "fsig": "fscanf",
+          "args": [
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9"
+          ],
+          "kind": "C_INPUT"
+        },
+        {
+          "fsig": "vscanf",
+          "args": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9"
+          ],
+          "kind": "C_INPUT"
+        },
+        {
+          "fsig": "vfscanf",
+          "args": [
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9"
+          ],
+          "kind": "C_INPUT"
+        },
+        {
+          "fsig": "read",
+          "args": [
+            "1"
+          ],
+          "kind": "C_INPUT"
+        },
+        {
+          "fsig": "pread",
+          "args": [
+            "1"
+          ],
+          "kind": "C_INPUT"
+        },
+        {
+          "fsig": "fread",
+          "args": [
+            "0"
+          ],
+          "kind": "C_INPUT"
+        },
+        {
+          "fsig": "recv",
+          "args": [
+            "1"
+          ],
+          "kind": "C_INPUT"
+        },
+        {
+          "fsig": "recvfrom",
+          "args": [
+            "1"
+          ],
+          "kind": "C_INPUT"
+        },
+        {
+          "fsig": "recvmsg",
+          "args": [
+            "1"
+          ],
+          "kind": "C_INPUT"
+        },
+        {
+          "fsig": "getline",
+          "args": [
+            "0"
+          ],
+          "kind": "C_INPUT"
+        },
+        {
+          "fsig": "getdelim",
+          "args": [
+            "0"
+          ],
+          "kind": "C_INPUT"
+        }
+      ],
+      "FuncCallReturnValueTaintSource": [
+        {
+          "fsig": "taint_src",
+          "values": [
+            "0"
+          ],
+          "kind": "C_INPUT"
+        },
+        {
+          "fsig": "getenv",
+          "values": [
+            "0"
+          ],
+          "kind": "C_INPUT"
+        },
+        {
+          "fsig": "secure_getenv",
+          "values": [
+            "0"
+          ],
+          "kind": "C_INPUT"
+        },
+        {
+          "fsig": "fgets",
+          "values": [
+            "0"
+          ],
+          "kind": "C_INPUT"
+        },
+        {
+          "fsig": "gets",
+          "values": [
+            "0"
+          ],
+          "kind": "C_INPUT"
+        },
+        {
+          "fsig": "getc",
+          "values": [
+            "0"
+          ],
+          "kind": "C_INPUT"
+        },
+        {
+          "fsig": "fgetc",
+          "values": [
+            "0"
+          ],
+          "kind": "C_INPUT"
+        },
+        {
+          "fsig": "getchar",
+          "values": [
+            "0"
+          ],
+          "kind": "C_INPUT"
+        },
+        {
+          "fsig": "readline",
+          "values": [
+            "0"
+          ],
+          "kind": "C_INPUT"
+        },
+        {
+          "fsig": "_wgetenv",
+          "values": [
+            "0"
+          ],
+          "kind": "C_INPUT"
+        },
+        {
+          "fsig": "fgetws",
+          "values": [
+            "0"
+          ],
+          "kind": "C_INPUT"
+        },
+        {
+          "fsig": "getwc",
+          "values": [
+            "0"
+          ],
+          "kind": "C_INPUT"
+        },
+        {
+          "fsig": "fgetwc",
+          "values": [
+            "0"
+          ],
+          "kind": "C_INPUT"
+        },
+        {
+          "fsig": "getwchar",
+          "values": [
+            "0"
+          ],
+          "kind": "C_INPUT"
+        }
+      ]
+    },
+    "sinks": {
+      "FuncCallTaintSink": [
+        {
+          "fsig": "taint_sink",
+          "args": [
+            "0"
+          ],
+          "attribute": "BenchmarkSink"
+        },
+        {
+          "fsig": "system",
+          "args": [
+            "0"
+          ],
+          "attribute": "CCommandInjection"
+        },
+        {
+          "fsig": "popen",
+          "args": [
+            "0"
+          ],
+          "attribute": "CCommandInjection"
+        },
+        {
+          "fsig": "execl",
+          "args": [
+            "*"
+          ],
+          "attribute": "CCommandInjection"
+        },
+        {
+          "fsig": "execlp",
+          "args": [
+            "*"
+          ],
+          "attribute": "CCommandInjection"
+        },
+        {
+          "fsig": "execle",
+          "args": [
+            "*"
+          ],
+          "attribute": "CCommandInjection"
+        },
+        {
+          "fsig": "execv",
+          "args": [
+            "0",
+            "1"
+          ],
+          "attribute": "CCommandInjection"
+        },
+        {
+          "fsig": "execvp",
+          "args": [
+            "0",
+            "1"
+          ],
+          "attribute": "CCommandInjection"
+        },
+        {
+          "fsig": "execve",
+          "args": [
+            "0",
+            "1"
+          ],
+          "attribute": "CCommandInjection"
+        },
+        {
+          "fsig": "_system",
+          "args": [
+            "*"
+          ],
+          "attribute": "CCommandInjection"
+        },
+        {
+          "fsig": "_wsystem",
+          "args": [
+            "*"
+          ],
+          "attribute": "CCommandInjection"
+        },
+        {
+          "fsig": "_popen",
+          "args": [
+            "*"
+          ],
+          "attribute": "CCommandInjection"
+        },
+        {
+          "fsig": "_wpopen",
+          "args": [
+            "*"
+          ],
+          "attribute": "CCommandInjection"
+        },
+        {
+          "fsig": "_execl",
+          "args": [
+            "*"
+          ],
+          "attribute": "CCommandInjection"
+        },
+        {
+          "fsig": "_execlp",
+          "args": [
+            "*"
+          ],
+          "attribute": "CCommandInjection"
+        },
+        {
+          "fsig": "_execle",
+          "args": [
+            "*"
+          ],
+          "attribute": "CCommandInjection"
+        },
+        {
+          "fsig": "_execv",
+          "args": [
+            "*"
+          ],
+          "attribute": "CCommandInjection"
+        },
+        {
+          "fsig": "_execvp",
+          "args": [
+            "*"
+          ],
+          "attribute": "CCommandInjection"
+        },
+        {
+          "fsig": "_execve",
+          "args": [
+            "*"
+          ],
+          "attribute": "CCommandInjection"
+        },
+        {
+          "fsig": "_wexecl",
+          "args": [
+            "*"
+          ],
+          "attribute": "CCommandInjection"
+        },
+        {
+          "fsig": "_wexeclp",
+          "args": [
+            "*"
+          ],
+          "attribute": "CCommandInjection"
+        },
+        {
+          "fsig": "_wexecv",
+          "args": [
+            "*"
+          ],
+          "attribute": "CCommandInjection"
+        },
+        {
+          "fsig": "_wexecvp",
+          "args": [
+            "*"
+          ],
+          "attribute": "CCommandInjection"
+        },
+        {
+          "fsig": "_spawnl",
+          "args": [
+            "*"
+          ],
+          "attribute": "CCommandInjection"
+        },
+        {
+          "fsig": "_spawnlp",
+          "args": [
+            "*"
+          ],
+          "attribute": "CCommandInjection"
+        },
+        {
+          "fsig": "_spawnle",
+          "args": [
+            "*"
+          ],
+          "attribute": "CCommandInjection"
+        },
+        {
+          "fsig": "_spawnv",
+          "args": [
+            "*"
+          ],
+          "attribute": "CCommandInjection"
+        },
+        {
+          "fsig": "_spawnvp",
+          "args": [
+            "*"
+          ],
+          "attribute": "CCommandInjection"
+        },
+        {
+          "fsig": "_spawnve",
+          "args": [
+            "*"
+          ],
+          "attribute": "CCommandInjection"
+        },
+        {
+          "fsig": "_wspawnl",
+          "args": [
+            "*"
+          ],
+          "attribute": "CCommandInjection"
+        },
+        {
+          "fsig": "_wspawnlp",
+          "args": [
+            "*"
+          ],
+          "attribute": "CCommandInjection"
+        },
+        {
+          "fsig": "_wspawnv",
+          "args": [
+            "*"
+          ],
+          "attribute": "CCommandInjection"
+        },
+        {
+          "fsig": "_wspawnvp",
+          "args": [
+            "*"
+          ],
+          "attribute": "CCommandInjection"
+        },
+        {
+          "fsig": "dlopen",
+          "args": [
+            "0"
+          ],
+          "attribute": "CCodeInjection"
+        },
+        {
+          "fsig": "printf",
+          "args": [
+            "0"
+          ],
+          "attribute": "CFormatString"
+        },
+        {
+          "fsig": "vprintf",
+          "args": [
+            "0"
+          ],
+          "attribute": "CFormatString"
+        },
+        {
+          "fsig": "fprintf",
+          "args": [
+            "1"
+          ],
+          "attribute": "CFormatString"
+        },
+        {
+          "fsig": "vfprintf",
+          "args": [
+            "1"
+          ],
+          "attribute": "CFormatString"
+        },
+        {
+          "fsig": "dprintf",
+          "args": [
+            "1"
+          ],
+          "attribute": "CFormatString"
+        },
+        {
+          "fsig": "sprintf",
+          "args": [
+            "1"
+          ],
+          "attribute": "CFormatString"
+        },
+        {
+          "fsig": "vsprintf",
+          "args": [
+            "1"
+          ],
+          "attribute": "CFormatString"
+        },
+        {
+          "fsig": "snprintf",
+          "args": [
+            "2"
+          ],
+          "attribute": "CFormatString"
+        },
+        {
+          "fsig": "vsnprintf",
+          "args": [
+            "2"
+          ],
+          "attribute": "CFormatString"
+        },
+        {
+          "fsig": "syslog",
+          "args": [
+            "1"
+          ],
+          "attribute": "CFormatString"
+        },
+        {
+          "fsig": "wprintf",
+          "args": [
+            "0"
+          ],
+          "attribute": "CFormatString"
+        },
+        {
+          "fsig": "vwprintf",
+          "args": [
+            "0"
+          ],
+          "attribute": "CFormatString"
+        },
+        {
+          "fsig": "fwprintf",
+          "args": [
+            "1"
+          ],
+          "attribute": "CFormatString"
+        },
+        {
+          "fsig": "vfwprintf",
+          "args": [
+            "1"
+          ],
+          "attribute": "CFormatString"
+        },
+        {
+          "fsig": "swprintf",
+          "args": [
+            "2"
+          ],
+          "attribute": "CFormatString"
+        },
+        {
+          "fsig": "vswprintf",
+          "args": [
+            "2"
+          ],
+          "attribute": "CFormatString"
+        },
+        {
+          "fsig": "_snprintf",
+          "args": [
+            "2"
+          ],
+          "attribute": "CFormatString"
+        },
+        {
+          "fsig": "_snwprintf",
+          "args": [
+            "2"
+          ],
+          "attribute": "CFormatString"
+        },
+        {
+          "fsig": "_vsnprintf",
+          "args": [
+            "2"
+          ],
+          "attribute": "CFormatString"
+        },
+        {
+          "fsig": "_vsnwprintf",
+          "args": [
+            "2"
+          ],
+          "attribute": "CFormatString"
+        },
+        {
+          "fsig": "strcpy",
+          "args": [
+            "1"
+          ],
+          "attribute": "CBufferOverflow"
+        },
+        {
+          "fsig": "strcat",
+          "args": [
+            "1"
+          ],
+          "attribute": "CBufferOverflow"
+        },
+        {
+          "fsig": "wcscpy",
+          "args": [
+            "1"
+          ],
+          "attribute": "CBufferOverflow"
+        },
+        {
+          "fsig": "wcscat",
+          "args": [
+            "1"
+          ],
+          "attribute": "CBufferOverflow"
+        },
+        {
+          "fsig": "memcpy",
+          "args": [
+            "2"
+          ],
+          "attribute": "CBufferOverflow"
+        },
+        {
+          "fsig": "memmove",
+          "args": [
+            "2"
+          ],
+          "attribute": "CBufferOverflow"
+        },
+        {
+          "fsig": "fopen",
+          "args": [
+            "0"
+          ],
+          "attribute": "CPathTraversal"
+        },
+        {
+          "fsig": "freopen",
+          "args": [
+            "0"
+          ],
+          "attribute": "CPathTraversal"
+        },
+        {
+          "fsig": "open",
+          "args": [
+            "0"
+          ],
+          "attribute": "CPathTraversal"
+        },
+        {
+          "fsig": "openat",
+          "args": [
+            "1"
+          ],
+          "attribute": "CPathTraversal"
+        },
+        {
+          "fsig": "creat",
+          "args": [
+            "0"
+          ],
+          "attribute": "CPathTraversal"
+        },
+        {
+          "fsig": "unlink",
+          "args": [
+            "0"
+          ],
+          "attribute": "CPathTraversal"
+        },
+        {
+          "fsig": "remove",
+          "args": [
+            "0"
+          ],
+          "attribute": "CPathTraversal"
+        },
+        {
+          "fsig": "rename",
+          "args": [
+            "0",
+            "1"
+          ],
+          "attribute": "CPathTraversal"
+        },
+        {
+          "fsig": "chmod",
+          "args": [
+            "0"
+          ],
+          "attribute": "CPathTraversal"
+        },
+        {
+          "fsig": "chown",
+          "args": [
+            "0"
+          ],
+          "attribute": "CPathTraversal"
+        },
+        {
+          "fsig": "mkdir",
+          "args": [
+            "0"
+          ],
+          "attribute": "CPathTraversal"
+        },
+        {
+          "fsig": "rmdir",
+          "args": [
+            "0"
+          ],
+          "attribute": "CPathTraversal"
+        },
+        {
+          "fsig": "sqlite3_exec",
+          "args": [
+            "1"
+          ],
+          "attribute": "CSqlInjection"
+        },
+        {
+          "fsig": "sqlite3_prepare",
+          "args": [
+            "1"
+          ],
+          "attribute": "CSqlInjection"
+        },
+        {
+          "fsig": "sqlite3_prepare_v2",
+          "args": [
+            "1"
+          ],
+          "attribute": "CSqlInjection"
+        },
+        {
+          "fsig": "mysql_query",
+          "args": [
+            "1"
+          ],
+          "attribute": "CSqlInjection"
+        },
+        {
+          "fsig": "mysql_real_query",
+          "args": [
+            "1"
+          ],
+          "attribute": "CSqlInjection"
+        },
+        {
+          "fsig": "PQexec",
+          "args": [
+            "1"
+          ],
+          "attribute": "CSqlInjection"
+        }
+      ]
+    }
+  }
+]

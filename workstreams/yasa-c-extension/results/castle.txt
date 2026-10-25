@@ -1,0 +1,41 @@
+CASTLE: 250 files, engine failures 0, 476.1s
+                         TP   FN   TN   FP
+taint CWEs (78/134/22/89)   24    0    6   10   TPR 100.0%  FPR  62.5%
+other CWEs                4  122   83    1   TPR   3.2%  FPR   1.2%
+CWE-22                    6    0    0    4   TPR 100.0%  FPR 100.0%
+CWE-78                    6    0    1    3   TPR 100.0%  FPR  75.0%
+CWE-89                    6    0    2    2   TPR 100.0%  FPR  50.0%
+CWE-125                   0    6    4    0   TPR   0.0%  FPR   0.0%
+CWE-134                   6    0    3    1   TPR 100.0%  FPR  25.0%
+CWE-190                   0    6    4    0   TPR   0.0%  FPR   0.0%
+CWE-253                   0    6    4    0   TPR   0.0%  FPR   0.0%
+CWE-327                   1    5    4    0   TPR  16.7%  FPR   0.0%
+CWE-362                   0    6    4    0   TPR   0.0%  FPR   0.0%
+CWE-369                   0    6    4    0   TPR   0.0%  FPR   0.0%
+CWE-401                   0    6    4    0   TPR   0.0%  FPR   0.0%
+CWE-415                   0    6    4    0   TPR   0.0%  FPR   0.0%
+CWE-416                   0    6    4    0   TPR   0.0%  FPR   0.0%
+CWE-476                   0    6    4    0   TPR   0.0%  FPR   0.0%
+CWE-522                   1    5    4    0   TPR  16.7%  FPR   0.0%
+CWE-617                   0    6    4    0   TPR   0.0%  FPR   0.0%
+CWE-628                   0    6    4    0   TPR   0.0%  FPR   0.0%
+CWE-674                   0    6    4    0   TPR   0.0%  FPR   0.0%
+CWE-761                   0    6    4    0   TPR   0.0%  FPR   0.0%
+CWE-770                   0    6    4    0   TPR   0.0%  FPR   0.0%
+CWE-787                   1    5    4    0   TPR  16.7%  FPR   0.0%
+CWE-798                   1    5    3    1   TPR  16.7%  FPR  25.0%
+CWE-822                   0    6    4    0   TPR   0.0%  FPR   0.0%
+CWE-835                   0    6    4    0   TPR   0.0%  FPR   0.0%
+CWE-843                   0    6    4    0   TPR   0.0%  FPR   0.0%
+
+taint-CWE misclassifications:
+  FP CASTLE-134-10.c [{'line': 39, 'attribute': None}]
+  FP CASTLE-22-10.c [{'line': 33, 'attribute': None}]
+  FP CASTLE-22-7.c [{'line': 70, 'attribute': None}]
+  FP CASTLE-22-8.c [{'line': 83, 'attribute': None}, {'line': 83, 'attribute': None}]
+  FP CASTLE-22-9.c [{'line': 89, 'attribute': None}, {'line': 89, 'attribute': None}]
+  FP CASTLE-78-10.c [{'line': 46, 'attribute': None}, {'line': 51, 'attribute': None}]
+  FP CASTLE-78-8.c [{'line': 31, 'attribute': None}, {'line': 44, 'attribute': None}]
+  FP CASTLE-78-9.c [{'line': 40, 'attribute': None}]
+  FP CASTLE-89-8.c [{'line': 72, 'attribute': None}, {'line': 72, 'attribute': None}]
+  FP CASTLE-89-9.c [{'line': 153, 'attribute': None}, {'line': 153, 'attribute': None}]

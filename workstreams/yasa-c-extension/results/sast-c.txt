@@ -1,0 +1,16 @@
+category                                        TP   FN   TN   FP
+accuracy/context_sensitive                       9    0    2    0
+accuracy/field_sensitive/array                   3    0    2    0
+accuracy/field_sensitive/struct                  8    0    2    0
+accuracy/flow_sensitive                          9    0    3    0
+completeness/cross_file                          4    0    0    0
+completeness/expression                          6    0    3    0
+completeness/libc_propagation                    9    0    2    0
+completeness/pointer                             5    0    1    0
+completeness/preprocessor                        5    0    0    0
+real_api                                         7    0    2    0
+TOTAL                                           65    0   17    0
+TPR (recall) = 65/65 = 100.0%
+FPR          = 0/17 = 0.0%
+
+misclassified:

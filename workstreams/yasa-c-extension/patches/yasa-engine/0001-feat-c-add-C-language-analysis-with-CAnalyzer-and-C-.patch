@@ -1,0 +1,2563 @@
+From 3fc472cd807cf9df0ca39dfdfb6df40d5f29b8dc Mon Sep 17 00:00:00 2001
+From: sijie52 <sijie5452@gmail.com>
+Date: Sun, 25 Oct 2026 15:07:14 +0000
+Subject: [PATCH] feat(c): add C language analysis with CAnalyzer and C taint
+ checker
+
+Wire @ant-yasa/uast-parser-c (local file: link like the Python parser)
+into the parser registry, worker, starter and packaging, and add:
+
+- CAnalyzer: external linkage for non-static functions and file-scope
+  variables across files, extern declarations, header static inline
+  functions, pointer aliasing (`&x`, `*p = v`, live `*p` reads), struct
+  and array aggregates with nested writes, do-while and single-pass
+  loops, unreachable code after return/break/goto, constant if
+  conditions, labels, sizeof as a constant, numeric conversion as an
+  injection barrier, and a per-entrypoint time budget
+  (entryPointTimeoutQuickMs) checked at call boundaries
+- C library model writing taint back into output buffers, including the
+  wide-character variants (strcpy, strcat, memcpy, sprintf, snprintf,
+  sscanf, realpath, wcsncat, swprintf, ...)
+- taint_flow_c_input checker and taint-flow-c-default pack: call-graph
+  roots as entrypoints, main argv/envp and rule-config sources, buffers
+  written by source functions through casts and pointer arithmetic
+- rule_config_c.json: command injection (POSIX and Windows CRT), format
+  string (narrow and wide), buffer overflow, path traversal and SQL
+  injection sinks. Variadic sinks use "*" because rule args only accept
+  single indexes
+- engine regression test `npm run test-c`
+---
+ package-lock.json                             |  22 +
+ package.json                                  |   3 +
+ resource/checker/checker-config.json          |   6 +
+ resource/checker/checker-pack-config.json     |   9 +
+ .../example-rule-config/rule_config_c.json    | 786 ++++++++++++++++++
+ .../taint/c/c-default-taint-checker.ts        | 303 +++++++
+ .../analyzer/c/common/builtins/c-builtins.ts  | 108 +++
+ src/engine/analyzer/c/common/c-analyzer.ts    | 635 ++++++++++++++
+ src/engine/parser/c/c-ast-builder.ts          |  51 ++
+ src/engine/parser/parser-core.ts              |   7 +
+ src/engine/parser/parser-worker.ts            |  12 +
+ src/engine/parser/parser.ts                   |  22 +
+ src/interface/starter.ts                      |  27 +-
+ test/c/checker-cases/constant_system_008_F.c  |  13 +
+ test/c/checker-cases/fgets_printf_002_T.c     |  14 +
+ .../c/checker-cases/fgets_printf_safe_003_F.c |  14 +
+ test/c/checker-cases/getenv_system_001_T.c    |  13 +
+ test/c/checker-cases/pointer_out_param.c      |  15 +
+ test/c/checker-cases/recv_strcpy_005_T.c      |  16 +
+ .../scanf_sprintf_system_007_T.c              |  17 +
+ test/c/checker-cases/vulnerable.c             |  35 +
+ test/c/test-c-checker.ts                      |  85 ++
+ 22 files changed, 2206 insertions(+), 7 deletions(-)
+ create mode 100644 resource/example-rule-config/rule_config_c.json
+ create mode 100644 src/checker/taint/c/c-default-taint-checker.ts
+ create mode 100644 src/engine/analyzer/c/common/builtins/c-builtins.ts
+ create mode 100644 src/engine/analyzer/c/common/c-analyzer.ts
+ create mode 100644 src/engine/parser/c/c-ast-builder.ts
+ create mode 100644 test/c/checker-cases/constant_system_008_F.c
+ create mode 100644 test/c/checker-cases/fgets_printf_002_T.c
+ create mode 100644 test/c/checker-cases/fgets_printf_safe_003_F.c
+ create mode 100644 test/c/checker-cases/getenv_system_001_T.c
+ create mode 100644 test/c/checker-cases/pointer_out_param.c
+ create mode 100644 test/c/checker-cases/recv_strcpy_005_T.c
+ create mode 100644 test/c/checker-cases/scanf_sprintf_system_007_T.c
+ create mode 100644 test/c/checker-cases/vulnerable.c
+ create mode 100644 test/c/test-c-checker.ts
+
+diff --git a/package-lock.json b/package-lock.json
+index 3d09e5a..776bb08 100644
+--- a/package-lock.json
++++ b/package-lock.json
+@@ -9,6 +9,7 @@
+       "version": "0.0.0",
+       "license": "ISC",
+       "dependencies": {
++        "@ant-yasa/uast-parser-c": "file:../uast/parser-C",
+         "@ant-yasa/uast-parser-java-js": "^0.2.16",
+         "@ant-yasa/uast-parser-php": "^0.2.16",
+         "@ant-yasa/uast-parser-python": "file:../uast/parser-Python",
+@@ -94,6 +95,23 @@
+         "webpack-obfuscator": "^3.4.1"
+       }
+     },
++    "../uast/parser-C": {
++      "name": "@ant-yasa/uast-parser-c",
++      "version": "0.0.0",
++      "dependencies": {
++        "@ant-yasa/uast-spec": "^0.2.0",
++        "tree-sitter-c": "^0.23.6",
++        "typescript": "^5.7.2",
++        "web-tree-sitter": "^0.26.8"
++      },
++      "devDependencies": {
++        "@types/mocha": "^10.0.10",
++        "@types/node": "^22.13.4",
++        "fast-glob": "^3.3.3",
++        "mocha": "^11.1.0",
++        "tsx": "^4.21.0"
++      }
++    },
+     "../uast/parser-Python": {
+       "name": "@ant-yasa/uast-parser-python",
+       "version": "0.0.0",
+@@ -109,6 +127,10 @@
+         "typescript": "^5.7.2"
+       }
+     },
++    "node_modules/@ant-yasa/uast-parser-c": {
++      "resolved": "../uast/parser-C",
++      "link": true
++    },
+     "node_modules/@ant-yasa/uast-parser-java-js": {
+       "version": "0.2.16",
+       "resolved": "https://registry.npmmirror.com/@ant-yasa/uast-parser-java-js/-/uast-parser-java-js-0.2.16.tgz",
+diff --git a/package.json b/package.json
+index 63f39cd..17bae70 100644
+--- a/package.json
++++ b/package.json
+@@ -6,6 +6,7 @@
+   "bin": "./dist/main.js",
+   "dependencies": {
+     "@ant-yasa/uast-parser-java-js": "^0.2.16",
++    "@ant-yasa/uast-parser-c": "file:../uast/parser-C",
+     "@ant-yasa/uast-parser-php": "^0.2.16",
+     "@ant-yasa/uast-parser-python": "file:../uast/parser-Python",
+     "@ant-yasa/uast-spec": "^0.2.16",
+@@ -106,6 +107,7 @@
+     "test-go-short-var-callback-taint": "npx mocha --require tsx/cjs test/rules-basic-handler/test-go-short-var-callback-taint.ts",
+     "test-php-checker": "npx mocha --require tsx/cjs test/php/test-php-checker.ts",
+     "test-php": "npx mocha --require tsx/cjs test/php/test-php-benchmark.ts",
++    "test-c": "npx mocha --require tsx/cjs test/c/test-c-checker.ts",
+     "update-php-expect": "YASA_UPDATE_PHP_BENCHMARK_EXPECT=1 npm run test-php && cp test/php/expect/phpbenchmark-expect.json.candidate test/php/expect/phpbenchmark-expect.json && rm test/php/expect/phpbenchmark-expect.json.candidate && npm run test-php",
+     "test-all": "npm run test-callargs && npm run test-fastapi-backgroundtasks && npm run test-match-field && npm run test-entrypoint-deadline-budget && npm run test-entrypoint-deadline-scheduler && npm run test-clone-util && npm run test-sink-util-new-expr && npm run test-taint-output-strategy && npm run test-go-dynamic-key-taint && npm run test-js && npm run test-java && npm run test-sarif-codeflow-quality && npm run test-go && npm run test-python && npm run test-callchain && npm run test-php",
+     "build": "bash build.sh",
+@@ -199,6 +201,7 @@
+       "dist/**/*",
+       "resource/**/*",
+       "deps/uast4go/uast4go",
++      "node_modules/tree-sitter-c/*.wasm",
+       "node_modules/tree-sitter-php/*.wasm",
+       "node_modules/tree-sitter-python/*.wasm",
+       "node_modules/web-tree-sitter/web-tree-sitter.wasm"
+diff --git a/resource/checker/checker-config.json b/resource/checker/checker-config.json
+index e1d0b03..b56fa73 100644
+--- a/resource/checker/checker-config.json
++++ b/resource/checker/checker-config.json
+@@ -184,6 +184,12 @@
+     "description": "PHP污点分析checker，会使用CallGraph边界制作entrypoint",
+     "demoRuleConfigPath": "resource/example-rule-config/rule_config_php.json"
+   },
++  {
++    "checkerId": "taint_flow_c_input",
++    "checkerPath": "checker/taint/c/c-default-taint-checker.ts",
++    "description": "C污点分析checker，以调用图根函数（含main）为entrypoint，main的argv/envp与ruleconfig库函数为source",
++    "demoRuleConfigPath": "resource/example-rule-config/rule_config_c.json"
++  },
+   {
+     "checkerId": "taint_flow_test",
+     "checkerPath": "checker/taint/test-taint-checker.ts",
+diff --git a/resource/checker/checker-pack-config.json b/resource/checker/checker-pack-config.json
+index 4b965a3..b87dddd 100644
+--- a/resource/checker/checker-pack-config.json
++++ b/resource/checker/checker-pack-config.json
+@@ -200,6 +200,15 @@
+     ],
+     "description": "PHP污点追踪-对外默认使用的规则包"
+   },
++  {
++    "checkerPackId": "taint-flow-c-default",
++    "checkerIds": [
++      "taint_flow_c_input",
++      "callgraph",
++      "sanitizer"
++    ],
++    "description": "C污点追踪-对外默认使用的规则包"
++  },
+   {
+     "checkerPackId": "callchain-php",
+     "checkerIds": [
+diff --git a/resource/example-rule-config/rule_config_c.json b/resource/example-rule-config/rule_config_c.json
+new file mode 100644
+index 0000000..010a745
+--- /dev/null
++++ b/resource/example-rule-config/rule_config_c.json
+@@ -0,0 +1,786 @@
++[
++  {
++    "checkerIds": [
++      "taint_flow_c_input"
++    ],
++    "sources": {
++      "FuncCallArgTaintSource": [
++        {
++          "fsig": "gets",
++          "args": [
++            "0"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "fgets",
++          "args": [
++            "0"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "fgetws",
++          "args": [
++            "0"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "scanf",
++          "args": [
++            "1",
++            "2",
++            "3",
++            "4",
++            "5",
++            "6",
++            "7",
++            "8",
++            "9"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "fscanf",
++          "args": [
++            "2",
++            "3",
++            "4",
++            "5",
++            "6",
++            "7",
++            "8",
++            "9"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "vscanf",
++          "args": [
++            "1",
++            "2",
++            "3",
++            "4",
++            "5",
++            "6",
++            "7",
++            "8",
++            "9"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "vfscanf",
++          "args": [
++            "2",
++            "3",
++            "4",
++            "5",
++            "6",
++            "7",
++            "8",
++            "9"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "read",
++          "args": [
++            "1"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "pread",
++          "args": [
++            "1"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "fread",
++          "args": [
++            "0"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "recv",
++          "args": [
++            "1"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "recvfrom",
++          "args": [
++            "1"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "recvmsg",
++          "args": [
++            "1"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "getline",
++          "args": [
++            "0"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "getdelim",
++          "args": [
++            "0"
++          ],
++          "kind": "C_INPUT"
++        }
++      ],
++      "FuncCallReturnValueTaintSource": [
++        {
++          "fsig": "getenv",
++          "values": [
++            "0"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "secure_getenv",
++          "values": [
++            "0"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "fgets",
++          "values": [
++            "0"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "gets",
++          "values": [
++            "0"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "getc",
++          "values": [
++            "0"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "fgetc",
++          "values": [
++            "0"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "getchar",
++          "values": [
++            "0"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "readline",
++          "values": [
++            "0"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "_wgetenv",
++          "values": [
++            "0"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "fgetws",
++          "values": [
++            "0"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "getwc",
++          "values": [
++            "0"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "fgetwc",
++          "values": [
++            "0"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "getwchar",
++          "values": [
++            "0"
++          ],
++          "kind": "C_INPUT"
++        }
++      ]
++    },
++    "sinks": {
++      "FuncCallTaintSink": [
++        {
++          "fsig": "system",
++          "args": [
++            "0"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "popen",
++          "args": [
++            "0"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "execl",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "execlp",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "execle",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "execv",
++          "args": [
++            "0",
++            "1"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "execvp",
++          "args": [
++            "0",
++            "1"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "execve",
++          "args": [
++            "0",
++            "1"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "_system",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "_wsystem",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "_popen",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "_wpopen",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "_execl",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "_execlp",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "_execle",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "_execv",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "_execvp",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "_execve",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "_wexecl",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "_wexeclp",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "_wexecv",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "_wexecvp",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "_spawnl",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "_spawnlp",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "_spawnle",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "_spawnv",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "_spawnvp",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "_spawnve",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "_wspawnl",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "_wspawnlp",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "_wspawnv",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "_wspawnvp",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "dlopen",
++          "args": [
++            "0"
++          ],
++          "attribute": "CCodeInjection"
++        },
++        {
++          "fsig": "printf",
++          "args": [
++            "0"
++          ],
++          "attribute": "CFormatString"
++        },
++        {
++          "fsig": "vprintf",
++          "args": [
++            "0"
++          ],
++          "attribute": "CFormatString"
++        },
++        {
++          "fsig": "fprintf",
++          "args": [
++            "1"
++          ],
++          "attribute": "CFormatString"
++        },
++        {
++          "fsig": "vfprintf",
++          "args": [
++            "1"
++          ],
++          "attribute": "CFormatString"
++        },
++        {
++          "fsig": "dprintf",
++          "args": [
++            "1"
++          ],
++          "attribute": "CFormatString"
++        },
++        {
++          "fsig": "sprintf",
++          "args": [
++            "1"
++          ],
++          "attribute": "CFormatString"
++        },
++        {
++          "fsig": "vsprintf",
++          "args": [
++            "1"
++          ],
++          "attribute": "CFormatString"
++        },
++        {
++          "fsig": "snprintf",
++          "args": [
++            "2"
++          ],
++          "attribute": "CFormatString"
++        },
++        {
++          "fsig": "vsnprintf",
++          "args": [
++            "2"
++          ],
++          "attribute": "CFormatString"
++        },
++        {
++          "fsig": "syslog",
++          "args": [
++            "1"
++          ],
++          "attribute": "CFormatString"
++        },
++        {
++          "fsig": "wprintf",
++          "args": [
++            "0"
++          ],
++          "attribute": "CFormatString"
++        },
++        {
++          "fsig": "vwprintf",
++          "args": [
++            "0"
++          ],
++          "attribute": "CFormatString"
++        },
++        {
++          "fsig": "fwprintf",
++          "args": [
++            "1"
++          ],
++          "attribute": "CFormatString"
++        },
++        {
++          "fsig": "vfwprintf",
++          "args": [
++            "1"
++          ],
++          "attribute": "CFormatString"
++        },
++        {
++          "fsig": "swprintf",
++          "args": [
++            "2"
++          ],
++          "attribute": "CFormatString"
++        },
++        {
++          "fsig": "vswprintf",
++          "args": [
++            "2"
++          ],
++          "attribute": "CFormatString"
++        },
++        {
++          "fsig": "_snprintf",
++          "args": [
++            "2"
++          ],
++          "attribute": "CFormatString"
++        },
++        {
++          "fsig": "_snwprintf",
++          "args": [
++            "2"
++          ],
++          "attribute": "CFormatString"
++        },
++        {
++          "fsig": "_vsnprintf",
++          "args": [
++            "2"
++          ],
++          "attribute": "CFormatString"
++        },
++        {
++          "fsig": "_vsnwprintf",
++          "args": [
++            "2"
++          ],
++          "attribute": "CFormatString"
++        },
++        {
++          "fsig": "strcpy",
++          "args": [
++            "1"
++          ],
++          "attribute": "CBufferOverflow"
++        },
++        {
++          "fsig": "strcat",
++          "args": [
++            "1"
++          ],
++          "attribute": "CBufferOverflow"
++        },
++        {
++          "fsig": "wcscpy",
++          "args": [
++            "1"
++          ],
++          "attribute": "CBufferOverflow"
++        },
++        {
++          "fsig": "wcscat",
++          "args": [
++            "1"
++          ],
++          "attribute": "CBufferOverflow"
++        },
++        {
++          "fsig": "memcpy",
++          "args": [
++            "2"
++          ],
++          "attribute": "CBufferOverflow"
++        },
++        {
++          "fsig": "memmove",
++          "args": [
++            "2"
++          ],
++          "attribute": "CBufferOverflow"
++        },
++        {
++          "fsig": "fopen",
++          "args": [
++            "0"
++          ],
++          "attribute": "CPathTraversal"
++        },
++        {
++          "fsig": "freopen",
++          "args": [
++            "0"
++          ],
++          "attribute": "CPathTraversal"
++        },
++        {
++          "fsig": "open",
++          "args": [
++            "0"
++          ],
++          "attribute": "CPathTraversal"
++        },
++        {
++          "fsig": "openat",
++          "args": [
++            "1"
++          ],
++          "attribute": "CPathTraversal"
++        },
++        {
++          "fsig": "creat",
++          "args": [
++            "0"
++          ],
++          "attribute": "CPathTraversal"
++        },
++        {
++          "fsig": "unlink",
++          "args": [
++            "0"
++          ],
++          "attribute": "CPathTraversal"
++        },
++        {
++          "fsig": "remove",
++          "args": [
++            "0"
++          ],
++          "attribute": "CPathTraversal"
++        },
++        {
++          "fsig": "rename",
++          "args": [
++            "0",
++            "1"
++          ],
++          "attribute": "CPathTraversal"
++        },
++        {
++          "fsig": "chmod",
++          "args": [
++            "0"
++          ],
++          "attribute": "CPathTraversal"
++        },
++        {
++          "fsig": "chown",
++          "args": [
++            "0"
++          ],
++          "attribute": "CPathTraversal"
++        },
++        {
++          "fsig": "mkdir",
++          "args": [
++            "0"
++          ],
++          "attribute": "CPathTraversal"
++        },
++        {
++          "fsig": "rmdir",
++          "args": [
++            "0"
++          ],
++          "attribute": "CPathTraversal"
++        },
++        {
++          "fsig": "sqlite3_exec",
++          "args": [
++            "1"
++          ],
++          "attribute": "CSqlInjection"
++        },
++        {
++          "fsig": "sqlite3_prepare",
++          "args": [
++            "1"
++          ],
++          "attribute": "CSqlInjection"
++        },
++        {
++          "fsig": "sqlite3_prepare_v2",
++          "args": [
++            "1"
++          ],
++          "attribute": "CSqlInjection"
++        },
++        {
++          "fsig": "mysql_query",
++          "args": [
++            "1"
++          ],
++          "attribute": "CSqlInjection"
++        },
++        {
++          "fsig": "mysql_real_query",
++          "args": [
++            "1"
++          ],
++          "attribute": "CSqlInjection"
++        },
++        {
++          "fsig": "PQexec",
++          "args": [
++            "1"
++          ],
++          "attribute": "CSqlInjection"
++        }
++      ]
++    }
++  }
++]
+diff --git a/src/checker/taint/c/c-default-taint-checker.ts b/src/checker/taint/c/c-default-taint-checker.ts
+new file mode 100644
+index 0000000..5ea105d
+--- /dev/null
++++ b/src/checker/taint/c/c-default-taint-checker.ts
+@@ -0,0 +1,303 @@
++import type { CallInfo } from '../../../engine/analyzer/common/call-args'
++
++const _ = require('lodash')
++const Config = require('../../../config')
++const BasicRuleHandler = require('../../common/rules-basic-handler')
++const AstUtil = require('../../../util/ast-util')
++const FileUtil = require('../../../util/file-util')
++const EntryPoint = require('../../../engine/analyzer/common/entrypoint/entrypoint')
++const Constant = require('../../../util/constant')
++const IntroduceTaint = require('../common-kit/source-util')
++const { matchSinkAtFuncCallWithCalleeType } = require('../common-kit/sink-util')
++const SanitizerChecker = require('../../sanitizer/sanitizer-checker')
++const FullCallGraphFileEntryPoint = require('../../common/full-callgraph-file-entrypoint')
++const TaintChecker = require('../taint-checker')
++const TaintOutputStrategy = require('../../common/output/taint-output-strategy')
++const entryPointConfig = require('../../../engine/analyzer/common/entrypoint/current-entrypoint')
++
++const TAINT_TAG_NAME = 'C_INPUT'
++/** main(argc, argv, envp)：argv 与 envp 来自进程外部 */
++const MAIN_TAINTED_PARAMS = [1, 2]
++
++/**
++ * main 先执行，其余按文件与行号稳定排序，保证结果可复现
++ * @param ep - entrypoint
++ * @returns 排序键
++ */
++function entryPointSortKey(ep: any): string {
++  const line = String(ep.entryPointSymVal?.ast?.fdef?.loc?.start?.line ?? 0).padStart(8, '0')
++  return `${ep.functionName === 'main' ? 0 : 1}:${ep.filePath}:${line}`
++}
++
++/**
++ * 规则 args（`"1"`、`"*"`）对应的实参下标
++ * @param specs - 规则中的 args
++ * @param argc - 实参个数
++ * @returns 下标列表
++ */
++function argIndexes(specs: any[] | undefined, argc: number): number[] {
++  const result: number[] = []
++  for (const spec of specs || []) {
++    if (spec === '*') return Array.from({ length: argc }, (_v, i) => i)
++    const index = Number.parseInt(String(spec), 10)
++    if (!Number.isNaN(index) && index < argc) result.push(index)
++  }
++  return result
++}
++
++/**
++ * 指针表达式实际写入的变量：去掉类型转换、取地址、解引用、指针偏移和下标。
++ * @param node - 实参 AST
++ * @returns 变量 AST（Identifier / 非计算 MemberAccess），无法确定时返回 null
++ */
++function writtenVariable(node: any): any {
++  let current = node
++  for (;;) {
++    if (!current) return null
++    if (current.type === 'CastExpression') current = current.expression
++    else if (current.type === 'ReferenceExpression' || current.type === 'DereferenceExpression')
++      current = current.argument
++    else if (current.type === 'BinaryExpression' && (current.operator === '+' || current.operator === '-'))
++      current = current.left
++    else if (current.type === 'MemberAccess' && current.computed) current = current.object
++    else break
++  }
++  return current.type === 'Identifier' || current.type === 'MemberAccess' ? current : null
++}
++
++/**
++ * C 默认污点分析 checker
++ *
++ * Entrypoint：调用图中没有调用者的函数（含 main），这样库代码和未被 main 调到的
++ * 函数也会被分析。Source：ruleconfig 中的库函数（getenv/fgets/recv...）与 main 的
++ * argv/envp；ruleconfig 显式声明的 entrypoint 的全部参数。Sink：ruleconfig FuncCallTaintSink。
++ */
++class CDefaultTaintChecker extends TaintChecker {
++  entryPoints: any[]
++
++  /**
++   * @param resultManager
++   */
++  constructor(resultManager: any) {
++    super(resultManager, 'taint_flow_c_input')
++    this.entryPoints = []
++  }
++
++  /**
++   * @param analyzer
++   */
++  triggerAtStartOfAnalyze(analyzer: any): void {
++    this.prepareEntryPoints(analyzer)
++    analyzer.mainEntryPoints = this.entryPoints
++    this.addSourceTagForSourceScope(TAINT_TAG_NAME, this.sourceScope.value)
++    this.addSourceTagForcheckerRuleConfigContent(TAINT_TAG_NAME, this.checkerRuleConfigContent)
++  }
++
++  /**
++   * @param analyzer
++   */
++  prepareEntryPoints(analyzer: any): void {
++    if (Config.entryPointMode !== 'SELF_COLLECT') {
++      this.prepareRuleConfigEntryPoints(analyzer)
++    }
++    if (Config.entryPointMode === 'ONLY_CUSTOM') return
++
++    FullCallGraphFileEntryPoint.makeFullCallGraph(analyzer)
++    const roots = FullCallGraphFileEntryPoint.getAllEntryPointsUsingCallGraph(analyzer.ainfo?.callgraph, analyzer)
++    roots.sort((a: any, b: any) => entryPointSortKey(a).localeCompare(entryPointSortKey(b)))
++    for (const ep of roots) {
++      ep.attribute = ep.functionName === 'main' ? 'CMain' : 'CCallGraphRoot'
++      this.entryPoints.push(ep)
++    }
++  }
++
++  /**
++   * ruleconfig 中声明的 entrypoint：按文件路径 + 函数名匹配
++   * @param analyzer
++   */
++  prepareRuleConfigEntryPoints(analyzer: any): void {
++    const { entrypoints: ruleConfigEntryPoints } = this.checkerRuleConfigContent
++    if (_.isEmpty(ruleConfigEntryPoints)) return
++
++    const { topScope } = analyzer
++    for (const entrypoint of ruleConfigEntryPoints) {
++      const entryPointSymVal = AstUtil.satisfy(
++        topScope.context.packages || topScope.context.funcs,
++        (n: any) =>
++          n.vtype === 'fclos' &&
++          FileUtil.extractAfterSubstring(n?.ast?.node?.loc?.sourcefile, Config.maindirPrefix) === entrypoint.filePath &&
++          n?.ast?.node?.id?.name === entrypoint.functionName,
++        (node: any, prop: any) => prop === '_field',
++        null,
++        false
++      )
++      if (_.isEmpty(entryPointSymVal)) continue
++
++      const symVals = Array.isArray(entryPointSymVal)
++        ? _.uniqBy(entryPointSymVal, (value: any) => value.ast.fdef)
++        : [entryPointSymVal]
++      const ep = new EntryPoint(Constant.ENGIN_START_FUNCALL)
++      ep.scopeVal = symVals[0].parent
++      ep.argValues = []
++      ep.functionName = entrypoint.functionName
++      ep.filePath = entrypoint.filePath
++      ep.attribute = entrypoint.attribute || 'CRuleConfig'
++      ep.packageName = undefined
++      ep.entryPointSymVal = symVals[0]
++      this.entryPoints.push(ep)
++    }
++  }
++
++  /**
++   * 函数调用前：匹配 sink，引入 FuncCallArgTaintSource（fgets/recv/read 等写入缓冲区的 source）
++   * @param analyzer
++   * @param scope
++   * @param node
++   * @param state
++   * @param info
++   */
++  triggerAtFunctionCallBefore(analyzer: any, scope: any, node: any, state: any, info: any): void {
++    const { fclos, callInfo } = info
++    this.checkByNameMatch(node, fclos, callInfo, scope, state)
++    const funcCallArgTaintSource = this.checkerRuleConfigContent.sources?.FuncCallArgTaintSource
++    IntroduceTaint.introduceFuncArgTaintByRuleConfig(fclos?.object, node, callInfo, funcCallArgTaintSource)
++    this.taintWrittenBuffers(analyzer, scope, node, state, funcCallArgTaintSource)
++  }
++
++  /**
++   * C 的输入函数写入的是缓冲区：`recv(s, (char *)(data + len), ...)`、`fgets(&buf[1], ...)`。
++   * 规则只标记了实参表达式的值，这里把污点也标到被写入的变量（data / buf）上。
++   * @param analyzer
++   * @param scope
++   * @param node
++   * @param state
++   * @param rules
++   */
++  taintWrittenBuffers(analyzer: any, scope: any, node: any, state: any, rules: any[] | undefined): void {
++    if (!Array.isArray(rules) || node?.callee?.type !== 'Identifier' || !BasicRuleHandler.getPreprocessReady()) return
++    const args: any[] = node.arguments || []
++    for (const rule of rules) {
++      if (rule?.fsig !== node.callee.name) continue
++      for (const i of argIndexes(rule.args, args.length)) {
++        const base = writtenVariable(args[i])
++        if (!base || base === args[i]) continue
++        const value = analyzer.processInstruction(scope, base, state)
++        IntroduceTaint.markTaintSource(value, { path: node, kind: rule.kind || TAINT_TAG_NAME })
++      }
++    }
++  }
++
++  /**
++   * 函数调用后：返回值 source（getenv 等）
++   * @param analyzer
++   * @param scope
++   * @param node
++   * @param state
++   * @param info
++   */
++  triggerAtFunctionCallAfter(analyzer: any, scope: any, node: any, state: any, info: any): void {
++    const { fclos, ret } = info
++    const funcCallReturnValueTaintSource = this.checkerRuleConfigContent.sources?.FuncCallReturnValueTaintSource
++    IntroduceTaint.introduceTaintAtFuncCallReturnValue(fclos, node, ret, funcCallReturnValueTaintSource)
++  }
++
++  /**
++   * @param node
++   * @param fclos
++   * @param callInfo
++   * @param scope
++   * @param state
++   */
++  checkByNameMatch(
++    node: any,
++    fclos: any,
++    callInfo: CallInfo | undefined,
++    scope: any,
++    state?: any
++  ): boolean | undefined {
++    if (fclos === undefined) return
++    const rules = this.checkerRuleConfigContent.sinks?.FuncCallTaintSink
++    if (!rules || !callInfo) return
++
++    const matched = matchSinkAtFuncCallWithCalleeType(node, fclos, rules, scope, callInfo)
++    const rule: any = matched.length > 0 ? matched[0] : null
++    if (!rule) return
++
++    const args = BasicRuleHandler.prepareArgs(callInfo, fclos, rule)
++    const sanitizers = SanitizerChecker.findSanitizerByIds(rule.sanitizerIds)
++    const results = SanitizerChecker.findTagAndMatchedSanitizer(
++      node,
++      fclos,
++      args,
++      scope,
++      TAINT_TAG_NAME,
++      true,
++      sanitizers
++    )
++    if (!results) return
++
++    for (const { nd, matchedSanitizerTags } of results) {
++      let ruleName = rule.fsig
++      if (typeof rule.attribute !== 'undefined') {
++        ruleName += `\nSINK Attribute: ${Array.isArray(rule.attribute) ? rule.attribute.join(',') : rule.attribute}`
++      }
++      const finding = this.buildTaintFinding(
++        this.getCheckerId(),
++        this.desc,
++        node,
++        nd,
++        fclos,
++        TAINT_TAG_NAME,
++        ruleName,
++        matchedSanitizerTags,
++        state?.callstack,
++        state?.callsites
++      )
++      if (!TaintOutputStrategy.isNewFinding(this.resultManager, finding)) continue
++      this.resultManager.newFinding(finding, TaintOutputStrategy.outputStrategyId)
++    }
++    return true
++  }
++
++  /**
++   * entrypoint 参数 source：main 的 argv/envp；ruleconfig entrypoint 的全部参数。
++   * 调用图根函数的参数不标记，否则库代码中每个对外函数都会被当作攻击面。
++   * @param analyzer
++   * @param scope
++   * @param node
++   * @param state
++   */
++  triggerAtSymbolInterpretOfEntryPointBefore(analyzer: any, scope: any, node: any, state: any): void {
++    const currentEntryPoint = entryPointConfig.getCurrentEntryPoint()
++    if (!currentEntryPoint) return
++    const epSym = currentEntryPoint.entryPointSymVal
++    const parameters: any[] = epSym?.ast?.fdef?.parameters || []
++    let tainted: number[] = []
++    if (currentEntryPoint.attribute === 'CMain') {
++      if (Config.entryPointMode === 'ONLY_CUSTOM') return
++      tainted = MAIN_TAINTED_PARAMS
++    } else if (currentEntryPoint.attribute !== 'CCallGraphRoot') {
++      tainted = parameters.map((_p: any, i: number) => i)
++    }
++    for (const i of tainted) {
++      const para = parameters[i]
++      if (!para) continue
++      const argv = analyzer.processInstruction(epSym, para.id || para, state)
++      IntroduceTaint.markTaintSource(argv, { path: para, kind: TAINT_TAG_NAME })
++    }
++  }
++
++  /**
++   * Identifier：ruleconfig TaintSource（如 environ 全局变量）
++   * @param analyzer
++   * @param scope
++   * @param node
++   * @param state
++   * @param info
++   */
++  triggerAtIdentifier(analyzer: any, scope: any, node: any, state: any, info: any): void {
++    IntroduceTaint.introduceTaintAtIdentifierDirect(analyzer, scope, node, info.res, this.sourceScope.value)
++  }
++}
++
++module.exports = CDefaultTaintChecker
+diff --git a/src/engine/analyzer/c/common/builtins/c-builtins.ts b/src/engine/analyzer/c/common/builtins/c-builtins.ts
+new file mode 100644
+index 0000000..824b23b
+--- /dev/null
++++ b/src/engine/analyzer/c/common/builtins/c-builtins.ts
+@@ -0,0 +1,108 @@
++/**
++ * C 标准库输出参数的污点模型
++ *
++ * 引擎对无函数体的库函数默认只做 arg→ret 传播。C 的字符串/内存函数却把结果
++ * 写进调用方传入的缓冲区（strcpy(dst, src)、sprintf(buf, fmt, x)），因此需要
++ * 额外把污点写回输出参数，否则 `strcpy(buf, tainted); system(buf)` 会断链。
++ */
++import { getLegacyArgValues } from '../../../common/call-args'
++
++const SourceLine = require('../../../common/source-line')
++
++/** dst: 输出参数下标；src: 输入参数下标，`from` 表示从该下标起的全部可变参数 */
++interface OutParamModel {
++  dst: number[] | { from: number }
++  src: number[] | { from: number }
++}
++
++const MODELS: Record<string, OutParamModel> = {
++  strcpy: { dst: [0], src: [1] },
++  strncpy: { dst: [0], src: [1] },
++  stpcpy: { dst: [0], src: [1] },
++  stpncpy: { dst: [0], src: [1] },
++  strlcpy: { dst: [0], src: [1] },
++  strcat: { dst: [0], src: [0, 1] },
++  strncat: { dst: [0], src: [0, 1] },
++  strlcat: { dst: [0], src: [0, 1] },
++  wcscpy: { dst: [0], src: [1] },
++  wcsncpy: { dst: [0], src: [1] },
++  wcscat: { dst: [0], src: [0, 1] },
++  wcsncat: { dst: [0], src: [0, 1] },
++  wmemcpy: { dst: [0], src: [1] },
++  wmemmove: { dst: [0], src: [1] },
++  memcpy: { dst: [0], src: [1] },
++  memmove: { dst: [0], src: [1] },
++  mempcpy: { dst: [0], src: [1] },
++  memccpy: { dst: [0], src: [1] },
++  bcopy: { dst: [1], src: [0] },
++  sprintf: { dst: [0], src: { from: 1 } },
++  vsprintf: { dst: [0], src: { from: 1 } },
++  snprintf: { dst: [0], src: { from: 2 } },
++  vsnprintf: { dst: [0], src: { from: 2 } },
++  swprintf: { dst: [0], src: { from: 2 } },
++  vswprintf: { dst: [0], src: { from: 2 } },
++  _snwprintf: { dst: [0], src: { from: 2 } },
++  _snprintf: { dst: [0], src: { from: 2 } },
++  sscanf: { dst: { from: 2 }, src: [0] },
++  vsscanf: { dst: { from: 2 }, src: [0] },
++  realpath: { dst: [1], src: [0] },
++  strtok_r: { dst: [2], src: [0] },
++}
++
++function indexes(spec: number[] | { from: number }, argc: number): number[] {
++  if (Array.isArray(spec)) return spec.filter((i) => i < argc)
++  const result: number[] = []
++  for (let i = spec.from; i < argc; i++) result.push(i)
++  return result
++}
++
++/** `&x`、`(char *)x`、`*p`、`buf + n`、`&buf[i]` 写入的都是 x/p/buf 这个变量 */
++function writeTarget(node: any): any {
++  let current = node
++  while (current) {
++    if (current.type === 'ReferenceExpression' || current.type === 'DereferenceExpression') current = current.argument
++    else if (current.type === 'CastExpression') current = current.expression
++    else if (current.type === 'BinaryExpression' && (current.operator === '+' || current.operator === '-'))
++      current = current.left
++    else if (current.type === 'MemberAccess' && current.computed) current = current.object
++    else break
++  }
++  if (!current) return null
++  if (current.type === 'Identifier' || current.type === 'MemberAccess') return current
++  return null
++}
++
++function calleeName(node: any): string | undefined {
++  const callee = node?.callee
++  if (callee?.type === 'Identifier') return callee.name
++  return undefined
++}
++
++/**
++ * 在库函数调用后应用输出参数模型。返回值 `ret` 已由引擎的 arg→ret 默认路径
++ * 携带输入参数的污点，直接写入输出参数即可保留完整 trace。
++ * @param analyzer - CAnalyzer
++ * @param node - CallExpression
++ * @param scope - 调用所在 scope
++ * @param state - 状态
++ * @param callInfo - 调用信息
++ * @param ret - 调用返回值
++ */
++export function applyCLibraryModel(analyzer: any, node: any, scope: any, state: any, callInfo: any, ret: any): void {
++  const name = calleeName(node)
++  if (!name || !Object.prototype.hasOwnProperty.call(MODELS, name)) return
++  const model = MODELS[name]
++  const args = node.arguments || []
++  const argValues = getLegacyArgValues(callInfo)
++  const tainted = indexes(model.src, args.length).some((i) => argValues[i]?.taint?.isTaintedRec)
++  if (!tainted || !ret || typeof ret !== 'object') return
++
++  for (const i of indexes(model.dst, args.length)) {
++    const target = writeTarget(args[i])
++    if (!target) continue
++    const value = SourceLine.addSrcLineInfo(ret, node, node.loc?.sourcefile, 'Var Pass:', target.name ?? name)
++    analyzer.saveVarInScope(scope, target, value, state)
++  }
++}
++
++export const C_OUT_PARAM_FUNCTIONS = Object.keys(MODELS)
+diff --git a/src/engine/analyzer/c/common/c-analyzer.ts b/src/engine/analyzer/c/common/c-analyzer.ts
+new file mode 100644
+index 0000000..00d2bdc
+--- /dev/null
++++ b/src/engine/analyzer/c/common/c-analyzer.ts
+@@ -0,0 +1,635 @@
++/* eslint-disable @typescript-eslint/no-require-imports */
++const Analyzer: typeof import('../../common/analyzer').Analyzer = require('../../common/analyzer')
++const CheckerManager = require('../../common/checker-manager')
++const BasicRuleHandler = require('../../../../checker/common/rules-basic-handler')
++const Parser = require('../../../parser/parser')
++const AstUtil = require('../../../../util/ast-util')
++const SourceLine = require('../../common/source-line')
++const CAstBuilder = require('../../../parser/c/c-ast-builder')
++const logger: import('../../../../util/logger').Logger = require('../../../../util/logger')(__filename)
++const { ErrorCode } = require('../../../../util/error-code')
++const Statistics = require('../../../../util/statistics')
++const config = require('../../../../config')
++const constValue = require('../../../../util/constant')
++const EntryPointConfig = require('../../common/entrypoint/current-entrypoint')
++const { executeViaEntryPointExecutor } =
++  require('../../common/entrypoint/entrypoint-executor') as typeof import('../../common/entrypoint/entrypoint-executor')
++const { handleException } = require('../../common/exception-handler')
++const { applyCLibraryModel } = require('./builtins/c-builtins')
++
++const {
++  valueUtil: {
++    ValueUtil: { Scoped, ObjectValue, UndefinedValue, PrimitiveValue },
++  },
++} = require('../../common')
++
++/** 字符串→数值转换：返回值不再携带注入类污点 */
++const NUMERIC_CONVERSIONS = new Set([
++  'atoi',
++  'atol',
++  'atoll',
++  'atof',
++  'strtol',
++  'strtoll',
++  'strtoul',
++  'strtoull',
++  'strtoimax',
++  'strtoumax',
++  'strtod',
++  'strtof',
++  'strtold',
++])
++
++/** parser-C 把这些运算符表示为同名 CallExpression */
++const COMPILE_TIME_OPERATORS = new Set(['sizeof', 'alignof', '_Alignof', '__alignof__', 'offsetof'])
++
++/**
++ * 数组、struct/union 以及 typedef 名（无法区分时按聚合处理）
++ * @param varType - 变量类型节点
++ * @returns 是否聚合类型
++ */
++function isAggregateType(varType: any): boolean {
++  if (!varType) return false
++  if (varType.type === 'ArrayType') return true
++  if (varType.type === 'ScopedType') return ['struct', 'union'].includes(varType._meta?.kind)
++  return false
++}
++
++/** 之后到下一个标签之前的同级语句不可达 */
++const TERMINATORS = new Set(['ReturnStatement', 'BreakStatement', 'ContinueStatement'])
++
++/**
++ * 循环体在顶层以无条件 break/return 结束（Juliet 与很多 C 代码的 `while (1) { ...; break; }`）
++ * @param body - 循环体
++ * @returns 是否只执行一次
++ */
++function endsUnconditionally(body: any): boolean {
++  const statements: any[] = body?.type === 'ScopedStatement' ? body.body || [] : body ? [body] : []
++  return statements.some((s) => s?.type === 'BreakStatement' || s?.type === 'ReturnStatement')
++}
++
++/**
++ * C 语言分析器
++ *
++ * C 没有模块系统：非 static 的函数在链接时全局可见。每个 .c/.h 文件有自己的
++ * 模块 scope（承载 static 函数与文件级变量），非 static 函数额外注册到 topScope，
++ * 以便跨文件调用无需解析 #include。
++ */
++class CAnalyzer extends Analyzer {
++  /** 文件名 → 模块 scope */
++  private moduleScopes = new Map<string, any>()
++
++  /** 当前 entrypoint 的截止时间（ms）；超过后在函数调用边界停止执行 */
++  private entryPointDeadline: number | undefined
++
++  /** 已超时的 entrypoint 数 */
++  private timedOutEntryPoints = 0
++
++  /**
++   * `&x` 产生的值 → x 的位置。引擎中指针与被指对象共享同一个值，
++   * 通过该表把 `*p = v` 写回到 p 指向的变量。
++   */
++  private pointees = new WeakMap<object, { scope: any; node: any }>()
++
++  /**
++   * @param options - 分析选项
++   */
++  constructor(options: any) {
++    const checkerManager = new CheckerManager(
++      options,
++      options.checkerIds,
++      options.checkerPackIds,
++      options.printers,
++      BasicRuleHandler
++    )
++    super(checkerManager, options)
++    this.enableNestedSourceLineIsolation = true
++    this.options = options
++    this.mainEntryPoints = []
++    this.sourceScope = {
++      complete: false,
++      value: [],
++    }
++  }
++
++  /**
++   * 单文件预处理
++   * @param source - 源代码
++   * @param fileName - 文件名
++   */
++  async preProcess4SingleFile(source: any, fileName: any) {
++    this.initTopScope()
++    this.state = this.initState(this.topScope)
++    await CAstBuilder.ensureInitialized()
++
++    this.performanceTracker.start('preProcess.parseCode')
++    const { options } = this
++    options.sourcefile = fileName
++    this.sourceCodeCache.set(fileName, source.split(/\n/))
++    this.uast = Parser.parseSingleFile(fileName, options, this.sourceCodeCache)
++    this.performanceTracker.end('preProcess.parseCode')
++
++    if (this.uast) {
++      this.performanceTracker.start('preProcess.processModule')
++      this.processModule(this.uast, fileName)
++      this.performanceTracker.end('preProcess.processModule')
++    }
++  }
++
++  /**
++   * 预处理阶段：解析所有 C 源文件与头文件
++   * @param dir - 项目目录
++   */
++  async preProcess(dir: any) {
++    await this.scanModules(dir)
++  }
++
++  /**
++   * @param dir - 项目目录
++   */
++  async scanModules(dir: any) {
++    await CAstBuilder.ensureInitialized()
++
++    this.performanceTracker.start('preProcess.parseCode')
++    const astMap = await Parser.parseProject(dir, this.options, this.sourceCodeCache)
++    this.performanceTracker.end('preProcess.parseCode')
++
++    if (!astMap || Object.keys(astMap).length === 0) {
++      handleException(
++        null,
++        '未找到 C 源文件',
++        'find no target compileUnit of the project: no c file found in source path'
++      )
++      process.exitCode = ErrorCode.no_valid_source_file
++      return
++    }
++
++    this.performanceTracker.start('preProcess.processModule')
++    // Headers first so that a definition in a .c file wins over a header's
++    // static inline or macro-generated duplicate.
++    const filenames = Object.keys(astMap).sort((a, b) => Number(a.endsWith('.c')) - Number(b.endsWith('.c')))
++    for (const filename of filenames) {
++      const ast = astMap[filename]
++      if (ast) this.processModule(ast, filename)
++    }
++    this.performanceTracker.end('preProcess.processModule')
++  }
++
++  /**
++   * @param ast - CompileUnit
++   * @param filename - 文件名
++   * @returns 模块导出值
++   */
++  processModule(ast: any, filename: any) {
++    if (!ast) {
++      Statistics.fileIssues[filename] = 'Parsing Error'
++      handleException(
++        null,
++        `CAnalyzer.processModule: ${filename} 解析失败`,
++        `Error occurred in CAnalyzer.processModule: ${filename} parse error`
++      )
++      return
++    }
++    let m = this.topScope.context.modules.members.get(filename)
++    if (m && typeof m === 'object') return m
++
++    const modClos = this.initModuleScope(ast, filename)
++    this.topScope.context.modules.members.set(filename, modClos.getFieldValue('module.exports'))
++    m = this.processModuleDirect(ast, filename, modClos)
++    this.moduleScopes.set(filename, modClos)
++    if (m && typeof m === 'object') {
++      m.ast = ast
++      this.topScope.context.modules.members.set(filename, m)
++      this.fileManager[filename] = { uuid: m.uuid, astNode: m.ast.node }
++    }
++    return m
++  }
++
++  /**
++   * @param node - CompileUnit
++   * @param file - 文件路径
++   * @returns 模块 scope
++   */
++  override initModuleScope(node: any, file: any) {
++    if (!file) return
++    const prefix = file.substring(config.maindirPrefix?.length)
++    const lastDotIndex = prefix.lastIndexOf('.')
++    const sid = lastDotIndex >= 0 ? prefix.substring(0, lastDotIndex) : prefix
++    const modClos = new Scoped('<global>', {
++      sid,
++      parent: this.topScope,
++      decls: {},
++      ast: node,
++    })
++    modClos.ast.fdef = node
++    ;(modClos as any)._this = modClos
++    ;(modClos as any).isCModule = true
++
++    const mod = new ObjectValue(modClos.qid, { sid: 'module', parent: modClos })
++    modClos.value.module = mod
++    const exp = new ObjectValue(modClos.qid, { sid: 'module.exports', parent: modClos })
++    mod.value.exports = exp
++    modClos.value.exports = exp
++    return modClos
++  }
++
++  /**
++   * @param node - CompileUnit
++   * @param filename - 文件名
++   * @param modClos - 模块 scope
++   * @returns 模块导出值
++   */
++  processModuleDirect(node: any, filename: any, modClos: any) {
++    if (!node || node.type !== 'CompileUnit') {
++      handleException(
++        null,
++        `节点类型应为 CompileUnit，但实际为 ${node?.type}`,
++        `node type should be CompileUnit, but ${node?.type}`
++      )
++      return undefined
++    }
++    modClos = modClos || this.initModuleScope(node, filename)
++    this.entry_fclos = modClos
++    this.thisFClos = modClos
++
++    const state = this.initState(modClos)
++    this.processInstruction(modClos, node, state)
++
++    if (this.checkerManager && this.checkerManager.checkAtEndOfCompileUnit) {
++      this.checkerManager.checkAtEndOfCompileUnit(this, null, null, state, null)
++    }
++    return modClos.getFieldValue('module.exports')
++  }
++
++  /**
++   * 非 static 的文件级函数具有外部链接，注册到 topScope 供其它文件调用。
++   * @param scope - 当前 scope
++   * @param node - FunctionDefinition
++   * @param state - 状态
++   * @returns 函数值
++   */
++  override processFunctionDefinition(scope: any, node: any, state: any): any {
++    const fclos = super.processFunctionDefinition(scope, node, state)
++    const name = node?.id?.name
++    const isStatic = (node.modifiers || []).includes('static')
++    // 头文件里的 static inline 函数会被 #include 到每个使用它的文件中，同样全局可见
++    const inHeader = String(node.loc?.sourcefile ?? '').endsWith('.h')
++    if (scope?.isCModule && name && node.body && fclos && (!isStatic || inHeader)) {
++      const existing = this.topScope.value[name]
++      // Keep the first non-header definition when the same symbol is defined twice (e.g. #if branches).
++      if (!existing || !existing.ast?.fdef || String(existing.ast.fdef.loc?.sourcefile ?? '').endsWith('.h')) {
++        this.topScope.value[name] = fclos
++      }
++    }
++    return fclos
++  }
++
++  /**
++   * sizeof/alignof/offsetof 是编译期常量：大小不受缓冲区内容影响，不能沿 arg→ret 传播污点。
++   * @param scope - 当前 scope
++   * @param node - CallExpression
++   * @param state - 状态
++   * @returns 调用结果
++   */
++  override processCallExpression(scope: any, node: any, state: any): any {
++    const callee = node?.callee
++    if (callee?.type === 'Identifier' && COMPILE_TIME_OPERATORS.has(callee.name)) {
++      return new PrimitiveValue(scope.qid, `<${callee.name}>`, null, 'number', 'Literal', node.loc)
++    }
++    const result = super.processCallExpression(scope, node, state)
++    if (callee?.type === 'Identifier' && NUMERIC_CONVERSIONS.has(callee.name)) {
++      // 数值转换是注入类 sink 的屏障：整数无法携带命令/路径/SQL/格式串注入
++      return new PrimitiveValue(scope.qid, `<${callee.name}>`, null, 'number', 'Literal', node.loc)
++    }
++    return result
++  }
++
++  /**
++   * 未初始化的结构体/数组局部变量按空聚合对象初始化，使 `p.inner.v = x`、`g[1][0] = x`
++   * 这类多级写入能落到同一对象上（引擎对 uninit 值不会逐级创建子对象）。
++   * @param scope - 当前 scope
++   * @param node - VariableDeclaration
++   * @param state - 状态
++   * @returns 变量值
++   */
++  override processVariableDeclaration(scope: any, node: any, state: any): any {
++    const storage: string[] = node._meta?.storage || []
++    if (scope?.isCModule && storage.includes('extern') && !node.init) {
++      // `extern T x;` 只是声明：读写都应落到定义处（topScope 中的全局变量）
++      return new UndefinedValue()
++    }
++    // 非 static 的文件级变量具有外部链接，存放在 topScope 供所有文件共享
++    const target = scope?.isCModule && !storage.includes('static') ? this.topScope : scope
++    if (target !== scope && this.topScope.value[node.id?.name] && !node.init) {
++      return this.topScope.value[node.id.name]
++    }
++    if (!node.init && !node._meta?.isParameter && isAggregateType(node.varType)) {
++      const init = { type: 'ObjectExpression', properties: [], loc: node.loc, _meta: { aggregate: true } }
++      return super.processVariableDeclaration(target, { ...node, init }, state)
++    }
++    return super.processVariableDeclaration(target, node, state)
++  }
++
++  /**
++   * 多级下标写入（`g[1][0] = x`）前先物化中间层对象，否则写入落在临时值上丢失。
++   * @param scope - 当前 scope
++   * @param node - AssignmentExpression
++   * @param state - 状态
++   * @returns 赋值结果
++   */
++  override processAssignmentExpression(scope: any, node: any, state: any): any {
++    if (node?.left?.type === 'DereferenceExpression' && node.operator === '=') {
++      return this.assignThroughPointer(scope, node, state)
++    }
++    if (node?.left?.type === 'MemberAccess' && node.left.object?.type === 'MemberAccess') {
++      this.materializeMember(scope, node.left.object, state)
++    }
++    return super.processAssignmentExpression(scope, node, state)
++  }
++
++  /**
++   * `*p = v`：写回 p 所指向的变量，并让 p 继续指向新值。
++   * @param scope - 当前 scope
++   * @param node - AssignmentExpression，left 为 DereferenceExpression
++   * @param state - 状态
++   * @returns 写入的值
++   */
++  private assignThroughPointer(scope: any, node: any, state: any): any {
++    let value = this.processInstruction(scope, node.right, state)
++    if (!value || typeof value !== 'object') {
++      value = new PrimitiveValue(scope.qid, `<literal_${value}>`, value, null, 'Literal', node.right?.loc)
++    }
++    let pointerNode = node.left.argument
++    while (pointerNode?.type === 'CastExpression') pointerNode = pointerNode.expression
++    const pointerValue = this.processInstruction(scope, pointerNode, state)
++    const pointee = pointerValue && typeof pointerValue === 'object' ? this.pointees.get(pointerValue) : undefined
++    value = SourceLine.addSrcLineInfo(value, node, node.loc?.sourcefile, 'Var Pass:', AstUtil.prettyPrintAST(node.left))
++    if (pointee) {
++      this.saveVarInScope(pointee.scope, pointee.node, value, state)
++      this.pointees.set(value, pointee)
++    }
++    if (pointerNode?.type === 'Identifier' || pointerNode?.type === 'MemberAccess') {
++      this.saveVarInScope(scope, pointerNode, value, state)
++    }
++    return value
++  }
++
++  /**
++   * `&x`：记录被指向的位置，供后续 `*p = v` 写回。
++   * @param scope - 当前 scope
++   * @param node - ReferenceExpression
++   * @param state - 状态
++   * @returns x 的值
++   */
++  override processReferenceExpression(scope: any, node: any, state: any): any {
++    const value = super.processReferenceExpression(scope, node, state)
++    const target = node?.argument
++    if (value && typeof value === 'object' && (target?.type === 'Identifier' || target?.type === 'MemberAccess')) {
++      this.pointees.set(value, { scope, node: target })
++    }
++    return value
++  }
++
++  /**
++   * @param scope - 当前 scope
++   * @param member - MemberAccess 节点
++   * @param state - 状态
++   */
++  private materializeMember(scope: any, member: any, state: any): void {
++    if (member.object?.type === 'MemberAccess') this.materializeMember(scope, member.object, state)
++    const existing = this.getMemberValueNoCreate(scope, member, state)
++    if (existing && !['undefine', 'uninitialized', 'symbol'].includes(existing.vtype)) return
++    const obj = new ObjectValue(scope.qid, { sid: AstUtil.prettyPrintAST(member), parent: scope })
++    this.saveVarInScope(scope, member, obj, state)
++  }
++
++  /**
++   * 块内 return / goto 之后到下一个标签之前的语句不可达，执行前剪掉。
++   * @param scope - 当前 scope
++   * @param node - ScopedStatement
++   * @param state - 状态
++   * @returns 块结果
++   */
++  override processScopedStatement(scope: any, node: any, state: any): any {
++    const body: any[] = node?.body || []
++    const reachable: any[] = []
++    let dead = false
++    for (const stmt of body) {
++      if (stmt?.type === 'LabeledStatement') dead = false
++      if (!dead) reachable.push(stmt)
++      if (TERMINATORS.has(stmt?.type) || (stmt?.type === 'Noop' && stmt._meta?.goto)) dead = true
++    }
++    if (reachable.length === body.length) return super.processScopedStatement(scope, node, state)
++    return super.processScopedStatement(scope, { ...node, body: reachable }, state)
++  }
++
++  /**
++   * 常量条件（`if (0)`、`if (1)`）只执行可达分支。
++   * @param scope - 当前 scope
++   * @param node - IfStatement
++   * @param state - 状态
++   * @returns 语句结果
++   */
++  override processIfStatement(scope: any, node: any, state: any): any {
++    const test = node?.test
++    if (test?.type === 'Literal' && (typeof test.value === 'number' || typeof test.value === 'boolean')) {
++      const branch = test.value ? node.consequent : node.alternative
++      return branch ? this.processInstruction(scope, branch, state) : new UndefinedValue()
++    }
++    return super.processIfStatement(scope, node, state)
++  }
++
++  /**
++   * do-while 至少执行一次循环体（引擎基类先判条件，`do { ... } while (0)` 会整体跳过）。
++   * @param scope - 当前 scope
++   * @param node - WhileStatement
++   * @param state - 状态
++   * @returns 语句结果
++   */
++  override processWhileStatement(scope: any, node: any, state: any): any {
++    // 循环体顶层无条件 break/return：只会执行一次（`while (1) { ...; break; }`），不能按两轮展开
++    if (node?.isPostTest || endsUnconditionally(node?.body)) {
++      this.processInstruction(scope, node.body, state)
++      if (endsUnconditionally(node?.body)) return new UndefinedValue()
++    }
++    return super.processWhileStatement(scope, node, state)
++  }
++
++  /**
++   * for 循环体顶层无条件 break/return 时只执行一次。
++   * @param scope - 当前 scope
++   * @param node - ForStatement
++   * @param state - 状态
++   * @returns 语句结果
++   */
++  override processForStatement(scope: any, node: any, state: any): any {
++    if (!endsUnconditionally(node?.body)) return super.processForStatement(scope, node, state)
++    if (node.init) this.processInstruction(scope, node.init, state)
++    if (node.test) this.processInstruction(scope, node.test, state)
++    this.processInstruction(scope, node.body, state)
++    return new UndefinedValue()
++  }
++
++  /**
++   * `*p` 读取 p 当前指向的变量（而不是取地址时的旧值）：`p = &x; x = v; use(*p)`。
++   * @param scope - 当前 scope
++   * @param node - DereferenceExpression
++   * @param state - 状态
++   * @returns 被指向变量的当前值
++   */
++  override processDereferenceExpression(scope: any, node: any, state: any): any {
++    const value = super.processDereferenceExpression(scope, node, state)
++    const pointee = value && typeof value === 'object' ? this.pointees.get(value) : undefined
++    if (!pointee) return value
++    const current = this.processInstruction(pointee.scope, pointee.node, state)
++    return current ?? value
++  }
++
++  /**
++   * 标签语句：执行被标记的语句。goto 在 parser 中保留为 Noop，控制流按顺序近似。
++   * @param scope - 当前 scope
++   * @param node - LabeledStatement
++   * @param state - 状态
++   * @returns 语句结果
++   */
++  processLabeledStatement(scope: any, node: any, state: any): any {
++    return node?.body ? this.processInstruction(scope, node.body, state) : new UndefinedValue()
++  }
++
++  /**
++   * #include 不需要按模块导入：函数通过 topScope 全局可见，宏在解析阶段已保留在元数据中。
++   * @returns UndefinedValue
++   */
++  override processImportExpression(): any {
++    return new UndefinedValue()
++  }
++
++  /**
++   * 库函数调用后，按 C 标准库语义把污点写回输出参数（strcpy/sprintf/memcpy 等）。
++   * @param node - CallExpression
++   * @param fclos - 被调函数
++   * @param state - 状态
++   * @param scope - 当前 scope
++   * @param callInfo - 调用信息
++   * @returns 调用返回值
++   */
++  override executeCall(node: any, fclos: any, state: any, scope: any, callInfo: any): any {
++    const ret = super.executeCall(node, fclos, state, scope, callInfo)
++    if (node?.type === 'CallExpression' && !fclos?.ast?.fdef) {
++      applyCLibraryModel(this, node, scope, state, callInfo, ret)
++    }
++    return ret
++  }
++
++  /**
++   * 分析开始：checker 收集 entrypoint（main 与调用图根函数）
++   */
++  override startAnalyze() {
++    if (this.checkerManager && this.checkerManager.checkAtStartOfAnalyze) {
++      this.checkerManager.checkAtStartOfAnalyze(this, null, null, null, null)
++    }
++    if (Array.isArray(this.mainEntryPoints) && this.mainEntryPoints.length > 0) {
++      this.entryPoints = [...this.mainEntryPoints, ...this.entryPoints]
++    }
++  }
++
++  /**
++   * 符号解释：逐个执行函数级 entrypoint
++   * @returns 是否完成
++   */
++  async symbolInterpret(): Promise<boolean> {
++    const { entryPoints } = this
++    const state = this.initState(this.topScope)
++    if (!entryPoints || entryPoints.length === 0) {
++      logger.info('[symbolInterpret]：EntryPoints are not found')
++      return true
++    }
++    const hasAnalysised = new Set<string>()
++    let epIdx = 0
++    for (const entryPoint of entryPoints) {
++      epIdx++
++      const metricStartTime = Date.now()
++      const findingsBefore = this.countFindings()
++      let skipped = false
++      let skipReason: string | undefined
++      try {
++        this.symbolTable.clear()
++        if (entryPoint.type !== constValue.ENGIN_START_FUNCALL) {
++          skipped = true
++          skipReason = 'unsupported'
++          continue
++        }
++        const entryPointMark = this.markEntryPointForAnalysis(entryPoint, hasAnalysised)
++        if (entryPointMark.skipped) {
++          skipped = true
++          skipReason = entryPointMark.skipReason
++          continue
++        }
++        EntryPointConfig.setCurrentEntryPoint(entryPoint)
++
++        const fdef = entryPoint.entryPointSymVal?.ast?.node
++        const budget = Number(config.entryPointTimeoutQuickMs)
++        this.entryPointDeadline = budget > 0 ? Date.now() + budget : undefined
++        const argValues: any[] = []
++        for (const param of fdef?.parameters || []) {
++          argValues.push(this.processInstruction(entryPoint.entryPointSymVal, param, state))
++        }
++
++        executeViaEntryPointExecutor(
++          {
++            analyzer: this,
++            entryPoint,
++            metricStartTime,
++            findingsBefore,
++            executionState: state,
++            overloadCount: 1,
++            epIndex: epIdx,
++            epTotal: entryPoints.length,
++          },
++          {
++            language: 'c',
++            classify: () => 'function',
++            execute: () => {
++              // 参数值创建后再触发 Before hook，避免 argv 的 taint 被覆盖
++              this.checkerManager.checkAtSymbolInterpretOfEntryPointBefore(this, null, null, null, null)
++              try {
++                this.executeCall(fdef, entryPoint.entryPointSymVal, state, entryPoint.scopeVal, {
++                  callArgs: this.buildCallArgs(fdef, argValues, entryPoint.entryPointSymVal),
++                })
++              } catch (e) {
++                handleException(
++                  e,
++                  `[${fdef?.id?.name} symbolInterpret 失败`,
++                  `[${fdef?.id?.name} symbolInterpret failed`
++                )
++              }
++              this.checkerManager.checkAtSymbolInterpretOfEntryPointAfter(this, null, null, null, null)
++            },
++          },
++          this.checkerManager?.resultManagerProxy
++        )
++      } finally {
++        if (this.entryPointDeadline !== undefined && Date.now() >= this.entryPointDeadline) {
++          this.timedOutEntryPoints++
++          logger.info(`[symbolInterpret] entrypoint ${entryPoint.functionName} stopped after its time budget`)
++        }
++        this.entryPointDeadline = undefined
++        this.recordEntryPointLoopMetric(entryPoint, metricStartTime, findingsBefore, skipped, skipReason, 1)
++      }
++    }
++    if (this.timedOutEntryPoints > 0) {
++      logger.info(`[symbolInterpret] ${this.timedOutEntryPoints} entrypoint(s) reached the time budget`)
++    }
++    return true
++  }
++
++  /**
++   * entrypoint 时间预算：超过 `entryPointTimeoutQuickMs` 后在函数调用边界停止执行，已产生的告警保留。
++   * @returns 是否应停止
++   */
++  protected override shouldAbortExecutionForTimeout(): boolean {
++    return this.entryPointDeadline !== undefined && Date.now() >= this.entryPointDeadline
++  }
++}
++
++export = CAnalyzer
+diff --git a/src/engine/parser/c/c-ast-builder.ts b/src/engine/parser/c/c-ast-builder.ts
+new file mode 100644
+index 0000000..47b423f
+--- /dev/null
++++ b/src/engine/parser/c/c-ast-builder.ts
+@@ -0,0 +1,51 @@
++/* eslint-disable @typescript-eslint/no-require-imports */
++const { Parser: CUastParser } = require('@ant-yasa/uast-parser-c')
++
++let cParser: InstanceType<typeof CUastParser> | null = null
++let initPromise: Promise<void> | null = null
++
++/**
++ * 确保 C parser 已异步初始化（加载 tree-sitter WASM）
++ * 多次调用安全，只初始化一次
++ */
++async function ensureInitialized(): Promise<void> {
++  if (!cParser) {
++    cParser = new CUastParser()
++    initPromise = cParser.init()
++  }
++  if (initPromise) {
++    await initPromise
++    initPromise = null
++  }
++}
++
++/**
++ * 解析单个 C 文件（同步接口）
++ * 调用前必须已完成 ensureInitialized()
++ * @param code - C 源代码
++ * @param options - 解析选项（包含 sourcefile）
++ * @returns UAST 节点
++ */
++function parseSingleFile(code: string, options?: Record<string, unknown>): unknown {
++  if (!cParser || initPromise) {
++    throw new Error('C parser 未初始化，请先调用 ensureInitialized()')
++  }
++  return cParser.parse(code, options || {})
++}
++
++/**
++ * 项目解析接口（由 parser.ts 统一处理文件级解析）
++ * @param _rootDir - 项目根目录（未使用）
++ * @param _options - 解析选项（未使用）
++ * @returns null，由 parser.ts 逐文件调用 parseSingleFile
++ */
++// eslint-disable-next-line @typescript-eslint/no-unused-vars
++async function parseProject(_rootDir: string, _options?: Record<string, unknown>): Promise<null> {
++  return null
++}
++
++module.exports = {
++  ensureInitialized,
++  parseSingleFile,
++  parseProject,
++}
+diff --git a/src/engine/parser/parser-core.ts b/src/engine/parser/parser-core.ts
+index b3dbf32..1fe23e1 100644
+--- a/src/engine/parser/parser-core.ts
++++ b/src/engine/parser/parser-core.ts
+@@ -34,6 +34,7 @@ const parsers: Record<string, ((code: string, options: Record<string, any>) => a
+   python: null,
+   golang: null,
+   php: null,
++  c: null,
+ }
+ 
+ /**
+@@ -89,6 +90,12 @@ function getParser(language: string): ((code: string, options: Record<string, an
+       parsers.php = parser
+       break
+     }
++    case 'c': {
++      const CParser = require('./c/c-ast-builder')
++      parser = (c: string, opts: Record<string, any>) => CParser.parseSingleFile(c, opts)
++      parsers.c = parser
++      break
++    }
+     default:
+       throw new Error(`Unsupported language: ${language}`)
+   }
+diff --git a/src/engine/parser/parser-worker.ts b/src/engine/parser/parser-worker.ts
+index 2ca614d..a660cfa 100644
+--- a/src/engine/parser/parser-worker.ts
++++ b/src/engine/parser/parser-worker.ts
+@@ -58,6 +58,15 @@ async function ensurePhpParserReady(): Promise<void> {
+   phpInitialized = true
+ }
+ 
++// C parser 同样需要异步初始化 tree-sitter WASM
++let cInitialized = false
++async function ensureCParserReady(): Promise<void> {
++  if (cInitialized) return
++  const CParser = require('./c/c-ast-builder')
++  await CParser.ensureInitialized()
++  cInitialized = true
++}
++
+ async function processParseTask(task: ParseTask): Promise<{ filepath: string; ast: any; error?: string }> {
+   if (task.config.maindirPrefix !== undefined) {
+     config.maindirPrefix = task.config.maindirPrefix
+@@ -67,6 +76,9 @@ async function processParseTask(task: ParseTask): Promise<{ filepath: string; as
+     if (task.language === 'php') {
+       await ensurePhpParserReady()
+     }
++    if (task.language === 'c') {
++      await ensureCParserReady()
++    }
+     if (task.language === 'python') {
+       const PythonParser = require('./python/python-ast-builder')
+       await PythonParser.ensureInitialized()
+diff --git a/src/engine/parser/parser.ts b/src/engine/parser/parser.ts
+index 8acba27..2862a04 100644
+--- a/src/engine/parser/parser.ts
++++ b/src/engine/parser/parser.ts
+@@ -713,6 +713,25 @@ class BaseParser {
+       },
+       needsSourcefile: true,
+     })
++
++    // 注册 C 解析器（tree-sitter-c，头文件与源文件一起解析）
++    this.registry.register({
++      language: 'c',
++      unit: 'file',
++      supportsIncremental: false,
++      parseAsFiles: true,
++      filePatterns: ['**/*.c', '**/*.h'],
++      parseSingleFile: (code, options) => {
++        const CParser = require('./c/c-ast-builder')
++        return CParser.parseSingleFile(code, options)
++      },
++      parseProject: async () => {
++        const CParser = require('./c/c-ast-builder')
++        await CParser.ensureInitialized()
++        return null
++      },
++      needsSourcefile: true,
++    })
+   }
+ 
+   /**
+@@ -1374,6 +1393,9 @@ async function ensureInitialized(language?: string): Promise<void> {
+   } else if (language === 'php') {
+     const PhpParser = require('./php/php-ast-builder')
+     await PhpParser.ensureInitialized()
++  } else if (language === 'c') {
++    const CParser = require('./c/c-ast-builder')
++    await CParser.ensureInitialized()
+   }
+ }
+ 
+diff --git a/src/interface/starter.ts b/src/interface/starter.ts
+index 81457be..fae61b0 100644
+--- a/src/interface/starter.ts
++++ b/src/interface/starter.ts
+@@ -318,13 +318,13 @@ async function initAnalyzer(dir: any, args: any[] = [], printf?: any) {
+         setExitCode(ErrorCode.config_error)
+       }
+     })
+-    .option('--language <lang>', '指定语言（支持: javascript/typescript/golang/python/java）', (lang: any) => {
+-      const supported = ['javascript', 'typescript', 'js', 'ts', 'go', 'golang', 'python', 'java', 'php']
++    .option('--language <lang>', '指定语言（支持: javascript/typescript/golang/python/java/php/c）', (lang: any) => {
++      const supported = ['javascript', 'typescript', 'js', 'ts', 'go', 'golang', 'python', 'java', 'php', 'c']
+       if (!supported.includes(lang)) {
+         handleException(
+           null,
+-          'Unknown language!! Only support javascript/typescript/golang/python/java/php',
+-          'Unknown language!! Only support javascript/typescript/golang/python/java/php'
++          'Unknown language!! Only support javascript/typescript/golang/python/java/php/c',
++          'Unknown language!! Only support javascript/typescript/golang/python/java/php/c'
+         )
+         initError = true
+         setExitCode(ErrorCode.config_error)
+@@ -798,6 +798,8 @@ async function initAnalyzer(dir: any, args: any[] = [], printf?: any) {
+ 
+   const PhpAnalyzer = require('../engine/analyzer/php/common/php-analyzer')
+ 
++  const CAnalyzer = require('../engine/analyzer/c/common/c-analyzer')
++
+   const analyzerEnum = {
+     EggAnalyzer,
+     JavaScriptAnalyzer,
+@@ -806,6 +808,7 @@ async function initAnalyzer(dir: any, args: any[] = [], printf?: any) {
+     SpringAnalyzer,
+     PythonAnalyzer,
+     PhpAnalyzer,
++    CAnalyzer,
+   }
+   const analyzerLanguage = {
+     EggAnalyzer: 'javascript',
+@@ -815,6 +818,7 @@ async function initAnalyzer(dir: any, args: any[] = [], printf?: any) {
+     GoAnalyzer: 'golang',
+     PythonAnalyzer: 'python',
+     PhpAnalyzer: 'php',
++    CAnalyzer: 'c',
+   }
+ 
+   let Analyzer: any
+@@ -824,8 +828,8 @@ async function initAnalyzer(dir: any, args: any[] = [], printf?: any) {
+     if (!Analyzer || Analyzer === '') {
+       handleException(
+         null,
+-        'analyzer set failed,now YASA supported EggAnalyzer|JavaScriptAnalyzer|JavaAnalyzer|SpringAnalyzer|GoAnalyzer|PythonAnalyzer|PhpAnalyzer',
+-        'analyzer set failed,now YASA supported EggAnalyzer|JavaScriptAnalyzer|JavaAnalyzer|SpringAnalyzer|GoAnalyzer|PythonAnalyzer|PhpAnalyzer'
++        'analyzer set failed,now YASA supported EggAnalyzer|JavaScriptAnalyzer|JavaAnalyzer|SpringAnalyzer|GoAnalyzer|PythonAnalyzer|PhpAnalyzer|CAnalyzer',
++        'analyzer set failed,now YASA supported EggAnalyzer|JavaScriptAnalyzer|JavaAnalyzer|SpringAnalyzer|GoAnalyzer|PythonAnalyzer|PhpAnalyzer|CAnalyzer'
+       )
+       return
+     }
+@@ -853,6 +857,9 @@ async function initAnalyzer(dir: any, args: any[] = [], printf?: any) {
+         case 'php':
+           f = 'PhpAnalyzer'
+           break
++        case 'c':
++          f = 'CAnalyzer'
++          break
+         default:
+           handleException(null, 'default analyzer set failed', 'default analyzer set failed')
+           return
+@@ -861,7 +868,7 @@ async function initAnalyzer(dir: any, args: any[] = [], printf?: any) {
+     Config.analyzer = f
+     Analyzer = (analyzerEnum as any)[Config.analyzer]
+   }
+-  // Python and PHP load Tree-sitter WASM asynchronously, while analyzer
++  // Python, PHP and C load Tree-sitter WASM asynchronously, while analyzer
+   // internals use the synchronous parseSingleFile interface.
+   await Parser.ensureInitialized(Config.language)
+   yasaLog(`Analysis language: ${Config.language}`, 'init')
+@@ -954,6 +961,9 @@ function loadSource(absdirs: any) {
+     case 'php':
+       fext = ['php']
+       break
++    case 'c':
++      fext = ['c', 'h']
++      break
+     default:
+       // Keep default .sol extension for unknown languages
+       break
+@@ -1123,6 +1133,9 @@ function detectFileLanguage(filename: any) {
+       return 'python'
+     case 'php':
+       return 'php'
++    case 'c':
++    case 'h':
++      return 'c'
+     default:
+       return null
+   }
+diff --git a/test/c/checker-cases/constant_system_008_F.c b/test/c/checker-cases/constant_system_008_F.c
+new file mode 100644
+index 0000000..082a25d
+--- /dev/null
++++ b/test/c/checker-cases/constant_system_008_F.c
+@@ -0,0 +1,13 @@
++/*
++ * evaluation information start
++ * real case = false
++ * evaluation item = 真实 API
++ * scene introduction = system 执行常量命令
++ * bind_url = real_api/constant_system_008_F
++ * evaluation information end
++ */
++#include <stdlib.h>
++void constant_system_008_F(void) {
++    char *unused = getenv("HOME");
++    system("ls /tmp");
++}
+diff --git a/test/c/checker-cases/fgets_printf_002_T.c b/test/c/checker-cases/fgets_printf_002_T.c
+new file mode 100644
+index 0000000..02bd08e
+--- /dev/null
++++ b/test/c/checker-cases/fgets_printf_002_T.c
+@@ -0,0 +1,14 @@
++/*
++ * evaluation information start
++ * real case = true
++ * evaluation item = 真实 API
++ * scene introduction = fgets → printf 格式化字符串
++ * bind_url = real_api/fgets_printf_002_T
++ * evaluation information end
++ */
++#include <stdio.h>
++void fgets_printf_002_T(void) {
++    char buf[128];
++    fgets(buf, sizeof(buf), stdin);
++    printf(buf);
++}
+diff --git a/test/c/checker-cases/fgets_printf_safe_003_F.c b/test/c/checker-cases/fgets_printf_safe_003_F.c
+new file mode 100644
+index 0000000..d3ce8ec
+--- /dev/null
++++ b/test/c/checker-cases/fgets_printf_safe_003_F.c
+@@ -0,0 +1,14 @@
++/*
++ * evaluation information start
++ * real case = false
++ * evaluation item = 真实 API
++ * scene introduction = fgets 读入后用 %s 打印
++ * bind_url = real_api/fgets_printf_safe_003_F
++ * evaluation information end
++ */
++#include <stdio.h>
++void fgets_printf_safe_003_F(void) {
++    char buf[128];
++    fgets(buf, sizeof(buf), stdin);
++    printf("%s", buf);
++}
+diff --git a/test/c/checker-cases/getenv_system_001_T.c b/test/c/checker-cases/getenv_system_001_T.c
+new file mode 100644
+index 0000000..0305503
+--- /dev/null
++++ b/test/c/checker-cases/getenv_system_001_T.c
+@@ -0,0 +1,13 @@
++/*
++ * evaluation information start
++ * real case = true
++ * evaluation item = 真实 API
++ * scene introduction = getenv → system
++ * bind_url = real_api/getenv_system_001_T
++ * evaluation information end
++ */
++#include <stdlib.h>
++void getenv_system_001_T(void) {
++    char *cmd = getenv("CMD");
++    system(cmd);
++}
+diff --git a/test/c/checker-cases/pointer_out_param.c b/test/c/checker-cases/pointer_out_param.c
+new file mode 100644
+index 0000000..0619eb4
+--- /dev/null
++++ b/test/c/checker-cases/pointer_out_param.c
+@@ -0,0 +1,15 @@
++#include <stdlib.h>
++#include <string.h>
++
++/* 输出参数：污点经指针写回调用者，再经 strcpy 拷贝到缓冲区 */
++static void read_cmd(char **out) {
++    *out = getenv("CMD");
++}
++
++void pointer_out_param(void) {
++    char *cmd = "ls";
++    char buf[128];
++    read_cmd(&cmd);
++    strcpy(buf, cmd);
++    system(buf);
++}
+diff --git a/test/c/checker-cases/recv_strcpy_005_T.c b/test/c/checker-cases/recv_strcpy_005_T.c
+new file mode 100644
+index 0000000..c102b98
+--- /dev/null
++++ b/test/c/checker-cases/recv_strcpy_005_T.c
+@@ -0,0 +1,16 @@
++/*
++ * evaluation information start
++ * real case = true
++ * evaluation item = 真实 API
++ * scene introduction = recv → strcpy 缓冲区溢出
++ * bind_url = real_api/recv_strcpy_005_T
++ * evaluation information end
++ */
++#include <string.h>
++#include <sys/socket.h>
++void recv_strcpy_005_T(int sock) {
++    char in[256];
++    char small[8];
++    recv(sock, in, sizeof(in), 0);
++    strcpy(small, in);
++}
+diff --git a/test/c/checker-cases/scanf_sprintf_system_007_T.c b/test/c/checker-cases/scanf_sprintf_system_007_T.c
+new file mode 100644
+index 0000000..2628f8c
+--- /dev/null
++++ b/test/c/checker-cases/scanf_sprintf_system_007_T.c
+@@ -0,0 +1,17 @@
++/*
++ * evaluation information start
++ * real case = true
++ * evaluation item = 真实 API
++ * scene introduction = scanf → sprintf 拼接 → system
++ * bind_url = real_api/scanf_sprintf_system_007_T
++ * evaluation information end
++ */
++#include <stdio.h>
++#include <stdlib.h>
++void scanf_sprintf_system_007_T(void) {
++    char name[64];
++    char cmd[128];
++    scanf("%63s", name);
++    sprintf(cmd, "grep %s /etc/passwd", name);
++    system(cmd);
++}
+diff --git a/test/c/checker-cases/vulnerable.c b/test/c/checker-cases/vulnerable.c
+new file mode 100644
+index 0000000..3a948f7
+--- /dev/null
++++ b/test/c/checker-cases/vulnerable.c
+@@ -0,0 +1,35 @@
++#include <stdio.h>
++#include <stdlib.h>
++#include <string.h>
++
++/* 场景 1：命令注入 — 环境变量流向 system() */
++void test_command_injection() {
++    char *cmd = getenv("USER_CMD");
++    system(cmd);
++}
++
++/* 场景 2：格式化字符串 — fgets 读入直接传给 printf */
++void test_format_string() {
++    char buf[256];
++    fgets(buf, sizeof(buf), stdin);
++    printf(buf);
++}
++
++/* 场景 3：缓冲区溢出 — recv 收到的数据传给 memcpy，无长度检查 */
++void test_buffer_overflow(char *dest, int sock) {
++    char src[1024];
++    recv(sock, src, sizeof(src), 0);
++    memcpy(dest, src, sizeof(src));
++}
++
++/* 场景 4：命令注入 — getenv → execl（exec 家族不同成员） */
++void test_exec_family() {
++    char *path = getenv("PATH");
++    execl(path, "prog", NULL);
++}
++
++int main() {
++    test_command_injection();
++    test_format_string();
++    return 0;
++}
+diff --git a/test/c/test-c-checker.ts b/test/c/test-c-checker.ts
+new file mode 100644
+index 0000000..9d7124e
+--- /dev/null
++++ b/test/c/test-c-checker.ts
+@@ -0,0 +1,85 @@
++import * as path from 'path'
++import * as fs from 'fs'
++import { describe, it, before } from 'mocha'
++import * as assert from 'assert'
++const { execute } = require('../../src/interface/starter')
++const Config = require('../../src/config')
++
++const WORKSPACE_ROOT = path.resolve(__dirname, '../..')
++const RULE_CONFIG = path.resolve(WORKSPACE_ROOT, 'resource', 'example-rule-config', 'rule_config_c.json')
++const TEST_CASES_DIR = path.resolve(__dirname, 'checker-cases')
++
++/** 重置 commander 回调修改的运行时字段，避免跨测试污染 */
++function resetConfig(): void {
++  Config.dumpCG = false
++  Config.dumpAllCG = false
++  Config.dumpAST = false
++  Config.dumpAllAST = false
++  Config.single = false
++  Config.checkerIds = []
++  Config.checkerPackIds = []
++  Config.ruleConfigFile = ''
++  Config.reportDir = ''
++  Config.language = undefined
++  Config.uastSDKPath = undefined
++}
++
++/** SARIF 中每条 finding 的 `文件名:sink 行号` */
++function findingLocations(reportDir: string): string[] {
++  const sarif = JSON.parse(fs.readFileSync(path.join(reportDir, 'report.sarif'), 'utf-8'))
++  const locations: string[] = []
++  for (const run of sarif.runs || []) {
++    for (const result of run.results || []) {
++      const loc = result.locations[0].physicalLocation
++      locations.push(`${path.basename(loc.artifactLocation.uri)}:${loc.region.startLine}`)
++    }
++  }
++  return [...new Set(locations)].sort()
++}
++
++describe('C Checker Regression Tests (taint-flow-c-default)', function () {
++  this.timeout(0)
++  const reportDir = path.resolve('/tmp', 'c-checker-test-taint')
++  let findings: string[] = []
++  let summary: any
++
++  before(async function () {
++    fs.rmSync(reportDir, { recursive: true, force: true })
++    resetConfig()
++    await execute(null, [
++      TEST_CASES_DIR,
++      '--ruleConfigFile',
++      RULE_CONFIG,
++      '--checkerPackIds',
++      'taint-flow-c-default',
++      '--language',
++      'c',
++      '--report',
++      reportDir,
++    ])
++    summary = JSON.parse(fs.readFileSync(path.join(reportDir, 'scan_summary.json'), 'utf-8'))
++    findings = findingLocations(reportDir)
++  })
++
++  it('parses every C file', function () {
++    assert.strictEqual(summary.fileCount, fs.readdirSync(TEST_CASES_DIR).length)
++  })
++
++  it('reports exactly the vulnerable sinks', function () {
++    assert.deepStrictEqual(findings, [
++      'fgets_printf_002_T.c:13',
++      'getenv_system_001_T.c:12',
++      'pointer_out_param.c:13',
++      'pointer_out_param.c:14',
++      'recv_strcpy_005_T.c:15',
++      'scanf_sprintf_system_007_T.c:16',
++      'vulnerable.c:15',
++      'vulnerable.c:28',
++      'vulnerable.c:8',
++    ])
++  })
++
++  it('does not report safe uses', function () {
++    assert.ok(!findings.some((f) => f.includes('_F.c')), findings.join(', '))
++  })
++})
+-- 
+2.43.0
+

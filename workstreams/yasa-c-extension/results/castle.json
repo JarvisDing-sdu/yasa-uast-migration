@@ -1,0 +1,1668 @@
+{
+ "taint": {
+  "TP": 24,
+  "FN": 0,
+  "TN": 6,
+  "FP": 10
+ },
+ "other": {
+  "TP": 4,
+  "FN": 122,
+  "TN": 83,
+  "FP": 1
+ },
+ "per_cwe": {
+  "125": {
+   "TP": 0,
+   "FN": 6,
+   "TN": 4,
+   "FP": 0
+  },
+  "134": {
+   "TP": 6,
+   "FN": 0,
+   "TN": 3,
+   "FP": 1
+  },
+  "190": {
+   "TP": 0,
+   "FN": 6,
+   "TN": 4,
+   "FP": 0
+  },
+  "22": {
+   "TP": 6,
+   "FN": 0,
+   "TN": 0,
+   "FP": 4
+  },
+  "253": {
+   "TP": 0,
+   "FN": 6,
+   "TN": 4,
+   "FP": 0
+  },
+  "327": {
+   "TP": 1,
+   "FN": 5,
+   "TN": 4,
+   "FP": 0
+  },
+  "362": {
+   "TP": 0,
+   "FN": 6,
+   "TN": 4,
+   "FP": 0
+  },
+  "369": {
+   "TP": 0,
+   "FN": 6,
+   "TN": 4,
+   "FP": 0
+  },
+  "401": {
+   "TP": 0,
+   "FN": 6,
+   "TN": 4,
+   "FP": 0
+  },
+  "415": {
+   "TP": 0,
+   "FN": 6,
+   "TN": 4,
+   "FP": 0
+  },
+  "416": {
+   "TP": 0,
+   "FN": 6,
+   "TN": 4,
+   "FP": 0
+  },
+  "476": {
+   "TP": 0,
+   "FN": 6,
+   "TN": 4,
+   "FP": 0
+  },
+  "522": {
+   "TP": 1,
+   "FN": 5,
+   "TN": 4,
+   "FP": 0
+  },
+  "617": {
+   "TP": 0,
+   "FN": 6,
+   "TN": 4,
+   "FP": 0
+  },
+  "628": {
+   "TP": 0,
+   "FN": 6,
+   "TN": 4,
+   "FP": 0
+  },
+  "674": {
+   "TP": 0,
+   "FN": 6,
+   "TN": 4,
+   "FP": 0
+  },
+  "761": {
+   "TP": 0,
+   "FN": 6,
+   "TN": 4,
+   "FP": 0
+  },
+  "770": {
+   "TP": 0,
+   "FN": 6,
+   "TN": 4,
+   "FP": 0
+  },
+  "78": {
+   "TP": 6,
+   "FN": 0,
+   "TN": 1,
+   "FP": 3
+  },
+  "787": {
+   "TP": 1,
+   "FN": 5,
+   "TN": 4,
+   "FP": 0
+  },
+  "798": {
+   "TP": 1,
+   "FN": 5,
+   "TN": 3,
+   "FP": 1
+  },
+  "822": {
+   "TP": 0,
+   "FN": 6,
+   "TN": 4,
+   "FP": 0
+  },
+  "835": {
+   "TP": 0,
+   "FN": 6,
+   "TN": 4,
+   "FP": 0
+  },
+  "843": {
+   "TP": 0,
+   "FN": 6,
+   "TN": 4,
+   "FP": 0
+  },
+  "89": {
+   "TP": 6,
+   "FN": 0,
+   "TN": 2,
+   "FP": 2
+  }
+ },
+ "files": [
+  {
+   "file": "CASTLE-125-1.c",
+   "cwe": "125",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-125-10.c",
+   "cwe": "125",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-125-2.c",
+   "cwe": "125",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-125-3.c",
+   "cwe": "125",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-125-4.c",
+   "cwe": "125",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-125-5.c",
+   "cwe": "125",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-125-6.c",
+   "cwe": "125",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-125-7.c",
+   "cwe": "125",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-125-8.c",
+   "cwe": "125",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-125-9.c",
+   "cwe": "125",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-134-1.c",
+   "cwe": "134",
+   "vulnerable": true,
+   "outcome": "TP"
+  },
+  {
+   "file": "CASTLE-134-10.c",
+   "cwe": "134",
+   "vulnerable": false,
+   "outcome": "FP"
+  },
+  {
+   "file": "CASTLE-134-2.c",
+   "cwe": "134",
+   "vulnerable": true,
+   "outcome": "TP"
+  },
+  {
+   "file": "CASTLE-134-3.c",
+   "cwe": "134",
+   "vulnerable": true,
+   "outcome": "TP"
+  },
+  {
+   "file": "CASTLE-134-4.c",
+   "cwe": "134",
+   "vulnerable": true,
+   "outcome": "TP"
+  },
+  {
+   "file": "CASTLE-134-5.c",
+   "cwe": "134",
+   "vulnerable": true,
+   "outcome": "TP"
+  },
+  {
+   "file": "CASTLE-134-6.c",
+   "cwe": "134",
+   "vulnerable": true,
+   "outcome": "TP"
+  },
+  {
+   "file": "CASTLE-134-7.c",
+   "cwe": "134",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-134-8.c",
+   "cwe": "134",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-134-9.c",
+   "cwe": "134",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-190-1.c",
+   "cwe": "190",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-190-10.c",
+   "cwe": "190",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-190-2.c",
+   "cwe": "190",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-190-3.c",
+   "cwe": "190",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-190-4.c",
+   "cwe": "190",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-190-5.c",
+   "cwe": "190",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-190-6.c",
+   "cwe": "190",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-190-7.c",
+   "cwe": "190",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-190-8.c",
+   "cwe": "190",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-190-9.c",
+   "cwe": "190",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-22-1.c",
+   "cwe": "22",
+   "vulnerable": true,
+   "outcome": "TP"
+  },
+  {
+   "file": "CASTLE-22-10.c",
+   "cwe": "22",
+   "vulnerable": false,
+   "outcome": "FP"
+  },
+  {
+   "file": "CASTLE-22-2.c",
+   "cwe": "22",
+   "vulnerable": true,
+   "outcome": "TP"
+  },
+  {
+   "file": "CASTLE-22-3.c",
+   "cwe": "22",
+   "vulnerable": true,
+   "outcome": "TP"
+  },
+  {
+   "file": "CASTLE-22-4.c",
+   "cwe": "22",
+   "vulnerable": true,
+   "outcome": "TP"
+  },
+  {
+   "file": "CASTLE-22-5.c",
+   "cwe": "22",
+   "vulnerable": true,
+   "outcome": "TP"
+  },
+  {
+   "file": "CASTLE-22-6.c",
+   "cwe": "22",
+   "vulnerable": true,
+   "outcome": "TP"
+  },
+  {
+   "file": "CASTLE-22-7.c",
+   "cwe": "22",
+   "vulnerable": false,
+   "outcome": "FP"
+  },
+  {
+   "file": "CASTLE-22-8.c",
+   "cwe": "22",
+   "vulnerable": false,
+   "outcome": "FP"
+  },
+  {
+   "file": "CASTLE-22-9.c",
+   "cwe": "22",
+   "vulnerable": false,
+   "outcome": "FP"
+  },
+  {
+   "file": "CASTLE-253-1.c",
+   "cwe": "253",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-253-10.c",
+   "cwe": "253",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-253-2.c",
+   "cwe": "253",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-253-3.c",
+   "cwe": "253",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-253-4.c",
+   "cwe": "253",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-253-5.c",
+   "cwe": "253",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-253-6.c",
+   "cwe": "253",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-253-7.c",
+   "cwe": "253",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-253-8.c",
+   "cwe": "253",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-253-9.c",
+   "cwe": "253",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-327-1.c",
+   "cwe": "327",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-327-10.c",
+   "cwe": "327",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-327-2.c",
+   "cwe": "327",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-327-3.c",
+   "cwe": "327",
+   "vulnerable": true,
+   "outcome": "TP"
+  },
+  {
+   "file": "CASTLE-327-4.c",
+   "cwe": "327",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-327-5.c",
+   "cwe": "327",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-327-6.c",
+   "cwe": "327",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-327-7.c",
+   "cwe": "327",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-327-8.c",
+   "cwe": "327",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-327-9.c",
+   "cwe": "327",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-362-1.c",
+   "cwe": "362",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-362-10.c",
+   "cwe": "362",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-362-2.c",
+   "cwe": "362",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-362-3.c",
+   "cwe": "362",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-362-4.c",
+   "cwe": "362",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-362-5.c",
+   "cwe": "362",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-362-6.c",
+   "cwe": "362",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-362-7.c",
+   "cwe": "362",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-362-8.c",
+   "cwe": "362",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-362-9.c",
+   "cwe": "362",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-369-1.c",
+   "cwe": "369",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-369-10.c",
+   "cwe": "369",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-369-2.c",
+   "cwe": "369",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-369-3.c",
+   "cwe": "369",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-369-4.c",
+   "cwe": "369",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-369-5.c",
+   "cwe": "369",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-369-6.c",
+   "cwe": "369",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-369-7.c",
+   "cwe": "369",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-369-8.c",
+   "cwe": "369",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-369-9.c",
+   "cwe": "369",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-401-1.c",
+   "cwe": "401",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-401-10.c",
+   "cwe": "401",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-401-2.c",
+   "cwe": "401",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-401-3.c",
+   "cwe": "401",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-401-4.c",
+   "cwe": "401",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-401-5.c",
+   "cwe": "401",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-401-6.c",
+   "cwe": "401",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-401-7.c",
+   "cwe": "401",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-401-8.c",
+   "cwe": "401",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-401-9.c",
+   "cwe": "401",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-415-1.c",
+   "cwe": "415",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-415-10.c",
+   "cwe": "415",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-415-2.c",
+   "cwe": "415",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-415-3.c",
+   "cwe": "415",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-415-4.c",
+   "cwe": "415",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-415-5.c",
+   "cwe": "415",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-415-6.c",
+   "cwe": "415",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-415-7.c",
+   "cwe": "415",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-415-8.c",
+   "cwe": "415",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-415-9.c",
+   "cwe": "415",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-416-1.c",
+   "cwe": "416",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-416-10.c",
+   "cwe": "416",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-416-2.c",
+   "cwe": "416",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-416-3.c",
+   "cwe": "416",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-416-4.c",
+   "cwe": "416",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-416-5.c",
+   "cwe": "416",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-416-6.c",
+   "cwe": "416",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-416-7.c",
+   "cwe": "416",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-416-8.c",
+   "cwe": "416",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-416-9.c",
+   "cwe": "416",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-476-1.c",
+   "cwe": "476",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-476-10.c",
+   "cwe": "476",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-476-2.c",
+   "cwe": "476",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-476-3.c",
+   "cwe": "476",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-476-4.c",
+   "cwe": "476",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-476-5.c",
+   "cwe": "476",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-476-6.c",
+   "cwe": "476",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-476-7.c",
+   "cwe": "476",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-476-8.c",
+   "cwe": "476",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-476-9.c",
+   "cwe": "476",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-522-1.c",
+   "cwe": "522",
+   "vulnerable": true,
+   "outcome": "TP"
+  },
+  {
+   "file": "CASTLE-522-10.c",
+   "cwe": "522",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-522-2.c",
+   "cwe": "522",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-522-3.c",
+   "cwe": "522",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-522-4.c",
+   "cwe": "522",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-522-5.c",
+   "cwe": "522",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-522-6.c",
+   "cwe": "522",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-522-7.c",
+   "cwe": "522",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-522-8.c",
+   "cwe": "522",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-522-9.c",
+   "cwe": "522",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-617-1.c",
+   "cwe": "617",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-617-10.c",
+   "cwe": "617",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-617-2.c",
+   "cwe": "617",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-617-3.c",
+   "cwe": "617",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-617-4.c",
+   "cwe": "617",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-617-5.c",
+   "cwe": "617",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-617-6.c",
+   "cwe": "617",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-617-7.c",
+   "cwe": "617",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-617-8.c",
+   "cwe": "617",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-617-9.c",
+   "cwe": "617",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-628-1.c",
+   "cwe": "628",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-628-10.c",
+   "cwe": "628",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-628-2.c",
+   "cwe": "628",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-628-3.c",
+   "cwe": "628",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-628-4.c",
+   "cwe": "628",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-628-5.c",
+   "cwe": "628",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-628-6.c",
+   "cwe": "628",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-628-7.c",
+   "cwe": "628",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-628-8.c",
+   "cwe": "628",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-628-9.c",
+   "cwe": "628",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-674-1.c",
+   "cwe": "674",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-674-10.c",
+   "cwe": "674",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-674-2.c",
+   "cwe": "674",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-674-3.c",
+   "cwe": "674",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-674-4.c",
+   "cwe": "674",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-674-5.c",
+   "cwe": "674",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-674-6.c",
+   "cwe": "674",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-674-7.c",
+   "cwe": "674",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-674-8.c",
+   "cwe": "674",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-674-9.c",
+   "cwe": "674",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-761-1.c",
+   "cwe": "761",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-761-10.c",
+   "cwe": "761",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-761-2.c",
+   "cwe": "761",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-761-3.c",
+   "cwe": "761",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-761-4.c",
+   "cwe": "761",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-761-5.c",
+   "cwe": "761",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-761-6.c",
+   "cwe": "761",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-761-7.c",
+   "cwe": "761",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-761-8.c",
+   "cwe": "761",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-761-9.c",
+   "cwe": "761",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-770-1.c",
+   "cwe": "770",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-770-10.c",
+   "cwe": "770",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-770-2.c",
+   "cwe": "770",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-770-3.c",
+   "cwe": "770",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-770-4.c",
+   "cwe": "770",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-770-5.c",
+   "cwe": "770",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-770-6.c",
+   "cwe": "770",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-770-7.c",
+   "cwe": "770",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-770-8.c",
+   "cwe": "770",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-770-9.c",
+   "cwe": "770",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-78-1.c",
+   "cwe": "78",
+   "vulnerable": true,
+   "outcome": "TP"
+  },
+  {
+   "file": "CASTLE-78-10.c",
+   "cwe": "78",
+   "vulnerable": false,
+   "outcome": "FP"
+  },
+  {
+   "file": "CASTLE-78-2.c",
+   "cwe": "78",
+   "vulnerable": true,
+   "outcome": "TP"
+  },
+  {
+   "file": "CASTLE-78-3.c",
+   "cwe": "78",
+   "vulnerable": true,
+   "outcome": "TP"
+  },
+  {
+   "file": "CASTLE-78-4.c",
+   "cwe": "78",
+   "vulnerable": true,
+   "outcome": "TP"
+  },
+  {
+   "file": "CASTLE-78-5.c",
+   "cwe": "78",
+   "vulnerable": true,
+   "outcome": "TP"
+  },
+  {
+   "file": "CASTLE-78-6.c",
+   "cwe": "78",
+   "vulnerable": true,
+   "outcome": "TP"
+  },
+  {
+   "file": "CASTLE-78-7.c",
+   "cwe": "78",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-78-8.c",
+   "cwe": "78",
+   "vulnerable": false,
+   "outcome": "FP"
+  },
+  {
+   "file": "CASTLE-78-9.c",
+   "cwe": "78",
+   "vulnerable": false,
+   "outcome": "FP"
+  },
+  {
+   "file": "CASTLE-787-1.c",
+   "cwe": "787",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-787-10.c",
+   "cwe": "787",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-787-2.c",
+   "cwe": "787",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-787-3.c",
+   "cwe": "787",
+   "vulnerable": true,
+   "outcome": "TP"
+  },
+  {
+   "file": "CASTLE-787-4.c",
+   "cwe": "787",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-787-5.c",
+   "cwe": "787",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-787-6.c",
+   "cwe": "787",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-787-7.c",
+   "cwe": "787",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-787-8.c",
+   "cwe": "787",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-787-9.c",
+   "cwe": "787",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-798-1.c",
+   "cwe": "798",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-798-10.c",
+   "cwe": "798",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-798-2.c",
+   "cwe": "798",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-798-3.c",
+   "cwe": "798",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-798-4.c",
+   "cwe": "798",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-798-5.c",
+   "cwe": "798",
+   "vulnerable": true,
+   "outcome": "TP"
+  },
+  {
+   "file": "CASTLE-798-6.c",
+   "cwe": "798",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-798-7.c",
+   "cwe": "798",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-798-8.c",
+   "cwe": "798",
+   "vulnerable": false,
+   "outcome": "FP"
+  },
+  {
+   "file": "CASTLE-798-9.c",
+   "cwe": "798",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-822-1.c",
+   "cwe": "822",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-822-10.c",
+   "cwe": "822",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-822-2.c",
+   "cwe": "822",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-822-3.c",
+   "cwe": "822",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-822-4.c",
+   "cwe": "822",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-822-5.c",
+   "cwe": "822",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-822-6.c",
+   "cwe": "822",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-822-7.c",
+   "cwe": "822",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-822-8.c",
+   "cwe": "822",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-822-9.c",
+   "cwe": "822",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-835-1.c",
+   "cwe": "835",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-835-10.c",
+   "cwe": "835",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-835-2.c",
+   "cwe": "835",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-835-3.c",
+   "cwe": "835",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-835-4.c",
+   "cwe": "835",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-835-5.c",
+   "cwe": "835",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-835-6.c",
+   "cwe": "835",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-835-7.c",
+   "cwe": "835",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-835-8.c",
+   "cwe": "835",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-835-9.c",
+   "cwe": "835",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-843-1.c",
+   "cwe": "843",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-843-10.c",
+   "cwe": "843",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-843-2.c",
+   "cwe": "843",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-843-3.c",
+   "cwe": "843",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-843-4.c",
+   "cwe": "843",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-843-5.c",
+   "cwe": "843",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-843-6.c",
+   "cwe": "843",
+   "vulnerable": true,
+   "outcome": "FN"
+  },
+  {
+   "file": "CASTLE-843-7.c",
+   "cwe": "843",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-843-8.c",
+   "cwe": "843",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-843-9.c",
+   "cwe": "843",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-89-1.c",
+   "cwe": "89",
+   "vulnerable": true,
+   "outcome": "TP"
+  },
+  {
+   "file": "CASTLE-89-10.c",
+   "cwe": "89",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-89-2.c",
+   "cwe": "89",
+   "vulnerable": true,
+   "outcome": "TP"
+  },
+  {
+   "file": "CASTLE-89-3.c",
+   "cwe": "89",
+   "vulnerable": true,
+   "outcome": "TP"
+  },
+  {
+   "file": "CASTLE-89-4.c",
+   "cwe": "89",
+   "vulnerable": true,
+   "outcome": "TP"
+  },
+  {
+   "file": "CASTLE-89-5.c",
+   "cwe": "89",
+   "vulnerable": true,
+   "outcome": "TP"
+  },
+  {
+   "file": "CASTLE-89-6.c",
+   "cwe": "89",
+   "vulnerable": true,
+   "outcome": "TP"
+  },
+  {
+   "file": "CASTLE-89-7.c",
+   "cwe": "89",
+   "vulnerable": false,
+   "outcome": "TN"
+  },
+  {
+   "file": "CASTLE-89-8.c",
+   "cwe": "89",
+   "vulnerable": false,
+   "outcome": "FP"
+  },
+  {
+   "file": "CASTLE-89-9.c",
+   "cwe": "89",
+   "vulnerable": false,
+   "outcome": "FP"
+  }
+ ]
+}

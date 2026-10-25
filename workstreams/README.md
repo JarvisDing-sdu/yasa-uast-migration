@@ -5,6 +5,8 @@
 
 - [yasa-python-migration](yasa-python-migration/README.md)：Python parser 从外部
   `uast4py` 迁移到 Node.js 进程内实现的验收、基线、回归与性能记录。
+- [yasa-c-extension](yasa-c-extension/README.md)：C 语言支持（parser-C、CAnalyzer、
+  C 污点 checker）的设计、自建靶场与四项验收记录。
 
 `dl-cross-language-research/` 是同一物理工作区中的私人研究目录，但不属于本公开
 仓库；它由独立的私有 Git 仓库管理。

@@ -1,0 +1,17 @@
+CWE134_Uncontrolled_Format_String (char): 1140 test cases; unmapped findings: 0
+                                TP    FN    TN    FP
+TOTAL                         1140     0  1140     0   TPR 100.0%  FPR   0.0%
+-- by source
+connect_socket                 228     0   228     0   TPR 100.0%  FPR   0.0%
+console                        228     0   228     0   TPR 100.0%  FPR   0.0%
+environment                    228     0   228     0   TPR 100.0%  FPR   0.0%
+file                           228     0   228     0   TPR 100.0%  FPR   0.0%
+listen_socket                  228     0   228     0   TPR 100.0%  FPR   0.0%
+-- by sink
+fprintf                        190     0   190     0   TPR 100.0%  FPR   0.0%
+printf                         190     0   190     0   TPR 100.0%  FPR   0.0%
+snprintf                       190     0   190     0   TPR 100.0%  FPR   0.0%
+vfprintf                       190     0   190     0   TPR 100.0%  FPR   0.0%
+vprintf                        190     0   190     0   TPR 100.0%  FPR   0.0%
+w32_vsnprintf                  190     0   190     0   TPR 100.0%  FPR   0.0%
+-- by flow variant (FN or FP only)
