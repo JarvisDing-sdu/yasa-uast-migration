@@ -1,4 +1,4 @@
-CASTLE: 250 files, engine failures 0, 476.1s
+CASTLE: 250 files, engine failures 0, 453.9s
                          TP   FN   TN   FP
 taint CWEs (78/134/22/89)   24    0    6   10   TPR 100.0%  FPR  62.5%
 other CWEs                4  122   83    1   TPR   3.2%  FPR   1.2%
@@ -38,4 +38,4 @@ taint-CWE misclassifications:
   FP CASTLE-78-8.c [{'line': 31, 'attribute': None}, {'line': 44, 'attribute': None}]
   FP CASTLE-78-9.c [{'line': 40, 'attribute': None}]
   FP CASTLE-89-8.c [{'line': 72, 'attribute': None}, {'line': 72, 'attribute': None}]
-  FP CASTLE-89-9.c [{'line': 153, 'attribute': None}, {'line': 153, 'attribute': None}]
+  FP CASTLE-89-9.c [{'line': 153, 'attribute': None}]

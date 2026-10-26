@@ -1,0 +1,492 @@
+{
+  "total": {
+    "TP": 18,
+    "FN": 21,
+    "TN": 12,
+    "FP": 22
+  },
+  "categories": {
+    "aggregate": {
+      "TP": 5,
+      "FN": 2,
+      "TN": 2,
+      "FP": 3
+    },
+    "control": {
+      "TP": 4,
+      "FN": 3,
+      "TN": 3,
+      "FP": 6
+    },
+    "libc": {
+      "TP": 4,
+      "FN": 0,
+      "TN": 0,
+      "FP": 6
+    },
+    "linkage": {
+      "TP": 0,
+      "FN": 1,
+      "TN": 2,
+      "FP": 0
+    },
+    "pointer": {
+      "TP": 2,
+      "FN": 4,
+      "TN": 2,
+      "FP": 1
+    },
+    "preprocessor": {
+      "TP": 3,
+      "FN": 5,
+      "TN": 2,
+      "FP": 3
+    },
+    "real": {
+      "TP": 0,
+      "FN": 6,
+      "TN": 1,
+      "FP": 3
+    }
+  },
+  "cases": [
+    {
+      "case": "aggregate/struct_array_member_copy_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "aggregate/struct_array_member_copy_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "aggregate/struct_assign_copy_F",
+      "expected": false,
+      "detected": true,
+      "outcome": "FP"
+    },
+    {
+      "case": "aggregate/struct_assign_copy_T",
+      "expected": true,
+      "detected": false,
+      "outcome": "FN"
+    },
+    {
+      "case": "aggregate/struct_by_value_parameter_F",
+      "expected": false,
+      "detected": true,
+      "outcome": "FP"
+    },
+    {
+      "case": "aggregate/struct_by_value_parameter_reads_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "aggregate/struct_copy_no_alias_F",
+      "expected": false,
+      "detected": true,
+      "outcome": "FP"
+    },
+    {
+      "case": "aggregate/struct_copy_value_T",
+      "expected": true,
+      "detected": false,
+      "outcome": "FN"
+    },
+    {
+      "case": "aggregate/struct_nested_copy_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "aggregate/struct_nested_copy_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "aggregate/struct_pointer_member_shares_pointee_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "aggregate/struct_pointer_parameter_writes_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "control/both_branches_return_F",
+      "expected": false,
+      "detected": true,
+      "outcome": "FP"
+    },
+    {
+      "case": "control/break_skips_rest_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "control/conditional_return_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "control/continue_skips_rest_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "control/dead_if_folded_F",
+      "expected": false,
+      "detected": true,
+      "outcome": "FP"
+    },
+    {
+      "case": "control/goto_bypasses_sanitizing_assignment_T",
+      "expected": true,
+      "detected": false,
+      "outcome": "FN"
+    },
+    {
+      "case": "control/goto_conditional_paths_T",
+      "expected": true,
+      "detected": false,
+      "outcome": "FN"
+    },
+    {
+      "case": "control/goto_out_of_block_T",
+      "expected": true,
+      "detected": false,
+      "outcome": "FN"
+    },
+    {
+      "case": "control/goto_skips_intermediate_label_F",
+      "expected": false,
+      "detected": true,
+      "outcome": "FP"
+    },
+    {
+      "case": "control/goto_unconditional_clean_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "control/live_if_folded_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "control/nested_return_F",
+      "expected": false,
+      "detected": true,
+      "outcome": "FP"
+    },
+    {
+      "case": "control/short_circuit_and_F",
+      "expected": false,
+      "detected": true,
+      "outcome": "FP"
+    },
+    {
+      "case": "control/short_circuit_and_live_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "control/short_circuit_or_F",
+      "expected": false,
+      "detected": true,
+      "outcome": "FP"
+    },
+    {
+      "case": "control/short_circuit_unknown_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "libc/memcpy_partial_keeps_taint_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "libc/memset_overwrite_clears_taint_F",
+      "expected": false,
+      "detected": true,
+      "outcome": "FP"
+    },
+    {
+      "case": "libc/memset_partial_keeps_taint_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "libc/snprintf_ignores_extra_argument_F",
+      "expected": false,
+      "detected": true,
+      "outcome": "FP"
+    },
+    {
+      "case": "libc/snprintf_percent_literal_F",
+      "expected": false,
+      "detected": true,
+      "outcome": "FP"
+    },
+    {
+      "case": "libc/snprintf_second_argument_F",
+      "expected": false,
+      "detected": true,
+      "outcome": "FP"
+    },
+    {
+      "case": "libc/snprintf_star_width_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "libc/strcat_after_clean_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "libc/strcpy_overwrite_clears_taint_F",
+      "expected": false,
+      "detected": true,
+      "outcome": "FP"
+    },
+    {
+      "case": "libc/zero_length_memcpy_F",
+      "expected": false,
+      "detected": true,
+      "outcome": "FP"
+    },
+    {
+      "case": "linkage/header_static_name_collision_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "linkage/header_static_name_collision_T",
+      "expected": true,
+      "detected": false,
+      "outcome": "FN"
+    },
+    {
+      "case": "linkage/static_name_isolated_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "pointer/deref_reads_current_value_F",
+      "expected": false,
+      "detected": true,
+      "outcome": "FP"
+    },
+    {
+      "case": "pointer/deref_reads_current_value_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "pointer/double_indirection_T",
+      "expected": true,
+      "detected": false,
+      "outcome": "FN"
+    },
+    {
+      "case": "pointer/double_out_parameter_T",
+      "expected": true,
+      "detected": false,
+      "outcome": "FN"
+    },
+    {
+      "case": "pointer/indirection_rebound_other_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "pointer/indirection_rebound_other_T",
+      "expected": true,
+      "detected": false,
+      "outcome": "FN"
+    },
+    {
+      "case": "pointer/pointer_to_field_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "pointer/pointer_to_field_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "pointer/triple_indirection_T",
+      "expected": true,
+      "detected": false,
+      "outcome": "FN"
+    },
+    {
+      "case": "preprocessor/conditional_duplicate_function_T",
+      "expected": true,
+      "detected": false,
+      "outcome": "FN"
+    },
+    {
+      "case": "preprocessor/conditional_duplicate_platform_F",
+      "expected": false,
+      "detected": true,
+      "outcome": "FP"
+    },
+    {
+      "case": "preprocessor/header_macro_T",
+      "expected": true,
+      "detected": false,
+      "outcome": "FN"
+    },
+    {
+      "case": "preprocessor/header_macro_redefined_after_include_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "preprocessor/header_macro_safe_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "preprocessor/macro_defined_after_use_T",
+      "expected": true,
+      "detected": false,
+      "outcome": "FN"
+    },
+    {
+      "case": "preprocessor/macro_object_redefine_F",
+      "expected": false,
+      "detected": true,
+      "outcome": "FP"
+    },
+    {
+      "case": "preprocessor/macro_platform_branch_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "preprocessor/macro_platform_branch_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "preprocessor/macro_redefine_to_safe_F",
+      "expected": false,
+      "detected": true,
+      "outcome": "FP"
+    },
+    {
+      "case": "preprocessor/macro_redefine_to_tainted_T",
+      "expected": true,
+      "detected": false,
+      "outcome": "FN"
+    },
+    {
+      "case": "preprocessor/macro_undef_restores_function_T",
+      "expected": true,
+      "detected": false,
+      "outcome": "FN"
+    },
+    {
+      "case": "preprocessor/macro_unknown_feature_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "real/numeric_command_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "real/numeric_length_taint_T",
+      "expected": true,
+      "detected": false,
+      "outcome": "FN"
+    },
+    {
+      "case": "real/real_conditional_duplicate_function_T",
+      "expected": true,
+      "detected": false,
+      "outcome": "FN"
+    },
+    {
+      "case": "real/real_double_indirection_T",
+      "expected": true,
+      "detected": false,
+      "outcome": "FN"
+    },
+    {
+      "case": "real/real_goto_bypasses_sanitizing_assignment_T",
+      "expected": true,
+      "detected": false,
+      "outcome": "FN"
+    },
+    {
+      "case": "real/real_macro_redefine_to_safe_F",
+      "expected": false,
+      "detected": true,
+      "outcome": "FP"
+    },
+    {
+      "case": "real/real_macro_redefine_to_tainted_T",
+      "expected": true,
+      "detected": false,
+      "outcome": "FN"
+    },
+    {
+      "case": "real/real_struct_by_value_parameter_F",
+      "expected": false,
+      "detected": true,
+      "outcome": "FP"
+    },
+    {
+      "case": "real/real_struct_copy_no_alias_F",
+      "expected": false,
+      "detected": true,
+      "outcome": "FP"
+    },
+    {
+      "case": "real/real_struct_copy_value_T",
+      "expected": true,
+      "detected": false,
+      "outcome": "FN"
+    }
+  ]
+}

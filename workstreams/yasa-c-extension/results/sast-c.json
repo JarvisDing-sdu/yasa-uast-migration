@@ -1,564 +1,1074 @@
 {
- "total": {
-  "TP": 65,
-  "FN": 0,
-  "TN": 17,
-  "FP": 0
- },
- "categories": {
-  "accuracy/context_sensitive": {
-   "TP": 9,
-   "FN": 0,
-   "TN": 2,
-   "FP": 0
-  },
-  "accuracy/field_sensitive/array": {
-   "TP": 3,
-   "FN": 0,
-   "TN": 2,
-   "FP": 0
-  },
-  "accuracy/field_sensitive/struct": {
-   "TP": 8,
-   "FN": 0,
-   "TN": 2,
-   "FP": 0
-  },
-  "accuracy/flow_sensitive": {
-   "TP": 9,
-   "FN": 0,
-   "TN": 3,
-   "FP": 0
-  },
-  "completeness/cross_file": {
-   "TP": 4,
-   "FN": 0,
-   "TN": 0,
-   "FP": 0
-  },
-  "completeness/expression": {
-   "TP": 6,
-   "FN": 0,
-   "TN": 3,
-   "FP": 0
-  },
-  "completeness/libc_propagation": {
-   "TP": 9,
-   "FN": 0,
-   "TN": 2,
-   "FP": 0
-  },
-  "completeness/pointer": {
-   "TP": 5,
-   "FN": 0,
-   "TN": 1,
-   "FP": 0
-  },
-  "completeness/preprocessor": {
-   "TP": 5,
-   "FN": 0,
-   "TN": 0,
-   "FP": 0
-  },
-  "real_api": {
-   "TP": 7,
-   "FN": 0,
-   "TN": 2,
-   "FP": 0
-  }
- },
- "cases": [
-  {
-   "case": "accuracy/context_sensitive/callback_008_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "accuracy/context_sensitive/forward_decl_009_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "accuracy/context_sensitive/function_pointer_007_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "accuracy/context_sensitive/global_var_011_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "accuracy/context_sensitive/multi_invoke_004_F",
-   "expected": false,
-   "detected": false,
-   "outcome": "TN"
-  },
-  {
-   "case": "accuracy/context_sensitive/multi_invoke_005_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "accuracy/context_sensitive/nested_call_006_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "accuracy/context_sensitive/param_pass_001_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "accuracy/context_sensitive/recursion_010_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "accuracy/context_sensitive/return_const_003_F",
-   "expected": false,
-   "detected": false,
-   "outcome": "TN"
-  },
-  {
-   "case": "accuracy/context_sensitive/return_value_002_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "accuracy/field_sensitive/array/array_2d_005_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "accuracy/field_sensitive/array/array_elem_001_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "accuracy/field_sensitive/array/array_elem_002_F",
-   "expected": false,
-   "detected": false,
-   "outcome": "TN"
-  },
-  {
-   "case": "accuracy/field_sensitive/array/array_init_003_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "accuracy/field_sensitive/array/array_init_004_F",
-   "expected": false,
-   "detected": false,
-   "outcome": "TN"
-  },
-  {
-   "case": "accuracy/field_sensitive/struct/arrow_003_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "accuracy/field_sensitive/struct/arrow_alias_004_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "accuracy/field_sensitive/struct/designated_005_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "accuracy/field_sensitive/struct/designated_006_F",
-   "expected": false,
-   "detected": false,
-   "outcome": "TN"
-  },
-  {
-   "case": "accuracy/field_sensitive/struct/field_001_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "accuracy/field_sensitive/struct/field_002_F",
-   "expected": false,
-   "detected": false,
-   "outcome": "TN"
-  },
-  {
-   "case": "accuracy/field_sensitive/struct/nested_007_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "accuracy/field_sensitive/struct/struct_param_009_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "accuracy/field_sensitive/struct/typedef_008_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "accuracy/field_sensitive/struct/union_010_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "accuracy/flow_sensitive/after_return_010_F",
-   "expected": false,
-   "detected": false,
-   "outcome": "TN"
-  },
-  {
-   "case": "accuracy/flow_sensitive/dead_branch_009_F",
-   "expected": false,
-   "detected": false,
-   "outcome": "TN"
-  },
-  {
-   "case": "accuracy/flow_sensitive/do_while_005_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "accuracy/flow_sensitive/do_while_once_012_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "accuracy/flow_sensitive/for_004_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "accuracy/flow_sensitive/goto_007_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "accuracy/flow_sensitive/if_001_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "accuracy/flow_sensitive/if_else_002_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "accuracy/flow_sensitive/loop_break_011_F",
-   "expected": false,
-   "detected": false,
-   "outcome": "TN"
-  },
-  {
-   "case": "accuracy/flow_sensitive/loop_carried_008_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "accuracy/flow_sensitive/switch_006_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "accuracy/flow_sensitive/while_003_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "completeness/cross_file/cross_file_call_001_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "completeness/cross_file/cross_file_return_003_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "completeness/cross_file/extern_global_004_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "completeness/cross_file/header_inline_002_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "completeness/expression/assign_chain_002_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "completeness/expression/assign_direct_001_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "completeness/expression/cast_004_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "completeness/expression/comma_005_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "completeness/expression/conditional_003_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "completeness/expression/constant_007_F",
-   "expected": false,
-   "detected": false,
-   "outcome": "TN"
-  },
-  {
-   "case": "completeness/expression/overwrite_008_F",
-   "expected": false,
-   "detected": false,
-   "outcome": "TN"
-  },
-  {
-   "case": "completeness/expression/pointer_arith_006_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "completeness/expression/sizeof_009_F",
-   "expected": false,
-   "detected": false,
-   "outcome": "TN"
-  },
-  {
-   "case": "completeness/libc_propagation/memcpy_006_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "completeness/libc_propagation/out_buffer_param_011_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "completeness/libc_propagation/snprintf_004_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "completeness/libc_propagation/snprintf_safe_005_F",
-   "expected": false,
-   "detected": false,
-   "outcome": "TN"
-  },
-  {
-   "case": "completeness/libc_propagation/sprintf_003_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "completeness/libc_propagation/sscanf_008_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "completeness/libc_propagation/strcat_002_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "completeness/libc_propagation/strcpy_001_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "completeness/libc_propagation/strcpy_safe_010_F",
-   "expected": false,
-   "detected": false,
-   "outcome": "TN"
-  },
-  {
-   "case": "completeness/libc_propagation/strdup_009_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "completeness/libc_propagation/strncpy_007_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "completeness/pointer/address_of_001_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "completeness/pointer/out_param_004_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "completeness/pointer/out_param_005_F",
-   "expected": false,
-   "detected": false,
-   "outcome": "TN"
-  },
-  {
-   "case": "completeness/pointer/pointer_copy_002_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "completeness/pointer/two_pointers_006_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "completeness/pointer/write_through_003_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "completeness/preprocessor/case_in_ifdef_005_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "completeness/preprocessor/header_guard_003_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "completeness/preprocessor/if_else_002_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "completeness/preprocessor/ifdef_001_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "completeness/preprocessor/macro_alias_004_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "real_api/argv_popen_004_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "real_api/constant_system_008_F",
-   "expected": false,
-   "detected": false,
-   "outcome": "TN"
-  },
-  {
-   "case": "real_api/fgets_printf_002_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "real_api/fgets_printf_safe_003_F",
-   "expected": false,
-   "detected": false,
-   "outcome": "TN"
-  },
-  {
-   "case": "real_api/getenv_fopen_006_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "real_api/getenv_system_001_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "real_api/read_sqlite_009_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "real_api/recv_strcpy_005_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  },
-  {
-   "case": "real_api/scanf_sprintf_system_007_T",
-   "expected": true,
-   "detected": true,
-   "outcome": "TP"
-  }
- ]
+  "total": {
+    "TP": 107,
+    "FN": 0,
+    "TN": 53,
+    "FP": 0
+  },
+  "categories": {
+    "accuracy/context_sensitive": {
+      "TP": 9,
+      "FN": 0,
+      "TN": 2,
+      "FP": 0
+    },
+    "accuracy/field_sensitive/array": {
+      "TP": 3,
+      "FN": 0,
+      "TN": 2,
+      "FP": 0
+    },
+    "accuracy/field_sensitive/struct": {
+      "TP": 8,
+      "FN": 0,
+      "TN": 2,
+      "FP": 0
+    },
+    "accuracy/flow_sensitive": {
+      "TP": 9,
+      "FN": 0,
+      "TN": 3,
+      "FP": 0
+    },
+    "c_semantics/aggregate": {
+      "TP": 7,
+      "FN": 0,
+      "TN": 5,
+      "FP": 0
+    },
+    "c_semantics/control": {
+      "TP": 9,
+      "FN": 0,
+      "TN": 11,
+      "FP": 0
+    },
+    "c_semantics/libc": {
+      "TP": 4,
+      "FN": 0,
+      "TN": 6,
+      "FP": 0
+    },
+    "c_semantics/linkage": {
+      "TP": 1,
+      "FN": 0,
+      "TN": 2,
+      "FP": 0
+    },
+    "c_semantics/pointer": {
+      "TP": 6,
+      "FN": 0,
+      "TN": 3,
+      "FP": 0
+    },
+    "c_semantics/preprocessor": {
+      "TP": 8,
+      "FN": 0,
+      "TN": 5,
+      "FP": 0
+    },
+    "c_semantics/real": {
+      "TP": 7,
+      "FN": 0,
+      "TN": 4,
+      "FP": 0
+    },
+    "completeness/cross_file": {
+      "TP": 4,
+      "FN": 0,
+      "TN": 0,
+      "FP": 0
+    },
+    "completeness/expression": {
+      "TP": 6,
+      "FN": 0,
+      "TN": 3,
+      "FP": 0
+    },
+    "completeness/libc_propagation": {
+      "TP": 9,
+      "FN": 0,
+      "TN": 2,
+      "FP": 0
+    },
+    "completeness/pointer": {
+      "TP": 5,
+      "FN": 0,
+      "TN": 1,
+      "FP": 0
+    },
+    "completeness/preprocessor": {
+      "TP": 5,
+      "FN": 0,
+      "TN": 0,
+      "FP": 0
+    },
+    "real_api": {
+      "TP": 7,
+      "FN": 0,
+      "TN": 2,
+      "FP": 0
+    }
+  },
+  "cases": [
+    {
+      "case": "accuracy/context_sensitive/callback_008_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "accuracy/context_sensitive/forward_decl_009_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "accuracy/context_sensitive/function_pointer_007_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "accuracy/context_sensitive/global_var_011_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "accuracy/context_sensitive/multi_invoke_004_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "accuracy/context_sensitive/multi_invoke_005_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "accuracy/context_sensitive/nested_call_006_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "accuracy/context_sensitive/param_pass_001_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "accuracy/context_sensitive/recursion_010_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "accuracy/context_sensitive/return_const_003_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "accuracy/context_sensitive/return_value_002_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "accuracy/field_sensitive/array/array_2d_005_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "accuracy/field_sensitive/array/array_elem_001_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "accuracy/field_sensitive/array/array_elem_002_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "accuracy/field_sensitive/array/array_init_003_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "accuracy/field_sensitive/array/array_init_004_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "accuracy/field_sensitive/struct/arrow_003_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "accuracy/field_sensitive/struct/arrow_alias_004_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "accuracy/field_sensitive/struct/designated_005_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "accuracy/field_sensitive/struct/designated_006_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "accuracy/field_sensitive/struct/field_001_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "accuracy/field_sensitive/struct/field_002_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "accuracy/field_sensitive/struct/nested_007_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "accuracy/field_sensitive/struct/struct_param_009_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "accuracy/field_sensitive/struct/typedef_008_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "accuracy/field_sensitive/struct/union_010_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "accuracy/flow_sensitive/after_return_010_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "accuracy/flow_sensitive/dead_branch_009_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "accuracy/flow_sensitive/do_while_005_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "accuracy/flow_sensitive/do_while_once_012_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "accuracy/flow_sensitive/for_004_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "accuracy/flow_sensitive/goto_007_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "accuracy/flow_sensitive/if_001_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "accuracy/flow_sensitive/if_else_002_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "accuracy/flow_sensitive/loop_break_011_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "accuracy/flow_sensitive/loop_carried_008_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "accuracy/flow_sensitive/switch_006_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "accuracy/flow_sensitive/while_003_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "c_semantics/aggregate/struct_array_member_copy_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "c_semantics/aggregate/struct_array_member_copy_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "c_semantics/aggregate/struct_assign_copy_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "c_semantics/aggregate/struct_assign_copy_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "c_semantics/aggregate/struct_by_value_parameter_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "c_semantics/aggregate/struct_by_value_parameter_reads_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "c_semantics/aggregate/struct_copy_no_alias_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "c_semantics/aggregate/struct_copy_value_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "c_semantics/aggregate/struct_nested_copy_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "c_semantics/aggregate/struct_nested_copy_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "c_semantics/aggregate/struct_pointer_member_shares_pointee_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "c_semantics/aggregate/struct_pointer_parameter_writes_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "c_semantics/control/both_branches_return_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "c_semantics/control/break_skips_rest_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "c_semantics/control/conditional_return_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "c_semantics/control/continue_skips_rest_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "c_semantics/control/dead_if_folded_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "c_semantics/control/early_return_branch_effect_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "c_semantics/control/early_return_branch_effect_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "c_semantics/control/goto_bypasses_sanitizing_assignment_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "c_semantics/control/goto_conditional_paths_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "c_semantics/control/goto_out_of_block_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "c_semantics/control/goto_skips_intermediate_label_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "c_semantics/control/goto_unconditional_clean_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "c_semantics/control/guard_condition_side_effect_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "c_semantics/control/guard_condition_side_effect_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "c_semantics/control/live_if_folded_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "c_semantics/control/nested_return_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "c_semantics/control/short_circuit_and_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "c_semantics/control/short_circuit_and_live_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "c_semantics/control/short_circuit_or_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "c_semantics/control/short_circuit_unknown_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "c_semantics/libc/memcpy_partial_keeps_taint_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "c_semantics/libc/memset_overwrite_clears_taint_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "c_semantics/libc/memset_partial_keeps_taint_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "c_semantics/libc/snprintf_ignores_extra_argument_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "c_semantics/libc/snprintf_percent_literal_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "c_semantics/libc/snprintf_second_argument_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "c_semantics/libc/snprintf_star_width_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "c_semantics/libc/strcat_after_clean_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "c_semantics/libc/strcpy_overwrite_clears_taint_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "c_semantics/libc/zero_length_memcpy_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "c_semantics/linkage/header_static_name_collision_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "c_semantics/linkage/header_static_name_collision_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "c_semantics/linkage/static_name_isolated_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "c_semantics/pointer/deref_reads_current_value_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "c_semantics/pointer/deref_reads_current_value_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "c_semantics/pointer/double_indirection_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "c_semantics/pointer/double_out_parameter_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "c_semantics/pointer/indirection_rebound_other_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "c_semantics/pointer/indirection_rebound_other_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "c_semantics/pointer/pointer_to_field_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "c_semantics/pointer/pointer_to_field_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "c_semantics/pointer/triple_indirection_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "c_semantics/preprocessor/conditional_duplicate_function_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "c_semantics/preprocessor/conditional_duplicate_platform_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "c_semantics/preprocessor/header_macro_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "c_semantics/preprocessor/header_macro_redefined_after_include_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "c_semantics/preprocessor/header_macro_safe_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "c_semantics/preprocessor/macro_defined_after_use_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "c_semantics/preprocessor/macro_object_redefine_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "c_semantics/preprocessor/macro_platform_branch_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "c_semantics/preprocessor/macro_platform_branch_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "c_semantics/preprocessor/macro_redefine_to_safe_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "c_semantics/preprocessor/macro_redefine_to_tainted_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "c_semantics/preprocessor/macro_undef_restores_function_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "c_semantics/preprocessor/macro_unknown_feature_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "c_semantics/real/numeric_command_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "c_semantics/real/numeric_format_index_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "c_semantics/real/numeric_length_taint_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "c_semantics/real/real_conditional_duplicate_function_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "c_semantics/real/real_double_indirection_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "c_semantics/real/real_goto_bypasses_sanitizing_assignment_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "c_semantics/real/real_macro_redefine_to_safe_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "c_semantics/real/real_macro_redefine_to_tainted_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "c_semantics/real/real_struct_by_value_parameter_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "c_semantics/real/real_struct_copy_no_alias_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "c_semantics/real/real_struct_copy_value_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "completeness/cross_file/cross_file_call_001_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "completeness/cross_file/cross_file_return_003_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "completeness/cross_file/extern_global_004_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "completeness/cross_file/header_inline_002_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "completeness/expression/assign_chain_002_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "completeness/expression/assign_direct_001_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "completeness/expression/cast_004_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "completeness/expression/comma_005_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "completeness/expression/conditional_003_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "completeness/expression/constant_007_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "completeness/expression/overwrite_008_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "completeness/expression/pointer_arith_006_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "completeness/expression/sizeof_009_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "completeness/libc_propagation/memcpy_006_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "completeness/libc_propagation/out_buffer_param_011_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "completeness/libc_propagation/snprintf_004_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "completeness/libc_propagation/snprintf_safe_005_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "completeness/libc_propagation/sprintf_003_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "completeness/libc_propagation/sscanf_008_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "completeness/libc_propagation/strcat_002_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "completeness/libc_propagation/strcpy_001_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "completeness/libc_propagation/strcpy_safe_010_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "completeness/libc_propagation/strdup_009_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "completeness/libc_propagation/strncpy_007_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "completeness/pointer/address_of_001_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "completeness/pointer/out_param_004_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "completeness/pointer/out_param_005_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "completeness/pointer/pointer_copy_002_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "completeness/pointer/two_pointers_006_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "completeness/pointer/write_through_003_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "completeness/preprocessor/case_in_ifdef_005_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "completeness/preprocessor/header_guard_003_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "completeness/preprocessor/if_else_002_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "completeness/preprocessor/ifdef_001_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "completeness/preprocessor/macro_alias_004_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "real_api/argv_popen_004_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "real_api/constant_system_008_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "real_api/fgets_printf_002_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "real_api/fgets_printf_safe_003_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "real_api/getenv_fopen_006_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "real_api/getenv_system_001_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "real_api/read_sqlite_009_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "real_api/recv_strcpy_005_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "real_api/scanf_sprintf_system_007_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    }
+  ]
 }

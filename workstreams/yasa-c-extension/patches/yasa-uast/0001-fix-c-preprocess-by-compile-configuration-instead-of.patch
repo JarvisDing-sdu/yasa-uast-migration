@@ -1,0 +1,942 @@
+From 018894e2ee3152563729901c4209896c24ff7bc4 Mon Sep 17 00:00:00 2001
+From: sijie52 <sijie5452@gmail.com>
+Date: Mon, 26 Oct 2026 09:58:13 +0000
+Subject: [PATCH] fix(c): preprocess by compile configuration instead of one
+ macro table per file
+
+- MacroEnvironment scans the translation unit and its headers line by line
+  like a preprocessor: #define/#undef take effect from their position, each
+  macro keeps a timeline of possible definitions, and a use site only sees
+  the definitions in effect there (no expansion before the definition,
+  #undef restores the plain call, redefinition wins).
+- #if/#ifdef/#elif are evaluated three-valued under an explicit config
+  (defines, undefines, target platform, unknownMacros cover|undefined).
+  Lines of excluded branches are blanked before tree-sitter parses (offsets
+  unchanged); undecided branches are kept, their definitions are marked
+  _meta.conditional, and a macro with several possible definitions expands
+  to a choice on __preprocessor_choice__ so each is analyzed.
+- #include resolves headers through opts.preprocessor.resolveInclude; header
+  macros take effect at the #include and CompileUnit._meta.includes lists
+  the headers for per-translation-unit linkage.
+- Replaces collectMacros, which kept the first non-Windows definition of a
+  name for the whole file.
+---
+ parser-C/src/macros.ts  | 616 +++++++++++++++++++++++++++++++++++++---
+ parser-C/src/parser.ts  | 128 ++++++---
+ parser-C/tests/index.ts |  63 ++++
+ 3 files changed, 737 insertions(+), 70 deletions(-)
+
+diff --git a/parser-C/src/macros.ts b/parser-C/src/macros.ts
+index 93e4bc3..98cca78 100644
+--- a/parser-C/src/macros.ts
++++ b/parser-C/src/macros.ts
+@@ -1,6 +1,4 @@
+-import * as TreeSitter from 'web-tree-sitter';
+-
+-type SyntaxNode = TreeSitter.Node;
++/* Preprocessing of C translation units for parser-C. */
+ 
+ export interface MacroDefinition {
+     name: string;
+@@ -10,49 +8,591 @@ export interface MacroDefinition {
+     body: string;
+ }
+ 
+-const PLATFORM_ONLY = /\b(_WIN32|_WIN64|WIN32|_MSC_VER|_WINDOWS|__CYGWIN__)\b/;
++/**
++ * Compile configuration for preprocessing.
++ *
++ * - `defines` / `undefines` are `-D` / `-U`.
++ * - `target` predefines the platform macros of a compiler for that platform
++ *   (`linux`, the default, matches gcc/clang on Linux; `none` predefines nothing).
++ * - `unknownMacros` decides names that are neither defined nor undefined by the
++ *   configuration or the code: `cover` (default) treats them as unknown, so both
++ *   sides of `#ifdef FEATURE` are analyzed; `undefined` follows the C standard
++ *   (an unseen name is not defined), i.e. exactly one configuration is analyzed.
++ */
++export interface PreprocessorConfig {
++    defines?: Record<string, string>;
++    undefines?: string[];
++    target?: 'linux' | 'macos' | 'windows' | 'none';
++    unknownMacros?: 'cover' | 'undefined';
++    /**
++     * Resolve an `#include`: `"x.h"` (`angled` false) searches the including file's directory first,
++     * `<x.h>` only the include directories. Returns the header's path and content, or null.
++     */
++    resolveInclude?: (path: string, fromFile: string | undefined, angled: boolean) => { file: string; content: string } | null;
++}
++
++const PLATFORM_MACROS: Record<string, { defined: Record<string, string>; undefined: string[] }> = (() => {
++    const unixLike = ['__unix__', '__unix', 'unix'];
++    const windows = ['_WIN32', '_WIN64', 'WIN32', '_WINDOWS', '_MSC_VER', '__CYGWIN__', '__MINGW32__', '__MINGW64__'];
++    const apple = ['__APPLE__', '__MACH__'];
++    const linux = ['__linux__', '__linux', 'linux', '__gnu_linux__'];
++    const common = { __STDC__: '1', __STDC_VERSION__: '201710L', __STDC_HOSTED__: '1', __CHAR_BIT__: '8' };
++    const gnu = { __GNUC__: '12', __GNUC_MINOR__: '0', __x86_64__: '1', __LP64__: '1' };
++    const toDefs = (names: string[]) => Object.fromEntries(names.map((n) => [n, '1']));
++    const others = ['__FreeBSD__', '__OpenBSD__', '__NetBSD__', '__sun', '_AIX', '__ANDROID__', '__cplusplus'];
++    return {
++        linux: { defined: { ...common, ...gnu, ...toDefs(unixLike), ...toDefs(linux), __ELF__: '1' }, undefined: [...windows, ...apple, ...others] },
++        macos: { defined: { ...common, ...gnu, ...toDefs(unixLike), ...toDefs(apple) }, undefined: [...windows, ...linux, ...others] },
++        windows: { defined: { ...common, _WIN32: '1', _WIN64: '1', WIN32: '1', _MSC_VER: '1930' }, undefined: [...unixLike, ...linux, ...apple, ...others] },
++        none: { defined: {}, undefined: [] },
++    };
++})();
++
++/** A possible state of one macro name: its definition, `null` (not defined) or `UNKNOWN`. */
++const UNKNOWN = Symbol('unknown');
++type MacroState = MacroDefinition | null | typeof UNKNOWN;
++type MacroValue = MacroState[];
++
++/** Activity of one `#if`/`#elif`/`#else` branch under the configuration. */
++export type BranchActivity = 'active' | 'maybe' | 'inactive';
++
++interface GroupFrame {
++    /** Values at group entry for names changed in the group. */
++    entry: Map<string, MacroValue | undefined>;
++    /** Names changed in the current branch and their values at branch end. */
++    branch: Map<string, MacroValue>;
++    branches: Array<Map<string, MacroValue>>;
++}
++
++/** One `#if` … `#endif` group being scanned. */
++interface Group {
++    /** The enclosing region is compiled (possibly). */
++    parentLive: boolean;
++    /** The current branch is compiled (possibly). */
++    live: boolean;
++    /** A branch that is certainly taken has been seen. */
++    decided: boolean;
++    frame: GroupFrame;
++}
+ 
+-function isWithin(node: SyntaxNode, container: SyntaxNode | null): boolean {
+-    return !!container && node.startIndex >= container.startIndex && node.endIndex <= container.endIndex;
++/** A logical source line: continuation lines joined, comments removed. */
++interface Line {
++    start: number;
++    end: number;
++    text: string;
++}
++
++const INCLUDE_DEPTH_LIMIT = 32;
++const DIRECTIVE = /^\s*#\s*([A-Za-z_]\w*)?(.*)$/s;
++
++function sameValue(a: MacroValue | undefined, b: MacroValue | undefined): boolean {
++    if (a === b) return true;
++    if (!a || !b || a.length !== b.length) return false;
++    return a.every((v, i) => v === b[i]);
++}
++
++function union(values: Array<MacroValue | undefined>, fallback: MacroValue): MacroValue {
++    const result: MacroState[] = [];
++    for (const value of values) for (const state of value ?? fallback) if (!result.includes(state)) result.push(state);
++    return result;
++}
++
++/** Same-length copy of `text` with comments replaced by spaces (newlines kept). */
++function stripComments(text: string): string {
++    const out = text.split('');
++    let i = 0;
++    while (i < text.length) {
++        const c = text[i];
++        if (c === '/' && text[i + 1] === '*') {
++            const end = text.indexOf('*/', i + 2);
++            const stop = end < 0 ? text.length : end + 2;
++            for (let j = i; j < stop; j++) if (out[j] !== '\n' && out[j] !== '\r') out[j] = ' ';
++            i = stop;
++        } else if (c === '/' && text[i + 1] === '/') {
++            while (i < text.length && text[i] !== '\n') {
++                if (text[i] === '\\' && text[i + 1] === '\n') break;
++                out[i++] = ' ';
++            }
++        } else if (c === '"' || c === '\'') {
++            i++;
++            while (i < text.length && text[i] !== c && text[i] !== '\n') i += text[i] === '\\' ? 2 : 1;
++            i++;
++        } else i++;
++    }
++    return out.join('');
++}
++
++/** Logical lines of `text` (already comment-stripped), joining backslash continuations. */
++function logicalLines(text: string): Line[] {
++    const lines: Line[] = [];
++    let start = 0;
++    let pieces: string[] = [];
++    let pieceStart = 0;
++    while (pieceStart <= text.length) {
++        let nl = text.indexOf('\n', pieceStart);
++        if (nl < 0) nl = text.length;
++        const raw = text.slice(pieceStart, nl).replace(/\r$/, '');
++        if (raw.endsWith('\\') && nl < text.length) {
++            pieces.push(raw.slice(0, -1));
++        } else {
++            pieces.push(raw);
++            lines.push({ start, end: nl, text: pieces.join(' ') });
++            pieces = [];
++            start = nl + 1;
++        }
++        pieceStart = nl + 1;
++    }
++    return lines;
++}
++
++function parseDefine(rest: string): MacroDefinition | null {
++    const m = /^\s*([A-Za-z_]\w*)(\(([^)]*)\))?(.*)$/s.exec(rest);
++    if (!m) return null;
++    const [, name, paren, paramText, body] = m;
++    let params: string[] | null = null;
++    let variadic = false;
++    if (paren !== undefined) {
++        params = [];
++        for (const p of paramText.split(',').map((x) => x.trim()).filter(Boolean)) {
++            if (p === '...') variadic = true;
++            else if (p.endsWith('...')) {
++                variadic = true;
++                params.push(p.slice(0, -3).trim());
++            } else params.push(p);
++        }
++    }
++    return { name, params, variadic, body: body.trim() };
++}
++
++function parseIntegerLiteral(text: string): number | undefined {
++    const t = text.replace(/[uUlL]+$/, '');
++    if (/^0[xX][0-9a-fA-F]+$/.test(t)) return parseInt(t, 16);
++    if (/^0[bB][01]+$/.test(t)) return parseInt(t.slice(2), 2);
++    if (/^0[0-7]*$/.test(t)) return parseInt(t, 8);
++    if (/^[1-9]\d*$/.test(t)) return parseInt(t, 10);
++    return undefined;
++}
++
++const ESCAPES: Record<string, number> = { n: 10, t: 9, r: 13, '0': 0, '\\': 92, '\'': 39, '"': 34, a: 7, b: 8, f: 12, v: 11 };
++const TOKEN = /\s*(?:([A-Za-z_]\w*)|(\d[\w.]*)|('(?:\\.|[^'\\])*')|(&&|\|\||==|!=|<=|>=|<<|>>|[!~\-+*/%<>&^|?:(),]))/y;
++const BINARY_PRECEDENCE: Record<string, number> = {
++    '||': 1, '&&': 2, '|': 3, '^': 4, '&': 5, '==': 6, '!=': 6, '<': 7, '>': 7, '<=': 7, '>=': 7,
++    '<<': 8, '>>': 8, '+': 9, '-': 9, '*': 10, '/': 10, '%': 10,
++};
++
++function tokenize(text: string): string[] | null {
++    const tokens: string[] = [];
++    TOKEN.lastIndex = 0;
++    while (TOKEN.lastIndex < text.length) {
++        if (/^\s*$/.test(text.slice(TOKEN.lastIndex))) break;
++        const m = TOKEN.exec(text);
++        if (!m) return null;
++        tokens.push(m[1] ?? m[2] ?? m[3] ?? m[4]);
++    }
++    return tokens;
++}
++
++function applyBinary(op: string, l: number, r: number): number | undefined {
++    switch (op) {
++        case '+': return l + r;
++        case '-': return l - r;
++        case '*': return l * r;
++        case '/': return r === 0 ? undefined : Math.trunc(l / r);
++        case '%': return r === 0 ? undefined : l % r;
++        case '<<': return l << r;
++        case '>>': return l >> r;
++        case '&': return l & r;
++        case '|': return l | r;
++        case '^': return l ^ r;
++        case '==': return Number(l === r);
++        case '!=': return Number(l !== r);
++        case '<': return Number(l < r);
++        case '>': return Number(l > r);
++        case '<=': return Number(l <= r);
++        case '>=': return Number(l >= r);
++        default: return undefined;
++    }
+ }
+ 
+ /**
+- * A definition is platform-specific when it sits in the Windows branch of an
+- * `#ifdef _WIN32`-style conditional. Such definitions are only used when no
+- * portable alternative exists, so `#define EXECL execl` wins over `_execl`.
++ * Macro definitions as they are at each point of a translation unit.
++ *
++ * The file (and the headers it includes) is scanned line by line once, the way
++ * a preprocessor does: `#define`/`#undef` take effect from their position on,
++ * conditionals are evaluated under the compile configuration, and a conditional
++ * the configuration does not decide contributes the definitions of every branch
++ * that may be taken. Each name keeps a timeline of its possible definitions, so
++ * a use site sees exactly the definitions in effect there. Lines in branches
++ * the configuration excludes are blanked (`activeSource`) before parsing, so the
++ * syntax tree only contains code that may be compiled.
+  */
+-function isPlatformSpecific(node: SyntaxNode): boolean {
+-    for (let ancestor = node.parent; ancestor; ancestor = ancestor.parent) {
+-        if (!['preproc_if', 'preproc_ifdef', 'preproc_elif'].includes(ancestor.type)) continue;
+-        const condition = ancestor.childForFieldName('name') || ancestor.childForFieldName('condition');
+-        if (!condition || !PLATFORM_ONLY.test(condition.text)) continue;
+-        const negated = ancestor.child(0)?.text === '#ifndef' || /^\s*!/.test(condition.text);
+-        const inAlternative = isWithin(node, ancestor.childForFieldName('alternative'));
+-        if (negated === inAlternative) return true;
+-    }
+-    return false;
+-}
++export class MacroEnvironment {
++    private current = new Map<string, MacroValue>();
++    private timelines = new Map<string, Array<{ offset: number; value: MacroValue }>>();
++    private frames: GroupFrame[] = [];
++    private activity = new Map<number, BranchActivity>();
++    private includeStack: string[] = [];
++    /** Offset at which events from an included header take effect (the #include). */
++    private includeOffset: number | null = null;
++    private readonly unseen: MacroValue;
++    private inactiveRanges: Array<[number, number]> = [];
++    /** Headers read through `#include`, in inclusion order. */
++    readonly includes: string[] = [];
+ 
+-/** Collect `#define`s of a file, choosing one definition per name. */
+-export function collectMacros(root: SyntaxNode): Map<string, MacroDefinition> {
+-    const chosen = new Map<string, { def: MacroDefinition; platform: boolean }>();
+-    for (const node of root.descendantsOfType(['preproc_def', 'preproc_function_def'])) {
+-        if (!node) continue;
+-        const name = node.childForFieldName('name')?.text;
+-        if (!name) continue;
+-        const paramsNode = node.childForFieldName('parameters');
+-        const params = paramsNode ? paramsNode.namedChildren.filter((c) => c.type === 'identifier').map((c) => c.text) : null;
+-        const variadic = !!paramsNode && paramsNode.children.some((c) => c.type === '...');
+-        const body = (node.childForFieldName('value')?.text ?? '').replace(/\\\r?\n/g, ' ').trim();
+-        const platform = isPlatformSpecific(node);
+-        const previous = chosen.get(name);
+-        if (!previous || (previous.platform && !platform)) {
+-            chosen.set(name, { def: { name, params, variadic, body }, platform });
++    constructor(
++        private readonly source: string,
++        private readonly config: PreprocessorConfig,
++        sourcefile: string | undefined,
++    ) {
++        this.unseen = config.unknownMacros === 'undefined' ? [null] : [UNKNOWN];
++        const platform = PLATFORM_MACROS[config.target ?? 'linux'] ?? PLATFORM_MACROS.linux;
++        const predefined = { ...platform.defined, ...(config.defines ?? {}) };
++        for (const name of platform.undefined) if (!(name in predefined)) this.set(name, [null], -1);
++        for (const [name, body] of Object.entries(predefined)) this.set(name, [{ name, params: null, variadic: false, body }], -1);
++        for (const name of config.undefines ?? []) this.set(name, [null], -1);
++        if (sourcefile) this.includeStack.push(sourcefile);
++        this.scan(source, true);
++    }
++
++    /** The source with lines of excluded branches replaced by spaces (offsets unchanged). */
++    activeSource(): string {
++        if (!this.inactiveRanges.length) return this.source;
++        const out = this.source.split('');
++        for (const [start, end] of this.inactiveRanges) {
++            for (let i = start; i < end && i < out.length; i++) if (out[i] !== '\n' && out[i] !== '\r') out[i] = ' ';
+         }
++        return out.join('');
++    }
++
++    /**
++     * Definitions of `name` that may be in effect at `offset`: each entry is a
++     * definition, or `null` when the name may not be a macro there.
++     */
++    lookup(name: string, offset: number): Array<MacroDefinition | null> {
++        const timeline = this.timelines.get(name);
++        let value: MacroValue = this.unseen;
++        if (timeline) {
++            let lo = 0;
++            let hi = timeline.length - 1;
++            let found = -1;
++            while (lo <= hi) {
++                const mid = (lo + hi) >> 1;
++                if (timeline[mid].offset <= offset) {
++                    found = mid;
++                    lo = mid + 1;
++                } else hi = mid - 1;
++            }
++            if (found >= 0) value = timeline[found].value;
++        }
++        const result: Array<MacroDefinition | null> = [];
++        for (const state of value) {
++            const v = state === UNKNOWN ? null : state;
++            if (!result.includes(v)) result.push(v);
++        }
++        return result;
++    }
++
++    /** Whether the `#if`/`#elif`/`#else` branch whose directive starts at `offset` may be compiled. */
++    branchActivity(offset: number): BranchActivity | undefined {
++        return this.activity.get(offset);
++    }
++
++    private value(name: string): MacroValue {
++        return this.current.get(name) ?? this.unseen;
++    }
++
++    private set(name: string, value: MacroValue, offset: number): void {
++        const frame = this.frames[this.frames.length - 1];
++        if (frame) {
++            if (!frame.entry.has(name)) frame.entry.set(name, this.current.get(name));
++            frame.branch.set(name, value);
++        }
++        this.current.set(name, value);
++        this.record(name, value, offset);
++    }
++
++    private record(name: string, value: MacroValue, offset: number): void {
++        const at = this.includeOffset ?? offset;
++        let timeline = this.timelines.get(name);
++        if (!timeline) {
++            timeline = [];
++            this.timelines.set(name, timeline);
++        }
++        const last = timeline[timeline.length - 1];
++        if (last && last.offset === at) last.value = value;
++        else timeline.push({ offset: at, value });
++    }
++
++    /** Restore the group's entry state at the start of a branch. */
++    private startBranch(frame: GroupFrame, offset: number): void {
++        for (const [name, entry] of frame.entry) {
++            if (!sameValue(this.current.get(name), entry)) {
++                if (entry === undefined) this.current.delete(name);
++                else this.current.set(name, entry);
++                this.record(name, entry ?? this.unseen, offset);
++            }
++        }
++        frame.branch = new Map();
++    }
++
++    /**
++     * @param text - file content
++     * @param main - the translation unit itself (records branch activity and excluded lines)
++     */
++    private scan(text: string, main: boolean): void {
++        const lines = logicalLines(stripComments(text));
++        const groups: Group[] = [];
++        const live = () => groups.every((g) => g.live);
++        let inactiveFrom: number | null = null;
++        const updateInactive = (offset: number) => {
++            if (!main) return;
++            if (!live() && inactiveFrom === null) inactiveFrom = offset;
++            else if (live() && inactiveFrom !== null) {
++                this.inactiveRanges.push([inactiveFrom, offset]);
++                inactiveFrom = null;
++            }
++        };
++        for (let index = 0; index < lines.length; index++) {
++            const line = lines[index];
++            const m = DIRECTIVE.exec(line.text);
++            if (!m) continue;
++            const directive = m[1] ?? '';
++            const rest = m[2] ?? '';
++            const hash = line.start + line.text.indexOf('#');
++            switch (directive) {
++                case 'if':
++                case 'ifdef':
++                case 'ifndef': {
++                    const parentLive = live();
++                    const frame: GroupFrame = { entry: new Map(), branch: new Map(), branches: [] };
++                    let truth: boolean | undefined = false;
++                    if (parentLive) {
++                        if (directive === 'if') truth = this.truth(rest);
++                        else {
++                            const name = rest.trim().split(/\s+/)[0] ?? '';
++                            truth = directive === 'ifndef' && this.isIncludeGuard(name, lines, index) ? true : this.definedTruth(name, directive === 'ifndef');
++                        }
++                    }
++                    const group: Group = { parentLive, live: parentLive && truth !== false, decided: truth === true, frame };
++                    if (parentLive) {
++                        this.frames.push(frame);
++                        this.recordActivity(main, hash, group.live ? (truth === true ? 'active' : 'maybe') : 'inactive');
++                    }
++                    groups.push(group);
++                    updateInactive(line.end);
++                    break;
++                }
++                case 'elif':
++                case 'elifdef':
++                case 'elifndef':
++                case 'else': {
++                    const group = groups[groups.length - 1];
++                    if (!group) break;
++                    if (group.parentLive) {
++                        if (group.live) group.frame.branches.push(group.frame.branch);
++                        let truth: boolean | undefined = true;
++                        if (group.decided) truth = false;
++                        else if (directive === 'elif') truth = this.truth(rest);
++                        else if (directive !== 'else') truth = this.definedTruth(rest.trim().split(/\s+/)[0] ?? '', directive === 'elifndef');
++                        group.live = truth !== false;
++                        if (truth === true) group.decided = true;
++                        this.recordActivity(main, hash, group.live ? (truth === true ? 'active' : 'maybe') : 'inactive');
++                        if (group.live) this.startBranch(group.frame, line.start);
++                    }
++                    // The directive line itself stays; the branch body follows it.
++                    if (main && inactiveFrom !== null) {
++                        this.inactiveRanges.push([inactiveFrom, line.start]);
++                        inactiveFrom = null;
++                    }
++                    updateInactive(line.end);
++                    break;
++                }
++                case 'endif': {
++                    const group = groups.pop();
++                    if (main && inactiveFrom !== null) {
++                        this.inactiveRanges.push([inactiveFrom, line.start]);
++                        inactiveFrom = null;
++                    }
++                    if (group?.parentLive) {
++                        if (group.live) group.frame.branches.push(group.frame.branch);
++                        this.frames.pop();
++                        for (const [name, entry] of group.frame.entry) {
++                            const outcomes = group.frame.branches.map((b) => (b.has(name) ? b.get(name) : entry));
++                            if (!group.decided) outcomes.push(entry);
++                            this.set(name, union(outcomes, this.unseen), line.end);
++                        }
++                    }
++                    updateInactive(line.end);
++                    break;
++                }
++                case 'define':
++                    if (live()) {
++                        const def = parseDefine(rest);
++                        if (def) this.set(def.name, [def], line.end);
++                    }
++                    break;
++                case 'undef':
++                    if (live()) {
++                        const name = rest.trim().split(/\s+/)[0];
++                        if (name) this.set(name, [null], line.end);
++                    }
++                    break;
++                case 'include':
++                    if (live()) this.include(rest.trim(), line.end);
++                    break;
++                default:
++                    break;
++            }
++        }
++        if (main && inactiveFrom !== null) this.inactiveRanges.push([inactiveFrom, text.length]);
++    }
++
++    private recordActivity(main: boolean, offset: number, activity: BranchActivity): void {
++        if (main && this.includeOffset === null) this.activity.set(offset, activity);
++    }
++
++    private include(spec: string, offset: number): void {
++        const angled = spec.startsWith('<');
++        if (!(angled || spec.startsWith('"')) || !this.config.resolveInclude) return;
++        const close = spec.indexOf(angled ? '>' : '"', 1);
++        if (close < 0 || this.includeStack.length >= INCLUDE_DEPTH_LIMIT) return;
++        const from = this.includeStack[this.includeStack.length - 1];
++        const header = this.config.resolveInclude(spec.slice(1, close), from, angled);
++        if (!header || this.includeStack.includes(header.file)) return;
++        const outerOffset = this.includeOffset;
++        this.includeOffset = outerOffset ?? offset;
++        this.includeStack.push(header.file);
++        if (!this.includes.includes(header.file)) this.includes.push(header.file);
++        try {
++            this.scan(header.content, false);
++        } finally {
++            this.includeStack.pop();
++            this.includeOffset = outerOffset;
++        }
++    }
++
++    /** `#ifndef H` whose next directive is `#define H`: the header's own guard. */
++    private isIncludeGuard(name: string, lines: Line[], index: number): boolean {
++        if (!name || this.current.has(name)) return false;
++        for (let i = index + 1; i < lines.length; i++) {
++            const text = lines[i].text.trim();
++            if (!text) continue;
++            const m = /^#\s*define\s+([A-Za-z_]\w*)/.exec(text);
++            return !!m && m[1] === name;
++        }
++        return false;
++    }
++
++    private definedTruth(name: string, negated: boolean): boolean | undefined {
++        const defined = this.defined(name);
++        return defined === undefined ? undefined : defined !== negated;
++    }
++
++    private defined(name: string): boolean | undefined {
++        const value = this.value(name);
++        if (value.includes(UNKNOWN)) return undefined;
++        const defined = value.some((v) => v !== null);
++        return defined && value.includes(null) ? undefined : defined;
++    }
++
++    /** Three-valued truth of an `#if`/`#elif` expression. */
++    private truth(expression: string): boolean | undefined {
++        const value = this.evaluate(expression, 0);
++        return value === undefined ? undefined : value !== 0;
++    }
++
++    /** Value of a preprocessor expression, or undefined when the configuration does not decide it. */
++    private evaluate(expression: string, depth: number): number | undefined {
++        if (depth > 16) return undefined;
++        const tokens = tokenize(expression);
++        if (!tokens || !tokens.length) return undefined;
++        let pos = 0;
++        let failed = false;
++        const peek = () => tokens[pos];
++        const next = () => tokens[pos++];
++
++        const primary = (): number | undefined => {
++            const t = next();
++            if (t === undefined) {
++                failed = true;
++                return undefined;
++            }
++            if (t === '(') {
++                const v = ternary();
++                if (next() !== ')') failed = true;
++                return v;
++            }
++            if (t === '!' || t === '~' || t === '-' || t === '+') {
++                const v = primary();
++                if (v === undefined) return undefined;
++                return t === '!' ? Number(!v) : t === '~' ? ~v : t === '-' ? -v : v;
++            }
++            if (t === 'defined') {
++                const paren = peek() === '(';
++                if (paren) next();
++                const name = next() ?? '';
++                if (paren && next() !== ')') failed = true;
++                const d = this.defined(name);
++                return d === undefined ? undefined : Number(d);
++            }
++            if (/^\d/.test(t)) return parseIntegerLiteral(t);
++            if (t.startsWith('\'')) {
++                const inner = t.slice(1, -1);
++                if (inner.length === 1) return inner.charCodeAt(0);
++                if (inner.startsWith('\\') && inner.length === 2 && inner[1] in ESCAPES) return ESCAPES[inner[1]];
++                return undefined;
++            }
++            if (/^[A-Za-z_]/.test(t)) {
++                if (peek() === '(') {
++                    // function-like macro call: skip its arguments
++                    let level = 0;
++                    do {
++                        const u = next();
++                        if (u === undefined) break;
++                        if (u === '(') level++;
++                        else if (u === ')') level--;
++                    } while (level > 0);
++                    return undefined;
++                }
++                const value = this.value(t);
++                if (value.length !== 1 || value[0] === UNKNOWN) return undefined;
++                const def = value[0];
++                if (def === null) return 0;
++                if (def.params !== null || !def.body) return undefined;
++                return this.evaluate(def.body, depth + 1);
++            }
++            failed = true;
++            return undefined;
++        };
++
++        const binary = (minPrecedence: number): number | undefined => {
++            let left = primary();
++            for (;;) {
++                const op = peek();
++                const precedence = op === undefined ? undefined : BINARY_PRECEDENCE[op];
++                if (precedence === undefined || precedence < minPrecedence) return left;
++                next();
++                const right = binary(precedence + 1);
++                if (op === '&&') left = left === 0 || right === 0 ? 0 : left === undefined || right === undefined ? undefined : 1;
++                else if (op === '||') left = (left !== undefined && left !== 0) || (right !== undefined && right !== 0) ? 1 : left === undefined || right === undefined ? undefined : 0;
++                else left = left === undefined || right === undefined ? undefined : applyBinary(op!, left, right);
++            }
++        };
++
++        const ternary = (): number | undefined => {
++            const test = binary(1);
++            if (peek() !== '?') return test;
++            next();
++            const consequent = ternary();
++            if (next() !== ':') failed = true;
++            const alternative = ternary();
++            if (test === undefined) return consequent !== undefined && consequent === alternative ? consequent : undefined;
++            return test ? consequent : alternative;
++        };
++
++        const result = ternary();
++        return failed || pos < tokens.length ? undefined : result;
+     }
+-    const result = new Map<string, MacroDefinition>();
+-    for (const [name, { def }] of chosen) result.set(name, def);
+-    return result;
+ }
+ 
+ const LITERAL_OR_IDENT = /("(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*')|(#\s*#)|(#\s*[A-Za-z_]\w*)|([A-Za-z_]\w*)/g;
+diff --git a/parser-C/src/parser.ts b/parser-C/src/parser.ts
+index f36b2f5..662b5b9 100755
+--- a/parser-C/src/parser.ts
++++ b/parser-C/src/parser.ts
+@@ -1,7 +1,7 @@
+ import * as TreeSitter from 'web-tree-sitter';
+ import * as UAST from '@ant-yasa/uast-spec';
+ import { version } from '../package.json';
+-import { collectMacros, substitute, MacroDefinition } from './macros';
++import { MacroEnvironment, substitute, MacroDefinition, PreprocessorConfig } from './macros';
+ 
+ type SyntaxNode = TreeSitter.Node;
+ 
+@@ -636,12 +636,16 @@ function firstNonComment(node: SyntaxNode): SyntaxNode | null {
+ }
+ 
+ /**
+- * All branches of #if/#ifdef/#elif/#else are kept: a static analyzer cannot
+- * know the build configuration, and header guards wrap entire files.
++ * #if/#ifdef/#elif/#else: branches the compile configuration excludes are
++ * dropped; branches it does not decide are all kept (the analysis covers each
++ * configuration), and definitions in them are marked `_meta.conditional`.
+  */
+ function preprocessorConditional(node: SyntaxNode, opts: Record<string, any>): any {
+     const sourcefile = opts?.sourcefile as string | undefined;
+-    const branch = visitStatements(unfieldedNamedChildren(node, ['name', 'condition', 'alternative']), opts);
++    const env: MacroEnvironment | undefined = opts.__macroEnv;
++    const activity = opts.__macroOffset === undefined ? env?.branchActivity(node.startIndex) : undefined;
++    const branch = activity === 'inactive' ? [] : visitStatements(unfieldedNamedChildren(node, ['name', 'condition', 'alternative']), opts);
++    if (activity === 'maybe') markConditional(branch);
+     const alternative = node.childForFieldName('alternative');
+     if (alternative) branch.push(...flattenInstructions([visit(alternative, opts)]));
+     if (!branch.length) {
+@@ -654,10 +658,58 @@ function preprocessorConditional(node: SyntaxNode, opts: Record<string, any>): a
+     return appendNodeMeta(seq, node, sourcefile);
+ }
+ 
+-function lookupMacro(name: string, opts: Record<string, any>): MacroDefinition | null {
+-    const macros: Map<string, MacroDefinition> | undefined = opts?.__macros;
+-    if (!macros || (opts.__expanding as Set<string> | undefined)?.has(name)) return null;
+-    return macros.get(name) ?? null;
++function markConditional(items: any[]): void {
++    for (const item of items) {
++        if (!item || typeof item !== 'object') continue;
++        if (item.type === 'Sequence') markConditional(item.expressions || []);
++        else if (item.type === 'FunctionDefinition' || item.type === 'VariableDeclaration') item._meta.conditional = true;
++    }
++}
++
++const STATEMENT_TYPE = /Statement$|^(Sequence|VariableDeclaration|FunctionDefinition|ClassDefinition|Noop)$/;
++
++/**
++ * Expand `name` at a use site with every definition that may be in effect
++ * there. One possible expansion is returned as is; several (a macro defined
++ * differently in configuration-dependent branches, or maybe undefined) are
++ * joined by a choice the analysis treats as unknown, so each is analyzed.
++ */
++function expandAtUseSite(
++    name: string,
++    node: SyntaxNode,
++    opts: Record<string, any>,
++    applies: (macro: MacroDefinition) => boolean,
++    expand: (macro: MacroDefinition) => any,
++    plain: () => any,
++): any {
++    const env: MacroEnvironment | undefined = opts.__macroEnv;
++    if (!env || opts.expandMacros === false || (opts.__expanding as Set<string> | undefined)?.has(name)) return plain();
++    const candidates = env.lookup(name, opts.__macroOffset ?? node.startIndex);
++    const results: any[] = [];
++    let unexpanded = false;
++    for (const macro of candidates) {
++        const result = macro && applies(macro) ? expand(macro) : null;
++        if (result) results.push(result);
++        else unexpanded = true;
++    }
++    if (unexpanded || !results.length) results.push(plain());
++    if (results.length === 1) return results[0];
++    const sourcefile = opts?.sourcefile as string | undefined;
++    const choice = (): any => {
++        const id = cIdentifier('__preprocessor_choice__', node, sourcefile);
++        id._meta.preprocessorChoice = name;
++        return id;
++    };
++    const asStatement = results.some((r) => STATEMENT_TYPE.test(r.type));
++    let combined = results[results.length - 1];
++    for (let i = results.length - 2; i >= 0; i--) {
++        combined = asStatement
++            ? UAST.ifStatement(choice(), results[i], combined)
++            : UAST.conditionalExpression(choice(), results[i], combined);
++        appendNodeMeta(combined, node, sourcefile);
++        combined._meta.macro = name;
++    }
++    return combined;
+ }
+ 
+ function relocate(value: any, loc: any, seen = new Set<any>()): void {
+@@ -696,7 +748,7 @@ function expandMacro(macro: MacroDefinition, text: string, useSite: SyntaxNode,
+         const statements = (body?.namedChildren ?? []).filter((c) =>
+             c.type !== 'comment' && !(c.type === 'expression_statement' && c.namedChildCount === 0));
+         if (!statements.length) return null;
+-        const inner = { ...opts, __expanding: new Set([...expanding, macro.name]) };
++        const inner = { ...opts, __expanding: new Set([...expanding, macro.name]), __macroOffset: opts.__macroOffset ?? useSite.startIndex };
+         let result: any;
+         if (statements.length === 1 && statements[0].type === 'expression_statement') {
+             result = visit(namedChild(statements[0], 0), inner);
+@@ -780,12 +832,14 @@ function visit(node: SyntaxNode | null | undefined, opts: Record<string, any>):
+             return null;
+ 
+         case 'identifier': {
+-            const macro = lookupMacro(node.text, opts);
+-            if (macro && macro.params === null && macro.body) {
+-                const expanded = expandMacro(macro, macro.body, node, opts);
+-                if (expanded) return expanded;
+-            }
+-            return cIdentifier(node.text, node, sourcefile);
++            return expandAtUseSite(
++                node.text,
++                node,
++                opts,
++                (macro) => macro.params === null && !!macro.body,
++                (macro) => expandMacro(macro, macro.body, node, opts),
++                () => cIdentifier(node.text, node, sourcefile),
++            );
+         }
+ 
+         case 'field_identifier':
+@@ -1034,20 +1088,26 @@ function visit(node: SyntaxNode | null | undefined, opts: Record<string, any>):
+ 
+         case 'call_expression': {
+             const functionNode = node.childForFieldName('function');
+-            const macro = functionNode?.type === 'identifier' ? lookupMacro(functionNode.text, opts) : null;
+-            if (macro && macro.params !== null) {
+-                const argTexts = (node.childForFieldName('arguments')?.namedChildren ?? [])
+-                    .filter((c) => c.type !== 'comment')
+-                    .map((c) => c.text);
+-                const expanded = expandMacro(macro, substitute(macro, argTexts), node, opts);
+-                if (expanded) return expanded;
+-            }
+-            const callee = expressionOrNoop(functionNode, opts);
+-            const argsNode = node.childForFieldName('arguments');
+-            const args = argsNode
+-                ? argsNode.namedChildren.filter((c) => c.type !== 'comment').map((c) => expressionOrNoop(c, opts))
+-                : [];
+-            return appendNodeMeta(UAST.callExpression(callee, args), node, sourcefile);
++            const plainCall = () => {
++                const callee = expressionOrNoop(functionNode, opts);
++                const argsNode = node.childForFieldName('arguments');
++                const args = argsNode
++                    ? argsNode.namedChildren.filter((c) => c.type !== 'comment').map((c) => expressionOrNoop(c, opts))
++                    : [];
++                return appendNodeMeta(UAST.callExpression(callee, args), node, sourcefile);
++            };
++            if (functionNode?.type !== 'identifier') return plainCall();
++            const argTexts = (node.childForFieldName('arguments')?.namedChildren ?? [])
++                .filter((c) => c.type !== 'comment')
++                .map((c) => c.text);
++            return expandAtUseSite(
++                functionNode.text,
++                node,
++                opts,
++                (macro) => macro.params !== null,
++                (macro) => expandMacro(macro, substitute(macro, argTexts), node, opts),
++                plainCall,
++            );
+         }
+ 
+         case 'argument_list':
+@@ -1170,7 +1230,11 @@ function collectParseErrors(root: SyntaxNode): ParseError[] {
+  * Pass `{ strict: true }` to throw a SyntaxError instead.
+  */
+ export function parse(content: string, opts: Record<string, any> = {}): UAST.Node {
+-    const tree = getParser().parse(content.replace(/^﻿/, ''));
++    const source = content.replace(/^\uFEFF/, '');
++    const config: PreprocessorConfig = opts.preprocessor ?? {};
++    const env = new MacroEnvironment(source, config, opts.sourcefile);
++    // Lines of branches the configuration excludes are blanked, so the tree only holds code that may be compiled.
++    const tree = getParser().parse(env.activeSource());
+     if (!tree) throw new Error('tree-sitter failed to parse the C source');
+     try {
+         const root = tree.rootNode;
+@@ -1179,15 +1243,15 @@ export function parse(content: string, opts: Record<string, any> = {}): UAST.Nod
+             const first = errors[0];
+             throw new SyntaxError(`C syntax error at ${opts.sourcefile ?? '<source>'}:${first.line}:${first.column}`);
+         }
+-        const macros = opts.expandMacros === false ? new Map() : collectMacros(root);
+         const unit = visit(root, {
+             ...opts,
+             __structs: new Map<string, string[]>(),
+             __unionTypes: new Set<string>(),
+             __unionVars: new Set<string>(),
+-            __macros: macros,
++            __macroEnv: env,
+         });
+         unit._meta.parseErrors = errors;
++        unit._meta.includes = env.includes;
+         return unit;
+     } finally {
+         tree.delete();
+diff --git a/parser-C/tests/index.ts b/parser-C/tests/index.ts
+index 31ade1e..6eac003 100755
+--- a/parser-C/tests/index.ts
++++ b/parser-C/tests/index.ts
+@@ -364,6 +364,69 @@ void f(char *buf) { g(STR(hello), CAT(my, var)); SAFE_FREE(buf); h(SELF); }`);
+         });
+     });
+ 
++    describe('preprocessor semantics', () => {
++        const calls = (code: string, opts: Record<string, any> = {}) =>
++            collect(unit(code, opts), (n) => n.type === 'CallExpression').map((c: any) => c.callee.name);
++        const sinkArg = (code: string, opts: Record<string, any> = {}): any =>
++            collect(unit(code, opts), (n) => n.type === 'CallExpression' && n.callee.name === 'sink')[0].arguments[0];
++
++        it('uses the definition in effect at the use site (#define/#undef order)', () => {
++            const code = `#define IN() safe()
++void a(void) { sink(IN()); }
++#undef IN
++#define IN() tainted()
++void b(void) { sink(IN()); }
++#undef IN
++void c(void) { sink(IN()); }`;
++            const fns = unit(code).body.filter((n: any) => n.type === 'FunctionDefinition');
++            const callee = (f: any) => f.body.body[0].expression.arguments[0].callee.name;
++            assert.deepStrictEqual(fns.map(callee), ['safe', 'tainted', 'IN']);
++        });
++
++        it('does not expand a macro before its definition', () => {
++            assert.deepStrictEqual(calls('void f(void) { sink(src()); }\n#define src() "safe"'), ['sink', 'src']);
++        });
++
++        it('evaluates conditionals under the target platform and -D/-U', () => {
++            const code = '#ifdef _WIN32\n#define IN() win()\n#else\n#define IN() posix()\n#endif\nvoid f(void) { sink(IN()); }';
++            assert.strictEqual(sinkArg(code).callee.name, 'posix');
++            assert.strictEqual(sinkArg(code, { preprocessor: { target: 'windows' } }).callee.name, 'win');
++            const feature = '#if defined(FEATURE) && LEVEL > 1\n#define IN() on()\n#else\n#define IN() off()\n#endif\nvoid f(void) { sink(IN()); }';
++            assert.strictEqual(sinkArg(feature, { preprocessor: { defines: { FEATURE: '1', LEVEL: '2' } } }).callee.name, 'on');
++            assert.strictEqual(sinkArg(feature, { preprocessor: { defines: { FEATURE: '1', LEVEL: '1' } } }).callee.name, 'off');
++            assert.strictEqual(sinkArg(feature, { preprocessor: { undefines: ['FEATURE'] } }).callee.name, 'off');
++        });
++
++        it('keeps every definition a configuration-dependent conditional may select', () => {
++            const code = '#ifdef FEATURE\n#define IN() on()\n#else\n#define IN() off()\n#endif\nvoid f(void) { sink(IN()); }';
++            const choice = sinkArg(code);
++            assert.strictEqual(choice.type, 'ConditionalExpression');
++            assert.strictEqual(choice.test._meta.preprocessorChoice, 'IN');
++            assert.deepStrictEqual([choice.consequent.callee.name, choice.alternative.callee.name], ['on', 'off']);
++            // C 标准语义：未定义的名字不是宏
++            assert.strictEqual(sinkArg(code, { preprocessor: { unknownMacros: 'undefined' } }).callee.name, 'off');
++        });
++
++        it('drops branches the configuration excludes and marks undecided ones', () => {
++            const code = '#ifdef _WIN32\nchar *pick(void) { return a(); }\n#else\nchar *pick(void) { return b(); }\n#endif\n#ifdef FEATURE\nint g(void) { return 1; }\n#endif';
++            const fns = collect(unit(code), (n) => n.type === 'FunctionDefinition');
++            assert.deepStrictEqual(fns.map((f: any) => [f.id.name, !!f._meta.conditional]), [['pick', false], ['g', true]]);
++            assert.strictEqual(fns[0].body.body[0].argument.callee.name, 'b');
++        });
++
++        it('reads macros from quoted headers at the #include', () => {
++            const headers: Record<string, string> = {
++                'input.h': '#ifndef INPUT_H\n#define INPUT_H\n#define IN() fromHeader()\n#endif\n',
++            };
++            const resolveInclude = (p: string) => (headers[p] ? { file: `/inc/${p}`, content: headers[p] } : null);
++            const code = 'void a(void) { sink(IN()); }\n#include "input.h"\nvoid b(void) { sink(IN()); }\n#undef IN\n#define IN() local()\nvoid c(void) { sink(IN()); }';
++            const u = unit(code, { preprocessor: { resolveInclude } });
++            const fns = u.body.filter((n: any) => n.type === 'FunctionDefinition');
++            assert.deepStrictEqual(fns.map((f: any) => f.body.body[0].expression.arguments[0].callee.name), ['IN', 'fromHeader', 'local']);
++            assert.deepStrictEqual(u._meta.includes, ['/inc/input.h']);
++        });
++    });
++
+     describe('syntax errors', () => {
+         it('records errors and keeps recovered code', () => {
+             const ast = unit('int ok(void) { return 1; }\nint broken( { return 0 }\n');
+-- 
+2.43.0
+

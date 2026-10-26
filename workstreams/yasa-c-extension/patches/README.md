@@ -1,31 +1,23 @@
 # 组件补丁
 
 C 扩展的代码属于 `engine/` 和 `uast/` 两个子模块，对应独立仓库
-`JarvisDing-sdu/yasa-engine` 和 `JarvisDing-sdu/yasa-uast`。本次开发会话没有这两个仓库的推送权限，所以把两个组件提交以 `git format-patch` 格式放在这里。它们已在 main（`6ce320b`）固定的子模块提交上验证过，可以直接应用。
+`JarvisDing-sdu/yasa-engine` 和 `JarvisDing-sdu/yasa-uast`。这里以 `git format-patch` 格式保存最近一轮（语义修复，见 `docs/C扩展-语义修复报告.md`）的组件提交，便于审阅和在没有推送权限时应用。集成仓库的子模块指针已指向这两个提交；若组件仓库中还没有这两个提交，先按下面的步骤推送，再更新集成仓库，避免子模块指针指向取不到的提交。
 
-| 目录 | 目标仓库 | 基线提交 | 内容 |
+| 目录 | 目标仓库 | 基线提交（main） | 内容 |
 | --- | --- | --- | --- |
-| `yasa-uast/` | `JarvisDing-sdu/yasa-uast` | `ebd02b8` | `parser-C/`、`.github/workflows/c-parser.yml` |
-| `yasa-engine/` | `JarvisDing-sdu/yasa-engine` | `ed717ed` | CAnalyzer、C checker、规则、注册改动、`test/c` |
+| `yasa-uast/` | `JarvisDing-sdu/yasa-uast` | `be5277a` | parser-C 按编译配置预处理（`src/macros.ts`、`src/parser.ts`、单测） |
+| `yasa-engine/` | `JarvisDing-sdu/yasa-engine` | `3fc472c` | CAnalyzer 语义修复、`c-types.ts`、`c-const-eval.ts`、libc 模型、checker、`--c*` 选项、`test/c` 语义回归 |
 
-## 应用并更新子模块
+## 应用
 
 ```bash
-# 1. 组件仓库：在一个新分支上应用补丁并推送
 cd uast
-git checkout -b c-extension ebd02b8
+git checkout -b c-semantics be5277a
 git am ../workstreams/yasa-c-extension/patches/yasa-uast/*.patch
-git push -u origin c-extension
+git push -u origin c-semantics
 
 cd ../engine
-git checkout -b c-extension ed717ed
+git checkout -b c-semantics 3fc472c
 git am ../workstreams/yasa-c-extension/patches/yasa-engine/*.patch
-git push -u origin c-extension
-
-# 2. 集成仓库：把子模块指针指向新提交
-cd ..
-git add uast engine
-git commit -m "chore: point submodules to C extension commits"
+git push -u origin c-semantics
 ```
-
-先推送组件仓库，再更新子模块指针，否则别人检出时会找不到被指向的提交（与 README 中“两次提交”的规则一致）。

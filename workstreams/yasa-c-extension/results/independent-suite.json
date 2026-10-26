@@ -1,0 +1,334 @@
+{
+ "independent_52": {
+  "before": {
+   "TP": 23,
+   "FN": 9,
+   "TN": 8,
+   "FP": 12
+  },
+  "after": {
+   "TP": 32,
+   "FN": 0,
+   "TN": 20,
+   "FP": 0
+  },
+  "cases": {
+   "direct_source": {
+    "expected": true,
+    "before": "TP",
+    "after": "TP"
+   },
+   "constant": {
+    "expected": false,
+    "before": "TN",
+    "after": "TN"
+   },
+   "overwrite": {
+    "expected": false,
+    "before": "TN",
+    "after": "TN"
+   },
+   "identity_return": {
+    "expected": true,
+    "before": "TP",
+    "after": "TP"
+   },
+   "discard_return": {
+    "expected": false,
+    "before": "TN",
+    "after": "TN"
+   },
+   "out_parameter": {
+    "expected": true,
+    "before": "TP",
+    "after": "TP"
+   },
+   "double_indirection": {
+    "expected": true,
+    "before": "FN",
+    "after": "TP"
+   },
+   "alias_read_after_write": {
+    "expected": true,
+    "before": "TP",
+    "after": "TP"
+   },
+   "pointer_array_write": {
+    "expected": true,
+    "before": "TP",
+    "after": "TP"
+   },
+   "pointer_array_other_index": {
+    "expected": false,
+    "before": "TN",
+    "after": "TN"
+   },
+   "pointer_rebind_preserves_old": {
+    "expected": true,
+    "before": "TP",
+    "after": "TP"
+   },
+   "struct_copy_value": {
+    "expected": true,
+    "before": "FN",
+    "after": "TP"
+   },
+   "struct_copy_no_alias": {
+    "expected": false,
+    "before": "FP",
+    "after": "TN"
+   },
+   "struct_by_value_parameter": {
+    "expected": false,
+    "before": "FP",
+    "after": "TN"
+   },
+   "struct_pointer_parameter": {
+    "expected": true,
+    "before": "TP",
+    "after": "TP"
+   },
+   "branch_then_tainted": {
+    "expected": true,
+    "before": "TP",
+    "after": "TP"
+   },
+   "branch_else_tainted": {
+    "expected": true,
+    "before": "TP",
+    "after": "TP"
+   },
+   "conditional_expression": {
+    "expected": true,
+    "before": "TP",
+    "after": "TP"
+   },
+   "dead_if_literal": {
+    "expected": false,
+    "before": "TN",
+    "after": "TN"
+   },
+   "dead_if_folded": {
+    "expected": false,
+    "before": "FP",
+    "after": "TN"
+   },
+   "short_circuit_and": {
+    "expected": false,
+    "before": "FP",
+    "after": "TN"
+   },
+   "short_circuit_or": {
+    "expected": false,
+    "before": "FP",
+    "after": "TN"
+   },
+   "nested_return": {
+    "expected": false,
+    "before": "FP",
+    "after": "TN"
+   },
+   "goto_skips_intermediate_label": {
+    "expected": false,
+    "before": "FP",
+    "after": "TN"
+   },
+   "goto_bypasses_sanitizing_assignment": {
+    "expected": true,
+    "before": "FN",
+    "after": "TP"
+   },
+   "switch_branch_merge": {
+    "expected": true,
+    "before": "TP",
+    "after": "TP"
+   },
+   "loop_one_iteration": {
+    "expected": true,
+    "before": "TP",
+    "after": "TP"
+   },
+   "macro_direct": {
+    "expected": true,
+    "before": "TP",
+    "after": "TP"
+   },
+   "macro_redefine_to_tainted": {
+    "expected": true,
+    "before": "FN",
+    "after": "TP"
+   },
+   "macro_redefine_to_safe": {
+    "expected": false,
+    "before": "FP",
+    "after": "TN"
+   },
+   "macro_defined_after_use": {
+    "expected": true,
+    "before": "FN",
+    "after": "TP"
+   },
+   "macro_stringify_no_expansion": {
+    "expected": false,
+    "before": "TN",
+    "after": "TN"
+   },
+   "header_macro": {
+    "expected": true,
+    "before": "FN",
+    "after": "TP"
+   },
+   "conditional_duplicate_function": {
+    "expected": true,
+    "before": "FN",
+    "after": "TP"
+   },
+   "memcpy_propagates": {
+    "expected": true,
+    "before": "TP",
+    "after": "TP"
+   },
+   "snprintf_propagates": {
+    "expected": true,
+    "before": "TP",
+    "after": "TP"
+   },
+   "strcpy_overwrite_clears_taint": {
+    "expected": false,
+    "before": "FP",
+    "after": "TN"
+   },
+   "memset_overwrite_clears_taint": {
+    "expected": false,
+    "before": "FP",
+    "after": "TN"
+   },
+   "zero_length_memcpy": {
+    "expected": false,
+    "before": "FP",
+    "after": "TN"
+   },
+   "snprintf_ignores_extra_argument": {
+    "expected": false,
+    "before": "FP",
+    "after": "TN"
+   },
+   "getenv_system": {
+    "expected": true,
+    "before": "TP",
+    "after": "TP"
+   },
+   "printf_fixed_format": {
+    "expected": false,
+    "before": "TN",
+    "after": "TN"
+   },
+   "printf_tainted_format": {
+    "expected": true,
+    "before": "TP",
+    "after": "TP"
+   },
+   "getline_double_pointer": {
+    "expected": true,
+    "before": "TP",
+    "after": "TP"
+   },
+   "read_buffer_alias": {
+    "expected": true,
+    "before": "TP",
+    "after": "TP"
+   },
+   "read_to_buffer_offset": {
+    "expected": true,
+    "before": "TP",
+    "after": "TP"
+   },
+   "numeric_length_taint": {
+    "expected": true,
+    "before": "FN",
+    "after": "TP"
+   },
+   "main_argv": {
+    "expected": true,
+    "before": "TP",
+    "after": "TP"
+   },
+   "cross_file_return": {
+    "expected": true,
+    "before": "TP",
+    "after": "TP"
+   },
+   "same_static_name_isolated": {
+    "expected": false,
+    "before": "TN",
+    "after": "TN"
+   },
+   "header_static_name_collision": {
+    "expected": true,
+    "before": "FN",
+    "after": "TP"
+   },
+   "header_struct_positional_initializer": {
+    "expected": true,
+    "before": "TP",
+    "after": "TP"
+   }
+  }
+ },
+ "real_api_8_default_rules": {
+  "before": {
+   "TP": 0,
+   "FN": 5,
+   "TN": 0,
+   "FP": 3
+  },
+  "after": {
+   "TP": 5,
+   "FN": 0,
+   "TN": 3,
+   "FP": 0
+  },
+  "cases": {
+   "real_double_indirection": {
+    "expected": true,
+    "before": "FN",
+    "after": "TP"
+   },
+   "real_struct_copy_value": {
+    "expected": true,
+    "before": "FN",
+    "after": "TP"
+   },
+   "real_struct_copy_no_alias": {
+    "expected": false,
+    "before": "FP",
+    "after": "TN"
+   },
+   "real_struct_by_value_parameter": {
+    "expected": false,
+    "before": "FP",
+    "after": "TN"
+   },
+   "real_goto_bypasses_sanitizing_assignment": {
+    "expected": true,
+    "before": "FN",
+    "after": "TP"
+   },
+   "real_macro_redefine_to_tainted": {
+    "expected": true,
+    "before": "FN",
+    "after": "TP"
+   },
+   "real_macro_redefine_to_safe": {
+    "expected": false,
+    "before": "FP",
+    "after": "TN"
+   },
+   "real_conditional_duplicate_function": {
+    "expected": true,
+    "before": "FN",
+    "after": "TP"
+   }
+  }
+ }
+}

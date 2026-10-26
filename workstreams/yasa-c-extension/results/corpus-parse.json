@@ -1,120 +1,122 @@
 [
- {
-  "project": "redis",
-  "files": 848,
-  "lines": 424617,
-  "bytes": 15495696,
-  "filesWithSyntaxErrors": 397,
-  "syntaxErrors": 3951,
-  "treeSitterFunctions": 13002,
-  "uastFunctions": 13092,
-  "unhandled": {
-   "gnu_asm_expression": 47,
-   "macro_type_specifier": 10
+  {
+    "project": "redis",
+    "files": 848,
+    "lines": 424617,
+    "bytes": 15495696,
+    "crashes": [],
+    "filesWithSyntaxErrors": 357,
+    "syntaxErrors": 3901,
+    "treeSitterFunctions": 13002,
+    "uastFunctions": 12966,
+    "unhandled": {
+      "gnu_asm_expression": 41,
+      "macro_type_specifier": 10
+    },
+    "buildErrors": 0,
+    "macroExpansions": 19406,
+    "parseMs": 12155,
+    "slowest": [
+      {
+        "file": "deps/jemalloc/src/ctl.c",
+        "ms": 389
+      },
+      {
+        "file": "src/redis-cli.c",
+        "ms": 353
+      },
+      {
+        "file": "src/module.c",
+        "ms": 324
+      },
+      {
+        "file": "deps/xxhash/xxhash.h",
+        "ms": 267
+      },
+      {
+        "file": "src/server.c",
+        "ms": 251
+      }
+    ]
   },
-  "buildErrors": 0,
-  "macroExpansions": 14909,
-  "parseMs": 12434,
-  "slowest": [
-   {
-    "file": "deps/jemalloc/src/ctl.c",
-    "ms": 423
-   },
-   {
-    "file": "src/redis-cli.c",
-    "ms": 411
-   },
-   {
-    "file": "src/module.c",
-    "ms": 345
-   },
-   {
-    "file": "src/server.c",
-    "ms": 283
-   },
-   {
-    "file": "src/t_hash.c",
-    "ms": 254
-   }
-  ]
- },
- {
-  "project": "curl",
-  "files": 1071,
-  "lines": 302730,
-  "bytes": 9512300,
-  "filesWithSyntaxErrors": 282,
-  "syntaxErrors": 2677,
-  "treeSitterFunctions": 5853,
-  "uastFunctions": 5905,
-  "unhandled": {
-   "macro_type_specifier": 14,
-   "gnu_asm_expression": 1
+  {
+    "project": "curl",
+    "files": 1071,
+    "lines": 302730,
+    "bytes": 9512300,
+    "crashes": [],
+    "filesWithSyntaxErrors": 273,
+    "syntaxErrors": 2632,
+    "treeSitterFunctions": 5853,
+    "uastFunctions": 5840,
+    "unhandled": {
+      "macro_type_specifier": 14,
+      "gnu_asm_expression": 1
+    },
+    "buildErrors": 0,
+    "macroExpansions": 6435,
+    "parseMs": 6388,
+    "slowest": [
+      {
+        "file": "lib/vtls/openssl.c",
+        "ms": 147
+      },
+      {
+        "file": "lib/vtls/cipher_suite.c",
+        "ms": 123
+      },
+      {
+        "file": "lib/vtls/schannel.c",
+        "ms": 114
+      },
+      {
+        "file": "src/tool_getparam.c",
+        "ms": 112
+      },
+      {
+        "file": "lib/http.c",
+        "ms": 106
+      }
+    ]
   },
-  "buildErrors": 0,
-  "macroExpansions": 5550,
-  "parseMs": 6029,
-  "slowest": [
-   {
-    "file": "lib/http.c",
-    "ms": 138
-   },
-   {
-    "file": "lib/vtls/openssl.c",
-    "ms": 137
-   },
-   {
-    "file": "lib/vtls/cipher_suite.c",
-    "ms": 91
-   },
-   {
-    "file": "tests/server/sws.c",
-    "ms": 84
-   },
-   {
-    "file": "lib/ftp.c",
-    "ms": 82
-   }
-  ]
- },
- {
-  "project": "sqlite",
-  "files": 360,
-  "lines": 462778,
-  "bytes": 15041985,
-  "filesWithSyntaxErrors": 216,
-  "syntaxErrors": 3113,
-  "treeSitterFunctions": 9963,
-  "uastFunctions": 9978,
-  "unhandled": {
-   "sized_type_specifier": 3,
-   "macro_type_specifier": 26,
-   "gnu_asm_expression": 6
-  },
-  "buildErrors": 0,
-  "macroExpansions": 24287,
-  "parseMs": 13017,
-  "slowest": [
-   {
-    "file": "autosetup/jimsh0.c",
-    "ms": 929
-   },
-   {
-    "file": "ext/wasm/libcmpp.c",
-    "ms": 656
-   },
-   {
-    "file": "ext/vec1/vec1.c",
-    "ms": 382
-   },
-   {
-    "file": "ext/wasm/api/sqlite3-wasm.c",
-    "ms": 376
-   },
-   {
-    "file": "src/test1.c",
-    "ms": 354
-   }
-  ]
- }
+  {
+    "project": "sqlite",
+    "files": 360,
+    "lines": 462778,
+    "bytes": 15041985,
+    "crashes": [],
+    "filesWithSyntaxErrors": 203,
+    "syntaxErrors": 4205,
+    "treeSitterFunctions": 9963,
+    "uastFunctions": 9819,
+    "unhandled": {
+      "macro_type_specifier": 26,
+      "gnu_asm_expression": 6
+    },
+    "buildErrors": 0,
+    "macroExpansions": 27918,
+    "parseMs": 12405,
+    "slowest": [
+      {
+        "file": "autosetup/jimsh0.c",
+        "ms": 825
+      },
+      {
+        "file": "ext/wasm/libcmpp.c",
+        "ms": 510
+      },
+      {
+        "file": "ext/vec1/vec1.c",
+        "ms": 462
+      },
+      {
+        "file": "ext/wasm/api/sqlite3-wasm.c",
+        "ms": 359
+      },
+      {
+        "file": "ext/jni/src/c/sqlite3-jni.c",
+        "ms": 332
+      }
+    ]
+  }
 ]

@@ -1,0 +1,4992 @@
+From c0d6004ecbdc045412200c7bbc06dff18ef95323 Mon Sep 17 00:00:00 2001
+From: sijie52 <sijie5452@gmail.com>
+Date: Mon, 26 Oct 2026 09:58:25 +0000
+Subject: [PATCH] fix(c): model C value, pointer, control-flow, linkage and
+ libc semantics
+
+- Declared types (c-types.ts): identifiers are annotated with their
+  lexically scoped declared type; struct field types and typedefs are
+  indexed.
+- Struct by value: declaration/assignment copies, by-value parameters and
+  *ps = b copy the aggregate; fields are independent storage, nested
+  structs and array members are copied recursively, pointer members keep
+  sharing their pointee.
+- Pointers: &x of a scalar/pointer variable is a distinct address value
+  bound to x's location; *e reads and writes the location e currently
+  points to, so multi-level dereference, rebinding and char *** out
+  parameters resolve level by level.
+- Control flow: per-call control state; statements after
+  return/break/continue/goto are unreachable until the matching goto
+  target, goto states are joined at the label, if/switch/loops propagate
+  abrupt completion, C integer constant expressions are folded,
+  &&/||/?: short-circuit, and a one-branch if ending in return does not
+  leak its writes past the if.
+- Linkage: header static functions are visible per translation unit
+  (CompileUnit._meta.includes); same-name definitions in undecided #if
+  branches are kept as a union instead of first-wins.
+- libc: full overwrite replaces dst taint, partial writes keep it, length
+  0 writes nothing, format functions only read the arguments the format
+  consumes, sscanf writes per conversion. atoi/strtol/strlen results and
+  %d-formatted text carry numeric taint: ignored by injection sinks,
+  still reported by length and format-string sinks.
+- Compile configuration for parser-C: --cDefine, --cUndefine, --cTarget
+  (default linux), --cUnknownMacros cover|undefined, --cIncludeDir.
+- Regression: test/c/test-c-semantics.ts runs 78 paired cases.
+---
+ package.json                                  |   2 +-
+ .../taint/c/c-default-taint-checker.ts        |  21 +-
+ src/config.ts                                 |  12 +
+ .../analyzer/c/common/builtins/c-builtins.ts  | 352 ++++++--
+ src/engine/analyzer/c/common/c-analyzer.ts    | 745 ++++++++++++++--
+ src/engine/analyzer/c/common/c-const-eval.ts  | 108 +++
+ src/engine/analyzer/c/common/c-types.ts       | 198 +++++
+ src/engine/parser/c/c-ast-builder.ts          |  67 +-
+ src/interface/starter.ts                      |  37 +
+ test/c/rule_config_c_semantics.json           | 800 ++++++++++++++++++
+ .../aggregate/struct_array_member_copy_F.c    |  21 +
+ .../aggregate/struct_array_member_copy_T.c    |  21 +
+ .../aggregate/struct_assign_copy_F.c          |  21 +
+ .../aggregate/struct_assign_copy_T.c          |  21 +
+ .../aggregate/struct_by_value_parameter_F.c   |  21 +
+ .../struct_by_value_parameter_reads_T.c       |  20 +
+ .../aggregate/struct_copy_no_alias_F.c        |  21 +
+ .../aggregate/struct_copy_value_T.c           |  21 +
+ .../aggregate/struct_nested_copy_F.c          |  22 +
+ .../aggregate/struct_nested_copy_T.c          |  22 +
+ .../struct_pointer_member_shares_pointee_T.c  |  22 +
+ .../struct_pointer_parameter_writes_T.c       |  21 +
+ .../control/both_branches_return_F.c          |  17 +
+ .../control/break_skips_rest_F.c              |  18 +
+ .../control/conditional_return_T.c            |  17 +
+ .../control/continue_skips_rest_F.c           |  18 +
+ .../control/dead_if_folded_F.c                |  16 +
+ .../control/early_return_branch_effect_F.c    |  18 +
+ .../control/early_return_branch_effect_T.c    |  18 +
+ .../goto_bypasses_sanitizing_assignment_T.c   |  21 +
+ .../control/goto_conditional_paths_T.c        |  22 +
+ .../control/goto_out_of_block_T.c             |  20 +
+ .../control/goto_skips_intermediate_label_F.c |  20 +
+ .../control/goto_unconditional_clean_F.c      |  22 +
+ .../control/guard_condition_side_effect_F.c   |  18 +
+ .../control/guard_condition_side_effect_T.c   |  18 +
+ .../control/live_if_folded_T.c                |  16 +
+ .../semantics-cases/control/nested_return_F.c |  17 +
+ .../control/short_circuit_and_F.c             |  18 +
+ .../control/short_circuit_and_live_T.c        |  18 +
+ .../control/short_circuit_or_F.c              |  18 +
+ .../control/short_circuit_unknown_T.c         |  18 +
+ .../libc/memcpy_partial_keeps_taint_T.c       |  19 +
+ .../libc/memset_overwrite_clears_taint_F.c    |  19 +
+ .../libc/memset_partial_keeps_taint_T.c       |  19 +
+ .../libc/snprintf_ignores_extra_argument_F.c  |  18 +
+ .../libc/snprintf_percent_literal_F.c         |  18 +
+ .../libc/snprintf_second_argument_F.c         |  18 +
+ .../libc/snprintf_star_width_T.c              |  18 +
+ .../libc/strcat_after_clean_T.c               |  19 +
+ .../libc/strcpy_overwrite_clears_taint_F.c    |  19 +
+ .../libc/zero_length_memcpy_F.c               |  18 +
+ .../header_static_name_collision_F/a.h        |   2 +
+ .../header_static_name_collision_F/main.c     |  15 +
+ .../header_static_name_collision_F/other.c    |   2 +
+ .../header_static_name_collision_F/z.h        |   1 +
+ .../header_static_name_collision_T/a.h        |   2 +
+ .../header_static_name_collision_T/main.c     |  15 +
+ .../header_static_name_collision_T/other.c    |   2 +
+ .../header_static_name_collision_T/z.h        |   1 +
+ .../linkage/static_name_isolated_F/main.c     |  15 +
+ .../linkage/static_name_isolated_F/other.c    |   3 +
+ .../pointer/deref_reads_current_value_F.c     |  19 +
+ .../pointer/deref_reads_current_value_T.c     |  19 +
+ .../pointer/double_indirection_T.c            |  20 +
+ .../pointer/double_out_parameter_T.c          |  20 +
+ .../pointer/indirection_rebound_other_F.c     |  21 +
+ .../pointer/indirection_rebound_other_T.c     |  21 +
+ .../pointer/pointer_to_field_F.c              |  21 +
+ .../pointer/pointer_to_field_T.c              |  21 +
+ .../pointer/triple_indirection_T.c            |  21 +
+ .../conditional_duplicate_function_T.c        |  19 +
+ .../conditional_duplicate_platform_F.c        |  19 +
+ .../preprocessor/header_macro_T/input.h       |   4 +
+ .../preprocessor/header_macro_T/main.c        |  15 +
+ .../main.c                                    |  17 +
+ .../safe_input.h                              |   1 +
+ .../preprocessor/header_macro_safe_F/main.c   |  15 +
+ .../header_macro_safe_F/safe_input.h          |   1 +
+ .../preprocessor/macro_defined_after_use_T.c  |  15 +
+ .../preprocessor/macro_object_redefine_F.c    |  17 +
+ .../preprocessor/macro_platform_branch_F.c    |  19 +
+ .../preprocessor/macro_platform_branch_T.c    |  19 +
+ .../preprocessor/macro_redefine_to_safe_F.c   |  17 +
+ .../macro_redefine_to_tainted_T.c             |  17 +
+ .../macro_undef_restores_function_T.c         |  16 +
+ .../preprocessor/macro_unknown_feature_T.c    |  19 +
+ .../semantics-cases/real/numeric_command_F.c  |  17 +
+ .../real/numeric_format_index_T.c             |  17 +
+ .../real/numeric_length_taint_T.c             |  16 +
+ .../real_conditional_duplicate_function_T.c   |  18 +
+ .../real/real_double_indirection_T.c          |  19 +
+ ...al_goto_bypasses_sanitizing_assignment_T.c |  20 +
+ .../real/real_macro_redefine_to_safe_F.c      |  16 +
+ .../real/real_macro_redefine_to_tainted_T.c   |  16 +
+ .../real/real_struct_by_value_parameter_F.c   |  19 +
+ .../real/real_struct_copy_no_alias_F.c        |  19 +
+ .../real/real_struct_copy_value_T.c           |  19 +
+ test/c/test-c-semantics.ts                    |  93 ++
+ 99 files changed, 3756 insertions(+), 153 deletions(-)
+ create mode 100644 src/engine/analyzer/c/common/c-const-eval.ts
+ create mode 100644 src/engine/analyzer/c/common/c-types.ts
+ create mode 100644 test/c/rule_config_c_semantics.json
+ create mode 100644 test/c/semantics-cases/aggregate/struct_array_member_copy_F.c
+ create mode 100644 test/c/semantics-cases/aggregate/struct_array_member_copy_T.c
+ create mode 100644 test/c/semantics-cases/aggregate/struct_assign_copy_F.c
+ create mode 100644 test/c/semantics-cases/aggregate/struct_assign_copy_T.c
+ create mode 100644 test/c/semantics-cases/aggregate/struct_by_value_parameter_F.c
+ create mode 100644 test/c/semantics-cases/aggregate/struct_by_value_parameter_reads_T.c
+ create mode 100644 test/c/semantics-cases/aggregate/struct_copy_no_alias_F.c
+ create mode 100644 test/c/semantics-cases/aggregate/struct_copy_value_T.c
+ create mode 100644 test/c/semantics-cases/aggregate/struct_nested_copy_F.c
+ create mode 100644 test/c/semantics-cases/aggregate/struct_nested_copy_T.c
+ create mode 100644 test/c/semantics-cases/aggregate/struct_pointer_member_shares_pointee_T.c
+ create mode 100644 test/c/semantics-cases/aggregate/struct_pointer_parameter_writes_T.c
+ create mode 100644 test/c/semantics-cases/control/both_branches_return_F.c
+ create mode 100644 test/c/semantics-cases/control/break_skips_rest_F.c
+ create mode 100644 test/c/semantics-cases/control/conditional_return_T.c
+ create mode 100644 test/c/semantics-cases/control/continue_skips_rest_F.c
+ create mode 100644 test/c/semantics-cases/control/dead_if_folded_F.c
+ create mode 100644 test/c/semantics-cases/control/early_return_branch_effect_F.c
+ create mode 100644 test/c/semantics-cases/control/early_return_branch_effect_T.c
+ create mode 100644 test/c/semantics-cases/control/goto_bypasses_sanitizing_assignment_T.c
+ create mode 100644 test/c/semantics-cases/control/goto_conditional_paths_T.c
+ create mode 100644 test/c/semantics-cases/control/goto_out_of_block_T.c
+ create mode 100644 test/c/semantics-cases/control/goto_skips_intermediate_label_F.c
+ create mode 100644 test/c/semantics-cases/control/goto_unconditional_clean_F.c
+ create mode 100644 test/c/semantics-cases/control/guard_condition_side_effect_F.c
+ create mode 100644 test/c/semantics-cases/control/guard_condition_side_effect_T.c
+ create mode 100644 test/c/semantics-cases/control/live_if_folded_T.c
+ create mode 100644 test/c/semantics-cases/control/nested_return_F.c
+ create mode 100644 test/c/semantics-cases/control/short_circuit_and_F.c
+ create mode 100644 test/c/semantics-cases/control/short_circuit_and_live_T.c
+ create mode 100644 test/c/semantics-cases/control/short_circuit_or_F.c
+ create mode 100644 test/c/semantics-cases/control/short_circuit_unknown_T.c
+ create mode 100644 test/c/semantics-cases/libc/memcpy_partial_keeps_taint_T.c
+ create mode 100644 test/c/semantics-cases/libc/memset_overwrite_clears_taint_F.c
+ create mode 100644 test/c/semantics-cases/libc/memset_partial_keeps_taint_T.c
+ create mode 100644 test/c/semantics-cases/libc/snprintf_ignores_extra_argument_F.c
+ create mode 100644 test/c/semantics-cases/libc/snprintf_percent_literal_F.c
+ create mode 100644 test/c/semantics-cases/libc/snprintf_second_argument_F.c
+ create mode 100644 test/c/semantics-cases/libc/snprintf_star_width_T.c
+ create mode 100644 test/c/semantics-cases/libc/strcat_after_clean_T.c
+ create mode 100644 test/c/semantics-cases/libc/strcpy_overwrite_clears_taint_F.c
+ create mode 100644 test/c/semantics-cases/libc/zero_length_memcpy_F.c
+ create mode 100644 test/c/semantics-cases/linkage/header_static_name_collision_F/a.h
+ create mode 100644 test/c/semantics-cases/linkage/header_static_name_collision_F/main.c
+ create mode 100644 test/c/semantics-cases/linkage/header_static_name_collision_F/other.c
+ create mode 100644 test/c/semantics-cases/linkage/header_static_name_collision_F/z.h
+ create mode 100644 test/c/semantics-cases/linkage/header_static_name_collision_T/a.h
+ create mode 100644 test/c/semantics-cases/linkage/header_static_name_collision_T/main.c
+ create mode 100644 test/c/semantics-cases/linkage/header_static_name_collision_T/other.c
+ create mode 100644 test/c/semantics-cases/linkage/header_static_name_collision_T/z.h
+ create mode 100644 test/c/semantics-cases/linkage/static_name_isolated_F/main.c
+ create mode 100644 test/c/semantics-cases/linkage/static_name_isolated_F/other.c
+ create mode 100644 test/c/semantics-cases/pointer/deref_reads_current_value_F.c
+ create mode 100644 test/c/semantics-cases/pointer/deref_reads_current_value_T.c
+ create mode 100644 test/c/semantics-cases/pointer/double_indirection_T.c
+ create mode 100644 test/c/semantics-cases/pointer/double_out_parameter_T.c
+ create mode 100644 test/c/semantics-cases/pointer/indirection_rebound_other_F.c
+ create mode 100644 test/c/semantics-cases/pointer/indirection_rebound_other_T.c
+ create mode 100644 test/c/semantics-cases/pointer/pointer_to_field_F.c
+ create mode 100644 test/c/semantics-cases/pointer/pointer_to_field_T.c
+ create mode 100644 test/c/semantics-cases/pointer/triple_indirection_T.c
+ create mode 100644 test/c/semantics-cases/preprocessor/conditional_duplicate_function_T.c
+ create mode 100644 test/c/semantics-cases/preprocessor/conditional_duplicate_platform_F.c
+ create mode 100644 test/c/semantics-cases/preprocessor/header_macro_T/input.h
+ create mode 100644 test/c/semantics-cases/preprocessor/header_macro_T/main.c
+ create mode 100644 test/c/semantics-cases/preprocessor/header_macro_redefined_after_include_T/main.c
+ create mode 100644 test/c/semantics-cases/preprocessor/header_macro_redefined_after_include_T/safe_input.h
+ create mode 100644 test/c/semantics-cases/preprocessor/header_macro_safe_F/main.c
+ create mode 100644 test/c/semantics-cases/preprocessor/header_macro_safe_F/safe_input.h
+ create mode 100644 test/c/semantics-cases/preprocessor/macro_defined_after_use_T.c
+ create mode 100644 test/c/semantics-cases/preprocessor/macro_object_redefine_F.c
+ create mode 100644 test/c/semantics-cases/preprocessor/macro_platform_branch_F.c
+ create mode 100644 test/c/semantics-cases/preprocessor/macro_platform_branch_T.c
+ create mode 100644 test/c/semantics-cases/preprocessor/macro_redefine_to_safe_F.c
+ create mode 100644 test/c/semantics-cases/preprocessor/macro_redefine_to_tainted_T.c
+ create mode 100644 test/c/semantics-cases/preprocessor/macro_undef_restores_function_T.c
+ create mode 100644 test/c/semantics-cases/preprocessor/macro_unknown_feature_T.c
+ create mode 100644 test/c/semantics-cases/real/numeric_command_F.c
+ create mode 100644 test/c/semantics-cases/real/numeric_format_index_T.c
+ create mode 100644 test/c/semantics-cases/real/numeric_length_taint_T.c
+ create mode 100644 test/c/semantics-cases/real/real_conditional_duplicate_function_T.c
+ create mode 100644 test/c/semantics-cases/real/real_double_indirection_T.c
+ create mode 100644 test/c/semantics-cases/real/real_goto_bypasses_sanitizing_assignment_T.c
+ create mode 100644 test/c/semantics-cases/real/real_macro_redefine_to_safe_F.c
+ create mode 100644 test/c/semantics-cases/real/real_macro_redefine_to_tainted_T.c
+ create mode 100644 test/c/semantics-cases/real/real_struct_by_value_parameter_F.c
+ create mode 100644 test/c/semantics-cases/real/real_struct_copy_no_alias_F.c
+ create mode 100644 test/c/semantics-cases/real/real_struct_copy_value_T.c
+ create mode 100644 test/c/test-c-semantics.ts
+
+diff --git a/package.json b/package.json
+index 17bae70..d3ee53c 100644
+--- a/package.json
++++ b/package.json
+@@ -107,7 +107,7 @@
+     "test-go-short-var-callback-taint": "npx mocha --require tsx/cjs test/rules-basic-handler/test-go-short-var-callback-taint.ts",
+     "test-php-checker": "npx mocha --require tsx/cjs test/php/test-php-checker.ts",
+     "test-php": "npx mocha --require tsx/cjs test/php/test-php-benchmark.ts",
+-    "test-c": "npx mocha --require tsx/cjs test/c/test-c-checker.ts",
++    "test-c": "npx mocha --require tsx/cjs test/c/test-c-checker.ts test/c/test-c-semantics.ts",
+     "update-php-expect": "YASA_UPDATE_PHP_BENCHMARK_EXPECT=1 npm run test-php && cp test/php/expect/phpbenchmark-expect.json.candidate test/php/expect/phpbenchmark-expect.json && rm test/php/expect/phpbenchmark-expect.json.candidate && npm run test-php",
+     "test-all": "npm run test-callargs && npm run test-fastapi-backgroundtasks && npm run test-match-field && npm run test-entrypoint-deadline-budget && npm run test-entrypoint-deadline-scheduler && npm run test-clone-util && npm run test-sink-util-new-expr && npm run test-taint-output-strategy && npm run test-go-dynamic-key-taint && npm run test-js && npm run test-java && npm run test-sarif-codeflow-quality && npm run test-go && npm run test-python && npm run test-callchain && npm run test-php",
+     "build": "bash build.sh",
+diff --git a/src/checker/taint/c/c-default-taint-checker.ts b/src/checker/taint/c/c-default-taint-checker.ts
+index 5ea105d..76cf7d9 100644
+--- a/src/checker/taint/c/c-default-taint-checker.ts
++++ b/src/checker/taint/c/c-default-taint-checker.ts
+@@ -19,6 +19,21 @@ const TAINT_TAG_NAME = 'C_INPUT'
+ /** main(argc, argv, envp)：argv 与 envp 来自进程外部 */
+ const MAIN_TAINTED_PARAMS = [1, 2]
+ 
++/**
++ * 数值污点（atoi(input) 的结果、按 %d 写入的数字文本）也危险的 sink：长度/大小，
++ * 以及格式串（数字可以选择位置参数 `%N$`、控制宽度）。命令/路径/SQL 等注入类 sink 不受数字影响。
++ */
++const NUMERIC_SENSITIVE_ATTRIBUTES = new Set(['CBufferOverflow', 'CFormatString'])
++
++/**
++ * @param rule - sink 规则
++ * @returns 数值污点对该 sink 是否危险
++ */
++function isNumericSensitiveSink(rule: any): boolean {
++  const attrs = Array.isArray(rule?.attribute) ? rule.attribute : [rule?.attribute]
++  return attrs.some((a: any) => NUMERIC_SENSITIVE_ATTRIBUTES.has(a))
++}
++
+ /**
+  * main 先执行，其余按文件与行号稳定排序，保证结果可复现
+  * @param ep - entrypoint
+@@ -223,7 +238,11 @@ class CDefaultTaintChecker extends TaintChecker {
+     const rule: any = matched.length > 0 ? matched[0] : null
+     if (!rule) return
+ 
+-    const args = BasicRuleHandler.prepareArgs(callInfo, fclos, rule)
++    let args = BasicRuleHandler.prepareArgs(callInfo, fclos, rule)
++    if (!isNumericSensitiveSink(rule)) {
++      // 注入类 sink：数值污点不携带可注入的内容
++      args = args.filter((arg: any) => arg?.cNumericTaint !== true)
++    }
+     const sanitizers = SanitizerChecker.findSanitizerByIds(rule.sanitizerIds)
+     const results = SanitizerChecker.findTagAndMatchedSanitizer(
+       node,
+diff --git a/src/config.ts b/src/config.ts
+index 4da1c92..e0dcfc5 100644
+--- a/src/config.ts
++++ b/src/config.ts
+@@ -60,6 +60,14 @@ export interface IConfig {
+   minEntryPointToEnablePrune?: number
+   entryPointTimeoutMs?: number
+   entryPointTimeoutQuickMs?: number
++  /** C 预处理配置（-D/-U、目标平台、未知宏的处理方式、头文件搜索目录） */
++  cPreprocessor?: {
++    defines: Record<string, string>
++    undefines: string[]
++    target: 'linux' | 'macos' | 'windows' | 'none'
++    unknownMacros: 'cover' | 'undefined'
++    includeDirs: string[]
++  }
+   maxCallstackDepth?: number
+   enableCoarseTaintPropagation?: boolean
+   scanTimeoutMs?: number
+@@ -221,6 +229,10 @@ const configObject: IConfig = {
+   // Timeout
+   entryPointTimeoutMs: 600000, // 重跑时每个入口点的超时上限（10 分钟）
+   entryPointTimeoutQuickMs: 120000, // 首遍每个入口点的超时（2 分钟）
++
++  // C 预处理：默认按 Linux 上的 gcc/clang 预定义平台宏；代码与配置都未决定的宏（如 FEATURE）
++  // 按未知处理，#ifdef 两侧都分析（cover）。--cUnknownMacros undefined 时按 C 标准视为未定义。
++  cPreprocessor: { defines: {}, undefines: [], target: 'linux', unknownMacros: 'cover', includeDirs: [] },
+   scanTimeoutMs: 28800000, // 全局扫描超时预算（8 小时），超时 entrypoint 重跑的时间来源
+ 
+   // Memory guard: 单入口堆超阈提前 stop，flush 已分析入口 finding，跳下一入口（零污染，不改 clone）
+diff --git a/src/engine/analyzer/c/common/builtins/c-builtins.ts b/src/engine/analyzer/c/common/builtins/c-builtins.ts
+index 824b23b..aa1a74b 100644
+--- a/src/engine/analyzer/c/common/builtins/c-builtins.ts
++++ b/src/engine/analyzer/c/common/builtins/c-builtins.ts
+@@ -3,106 +3,332 @@
+  *
+  * 引擎对无函数体的库函数默认只做 arg→ret 传播。C 的字符串/内存函数却把结果
+  * 写进调用方传入的缓冲区（strcpy(dst, src)、sprintf(buf, fmt, x)），因此需要
+- * 额外把污点写回输出参数，否则 `strcpy(buf, tainted); system(buf)` 会断链。
++ * 按函数语义写回输出参数：
++ * - 完整覆盖（strcpy、sprintf、长度覆盖整个缓冲区的 memcpy/memset）后，dst 只携带写入内容的污点；
++ * - 部分写入（strcat、带偏移的目标、长度小于缓冲区的 memcpy/memset）保留 dst 原有内容；
++ * - 长度为常量 0 时不写入；
++ * - 格式化函数只有被格式串实际消耗的实参参与写入；数值转换（%d/%x/%f...）写入的只是数字文本，
++ *   结果为数值污点：不构成命令/路径/SQL 注入，但对长度与格式串类 sink 仍然危险。
+  */
+ import { getLegacyArgValues } from '../../../common/call-args'
+ 
++const AstUtil = require('../../../../../util/ast-util')
+ const SourceLine = require('../../../common/source-line')
++const { foldConstant } = require('../c-const-eval')
++const { shallowCopyValue } = require('../../../../../util/clone-util')
++const {
++  valueUtil: {
++    ValueUtil: { UnionValue },
++  },
++} = require('../../../common')
++
++type Kind = 'copy' | 'append' | 'format' | 'fill' | 'scan'
+ 
+-/** dst: 输出参数下标；src: 输入参数下标，`from` 表示从该下标起的全部可变参数 */
+ interface OutParamModel {
+-  dst: number[] | { from: number }
+-  src: number[] | { from: number }
++  kind: Kind
++  /** 输出参数下标 */
++  dst: number
++  /** 输入参数下标（copy/append/scan） */
++  src?: number[]
++  /** 长度参数下标：常量 0 不写入，覆盖整个 dst 时为完整写入 */
++  len?: number
++  /** 格式串下标（format/scan） */
++  fmt?: number
++  /** 字符串复制：内容由 src 完全决定（NUL 结尾） */
++  terminated?: boolean
++  /** v* 变体：可变参数在 va_list 中，无法按格式串对应 */
++  vaList?: boolean
+ }
+ 
++const copy = (dst: number, src: number, extra: Partial<OutParamModel> = {}): OutParamModel => ({
++  kind: 'copy',
++  dst,
++  src: [src],
++  ...extra,
++})
++const format = (fmt: number, extra: Partial<OutParamModel> = {}): OutParamModel => ({
++  kind: 'format',
++  dst: 0,
++  fmt,
++  ...extra,
++})
++
+ const MODELS: Record<string, OutParamModel> = {
+-  strcpy: { dst: [0], src: [1] },
+-  strncpy: { dst: [0], src: [1] },
+-  stpcpy: { dst: [0], src: [1] },
+-  stpncpy: { dst: [0], src: [1] },
+-  strlcpy: { dst: [0], src: [1] },
+-  strcat: { dst: [0], src: [0, 1] },
+-  strncat: { dst: [0], src: [0, 1] },
+-  strlcat: { dst: [0], src: [0, 1] },
+-  wcscpy: { dst: [0], src: [1] },
+-  wcsncpy: { dst: [0], src: [1] },
+-  wcscat: { dst: [0], src: [0, 1] },
+-  wcsncat: { dst: [0], src: [0, 1] },
+-  wmemcpy: { dst: [0], src: [1] },
+-  wmemmove: { dst: [0], src: [1] },
+-  memcpy: { dst: [0], src: [1] },
+-  memmove: { dst: [0], src: [1] },
+-  mempcpy: { dst: [0], src: [1] },
+-  memccpy: { dst: [0], src: [1] },
+-  bcopy: { dst: [1], src: [0] },
+-  sprintf: { dst: [0], src: { from: 1 } },
+-  vsprintf: { dst: [0], src: { from: 1 } },
+-  snprintf: { dst: [0], src: { from: 2 } },
+-  vsnprintf: { dst: [0], src: { from: 2 } },
+-  swprintf: { dst: [0], src: { from: 2 } },
+-  vswprintf: { dst: [0], src: { from: 2 } },
+-  _snwprintf: { dst: [0], src: { from: 2 } },
+-  _snprintf: { dst: [0], src: { from: 2 } },
+-  sscanf: { dst: { from: 2 }, src: [0] },
+-  vsscanf: { dst: { from: 2 }, src: [0] },
+-  realpath: { dst: [1], src: [0] },
+-  strtok_r: { dst: [2], src: [0] },
++  strcpy: copy(0, 1, { terminated: true }),
++  stpcpy: copy(0, 1, { terminated: true }),
++  wcscpy: copy(0, 1, { terminated: true }),
++  strlcpy: copy(0, 1, { terminated: true }),
++  strncpy: copy(0, 1, { len: 2 }),
++  stpncpy: copy(0, 1, { len: 2 }),
++  wcsncpy: copy(0, 1, { len: 2 }),
++  strcat: { kind: 'append', dst: 0, src: [1] },
++  strncat: { kind: 'append', dst: 0, src: [1], len: 2 },
++  strlcat: { kind: 'append', dst: 0, src: [1] },
++  wcscat: { kind: 'append', dst: 0, src: [1] },
++  wcsncat: { kind: 'append', dst: 0, src: [1], len: 2 },
++  memcpy: copy(0, 1, { len: 2 }),
++  memmove: copy(0, 1, { len: 2 }),
++  mempcpy: copy(0, 1, { len: 2 }),
++  memccpy: copy(0, 1, { len: 3 }),
++  wmemcpy: copy(0, 1, { len: 2 }),
++  wmemmove: copy(0, 1, { len: 2 }),
++  bcopy: copy(1, 0, { len: 2 }),
++  memset: { kind: 'fill', dst: 0, len: 2 },
++  wmemset: { kind: 'fill', dst: 0, len: 2 },
++  bzero: { kind: 'fill', dst: 0, len: 1 },
++  explicit_bzero: { kind: 'fill', dst: 0, len: 1 },
++  sprintf: format(1),
++  vsprintf: format(1, { vaList: true }),
++  snprintf: format(2, { len: 1 }),
++  vsnprintf: format(2, { len: 1, vaList: true }),
++  _snprintf: format(2, { len: 1 }),
++  swprintf: format(2, { len: 1 }),
++  vswprintf: format(2, { len: 1, vaList: true }),
++  _snwprintf: format(2, { len: 1 }),
++  sscanf: { kind: 'scan', dst: 2, src: [0], fmt: 1 },
++  vsscanf: { kind: 'scan', dst: 2, src: [0], fmt: 1, vaList: true },
++  realpath: copy(1, 0, { terminated: true }),
++  strtok_r: copy(2, 0, { terminated: true }),
+ }
+ 
+-function indexes(spec: number[] | { from: number }, argc: number): number[] {
+-  if (Array.isArray(spec)) return spec.filter((i) => i < argc)
+-  const result: number[] = []
+-  for (let i = spec.from; i < argc; i++) result.push(i)
++/** 只产生数字文本的转换：不携带命令/路径/格式串等注入内容 */
++const NUMERIC_CONVERSIONS = new Set('diouxXeEfFgGaAp'.split(''))
++
++/** 格式串中的一次转换 */
++interface Conversion {
++  /** 读取的实参个数（`*` 宽度/精度各占一个） */
++  starArgs: number
++  conversion: string
++  /** 读取实参（`%%` 与 scanf 的 `%*d` 不读取） */
++  consumes: boolean
++}
++
++/**
++ * 解析 printf/scanf 格式串
++ * @param fmt - 格式串
++ * @param scanf - scanf 族（`*` 表示不赋值）
++ * @returns 转换列表
++ */
++export function parseFormat(fmt: string, scanf = false): Conversion[] {
++  const result: Conversion[] = []
++  const re = /%([-+ #0'*]*)(\d+\$)?(\*|\d+)?(?:\.(\*|\d+))?(hh|h|ll|l|L|j|z|t|q|I64|I32|I)?(\[[^\]]*\]|.)/g
++  for (let m = re.exec(fmt); m; m = re.exec(fmt)) {
++    const [, flags, , width, precision, , conversion] = m
++    if (conversion === '%') continue
++    if (scanf) {
++      result.push({ starArgs: 0, conversion, consumes: !flags.includes('*') })
++    } else {
++      const starArgs = Number(width === '*' || flags.includes('*')) + Number(precision === '*')
++      result.push({ starArgs, conversion, consumes: true })
++    }
++  }
+   return result
+ }
+ 
+-/** `&x`、`(char *)x`、`*p`、`buf + n`、`&buf[i]` 写入的都是 x/p/buf 这个变量 */
+-function writeTarget(node: any): any {
++/**
++ * 字符串字面量的值
++ * @param node - 表达式
++ * @returns 字符串；不是字面量时为 undefined
++ */
++function stringLiteral(node: any): string | undefined {
+   let current = node
++  while (current?.type === 'CastExpression') current = current.expression
++  return current?.type === 'Literal' && typeof current.value === 'string' ? current.value : undefined
++}
++
++/** 写入目标：存储位置与是否只写入其中一部分 */
++interface WriteTarget {
++  node: any
++  partial: boolean
++}
++
++/**
++ * `&x`、`(char *)x`、`buf + n`、`&buf[i]` 写入的都是 x/buf；`*p` 写入 p 指向的位置；带非零偏移的目标只写入一部分
++ * @param node - 实参 AST
++ * @returns 写入目标
++ */
++function writeTarget(node: any): WriteTarget | null {
++  let current = node
++  let partial = false
+   while (current) {
+-    if (current.type === 'ReferenceExpression' || current.type === 'DereferenceExpression') current = current.argument
++    if (current.type === 'ReferenceExpression') current = current.argument
+     else if (current.type === 'CastExpression') current = current.expression
+-    else if (current.type === 'BinaryExpression' && (current.operator === '+' || current.operator === '-'))
++    else if (current.type === 'BinaryExpression' && (current.operator === '+' || current.operator === '-')) {
++      if (foldConstant(current.right) !== 0) partial = true
+       current = current.left
+-    else if (current.type === 'MemberAccess' && current.computed) current = current.object
+-    else break
++    } else if (current.type === 'MemberAccess' && current.computed) {
++      if (foldConstant(current.property) !== 0) partial = true
++      current = current.object
++    } else break
+   }
+   if (!current) return null
+-  if (current.type === 'Identifier' || current.type === 'MemberAccess') return current
++  if (['Identifier', 'MemberAccess', 'DereferenceExpression'].includes(current.type)) return { node: current, partial }
+   return null
+ }
+ 
+-function calleeName(node: any): string | undefined {
+-  const callee = node?.callee
+-  if (callee?.type === 'Identifier') return callee.name
+-  return undefined
++/**
++ * 长度实参是否覆盖整个目标：`sizeof dst`、`sizeof(dst)`，或不小于 dst 声明的数组长度的常量
++ * @param analyzer - CAnalyzer
++ * @param lenNode - 长度实参
++ * @param target - 写入目标
++ * @returns 是否完整覆盖
++ */
++function coversTarget(analyzer: any, lenNode: any, target: WriteTarget): boolean {
++  let len = lenNode
++  while (len?.type === 'CastExpression') len = len.expression
++  if (len?.type === 'CallExpression' && len.callee?.type === 'Identifier' && len.callee.name === 'sizeof') {
++    const arg = writeTarget(len.arguments?.[0])
++    return !!arg && !arg.partial && AstUtil.prettyPrintAST(arg.node) === AstUtil.prettyPrintAST(target.node)
++  }
++  const n = foldConstant(len)
++  const size = foldConstant(analyzer.cTypeOf(target.node)?.size)
++  return n !== undefined && size !== undefined && n >= size
+ }
+ 
+ /**
+- * 在库函数调用后应用输出参数模型。返回值 `ret` 已由引擎的 arg→ret 默认路径
+- * 携带输入参数的污点，直接写入输出参数即可保留完整 trace。
++ * 由若干输入值派生写入 dst 的新值：没有污点输入时是干净的新值；
++ * 否则是污点输入（多个时为其并集）的副本，保留其中的污点与 trace。
++ * 污点输入全部是数值（atoi 的结果、按 %d 等格式化的实参）时，结果是数值污点。
++ * @param analyzer - CAnalyzer
++ * @param scope - scope
++ * @param node - 调用
++ * @param sources - 输入值
++ * @param name - 目标名（trace 显示）
++ * @param numericInputs - 只以数字文本写入的输入
++ * @returns 新值
++ */
++function derive(analyzer: any, scope: any, node: any, sources: any[], name: string, numericInputs = new Set<any>()): any {
++  const tainted = [...new Set(sources.filter((v) => v && typeof v === 'object' && v.taint?.isTaintedRec))]
++  if (tainted.length === 0) return analyzer.newCValue(scope, `<${name}>`, node)
++  let value
++  if (tainted.length === 1) {
++    value = shallowCopyValue(tainted[0])
++  } else {
++    value = new UnionValue(undefined, undefined, `${scope.qid}.<union@${name}:${node.loc?.start?.line}>`, node)
++    for (const v of tainted) value.appendValue(v)
++  }
++  if (tainted.every((v) => numericInputs.has(v) || analyzer.isNumericTaint(v))) analyzer.markNumeric(value)
++  return SourceLine.addSrcLineInfo(value, node, node.loc?.sourcefile, 'Var Pass:', name)
++}
++
++/**
++ * 格式化函数实际读取的实参
++ * @param model - 模型
++ * @param args - 实参 AST
++ * @param argValues - 实参值
++ * @returns 参与写入内容的值（格式串本身与被转换读取的实参），以及其中只按数值转换（%d/%x/%f...）写入的值
++ */
++function formatSources(model: OutParamModel, args: any[], argValues: any[]): { sources: any[]; numeric: Set<any> } {
++  const fmtIndex = model.fmt!
++  const fmt = stringLiteral(args[fmtIndex])
++  const rest = argValues.slice(fmtIndex + 1)
++  if (fmt === undefined || model.vaList) return { sources: [argValues[fmtIndex], ...rest], numeric: new Set() }
++  const textual = new Set<any>()
++  const numeric = new Set<any>()
++  let next = 0
++  for (const conv of parseFormat(fmt)) {
++    // `*` 宽度/精度读取 int 实参，只影响填充长度
++    for (let i = 0; i < conv.starArgs; i++) numeric.add(rest[next++])
++    if (!conv.consumes || conv.conversion === 'n') {
++      if (conv.consumes) next++
++      continue
++    }
++    const value = rest[next++]
++    if (NUMERIC_CONVERSIONS.has(conv.conversion)) numeric.add(value)
++    else textual.add(value)
++  }
++  for (const v of textual) numeric.delete(v)
++  return { sources: [...textual, ...numeric], numeric }
++}
++
++/**
++ * strncpy(dst, "lit", n)：n 大于字面量长度时写入完整字符串（含 NUL），等同完整覆盖
++ * @param args - 实参
++ * @param model - 模型
++ * @returns 是否完整覆盖
++ */
++function stringCopyCovers(args: any[], model: OutParamModel): boolean {
++  const src = stringLiteral(args[model.src![0]])
++  const n = model.len === undefined ? undefined : foldConstant(args[model.len])
++  return src !== undefined && n !== undefined && n > src.length
++}
++
++/**
++ * sscanf(src, fmt, &a, &b)：按格式串把输入写入各输出参数；数值转换的结果只携带数值污点。
++ * @param analyzer - CAnalyzer
++ * @param model - 模型
++ * @param node - 调用
++ * @param scope - scope
++ * @param state - 状态
++ * @param args - 实参 AST
++ * @param argValues - 实参值
++ */
++function applyScan(
++  analyzer: any,
++  model: OutParamModel,
++  node: any,
++  scope: any,
++  state: any,
++  args: any[],
++  argValues: any[]
++): void {
++  const input = (model.src || []).map((i) => argValues[i])
++  if (!input.some((v) => v?.taint?.isTaintedRec)) return
++  const fmt = stringLiteral(args[model.fmt!])
++  const conversions = fmt === undefined || model.vaList ? undefined : parseFormat(fmt, true).filter((c) => c.consumes)
++  for (let i = model.dst; i < args.length; i++) {
++    const conv = conversions?.[i - model.dst]
++    if (conversions && !conv) break
++    const target = writeTarget(args[i])
++    if (!target) continue
++    const value = derive(analyzer, scope, node, input, AstUtil.prettyPrintAST(target.node))
++    if (conv && NUMERIC_CONVERSIONS.has(conv.conversion)) analyzer.markNumeric(value)
++    analyzer.writeCLocation(scope, target.node, value, state)
++  }
++}
++
++/**
++ * 在库函数调用后应用输出参数模型。
+  * @param analyzer - CAnalyzer
+  * @param node - CallExpression
+  * @param scope - 调用所在 scope
+  * @param state - 状态
+  * @param callInfo - 调用信息
+- * @param ret - 调用返回值
+  */
+-export function applyCLibraryModel(analyzer: any, node: any, scope: any, state: any, callInfo: any, ret: any): void {
+-  const name = calleeName(node)
++export function applyCLibraryModel(analyzer: any, node: any, scope: any, state: any, callInfo: any): void {
++  const name = node?.callee?.type === 'Identifier' ? node.callee.name : undefined
+   if (!name || !Object.prototype.hasOwnProperty.call(MODELS, name)) return
+   const model = MODELS[name]
+-  const args = node.arguments || []
++  const args: any[] = node.arguments || []
+   const argValues = getLegacyArgValues(callInfo)
+-  const tainted = indexes(model.src, args.length).some((i) => argValues[i]?.taint?.isTaintedRec)
+-  if (!tainted || !ret || typeof ret !== 'object') return
++  if (model.len !== undefined && foldConstant(args[model.len]) === 0) return
+ 
+-  for (const i of indexes(model.dst, args.length)) {
+-    const target = writeTarget(args[i])
+-    if (!target) continue
+-    const value = SourceLine.addSrcLineInfo(ret, node, node.loc?.sourcefile, 'Var Pass:', target.name ?? name)
+-    analyzer.saveVarInScope(scope, target, value, state)
++  if (model.kind === 'scan') {
++    applyScan(analyzer, model, node, scope, state, args, argValues)
++    return
++  }
++  const target = writeTarget(args[model.dst])
++  if (!target) return
++  const targetName = AstUtil.prettyPrintAST(target.node)
++  const full =
++    !target.partial &&
++    (model.kind === 'format' ||
++      model.terminated ||
++      (model.len !== undefined && coversTarget(analyzer, args[model.len], target)) ||
++      (model.kind === 'copy' && stringCopyCovers(args, model)))
++
++  let sources: any[]
++  let numeric = new Set<any>()
++  if (model.kind === 'fill') sources = []
++  else if (model.kind === 'format') ({ sources, numeric } = formatSources(model, args, argValues))
++  else sources = (model.src || []).map((i) => argValues[i])
++  if (model.kind === 'append' || !full) {
++    const old = analyzer.processInstruction(scope, target.node, state)
++    // 部分写入且没有新的污点内容：dst 保持原值
++    if (!sources.some((v) => v?.taint?.isTaintedRec)) return
++    sources = [old, ...sources]
+   }
++  analyzer.writeCLocation(scope, target.node, derive(analyzer, scope, node, sources, targetName, numeric), state)
+ }
+ 
+ export const C_OUT_PARAM_FUNCTIONS = Object.keys(MODELS)
+diff --git a/src/engine/analyzer/c/common/c-analyzer.ts b/src/engine/analyzer/c/common/c-analyzer.ts
+index 00d2bdc..31a9dff 100644
+--- a/src/engine/analyzer/c/common/c-analyzer.ts
++++ b/src/engine/analyzer/c/common/c-analyzer.ts
+@@ -16,10 +16,13 @@ const { executeViaEntryPointExecutor } =
+   require('../../common/entrypoint/entrypoint-executor') as typeof import('../../common/entrypoint/entrypoint-executor')
+ const { handleException } = require('../../common/exception-handler')
+ const { applyCLibraryModel } = require('./builtins/c-builtins')
++const StateUtil = require('../../../util/state-util')
++const { foldConstant } = require('./c-const-eval')
++const { CTypeIndex } = require('./c-types')
+ 
+ const {
+   valueUtil: {
+-    ValueUtil: { Scoped, ObjectValue, UndefinedValue, PrimitiveValue },
++    ValueUtil: { Scoped, ObjectValue, UndefinedValue, PrimitiveValue, UnionValue },
+   },
+ } = require('../../common')
+ 
+@@ -55,17 +58,97 @@ function isAggregateType(varType: any): boolean {
+   return false
+ }
+ 
+-/** 之后到下一个标签之前的同级语句不可达 */
+-const TERMINATORS = new Set(['ReturnStatement', 'BreakStatement', 'ContinueStatement'])
++/**
++ * @param node - 表达式
++ * @returns 去掉类型转换后的表达式
++ */
++function stripCasts(node: any): any {
++  let current = node
++  while (current?.type === 'CastExpression') current = current.expression
++  return current
++}
++
++/**
++ * @param node - 表达式
++ * @returns 是否为可写的存储位置（变量、字段、下标）
++ */
++function isLocation(node: any): boolean {
++  return node?.type === 'Identifier' || node?.type === 'MemberAccess'
++}
++
++/**
++ * @param value - 函数值或函数值的并集
++ * @returns 其中的函数定义
++ */
++function definitionsOf(value: any): any[] {
++  if (!value || typeof value !== 'object') return []
++  if (value.vtype === 'union' && Array.isArray(value.value)) return value.value.filter((v: any) => v?.vtype === 'fclos')
++  return value.vtype === 'fclos' ? [value] : []
++}
++
++/**
++ * @param fclos - 函数值
++ * @returns 是否定义在配置未决定的 #if 分支中
++ */
++function isConditional(fclos: any): boolean {
++  return !!fclos?.ast?.fdef?._meta?.conditional
++}
++
++/**
++ * @param fclos - 函数值
++ * @returns 是否定义在头文件中
++ */
++function isHeaderDefinition(fclos: any): boolean {
++  return String(fclos?.ast?.fdef?.loc?.sourcefile ?? '').endsWith('.h')
++}
++
++/** 不可达代码中仍需处理的定义（函数、struct） */
++const HOISTED = new Set(['FunctionDefinition', 'ClassDefinition'])
++
++/** 突然完成（abrupt completion）的种类 */
++type Abrupt = 'return' | 'break' | 'continue' | 'goto'
++
++/**
++ * 当前执行路径的控制流状态。`dead` 表示当前路径已经因 return/break/continue/goto
++ * 离开顺序执行；`pending` 是已执行到的 goto 的目标标签，执行到这些标签时路径恢复。
++ */
++interface ControlFlow {
++  dead: boolean
++  reasons: Set<Abrupt>
++  pending: Set<string>
++  /** 标签 → 各条 goto 跳转时的变量快照，在标签处与顺序到达的路径合并 */
++  labelStates: Map<string, ScopeSnapshot[]>
++}
++
++/** 从当前块到函数作用域各层 scope 的变量值 */
++type ScopeSnapshot = Array<{ scope: any; fields: Map<string, any> }>
++
++/** 分支（if 的两臂、switch 的 case）执行结束时的控制流状态 */
++interface BranchResult {
++  dead: boolean
++  reasons: Set<Abrupt>
++  /** 进入分支时的变量快照（单分支 if 需要丢弃 return 分支的写入时记录） */
++  before?: ScopeSnapshot
++}
++
++/**
++ * @returns 顺序执行中的控制流状态
++ */
++function liveFlow(): ControlFlow {
++  return { dead: false, reasons: new Set(), pending: new Set(), labelStates: new Map() }
++}
+ 
+ /**
+- * 循环体在顶层以无条件 break/return 结束（Juliet 与很多 C 代码的 `while (1) { ...; break; }`）
+- * @param body - 循环体
+- * @returns 是否只执行一次
++ * 语句（块）中是否含有给定集合中的标签：跳转目标可能在嵌套块里
++ * @param node - 语句
++ * @param labels - 标签名
++ * @returns 是否包含
+  */
+-function endsUnconditionally(body: any): boolean {
+-  const statements: any[] = body?.type === 'ScopedStatement' ? body.body || [] : body ? [body] : []
+-  return statements.some((s) => s?.type === 'BreakStatement' || s?.type === 'ReturnStatement')
++function containsLabel(node: any, labels: Set<string>): boolean {
++  if (!node || labels.size === 0) return false
++  if (node.type === 'LabeledStatement') return labels.has(node.label?.name) || containsLabel(node.body, labels)
++  if (node.type === 'ScopedStatement') return (node.body || []).some((s: any) => containsLabel(s, labels))
++  return false
+ }
+ 
+ /**
+@@ -86,11 +169,20 @@ class CAnalyzer extends Analyzer {
+   private timedOutEntryPoints = 0
+ 
+   /**
+-   * `&x` 产生的值 → x 的位置。引擎中指针与被指对象共享同一个值，
+-   * 通过该表把 `*p = v` 写回到 p 指向的变量。
++   * 地址值 → 它指向的存储位置（scope + Identifier/MemberAccess）。`*e = v` 与 `*e`
++   * 通过 e 当前值查表，逐级定位多级指针指向的位置。
+    */
+   private pointees = new WeakMap<object, { scope: any; node: any }>()
+ 
++  /** `&x` 为标量/指针变量创建的地址值 */
++  private addresses = new WeakSet<object>()
++
++  /** 声明类型索引 */
++  private types = new CTypeIndex()
++
++  /** 当前函数体的控制流状态；每次函数调用独立 */
++  private flow: ControlFlow = liveFlow()
++
+   /**
+    * @param options - 分析选项
+    */
+@@ -193,7 +285,9 @@ class CAnalyzer extends Analyzer {
+     let m = this.topScope.context.modules.members.get(filename)
+     if (m && typeof m === 'object') return m
+ 
++    this.types.annotate(ast)
+     const modClos = this.initModuleScope(ast, filename)
++    this.importHeaderStatics(ast, modClos)
+     this.topScope.context.modules.members.set(filename, modClos.getFieldValue('module.exports'))
+     m = this.processModuleDirect(ast, filename, modClos)
+     this.moduleScopes.set(filename, modClos)
+@@ -262,28 +356,73 @@ class CAnalyzer extends Analyzer {
+   }
+ 
+   /**
+-   * 非 static 的文件级函数具有外部链接，注册到 topScope 供其它文件调用。
++   * 文件级函数的链接：
++   * - 非 static 函数具有外部链接，注册到 topScope 供其它文件调用；
++   * - 头文件中的 static（inline）函数属于包含它的每个编译单元，由 importHeaderStatics 放入
++   *   各 .c 的模块 scope；topScope 中只保留一份，供无法解析 #include 的编译单元回退使用；
++   * - 同名函数在配置未决定的 #if 分支中各有一份定义时（`_meta.conditional`），
++   *   调用处可能调用其中任意一个：保存为各定义的并集，而不是取第一个。
+    * @param scope - 当前 scope
+    * @param node - FunctionDefinition
+    * @param state - 状态
+    * @returns 函数值
+    */
+   override processFunctionDefinition(scope: any, node: any, state: any): any {
+-    const fclos = super.processFunctionDefinition(scope, node, state)
+     const name = node?.id?.name
++    const previous = scope?.isCModule && name && node.body ? scope.getMemberValue?.(name) : undefined
++    const fclos = super.processFunctionDefinition(scope, node, state)
++    if (!scope?.isCModule || !name || !node.body || !fclos) return fclos
+     const isStatic = (node.modifiers || []).includes('static')
+-    // 头文件里的 static inline 函数会被 #include 到每个使用它的文件中，同样全局可见
+     const inHeader = String(node.loc?.sourcefile ?? '').endsWith('.h')
+-    if (scope?.isCModule && name && node.body && fclos && (!isStatic || inHeader)) {
+-      const existing = this.topScope.value[name]
+-      // Keep the first non-header definition when the same symbol is defined twice (e.g. #if branches).
+-      if (!existing || !existing.ast?.fdef || String(existing.ast.fdef.loc?.sourcefile ?? '').endsWith('.h')) {
+-        this.topScope.value[name] = fclos
+-      }
++    let value = fclos
++    if (previous && previous !== fclos && (node._meta?.conditional || definitionsOf(previous).some(isConditional))) {
++      value = this.unionDefinitions(scope, name, [previous, fclos])
++      scope.setMemberValue(name, value)
++    }
++    if (isStatic && !inHeader) return fclos
++    const existing = this.topScope.value[name]
++    if (!existing) {
++      this.topScope.value[name] = value
++    } else if (value !== fclos || (node._meta?.conditional && definitionsOf(existing).some(isConditional))) {
++      this.topScope.value[name] = this.unionDefinitions(this.topScope, name, [existing, value])
++    } else if (definitionsOf(existing).every((f: any) => isHeaderDefinition(f)) && !inHeader) {
++      // .c 中的定义优先于头文件中的同名定义
++      this.topScope.value[name] = value
+     }
+     return fclos
+   }
+ 
++  /**
++   * @param scope - scope
++   * @param name - 函数名
++   * @param values - 函数值（可含已有的并集）
++   * @returns 各定义的并集
++   */
++  private unionDefinitions(scope: any, name: string, values: any[]): any {
++    const union = new UnionValue(undefined, undefined, `${scope.qid}.<union@def:${name}>`, undefined)
++    for (const f of [...new Set(values.flatMap(definitionsOf))]) union.appendValue(f)
++    return union
++  }
++
++  /**
++   * 编译单元包含（直接或间接）的头文件中的 static 函数在该编译单元内可见。
++   * @param ast - .c 文件的 CompileUnit
++   * @param modClos - 模块 scope
++   */
++  private importHeaderStatics(ast: any, modClos: any): void {
++    for (const header of ast?._meta?.includes || []) {
++      const headerScope = this.moduleScopes.get(header)
++      if (!headerScope) continue
++      for (const key of Object.keys(headerScope._field || {})) {
++        const value = headerScope.getMemberValue(key)
++        const defs = definitionsOf(value)
++        if (defs.length && defs.every((f: any) => (f.ast?.fdef?.modifiers || []).includes('static'))) {
++          modClos.setMemberValue(key, value)
++        }
++      }
++    }
++  }
++
+   /**
+    * sizeof/alignof/offsetof 是编译期常量：大小不受缓冲区内容影响，不能沿 arg→ret 传播污点。
+    * @param scope - 当前 scope
+@@ -298,12 +437,80 @@ class CAnalyzer extends Analyzer {
+     }
+     const result = super.processCallExpression(scope, node, state)
+     if (callee?.type === 'Identifier' && NUMERIC_CONVERSIONS.has(callee.name)) {
+-      // 数值转换是注入类 sink 的屏障：整数无法携带命令/路径/SQL/格式串注入
+-      return new PrimitiveValue(scope.qid, `<${callee.name}>`, null, 'number', 'Literal', node.loc)
++      // 整数无法携带命令/路径/SQL/格式串注入，但仍由输入决定：保留为数值污点，供长度类 sink 使用
++      if (!result?.taint?.isTaintedRec || typeof result !== 'object') {
++        return new PrimitiveValue(scope.qid, `<${callee.name}>`, null, 'number', 'Literal', node.loc)
++      }
++      this.markNumeric(result)
++      return result
+     }
+     return result
+   }
+ 
++  /**
++   * @param value - 值
++   * @returns 是否只携带数值污点（atoi 等转换的结果及其算术运算）
++   */
++  isNumericTaint(value: any): boolean {
++    return !!value && typeof value === 'object' && value.cNumericTaint === true
++  }
++
++  /**
++   * @param value - 标记为数值污点的值
++   */
++  markNumeric(value: any): void {
++    if (value && typeof value === 'object') value.cNumericTaint = true
++  }
++
++  /**
++   * 算术结果：所有带污点的操作数都是数值污点时，结果仍是数值污点
++   * @param result - 运算结果
++   * @param operands - 操作数
++   * @returns result
++   */
++  private propagateNumeric(result: any, operands: any[]): any {
++    const tainted = operands.filter((v) => v?.taint?.isTaintedRec)
++    if (tainted.length > 0 && tainted.every((v) => this.isNumericTaint(v))) this.markNumeric(result)
++    return result
++  }
++
++  /**
++   * @param node - 表达式
++   * @returns 声明类型
++   */
++  cTypeOf(node: any): any {
++    return this.types.typeOf(node)
++  }
++
++  /**
++   * @param scope - scope
++   * @param sid - 名称
++   * @param node - 产生该值的节点
++   * @returns 不带污点的新值
++   */
++  newCValue(scope: any, sid: string, node: any): any {
++    return new ObjectValue(scope.qid, { sid, parent: scope, ast: node })
++  }
++
++  /**
++   * 库函数写入输出参数：`*p` 形式的目标按指针模型写入被指向的位置
++   * @param scope - scope
++   * @param target - 位置（Identifier / MemberAccess / DereferenceExpression）
++   * @param value - 值
++   * @param state - 状态
++   */
++  writeCLocation(scope: any, target: any, value: any, state: any): void {
++    if (target?.type === 'DereferenceExpression') {
++      const pointerNode = stripCasts(target.argument)
++      const pointerValue = this.processInstruction(scope, pointerNode, state)
++      const pointee = pointerValue && typeof pointerValue === 'object' ? this.pointees.get(pointerValue) : undefined
++      if (pointee) this.saveVarInScope(pointee.scope, pointee.node, value, state)
++      else if (isLocation(pointerNode)) this.saveVarInScope(scope, pointerNode, value, state)
++      return
++    }
++    this.saveVarInScope(scope, target, value, state)
++  }
++
+   /**
+    * 未初始化的结构体/数组局部变量按空聚合对象初始化，使 `p.inner.v = x`、`g[1][0] = x`
+    * 这类多级写入能落到同一对象上（引擎对 uninit 值不会逐级创建子对象）。
+@@ -327,7 +534,61 @@ class CAnalyzer extends Analyzer {
+       const init = { type: 'ObjectExpression', properties: [], loc: node.loc, _meta: { aggregate: true } }
+       return super.processVariableDeclaration(target, { ...node, init }, state)
+     }
+-    return super.processVariableDeclaration(target, node, state)
++    const value = super.processVariableDeclaration(target, node, state)
++    // `struct S b = a;`：b 是 a 的副本，而不是同一个对象
++    if (node.init && node.init.type !== 'ObjectExpression' && this.types.isStruct(node.varType)) {
++      const copy = this.copyAggregate(value, node.varType, target)
++      if (copy !== value) this.saveVarInCurrentScope(target, node.id, copy, state)
++      return copy
++    }
++    return value
++  }
++
++  /**
++   * struct 按值复制：每个字段是独立的存储，嵌套 struct 与数组成员递归复制，
++   * 指针成员只复制指针值（仍指向同一被指对象）。
++   * @param value - 源对象
++   * @param type - 声明类型
++   * @param scope - 新对象所在 scope
++   * @param depth - 递归深度
++   * @returns 副本；不是对象值时原样返回
++   */
++  private copyAggregate(value: any, type: any, scope: any, depth = 0): any {
++    if (!value || typeof value !== 'object' || value.vtype !== 'object' || depth > 16 || this.addresses.has(value)) {
++      return value
++    }
++    const fieldTypes = this.types.fieldsOf(type)
++    const elementType = this.types.isArray(type) ? this.types.elementOf(type) : undefined
++    const copy = new ObjectValue(scope.qid, { sid: value.sid, parent: scope })
++    if (value.taint?.isTainted) copy.taint?.copyFrom(value.taint)
++    const keys = new Set<string>([
++      ...Object.keys(value._field || {}),
++      ...(value.members ? [...value.members.keys()] : []),
++    ])
++    for (const key of keys) {
++      const member = value.getMemberValue(key)
++      const memberType = fieldTypes ? fieldTypes.get(key) : elementType
++      const byValue = memberType && (this.types.isStruct(memberType) || this.types.isArray(memberType))
++      copy.setMemberValue(key, byValue ? this.copyAggregate(member, memberType, scope, depth + 1) : member)
++    }
++    return copy
++  }
++
++  /**
++   * 按值传递的 struct 形参是实参的副本：被调函数修改形参不影响调用方。
++   * @param fscope - 被调函数 scope
++   * @param params - 形参
++   * @param state - 状态
++   * @param node - 调用节点
++   */
++  protected override onParamsBound(fscope: any, params: any[], state: any, node: any): void {
++    super.onParamsBound(fscope, params, state, node)
++    for (const param of params || []) {
++      if (!param?.id || !this.types.isStruct(param.varType)) continue
++      const value = this._getMemberValueDirect(fscope, param.id, state, false, 0, new Set())
++      const copy = this.copyAggregate(value, param.varType, fscope)
++      if (copy !== value) this.saveVarInCurrentScope(fscope, param.id, copy, state)
++    }
+   }
+ 
+   /**
+@@ -344,11 +605,20 @@ class CAnalyzer extends Analyzer {
+     if (node?.left?.type === 'MemberAccess' && node.left.object?.type === 'MemberAccess') {
+       this.materializeMember(scope, node.left.object, state)
+     }
+-    return super.processAssignmentExpression(scope, node, state)
++    const value = super.processAssignmentExpression(scope, node, state)
++    // `b = a;`（struct 类型）：复制而不是让 b 与 a 共享对象
++    const leftType = node?.operator === '=' ? this.types.typeOf(node.left) : undefined
++    if (leftType && this.types.isStruct(leftType) && isLocation(node.left)) {
++      const copy = this.copyAggregate(value, leftType, scope)
++      if (copy !== value) this.saveVarInScope(scope, node.left, copy, state)
++      return copy
++    }
++    return value
+   }
+ 
+   /**
+-   * `*p = v`：写回 p 所指向的变量，并让 p 继续指向新值。
++   * `*p = v`：写入 p 所指向的存储位置。位置由 `&x` 产生的地址值确定，
++   * 多级解引用（`**r = v`）逐级读取中间指针的当前值。
+    * @param scope - 当前 scope
+    * @param node - AssignmentExpression，left 为 DereferenceExpression
+    * @param state - 状态
+@@ -359,32 +629,56 @@ class CAnalyzer extends Analyzer {
+     if (!value || typeof value !== 'object') {
+       value = new PrimitiveValue(scope.qid, `<literal_${value}>`, value, null, 'Literal', node.right?.loc)
+     }
+-    let pointerNode = node.left.argument
+-    while (pointerNode?.type === 'CastExpression') pointerNode = pointerNode.expression
++    const pointerNode = stripCasts(node.left.argument)
+     const pointerValue = this.processInstruction(scope, pointerNode, state)
+     const pointee = pointerValue && typeof pointerValue === 'object' ? this.pointees.get(pointerValue) : undefined
+     value = SourceLine.addSrcLineInfo(value, node, node.loc?.sourcefile, 'Var Pass:', AstUtil.prettyPrintAST(node.left))
++    const leftType = this.types.typeOf(node.left)
++    if (
++      leftType &&
++      this.types.isStruct(leftType) &&
++      !this.addresses.has(pointerValue) &&
++      pointerValue?.vtype === 'object'
++    ) {
++      // `*ps = b`：struct 的存储就是被指对象，逐字段覆盖其内容
++      const copy = this.copyAggregate(value, leftType, scope)
++      if (copy !== pointerValue && copy?.vtype === 'object') {
++        const keys = new Set<string>([
++          ...Object.keys(copy._field || {}),
++          ...(copy.members ? [...copy.members.keys()] : []),
++        ])
++        for (const key of keys) pointerValue.setMemberValue(key, copy.getMemberValue(key))
++        return pointerValue
++      }
++    }
+     if (pointee) {
+       this.saveVarInScope(pointee.scope, pointee.node, value, state)
+-      this.pointees.set(value, pointee)
+-    }
+-    if (pointerNode?.type === 'Identifier' || pointerNode?.type === 'MemberAccess') {
++    } else if (!this.addresses.has(pointerValue) && isLocation(pointerNode)) {
++      // 指向未知存储（参数、堆）：引擎中指针与被指内容是同一个值，写入指针变量本身
+       this.saveVarInScope(scope, pointerNode, value, state)
+     }
+     return value
+   }
+ 
+   /**
+-   * `&x`：记录被指向的位置，供后续 `*p = v` 写回。
++   * `&x`：标量/指针变量的地址是独立于 x 当前值的地址值，记录它指向的位置；
++   * struct/数组（以及类型未知时）的存储就是其对象本身，沿用对象引用。
+    * @param scope - 当前 scope
+    * @param node - ReferenceExpression
+    * @param state - 状态
+-   * @returns x 的值
++   * @returns 地址值
+    */
+   override processReferenceExpression(scope: any, node: any, state: any): any {
++    const target = stripCasts(node?.argument)
++    const targetType = this.types.typeOf(target)
++    if (isLocation(target) && targetType && !this.types.isStruct(targetType) && !this.types.isArray(targetType)) {
++      const address = new ObjectValue(scope.qid, { sid: `&${AstUtil.prettyPrintAST(target)}`, parent: scope })
++      this.pointees.set(address, { scope, node: target })
++      this.addresses.add(address)
++      return address
++    }
+     const value = super.processReferenceExpression(scope, node, state)
+-    const target = node?.argument
+-    if (value && typeof value === 'object' && (target?.type === 'Identifier' || target?.type === 'MemberAccess')) {
++    if (value && typeof value === 'object' && isLocation(target)) {
+       this.pointees.set(value, { scope, node: target })
+     }
+     return value
+@@ -404,69 +698,365 @@ class CAnalyzer extends Analyzer {
+   }
+ 
+   /**
+-   * 块内 return / goto 之后到下一个标签之前的语句不可达，执行前剪掉。
++   * 当前路径不可达（return/break/continue/goto 之后）时跳过语句，直到 goto 的目标标签。
+    * @param scope - 当前 scope
+-   * @param node - ScopedStatement
++   * @param node - 指令
+    * @param state - 状态
+-   * @returns 块结果
++   * @param prePostFlag - 前/后处理标记
++   * @returns 指令结果
+    */
+-  override processScopedStatement(scope: any, node: any, state: any): any {
+-    const body: any[] = node?.body || []
+-    const reachable: any[] = []
+-    let dead = false
+-    for (const stmt of body) {
+-      if (stmt?.type === 'LabeledStatement') dead = false
+-      if (!dead) reachable.push(stmt)
+-      if (TERMINATORS.has(stmt?.type) || (stmt?.type === 'Noop' && stmt._meta?.goto)) dead = true
++  override processInstruction(scope: any, node: any, state: any, prePostFlag?: any): any {
++    const { flow } = this
++    if (
++      flow.dead &&
++      node &&
++      typeof node === 'object' &&
++      !node.vtype &&
++      !Array.isArray(node) &&
++      !HOISTED.has(node.type) &&
++      !containsLabel(node, flow.pending)
++    ) {
++      return new UndefinedValue()
+     }
+-    if (reachable.length === body.length) return super.processScopedStatement(scope, node, state)
+-    return super.processScopedStatement(scope, { ...node, body: reachable }, state)
++    return super.processInstruction(scope, node, state, prePostFlag)
++  }
++
++  /**
++   * 当前路径以 return/break/continue/goto 结束
++   * @param kind - 种类
++   * @param label - goto 目标
++   */
++  private abrupt(kind: Abrupt, label?: string): void {
++    this.flow.dead = true
++    this.flow.reasons = new Set([kind])
++    if (label) this.flow.pending.add(label)
+   }
+ 
+   /**
+-   * 常量条件（`if (0)`、`if (1)`）只执行可达分支。
++   * @param scope - 当前 scope
++   * @param node - ReturnStatement
++   * @param state - 状态
++   * @returns 返回值
++   */
++  override processReturnStatement(scope: any, node: any, state: any): any {
++    const ret = super.processReturnStatement(scope, node, state)
++    this.abrupt('return')
++    return ret
++  }
++
++  /**
++   * @param scope - 当前 scope
++   * @param node - BreakStatement
++   * @param state - 状态
++   * @returns UndefinedValue
++   */
++  override processBreakStatement(scope: any, node: any, state: any): any {
++    this.abrupt('break')
++    return super.processBreakStatement(scope, node, state)
++  }
++
++  /**
++   * @param scope - 当前 scope
++   * @param node - ContinueStatement
++   * @param state - 状态
++   * @returns UndefinedValue
++   */
++  override processContinueStatement(scope: any, node: any, state: any): any {
++    this.abrupt('continue')
++    return super.processContinueStatement(scope, node, state)
++  }
++
++  /**
++   * parser 把 `goto L` 表示为带 `_meta.goto` 的 Noop：跳过后续语句直到标签 L
++   * @param scope - 当前 scope
++   * @param node - Noop
++   * @param state - 状态
++   * @returns 结果
++   */
++  override processNoop(scope: any, node: any, state: any): any {
++    const label = node?._meta?.goto
++    if (label) {
++      const states = this.flow.labelStates.get(label) ?? []
++      states.push(this.snapshotScopes(scope))
++      this.flow.labelStates.set(label, states)
++      this.abrupt('goto', label)
++    }
++    return super.processNoop(scope, node, state)
++  }
++
++  /**
++   * 记录当前函数内各层 scope 的变量值（goto 跳转时的状态）
++   * @param scope - 当前 scope
++   * @returns 快照
++   */
++  private snapshotScopes(scope: any): ScopeSnapshot {
++    const snapshot: ScopeSnapshot = []
++    for (let s = scope, depth = 0; s && !s.isCModule && s !== this.topScope && depth < 64; s = s.parent, depth++) {
++      const keys = new Set<string>([...Object.keys(s._field || {}), ...(s.members ? [...s.members.keys()] : [])])
++      const fields = new Map<string, any>()
++      for (const key of keys) fields.set(key, s.getMemberValue(key))
++      snapshot.push({ scope: s, fields })
++    }
++    return snapshot
++  }
++
++  /**
++   * 把快照中的变量恢复为快照时的值
++   * @param snapshot - 快照
++   */
++  private restoreScopes(snapshot: ScopeSnapshot): void {
++    for (const { scope, fields } of snapshot) {
++      for (const [key, value] of fields) {
++        if (value && scope.getMemberValue(key) !== value) scope.setMemberValue(key, value)
++      }
++    }
++  }
++
++  /**
++   * 在标签处合并 goto 跳转来的状态：路径不可达时（只能经 goto 到达）取各次跳转状态的并，
++   * 顺序可达时再与当前值合并。
++   * @param label - 标签
++   * @param resuming - 是否仅能经 goto 到达
++   */
++  private joinLabelStates(label: string, resuming: boolean): void {
++    const snapshots = this.flow.labelStates.get(label)
++    if (!snapshots) return
++    this.flow.labelStates.delete(label)
++    const byScope = new Map<any, Map<string, any[]>>()
++    for (const snapshot of snapshots) {
++      for (const { scope, fields } of snapshot) {
++        const merged = byScope.get(scope) ?? new Map<string, any[]>()
++        for (const [key, value] of fields) merged.set(key, [...(merged.get(key) ?? []), value])
++        byScope.set(scope, merged)
++      }
++    }
++    for (const [scope, fields] of byScope) {
++      for (const [key, values] of fields) {
++        const candidates = resuming ? values : [scope.getMemberValue(key), ...values]
++        const distinct = [...new Set(candidates.filter((v) => v && typeof v === 'object'))]
++        if (distinct.length === 0) continue
++        let value = distinct[0]
++        if (distinct.length > 1) {
++          value = new UnionValue(undefined, undefined, `${scope.qid}.<union@label:${label}:${key}>`, undefined)
++          for (const v of distinct) value.appendValue(v)
++        }
++        if (value !== scope.getMemberValue(key)) scope.setMemberValue(key, value)
++      }
++    }
++  }
++
++  /**
++   * 标签语句：路径因 goto 不可达且标签是其目标时恢复执行。
++   * @param scope - 当前 scope
++   * @param node - LabeledStatement
++   * @param state - 状态
++   * @returns 语句结果
++   */
++  processLabeledStatement(scope: any, node: any, state: any): any {
++    const { flow } = this
++    const label = node?.label?.name
++    const resuming = flow.dead && flow.pending.has(label)
++    if (resuming) {
++      flow.dead = false
++      flow.reasons = new Set()
++    }
++    if (!flow.dead && label) this.joinLabelStates(label, resuming)
++    return node?.body ? this.processInstruction(scope, node.body, state) : new UndefinedValue()
++  }
++
++  /**
++   * if/switch 的一个分支：从可达状态开始执行，结束时记录分支的控制流状态。
++   * @param scope - 当前 scope
++   * @param node - 分支包装节点（type `CBranch`）
++   * @param state - 状态
++   * @returns UndefinedValue
++   */
++  processCBranch(scope: any, node: any, state: any): any {
++    const { flow } = this
++    flow.dead = false
++    flow.reasons = new Set()
++    const before = node.snapshot ? this.snapshotScopes(scope) : undefined
++    this.processInstruction(scope, node.body, state)
++    node.results.push({ dead: flow.dead, reasons: flow.reasons, before })
++    flow.dead = false
++    flow.reasons = new Set()
++    return new UndefinedValue()
++  }
++
++  /**
++   * 包装分支，使每个分支从可达状态开始并记录其结束状态
++   * @param body - 分支语句
++   * @param results - 结果收集
++   * @returns 包装节点
++   */
++  private branch(body: any, results: BranchResult[]): any {
++    if (!body || (body.type === 'Noop' && !body._meta?.goto)) return body
++    return { type: 'CBranch', body, results, loc: body.loc, _meta: {} }
++  }
++
++  /**
++   * 汇合分支：所有执行到的分支都突然完成时，if 之后不可达。
++   * @param results - 分支结果
++   * @param exhaustive - 分支是否覆盖所有路径（有 else / default）
++   * @param exclude - 在此语句处被消耗的种类（switch 的 break）
++   */
++  private joinBranches(results: BranchResult[], exhaustive: boolean, exclude?: Abrupt): void {
++    const { flow } = this
++    const allDead =
++      exhaustive && results.length > 0 && results.every((r) => r.dead && !(exclude && r.reasons.has(exclude)))
++    flow.dead = allDead
++    flow.reasons = new Set(allDead ? results.flatMap((r) => [...r.reasons]) : [])
++  }
++
++  /**
++   * 常量条件（`if (0)`、`if (1 - 1)`）只执行可达分支；其余情况两个分支都执行，
++   * 两者都 return/goto 时之后的语句不可达。
+    * @param scope - 当前 scope
+    * @param node - IfStatement
+    * @param state - 状态
+    * @returns 语句结果
+    */
+   override processIfStatement(scope: any, node: any, state: any): any {
+-    const test = node?.test
+-    if (test?.type === 'Literal' && (typeof test.value === 'number' || typeof test.value === 'boolean')) {
+-      const branch = test.value ? node.consequent : node.alternative
+-      return branch ? this.processInstruction(scope, branch, state) : new UndefinedValue()
++    const constant = foldConstant(node?.test)
++    if (constant !== undefined) {
++      const taken = constant ? node.consequent : node.alternative
++      return taken ? this.processInstruction(scope, taken, state) : new UndefinedValue()
+     }
+-    return super.processIfStatement(scope, node, state)
++    const results: BranchResult[] = []
++    const consequent = this.branch(node.consequent, results)
++    const alternative = this.branch(node.alternative, results)
++    // `if (c) { ...; return; }`：只有不进入分支的路径会继续执行，分支内的写入不应流到 if 之后
++    // （条件本身的副作用保留：快照在进入分支时、条件求值之后记录）
++    if (alternative === node.alternative && consequent?.type === 'CBranch') consequent.snapshot = true
++    const ret = super.processIfStatement(scope, { ...node, consequent, alternative }, state)
++    const result = results[0]
++    if (results.length === 1 && result.dead && result.before && [...result.reasons].every((r) => r === 'return')) {
++      this.restoreScopes(result.before)
++    }
++    this.joinBranches(results, alternative !== node.alternative)
++    return ret
+   }
+ 
+   /**
+-   * do-while 至少执行一次循环体（引擎基类先判条件，`do { ... } while (0)` 会整体跳过）。
++   * switch：每个 case 独立执行；break 在 switch 处被消耗。
+    * @param scope - 当前 scope
+-   * @param node - WhileStatement
++   * @param node - SwitchStatement
+    * @param state - 状态
+    * @returns 语句结果
+    */
+-  override processWhileStatement(scope: any, node: any, state: any): any {
+-    // 循环体顶层无条件 break/return：只会执行一次（`while (1) { ...; break; }`），不能按两轮展开
+-    if (node?.isPostTest || endsUnconditionally(node?.body)) {
+-      this.processInstruction(scope, node.body, state)
+-      if (endsUnconditionally(node?.body)) return new UndefinedValue()
++  override processSwitchStatement(scope: any, node: any, state: any): any {
++    const results: BranchResult[] = []
++    const cases = (node.cases || []).map((c: any) => ({ ...c, body: this.branch(c.body, results) }))
++    const ret = super.processSwitchStatement(scope, { ...node, cases }, state)
++    const hasDefault = cases.some((c: any) => !c.test || c.test.type === 'Noop')
++    this.joinBranches(results, hasDefault, 'break')
++    return ret
++  }
++
++  /**
++   * 三目运算符：条件为常量时只求值被选中的分支
++   * @param scope - 当前 scope
++   * @param node - ConditionalExpression
++   * @param state - 状态
++   * @returns 值
++   */
++  override processConditionalExpression(scope: any, node: any, state: any): any {
++    const constant = foldConstant(node?.test)
++    if (constant === undefined) return super.processConditionalExpression(scope, node, state)
++    return this.processInstruction(scope, constant ? node.consequent : node.alternative, state)
++  }
++
++  /**
++   * `&&`/`||` 短路：左侧为常量且已决定结果时右侧不求值（`0 && (p = x)`）。
++   * @param scope - 当前 scope
++   * @param node - BinaryExpression
++   * @param state - 状态
++   * @returns 值
++   */
++  override processBinaryExpression(scope: any, node: any, state: any): any {
++    if (node?.operator === '&&' || node?.operator === '||') {
++      const left = foldConstant(node.left)
++      if (left !== undefined && (node.operator === '&&') === (left === 0)) {
++        const result = node.operator === '||' ? 1 : 0
++        return new PrimitiveValue(scope.qid, `<literal_${result}>`, result, 'number', 'Literal', node.loc)
++      }
+     }
+-    return super.processWhileStatement(scope, node, state)
++    const result = super.processBinaryExpression(scope, node, state)
++    return this.propagateNumeric(result, [result?.left, result?.right])
++  }
++
++  /**
++   * 执行一轮循环体
++   * @param scope - 当前 scope
++   * @param body - 循环体
++   * @param state - 状态
++   * @returns 循环体突然完成的种类；顺序执行到末尾时为 undefined
++   */
++  private runLoopBody(scope: any, body: any, state: any): Set<Abrupt> | undefined {
++    const { flow } = this
++    flow.dead = false
++    this.processInstruction(scope, body, state)
++    const reasons = flow.dead ? flow.reasons : undefined
++    flow.dead = false
++    flow.reasons = new Set()
++    return reasons
++  }
++
++  /**
++   * 循环按两轮展开（与引擎基类一致），并处理 break/continue/return：
++   * 条件为常量 0 时不执行；循环体无条件 break/return 时只执行一轮；
++   * 确定进入且以 return/goto 离开时，循环之后不可达。
++   * @param scope - 当前 scope
++   * @param node - ForStatement / WhileStatement
++   * @param state - 状态
++   * @param postTest - do-while
++   */
++  private runLoop(scope: any, node: any, state: any, postTest: boolean): void {
++    let entered = postTest
++    let exitReasons: Set<Abrupt> | undefined
++    for (let round = 0; round < 2; round++) {
++      if (!(postTest && round === 0)) {
++        const test = node.test ? foldConstant(node.test) : 1
++        if (node.test) this.processInstruction(scope, node.test, state)
++        if (test === 0) break
++        if (round === 0 && test !== undefined) entered = true
++      }
++      const reasons = this.runLoopBody(scope, node.body, state)
++      if (reasons && !reasons.has('continue')) {
++        exitReasons = reasons
++        break
++      }
++      if (node.update) this.processInstruction(scope, node.update, state)
++    }
++    const leaves = !!exitReasons && [...exitReasons].every((r) => r === 'return' || r === 'goto')
++    this.flow.dead = entered && leaves
++    this.flow.reasons = this.flow.dead ? exitReasons! : new Set()
++  }
++
++  /**
++   * @param scope - 当前 scope
++   * @param node - WhileStatement（isPostTest 为 do-while）
++   * @param state - 状态
++   * @returns UndefinedValue
++   */
++  override processWhileStatement(scope: any, node: any, state: any): any {
++    StateUtil.pushLoopInfo(state, node)
++    this.runLoop(scope, node, state, !!node?.isPostTest)
++    StateUtil.popLoopInfo(state)
++    return new UndefinedValue()
+   }
+ 
+   /**
+-   * for 循环体顶层无条件 break/return 时只执行一次。
+    * @param scope - 当前 scope
+    * @param node - ForStatement
+    * @param state - 状态
+-   * @returns 语句结果
++   * @returns UndefinedValue
+    */
+   override processForStatement(scope: any, node: any, state: any): any {
+-    if (!endsUnconditionally(node?.body)) return super.processForStatement(scope, node, state)
++    StateUtil.pushLoopInfo(state, node)
+     if (node.init) this.processInstruction(scope, node.init, state)
+-    if (node.test) this.processInstruction(scope, node.test, state)
+-    this.processInstruction(scope, node.body, state)
++    this.runLoop(scope, node, state, false)
++    StateUtil.popLoopInfo(state)
+     return new UndefinedValue()
+   }
+ 
+@@ -485,17 +1075,6 @@ class CAnalyzer extends Analyzer {
+     return current ?? value
+   }
+ 
+-  /**
+-   * 标签语句：执行被标记的语句。goto 在 parser 中保留为 Noop，控制流按顺序近似。
+-   * @param scope - 当前 scope
+-   * @param node - LabeledStatement
+-   * @param state - 状态
+-   * @returns 语句结果
+-   */
+-  processLabeledStatement(scope: any, node: any, state: any): any {
+-    return node?.body ? this.processInstruction(scope, node.body, state) : new UndefinedValue()
+-  }
+-
+   /**
+    * #include 不需要按模块导入：函数通过 topScope 全局可见，宏在解析阶段已保留在元数据中。
+    * @returns UndefinedValue
+@@ -514,9 +1093,17 @@ class CAnalyzer extends Analyzer {
+    * @returns 调用返回值
+    */
+   override executeCall(node: any, fclos: any, state: any, scope: any, callInfo: any): any {
+-    const ret = super.executeCall(node, fclos, state, scope, callInfo)
++    // 被调函数的 return 只结束被调函数
++    const callerFlow = this.flow
++    this.flow = liveFlow()
++    let ret
++    try {
++      ret = super.executeCall(node, fclos, state, scope, callInfo)
++    } finally {
++      this.flow = callerFlow
++    }
+     if (node?.type === 'CallExpression' && !fclos?.ast?.fdef) {
+-      applyCLibraryModel(this, node, scope, state, callInfo, ret)
++      applyCLibraryModel(this, node, scope, state, callInfo)
+     }
+     return ret
+   }
+diff --git a/src/engine/analyzer/c/common/c-const-eval.ts b/src/engine/analyzer/c/common/c-const-eval.ts
+new file mode 100644
+index 0000000..a4cffd9
+--- /dev/null
++++ b/src/engine/analyzer/c/common/c-const-eval.ts
+@@ -0,0 +1,108 @@
++/* eslint-disable no-bitwise -- C 整数常量表达式的位运算 */
++/**
++ * C 整数常量表达式求值（C11 6.6）：只看语法，不读变量。
++ * 用于折叠 `if (1 - 1)`、`0 && x`、`while (0)` 这类编译期可确定的条件。
++ */
++
++/**
++ * @param node - 表达式 AST
++ * @returns 常量值；无法在编译期确定时返回 undefined
++ */
++export function foldConstant(node: any): number | undefined {
++  if (!node) return undefined
++  switch (node.type) {
++    case 'Literal': {
++      const { value } = node
++      if (typeof value === 'number') return Number.isFinite(value) ? value : undefined
++      if (typeof value === 'boolean') return value ? 1 : 0
++      // 字符串字面量是非空指针
++      if (typeof value === 'string' && node.literalType === 'string') return 1
++      return undefined
++    }
++    case 'CastExpression':
++      return foldConstant(node.expression)
++    case 'Sequence': {
++      const exprs = node.expressions || []
++      return exprs.length ? foldConstant(exprs[exprs.length - 1]) : undefined
++    }
++    case 'UnaryExpression': {
++      const v = foldConstant(node.argument)
++      if (v === undefined) return undefined
++      switch (node.operator) {
++        case '!':
++          return v ? 0 : 1
++        case '-':
++          return -v
++        case '+':
++          return v
++        case '~':
++          return ~v
++        default:
++          return undefined
++      }
++    }
++    case 'ConditionalExpression': {
++      const t = foldConstant(node.test)
++      if (t === undefined) return undefined
++      return foldConstant(t ? node.consequent : node.alternative)
++    }
++    case 'BinaryExpression':
++      // eslint-disable-next-line @typescript-eslint/no-use-before-define -- 与 foldBinary 互相递归
++      return foldBinary(node)
++    default:
++      return undefined
++  }
++}
++
++/**
++ * @param node - BinaryExpression
++ * @returns 常量值或 undefined
++ */
++function foldBinary(node: any): number | undefined {
++  const l = foldConstant(node.left)
++  // 短路：右侧不求值，未知也不影响结果
++  if (node.operator === '&&' && l === 0) return 0
++  if (node.operator === '||' && l !== undefined && l !== 0) return 1
++  const r = foldConstant(node.right)
++  if (l === undefined || r === undefined) return undefined
++  switch (node.operator) {
++    case '&&':
++      return r ? 1 : 0
++    case '||':
++      return r ? 1 : 0
++    case '+':
++      return l + r
++    case '-':
++      return l - r
++    case '*':
++      return l * r
++    case '/':
++      return r === 0 ? undefined : Math.trunc(l / r)
++    case '%':
++      return r === 0 ? undefined : l % r
++    case '<<':
++      return l << r
++    case '>>':
++      return l >> r
++    case '&':
++      return l & r
++    case '|':
++      return l | r
++    case '^':
++      return l ^ r
++    case '==':
++      return Number(l === r)
++    case '!=':
++      return Number(l !== r)
++    case '<':
++      return Number(l < r)
++    case '>':
++      return Number(l > r)
++    case '<=':
++      return Number(l <= r)
++    case '>=':
++      return Number(l >= r)
++    default:
++      return undefined
++  }
++}
+diff --git a/src/engine/analyzer/c/common/c-types.ts b/src/engine/analyzer/c/common/c-types.ts
+new file mode 100644
+index 0000000..0351342
+--- /dev/null
++++ b/src/engine/analyzer/c/common/c-types.ts
+@@ -0,0 +1,198 @@
++/**
++ * C 声明类型索引
++ *
++ * 引擎的值模型不区分“变量存储”与“值”：结构体对象按引用共享，`&x` 与 x 是同一个值。
++ * 结构体按值复制、指针多级写回都需要知道表达式的声明类型，这里在解析后的 UAST 上
++ * 做一次按词法作用域的类型标注：每个引用变量的 Identifier 记录其声明类型（`_meta.cType`）。
++ */
++
++/** struct/union 字段类型 */
++type FieldTypes = Map<string, any>
++
++const SKIP_KEYS = new Set(['loc', '_meta', 'parent', 'varType', 'returnType', 'as'])
++
++/**
++ *
++ */
++/** 编译单元中 struct/union、typedef 与变量的声明类型 */
++export class CTypeIndex {
++  /** struct/union 名 → 字段类型（同名定义取第一个） */
++  private structs = new Map<string, FieldTypes>()
++
++  /** typedef 名 → 类型 */
++  private typedefs = new Map<string, any>()
++
++  /**
++   * 标注一个编译单元
++   * @param unit - CompileUnit
++   */
++  annotate(unit: any): void {
++    const scopes: Array<Map<string, any>> = [new Map()]
++    const define = (name: string | undefined, type: any) => {
++      if (name && type) scopes[scopes.length - 1].set(name, type)
++    }
++    const lookup = (name: string) => {
++      for (let i = scopes.length - 1; i >= 0; i--) {
++        const t = scopes[i].get(name)
++        if (t) return t
++      }
++      return undefined
++    }
++    const walk = (node: any): void => {
++      if (!node || typeof node !== 'object') return
++      if (Array.isArray(node)) {
++        node.forEach(walk)
++        return
++      }
++      switch (node.type) {
++        case 'ClassDefinition':
++          this.registerStruct(node)
++          return
++        case 'Noop':
++          if (node._meta?.typedef?.name && !this.typedefs.has(node._meta.typedef.name)) {
++            this.typedefs.set(node._meta.typedef.name, node._meta.typedef.type)
++          }
++          return
++        case 'FunctionDefinition':
++          scopes.push(new Map())
++          for (const p of node.parameters || []) define(p?.id?.name, p?.varType)
++          walk(node.body)
++          scopes.pop()
++          return
++        case 'ScopedStatement':
++        case 'ForStatement':
++          scopes.push(new Map())
++          for (const [key, child] of Object.entries(node)) if (!SKIP_KEYS.has(key)) walk(child)
++          scopes.pop()
++          return
++        case 'VariableDeclaration':
++          walk(node.init)
++          define(node.id?.name, node.varType)
++          return
++        case 'Identifier': {
++          const t = lookup(node.name)
++          if (t) {
++            node._meta = node._meta || {}
++            node._meta.cType = t
++          }
++          return
++        }
++        case 'MemberAccess':
++          walk(node.object)
++          if (node.computed) walk(node.property)
++          return
++        default:
++          for (const [key, child] of Object.entries(node)) if (!SKIP_KEYS.has(key)) walk(child)
++      }
++    }
++    walk(unit?.body)
++  }
++
++  /**
++   * @param node - ClassDefinition（struct/union）
++   */
++  private registerStruct(node: any): void {
++    const name = node.id?.name
++    if (!name || this.structs.has(name)) return
++    const fields: FieldTypes = new Map()
++    for (const f of node.body || []) {
++      if (f?.type === 'VariableDeclaration' && f.id?.name) fields.set(f.id.name, f.varType)
++    }
++    this.structs.set(name, fields)
++  }
++
++  /**
++   * 展开 typedef
++   * @param type - 类型
++   * @returns 底层类型
++   */
++  resolve(type: any): any {
++    for (let i = 0; type && i < 16; i++) {
++      if (type.type !== 'Identifier') return type
++      const target = this.typedefs.get(type.name)
++      if (!target) return type
++      // `typedef struct { ... } S;`：匿名 struct 以 typedef 名登记
++      if (target.type === 'ScopedType' && target.id?.name === 'struct' && this.structs.has(type.name)) {
++        return { type: 'ScopedType', id: { type: 'Identifier', name: type.name }, _meta: { kind: 'struct' } }
++      }
++      type = target
++    }
++    return type
++  }
++
++  /**
++   * @param type - 类型
++   * @returns struct/union 的字段表
++   */
++  fieldsOf(type: any): FieldTypes | undefined {
++    const t = this.resolve(type)
++    if (t?.type === 'ScopedType') return this.structs.get(t.id?.name)
++    return undefined
++  }
++
++  /**
++   * @param type - 类型
++   * @returns 是否为按值存储的 struct/union
++   */
++  isStruct(type: any): boolean {
++    const t = this.resolve(type)
++    return (t?.type === 'ScopedType' && ['struct', 'union'].includes(t._meta?.kind)) || !!this.fieldsOf(t)
++  }
++
++  /**
++   * @param type - 类型
++   * @returns 是否为数组
++   */
++  isArray(type: any): boolean {
++    return this.resolve(type)?.type === 'ArrayType'
++  }
++
++  /**
++   * @param type - 类型
++   * @returns 是否为指针（包括函数指针）
++   */
++  isPointer(type: any): boolean {
++    const t = this.resolve(type)
++    return t?.type === 'PointerType' || t?.type === 'FuncType'
++  }
++
++  /**
++   * @param type - 指针或数组类型
++   * @returns 元素类型
++   */
++  elementOf(type: any): any {
++    const t = this.resolve(type)
++    return t?.type === 'PointerType' || t?.type === 'ArrayType' ? t.element : undefined
++  }
++
++  /**
++   * 表达式的声明类型
++   * @param node - 表达式
++   * @returns 类型；未知时为 undefined
++   */
++  typeOf(node: any): any {
++    if (!node) return undefined
++    switch (node.type) {
++      case 'Identifier':
++        return node._meta?.cType
++      case 'CastExpression':
++        return node.as
++      case 'DereferenceExpression':
++        return this.elementOf(this.typeOf(node.argument))
++      case 'ReferenceExpression': {
++        const t = this.typeOf(node.argument)
++        return t ? { type: 'PointerType', element: t, kind: 'pointer' } : undefined
++      }
++      case 'MemberAccess': {
++        const objectType = this.typeOf(node.object)
++        if (node.computed) return this.elementOf(objectType)
++        const structType = this.isPointer(objectType) ? this.elementOf(objectType) : objectType
++        return this.fieldsOf(structType)?.get(node.property?.name)
++      }
++      case 'AssignmentExpression':
++        return this.typeOf(node.left)
++      default:
++        return undefined
++    }
++  }
++}
+diff --git a/src/engine/parser/c/c-ast-builder.ts b/src/engine/parser/c/c-ast-builder.ts
+index 47b423f..cd5055c 100644
+--- a/src/engine/parser/c/c-ast-builder.ts
++++ b/src/engine/parser/c/c-ast-builder.ts
+@@ -1,5 +1,8 @@
+ /* eslint-disable @typescript-eslint/no-require-imports */
++const fs = require('fs')
++const path = require('path')
+ const { Parser: CUastParser } = require('@ant-yasa/uast-parser-c')
++const Config = require('../../../config')
+ 
+ let cParser: InstanceType<typeof CUastParser> | null = null
+ let initPromise: Promise<void> | null = null
+@@ -19,18 +22,50 @@ async function ensureInitialized(): Promise<void> {
+   }
+ }
+ 
++const headerCache = new Map<string, string | null>()
++
+ /**
+- * 解析单个 C 文件（同步接口）
+- * 调用前必须已完成 ensureInitialized()
+- * @param code - C 源代码
+- * @param options - 解析选项（包含 sourcefile）
+- * @returns UAST 节点
++ * @param file - 头文件路径
++ * @returns 文件内容；不存在时为 null
+  */
+-function parseSingleFile(code: string, options?: Record<string, unknown>): unknown {
+-  if (!cParser || initPromise) {
+-    throw new Error('C parser 未初始化，请先调用 ensureInitialized()')
++function readHeader(file: string): string | null {
++  if (!headerCache.has(file)) {
++    let content: string | null = null
++    try {
++      if (fs.statSync(file).isFile()) content = fs.readFileSync(file, 'utf8')
++    } catch {
++      content = null
++    }
++    headerCache.set(file, content)
++  }
++  return headerCache.get(file) ?? null
++}
++
++/**
++ * 传给 parser-C 的预处理配置：-D/-U、目标平台、未知宏处理方式，以及 `#include "..."` 的解析
++ * （`"x.h"` 依次查找包含者所在目录、--cIncludeDir、项目根目录；`<x.h>` 只查找 --cIncludeDir）。
++ * @returns 预处理配置
++ */
++function preprocessorOptions(): Record<string, unknown> {
++  const pp = Config.cPreprocessor || {}
++  const includeDirs: string[] = [...(pp.includeDirs || []), ...(Config.maindir ? [Config.maindir] : [])]
++  return {
++    defines: pp.defines,
++    undefines: pp.undefines,
++    target: pp.target,
++    unknownMacros: pp.unknownMacros,
++    resolveInclude: (includePath: string, fromFile: string | undefined, angled: boolean) => {
++      const dirs = angled
++        ? [...(pp.includeDirs || [])]
++        : [...(fromFile ? [path.dirname(fromFile)] : []), ...includeDirs]
++      for (const dir of dirs) {
++        const file = path.resolve(dir, includePath)
++        const content = readHeader(file)
++        if (content !== null) return { file, content }
++      }
++      return null
++    },
+   }
+-  return cParser.parse(code, options || {})
+ }
+ 
+ /**
+@@ -44,6 +79,20 @@ async function parseProject(_rootDir: string, _options?: Record<string, unknown>
+   return null
+ }
+ 
++/**
++ * 解析单个 C 文件（同步接口）
++ * 调用前必须已完成 ensureInitialized()
++ * @param code - C 源代码
++ * @param options - 解析选项（包含 sourcefile）
++ * @returns UAST 节点
++ */
++function parseSingleFile(code: string, options?: Record<string, unknown>): unknown {
++  if (!cParser || initPromise) {
++    throw new Error('C parser 未初始化，请先调用 ensureInitialized()')
++  }
++  return cParser.parse(code, { preprocessor: preprocessorOptions(), ...(options || {}) })
++}
++
+ module.exports = {
+   ensureInitialized,
+   parseSingleFile,
+diff --git a/src/interface/starter.ts b/src/interface/starter.ts
+index fae61b0..7781a8f 100644
+--- a/src/interface/starter.ts
++++ b/src/interface/starter.ts
+@@ -338,6 +338,43 @@ async function initAnalyzer(dir: any, args: any[] = [], printf?: any) {
+       }
+       Config.language = lang
+     })
++    .option('--cDefine <macros>', 'C 预处理宏定义，逗号分隔，等同 -D（如 FEATURE,LEVEL=2）', (list: any) => {
++      for (const item of String(list).split(',').filter(Boolean)) {
++        const eq = item.indexOf('=')
++        const name = eq >= 0 ? item.slice(0, eq) : item
++        Config.cPreprocessor!.defines[name] = eq >= 0 ? item.slice(eq + 1) : '1'
++      }
++    })
++    .option('--cUndefine <macros>', 'C 预处理取消定义的宏，逗号分隔，等同 -U', (list: any) => {
++      Config.cPreprocessor!.undefines.push(...String(list).split(',').filter(Boolean))
++    })
++    .option('--cTarget <platform>', 'C 目标平台预定义宏：linux（默认）/macos/windows/none', (target: any) => {
++      if (!['linux', 'macos', 'windows', 'none'].includes(target)) {
++        handleException(null, `未知的 C 目标平台: ${target}`, `Unknown C target: ${target}`)
++        initError = true
++        setExitCode(ErrorCode.config_error)
++        return
++      }
++      Config.cPreprocessor!.target = target
++    })
++    .option(
++      '--cUnknownMacros <mode>',
++      'C 中配置与代码都未决定的宏：cover（默认，条件两侧都分析）/undefined（按 C 标准视为未定义，只分析一种配置）',
++      (mode: any) => {
++        if (!['cover', 'undefined'].includes(mode)) {
++          handleException(null, `未知的 --cUnknownMacros: ${mode}`, `Unknown --cUnknownMacros: ${mode}`)
++          initError = true
++          setExitCode(ErrorCode.config_error)
++          return
++        }
++        Config.cPreprocessor!.unknownMacros = mode
++      }
++    )
++    .option('--cIncludeDir <dirs>', 'C 头文件搜索目录，逗号分隔，等同 -I', (list: any) => {
++      for (const dir of String(list).split(',').filter(Boolean)) {
++        Config.cPreprocessor!.includeDirs.push(path.isAbsolute(dir) ? dir : path.resolve(process.cwd(), dir))
++      }
++    })
+     .option('--analyzer <analyzer>', '指定框架', (f: any) => {
+       Config.analyzer = f
+     })
+diff --git a/test/c/rule_config_c_semantics.json b/test/c/rule_config_c_semantics.json
+new file mode 100644
+index 0000000..04ea53e
+--- /dev/null
++++ b/test/c/rule_config_c_semantics.json
+@@ -0,0 +1,800 @@
++[
++  {
++    "checkerIds": [
++      "taint_flow_c_input"
++    ],
++    "sources": {
++      "FuncCallArgTaintSource": [
++        {
++          "fsig": "gets",
++          "args": [
++            "0"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "fgets",
++          "args": [
++            "0"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "fgetws",
++          "args": [
++            "0"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "scanf",
++          "args": [
++            "1",
++            "2",
++            "3",
++            "4",
++            "5",
++            "6",
++            "7",
++            "8",
++            "9"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "fscanf",
++          "args": [
++            "2",
++            "3",
++            "4",
++            "5",
++            "6",
++            "7",
++            "8",
++            "9"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "vscanf",
++          "args": [
++            "1",
++            "2",
++            "3",
++            "4",
++            "5",
++            "6",
++            "7",
++            "8",
++            "9"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "vfscanf",
++          "args": [
++            "2",
++            "3",
++            "4",
++            "5",
++            "6",
++            "7",
++            "8",
++            "9"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "read",
++          "args": [
++            "1"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "pread",
++          "args": [
++            "1"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "fread",
++          "args": [
++            "0"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "recv",
++          "args": [
++            "1"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "recvfrom",
++          "args": [
++            "1"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "recvmsg",
++          "args": [
++            "1"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "getline",
++          "args": [
++            "0"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "getdelim",
++          "args": [
++            "0"
++          ],
++          "kind": "C_INPUT"
++        }
++      ],
++      "FuncCallReturnValueTaintSource": [
++        {
++          "fsig": "taint_src",
++          "values": [
++            "0"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "getenv",
++          "values": [
++            "0"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "secure_getenv",
++          "values": [
++            "0"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "fgets",
++          "values": [
++            "0"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "gets",
++          "values": [
++            "0"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "getc",
++          "values": [
++            "0"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "fgetc",
++          "values": [
++            "0"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "getchar",
++          "values": [
++            "0"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "readline",
++          "values": [
++            "0"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "_wgetenv",
++          "values": [
++            "0"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "fgetws",
++          "values": [
++            "0"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "getwc",
++          "values": [
++            "0"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "fgetwc",
++          "values": [
++            "0"
++          ],
++          "kind": "C_INPUT"
++        },
++        {
++          "fsig": "getwchar",
++          "values": [
++            "0"
++          ],
++          "kind": "C_INPUT"
++        }
++      ]
++    },
++    "sinks": {
++      "FuncCallTaintSink": [
++        {
++          "fsig": "taint_sink",
++          "args": [
++            "0"
++          ],
++          "attribute": "BenchmarkSink"
++        },
++        {
++          "fsig": "system",
++          "args": [
++            "0"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "popen",
++          "args": [
++            "0"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "execl",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "execlp",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "execle",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "execv",
++          "args": [
++            "0",
++            "1"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "execvp",
++          "args": [
++            "0",
++            "1"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "execve",
++          "args": [
++            "0",
++            "1"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "_system",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "_wsystem",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "_popen",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "_wpopen",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "_execl",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "_execlp",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "_execle",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "_execv",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "_execvp",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "_execve",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "_wexecl",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "_wexeclp",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "_wexecv",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "_wexecvp",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "_spawnl",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "_spawnlp",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "_spawnle",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "_spawnv",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "_spawnvp",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "_spawnve",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "_wspawnl",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "_wspawnlp",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "_wspawnv",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "_wspawnvp",
++          "args": [
++            "*"
++          ],
++          "attribute": "CCommandInjection"
++        },
++        {
++          "fsig": "dlopen",
++          "args": [
++            "0"
++          ],
++          "attribute": "CCodeInjection"
++        },
++        {
++          "fsig": "printf",
++          "args": [
++            "0"
++          ],
++          "attribute": "CFormatString"
++        },
++        {
++          "fsig": "vprintf",
++          "args": [
++            "0"
++          ],
++          "attribute": "CFormatString"
++        },
++        {
++          "fsig": "fprintf",
++          "args": [
++            "1"
++          ],
++          "attribute": "CFormatString"
++        },
++        {
++          "fsig": "vfprintf",
++          "args": [
++            "1"
++          ],
++          "attribute": "CFormatString"
++        },
++        {
++          "fsig": "dprintf",
++          "args": [
++            "1"
++          ],
++          "attribute": "CFormatString"
++        },
++        {
++          "fsig": "sprintf",
++          "args": [
++            "1"
++          ],
++          "attribute": "CFormatString"
++        },
++        {
++          "fsig": "vsprintf",
++          "args": [
++            "1"
++          ],
++          "attribute": "CFormatString"
++        },
++        {
++          "fsig": "snprintf",
++          "args": [
++            "2"
++          ],
++          "attribute": "CFormatString"
++        },
++        {
++          "fsig": "vsnprintf",
++          "args": [
++            "2"
++          ],
++          "attribute": "CFormatString"
++        },
++        {
++          "fsig": "syslog",
++          "args": [
++            "1"
++          ],
++          "attribute": "CFormatString"
++        },
++        {
++          "fsig": "wprintf",
++          "args": [
++            "0"
++          ],
++          "attribute": "CFormatString"
++        },
++        {
++          "fsig": "vwprintf",
++          "args": [
++            "0"
++          ],
++          "attribute": "CFormatString"
++        },
++        {
++          "fsig": "fwprintf",
++          "args": [
++            "1"
++          ],
++          "attribute": "CFormatString"
++        },
++        {
++          "fsig": "vfwprintf",
++          "args": [
++            "1"
++          ],
++          "attribute": "CFormatString"
++        },
++        {
++          "fsig": "swprintf",
++          "args": [
++            "2"
++          ],
++          "attribute": "CFormatString"
++        },
++        {
++          "fsig": "vswprintf",
++          "args": [
++            "2"
++          ],
++          "attribute": "CFormatString"
++        },
++        {
++          "fsig": "_snprintf",
++          "args": [
++            "2"
++          ],
++          "attribute": "CFormatString"
++        },
++        {
++          "fsig": "_snwprintf",
++          "args": [
++            "2"
++          ],
++          "attribute": "CFormatString"
++        },
++        {
++          "fsig": "_vsnprintf",
++          "args": [
++            "2"
++          ],
++          "attribute": "CFormatString"
++        },
++        {
++          "fsig": "_vsnwprintf",
++          "args": [
++            "2"
++          ],
++          "attribute": "CFormatString"
++        },
++        {
++          "fsig": "strcpy",
++          "args": [
++            "1"
++          ],
++          "attribute": "CBufferOverflow"
++        },
++        {
++          "fsig": "strcat",
++          "args": [
++            "1"
++          ],
++          "attribute": "CBufferOverflow"
++        },
++        {
++          "fsig": "wcscpy",
++          "args": [
++            "1"
++          ],
++          "attribute": "CBufferOverflow"
++        },
++        {
++          "fsig": "wcscat",
++          "args": [
++            "1"
++          ],
++          "attribute": "CBufferOverflow"
++        },
++        {
++          "fsig": "memcpy",
++          "args": [
++            "2"
++          ],
++          "attribute": "CBufferOverflow"
++        },
++        {
++          "fsig": "memmove",
++          "args": [
++            "2"
++          ],
++          "attribute": "CBufferOverflow"
++        },
++        {
++          "fsig": "fopen",
++          "args": [
++            "0"
++          ],
++          "attribute": "CPathTraversal"
++        },
++        {
++          "fsig": "freopen",
++          "args": [
++            "0"
++          ],
++          "attribute": "CPathTraversal"
++        },
++        {
++          "fsig": "open",
++          "args": [
++            "0"
++          ],
++          "attribute": "CPathTraversal"
++        },
++        {
++          "fsig": "openat",
++          "args": [
++            "1"
++          ],
++          "attribute": "CPathTraversal"
++        },
++        {
++          "fsig": "creat",
++          "args": [
++            "0"
++          ],
++          "attribute": "CPathTraversal"
++        },
++        {
++          "fsig": "unlink",
++          "args": [
++            "0"
++          ],
++          "attribute": "CPathTraversal"
++        },
++        {
++          "fsig": "remove",
++          "args": [
++            "0"
++          ],
++          "attribute": "CPathTraversal"
++        },
++        {
++          "fsig": "rename",
++          "args": [
++            "0",
++            "1"
++          ],
++          "attribute": "CPathTraversal"
++        },
++        {
++          "fsig": "chmod",
++          "args": [
++            "0"
++          ],
++          "attribute": "CPathTraversal"
++        },
++        {
++          "fsig": "chown",
++          "args": [
++            "0"
++          ],
++          "attribute": "CPathTraversal"
++        },
++        {
++          "fsig": "mkdir",
++          "args": [
++            "0"
++          ],
++          "attribute": "CPathTraversal"
++        },
++        {
++          "fsig": "rmdir",
++          "args": [
++            "0"
++          ],
++          "attribute": "CPathTraversal"
++        },
++        {
++          "fsig": "sqlite3_exec",
++          "args": [
++            "1"
++          ],
++          "attribute": "CSqlInjection"
++        },
++        {
++          "fsig": "sqlite3_prepare",
++          "args": [
++            "1"
++          ],
++          "attribute": "CSqlInjection"
++        },
++        {
++          "fsig": "sqlite3_prepare_v2",
++          "args": [
++            "1"
++          ],
++          "attribute": "CSqlInjection"
++        },
++        {
++          "fsig": "mysql_query",
++          "args": [
++            "1"
++          ],
++          "attribute": "CSqlInjection"
++        },
++        {
++          "fsig": "mysql_real_query",
++          "args": [
++            "1"
++          ],
++          "attribute": "CSqlInjection"
++        },
++        {
++          "fsig": "PQexec",
++          "args": [
++            "1"
++          ],
++          "attribute": "CSqlInjection"
++        }
++      ]
++    }
++  }
++]
+diff --git a/test/c/semantics-cases/aggregate/struct_array_member_copy_F.c b/test/c/semantics-cases/aggregate/struct_array_member_copy_F.c
+new file mode 100644
+index 0000000..95d8319
+--- /dev/null
++++ b/test/c/semantics-cases/aggregate/struct_array_member_copy_F.c
+@@ -0,0 +1,21 @@
++/*
++ * evaluation information start
++ * real case = false
++ * evaluation item = 数组成员复制
++ * scene introduction = 复制后污染源的数组成员
++ * bind_url = c_semantics/aggregate/struct_array_member_copy_F
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++struct Arr { char *v[2]; };
++
++void struct_array_member_copy_F(void) {
++    struct Arr a = { { "safe", "x" } };
++    struct Arr b = a;
++    a.v[0] = taint_src();
++    taint_sink(b.v[0]);
++}
+diff --git a/test/c/semantics-cases/aggregate/struct_array_member_copy_T.c b/test/c/semantics-cases/aggregate/struct_array_member_copy_T.c
+new file mode 100644
+index 0000000..2ab1a53
+--- /dev/null
++++ b/test/c/semantics-cases/aggregate/struct_array_member_copy_T.c
+@@ -0,0 +1,21 @@
++/*
++ * evaluation information start
++ * real case = true
++ * evaluation item = 数组成员复制
++ * scene introduction = 数组成员随结构体按值复制
++ * bind_url = c_semantics/aggregate/struct_array_member_copy_T
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++struct Arr { char *v[2]; };
++
++void struct_array_member_copy_T(void) {
++    struct Arr a = { { taint_src(), "x" } };
++    struct Arr b = a;
++    a.v[0] = "safe";
++    taint_sink(b.v[0]);
++}
+diff --git a/test/c/semantics-cases/aggregate/struct_assign_copy_F.c b/test/c/semantics-cases/aggregate/struct_assign_copy_F.c
+new file mode 100644
+index 0000000..722d3b4
+--- /dev/null
++++ b/test/c/semantics-cases/aggregate/struct_assign_copy_F.c
+@@ -0,0 +1,21 @@
++/*
++ * evaluation information start
++ * real case = false
++ * evaluation item = 结构体赋值
++ * scene introduction = b = a 复制后污染 a
++ * bind_url = c_semantics/aggregate/struct_assign_copy_F
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++struct S { char *p; };
++
++void struct_assign_copy_F(void) {
++    struct S a = { "safe" }, b = { "init" };
++    b = a;
++    a.p = taint_src();
++    taint_sink(b.p);
++}
+diff --git a/test/c/semantics-cases/aggregate/struct_assign_copy_T.c b/test/c/semantics-cases/aggregate/struct_assign_copy_T.c
+new file mode 100644
+index 0000000..4475697
+--- /dev/null
++++ b/test/c/semantics-cases/aggregate/struct_assign_copy_T.c
+@@ -0,0 +1,21 @@
++/*
++ * evaluation information start
++ * real case = true
++ * evaluation item = 结构体赋值
++ * scene introduction = b = a 复制后修改 a
++ * bind_url = c_semantics/aggregate/struct_assign_copy_T
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++struct S { char *p; };
++
++void struct_assign_copy_T(void) {
++    struct S a = { taint_src() }, b = { "init" };
++    b = a;
++    a.p = "safe";
++    taint_sink(b.p);
++}
+diff --git a/test/c/semantics-cases/aggregate/struct_by_value_parameter_F.c b/test/c/semantics-cases/aggregate/struct_by_value_parameter_F.c
+new file mode 100644
+index 0000000..50049e8
+--- /dev/null
++++ b/test/c/semantics-cases/aggregate/struct_by_value_parameter_F.c
+@@ -0,0 +1,21 @@
++/*
++ * evaluation information start
++ * real case = false
++ * evaluation item = 按值传参
++ * scene introduction = 被调函数修改形参副本不影响调用方
++ * bind_url = c_semantics/aggregate/struct_by_value_parameter_F
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++struct S { char *p; };
++
++static void mutate(struct S s) { s.p = taint_src(); }
++void struct_by_value_parameter_F(void) {
++    struct S s = { "safe" };
++    mutate(s);
++    taint_sink(s.p);
++}
+diff --git a/test/c/semantics-cases/aggregate/struct_by_value_parameter_reads_T.c b/test/c/semantics-cases/aggregate/struct_by_value_parameter_reads_T.c
+new file mode 100644
+index 0000000..57397e7
+--- /dev/null
++++ b/test/c/semantics-cases/aggregate/struct_by_value_parameter_reads_T.c
+@@ -0,0 +1,20 @@
++/*
++ * evaluation information start
++ * real case = true
++ * evaluation item = 按值传参
++ * scene introduction = 被调函数读取按值传入的污点字段
++ * bind_url = c_semantics/aggregate/struct_by_value_parameter_reads_T
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++struct S { char *p; };
++
++static void use(struct S s) { taint_sink(s.p); }
++void struct_by_value_parameter_reads_T(void) {
++    struct S s = { taint_src() };
++    use(s);
++}
+diff --git a/test/c/semantics-cases/aggregate/struct_copy_no_alias_F.c b/test/c/semantics-cases/aggregate/struct_copy_no_alias_F.c
+new file mode 100644
+index 0000000..c083862
+--- /dev/null
++++ b/test/c/semantics-cases/aggregate/struct_copy_no_alias_F.c
+@@ -0,0 +1,21 @@
++/*
++ * evaluation information start
++ * real case = false
++ * evaluation item = 结构体值复制
++ * scene introduction = 复制后污染源结构体，不影响副本
++ * bind_url = c_semantics/aggregate/struct_copy_no_alias_F
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++struct S { char *p; };
++
++void struct_copy_no_alias_F(void) {
++    struct S a = { "safe" };
++    struct S b = a;
++    a.p = taint_src();
++    taint_sink(b.p);
++}
+diff --git a/test/c/semantics-cases/aggregate/struct_copy_value_T.c b/test/c/semantics-cases/aggregate/struct_copy_value_T.c
+new file mode 100644
+index 0000000..5d3316c
+--- /dev/null
++++ b/test/c/semantics-cases/aggregate/struct_copy_value_T.c
+@@ -0,0 +1,21 @@
++/*
++ * evaluation information start
++ * real case = true
++ * evaluation item = 结构体值复制
++ * scene introduction = 复制后修改源结构体，副本仍是原值
++ * bind_url = c_semantics/aggregate/struct_copy_value_T
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++struct S { char *p; };
++
++void struct_copy_value_T(void) {
++    struct S a = { taint_src() };
++    struct S b = a;
++    a.p = "safe";
++    taint_sink(b.p);
++}
+diff --git a/test/c/semantics-cases/aggregate/struct_nested_copy_F.c b/test/c/semantics-cases/aggregate/struct_nested_copy_F.c
+new file mode 100644
+index 0000000..51cae97
+--- /dev/null
++++ b/test/c/semantics-cases/aggregate/struct_nested_copy_F.c
+@@ -0,0 +1,22 @@
++/*
++ * evaluation information start
++ * real case = false
++ * evaluation item = 嵌套结构体复制
++ * scene introduction = 复制后污染源的内层字段
++ * bind_url = c_semantics/aggregate/struct_nested_copy_F
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++struct In { char *p; };
++struct Out { struct In in; char *other; };
++
++void struct_nested_copy_F(void) {
++    struct Out a = { { "safe" }, "x" };
++    struct Out b = a;
++    a.in.p = taint_src();
++    taint_sink(b.in.p);
++}
+diff --git a/test/c/semantics-cases/aggregate/struct_nested_copy_T.c b/test/c/semantics-cases/aggregate/struct_nested_copy_T.c
+new file mode 100644
+index 0000000..c85184e
+--- /dev/null
++++ b/test/c/semantics-cases/aggregate/struct_nested_copy_T.c
+@@ -0,0 +1,22 @@
++/*
++ * evaluation information start
++ * real case = true
++ * evaluation item = 嵌套结构体复制
++ * scene introduction = 内层结构体按值复制
++ * bind_url = c_semantics/aggregate/struct_nested_copy_T
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++struct In { char *p; };
++struct Out { struct In in; char *other; };
++
++void struct_nested_copy_T(void) {
++    struct Out a = { { taint_src() }, "x" };
++    struct Out b = a;
++    a.in.p = "safe";
++    taint_sink(b.in.p);
++}
+diff --git a/test/c/semantics-cases/aggregate/struct_pointer_member_shares_pointee_T.c b/test/c/semantics-cases/aggregate/struct_pointer_member_shares_pointee_T.c
+new file mode 100644
+index 0000000..b0d81e1
+--- /dev/null
++++ b/test/c/semantics-cases/aggregate/struct_pointer_member_shares_pointee_T.c
+@@ -0,0 +1,22 @@
++/*
++ * evaluation information start
++ * real case = true
++ * evaluation item = 指针成员复制
++ * scene introduction = 复制结构体后两个指针字段指向同一缓冲区
++ * bind_url = c_semantics/aggregate/struct_pointer_member_shares_pointee_T
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++struct S { char *p; };
++
++void struct_pointer_member_shares_pointee_T(void) {
++    char buf[64] = "safe";
++    struct S a = { buf };
++    struct S b = a;
++    strcpy(a.p, taint_src());
++    taint_sink(b.p);
++}
+diff --git a/test/c/semantics-cases/aggregate/struct_pointer_parameter_writes_T.c b/test/c/semantics-cases/aggregate/struct_pointer_parameter_writes_T.c
+new file mode 100644
+index 0000000..7a14a08
+--- /dev/null
++++ b/test/c/semantics-cases/aggregate/struct_pointer_parameter_writes_T.c
+@@ -0,0 +1,21 @@
++/*
++ * evaluation information start
++ * real case = true
++ * evaluation item = 结构体指针参数
++ * scene introduction = 通过指针修改调用方结构体
++ * bind_url = c_semantics/aggregate/struct_pointer_parameter_writes_T
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++struct S { char *p; };
++
++static void mutate(struct S *s) { s->p = taint_src(); }
++void struct_pointer_parameter_writes_T(void) {
++    struct S s = { "safe" };
++    mutate(&s);
++    taint_sink(s.p);
++}
+diff --git a/test/c/semantics-cases/control/both_branches_return_F.c b/test/c/semantics-cases/control/both_branches_return_F.c
+new file mode 100644
+index 0000000..aea569a
+--- /dev/null
++++ b/test/c/semantics-cases/control/both_branches_return_F.c
+@@ -0,0 +1,17 @@
++/*
++ * evaluation information start
++ * real case = false
++ * evaluation item = return 传播
++ * scene introduction = 两个分支都 return 后语句不可达
++ * bind_url = c_semantics/control/both_branches_return_F
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++void both_branches_return_F(int c) {
++    if (c) { return; } else { return; }
++    taint_sink(taint_src());
++}
+diff --git a/test/c/semantics-cases/control/break_skips_rest_F.c b/test/c/semantics-cases/control/break_skips_rest_F.c
+new file mode 100644
+index 0000000..19ff853
+--- /dev/null
++++ b/test/c/semantics-cases/control/break_skips_rest_F.c
+@@ -0,0 +1,18 @@
++/*
++ * evaluation information start
++ * real case = false
++ * evaluation item = break 传播
++ * scene introduction = break 之后循环体其余部分不执行
++ * bind_url = c_semantics/control/break_skips_rest_F
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++void break_skips_rest_F(void) {
++    char *p = "safe";
++    for (;;) { break; p = taint_src(); }
++    taint_sink(p);
++}
+diff --git a/test/c/semantics-cases/control/conditional_return_T.c b/test/c/semantics-cases/control/conditional_return_T.c
+new file mode 100644
+index 0000000..94dbd46
+--- /dev/null
++++ b/test/c/semantics-cases/control/conditional_return_T.c
+@@ -0,0 +1,17 @@
++/*
++ * evaluation information start
++ * real case = true
++ * evaluation item = return 传播
++ * scene introduction = 条件 return 之后的语句仍可达
++ * bind_url = c_semantics/control/conditional_return_T
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++void conditional_return_T(int c) {
++    if (c) { return; }
++    taint_sink(taint_src());
++}
+diff --git a/test/c/semantics-cases/control/continue_skips_rest_F.c b/test/c/semantics-cases/control/continue_skips_rest_F.c
+new file mode 100644
+index 0000000..c1e7325
+--- /dev/null
++++ b/test/c/semantics-cases/control/continue_skips_rest_F.c
+@@ -0,0 +1,18 @@
++/*
++ * evaluation information start
++ * real case = false
++ * evaluation item = continue 传播
++ * scene introduction = continue 之后循环体其余部分不执行
++ * bind_url = c_semantics/control/continue_skips_rest_F
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++void continue_skips_rest_F(void) {
++    char *p = "safe";
++    for (int i = 0; i < 2; i++) { continue; p = taint_src(); }
++    taint_sink(p);
++}
+diff --git a/test/c/semantics-cases/control/dead_if_folded_F.c b/test/c/semantics-cases/control/dead_if_folded_F.c
+new file mode 100644
+index 0000000..754830e
+--- /dev/null
++++ b/test/c/semantics-cases/control/dead_if_folded_F.c
+@@ -0,0 +1,16 @@
++/*
++ * evaluation information start
++ * real case = false
++ * evaluation item = 常量折叠
++ * scene introduction = if (1-1) 不可达
++ * bind_url = c_semantics/control/dead_if_folded_F
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++void dead_if_folded_F(void) {
++    if (1 - 1) taint_sink(taint_src());
++}
+diff --git a/test/c/semantics-cases/control/early_return_branch_effect_F.c b/test/c/semantics-cases/control/early_return_branch_effect_F.c
+new file mode 100644
+index 0000000..d19171a
+--- /dev/null
++++ b/test/c/semantics-cases/control/early_return_branch_effect_F.c
+@@ -0,0 +1,18 @@
++/*
++ * evaluation information start
++ * real case = false
++ * evaluation item = 控制流
++ * scene introduction = 提前返回的分支内写入污点，不进入分支的路径仍是安全值
++ * bind_url = c_semantics/control/early_return_branch_effect_F
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++void early_return_branch_effect_F(int c) {
++    char *p = "safe";
++    if (c) { p = taint_src(); return; }
++    taint_sink(p);
++}
+diff --git a/test/c/semantics-cases/control/early_return_branch_effect_T.c b/test/c/semantics-cases/control/early_return_branch_effect_T.c
+new file mode 100644
+index 0000000..8517045
+--- /dev/null
++++ b/test/c/semantics-cases/control/early_return_branch_effect_T.c
+@@ -0,0 +1,18 @@
++/*
++ * evaluation information start
++ * real case = true
++ * evaluation item = 控制流
++ * scene introduction = 提前返回的分支内清洗，不进入分支的路径仍是污点
++ * bind_url = c_semantics/control/early_return_branch_effect_T
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++void early_return_branch_effect_T(int c) {
++    char *p = taint_src();
++    if (c) { p = "safe"; return; }
++    taint_sink(p);
++}
+diff --git a/test/c/semantics-cases/control/goto_bypasses_sanitizing_assignment_T.c b/test/c/semantics-cases/control/goto_bypasses_sanitizing_assignment_T.c
+new file mode 100644
+index 0000000..51e78ea
+--- /dev/null
++++ b/test/c/semantics-cases/control/goto_bypasses_sanitizing_assignment_T.c
+@@ -0,0 +1,21 @@
++/*
++ * evaluation information start
++ * real case = true
++ * evaluation item = goto
++ * scene introduction = goto 跳过清洗赋值
++ * bind_url = c_semantics/control/goto_bypasses_sanitizing_assignment_T
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++void goto_bypasses_sanitizing_assignment_T(void) {
++    char *p = taint_src();
++    goto done;
++unused:
++    p = "safe";
++done:
++    taint_sink(p);
++}
+diff --git a/test/c/semantics-cases/control/goto_conditional_paths_T.c b/test/c/semantics-cases/control/goto_conditional_paths_T.c
+new file mode 100644
+index 0000000..4ff7e69
+--- /dev/null
++++ b/test/c/semantics-cases/control/goto_conditional_paths_T.c
+@@ -0,0 +1,22 @@
++/*
++ * evaluation information start
++ * real case = true
++ * evaluation item = goto
++ * scene introduction = 条件 goto：一条路径仍带污点
++ * bind_url = c_semantics/control/goto_conditional_paths_T
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++void goto_conditional_paths_T(int c) {
++    char *p = taint_src();
++    if (c) goto clean;
++    goto done;
++clean:
++    p = "safe";
++done:
++    taint_sink(p);
++}
+diff --git a/test/c/semantics-cases/control/goto_out_of_block_T.c b/test/c/semantics-cases/control/goto_out_of_block_T.c
+new file mode 100644
+index 0000000..1d6c34d
+--- /dev/null
++++ b/test/c/semantics-cases/control/goto_out_of_block_T.c
+@@ -0,0 +1,20 @@
++/*
++ * evaluation information start
++ * real case = true
++ * evaluation item = goto
++ * scene introduction = goto 跳出内层块到外层标签
++ * bind_url = c_semantics/control/goto_out_of_block_T
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++void goto_out_of_block_T(void) {
++    char *p = taint_src();
++    { goto out; }
++    p = "safe";
++out:
++    taint_sink(p);
++}
+diff --git a/test/c/semantics-cases/control/goto_skips_intermediate_label_F.c b/test/c/semantics-cases/control/goto_skips_intermediate_label_F.c
+new file mode 100644
+index 0000000..ab963a3
+--- /dev/null
++++ b/test/c/semantics-cases/control/goto_skips_intermediate_label_F.c
+@@ -0,0 +1,20 @@
++/*
++ * evaluation information start
++ * real case = false
++ * evaluation item = goto
++ * scene introduction = goto 跳过中间标签
++ * bind_url = c_semantics/control/goto_skips_intermediate_label_F
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++void goto_skips_intermediate_label_F(void) {
++    goto done;
++unused:
++    taint_sink(taint_src());
++done:
++    return;
++}
+diff --git a/test/c/semantics-cases/control/goto_unconditional_clean_F.c b/test/c/semantics-cases/control/goto_unconditional_clean_F.c
+new file mode 100644
+index 0000000..515ac0e
+--- /dev/null
++++ b/test/c/semantics-cases/control/goto_unconditional_clean_F.c
+@@ -0,0 +1,22 @@
++/*
++ * evaluation information start
++ * real case = false
++ * evaluation item = goto
++ * scene introduction = 无条件 goto 到清洗标签
++ * bind_url = c_semantics/control/goto_unconditional_clean_F
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++void goto_unconditional_clean_F(void) {
++    char *p = taint_src();
++    goto clean;
++skipped:
++    p = taint_src();
++clean:
++    p = "safe";
++    taint_sink(p);
++}
+diff --git a/test/c/semantics-cases/control/guard_condition_side_effect_F.c b/test/c/semantics-cases/control/guard_condition_side_effect_F.c
+new file mode 100644
+index 0000000..00c52e0
+--- /dev/null
++++ b/test/c/semantics-cases/control/guard_condition_side_effect_F.c
+@@ -0,0 +1,18 @@
++/*
++ * evaluation information start
++ * real case = false
++ * evaluation item = 控制流
++ * scene introduction = if 条件写入安全值，返回分支内的写入不流到 if 之后
++ * bind_url = c_semantics/control/guard_condition_side_effect_F
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++void guard_condition_side_effect_F(void) {
++    char *p = taint_src();
++    if ((p = "safe") == 0) { p = taint_src(); return; }
++    taint_sink(p);
++}
+diff --git a/test/c/semantics-cases/control/guard_condition_side_effect_T.c b/test/c/semantics-cases/control/guard_condition_side_effect_T.c
+new file mode 100644
+index 0000000..7d31654
+--- /dev/null
++++ b/test/c/semantics-cases/control/guard_condition_side_effect_T.c
+@@ -0,0 +1,18 @@
++/*
++ * evaluation information start
++ * real case = true
++ * evaluation item = 控制流
++ * scene introduction = 提前返回的 if 条件本身写入了污点（如 if (sscanf(...) != 1) return;），条件的副作用保留
++ * bind_url = c_semantics/control/guard_condition_side_effect_T
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++void guard_condition_side_effect_T(void) {
++    char *p = "safe";
++    if ((p = taint_src()) == 0) { return; }
++    taint_sink(p);
++}
+diff --git a/test/c/semantics-cases/control/live_if_folded_T.c b/test/c/semantics-cases/control/live_if_folded_T.c
+new file mode 100644
+index 0000000..835936f
+--- /dev/null
++++ b/test/c/semantics-cases/control/live_if_folded_T.c
+@@ -0,0 +1,16 @@
++/*
++ * evaluation information start
++ * real case = true
++ * evaluation item = 常量折叠
++ * scene introduction = if (2-1) 可达
++ * bind_url = c_semantics/control/live_if_folded_T
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++void live_if_folded_T(void) {
++    if (2 - 1) taint_sink(taint_src());
++}
+diff --git a/test/c/semantics-cases/control/nested_return_F.c b/test/c/semantics-cases/control/nested_return_F.c
+new file mode 100644
+index 0000000..6f417d5
+--- /dev/null
++++ b/test/c/semantics-cases/control/nested_return_F.c
+@@ -0,0 +1,17 @@
++/*
++ * evaluation information start
++ * real case = false
++ * evaluation item = return 传播
++ * scene introduction = 内层块 return 后外层后续语句不可达
++ * bind_url = c_semantics/control/nested_return_F
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++void nested_return_F(void) {
++    { return; }
++    taint_sink(taint_src());
++}
+diff --git a/test/c/semantics-cases/control/short_circuit_and_F.c b/test/c/semantics-cases/control/short_circuit_and_F.c
+new file mode 100644
+index 0000000..5890283
+--- /dev/null
++++ b/test/c/semantics-cases/control/short_circuit_and_F.c
+@@ -0,0 +1,18 @@
++/*
++ * evaluation information start
++ * real case = false
++ * evaluation item = 短路求值
++ * scene introduction = 0 && expr 不执行右侧
++ * bind_url = c_semantics/control/short_circuit_and_F
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++void short_circuit_and_F(void) {
++    char *p = "safe";
++    0 && (p = taint_src());
++    taint_sink(p);
++}
+diff --git a/test/c/semantics-cases/control/short_circuit_and_live_T.c b/test/c/semantics-cases/control/short_circuit_and_live_T.c
+new file mode 100644
+index 0000000..39056ed
+--- /dev/null
++++ b/test/c/semantics-cases/control/short_circuit_and_live_T.c
+@@ -0,0 +1,18 @@
++/*
++ * evaluation information start
++ * real case = true
++ * evaluation item = 短路求值
++ * scene introduction = 1 && expr 执行右侧
++ * bind_url = c_semantics/control/short_circuit_and_live_T
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++void short_circuit_and_live_T(void) {
++    char *p = "safe";
++    1 && (p = taint_src());
++    taint_sink(p);
++}
+diff --git a/test/c/semantics-cases/control/short_circuit_or_F.c b/test/c/semantics-cases/control/short_circuit_or_F.c
+new file mode 100644
+index 0000000..1333e56
+--- /dev/null
++++ b/test/c/semantics-cases/control/short_circuit_or_F.c
+@@ -0,0 +1,18 @@
++/*
++ * evaluation information start
++ * real case = false
++ * evaluation item = 短路求值
++ * scene introduction = 1 || expr 不执行右侧
++ * bind_url = c_semantics/control/short_circuit_or_F
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++void short_circuit_or_F(void) {
++    char *p = "safe";
++    1 || (p = taint_src());
++    taint_sink(p);
++}
+diff --git a/test/c/semantics-cases/control/short_circuit_unknown_T.c b/test/c/semantics-cases/control/short_circuit_unknown_T.c
+new file mode 100644
+index 0000000..020c02c
+--- /dev/null
++++ b/test/c/semantics-cases/control/short_circuit_unknown_T.c
+@@ -0,0 +1,18 @@
++/*
++ * evaluation information start
++ * real case = true
++ * evaluation item = 短路求值
++ * scene introduction = 未知条件 && expr 可能执行右侧
++ * bind_url = c_semantics/control/short_circuit_unknown_T
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++void short_circuit_unknown_T(int c) {
++    char *p = "safe";
++    c && (p = taint_src());
++    taint_sink(p);
++}
+diff --git a/test/c/semantics-cases/libc/memcpy_partial_keeps_taint_T.c b/test/c/semantics-cases/libc/memcpy_partial_keeps_taint_T.c
+new file mode 100644
+index 0000000..f985fdf
+--- /dev/null
++++ b/test/c/semantics-cases/libc/memcpy_partial_keeps_taint_T.c
+@@ -0,0 +1,19 @@
++/*
++ * evaluation information start
++ * real case = true
++ * evaluation item = 库函数覆盖
++ * scene introduction = memcpy 部分覆盖保留其余内容
++ * bind_url = c_semantics/libc/memcpy_partial_keeps_taint_T
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++void memcpy_partial_keeps_taint_T(void) {
++    char buf[64];
++    snprintf(buf, sizeof buf, "%s", taint_src());
++    memcpy(buf, "ab", 2);
++    taint_sink(buf);
++}
+diff --git a/test/c/semantics-cases/libc/memset_overwrite_clears_taint_F.c b/test/c/semantics-cases/libc/memset_overwrite_clears_taint_F.c
+new file mode 100644
+index 0000000..c5ce7a3
+--- /dev/null
++++ b/test/c/semantics-cases/libc/memset_overwrite_clears_taint_F.c
+@@ -0,0 +1,19 @@
++/*
++ * evaluation information start
++ * real case = false
++ * evaluation item = 库函数覆盖
++ * scene introduction = memset 完整覆盖
++ * bind_url = c_semantics/libc/memset_overwrite_clears_taint_F
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++void memset_overwrite_clears_taint_F(void) {
++    char buf[64];
++    snprintf(buf, sizeof buf, "%s", taint_src());
++    memset(buf, 0, sizeof buf);
++    taint_sink(buf);
++}
+diff --git a/test/c/semantics-cases/libc/memset_partial_keeps_taint_T.c b/test/c/semantics-cases/libc/memset_partial_keeps_taint_T.c
+new file mode 100644
+index 0000000..65967fa
+--- /dev/null
++++ b/test/c/semantics-cases/libc/memset_partial_keeps_taint_T.c
+@@ -0,0 +1,19 @@
++/*
++ * evaluation information start
++ * real case = true
++ * evaluation item = 库函数覆盖
++ * scene introduction = memset 部分覆盖保留其余内容
++ * bind_url = c_semantics/libc/memset_partial_keeps_taint_T
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++void memset_partial_keeps_taint_T(void) {
++    char buf[64];
++    snprintf(buf, sizeof buf, "%s", taint_src());
++    memset(buf, '-', 2);
++    taint_sink(buf);
++}
+diff --git a/test/c/semantics-cases/libc/snprintf_ignores_extra_argument_F.c b/test/c/semantics-cases/libc/snprintf_ignores_extra_argument_F.c
+new file mode 100644
+index 0000000..025e55e
+--- /dev/null
++++ b/test/c/semantics-cases/libc/snprintf_ignores_extra_argument_F.c
+@@ -0,0 +1,18 @@
++/*
++ * evaluation information start
++ * real case = false
++ * evaluation item = 格式串取参
++ * scene introduction = 固定格式串不使用额外参数
++ * bind_url = c_semantics/libc/snprintf_ignores_extra_argument_F
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++void snprintf_ignores_extra_argument_F(void) {
++    char buf[64];
++    snprintf(buf, sizeof buf, "safe", taint_src());
++    taint_sink(buf);
++}
+diff --git a/test/c/semantics-cases/libc/snprintf_percent_literal_F.c b/test/c/semantics-cases/libc/snprintf_percent_literal_F.c
+new file mode 100644
+index 0000000..b59adad
+--- /dev/null
++++ b/test/c/semantics-cases/libc/snprintf_percent_literal_F.c
+@@ -0,0 +1,18 @@
++/*
++ * evaluation information start
++ * real case = false
++ * evaluation item = 格式串取参
++ * scene introduction = %% 不消耗参数
++ * bind_url = c_semantics/libc/snprintf_percent_literal_F
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++void snprintf_percent_literal_F(void) {
++    char buf[64];
++    snprintf(buf, sizeof buf, "100%%", taint_src());
++    taint_sink(buf);
++}
+diff --git a/test/c/semantics-cases/libc/snprintf_second_argument_F.c b/test/c/semantics-cases/libc/snprintf_second_argument_F.c
+new file mode 100644
+index 0000000..74e3e1e
+--- /dev/null
++++ b/test/c/semantics-cases/libc/snprintf_second_argument_F.c
+@@ -0,0 +1,18 @@
++/*
++ * evaluation information start
++ * real case = false
++ * evaluation item = 格式串取参
++ * scene introduction = 只使用第一个参数
++ * bind_url = c_semantics/libc/snprintf_second_argument_F
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++void snprintf_second_argument_F(void) {
++    char buf[64];
++    snprintf(buf, sizeof buf, "%s", "safe", taint_src());
++    taint_sink(buf);
++}
+diff --git a/test/c/semantics-cases/libc/snprintf_star_width_T.c b/test/c/semantics-cases/libc/snprintf_star_width_T.c
+new file mode 100644
+index 0000000..2367eef
+--- /dev/null
++++ b/test/c/semantics-cases/libc/snprintf_star_width_T.c
+@@ -0,0 +1,18 @@
++/*
++ * evaluation information start
++ * real case = true
++ * evaluation item = 格式串取参
++ * scene introduction = %*s 先消耗宽度再消耗字符串
++ * bind_url = c_semantics/libc/snprintf_star_width_T
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++void snprintf_star_width_T(void) {
++    char buf[64];
++    snprintf(buf, sizeof buf, "%*s", 4, taint_src());
++    taint_sink(buf);
++}
+diff --git a/test/c/semantics-cases/libc/strcat_after_clean_T.c b/test/c/semantics-cases/libc/strcat_after_clean_T.c
+new file mode 100644
+index 0000000..b6aaf31
+--- /dev/null
++++ b/test/c/semantics-cases/libc/strcat_after_clean_T.c
+@@ -0,0 +1,19 @@
++/*
++ * evaluation information start
++ * real case = true
++ * evaluation item = 库函数覆盖
++ * scene introduction = 清空后再追加污点
++ * bind_url = c_semantics/libc/strcat_after_clean_T
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++void strcat_after_clean_T(void) {
++    char buf[64];
++    strcpy(buf, "safe");
++    strcat(buf, taint_src());
++    taint_sink(buf);
++}
+diff --git a/test/c/semantics-cases/libc/strcpy_overwrite_clears_taint_F.c b/test/c/semantics-cases/libc/strcpy_overwrite_clears_taint_F.c
+new file mode 100644
+index 0000000..9404d03
+--- /dev/null
++++ b/test/c/semantics-cases/libc/strcpy_overwrite_clears_taint_F.c
+@@ -0,0 +1,19 @@
++/*
++ * evaluation information start
++ * real case = false
++ * evaluation item = 库函数覆盖
++ * scene introduction = strcpy 用常量完整覆盖
++ * bind_url = c_semantics/libc/strcpy_overwrite_clears_taint_F
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++void strcpy_overwrite_clears_taint_F(void) {
++    char buf[64];
++    snprintf(buf, sizeof buf, "%s", taint_src());
++    strcpy(buf, "safe");
++    taint_sink(buf);
++}
+diff --git a/test/c/semantics-cases/libc/zero_length_memcpy_F.c b/test/c/semantics-cases/libc/zero_length_memcpy_F.c
+new file mode 100644
+index 0000000..0a4fee1
+--- /dev/null
++++ b/test/c/semantics-cases/libc/zero_length_memcpy_F.c
+@@ -0,0 +1,18 @@
++/*
++ * evaluation information start
++ * real case = false
++ * evaluation item = 库函数长度
++ * scene introduction = 长度为 0 的 memcpy 不写入
++ * bind_url = c_semantics/libc/zero_length_memcpy_F
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++void zero_length_memcpy_F(void) {
++    char buf[64] = "safe";
++    memcpy(buf, taint_src(), 0);
++    taint_sink(buf);
++}
+diff --git a/test/c/semantics-cases/linkage/header_static_name_collision_F/a.h b/test/c/semantics-cases/linkage/header_static_name_collision_F/a.h
+new file mode 100644
+index 0000000..4040b54
+--- /dev/null
++++ b/test/c/semantics-cases/linkage/header_static_name_collision_F/a.h
+@@ -0,0 +1,2 @@
++char *taint_src(void);
++static inline char *helper(void) { return taint_src(); }
+diff --git a/test/c/semantics-cases/linkage/header_static_name_collision_F/main.c b/test/c/semantics-cases/linkage/header_static_name_collision_F/main.c
+new file mode 100644
+index 0000000..a524f32
+--- /dev/null
++++ b/test/c/semantics-cases/linkage/header_static_name_collision_F/main.c
+@@ -0,0 +1,15 @@
++/*
++ * evaluation information start
++ * real case = false
++ * evaluation item = 编译单元
++ * scene introduction = 另一编译单元的污点 static inline 不可见
++ * bind_url = c_semantics/linkage/header_static_name_collision_F
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++#include "z.h"
++void header_static_name_collision_F(void) { taint_sink(helper()); }
+diff --git a/test/c/semantics-cases/linkage/header_static_name_collision_F/other.c b/test/c/semantics-cases/linkage/header_static_name_collision_F/other.c
+new file mode 100644
+index 0000000..383fd2c
+--- /dev/null
++++ b/test/c/semantics-cases/linkage/header_static_name_collision_F/other.c
+@@ -0,0 +1,2 @@
++#include "a.h"
++void other_unit(void) { helper(); }
+diff --git a/test/c/semantics-cases/linkage/header_static_name_collision_F/z.h b/test/c/semantics-cases/linkage/header_static_name_collision_F/z.h
+new file mode 100644
+index 0000000..b6b1fde
+--- /dev/null
++++ b/test/c/semantics-cases/linkage/header_static_name_collision_F/z.h
+@@ -0,0 +1 @@
++static inline char *helper(void) { return "safe"; }
+diff --git a/test/c/semantics-cases/linkage/header_static_name_collision_T/a.h b/test/c/semantics-cases/linkage/header_static_name_collision_T/a.h
+new file mode 100644
+index 0000000..4040b54
+--- /dev/null
++++ b/test/c/semantics-cases/linkage/header_static_name_collision_T/a.h
+@@ -0,0 +1,2 @@
++char *taint_src(void);
++static inline char *helper(void) { return taint_src(); }
+diff --git a/test/c/semantics-cases/linkage/header_static_name_collision_T/main.c b/test/c/semantics-cases/linkage/header_static_name_collision_T/main.c
+new file mode 100644
+index 0000000..11b5c4e
+--- /dev/null
++++ b/test/c/semantics-cases/linkage/header_static_name_collision_T/main.c
+@@ -0,0 +1,15 @@
++/*
++ * evaluation information start
++ * real case = true
++ * evaluation item = 编译单元
++ * scene introduction = 各编译单元使用自己包含的 static inline 函数
++ * bind_url = c_semantics/linkage/header_static_name_collision_T
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++#include "a.h"
++void header_static_name_collision_T(void) { taint_sink(helper()); }
+diff --git a/test/c/semantics-cases/linkage/header_static_name_collision_T/other.c b/test/c/semantics-cases/linkage/header_static_name_collision_T/other.c
+new file mode 100644
+index 0000000..9e54cea
+--- /dev/null
++++ b/test/c/semantics-cases/linkage/header_static_name_collision_T/other.c
+@@ -0,0 +1,2 @@
++#include "z.h"
++void other_unit(void) { helper(); }
+diff --git a/test/c/semantics-cases/linkage/header_static_name_collision_T/z.h b/test/c/semantics-cases/linkage/header_static_name_collision_T/z.h
+new file mode 100644
+index 0000000..b6b1fde
+--- /dev/null
++++ b/test/c/semantics-cases/linkage/header_static_name_collision_T/z.h
+@@ -0,0 +1 @@
++static inline char *helper(void) { return "safe"; }
+diff --git a/test/c/semantics-cases/linkage/static_name_isolated_F/main.c b/test/c/semantics-cases/linkage/static_name_isolated_F/main.c
+new file mode 100644
+index 0000000..3972622
+--- /dev/null
++++ b/test/c/semantics-cases/linkage/static_name_isolated_F/main.c
+@@ -0,0 +1,15 @@
++/*
++ * evaluation information start
++ * real case = false
++ * evaluation item = 编译单元
++ * scene introduction = 另一文件中同名 static 函数不可见
++ * bind_url = c_semantics/linkage/static_name_isolated_F
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++static char *helper2(void) { return "safe"; }
++void static_name_isolated_F(void) { taint_sink(helper2()); }
+diff --git a/test/c/semantics-cases/linkage/static_name_isolated_F/other.c b/test/c/semantics-cases/linkage/static_name_isolated_F/other.c
+new file mode 100644
+index 0000000..1fd3423
+--- /dev/null
++++ b/test/c/semantics-cases/linkage/static_name_isolated_F/other.c
+@@ -0,0 +1,3 @@
++char *taint_src(void);
++static char *helper2(void) { return taint_src(); }
++void other_unit2(void) { helper2(); }
+diff --git a/test/c/semantics-cases/pointer/deref_reads_current_value_F.c b/test/c/semantics-cases/pointer/deref_reads_current_value_F.c
+new file mode 100644
+index 0000000..b74511f
+--- /dev/null
++++ b/test/c/semantics-cases/pointer/deref_reads_current_value_F.c
+@@ -0,0 +1,19 @@
++/*
++ * evaluation information start
++ * real case = false
++ * evaluation item = 指针读取
++ * scene introduction = 指针读取被指变量当前值（已被覆盖为安全）
++ * bind_url = c_semantics/pointer/deref_reads_current_value_F
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++void deref_reads_current_value_F(void) {
++    char *p = taint_src();
++    char **q = &p;
++    p = "safe";
++    taint_sink(*q);
++}
+diff --git a/test/c/semantics-cases/pointer/deref_reads_current_value_T.c b/test/c/semantics-cases/pointer/deref_reads_current_value_T.c
+new file mode 100644
+index 0000000..9f10ec4
+--- /dev/null
++++ b/test/c/semantics-cases/pointer/deref_reads_current_value_T.c
+@@ -0,0 +1,19 @@
++/*
++ * evaluation information start
++ * real case = true
++ * evaluation item = 指针读取
++ * scene introduction = 指针读取被指变量当前值（后被污染）
++ * bind_url = c_semantics/pointer/deref_reads_current_value_T
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++void deref_reads_current_value_T(void) {
++    char *p = "safe";
++    char **q = &p;
++    p = taint_src();
++    taint_sink(*q);
++}
+diff --git a/test/c/semantics-cases/pointer/double_indirection_T.c b/test/c/semantics-cases/pointer/double_indirection_T.c
+new file mode 100644
+index 0000000..e15fb5e
+--- /dev/null
++++ b/test/c/semantics-cases/pointer/double_indirection_T.c
+@@ -0,0 +1,20 @@
++/*
++ * evaluation information start
++ * real case = true
++ * evaluation item = 多级指针
++ * scene introduction = 通过二级间接写回原变量
++ * bind_url = c_semantics/pointer/double_indirection_T
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++void double_indirection_T(void) {
++    char *p = "safe";
++    char **q = &p;
++    char ***r = &q;
++    **r = taint_src();
++    taint_sink(p);
++}
+diff --git a/test/c/semantics-cases/pointer/double_out_parameter_T.c b/test/c/semantics-cases/pointer/double_out_parameter_T.c
+new file mode 100644
+index 0000000..f0613ee
+--- /dev/null
++++ b/test/c/semantics-cases/pointer/double_out_parameter_T.c
+@@ -0,0 +1,20 @@
++/*
++ * evaluation information start
++ * real case = true
++ * evaluation item = 多级输出参数
++ * scene introduction = 通过 char *** 参数写回调用方
++ * bind_url = c_semantics/pointer/double_out_parameter_T
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++static void set2(char ***r) { **r = taint_src(); }
++void double_out_parameter_T(void) {
++    char *p = "safe";
++    char **q = &p;
++    set2(&q);
++    taint_sink(p);
++}
+diff --git a/test/c/semantics-cases/pointer/indirection_rebound_other_F.c b/test/c/semantics-cases/pointer/indirection_rebound_other_F.c
+new file mode 100644
+index 0000000..fff5ea4
+--- /dev/null
++++ b/test/c/semantics-cases/pointer/indirection_rebound_other_F.c
+@@ -0,0 +1,21 @@
++/*
++ * evaluation information start
++ * real case = false
++ * evaluation item = 指针重绑定
++ * scene introduction = *r 重新指向另一变量后写入不影响原变量
++ * bind_url = c_semantics/pointer/indirection_rebound_other_F
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++void indirection_rebound_other_F(void) {
++    char *p = "safe", *o = "safe";
++    char **q = &p;
++    char ***r = &q;
++    *r = &o;
++    **r = taint_src();
++    taint_sink(p);
++}
+diff --git a/test/c/semantics-cases/pointer/indirection_rebound_other_T.c b/test/c/semantics-cases/pointer/indirection_rebound_other_T.c
+new file mode 100644
+index 0000000..2ede072
+--- /dev/null
++++ b/test/c/semantics-cases/pointer/indirection_rebound_other_T.c
+@@ -0,0 +1,21 @@
++/*
++ * evaluation information start
++ * real case = true
++ * evaluation item = 指针重绑定
++ * scene introduction = *r 重新指向另一变量后写入该变量
++ * bind_url = c_semantics/pointer/indirection_rebound_other_T
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++void indirection_rebound_other_T(void) {
++    char *p = "safe", *o = "safe";
++    char **q = &p;
++    char ***r = &q;
++    *r = &o;
++    **r = taint_src();
++    taint_sink(o);
++}
+diff --git a/test/c/semantics-cases/pointer/pointer_to_field_F.c b/test/c/semantics-cases/pointer/pointer_to_field_F.c
+new file mode 100644
+index 0000000..c9eb772
+--- /dev/null
++++ b/test/c/semantics-cases/pointer/pointer_to_field_F.c
+@@ -0,0 +1,21 @@
++/*
++ * evaluation information start
++ * real case = false
++ * evaluation item = 字段地址
++ * scene introduction = 通过字段地址写入不影响其它字段
++ * bind_url = c_semantics/pointer/pointer_to_field_F
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++struct Two { char *a; char *b; };
++
++void pointer_to_field_F(void) {
++    struct Two s = { "safe", "safe" };
++    char **pf = &s.a;
++    *pf = taint_src();
++    taint_sink(s.b);
++}
+diff --git a/test/c/semantics-cases/pointer/pointer_to_field_T.c b/test/c/semantics-cases/pointer/pointer_to_field_T.c
+new file mode 100644
+index 0000000..54b3df4
+--- /dev/null
++++ b/test/c/semantics-cases/pointer/pointer_to_field_T.c
+@@ -0,0 +1,21 @@
++/*
++ * evaluation information start
++ * real case = true
++ * evaluation item = 字段地址
++ * scene introduction = 通过字段地址写回字段
++ * bind_url = c_semantics/pointer/pointer_to_field_T
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++struct Two { char *a; char *b; };
++
++void pointer_to_field_T(void) {
++    struct Two s = { "safe", "safe" };
++    char **pf = &s.a;
++    *pf = taint_src();
++    taint_sink(s.a);
++}
+diff --git a/test/c/semantics-cases/pointer/triple_indirection_T.c b/test/c/semantics-cases/pointer/triple_indirection_T.c
+new file mode 100644
+index 0000000..272b56e
+--- /dev/null
++++ b/test/c/semantics-cases/pointer/triple_indirection_T.c
+@@ -0,0 +1,21 @@
++/*
++ * evaluation information start
++ * real case = true
++ * evaluation item = 多级指针
++ * scene introduction = 通过三级间接写回原变量
++ * bind_url = c_semantics/pointer/triple_indirection_T
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++void triple_indirection_T(void) {
++    char *p = "safe";
++    char **q = &p;
++    char ***r = &q;
++    char ****s = &r;
++    ***s = taint_src();
++    taint_sink(p);
++}
+diff --git a/test/c/semantics-cases/preprocessor/conditional_duplicate_function_T.c b/test/c/semantics-cases/preprocessor/conditional_duplicate_function_T.c
+new file mode 100644
+index 0000000..92e9427
+--- /dev/null
++++ b/test/c/semantics-cases/preprocessor/conditional_duplicate_function_T.c
+@@ -0,0 +1,19 @@
++/*
++ * evaluation information start
++ * real case = true
++ * evaluation item = 条件定义
++ * scene introduction = #if/#else 同名函数，两个配置都分析
++ * bind_url = c_semantics/preprocessor/conditional_duplicate_function_T
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++#ifdef FEATURE
++char *pick(void) { return "safe"; }
++#else
++char *pick(void) { return taint_src(); }
++#endif
++void conditional_duplicate_function_T(void) { taint_sink(pick()); }
+diff --git a/test/c/semantics-cases/preprocessor/conditional_duplicate_platform_F.c b/test/c/semantics-cases/preprocessor/conditional_duplicate_platform_F.c
+new file mode 100644
+index 0000000..d12148f
+--- /dev/null
++++ b/test/c/semantics-cases/preprocessor/conditional_duplicate_platform_F.c
+@@ -0,0 +1,19 @@
++/*
++ * evaluation information start
++ * real case = false
++ * evaluation item = 条件定义
++ * scene introduction = 默认目标下 Windows 分支的同名函数不参与
++ * bind_url = c_semantics/preprocessor/conditional_duplicate_platform_F
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++#ifdef _WIN32
++char *pick_platform(void) { return taint_src(); }
++#else
++char *pick_platform(void) { return "safe"; }
++#endif
++void conditional_duplicate_platform_F(void) { taint_sink(pick_platform()); }
+diff --git a/test/c/semantics-cases/preprocessor/header_macro_T/input.h b/test/c/semantics-cases/preprocessor/header_macro_T/input.h
+new file mode 100644
+index 0000000..0ab9e93
+--- /dev/null
++++ b/test/c/semantics-cases/preprocessor/header_macro_T/input.h
+@@ -0,0 +1,4 @@
++#ifndef INPUT_H
++#define INPUT_H
++#define INPUT() taint_src()
++#endif
+diff --git a/test/c/semantics-cases/preprocessor/header_macro_T/main.c b/test/c/semantics-cases/preprocessor/header_macro_T/main.c
+new file mode 100644
+index 0000000..3371cd9
+--- /dev/null
++++ b/test/c/semantics-cases/preprocessor/header_macro_T/main.c
+@@ -0,0 +1,15 @@
++/*
++ * evaluation information start
++ * real case = true
++ * evaluation item = 头文件宏
++ * scene introduction = 头文件中定义的宏
++ * bind_url = c_semantics/preprocessor/header_macro_T
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++#include "input.h"
++void header_macro_T(void) { taint_sink(INPUT()); }
+diff --git a/test/c/semantics-cases/preprocessor/header_macro_redefined_after_include_T/main.c b/test/c/semantics-cases/preprocessor/header_macro_redefined_after_include_T/main.c
+new file mode 100644
+index 0000000..19d262f
+--- /dev/null
++++ b/test/c/semantics-cases/preprocessor/header_macro_redefined_after_include_T/main.c
+@@ -0,0 +1,17 @@
++/*
++ * evaluation information start
++ * real case = true
++ * evaluation item = 头文件宏
++ * scene introduction = 包含后再重定义
++ * bind_url = c_semantics/preprocessor/header_macro_redefined_after_include_T
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++#include "safe_input.h"
++#undef INPUT
++#define INPUT() taint_src()
++void header_macro_redefined_after_include_T(void) { taint_sink(INPUT()); }
+diff --git a/test/c/semantics-cases/preprocessor/header_macro_redefined_after_include_T/safe_input.h b/test/c/semantics-cases/preprocessor/header_macro_redefined_after_include_T/safe_input.h
+new file mode 100644
+index 0000000..462d43e
+--- /dev/null
++++ b/test/c/semantics-cases/preprocessor/header_macro_redefined_after_include_T/safe_input.h
+@@ -0,0 +1 @@
++#define INPUT() "safe"
+diff --git a/test/c/semantics-cases/preprocessor/header_macro_safe_F/main.c b/test/c/semantics-cases/preprocessor/header_macro_safe_F/main.c
+new file mode 100644
+index 0000000..3ec83af
+--- /dev/null
++++ b/test/c/semantics-cases/preprocessor/header_macro_safe_F/main.c
+@@ -0,0 +1,15 @@
++/*
++ * evaluation information start
++ * real case = false
++ * evaluation item = 头文件宏
++ * scene introduction = 头文件宏展开为常量
++ * bind_url = c_semantics/preprocessor/header_macro_safe_F
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++#include "safe_input.h"
++void header_macro_safe_F(void) { taint_sink(INPUT()); }
+diff --git a/test/c/semantics-cases/preprocessor/header_macro_safe_F/safe_input.h b/test/c/semantics-cases/preprocessor/header_macro_safe_F/safe_input.h
+new file mode 100644
+index 0000000..462d43e
+--- /dev/null
++++ b/test/c/semantics-cases/preprocessor/header_macro_safe_F/safe_input.h
+@@ -0,0 +1 @@
++#define INPUT() "safe"
+diff --git a/test/c/semantics-cases/preprocessor/macro_defined_after_use_T.c b/test/c/semantics-cases/preprocessor/macro_defined_after_use_T.c
+new file mode 100644
+index 0000000..94de272
+--- /dev/null
++++ b/test/c/semantics-cases/preprocessor/macro_defined_after_use_T.c
+@@ -0,0 +1,15 @@
++/*
++ * evaluation information start
++ * real case = true
++ * evaluation item = 宏时序
++ * scene introduction = 使用之后才定义的宏不影响之前的代码
++ * bind_url = c_semantics/preprocessor/macro_defined_after_use_T
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++void macro_defined_after_use_T(void) { char *p = taint_src(); taint_sink(p); }
++#define taint_src() "safe"
+diff --git a/test/c/semantics-cases/preprocessor/macro_object_redefine_F.c b/test/c/semantics-cases/preprocessor/macro_object_redefine_F.c
+new file mode 100644
+index 0000000..eef7670
+--- /dev/null
++++ b/test/c/semantics-cases/preprocessor/macro_object_redefine_F.c
+@@ -0,0 +1,17 @@
++/*
++ * evaluation information start
++ * real case = false
++ * evaluation item = 宏时序
++ * scene introduction = 对象宏重定义为常量
++ * bind_url = c_semantics/preprocessor/macro_object_redefine_F
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++#define CMD taint_src()
++#undef CMD
++#define CMD "safe"
++void macro_object_redefine_F(void) { taint_sink(CMD); }
+diff --git a/test/c/semantics-cases/preprocessor/macro_platform_branch_F.c b/test/c/semantics-cases/preprocessor/macro_platform_branch_F.c
+new file mode 100644
+index 0000000..5b5e6fc
+--- /dev/null
++++ b/test/c/semantics-cases/preprocessor/macro_platform_branch_F.c
+@@ -0,0 +1,19 @@
++/*
++ * evaluation information start
++ * real case = false
++ * evaluation item = 条件环境
++ * scene introduction = 默认目标（非 Windows）不使用 Windows 分支
++ * bind_url = c_semantics/preprocessor/macro_platform_branch_F
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++#ifdef _WIN32
++#define INPUT() taint_src()
++#else
++#define INPUT() "safe"
++#endif
++void macro_platform_branch_F(void) { taint_sink(INPUT()); }
+diff --git a/test/c/semantics-cases/preprocessor/macro_platform_branch_T.c b/test/c/semantics-cases/preprocessor/macro_platform_branch_T.c
+new file mode 100644
+index 0000000..f352f2b
+--- /dev/null
++++ b/test/c/semantics-cases/preprocessor/macro_platform_branch_T.c
+@@ -0,0 +1,19 @@
++/*
++ * evaluation information start
++ * real case = true
++ * evaluation item = 条件环境
++ * scene introduction = 默认目标（非 Windows）选择 #else 分支
++ * bind_url = c_semantics/preprocessor/macro_platform_branch_T
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++#ifdef _WIN32
++#define INPUT() "safe"
++#else
++#define INPUT() taint_src()
++#endif
++void macro_platform_branch_T(void) { taint_sink(INPUT()); }
+diff --git a/test/c/semantics-cases/preprocessor/macro_redefine_to_safe_F.c b/test/c/semantics-cases/preprocessor/macro_redefine_to_safe_F.c
+new file mode 100644
+index 0000000..d264229
+--- /dev/null
++++ b/test/c/semantics-cases/preprocessor/macro_redefine_to_safe_F.c
+@@ -0,0 +1,17 @@
++/*
++ * evaluation information start
++ * real case = false
++ * evaluation item = 宏时序
++ * scene introduction = #undef 后重定义为常量
++ * bind_url = c_semantics/preprocessor/macro_redefine_to_safe_F
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++#define INPUT() taint_src()
++#undef INPUT
++#define INPUT() "safe"
++void macro_redefine_to_safe_F(void) { taint_sink(INPUT()); }
+diff --git a/test/c/semantics-cases/preprocessor/macro_redefine_to_tainted_T.c b/test/c/semantics-cases/preprocessor/macro_redefine_to_tainted_T.c
+new file mode 100644
+index 0000000..7db3297
+--- /dev/null
++++ b/test/c/semantics-cases/preprocessor/macro_redefine_to_tainted_T.c
+@@ -0,0 +1,17 @@
++/*
++ * evaluation information start
++ * real case = true
++ * evaluation item = 宏时序
++ * scene introduction = #undef 后重定义为污点
++ * bind_url = c_semantics/preprocessor/macro_redefine_to_tainted_T
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++#define INPUT() "safe"
++#undef INPUT
++#define INPUT() taint_src()
++void macro_redefine_to_tainted_T(void) { taint_sink(INPUT()); }
+diff --git a/test/c/semantics-cases/preprocessor/macro_undef_restores_function_T.c b/test/c/semantics-cases/preprocessor/macro_undef_restores_function_T.c
+new file mode 100644
+index 0000000..ff205f0
+--- /dev/null
++++ b/test/c/semantics-cases/preprocessor/macro_undef_restores_function_T.c
+@@ -0,0 +1,16 @@
++/*
++ * evaluation information start
++ * real case = true
++ * evaluation item = 宏时序
++ * scene introduction = #undef 后恢复为真实函数调用
++ * bind_url = c_semantics/preprocessor/macro_undef_restores_function_T
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++#define taint_src() "safe"
++#undef taint_src
++void macro_undef_restores_function_T(void) { taint_sink(taint_src()); }
+diff --git a/test/c/semantics-cases/preprocessor/macro_unknown_feature_T.c b/test/c/semantics-cases/preprocessor/macro_unknown_feature_T.c
+new file mode 100644
+index 0000000..fbeb6c4
+--- /dev/null
++++ b/test/c/semantics-cases/preprocessor/macro_unknown_feature_T.c
+@@ -0,0 +1,19 @@
++/*
++ * evaluation information start
++ * real case = true
++ * evaluation item = 条件环境
++ * scene introduction = 未指定的特性宏：覆盖两个配置（FEATURE 定义时有污点）
++ * bind_url = c_semantics/preprocessor/macro_unknown_feature_T
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++#ifdef FEATURE
++#define INPUT() taint_src()
++#else
++#define INPUT() "safe"
++#endif
++void macro_unknown_feature_T(void) { taint_sink(INPUT()); }
+diff --git a/test/c/semantics-cases/real/numeric_command_F.c b/test/c/semantics-cases/real/numeric_command_F.c
+new file mode 100644
+index 0000000..65ea068
+--- /dev/null
++++ b/test/c/semantics-cases/real/numeric_command_F.c
+@@ -0,0 +1,17 @@
++/*
++ * evaluation information start
++ * real case = false
++ * evaluation item = 数值污点
++ * scene introduction = atoi 结果格式化为数字后执行命令
++ * bind_url = c_semantics/real/numeric_command_F
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++
++void numeric_command_F(void) {
++    char cmd[64];
++    snprintf(cmd, sizeof cmd, "ls -l | head -n %d", atoi(getenv("COUNT")));
++    system(cmd);
++}
+diff --git a/test/c/semantics-cases/real/numeric_format_index_T.c b/test/c/semantics-cases/real/numeric_format_index_T.c
+new file mode 100644
+index 0000000..3d4784c
+--- /dev/null
++++ b/test/c/semantics-cases/real/numeric_format_index_T.c
+@@ -0,0 +1,17 @@
++/*
++ * evaluation information start
++ * real case = true
++ * evaluation item = 数值污点
++ * scene introduction = atoi 结果写入格式串（选择位置参数），格式串 sink 仍危险
++ * bind_url = c_semantics/real/numeric_format_index_T
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++
++void numeric_format_index_T(void) {
++    char fmt[64];
++    snprintf(fmt, sizeof fmt, "%%%d$s\n", atoi(getenv("INDEX")));
++    printf(fmt, "a", "b");
++}
+diff --git a/test/c/semantics-cases/real/numeric_length_taint_T.c b/test/c/semantics-cases/real/numeric_length_taint_T.c
+new file mode 100644
+index 0000000..bd590af
+--- /dev/null
++++ b/test/c/semantics-cases/real/numeric_length_taint_T.c
+@@ -0,0 +1,16 @@
++/*
++ * evaluation information start
++ * real case = true
++ * evaluation item = 数值污点
++ * scene introduction = atoi 结果作为 memcpy 长度仍是风险
++ * bind_url = c_semantics/real/numeric_length_taint_T
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++
++void numeric_length_taint_T(void) {
++    char a[16], b[16] = { 0 };
++    memcpy(a, b, (size_t)atoi(getenv("LEN")));
++}
+diff --git a/test/c/semantics-cases/real/real_conditional_duplicate_function_T.c b/test/c/semantics-cases/real/real_conditional_duplicate_function_T.c
+new file mode 100644
+index 0000000..490afdd
+--- /dev/null
++++ b/test/c/semantics-cases/real/real_conditional_duplicate_function_T.c
+@@ -0,0 +1,18 @@
++/*
++ * evaluation information start
++ * real case = true
++ * evaluation item = 条件定义
++ * scene introduction = 真实 API
++ * bind_url = c_semantics/real/real_conditional_duplicate_function_T
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++
++#ifdef FEATURE
++char *pick_real(void) { return "safe"; }
++#else
++char *pick_real(void) { return getenv("YASA_QUALITY"); }
++#endif
++void real_conditional_duplicate_function_T(void) { system(pick_real()); }
+diff --git a/test/c/semantics-cases/real/real_double_indirection_T.c b/test/c/semantics-cases/real/real_double_indirection_T.c
+new file mode 100644
+index 0000000..50dc7c1
+--- /dev/null
++++ b/test/c/semantics-cases/real/real_double_indirection_T.c
+@@ -0,0 +1,19 @@
++/*
++ * evaluation information start
++ * real case = true
++ * evaluation item = 多级指针
++ * scene introduction = 真实 API：二级间接写回
++ * bind_url = c_semantics/real/real_double_indirection_T
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++
++void real_double_indirection_T(void) {
++    char *p = "safe";
++    char **q = &p;
++    char ***r = &q;
++    **r = getenv("YASA_QUALITY");
++    system(p);
++}
+diff --git a/test/c/semantics-cases/real/real_goto_bypasses_sanitizing_assignment_T.c b/test/c/semantics-cases/real/real_goto_bypasses_sanitizing_assignment_T.c
+new file mode 100644
+index 0000000..3e45f4f
+--- /dev/null
++++ b/test/c/semantics-cases/real/real_goto_bypasses_sanitizing_assignment_T.c
+@@ -0,0 +1,20 @@
++/*
++ * evaluation information start
++ * real case = true
++ * evaluation item = goto
++ * scene introduction = 真实 API
++ * bind_url = c_semantics/real/real_goto_bypasses_sanitizing_assignment_T
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++
++void real_goto_bypasses_sanitizing_assignment_T(void) {
++    char *p = getenv("YASA_QUALITY");
++    goto done;
++unused:
++    p = "safe";
++done:
++    system(p);
++}
+diff --git a/test/c/semantics-cases/real/real_macro_redefine_to_safe_F.c b/test/c/semantics-cases/real/real_macro_redefine_to_safe_F.c
+new file mode 100644
+index 0000000..2fac4fa
+--- /dev/null
++++ b/test/c/semantics-cases/real/real_macro_redefine_to_safe_F.c
+@@ -0,0 +1,16 @@
++/*
++ * evaluation information start
++ * real case = false
++ * evaluation item = 宏时序
++ * scene introduction = 真实 API
++ * bind_url = c_semantics/real/real_macro_redefine_to_safe_F
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++
++#define INPUT() getenv("YASA_QUALITY")
++#undef INPUT
++#define INPUT() "safe"
++void real_macro_redefine_to_safe_F(void) { system(INPUT()); }
+diff --git a/test/c/semantics-cases/real/real_macro_redefine_to_tainted_T.c b/test/c/semantics-cases/real/real_macro_redefine_to_tainted_T.c
+new file mode 100644
+index 0000000..e9574ac
+--- /dev/null
++++ b/test/c/semantics-cases/real/real_macro_redefine_to_tainted_T.c
+@@ -0,0 +1,16 @@
++/*
++ * evaluation information start
++ * real case = true
++ * evaluation item = 宏时序
++ * scene introduction = 真实 API
++ * bind_url = c_semantics/real/real_macro_redefine_to_tainted_T
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++
++#define INPUT() "safe"
++#undef INPUT
++#define INPUT() getenv("YASA_QUALITY")
++void real_macro_redefine_to_tainted_T(void) { system(INPUT()); }
+diff --git a/test/c/semantics-cases/real/real_struct_by_value_parameter_F.c b/test/c/semantics-cases/real/real_struct_by_value_parameter_F.c
+new file mode 100644
+index 0000000..931eea5
+--- /dev/null
++++ b/test/c/semantics-cases/real/real_struct_by_value_parameter_F.c
+@@ -0,0 +1,19 @@
++/*
++ * evaluation information start
++ * real case = false
++ * evaluation item = 按值传参
++ * scene introduction = 真实 API
++ * bind_url = c_semantics/real/real_struct_by_value_parameter_F
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++struct S { char *p; };
++
++static void mutate(struct S s) { s.p = getenv("YASA_QUALITY"); }
++void real_struct_by_value_parameter_F(void) {
++    struct S s = { "safe" };
++    mutate(s);
++    system(s.p);
++}
+diff --git a/test/c/semantics-cases/real/real_struct_copy_no_alias_F.c b/test/c/semantics-cases/real/real_struct_copy_no_alias_F.c
+new file mode 100644
+index 0000000..cb7138f
+--- /dev/null
++++ b/test/c/semantics-cases/real/real_struct_copy_no_alias_F.c
+@@ -0,0 +1,19 @@
++/*
++ * evaluation information start
++ * real case = false
++ * evaluation item = 结构体值复制
++ * scene introduction = 真实 API
++ * bind_url = c_semantics/real/real_struct_copy_no_alias_F
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++struct S { char *p; };
++
++void real_struct_copy_no_alias_F(void) {
++    struct S a = { "safe" };
++    struct S b = a;
++    a.p = getenv("YASA_QUALITY");
++    system(b.p);
++}
+diff --git a/test/c/semantics-cases/real/real_struct_copy_value_T.c b/test/c/semantics-cases/real/real_struct_copy_value_T.c
+new file mode 100644
+index 0000000..4438e4a
+--- /dev/null
++++ b/test/c/semantics-cases/real/real_struct_copy_value_T.c
+@@ -0,0 +1,19 @@
++/*
++ * evaluation information start
++ * real case = true
++ * evaluation item = 结构体值复制
++ * scene introduction = 真实 API
++ * bind_url = c_semantics/real/real_struct_copy_value_T
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++struct S { char *p; };
++
++void real_struct_copy_value_T(void) {
++    struct S a = { getenv("YASA_QUALITY") };
++    struct S b = a;
++    a.p = "safe";
++    system(b.p);
++}
+diff --git a/test/c/test-c-semantics.ts b/test/c/test-c-semantics.ts
+new file mode 100644
+index 0000000..76f3491
+--- /dev/null
++++ b/test/c/test-c-semantics.ts
+@@ -0,0 +1,93 @@
++import * as path from 'path'
++import * as fs from 'fs'
++import { describe, it, before } from 'mocha'
++import * as assert from 'assert'
++const { execute } = require('../../src/interface/starter')
++const Config = require('../../src/config')
++
++/**
++ * C 语义回归：struct 按值复制、多级指针、宏的顺序/#undef/条件/头文件、控制流（goto/return/
++ * break/continue/短路/常量折叠）、编译单元链接、libc 覆盖/部分写入/格式串取参/数值污点。
++ *
++ * 用例名以 `_T` 结尾必须报告（用例内恰有一个 sink），以 `_F` 结尾不得报告；多文件用例是目录。
++ * 标签由 clang 编译运行核对（workstreams/yasa-c-extension/scripts/c_semantics_oracle.py）。
++ */
++const CASES_DIR = path.resolve(__dirname, 'semantics-cases')
++const RULE_CONFIG = path.resolve(__dirname, 'rule_config_c_semantics.json')
++
++/** 重置 commander 回调修改的运行时字段，避免跨测试污染 */
++function resetConfig(): void {
++  Config.checkerIds = []
++  Config.checkerPackIds = []
++  Config.ruleConfigFile = ''
++  Config.reportDir = ''
++  Config.language = undefined
++  Config.single = false
++}
++
++/**
++ * @returns 用例相对路径（不含 .c）→ 是否应报告
++ */
++function collectCases(): Map<string, boolean> {
++  const cases = new Map<string, boolean>()
++  const walk = (dir: string) => {
++    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
++      const full = path.join(dir, entry.name)
++      const stem = entry.name.replace(/\.c$/, '')
++      const labelled = /_[TF]$/.test(stem) && (entry.isDirectory() || entry.name.endsWith('.c'))
++      if (labelled) cases.set(path.relative(CASES_DIR, path.join(dir, stem)), stem.endsWith('_T'))
++      else if (entry.isDirectory()) walk(full)
++    }
++  }
++  walk(CASES_DIR)
++  return cases
++}
++
++describe('C Semantics Regression Tests (taint-flow-c-default)', function () {
++  this.timeout(0)
++  const reportDir = path.resolve('/tmp', 'c-semantics-test')
++  const cases = collectCases()
++  const detected = new Set<string>()
++
++  before(async function () {
++    fs.rmSync(reportDir, { recursive: true, force: true })
++    resetConfig()
++    await execute(null, [
++      CASES_DIR,
++      '--ruleConfigFile',
++      RULE_CONFIG,
++      '--checkerPackIds',
++      'taint-flow-c-default',
++      '--language',
++      'c',
++      '--report',
++      reportDir,
++    ])
++    const sarif = JSON.parse(fs.readFileSync(path.join(reportDir, 'report.sarif'), 'utf-8'))
++    for (const run of sarif.runs || []) {
++      for (const result of run.results || []) {
++        const file = path.resolve(CASES_DIR, result.locations[0].physicalLocation.artifactLocation.uri.replace(/^file:\/\//, ''))
++        const rel = path.relative(CASES_DIR, file).replace(/\.c$/, '')
++        const parts = rel.split(path.sep)
++        for (let i = parts.length; i > 0; i--) {
++          const candidate = parts.slice(0, i).join(path.sep)
++          if (cases.has(candidate)) {
++            detected.add(candidate)
++            break
++          }
++        }
++      }
++    }
++  })
++
++  it('has paired positive and negative cases', function () {
++    const labels = [...cases.values()]
++    assert.ok(labels.filter(Boolean).length >= 30 && labels.filter((l) => !l).length >= 30)
++  })
++
++  for (const [name, expected] of collectCases()) {
++    it(`${expected ? 'reports' : 'does not report'} ${name}`, function () {
++      assert.strictEqual(detected.has(name), expected)
++    })
++  }
++})
+-- 
+2.43.0
+

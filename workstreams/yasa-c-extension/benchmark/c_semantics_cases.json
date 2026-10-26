@@ -1,0 +1,550 @@
+[
+ {
+  "path": "aggregate/struct_copy_value_T",
+  "expected": true,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "aggregate/struct_copy_no_alias_F",
+  "expected": false,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "aggregate/struct_assign_copy_T",
+  "expected": true,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "aggregate/struct_assign_copy_F",
+  "expected": false,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "aggregate/struct_by_value_parameter_F",
+  "expected": false,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "aggregate/struct_by_value_parameter_reads_T",
+  "expected": true,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "aggregate/struct_nested_copy_T",
+  "expected": true,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "aggregate/struct_nested_copy_F",
+  "expected": false,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "aggregate/struct_array_member_copy_T",
+  "expected": true,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "aggregate/struct_array_member_copy_F",
+  "expected": false,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "aggregate/struct_pointer_member_shares_pointee_T",
+  "expected": true,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "aggregate/struct_pointer_parameter_writes_T",
+  "expected": true,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "pointer/double_indirection_T",
+  "expected": true,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "pointer/triple_indirection_T",
+  "expected": true,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "pointer/indirection_rebound_other_F",
+  "expected": false,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "pointer/indirection_rebound_other_T",
+  "expected": true,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "pointer/double_out_parameter_T",
+  "expected": true,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "pointer/deref_reads_current_value_F",
+  "expected": false,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "pointer/deref_reads_current_value_T",
+  "expected": true,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "pointer/pointer_to_field_T",
+  "expected": true,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "pointer/pointer_to_field_F",
+  "expected": false,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "control/dead_if_folded_F",
+  "expected": false,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "control/live_if_folded_T",
+  "expected": true,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "control/short_circuit_and_F",
+  "expected": false,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "control/short_circuit_or_F",
+  "expected": false,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "control/short_circuit_and_live_T",
+  "expected": true,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "control/short_circuit_unknown_T",
+  "expected": true,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "control/nested_return_F",
+  "expected": false,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "control/conditional_return_T",
+  "expected": true,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "control/both_branches_return_F",
+  "expected": false,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "control/break_skips_rest_F",
+  "expected": false,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "control/continue_skips_rest_F",
+  "expected": false,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "control/goto_skips_intermediate_label_F",
+  "expected": false,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "control/goto_bypasses_sanitizing_assignment_T",
+  "expected": true,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "control/goto_conditional_paths_T",
+  "expected": true,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "control/goto_unconditional_clean_F",
+  "expected": false,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "control/goto_out_of_block_T",
+  "expected": true,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "preprocessor/macro_redefine_to_tainted_T",
+  "expected": true,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "preprocessor/macro_redefine_to_safe_F",
+  "expected": false,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "preprocessor/macro_defined_after_use_T",
+  "expected": true,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "preprocessor/macro_undef_restores_function_T",
+  "expected": true,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "preprocessor/macro_object_redefine_F",
+  "expected": false,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "preprocessor/header_macro_T",
+  "expected": true,
+  "oracle_flags": [],
+  "real": false,
+  "multi": true
+ },
+ {
+  "path": "preprocessor/header_macro_safe_F",
+  "expected": false,
+  "oracle_flags": [],
+  "real": false,
+  "multi": true
+ },
+ {
+  "path": "preprocessor/header_macro_redefined_after_include_T",
+  "expected": true,
+  "oracle_flags": [],
+  "real": false,
+  "multi": true
+ },
+ {
+  "path": "preprocessor/macro_platform_branch_T",
+  "expected": true,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "preprocessor/macro_platform_branch_F",
+  "expected": false,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "preprocessor/macro_unknown_feature_T",
+  "expected": true,
+  "oracle_flags": [
+   "-DFEATURE"
+  ],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "preprocessor/conditional_duplicate_function_T",
+  "expected": true,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "preprocessor/conditional_duplicate_platform_F",
+  "expected": false,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "linkage/header_static_name_collision_T",
+  "expected": true,
+  "oracle_flags": [],
+  "real": false,
+  "multi": true
+ },
+ {
+  "path": "linkage/header_static_name_collision_F",
+  "expected": false,
+  "oracle_flags": [],
+  "real": false,
+  "multi": true
+ },
+ {
+  "path": "linkage/static_name_isolated_F",
+  "expected": false,
+  "oracle_flags": [],
+  "real": false,
+  "multi": true
+ },
+ {
+  "path": "libc/strcpy_overwrite_clears_taint_F",
+  "expected": false,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "libc/memset_overwrite_clears_taint_F",
+  "expected": false,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "libc/memset_partial_keeps_taint_T",
+  "expected": true,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "libc/memcpy_partial_keeps_taint_T",
+  "expected": true,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "libc/zero_length_memcpy_F",
+  "expected": false,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "libc/strcat_after_clean_T",
+  "expected": true,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "libc/snprintf_ignores_extra_argument_F",
+  "expected": false,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "libc/snprintf_percent_literal_F",
+  "expected": false,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "libc/snprintf_star_width_T",
+  "expected": true,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "libc/snprintf_second_argument_F",
+  "expected": false,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "real/numeric_length_taint_T",
+  "expected": true,
+  "oracle_flags": [],
+  "real": true,
+  "multi": false
+ },
+ {
+  "path": "real/numeric_command_F",
+  "expected": false,
+  "oracle_flags": [],
+  "real": true,
+  "multi": false
+ },
+ {
+  "path": "real/real_double_indirection_T",
+  "expected": true,
+  "oracle_flags": [],
+  "real": true,
+  "multi": false
+ },
+ {
+  "path": "real/real_struct_copy_value_T",
+  "expected": true,
+  "oracle_flags": [],
+  "real": true,
+  "multi": false
+ },
+ {
+  "path": "real/real_struct_copy_no_alias_F",
+  "expected": false,
+  "oracle_flags": [],
+  "real": true,
+  "multi": false
+ },
+ {
+  "path": "real/real_struct_by_value_parameter_F",
+  "expected": false,
+  "oracle_flags": [],
+  "real": true,
+  "multi": false
+ },
+ {
+  "path": "real/real_goto_bypasses_sanitizing_assignment_T",
+  "expected": true,
+  "oracle_flags": [],
+  "real": true,
+  "multi": false
+ },
+ {
+  "path": "real/real_macro_redefine_to_tainted_T",
+  "expected": true,
+  "oracle_flags": [],
+  "real": true,
+  "multi": false
+ },
+ {
+  "path": "real/real_macro_redefine_to_safe_F",
+  "expected": false,
+  "oracle_flags": [],
+  "real": true,
+  "multi": false
+ },
+ {
+  "path": "real/real_conditional_duplicate_function_T",
+  "expected": true,
+  "oracle_flags": [],
+  "real": true,
+  "multi": false
+ },
+ {
+  "path": "real/numeric_format_index_T",
+  "expected": true,
+  "oracle_flags": [],
+  "real": true,
+  "multi": false
+ },
+ {
+  "path": "control/early_return_branch_effect_T",
+  "expected": true,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "control/early_return_branch_effect_F",
+  "expected": false,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "control/guard_condition_side_effect_T",
+  "expected": true,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "control/guard_condition_side_effect_F",
+  "expected": false,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ }
+]
