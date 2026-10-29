@@ -70,3 +70,28 @@ python3 ../workstreams/yasa-c-extension/scripts/castle_c.py --castle <CASTLE-Sou
 ```
 
 结果文件：`results/sast-c.*`（含 c_semantics）、`results/c_semantics-before.json`（修复前基线）、`results/c_semantics-oracle.txt`、`results/independent-suite.json`（独立测试 52 + 8 逐用例修复前后）、`results/castle.*`、`results/corpus-parse.json`。
+
+## 6. 补充修复（2026-10-29）：嵌套条件与 GNU 变参宏
+
+对 parser-C 预处理（`018894e`）的代码审阅发现三个问题，先用独立脚本直接调用 `macros.ts` 复现，再通过完整 parser 和 Engine 确认影响，最后固定为回归用例并修复。被测版本：integration `aae29f2`、engine `c0d6004`、uast `018894e`；修复为 uast 提交 `fix(c): nested conditional state and GNU variadic macros`（只改 `parser-C/src/macros.ts`）。
+
+| # | 问题 | 根因 | 修改 |
+| --- | --- | --- | --- |
+| 1 | 嵌套的未决条件组之后状态错误：外层 `#else` 中使用了从未定义的宏；组结束后宏被当作“一定已定义”，`#ifndef` 分支被整段抹空（丢代码） | 内层 `#endif` 把结果写入外层组时，外层 frame 记录的“入口值”取的是内层最后一个分支结束时的值，而不是外层组开始前的值 | 内层组结束时，外层组尚未改动的名字直接继承内层组的入口值 |
+| 2 | GNU 具名变参 `args...` 只拿到第一个多余实参，其余被静默丢弃 | `args` 被当作普通形参放入 `params` | 记为 `variadicParam`，收集其余全部实参 |
+| 3 | GNU `, ## __VA_ARGS__` 在变参为空时保留逗号，`LOG(buf)` 展开为 `printf(buf,)`，解析失败后退回不展开（格式串漏洞漏报）；宏体字符串字面量中的 `##` 被删除 | 粘贴运算统一用 `\s*##\s*` 删除，不区分逗号粘贴与字符串内容 | 按 GNU 语义在变参为空时去掉逗号；字面量中的 `##` 保留 |
+
+新增 4 个语义回归用例（`c_semantics/preprocessor/`，Engine `test/c/semantics-cases/preprocessor/` 同步），标签经 clang oracle 核对：`macro_nested_conditional_ifndef_T`、`macro_nested_conditional_else_F`、`macro_gnu_named_variadic_T`、`macro_gnu_comma_paste_T`。
+
+| 验收项 | 修复前 | 修复后 |
+| --- | --- | --- |
+| parser-C 单测 | 56/56（加入 2 个新单测后 2 个失败） | **58/58** |
+| Engine `tsc --noEmit` | — | 0 错误 |
+| Engine `npm run test-c` | 82 通过 / 4 失败（即 4 个新用例） | **86/86** |
+| sast-c 全部 164 个用例 | TP 107 FN 3 TN 53 FP 1 | **TP 110 FN 0 TN 54 FP 0** |
+| 其余 160 个已有用例 | 与 `results/sast-c.*` 原记录一致 | 结果不变 |
+| clang oracle | — | 80/80 标签成立，2 个按设计跳过 |
+
+运行环境：macOS arm64，Node.js v25.9.0（与 §3 的 Linux 环境不同）。逐用例修复前后见 `results/preprocessor-fix-20261029.json`。本轮未重跑 Juliet、CASTLE 和大项目解析。
+
+审阅中另外确认但未修改的预处理局限（低优先级）：被排除区域内嵌套组的 `#else`/`#endif` 指令行未被抹空（实测 tree-sitter 可容忍，未产生解析错误或丢代码）；`#if` 求值使用 JS 32 位位运算与有符号比较（`1UL << 32`、`-1 > 0U` 结果与 C 不同）；以 `\` 续行的行注释会把下一行并入 `#define` 体。

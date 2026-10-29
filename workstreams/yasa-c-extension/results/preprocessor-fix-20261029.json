@@ -1,0 +1,57 @@
+{
+ "date": "2026-10-29",
+ "versions": {
+  "integration": "aae29f2",
+  "engine": "c0d6004 + 4 semantics cases",
+  "uast_before": "018894e",
+  "uast_after": "018894e + fix(c): nested conditional state and GNU variadic macros"
+ },
+ "environment": "macOS arm64, Node.js v25.9.0",
+ "parser_c_tests": {
+  "before": "56/56 (58 with the new tests: 2 failing)",
+  "after": "58/58"
+ },
+ "engine_test_c": {
+  "before": {
+   "passing": 82,
+   "failing": 4
+  },
+  "after": {
+   "passing": 86,
+   "failing": 0
+  }
+ },
+ "sast_c_total": {
+  "before": {
+   "TP": 107,
+   "FN": 3,
+   "TN": 53,
+   "FP": 1
+  },
+  "after": {
+   "TP": 110,
+   "FN": 0,
+   "TN": 54,
+   "FP": 0
+  }
+ },
+ "new_cases": {
+  "c_semantics/preprocessor/macro_gnu_comma_paste_T": {
+   "before": "FN",
+   "after": "TP"
+  },
+  "c_semantics/preprocessor/macro_gnu_named_variadic_T": {
+   "before": "FN",
+   "after": "TP"
+  },
+  "c_semantics/preprocessor/macro_nested_conditional_else_F": {
+   "before": "FP",
+   "after": "TN"
+  },
+  "c_semantics/preprocessor/macro_nested_conditional_ifndef_T": {
+   "before": "FN",
+   "after": "TP"
+  }
+ },
+ "other_cases_changed": []
+}

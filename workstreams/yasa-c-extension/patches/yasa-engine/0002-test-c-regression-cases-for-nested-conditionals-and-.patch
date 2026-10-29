@@ -1,0 +1,138 @@
+From 8cde2dc3b70f7e99debe6d144e118c13b43201ed Mon Sep 17 00:00:00 2001
+From: sijie52 <sijie5452@gmail.com>
+Date: Thu, 29 Oct 2026 11:10:13 +0800
+Subject: [PATCH] test(c): regression cases for nested conditionals and GNU
+ variadic macros
+
+Four semantics cases for the parser-C preprocessing fix (yasa-uast
+"fix(c): nested conditional state and GNU variadic macros"):
+
+- macro_nested_conditional_ifndef_T: after a nested undecided #if group the
+  macro may be undefined, so the #ifndef body may be compiled
+- macro_nested_conditional_else_F: on the outer #else path the macro is
+  never defined and must not expand to the tainted definition
+- macro_gnu_named_variadic_T: `args...` receives every remaining argument
+- macro_gnu_comma_paste_T: `, ## __VA_ARGS__` drops the comma when empty
+
+Labels checked with the clang oracle. Before the fix: 4 failing; after:
+test-c 86/86.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+---
+ .../preprocessor/macro_gnu_comma_paste_T.c    | 15 ++++++++++++
+ .../preprocessor/macro_gnu_named_variadic_T.c | 19 +++++++++++++++
+ .../macro_nested_conditional_else_F.c         | 23 +++++++++++++++++++
+ .../macro_nested_conditional_ifndef_T.c       | 23 +++++++++++++++++++
+ 4 files changed, 80 insertions(+)
+ create mode 100644 test/c/semantics-cases/preprocessor/macro_gnu_comma_paste_T.c
+ create mode 100644 test/c/semantics-cases/preprocessor/macro_gnu_named_variadic_T.c
+ create mode 100644 test/c/semantics-cases/preprocessor/macro_nested_conditional_else_F.c
+ create mode 100644 test/c/semantics-cases/preprocessor/macro_nested_conditional_ifndef_T.c
+
+diff --git a/test/c/semantics-cases/preprocessor/macro_gnu_comma_paste_T.c b/test/c/semantics-cases/preprocessor/macro_gnu_comma_paste_T.c
+new file mode 100644
+index 0000000..cab9d59
+--- /dev/null
++++ b/test/c/semantics-cases/preprocessor/macro_gnu_comma_paste_T.c
+@@ -0,0 +1,15 @@
++/*
++ * evaluation information start
++ * real case = false
++ * evaluation item = 宏替换
++ * scene introduction = GNU , ## __VA_ARGS__：变参为空时去掉逗号
++ * bind_url = c_semantics/preprocessor/macro_gnu_comma_paste_T
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++#define SINK(s, ...) taint_sink(s, ##__VA_ARGS__)
++void macro_gnu_comma_paste_T(void) { SINK(taint_src()); }
+diff --git a/test/c/semantics-cases/preprocessor/macro_gnu_named_variadic_T.c b/test/c/semantics-cases/preprocessor/macro_gnu_named_variadic_T.c
+new file mode 100644
+index 0000000..ce49025
+--- /dev/null
++++ b/test/c/semantics-cases/preprocessor/macro_gnu_named_variadic_T.c
+@@ -0,0 +1,19 @@
++/*
++ * evaluation information start
++ * real case = false
++ * evaluation item = 宏替换
++ * scene introduction = GNU 具名变参 args...：收集其余全部实参
++ * bind_url = c_semantics/preprocessor/macro_gnu_named_variadic_T
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++#define FORMAT(buf, fmt, args...) sprintf(buf, fmt, args)
++void macro_gnu_named_variadic_T(void) {
++    char cmd[256];
++    FORMAT(cmd, "%s %s", "echo", taint_src());
++    taint_sink(cmd);
++}
+diff --git a/test/c/semantics-cases/preprocessor/macro_nested_conditional_else_F.c b/test/c/semantics-cases/preprocessor/macro_nested_conditional_else_F.c
+new file mode 100644
+index 0000000..60e88f8
+--- /dev/null
++++ b/test/c/semantics-cases/preprocessor/macro_nested_conditional_else_F.c
+@@ -0,0 +1,23 @@
++/*
++ * evaluation information start
++ * real case = false
++ * evaluation item = 条件环境
++ * scene introduction = 外层 #else 路径上宏从未定义：不使用嵌套组里的定义
++ * bind_url = c_semantics/preprocessor/macro_nested_conditional_else_F
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++#ifdef A
++#  ifdef B
++#    define INPUT() taint_src()
++#  else
++#    define INPUT() taint_src()
++#  endif
++#else
++char *INPUT(void) { return "safe"; }
++void macro_nested_conditional_else_F(void) { taint_sink(INPUT()); }
++#endif
+diff --git a/test/c/semantics-cases/preprocessor/macro_nested_conditional_ifndef_T.c b/test/c/semantics-cases/preprocessor/macro_nested_conditional_ifndef_T.c
+new file mode 100644
+index 0000000..b40a3e2
+--- /dev/null
++++ b/test/c/semantics-cases/preprocessor/macro_nested_conditional_ifndef_T.c
+@@ -0,0 +1,23 @@
++/*
++ * evaluation information start
++ * real case = false
++ * evaluation item = 条件环境
++ * scene introduction = 嵌套的未决条件组之后：#ifndef 的分支可能编译（宏可能未定义）
++ * bind_url = c_semantics/preprocessor/macro_nested_conditional_ifndef_T
++ * evaluation information end
++ */
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++char *taint_src(void);
++void taint_sink(const char *s);
++#ifdef A
++#  ifdef B
++#    define USE_SAFE 1
++#  else
++#    define USE_SAFE 2
++#  endif
++#endif
++#ifndef USE_SAFE
++void macro_nested_conditional_ifndef_T(void) { taint_sink(taint_src()); }
++#endif
+-- 
+2.50.1 (Apple Git-155)
+

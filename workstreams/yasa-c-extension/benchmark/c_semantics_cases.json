@@ -546,5 +546,33 @@
   "oracle_flags": [],
   "real": false,
   "multi": false
+ },
+ {
+  "path": "preprocessor/macro_nested_conditional_ifndef_T",
+  "expected": true,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "preprocessor/macro_nested_conditional_else_F",
+  "expected": false,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "preprocessor/macro_gnu_named_variadic_T",
+  "expected": true,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
+ },
+ {
+  "path": "preprocessor/macro_gnu_comma_paste_T",
+  "expected": true,
+  "oracle_flags": [],
+  "real": false,
+  "multi": false
  }
 ]
