@@ -13,8 +13,8 @@ C 源码 → uast/parser-C（tree-sitter-c + visitor + 宏展开）→ UAST
 
 - `docs/C扩展-设计与实现.md`：架构、相对原型修复的缺陷、Engine 语义、规则与已知局限；
 - `docs/C扩展-四项验收报告.md`：四项验收的数据、命令、固定版本与误报漏报分析；
-- `docs/C扩展-语义修复报告.md`：独立测试复核后的语义修复（struct 按值复制、多级指针、预处理、控制流、链接、libc 模型）：根因、修改、修复前后结果与剩余局限；
-- `benchmark/`：自建的 xAST 风格 C 靶场 `sast-c`（原 82 个用例 + `c_semantics/` 78 个语义回归用例，元数据见 `c_semantics_cases.json`）及其规则；
+- `docs/C扩展-语义修复报告.md`：独立测试复核后的语义修复（struct 按值复制、多级指针、预处理、控制流、链接、libc 模型）：根因、修改、修复前后结果与剩余局限；§6 为 2026-10-29 的嵌套条件与 GNU 变参宏补充修复；
+- `benchmark/`：自建的 xAST 风格 C 靶场 `sast-c`（原 82 个用例 + `c_semantics/` 82 个语义回归用例，元数据见 `c_semantics_cases.json`）及其规则；
 - `results/`：最终一次验收运行的结果摘要（sast-c、Juliet、CASTLE、大项目解析）；
 - `patches/`：两个组件仓库的提交补丁及应用方法（本会话无组件仓库推送权限）；
 - `scripts/`：
@@ -26,7 +26,7 @@ C 源码 → uast/parser-C（tree-sitter-c + visitor + 宏展开）→ UAST
 
 核心代码在子模块中：
 
-- `uast/parser-C/`：C parser（含按编译配置的预处理 `src/macros.ts`）及单测（56 个）；
+- `uast/parser-C/`：C parser（含按编译配置的预处理 `src/macros.ts`）及单测（58 个）；
 - `engine/src/engine/parser/c/`、`engine/src/engine/analyzer/c/`、`engine/src/checker/taint/c/`：Engine 接入、分析器与 checker；
 - `engine/resource/example-rule-config/rule_config_c.json`：默认 source/sink；
 - `engine/test/c/`：Engine 端回归测试（`npm run test-c`，含 `semantics-cases/` 语义回归）。
@@ -35,8 +35,8 @@ C 源码 → uast/parser-C（tree-sitter-c + visitor + 宏展开）→ UAST
 
 | 验收项 | 结果 |
 | --- | --- |
-| 1. 功能单测 | parser-C 56/56；Engine `test-c` 82/82 |
-| 2. 靶场语义流通（自建 sast-c） | 原 82 个：65/65 检出，17/17 反例无误报；语义回归 78 个：42/42 检出，36/36 无误报 |
+| 1. 功能单测 | parser-C 58/58；Engine `test-c` 86/86 |
+| 2. 靶场语义流通（自建 sast-c） | 原 82 个：65/65 检出，17/17 反例无误报；语义回归 82 个：45/45 检出，37/37 无误报 |
 | 独立测试复核 | 52 个语义边界用例 52/52（修复前 31/52）；8 个真实 API 用例（默认规则）8/8（修复前 0/8） |
 | 3. 大项目解析 | Redis、curl、SQLite 共 2,279 个文件、119 万行：0 崩溃；按 Linux 目标预处理后，配置排除的代码（`#if 0`、Windows/Apple 分支等）不进入 UAST，tree-sitter 识别的函数中 Redis 99.7%、curl 99.8%、SQLite 98.6% 保留在 UAST 中，差额均为被排除的代码；curl 命令行工具完整扫描 2 分 42 秒（语义修复前的数据，本轮未重跑） |
 | 4. 真实靶场命中率 | Juliet CWE-78、CWE-134（char + wchar_t，共 6,080 个测试用例）：TPR 100%，FPR 0%；CASTLE 污点类 CWE：TPR 100%，安全样本 FPR 62.5%（带输入校验的写法，见报告） |

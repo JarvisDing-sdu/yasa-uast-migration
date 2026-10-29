@@ -1,8 +1,8 @@
 {
   "total": {
-    "TP": 107,
+    "TP": 110,
     "FN": 0,
-    "TN": 53,
+    "TN": 54,
     "FP": 0
   },
   "categories": {
@@ -61,9 +61,9 @@
       "FP": 0
     },
     "c_semantics/preprocessor": {
-      "TP": 8,
+      "TP": 11,
       "FN": 0,
-      "TN": 5,
+      "TN": 6,
       "FP": 0
     },
     "c_semantics/real": {
@@ -694,6 +694,30 @@
     },
     {
       "case": "c_semantics/preprocessor/macro_defined_after_use_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "c_semantics/preprocessor/macro_gnu_comma_paste_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "c_semantics/preprocessor/macro_gnu_named_variadic_T",
+      "expected": true,
+      "detected": true,
+      "outcome": "TP"
+    },
+    {
+      "case": "c_semantics/preprocessor/macro_nested_conditional_else_F",
+      "expected": false,
+      "detected": false,
+      "outcome": "TN"
+    },
+    {
+      "case": "c_semantics/preprocessor/macro_nested_conditional_ifndef_T",
       "expected": true,
       "detected": true,
       "outcome": "TP"

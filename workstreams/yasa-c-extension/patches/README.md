@@ -21,3 +21,21 @@ git checkout -b c-semantics 3fc472c
 git am ../workstreams/yasa-c-extension/patches/yasa-engine/*.patch
 git push -u origin c-semantics
 ```
+
+## 2026-10-29 补充修复
+
+`0002-*` 是嵌套条件与 GNU 变参宏的补充修复，说明与结果见 `docs/C扩展-语义修复报告.md` §6。
+两个提交已推送并分别提交 PR：JarvisDing-sdu/yasa-uast#2、JarvisDing-sdu/yasa-engine#1；集成仓库的
+子模块指针指向这两个提交。补丁保留用于审阅。
+
+| 补丁 | 目标仓库 | 基线提交 | 内容 |
+| --- | --- | --- | --- |
+| `yasa-uast/0002-*` | `JarvisDing-sdu/yasa-uast` | `018894e` | `parser-C/src/macros.ts` 修复 + 2 个 parser 单测 |
+| `yasa-engine/0002-*` | `JarvisDing-sdu/yasa-engine` | `c0d6004` | `test/c/semantics-cases/preprocessor/` 4 个回归用例 |
+
+```bash
+cd uast   && git checkout -b fix/c-preprocessor-nested-and-variadic 018894e \
+          && git am ../workstreams/yasa-c-extension/patches/yasa-uast/0002-*.patch
+cd ../engine && git checkout -b test/c-preprocessor-nested-and-variadic c0d6004 \
+          && git am ../workstreams/yasa-c-extension/patches/yasa-engine/0002-*.patch
+```

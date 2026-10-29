@@ -76,5 +76,9 @@ ok     control/early_return_branch_effect_T  expected=TAINT oracle=TAINT flags=
 ok     control/early_return_branch_effect_F  expected=SAFE oracle=SAFE flags=
 ok     control/guard_condition_side_effect_T  expected=TAINT oracle=TAINT flags=
 ok     control/guard_condition_side_effect_F  expected=SAFE oracle=SAFE flags=
+ok     preprocessor/macro_nested_conditional_ifndef_T  expected=TAINT oracle=TAINT flags=
+ok     preprocessor/macro_nested_conditional_else_F  expected=SAFE oracle=SAFE flags=
+ok     preprocessor/macro_gnu_named_variadic_T  expected=TAINT oracle=TAINT flags=
+ok     preprocessor/macro_gnu_comma_paste_T  expected=TAINT oracle=TAINT flags=
 
-76/76 labels confirmed, 2 skipped
+80/80 labels confirmed, 2 skipped

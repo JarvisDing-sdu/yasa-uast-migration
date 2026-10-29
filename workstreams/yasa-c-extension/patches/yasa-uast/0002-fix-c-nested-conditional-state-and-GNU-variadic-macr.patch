@@ -1,0 +1,167 @@
+From e6dfd6468508c3a77e862fb4ca69febeb1997a8c Mon Sep 17 00:00:00 2001
+From: sijie52 <sijie5452@gmail.com>
+Date: Thu, 29 Oct 2026 11:00:38 +0800
+Subject: [PATCH] fix(c): nested conditional state and GNU variadic macros
+
+- When a nested #if group ends, pass the value a name had before it to the
+  enclosing group if that group has not changed the name yet. The enclosing
+  group used to record the value at the end of the nested group's last
+  branch, so its later branches saw a definition that was never made there
+  (`#else` of the outer group expanded X) and after the group the name was
+  considered certainly defined, which blanked `#ifndef X` code.
+- GNU named variable arguments (`args...`) receive all remaining arguments
+  instead of only the first one.
+- GNU `, ## __VA_ARGS__` drops the comma when there are no variable
+  arguments, so `LOG(buf)` expands to `printf(buf)` instead of failing to
+  parse and staying unexpanded.
+- `##` inside string and char literals of a macro body is kept as text.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+---
+ parser-C/src/macros.ts  | 31 ++++++++++++++++++++++++-------
+ parser-C/tests/index.ts | 38 ++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 62 insertions(+), 7 deletions(-)
+
+diff --git a/parser-C/src/macros.ts b/parser-C/src/macros.ts
+index 98cca78..720aff3 100644
+--- a/parser-C/src/macros.ts
++++ b/parser-C/src/macros.ts
+@@ -5,6 +5,8 @@ export interface MacroDefinition {
+     /** Parameter names for function-like macros; `null` for object-like ones. */
+     params: string[] | null;
+     variadic: boolean;
++    /** GNU named variable arguments (`args...`); not part of `params`. */
++    variadicParam?: string;
+     body: string;
+ }
+ 
+@@ -151,17 +153,18 @@ function parseDefine(rest: string): MacroDefinition | null {
+     const [, name, paren, paramText, body] = m;
+     let params: string[] | null = null;
+     let variadic = false;
++    let variadicParam: string | undefined;
+     if (paren !== undefined) {
+         params = [];
+         for (const p of paramText.split(',').map((x) => x.trim()).filter(Boolean)) {
+             if (p === '...') variadic = true;
+             else if (p.endsWith('...')) {
+                 variadic = true;
+-                params.push(p.slice(0, -3).trim());
++                variadicParam = p.slice(0, -3).trim();
+             } else params.push(p);
+         }
+     }
+-    return { name, params, variadic, body: body.trim() };
++    return { name, params, variadic, ...(variadicParam ? { variadicParam } : {}), body: body.trim() };
+ }
+ 
+ function parseIntegerLiteral(text: string): number | undefined {
+@@ -416,7 +419,10 @@ export class MacroEnvironment {
+                     if (group?.parentLive) {
+                         if (group.live) group.frame.branches.push(group.frame.branch);
+                         this.frames.pop();
++                        const outer = this.frames[this.frames.length - 1];
+                         for (const [name, entry] of group.frame.entry) {
++                            // Unchanged in the enclosing group so far, so its value there is the one before this group.
++                            if (outer && !outer.entry.has(name)) outer.entry.set(name, entry);
+                             const outcomes = group.frame.branches.map((b) => (b.has(name) ? b.get(name) : entry));
+                             if (!group.decided) outcomes.push(entry);
+                             this.set(name, union(outcomes, this.unseen), line.end);
+@@ -595,22 +601,33 @@ export class MacroEnvironment {
+     }
+ }
+ 
+-const LITERAL_OR_IDENT = /("(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*')|(#\s*#)|(#\s*[A-Za-z_]\w*)|([A-Za-z_]\w*)/g;
++const LITERAL_OR_IDENT = /("(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*')|(,\s*#\s*#\s*([A-Za-z_]\w*))|(#\s*#)|(#\s*[A-Za-z_]\w*)|([A-Za-z_]\w*)/g;
++const LITERAL_OR_PASTE = /("(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*')|\s*##\s*/g;
+ 
+-/** Replace parameters in a function-like macro body, handling `#x`, `a ## b` and `__VA_ARGS__`. */
++/**
++ * Replace parameters in a function-like macro body, handling `#x`, `a ## b`,
++ * `__VA_ARGS__`, GNU named variable arguments and GNU `, ## __VA_ARGS__`.
++ */
+ export function substitute(macro: MacroDefinition, args: string[]): string {
+     const params = macro.params || [];
+     const values = new Map<string, string>();
+     params.forEach((param, index) => values.set(param, (args[index] ?? '').trim()));
+-    if (macro.variadic) values.set('__VA_ARGS__', args.slice(params.length).map((a) => a.trim()).join(', '));
++    const variadicName = macro.variadicParam ?? '__VA_ARGS__';
++    if (macro.variadic) values.set(variadicName, args.slice(params.length).map((a) => a.trim()).join(', '));
+ 
+-    const replaced = macro.body.replace(LITERAL_OR_IDENT, (all, literal, paste, stringify, ident) => {
++    const replaced = macro.body.replace(LITERAL_OR_IDENT, (all, literal, commaPaste, pasted, paste, stringify, ident) => {
+         if (literal || paste) return all;
++        if (commaPaste) {
++            // GNU: `, ## __VA_ARGS__` drops the comma when there are no variable arguments.
++            if (macro.variadic && pasted === variadicName) return values.get(variadicName) ? `, ${values.get(variadicName)}` : '';
++            return `,##${values.has(pasted) ? values.get(pasted) : pasted}`;
++        }
+         if (stringify) {
+             const name = stringify.replace(/^#\s*/, '');
+             return values.has(name) ? JSON.stringify(values.get(name)) : all;
+         }
+         return values.has(ident) ? values.get(ident)! : all;
+     });
+-    return replaced.replace(/\s*##\s*/g, '');
++    // `##` inside string or char literals is text, not the paste operator.
++    return replaced.replace(LITERAL_OR_PASTE, (all, literal) => literal ?? '');
+ }
+diff --git a/parser-C/tests/index.ts b/parser-C/tests/index.ts
+index 6eac003..23f79dd 100755
+--- a/parser-C/tests/index.ts
++++ b/parser-C/tests/index.ts
+@@ -353,6 +353,21 @@ void f(char *buf) { g(STR(hello), CAT(my, var)); SAFE_FREE(buf); h(SELF); }`);
+             assert.strictEqual(stmts[2].expression.arguments[0].name, 'SELF');
+         });
+ 
++        it('expands GNU variadic macros', () => {
++            const stmts = fnBody(`#define D(fmt, args...) printf(fmt, args)
++#define LOG(fmt, ...) printf(fmt, ##__VA_ARGS__)
++#define TAG(x) sink("## " #x)
++void f(char *a, char *b, char *buf) { D("%s %s", a, b); LOG(buf); LOG("%s", buf); TAG(y); }`);
++            const call = (i: number) => stmts[i].expression;
++            // 具名变参收集其余全部参数
++            assert.deepStrictEqual(call(0).arguments.map((x: any) => x.value ?? x.name), ['%s %s', 'a', 'b']);
++            // `, ## __VA_ARGS__` 在变参为空时去掉逗号
++            assert.deepStrictEqual([call(1).callee.name, call(1).arguments.map((x: any) => x.name)], ['printf', ['buf']]);
++            assert.deepStrictEqual(call(2).arguments.map((x: any) => x.value ?? x.name), ['%s', 'buf']);
++            // 字符串字面量里的 ## 不是粘贴运算符
++            assert.strictEqual(call(3).arguments[0].value, '## y');
++        });
++
+         it('keeps macros whose replacement is not a complete statement', () => {
+             const stmts = fnBody('#define BEGIN {\nvoid f(void) { g(BEGIN); }');
+             assert.strictEqual(stmts[0].expression.arguments[0].name, 'BEGIN');
+@@ -407,6 +422,29 @@ void c(void) { sink(IN()); }`;
+             assert.strictEqual(sinkArg(code, { preprocessor: { unknownMacros: 'undefined' } }).callee.name, 'off');
+         });
+ 
++        it('restores the state before a nested conditional in later branches of the enclosing one', () => {
++            const code = `#ifdef A
++#  ifdef B
++#    define IN() one()
++#  else
++#    define IN() two()
++#  endif
++#else
++void f(void) { sink(IN()); }
++#endif
++#ifndef IN
++int only_without_in(void) { return 0; }
++#endif
++void g(void) { sink(IN()); }`;
++            const fns = collect(unit(code), (n) => n.type === 'FunctionDefinition');
++            assert.deepStrictEqual(fns.map((fn: any) => fn.id.name), ['f', 'only_without_in', 'g']);
++            // 外层 #else 路径上 IN 从未定义
++            assert.strictEqual(fns[0].body.body[0].expression.arguments[0].callee.name, 'IN');
++            // 之后 IN 可能是 one()、two() 或未定义
++            const after = collect(fns[2], (n) => n.type === 'CallExpression' && n.callee.name !== 'sink').map((c: any) => c.callee.name);
++            assert.deepStrictEqual(after.sort(), ['IN', 'one', 'two']);
++        });
++
+         it('drops branches the configuration excludes and marks undecided ones', () => {
+             const code = '#ifdef _WIN32\nchar *pick(void) { return a(); }\n#else\nchar *pick(void) { return b(); }\n#endif\n#ifdef FEATURE\nint g(void) { return 1; }\n#endif';
+             const fns = collect(unit(code), (n) => n.type === 'FunctionDefinition');
+-- 
+2.50.1 (Apple Git-155)
+
