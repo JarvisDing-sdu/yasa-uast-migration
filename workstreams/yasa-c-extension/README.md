@@ -16,6 +16,7 @@ C 源码 → uast/parser-C（tree-sitter-c + visitor + 宏展开）→ UAST
 - `docs/C扩展-语义修复报告.md`：独立测试复核后的语义修复（struct 按值复制、多级指针、预处理、控制流、链接、libc 模型）：根因、修改、修复前后结果与剩余局限；§6 为 2026-10-29 的嵌套条件与 GNU 变参宏补充修复；
 - `benchmark/`：自建的 xAST 风格 C 靶场 `sast-c`（原 82 个用例 + `c_semantics/` 82 个语义回归用例，元数据见 `c_semantics_cases.json`）及其规则；
 - `results/`：最终一次验收运行的结果摘要（sast-c、Juliet、CASTLE、大项目解析）；
+- `callgraph-eval/`：与 CodeGraph 的调用图对比评测（小项目、curl、回调解析修复复测与审计）：报告、结果数据、脚本，证据包在 GitHub Release `c-callgraph-eval-2026-11`；
 - `patches/`：两个组件仓库的提交补丁及应用方法（本会话无组件仓库推送权限）；
 - `scripts/`：
   - `score_c_benchmark.py`：对 `sast-c` 打分；
@@ -26,16 +27,16 @@ C 源码 → uast/parser-C（tree-sitter-c + visitor + 宏展开）→ UAST
 
 核心代码在子模块中：
 
-- `uast/parser-C/`：C parser（含按编译配置的预处理 `src/macros.ts`）及单测（58 个）；
+- `uast/parser-C/`：C parser（含按编译配置的预处理 `src/macros.ts`）及单测（69 个）；
 - `engine/src/engine/parser/c/`、`engine/src/engine/analyzer/c/`、`engine/src/checker/taint/c/`：Engine 接入、分析器与 checker；
 - `engine/resource/example-rule-config/rule_config_c.json`：默认 source/sink；
-- `engine/test/c/`：Engine 端回归测试（`npm run test-c`，含 `semantics-cases/` 语义回归）。
+- `engine/test/c/`：Engine 端回归测试（`npm run test-c`，含 `semantics-cases/` 语义回归和 `callgraph-cases/` 调用图回调回归）。
 
 ## 结果摘要
 
 | 验收项 | 结果 |
 | --- | --- |
-| 1. 功能单测 | parser-C 58/58；Engine `test-c` 86/86 |
+| 1. 功能单测 | parser-C 69/69；Engine `test-c` 111/111 |
 | 2. 靶场语义流通（自建 sast-c） | 原 82 个：65/65 检出，17/17 反例无误报；语义回归 82 个：45/45 检出，37/37 无误报 |
 | 独立测试复核 | 52 个语义边界用例 52/52（修复前 31/52）；8 个真实 API 用例（默认规则）8/8（修复前 0/8） |
 | 3. 大项目解析 | Redis、curl、SQLite 共 2,279 个文件、119 万行：0 崩溃；按 Linux 目标预处理后，配置排除的代码（`#if 0`、Windows/Apple 分支等）不进入 UAST，tree-sitter 识别的函数中 Redis 99.7%、curl 99.8%、SQLite 98.6% 保留在 UAST 中，差额均为被排除的代码；curl 命令行工具完整扫描 2 分 42 秒（语义修复前的数据，本轮未重跑） |

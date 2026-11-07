@@ -1,0 +1,45 @@
+{
+  "defines": {
+    "__APPLE__": "1",
+    "__BYTE_ORDER__": "__ORDER_LITTLE_ENDIAN__",
+    "__CHAR_BIT__": "8",
+    "__ENVIRONMENT_MAC_OS_X_VERSION_MIN_REQUIRED__": "260000",
+    "__ENVIRONMENT_OS_VERSION_MIN_REQUIRED__": "260000",
+    "__GNUC_MINOR__": "2",
+    "__GNUC__": "4",
+    "__LONG_MAX__": "9223372036854775807L",
+    "__LP64__": "1",
+    "__MACH__": "1",
+    "__ORDER_BIG_ENDIAN__": "4321",
+    "__ORDER_LITTLE_ENDIAN__": "1234",
+    "__SIZEOF_LONG__": "8",
+    "__STDC_HOSTED__": "1",
+    "__STDC_VERSION__": "201710L",
+    "__STDC__": "1",
+    "__aarch64__": "1",
+    "__apple_build_version__": "21000099",
+    "__clang__": "1",
+    "__clang_major__": "21",
+    "BUILDING_LIBCURL": "1",
+    "CURL_HIDDEN_SYMBOLS": "1",
+    "HAVE_CONFIG_H": "1",
+    "NDEBUG": "1"
+  },
+  "undefines": [
+    "__unix",
+    "__unix__",
+    "__x86_64__",
+    "unix"
+  ],
+  "target": "macos",
+  "unknownMacros": "undefined",
+  "includeDirs": [
+    "<workspace>/work/curl-large/input/include",
+    "<workspace>/work/curl-large/input/lib",
+    "/opt/homebrew/opt/openssl@3/include",
+    "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include",
+    "/Library/Developer/CommandLineTools/usr/lib/clang/21/include"
+  ],
+  "unrepresentable_object_macros": {},
+  "note": "Import compiler object-like builtins referenced by project plus all preset names, override macos preset architecture/compiler values to actual arm64 Apple Clang; record unsupported function-like compiler builtins separately."
+}

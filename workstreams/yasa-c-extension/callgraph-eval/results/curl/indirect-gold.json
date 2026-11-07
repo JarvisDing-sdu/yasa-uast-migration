@@ -1,0 +1,1074 @@
+{
+  "schema_version": 1,
+  "title": "Curated internal indirect-call subset: real configured libcurl",
+  "created_utc": "2026-11-06T15:13:58.620836+00:00",
+  "analyzer_blind_declaration": "Selected, read, justified and frozen without seeing either Yasa C or CodeGraph C predictions for this project.",
+  "source": {
+    "repository": "https://github.com/curl/curl",
+    "commit": "b052c835a32bb3e1e5622dd46ccfaa128d92b750",
+    "root": "<workspace>/work/repos/curl",
+    "source_sha256": {
+      "lib/curl_sha512_256.c": "ec0873a4d1f754f593d336bd981f62d07491ee5e354da2136e3b4224322c50b2",
+      "lib/ftp.c": "8b3fc1495d3d01af5ed532c14c8df48ebaaa202b05867b85755d9c3e48c29cd0",
+      "lib/ftplistparser.c": "8116fe2b1ac438000a69f0dfc08337ad7f7390b3f4540b6ea4d95bb71d558c10",
+      "lib/hmac.c": "d30014042a7a7492c4aa4d00619a087d55c7573ca28aba46dacb62b0a17dffce",
+      "lib/http_aws_sigv4.c": "cc17c3010447031102fd6f33981ed5aa6e92df2644b8a4244c7b4c72d64ce625",
+      "lib/imap.c": "98a35fcb0e86be16af9cbcbbaad5f9338ddf4b35a132f818334b725a8ca2929a",
+      "lib/md5.c": "5e54e8efdf12909ab5728cb187e67bc253906f6ec33baaa496fba78180820b77",
+      "lib/mime.c": "651178f1a254072797a8e9aa8f4146a6f949f63a1eb828db7c379f271ff8734f",
+      "lib/pingpong.c": "34a43e19d815c0d8991d43e028778e7b6b8fa1e7da05445b73d29f2dd4f36518",
+      "lib/pingpong.h": "f986069b0f808ed759b9620f2507a435a6050ae6cd40270bc6f0bd9de144c4d1",
+      "lib/pop3.c": "86f1f933f2643b7698809661b86a6d418c413f09650707aeae5412043f9cbb71",
+      "lib/sha256.c": "8e8e8fcccbc3f054ce8d0087fb3077c1dae4d2609d6c44ed3a3c6daeb41becc6",
+      "lib/smtp.c": "fd2aa384f1d0f1796882a91f174302ce0556af0c22dba9f4e022d362872db47d",
+      "lib/transfer.c": "eccb2b4a8354e0b4b83924e4406f7de1059fbd128c4361e73b1c1b38d00b9e76",
+      "lib/vauth/cram.c": "ab55ada59bbc60676cce83d25d15dbc473fc71ed715c484edbe41bc7510ef6d5",
+      "lib/vauth/digest.c": "80f31db2d7e4e72d97ad05dfc900a7ffa752bf2dfb1e9caab92047784bba3875",
+      "lib/vtls/vtls_scache.c": "d176fa68a436b7ac63637e294ab714c362f5b0438a234bb356fbd899acb4ec92"
+    }
+  },
+  "configured_build": {
+    "compile_commands": "<workspace>/work/curl-large/build/compile_commands.json",
+    "compile_commands_sha256": "aed7dd2d83b6525dc5b79d3eac1664e8b7bcd53b3a78726c7f885dcc82cf7aa2",
+    "curl_config_h_sha256": "aa291bdacb8d412b35ca4ab0468099bb4443f54096a64df33c78f435efa8287c",
+    "cmake_cache_sha256": "9c22724258c6d0542fd4587849696448d02c523a5f7ea89fd245336e2acfbc3b",
+    "active_assumptions": [
+      "USE_OPENSSL=1",
+      "FTP enabled",
+      "IMAP enabled",
+      "POP3 enabled",
+      "SMTP enabled",
+      "MIME enabled",
+      "DIGEST_AUTH enabled",
+      "HTTPSIG disabled"
+    ]
+  },
+  "scope": {
+    "population": "11 manually selected syntactic indirect-call sites in libcurl, across five callback mechanisms.",
+    "selection_basis": "Readable bounded internal target provenance, mechanism diversity and high confidence; no tool predictions were used to select sites.",
+    "closed_world_boundary": "Supported libcurl API executions and libcurl-internal callers of private Curl_* routines; valid objects and no memory corruption. External caller-supplied callbacks are excluded from target enumeration.",
+    "target_meaning": "The complete set of project-internal functions that can be called at this selected source expression over valid executions under this configuration.",
+    "identity": "Repository-relative file::function; disambiguates static functions and aligns with file-aware build gold.",
+    "not_claimed": [
+      "Overall project indirect-call recall",
+      "A representative random sample",
+      "A complete inventory of indirect calls",
+      "Proof of all runtime path feasibility beyond the documented registration and normal protocol use"
+    ],
+    "metric_guidance": "Report recall only as curated-indirect-subset recall (11 sites / 25 site-target edges). If an analyzer emits only caller-to-callee edges, report that representation explicitly; these selected pairs are unique even after erasing site locations. Do not label missing target pairs false positives or extrapolate this subset to all callbacks."
+  },
+  "counts": {
+    "sites": 11,
+    "site_target_edges": 25,
+    "unique_caller_target_edges": 25,
+    "families": 5,
+    "unique_target_functions": 22
+  },
+  "sites": [
+    {
+      "id": "mime-encode-read",
+      "family": "mime_encoder",
+      "caller": "lib/mime.c::read_encoded_part_content",
+      "caller_file": "lib/mime.c",
+      "caller_function": "read_encoded_part_content",
+      "callsite": {
+        "line": 778,
+        "column": 12,
+        "column_convention": "1-based start of the indirect callee expression in the original source",
+        "callee_expression": "part->encoder->encodefunc",
+        "snippet": "sz = part->encoder->encodefunc(buffer, bufsize, ateof, part);"
+      },
+      "expected_targets": [
+        {
+          "id": "lib/mime.c::encoder_nop_read",
+          "file": "lib/mime.c",
+          "function": "encoder_nop_read",
+          "definition_line": 290
+        },
+        {
+          "id": "lib/mime.c::encoder_7bit_read",
+          "file": "lib/mime.c",
+          "function": "encoder_7bit_read",
+          "definition_line": 317
+        },
+        {
+          "id": "lib/mime.c::encoder_base64_read",
+          "file": "lib/mime.c",
+          "function": "encoder_base64_read",
+          "definition_line": 342
+        },
+        {
+          "id": "lib/mime.c::encoder_qp_read",
+          "file": "lib/mime.c",
+          "function": "encoder_qp_read",
+          "definition_line": 463
+        }
+      ],
+      "target_set_status": "complete_for_this_site_under_stated_scope",
+      "supporting_evidence": [
+        "mime_table",
+        "mime_assignment",
+        "mime_copy",
+        "mime_guard_read"
+      ],
+      "execution_guard": "part->encoder is non-null; buffered input is available or end of input has been reached.",
+      "rationale": "The encoder name selects one of five immutable table rows; binary and 8bit share encoder_nop_read.",
+      "limitations": "Opaque public MIME objects are used through supported APIs; memory corruption or direct writes to private struct fields are outside scope."
+    },
+    {
+      "id": "mime-encode-size",
+      "family": "mime_encoder",
+      "caller": "lib/mime.c::mime_size",
+      "caller_file": "lib/mime.c",
+      "caller_function": "mime_size",
+      "callsite": {
+        "line": 1640,
+        "column": 12,
+        "column_convention": "1-based start of the indirect callee expression in the original source",
+        "callee_expression": "part->encoder->sizefunc",
+        "snippet": "size = part->encoder->sizefunc(part);"
+      },
+      "expected_targets": [
+        {
+          "id": "lib/mime.c::encoder_nop_size",
+          "file": "lib/mime.c",
+          "function": "encoder_nop_size",
+          "definition_line": 311
+        },
+        {
+          "id": "lib/mime.c::encoder_base64_size",
+          "file": "lib/mime.c",
+          "function": "encoder_base64_size",
+          "definition_line": 426
+        },
+        {
+          "id": "lib/mime.c::encoder_qp_size",
+          "file": "lib/mime.c",
+          "function": "encoder_qp_size",
+          "definition_line": 564
+        }
+      ],
+      "target_set_status": "complete_for_this_site_under_stated_scope",
+      "supporting_evidence": [
+        "mime_table",
+        "mime_assignment",
+        "mime_copy"
+      ],
+      "execution_guard": "part->encoder is non-null.",
+      "rationale": "The five immutable encoder rows contain exactly three distinct size callbacks.",
+      "limitations": "Opaque public MIME objects are used through supported APIs; memory corruption or direct writes to private struct fields are outside scope."
+    },
+    {
+      "id": "md5-init",
+      "family": "md5_params",
+      "caller": "lib/md5.c::Curl_MD5_init",
+      "caller_file": "lib/md5.c",
+      "caller_function": "Curl_MD5_init",
+      "callsite": {
+        "line": 593,
+        "column": 6,
+        "column_convention": "1-based start of the indirect callee expression in the original source",
+        "callee_expression": "(*md5params->md5_init_func)",
+        "snippet": "if((*md5params->md5_init_func)(ctxt->md5_hashctx)) {"
+      },
+      "expected_targets": [
+        {
+          "id": "lib/md5.c::my_md5_init",
+          "file": "lib/md5.c",
+          "function": "my_md5_init",
+          "definition_line": 79
+        }
+      ],
+      "target_set_status": "complete_for_this_site_under_stated_scope",
+      "supporting_evidence": [
+        "md5_params",
+        "md5_store",
+        "md5_call_pop3",
+        "md5_call_digest"
+      ],
+      "execution_guard": "A successfully allocated, initialized MD5 context is supplied (init runs after both allocations).",
+      "rationale": "All lib/ callers of Curl_MD5_init pass &Curl_DIGEST_MD5; no other MD5_params object or write to the retained parameter field exists.",
+      "limitations": "The private Curl_MD5_* entry points are reached through libcurl-internal calls. Arbitrary outside calls to private hidden symbols and forged contexts are excluded."
+    },
+    {
+      "id": "md5-update",
+      "family": "md5_params",
+      "caller": "lib/md5.c::Curl_MD5_update",
+      "caller_file": "lib/md5.c",
+      "caller_function": "Curl_MD5_update",
+      "callsite": {
+        "line": 605,
+        "column": 3,
+        "column_convention": "1-based start of the indirect callee expression in the original source",
+        "callee_expression": "(*context->md5_hash->md5_update_func)",
+        "snippet": "(*context->md5_hash->md5_update_func)(context->md5_hashctx, input, len);"
+      },
+      "expected_targets": [
+        {
+          "id": "lib/md5.c::my_md5_update",
+          "file": "lib/md5.c",
+          "function": "my_md5_update",
+          "definition_line": 94
+        }
+      ],
+      "target_set_status": "complete_for_this_site_under_stated_scope",
+      "supporting_evidence": [
+        "md5_params",
+        "md5_store",
+        "md5_call_pop3",
+        "md5_call_digest"
+      ],
+      "execution_guard": "A successfully allocated, initialized MD5 context is supplied (init runs after both allocations).",
+      "rationale": "All lib/ callers of Curl_MD5_init pass &Curl_DIGEST_MD5; no other MD5_params object or write to the retained parameter field exists.",
+      "limitations": "The private Curl_MD5_* entry points are reached through libcurl-internal calls. Arbitrary outside calls to private hidden symbols and forged contexts are excluded."
+    },
+    {
+      "id": "md5-final",
+      "family": "md5_params",
+      "caller": "lib/md5.c::Curl_MD5_final",
+      "caller_file": "lib/md5.c",
+      "caller_function": "Curl_MD5_final",
+      "callsite": {
+        "line": 612,
+        "column": 3,
+        "column_convention": "1-based start of the indirect callee expression in the original source",
+        "callee_expression": "(*context->md5_hash->md5_final_func)",
+        "snippet": "(*context->md5_hash->md5_final_func)(result, context->md5_hashctx);"
+      },
+      "expected_targets": [
+        {
+          "id": "lib/md5.c::my_md5_final",
+          "file": "lib/md5.c",
+          "function": "my_md5_final",
+          "definition_line": 101
+        }
+      ],
+      "target_set_status": "complete_for_this_site_under_stated_scope",
+      "supporting_evidence": [
+        "md5_params",
+        "md5_store",
+        "md5_call_pop3",
+        "md5_call_digest"
+      ],
+      "execution_guard": "A successfully allocated, initialized MD5 context is supplied (init runs after both allocations).",
+      "rationale": "All lib/ callers of Curl_MD5_init pass &Curl_DIGEST_MD5; no other MD5_params object or write to the retained parameter field exists.",
+      "limitations": "The private Curl_MD5_* entry points are reached through libcurl-internal calls. Arbitrary outside calls to private hidden symbols and forged contexts are excluded."
+    },
+    {
+      "id": "hmac-init",
+      "family": "hmac_params",
+      "caller": "lib/hmac.c::Curl_HMAC_init",
+      "caller_file": "lib/hmac.c",
+      "caller_function": "Curl_HMAC_init",
+      "callsite": {
+        "line": 77,
+        "column": 6,
+        "column_convention": "1-based start of the indirect callee expression in the original source",
+        "callee_expression": "hashparams->hinit",
+        "snippet": "if(hashparams->hinit(ctxt->hashctxt1) ||"
+      },
+      "expected_targets": [
+        {
+          "id": "lib/md5.c::my_md5_init",
+          "file": "lib/md5.c",
+          "function": "my_md5_init",
+          "definition_line": 79
+        },
+        {
+          "id": "lib/sha256.c::my_sha256_init",
+          "file": "lib/sha256.c",
+          "function": "my_sha256_init",
+          "definition_line": 62
+        }
+      ],
+      "target_set_status": "complete_for_this_site_under_stated_scope",
+      "supporting_evidence": [
+        "hmac_md5",
+        "hmac_sha256",
+        "hmac_cram",
+        "hmac_aws",
+        "hmac_scache",
+        "hmac_forward",
+        "hmac_store",
+        "hmac_final_alias",
+        "unused_sha512_params"
+      ],
+      "execution_guard": "Context allocation succeeded; the first priming initialization is evaluated.",
+      "rationale": "All lib/ argument origins to Curl_HMAC_init/Curl_hmacit are Curl_HMAC_MD5 or Curl_HMAC_SHA256. The retained parameter pointer preserves that two-object bound.",
+      "limitations": "Private Curl_HMAC_* entry points are restricted to libcurl-internal callers. This is three representative syntactic sites, not every HMAC call expression. HTTPSIG is disabled in this build; its source would only add an existing SHA256 source. The unused SHA512/256 HMAC object is not treated as an actual argument source."
+    },
+    {
+      "id": "hmac-update",
+      "family": "hmac_params",
+      "caller": "lib/hmac.c::Curl_HMAC_update",
+      "caller_file": "lib/hmac.c",
+      "caller_function": "Curl_HMAC_update",
+      "callsite": {
+        "line": 106,
+        "column": 3,
+        "column_convention": "1-based start of the indirect callee expression in the original source",
+        "callee_expression": "ctxt->hash->hupdate",
+        "snippet": "ctxt->hash->hupdate(ctxt->hashctxt1, data, len);"
+      },
+      "expected_targets": [
+        {
+          "id": "lib/md5.c::my_md5_update",
+          "file": "lib/md5.c",
+          "function": "my_md5_update",
+          "definition_line": 94
+        },
+        {
+          "id": "lib/sha256.c::my_sha256_update",
+          "file": "lib/sha256.c",
+          "function": "my_sha256_update",
+          "definition_line": 76
+        }
+      ],
+      "target_set_status": "complete_for_this_site_under_stated_scope",
+      "supporting_evidence": [
+        "hmac_md5",
+        "hmac_sha256",
+        "hmac_cram",
+        "hmac_aws",
+        "hmac_scache",
+        "hmac_forward",
+        "hmac_store",
+        "hmac_final_alias",
+        "unused_sha512_params"
+      ],
+      "execution_guard": "A successfully initialized HMAC context is supplied.",
+      "rationale": "All lib/ argument origins to Curl_HMAC_init/Curl_hmacit are Curl_HMAC_MD5 or Curl_HMAC_SHA256. The retained parameter pointer preserves that two-object bound.",
+      "limitations": "Private Curl_HMAC_* entry points are restricted to libcurl-internal callers. This is three representative syntactic sites, not every HMAC call expression. HTTPSIG is disabled in this build; its source would only add an existing SHA256 source. The unused SHA512/256 HMAC object is not treated as an actual argument source."
+    },
+    {
+      "id": "hmac-final",
+      "family": "hmac_params",
+      "caller": "lib/hmac.c::Curl_HMAC_final",
+      "caller_file": "lib/hmac.c",
+      "caller_function": "Curl_HMAC_final",
+      "callsite": {
+        "line": 119,
+        "column": 3,
+        "column_convention": "1-based start of the indirect callee expression in the original source",
+        "callee_expression": "hashparams->hfinal",
+        "snippet": "hashparams->hfinal(output, ctxt->hashctxt1);"
+      },
+      "expected_targets": [
+        {
+          "id": "lib/md5.c::my_md5_final",
+          "file": "lib/md5.c",
+          "function": "my_md5_final",
+          "definition_line": 101
+        },
+        {
+          "id": "lib/sha256.c::my_sha256_final",
+          "file": "lib/sha256.c",
+          "function": "my_sha256_final",
+          "definition_line": 84
+        }
+      ],
+      "target_set_status": "complete_for_this_site_under_stated_scope",
+      "supporting_evidence": [
+        "hmac_md5",
+        "hmac_sha256",
+        "hmac_cram",
+        "hmac_aws",
+        "hmac_scache",
+        "hmac_forward",
+        "hmac_store",
+        "hmac_final_alias",
+        "unused_sha512_params"
+      ],
+      "execution_guard": "A successfully initialized HMAC context is supplied; null output is redirected to internal scratch storage.",
+      "rationale": "All lib/ argument origins to Curl_HMAC_init/Curl_hmacit are Curl_HMAC_MD5 or Curl_HMAC_SHA256. The retained parameter pointer preserves that two-object bound.",
+      "limitations": "Private Curl_HMAC_* entry points are restricted to libcurl-internal callers. This is three representative syntactic sites, not every HMAC call expression. HTTPSIG is disabled in this build; its source would only add an existing SHA256 source. The unused SHA512/256 HMAC object is not treated as an actual argument source."
+    },
+    {
+      "id": "pingpong-state",
+      "family": "pingpong",
+      "caller": "lib/pingpong.c::Curl_pp_statemach",
+      "caller_file": "lib/pingpong.c",
+      "caller_function": "Curl_pp_statemach",
+      "callsite": {
+        "line": 116,
+        "column": 14,
+        "column_convention": "1-based start of the indirect callee expression in the original source",
+        "callee_expression": "pp->statemachine",
+        "snippet": "result = pp->statemachine(data, data->conn);"
+      },
+      "expected_targets": [
+        {
+          "id": "lib/ftp.c::ftp_pp_statemachine",
+          "file": "lib/ftp.c",
+          "function": "ftp_pp_statemachine",
+          "definition_line": 3190
+        },
+        {
+          "id": "lib/imap.c::imap_pp_statemachine",
+          "file": "lib/imap.c",
+          "function": "imap_pp_statemachine",
+          "definition_line": 1563
+        },
+        {
+          "id": "lib/pop3.c::pop3_statemachine",
+          "file": "lib/pop3.c",
+          "function": "pop3_statemachine",
+          "definition_line": 1272
+        },
+        {
+          "id": "lib/smtp.c::smtp_pp_statemachine",
+          "file": "lib/smtp.c",
+          "function": "smtp_pp_statemachine",
+          "definition_line": 1516
+        }
+      ],
+      "target_set_status": "complete_for_this_site_under_stated_scope",
+      "supporting_evidence": [
+        "pp_macro",
+        "pp_ftp",
+        "pp_imap",
+        "pp_pop3",
+        "pp_smtp"
+      ],
+      "execution_guard": "The protocol has run its PINGPONG_SETUP and rc indicates socket readiness or buffered input.",
+      "rationale": "There are exactly four PINGPONG_SETUP invocations in lib/, and no other member assignments; all four protocols are enabled.",
+      "limitations": "This is a union across real FTP, IMAP, POP3 and SMTP connection objects at the generic pingpong site. A particular connection has exactly its own protocol pair. Other protocol handlers are not pingpong registrations and are not targets."
+    },
+    {
+      "id": "pingpong-response",
+      "family": "pingpong",
+      "caller": "lib/pingpong.c::Curl_pp_readresp",
+      "caller_file": "lib/pingpong.c",
+      "caller_function": "Curl_pp_readresp",
+      "callsite": {
+        "line": 307,
+        "column": 12,
+        "column_convention": "1-based start of the indirect callee expression in the original source",
+        "callee_expression": "pp->endofresp",
+        "snippet": "if(pp->endofresp(data, conn, line, length, code)) {"
+      },
+      "expected_targets": [
+        {
+          "id": "lib/ftp.c::ftp_endofresp",
+          "file": "lib/ftp.c",
+          "function": "ftp_endofresp",
+          "definition_line": 585
+        },
+        {
+          "id": "lib/imap.c::imap_endofresp",
+          "file": "lib/imap.c",
+          "function": "imap_endofresp",
+          "definition_line": 299
+        },
+        {
+          "id": "lib/pop3.c::pop3_endofresp",
+          "file": "lib/pop3.c",
+          "function": "pop3_endofresp",
+          "definition_line": 292
+        },
+        {
+          "id": "lib/smtp.c::smtp_endofresp",
+          "file": "lib/smtp.c",
+          "function": "smtp_endofresp",
+          "definition_line": 494
+        }
+      ],
+      "target_set_status": "complete_for_this_site_under_stated_scope",
+      "supporting_evidence": [
+        "pp_macro",
+        "pp_ftp",
+        "pp_imap",
+        "pp_pop3",
+        "pp_smtp"
+      ],
+      "execution_guard": "The protocol has run its PINGPONG_SETUP; a complete, valid response line has been received and Curl_client_write succeeded.",
+      "rationale": "Each enabled pingpong protocol registers exactly one end-of-response implementation in the same connection object.",
+      "limitations": "This is a union across real FTP, IMAP, POP3 and SMTP connection objects at the generic pingpong site. A particular connection has exactly its own protocol pair. Other protocol handlers are not pingpong registrations and are not targets."
+    },
+    {
+      "id": "ftp-wildcard-dtor",
+      "family": "wildcard_dtor",
+      "caller": "lib/ftplistparser.c::Curl_wildcard_dtor",
+      "caller_file": "lib/ftplistparser.c",
+      "caller_function": "Curl_wildcard_dtor",
+      "callsite": {
+        "line": 197,
+        "column": 5,
+        "column_convention": "1-based start of the indirect callee expression in the original source",
+        "callee_expression": "wc->dtor",
+        "snippet": "wc->dtor(wc->ftpwc);"
+      },
+      "expected_targets": [
+        {
+          "id": "lib/ftp.c::wc_data_dtor",
+          "file": "lib/ftp.c",
+          "function": "wc_data_dtor",
+          "definition_line": 3943
+        }
+      ],
+      "target_set_status": "complete_for_this_site_under_stated_scope",
+      "supporting_evidence": [
+        "wc_alloc",
+        "wc_assignment",
+        "wc_clear"
+      ],
+      "execution_guard": "The wildcard object and its destructor member are non-null.",
+      "rationale": "The internal wildcard state begins zeroed; FTP wildcard initialization supplies the sole non-null destructor assignment, and cleanup/failure only clear it.",
+      "limitations": "This destructor is unrelated to caller-supplied FTP chunk/begin/end callbacks; those do not assign WildcardData.dtor."
+    }
+  ],
+  "evidence": {
+    "mime_table": {
+      "file": "lib/mime.c",
+      "line": 1428,
+      "end_line": 1435,
+      "snippet": "static const struct mime_encoder encoders[] = {\n  { \"binary\", encoder_nop_read, encoder_nop_size },\n  { \"8bit\", encoder_nop_read, encoder_nop_size },\n  { \"7bit\", encoder_7bit_read, encoder_nop_size },\n  { \"base64\", encoder_base64_read, encoder_base64_size },\n  { \"quoted-printable\", encoder_qp_read, encoder_qp_size },\n  { ZERO_NULL, ZERO_NULL, ZERO_NULL }\n};",
+      "rationale": "The only encoder object table: five named encodings, four distinct read implementations and three distinct size implementations; the last entry is a null sentinel."
+    },
+    "mime_assignment": {
+      "file": "lib/mime.c",
+      "line": 1438,
+      "end_line": 1457,
+      "snippet": "CURLcode curl_mime_encoder(curl_mimepart *part, const char *encoding)\n{\n  CURLcode result = CURLE_BAD_FUNCTION_ARGUMENT;\n  const struct mime_encoder *mep;\n\n  if(!part)\n    return result;\n\n  part->encoder = NULL;\n\n  if(!encoding)\n    return CURLE_OK;    /* Removing current encoder. */\n\n  for(mep = encoders; mep->name; mep++)\n    if(curl_strequal(encoding, mep->name)) {\n      part->encoder = mep;\n      result = CURLE_OK;\n    }\n\n  return result;",
+      "rationale": "curl_mime_encoder assigns either null or an address from encoders; the public API accepts a name, not a function pointer."
+    },
+    "mime_copy": {
+      "file": "lib/mime.c",
+      "line": 1210,
+      "end_line": 1215,
+      "snippet": "  }\n\n  if(!result) {\n    /* Duplicate other fields. */\n    dst->encoder = src->encoder;\n    result = curl_mime_type(dst, src->mimetype);",
+      "rationale": "Duplication copies an existing encoder pointer; it introduces no new encoder implementation."
+    },
+    "mime_guard_read": {
+      "file": "lib/mime.c",
+      "line": 873,
+      "end_line": 878,
+      "snippet": "    case MIMESTATE_CONTENT:\n      if(part->encoder)\n        sz = read_encoded_part_content(part, buffer, bufsize, hasread);\n      else\n        sz = read_part_content(part, buffer, bufsize, hasread);\n      switch(sz) {",
+      "rationale": "The encoded-read routine is entered only for non-null part->encoder."
+    },
+    "md5_params": {
+      "file": "lib/md5.c",
+      "line": 543,
+      "end_line": 549,
+      "snippet": "const struct MD5_params Curl_DIGEST_MD5 = {\n  my_md5_init,        /* Digest initialization function */\n  my_md5_update,      /* Digest update function */\n  my_md5_final,       /* Digest computation end function */\n  sizeof(my_md5_ctx), /* Size of digest context struct */\n  MD5_DIGEST_LEN      /* Result size */\n};",
+      "rationale": "The only MD5_params initializer binds init/update/final to my_md5_*."
+    },
+    "md5_store": {
+      "file": "lib/md5.c",
+      "line": 591,
+      "end_line": 593,
+      "snippet": "  ctxt->md5_hash = md5params;\n\n  if((*md5params->md5_init_func)(ctxt->md5_hashctx)) {",
+      "rationale": "The MD5 context retains exactly the supplied parameter object."
+    },
+    "md5_call_pop3": {
+      "file": "lib/pop3.c",
+      "line": 573,
+      "end_line": 575,
+      "snippet": "  /* Create the digest */\n  ctxt = Curl_MD5_init(&Curl_DIGEST_MD5);\n  if(!ctxt)",
+      "rationale": "POP3 APOP supplies Curl_DIGEST_MD5."
+    },
+    "md5_call_digest": {
+      "file": "lib/vauth/digest.c",
+      "line": 405,
+      "end_line": 407,
+      "snippet": "  ctxt = Curl_MD5_init(&Curl_DIGEST_MD5);\n  if(!ctxt)\n    return CURLE_OUT_OF_MEMORY;",
+      "rationale": "Digest auth supplies Curl_DIGEST_MD5; the other three initializations in this file do the same."
+    },
+    "hmac_md5": {
+      "file": "lib/md5.c",
+      "line": 534,
+      "end_line": 541,
+      "snippet": "const struct HMAC_params Curl_HMAC_MD5 = {\n  my_md5_init,        /* Hash initialization function. */\n  my_md5_update,      /* Hash update function. */\n  my_md5_final,       /* Hash computation end function. */\n  sizeof(my_md5_ctx), /* Size of hash context structure. */\n  64,                 /* Maximum key length. */\n  MD5_DIGEST_LEN      /* Result size. */\n};",
+      "rationale": "MD5 HMAC parameter object binds the three my_md5_* implementations."
+    },
+    "hmac_sha256": {
+      "file": "lib/sha256.c",
+      "line": 504,
+      "end_line": 511,
+      "snippet": "const struct HMAC_params Curl_HMAC_SHA256 = {\n  my_sha256_init,        /* Hash initialization function. */\n  my_sha256_update,      /* Hash update function. */\n  my_sha256_final,       /* Hash computation end function. */\n  sizeof(my_sha256_ctx), /* Size of hash context structure. */\n  64,                    /* Maximum key length. */\n  32                     /* Result size. */\n};",
+      "rationale": "SHA256 HMAC parameter object binds the three my_sha256_* implementations."
+    },
+    "hmac_cram": {
+      "file": "lib/vauth/cram.c",
+      "line": 59,
+      "end_line": 62,
+      "snippet": "  /* Compute the digest using the password as the key */\n  ctxt = Curl_HMAC_init(&Curl_HMAC_MD5,\n                        (const unsigned char *)passwd,\n                        curlx_uztoui(strlen(passwd)));",
+      "rationale": "CRAM-MD5 creates a context with Curl_HMAC_MD5."
+    },
+    "hmac_aws": {
+      "file": "lib/http_aws_sigv4.c",
+      "line": 40,
+      "end_line": 46,
+      "snippet": "\n#define HMAC_SHA256(k, kl, d, dl, o)                 \\\n  do {                                               \\\n    result = Curl_hmacit(&Curl_HMAC_SHA256,          \\\n                         (const unsigned char *)(k), \\\n                         kl,                         \\\n                         (const unsigned char *)(d), \\",
+      "rationale": "The AWS HMAC helper macro supplies Curl_HMAC_SHA256."
+    },
+    "hmac_scache": {
+      "file": "lib/vtls/vtls_scache.c",
+      "line": 807,
+      "end_line": 811,
+      "snippet": "      if(!peer_key_len) /* we are lazy */\n        peer_key_len = strlen(ssl_peer_key);\n      result = Curl_hmacit(&Curl_HMAC_SHA256,\n                           scache->peers[i].key_salt,\n                           sizeof(scache->peers[i].key_salt),",
+      "rationale": "TLS session-cache HMAC call supplies Curl_HMAC_SHA256; two other HMAC calls in this file do the same."
+    },
+    "hmac_forward": {
+      "file": "lib/hmac.c",
+      "line": 149,
+      "end_line": 151,
+      "snippet": "  if(keylen > UINT_MAX) /* unlikely to ever happen */\n    return CURLE_BAD_FUNCTION_ARGUMENT;\n  ctxt = Curl_HMAC_init(hashparams, key, curlx_uztoui(keylen));",
+      "rationale": "Curl_hmacit forwards the same parameter object to Curl_HMAC_init."
+    },
+    "hmac_store": {
+      "file": "lib/hmac.c",
+      "line": 61,
+      "end_line": 63,
+      "snippet": "  ctxt->hash = hashparams;\n  ctxt->hashctxt1 = (void *)(ctxt + 1);\n  ctxt->hashctxt2 = (void *)((char *)ctxt->hashctxt1 + hashparams->ctxtsize);",
+      "rationale": "The context retains the supplied hash parameter object."
+    },
+    "hmac_final_alias": {
+      "file": "lib/hmac.c",
+      "line": 109,
+      "end_line": 111,
+      "snippet": "int Curl_HMAC_final(struct HMAC_context *ctxt, unsigned char *output)\n{\n  const struct HMAC_params *hashparams = ctxt->hash;",
+      "rationale": "The finalization local alias comes from the retained context hash."
+    },
+    "unused_sha512_params": {
+      "file": "lib/curl_sha512_256.c",
+      "line": 830,
+      "end_line": 846,
+      "snippet": "const struct HMAC_params Curl_HMAC_SHA512_256[] = {\n  {\n    /* Initialize context procedure. */\n    Curl_sha512_256_init,\n    /* Update context with data. */\n    Curl_sha512_256_update_i,\n    /* Get final result procedure. */\n    Curl_sha512_256_finish_v,\n    /* Context structure size. */\n    sizeof(Curl_sha512_256_ctx),\n    /* Maximum key length (bytes). */\n    CURL_SHA512_256_BLOCK_SIZE,\n    /* Result length (bytes). */\n    CURL_SHA512_256_DIGEST_SIZE\n  }\n};\n",
+      "rationale": "A SHA512/256 HMAC object exists, but no lib/ caller passes or otherwise references it. Its presence alone does not make it a possible target at the selected HMAC sites."
+    },
+    "pp_macro": {
+      "file": "lib/pingpong.h",
+      "line": 77,
+      "end_line": 81,
+      "snippet": "#define PINGPONG_SETUP(pp, s, e) \\\n  do {                           \\\n    (pp)->statemachine = s;      \\\n    (pp)->endofresp = e;         \\\n  } while(0)",
+      "rationale": "PINGPONG_SETUP writes the protocol-specific pair of implementations."
+    },
+    "pp_ftp": {
+      "file": "lib/ftp.c",
+      "line": 3540,
+      "end_line": 3540,
+      "snippet": "  PINGPONG_SETUP(pp, ftp_pp_statemachine, ftp_endofresp);",
+      "rationale": "FTP connection setup installs only FTP implementations."
+    },
+    "pp_imap": {
+      "file": "lib/imap.c",
+      "line": 2289,
+      "end_line": 2289,
+      "snippet": "  PINGPONG_SETUP(pp, imap_pp_statemachine, imap_endofresp);",
+      "rationale": "IMAP connection setup installs only IMAP implementations."
+    },
+    "pp_pop3": {
+      "file": "lib/pop3.c",
+      "line": 1436,
+      "end_line": 1436,
+      "snippet": "  PINGPONG_SETUP(pp, pop3_statemachine, pop3_endofresp);",
+      "rationale": "POP3 connection setup installs only POP3 implementations."
+    },
+    "pp_smtp": {
+      "file": "lib/smtp.c",
+      "line": 1685,
+      "end_line": 1685,
+      "snippet": "  PINGPONG_SETUP(&smtpc->pp, smtp_pp_statemachine, smtp_endofresp);",
+      "rationale": "SMTP connection setup installs only SMTP implementations."
+    },
+    "wc_alloc": {
+      "file": "lib/transfer.c",
+      "line": 573,
+      "end_line": 579,
+      "snippet": "      struct WildcardData *wc;\n      if(!data->wildcard) {\n        data->wildcard = curlx_calloc(1, sizeof(struct WildcardData));\n        if(!data->wildcard)\n          return CURLE_OUT_OF_MEMORY;\n      }\n      wc = data->wildcard;",
+      "rationale": "Wildcard state is internal and zero allocated."
+    },
+    "wc_assignment": {
+      "file": "lib/ftp.c",
+      "line": 4003,
+      "end_line": 4004,
+      "snippet": "  wildcard->ftpwc = ftpwc; /* put it to the WildcardData tmp pointer */\n  wildcard->dtor = wc_data_dtor;",
+      "rationale": "The sole non-null assignment to WildcardData.dtor is the FTP wildcard cleanup function."
+    },
+    "wc_clear": {
+      "file": "lib/ftp.c",
+      "line": 4031,
+      "end_line": 4032,
+      "snippet": "  wildcard->dtor = ZERO_NULL;\n  wildcard->ftpwc = NULL;",
+      "rationale": "Failure clears the callback; it does not install another target."
+    },
+    "external_mime_assignment": {
+      "file": "lib/mime.c",
+      "line": 1479,
+      "end_line": 1498,
+      "snippet": "CURLcode curl_mime_data_cb(curl_mimepart *part, curl_off_t datasize,\n                           curl_read_callback readfunc,\n                           curl_seek_callback seekfunc,\n                           curl_free_callback freefunc, void *arg)\n{\n  if(!part)\n    return CURLE_BAD_FUNCTION_ARGUMENT;\n\n  cleanup_part_content(part);\n\n  if(readfunc) {\n    part->readfunc = readfunc;\n    part->seekfunc = seekfunc;\n    part->freefunc = freefunc;\n    part->arg = arg;\n    part->datasize = datasize;\n    part->kind = MIMEKIND_CALLBACK;\n  }\n\n  return CURLE_OK;",
+      "rationale": "The public curl_mime_data_cb API accepts arbitrary application read/seek/free callbacks. These three dispatch families cannot have complete closed project-internal target sets."
+    }
+  },
+  "excluded_external_callback_inventory": [
+    {
+      "id": "mime-user-read",
+      "caller": "lib/mime.c::read_part_content",
+      "file": "lib/mime.c",
+      "line": 742,
+      "column": 14,
+      "snippet": "sz = part->readfunc(buffer, 1, bufsize, part->arg);",
+      "enumerated": false,
+      "reason": "A public API can install arbitrary application callbacks. Some branches can also use internal helpers; that does not bound the whole site to project-internal targets.",
+      "supporting_evidence": [
+        "external_mime_assignment"
+      ]
+    },
+    {
+      "id": "mime-user-seek",
+      "caller": "lib/mime.c::mime_part_rewind",
+      "file": "lib/mime.c",
+      "line": 989,
+      "column": 13,
+      "snippet": "res = part->seekfunc(part->arg, (curl_off_t)0, SEEK_SET);",
+      "enumerated": false,
+      "reason": "A public API can install arbitrary application callbacks. Some branches can also use internal helpers; that does not bound the whole site to project-internal targets.",
+      "supporting_evidence": [
+        "external_mime_assignment"
+      ]
+    },
+    {
+      "id": "mime-user-free",
+      "caller": "lib/mime.c::cleanup_part_content",
+      "file": "lib/mime.c",
+      "line": 1040,
+      "column": 5,
+      "snippet": "part->freefunc(part->arg);",
+      "enumerated": false,
+      "reason": "A public API can install arbitrary application callbacks. Some branches can also use internal helpers; that does not bound the whole site to project-internal targets.",
+      "supporting_evidence": [
+        "external_mime_assignment"
+      ]
+    }
+  ],
+  "manual_cross_reference_checks": {
+    "MD5_params": "rg over lib/ found only Curl_DIGEST_MD5 as an initializer. Curl_MD5_init arguments: pop3.c:574 and vauth/digest.c:405,419,442,460, all &Curl_DIGEST_MD5.",
+    "HMAC_params": "lib/ argument sources: vauth/cram.c:60 is &Curl_HMAC_MD5; http_aws_sigv4.c:43 and vtls/vtls_scache.c:809,1165,1203 are &Curl_HMAC_SHA256; hmac.c:151 forwards its argument. http_httpsig.c:511 also uses SHA256 but is disabled. Curl_HMAC_SHA512_256 has only a declaration and definition in lib/, no use as an argument.",
+    "mime_encoder": "Only non-null origin is encoders in curl_mime_encoder; mime.c:1214 copies an existing encoder. The object is internal; there is no callback registration API for its encodefunc or sizefunc.",
+    "pingpong": "Only macro PINGPONG_SETUP assigns statemachine/endofresp; exactly four invocations exist in lib/: ftp.c:3540, imap.c:2289, pop3.c:1436, smtp.c:1685.",
+    "wildcard": "WildcardData.dtor starts zeroed; ftp.c:4004 assigns wc_data_dtor, ftp.c:4031 and ftplistparser.c:198 clear it; no other non-null assignment found. Generic unrelated structs also named dtor were not merged."
+  },
+  "compiler_preprocessing_verification": [
+    {
+      "file": "lib/ftp.c",
+      "returncode": 0,
+      "preprocessed_file": "preprocessed/lib__ftp.i",
+      "preprocessed_sha256": "2f6aedcda9aeb36fa4b5a72e8e80a85406350450fc938b7a6c3847652604db36",
+      "checks": [
+        {
+          "kind": "target_definition_active",
+          "target_id": "lib/ftp.c::ftp_pp_statemachine",
+          "line": 3190,
+          "preprocessed_text": "static CURLcode ftp_pp_statemachine(struct Curl_easy *data,"
+        },
+        {
+          "kind": "target_definition_active",
+          "target_id": "lib/ftp.c::ftp_endofresp",
+          "line": 585,
+          "preprocessed_text": "static _Bool ftp_endofresp(struct Curl_easy *data, struct connectdata *conn,"
+        },
+        {
+          "kind": "target_definition_active",
+          "target_id": "lib/ftp.c::wc_data_dtor",
+          "line": 3943,
+          "preprocessed_text": "static void wc_data_dtor(void *ptr)"
+        }
+      ],
+      "diagnostics": ""
+    },
+    {
+      "file": "lib/ftplistparser.c",
+      "returncode": 0,
+      "preprocessed_file": "preprocessed/lib__ftplistparser.i",
+      "preprocessed_sha256": "68be3a3104f82a2721fdd6f7ea5879b2c497a11265099d62ce569d02a8f5766f",
+      "checks": [
+        {
+          "kind": "callsite_active",
+          "site_id": "ftp-wildcard-dtor",
+          "line": 197,
+          "preprocessed_text": "    wc->dtor(wc->ftpwc);"
+        }
+      ],
+      "diagnostics": ""
+    },
+    {
+      "file": "lib/hmac.c",
+      "returncode": 0,
+      "preprocessed_file": "preprocessed/lib__hmac.i",
+      "preprocessed_sha256": "f48cb1b72023d936f42d392fa8ff47b245fed8092d4fe72a7f0e16e7762ab25c",
+      "checks": [
+        {
+          "kind": "callsite_active",
+          "site_id": "hmac-init",
+          "line": 77,
+          "preprocessed_text": "  if(hashparams->hinit(ctxt->hashctxt1) ||"
+        },
+        {
+          "kind": "callsite_active",
+          "site_id": "hmac-update",
+          "line": 106,
+          "preprocessed_text": "  ctxt->hash->hupdate(ctxt->hashctxt1, data, len);"
+        },
+        {
+          "kind": "callsite_active",
+          "site_id": "hmac-final",
+          "line": 119,
+          "preprocessed_text": "  hashparams->hfinal(output, ctxt->hashctxt1);"
+        }
+      ],
+      "diagnostics": ""
+    },
+    {
+      "file": "lib/http_aws_sigv4.c",
+      "returncode": 0,
+      "preprocessed_file": "preprocessed/lib__http_aws_sigv4.i",
+      "preprocessed_sha256": "9a3c375fba2b578df7d64e18c61034982507dedf22b735bc41153f9882a5e965",
+      "checks": [],
+      "diagnostics": ""
+    },
+    {
+      "file": "lib/imap.c",
+      "returncode": 0,
+      "preprocessed_file": "preprocessed/lib__imap.i",
+      "preprocessed_sha256": "0e3d37572a11a09ada4f79046fbfb919a2323cbfcfb2933ccc7488f4982686d7",
+      "checks": [
+        {
+          "kind": "target_definition_active",
+          "target_id": "lib/imap.c::imap_pp_statemachine",
+          "line": 1563,
+          "preprocessed_text": "static CURLcode imap_pp_statemachine(struct Curl_easy *data,"
+        },
+        {
+          "kind": "target_definition_active",
+          "target_id": "lib/imap.c::imap_endofresp",
+          "line": 299,
+          "preprocessed_text": "static _Bool imap_endofresp(struct Curl_easy *data, struct connectdata *conn,"
+        }
+      ],
+      "diagnostics": ""
+    },
+    {
+      "file": "lib/md5.c",
+      "returncode": 0,
+      "preprocessed_file": "preprocessed/lib__md5.i",
+      "preprocessed_sha256": "6ef0612b783f95111bb26c98fcc81d3eaf13e5ba9b26f505e16053fd978614f3",
+      "checks": [
+        {
+          "kind": "callsite_active",
+          "site_id": "md5-init",
+          "line": 593,
+          "preprocessed_text": "  if((*md5params->md5_init_func)(ctxt->md5_hashctx)) {"
+        },
+        {
+          "kind": "callsite_active",
+          "site_id": "md5-update",
+          "line": 605,
+          "preprocessed_text": "  (*context->md5_hash->md5_update_func)(context->md5_hashctx, input, len);"
+        },
+        {
+          "kind": "callsite_active",
+          "site_id": "md5-final",
+          "line": 612,
+          "preprocessed_text": "  (*context->md5_hash->md5_final_func)(result, context->md5_hashctx);"
+        },
+        {
+          "kind": "target_definition_active",
+          "target_id": "lib/md5.c::my_md5_init",
+          "line": 79,
+          "preprocessed_text": "static CURLcode my_md5_init(void *in)"
+        },
+        {
+          "kind": "target_definition_active",
+          "target_id": "lib/md5.c::my_md5_update",
+          "line": 94,
+          "preprocessed_text": "static void my_md5_update(void *in,"
+        },
+        {
+          "kind": "target_definition_active",
+          "target_id": "lib/md5.c::my_md5_final",
+          "line": 101,
+          "preprocessed_text": "static void my_md5_final(unsigned char *digest, void *in)"
+        }
+      ],
+      "diagnostics": ""
+    },
+    {
+      "file": "lib/mime.c",
+      "returncode": 0,
+      "preprocessed_file": "preprocessed/lib__mime.i",
+      "preprocessed_sha256": "b979e17b8817a792ecda240c13d52c8336f75ed4e695e28c9f2ea36f1f5ff758",
+      "checks": [
+        {
+          "kind": "callsite_active",
+          "site_id": "mime-encode-read",
+          "line": 778,
+          "preprocessed_text": "      sz = part->encoder->encodefunc(buffer, bufsize, ateof, part);"
+        },
+        {
+          "kind": "callsite_active",
+          "site_id": "mime-encode-size",
+          "line": 1640,
+          "preprocessed_text": "    size = part->encoder->sizefunc(part);"
+        },
+        {
+          "kind": "target_definition_active",
+          "target_id": "lib/mime.c::encoder_nop_read",
+          "line": 290,
+          "preprocessed_text": "static size_t encoder_nop_read(char *buffer, size_t size, _Bool ateof,"
+        },
+        {
+          "kind": "target_definition_active",
+          "target_id": "lib/mime.c::encoder_7bit_read",
+          "line": 317,
+          "preprocessed_text": "static size_t encoder_7bit_read(char *buffer, size_t size, _Bool ateof,"
+        },
+        {
+          "kind": "target_definition_active",
+          "target_id": "lib/mime.c::encoder_base64_read",
+          "line": 342,
+          "preprocessed_text": "static size_t encoder_base64_read(char *buffer, size_t size, _Bool ateof,"
+        },
+        {
+          "kind": "target_definition_active",
+          "target_id": "lib/mime.c::encoder_qp_read",
+          "line": 463,
+          "preprocessed_text": "static size_t encoder_qp_read(char *buffer, size_t size, _Bool ateof,"
+        },
+        {
+          "kind": "target_definition_active",
+          "target_id": "lib/mime.c::encoder_nop_size",
+          "line": 311,
+          "preprocessed_text": "static curl_off_t encoder_nop_size(curl_mimepart *part)"
+        },
+        {
+          "kind": "target_definition_active",
+          "target_id": "lib/mime.c::encoder_base64_size",
+          "line": 426,
+          "preprocessed_text": "static curl_off_t encoder_base64_size(curl_mimepart *part)"
+        },
+        {
+          "kind": "target_definition_active",
+          "target_id": "lib/mime.c::encoder_qp_size",
+          "line": 564,
+          "preprocessed_text": "static curl_off_t encoder_qp_size(curl_mimepart *part)"
+        }
+      ],
+      "diagnostics": ""
+    },
+    {
+      "file": "lib/pingpong.c",
+      "returncode": 0,
+      "preprocessed_file": "preprocessed/lib__pingpong.i",
+      "preprocessed_sha256": "a7a729b4d15a6ffd0bcbc1b43cebd4f847edcef6be9416782f23c06a97295842",
+      "checks": [
+        {
+          "kind": "callsite_active",
+          "site_id": "pingpong-state",
+          "line": 116,
+          "preprocessed_text": "    result = pp->statemachine(data, data->conn);"
+        },
+        {
+          "kind": "callsite_active",
+          "site_id": "pingpong-response",
+          "line": 307,
+          "preprocessed_text": "        if(pp->endofresp(data, conn, line, length, code)) {"
+        }
+      ],
+      "diagnostics": ""
+    },
+    {
+      "file": "lib/pop3.c",
+      "returncode": 0,
+      "preprocessed_file": "preprocessed/lib__pop3.i",
+      "preprocessed_sha256": "2ad890d17e77a733ab3437b2866b528376fa7f0f33c3af128fe3b6e815dbc1d7",
+      "checks": [
+        {
+          "kind": "target_definition_active",
+          "target_id": "lib/pop3.c::pop3_statemachine",
+          "line": 1272,
+          "preprocessed_text": "static CURLcode pop3_statemachine(struct Curl_easy *data,"
+        },
+        {
+          "kind": "target_definition_active",
+          "target_id": "lib/pop3.c::pop3_endofresp",
+          "line": 292,
+          "preprocessed_text": "static _Bool pop3_endofresp(struct Curl_easy *data, struct connectdata *conn,"
+        }
+      ],
+      "diagnostics": ""
+    },
+    {
+      "file": "lib/sha256.c",
+      "returncode": 0,
+      "preprocessed_file": "preprocessed/lib__sha256.i",
+      "preprocessed_sha256": "c5ebc02a3e664dc774aa6a684fdc068c60c9adb4bbe463caa8af334c0f3c9641",
+      "checks": [
+        {
+          "kind": "target_definition_active",
+          "target_id": "lib/sha256.c::my_sha256_init",
+          "line": 62,
+          "preprocessed_text": "static CURLcode my_sha256_init(void *in)"
+        },
+        {
+          "kind": "target_definition_active",
+          "target_id": "lib/sha256.c::my_sha256_update",
+          "line": 76,
+          "preprocessed_text": "static void my_sha256_update(void *in,"
+        },
+        {
+          "kind": "target_definition_active",
+          "target_id": "lib/sha256.c::my_sha256_final",
+          "line": 84,
+          "preprocessed_text": "static void my_sha256_final(unsigned char *digest, void *in)"
+        }
+      ],
+      "diagnostics": ""
+    },
+    {
+      "file": "lib/smtp.c",
+      "returncode": 0,
+      "preprocessed_file": "preprocessed/lib__smtp.i",
+      "preprocessed_sha256": "60da54dbdb29fd54ca3bb957fe2b215756a10fdecac7db25a71021e7819e50bf",
+      "checks": [
+        {
+          "kind": "target_definition_active",
+          "target_id": "lib/smtp.c::smtp_pp_statemachine",
+          "line": 1516,
+          "preprocessed_text": "static CURLcode smtp_pp_statemachine(struct Curl_easy *data,"
+        },
+        {
+          "kind": "target_definition_active",
+          "target_id": "lib/smtp.c::smtp_endofresp",
+          "line": 494,
+          "preprocessed_text": "static _Bool smtp_endofresp(struct Curl_easy *data, struct connectdata *conn,"
+        }
+      ],
+      "diagnostics": ""
+    },
+    {
+      "file": "lib/vauth/cram.c",
+      "returncode": 0,
+      "preprocessed_file": "preprocessed/lib__vauth__cram.i",
+      "preprocessed_sha256": "833c647709cc7169840327c3a5f0369e10ac9768f82606afb5fcc11b7f458264",
+      "checks": [],
+      "diagnostics": ""
+    },
+    {
+      "file": "lib/vauth/digest.c",
+      "returncode": 0,
+      "preprocessed_file": "preprocessed/lib__vauth__digest.i",
+      "preprocessed_sha256": "a76af7f8d742f3b01027c32362ed63dc21b70e4ebb119eda5907339946d91c3b",
+      "checks": [],
+      "diagnostics": ""
+    },
+    {
+      "file": "lib/vtls/vtls_scache.c",
+      "returncode": 0,
+      "preprocessed_file": "preprocessed/lib__vtls__vtls_scache.i",
+      "preprocessed_sha256": "0069025af76eecdb1586a99d3cbc9e3b2bd6a6a95441759a5da72219b372e713",
+      "checks": [],
+      "diagnostics": ""
+    }
+  ]
+}
