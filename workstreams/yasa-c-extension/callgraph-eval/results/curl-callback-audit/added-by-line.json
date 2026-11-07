@@ -1,0 +1,3159 @@
+[
+ {
+  "file": "lib/cf-h1-proxy.c",
+  "line": 288,
+  "callers": [
+   "lib/cf-h1-proxy.c::send_CONNECT"
+  ],
+  "text": "result = cf->next->cft->do_send(cf->next, data, buf, blen, FALSE, &nwritten);",
+  "targets": [
+   "lib/cf-socket.c::cf_socket_send",
+   "lib/cfilters.c::Curl_cf_def_send",
+   "lib/vquic/cf-capsule.c::cf_capsule_send",
+   "lib/vtls/vtls.c::ssl_cf_send"
+  ]
+ },
+ {
+  "file": "lib/cf-h1-proxy.c",
+  "line": 787,
+  "callers": [
+   "lib/cf-h1-proxy.c::cf_h1_proxy_connect"
+  ],
+  "text": "result = cf->next->cft->do_connect(cf->next, data, done);",
+  "targets": [
+   "lib/cf-h1-proxy.c::cf_h1_proxy_connect",
+   "lib/cf-haproxy.c::cf_haproxy_connect",
+   "lib/cf-https-connect.c::cf_hc_connect",
+   "lib/cf-ip-happy.c::cf_ip_happy_connect",
+   "lib/cf-setup.c::cf_setup_connect",
+   "lib/cf-socket.c::cf_tcp_accept_connect",
+   "lib/cf-socket.c::cf_tcp_connect",
+   "lib/cf-socket.c::cf_udp_connect",
+   "lib/cfilters.c::Curl_cf_def_connect",
+   "lib/http_proxy.c::http_proxy_cf_connect",
+   "lib/socks.c::socks_proxy_cf_connect",
+   "lib/vdns/cf-dns.c::cf_dns_connect",
+   "lib/vquic/cf-capsule.c::cf_capsule_connect",
+   "lib/vtls/vtls.c::ssl_cf_connect"
+  ]
+ },
+ {
+  "file": "lib/cf-h1-proxy.c",
+  "line": 846,
+  "callers": [
+   "lib/cf-h1-proxy.c::cf_h1_proxy_adjust_pollset"
+  ],
+  "text": "result = cf->next->cft->adjust_pollset(cf->next, data, ps);",
+  "targets": [
+   "lib/cf-h1-proxy.c::cf_h1_proxy_adjust_pollset",
+   "lib/cf-haproxy.c::cf_haproxy_adjust_pollset",
+   "lib/cf-https-connect.c::cf_hc_adjust_pollset",
+   "lib/cf-ip-happy.c::cf_ip_happy_adjust_pollset",
+   "lib/cf-socket.c::cf_socket_adjust_pollset",
+   "lib/cfilters.c::Curl_cf_def_adjust_pollset",
+   "lib/socks.c::socks_cf_adjust_pollset",
+   "lib/vdns/cf-dns.c::cf_dns_adjust_pollset",
+   "lib/vquic/cf-capsule.c::cf_capsule_adjust_pollset",
+   "lib/vtls/vtls.c::ssl_cf_adjust_pollset"
+  ]
+ },
+ {
+  "file": "lib/cf-h1-proxy.c",
+  "line": 854,
+  "callers": [
+   "lib/cf-h1-proxy.c::cf_h1_proxy_data_pending"
+  ],
+  "text": "return cf->next ? cf->next->cft->has_data_pending(cf->next, data) : FALSE;",
+  "targets": [
+   "lib/cf-h1-proxy.c::cf_h1_proxy_data_pending",
+   "lib/cf-https-connect.c::cf_hc_data_pending",
+   "lib/cf-ip-happy.c::cf_ip_happy_data_pending",
+   "lib/cf-recvbuf.c::cf_recvbuf_data_pending",
+   "lib/cfilters.c::Curl_cf_def_data_pending",
+   "lib/vquic/cf-capsule.c::cf_capsule_data_pending",
+   "lib/vtls/vtls.c::ssl_cf_data_pending"
+  ]
+ },
+ {
+  "file": "lib/cf-h1-proxy.c",
+  "line": 893,
+  "callers": [
+   "lib/cf-h1-proxy.c::cf_h1_proxy_query"
+  ],
+  "text": "cf->next->cft->query(cf->next, data, query, pres1, pres2) :",
+  "targets": [
+   "lib/cf-h1-proxy.c::cf_h1_proxy_query",
+   "lib/cf-https-connect.c::cf_hc_query",
+   "lib/cf-ip-happy.c::cf_ip_happy_query",
+   "lib/cf-socket.c::cf_socket_query",
+   "lib/cfilters.c::Curl_cf_def_query",
+   "lib/http_proxy.c::cf_http_proxy_query",
+   "lib/socks.c::socks_cf_query",
+   "lib/vquic/cf-capsule.c::cf_capsule_query",
+   "lib/vtls/vtls.c::ssl_cf_query"
+  ]
+ },
+ {
+  "file": "lib/cf-haproxy.c",
+  "line": 119,
+  "callers": [
+   "lib/cf-haproxy.c::cf_haproxy_connect"
+  ],
+  "text": "result = cf->next->cft->do_connect(cf->next, data, done);",
+  "targets": [
+   "lib/cf-h1-proxy.c::cf_h1_proxy_connect",
+   "lib/cf-haproxy.c::cf_haproxy_connect",
+   "lib/cf-https-connect.c::cf_hc_connect",
+   "lib/cf-ip-happy.c::cf_ip_happy_connect",
+   "lib/cf-setup.c::cf_setup_connect",
+   "lib/cf-socket.c::cf_tcp_accept_connect",
+   "lib/cf-socket.c::cf_tcp_connect",
+   "lib/cf-socket.c::cf_udp_connect",
+   "lib/cfilters.c::Curl_cf_def_connect",
+   "lib/http_proxy.c::http_proxy_cf_connect",
+   "lib/socks.c::socks_proxy_cf_connect",
+   "lib/vdns/cf-dns.c::cf_dns_connect",
+   "lib/vquic/cf-capsule.c::cf_capsule_connect",
+   "lib/vtls/vtls.c::ssl_cf_connect"
+  ]
+ },
+ {
+  "file": "lib/cf-https-connect.c",
+  "line": 84,
+  "callers": [
+   "lib/cf-https-connect.c::cf_hc_baller_reply_ms"
+  ],
+  "text": "b->cf->cft->query(b->cf, data, CF_QUERY_CONNECT_REPLY_MS,",
+  "targets": [
+   "lib/cf-h1-proxy.c::cf_h1_proxy_query",
+   "lib/cf-https-connect.c::cf_hc_query",
+   "lib/cf-ip-happy.c::cf_ip_happy_query",
+   "lib/cf-socket.c::cf_socket_query",
+   "lib/cfilters.c::Curl_cf_def_query",
+   "lib/http_proxy.c::cf_http_proxy_query",
+   "lib/socks.c::socks_cf_query",
+   "lib/vquic/cf-capsule.c::cf_capsule_query",
+   "lib/vtls/vtls.c::ssl_cf_query"
+  ]
+ },
+ {
+  "file": "lib/cf-https-connect.c",
+  "line": 92,
+  "callers": [
+   "lib/cf-https-connect.c::cf_hc_baller_data_pending"
+  ],
+  "text": "return b->cf && !b->result && b->cf->cft->has_data_pending(b->cf, data);",
+  "targets": [
+   "lib/cf-h1-proxy.c::cf_h1_proxy_data_pending",
+   "lib/cf-https-connect.c::cf_hc_data_pending",
+   "lib/cf-ip-happy.c::cf_ip_happy_data_pending",
+   "lib/cf-recvbuf.c::cf_recvbuf_data_pending",
+   "lib/cfilters.c::Curl_cf_def_data_pending",
+   "lib/vquic/cf-capsule.c::cf_capsule_data_pending",
+   "lib/vtls/vtls.c::ssl_cf_data_pending"
+  ]
+ },
+ {
+  "file": "lib/cf-https-connect.c",
+  "line": 590,
+  "callers": [
+   "lib/cf-https-connect.c::cf_hc_shutdown"
+  ],
+  "text": "b->result = b->cf->cft->do_shutdown(b->cf, data, &bdone);",
+  "targets": [
+   "lib/cf-https-connect.c::cf_hc_shutdown",
+   "lib/cf-ip-happy.c::cf_ip_happy_shutdown",
+   "lib/cf-socket.c::cf_socket_shutdown",
+   "lib/cfilters.c::Curl_cf_def_shutdown",
+   "lib/vquic/cf-capsule.c::cf_capsule_shutdown",
+   "lib/vtls/vtls.c::ssl_cf_shutdown"
+  ]
+ },
+ {
+  "file": "lib/cf-https-connect.c",
+  "line": 638,
+  "callers": [
+   "lib/cf-https-connect.c::cf_hc_data_pending"
+  ],
+  "text": "return cf->next->cft->has_data_pending(cf->next, data);",
+  "targets": [
+   "lib/cf-h1-proxy.c::cf_h1_proxy_data_pending",
+   "lib/cf-https-connect.c::cf_hc_data_pending",
+   "lib/cf-ip-happy.c::cf_ip_happy_data_pending",
+   "lib/cf-recvbuf.c::cf_recvbuf_data_pending",
+   "lib/cfilters.c::Curl_cf_def_data_pending",
+   "lib/vquic/cf-capsule.c::cf_capsule_data_pending",
+   "lib/vtls/vtls.c::ssl_cf_data_pending"
+  ]
+ },
+ {
+  "file": "lib/cf-https-connect.c",
+  "line": 668,
+  "callers": [
+   "lib/cf-https-connect.c::cf_hc_query"
+  ],
+  "text": "cf->next->cft->query(cf->next, data, query, pres1, pres2) :",
+  "targets": [
+   "lib/cf-h1-proxy.c::cf_h1_proxy_query",
+   "lib/cf-https-connect.c::cf_hc_query",
+   "lib/cf-ip-happy.c::cf_ip_happy_query",
+   "lib/cf-socket.c::cf_socket_query",
+   "lib/cfilters.c::Curl_cf_def_query",
+   "lib/http_proxy.c::cf_http_proxy_query",
+   "lib/socks.c::socks_cf_query",
+   "lib/vquic/cf-capsule.c::cf_capsule_query",
+   "lib/vtls/vtls.c::ssl_cf_query"
+  ]
+ },
+ {
+  "file": "lib/cf-ip-happy.c",
+  "line": 626,
+  "callers": [
+   "lib/cf-ip-happy.c::cf_ip_ballers_shutdown"
+  ],
+  "text": "a->result = a->cf->cft->do_shutdown(a->cf, data, &bdone);",
+  "targets": [
+   "lib/cf-https-connect.c::cf_hc_shutdown",
+   "lib/cf-ip-happy.c::cf_ip_happy_shutdown",
+   "lib/cf-socket.c::cf_socket_shutdown",
+   "lib/cfilters.c::Curl_cf_def_shutdown",
+   "lib/vquic/cf-capsule.c::cf_capsule_shutdown",
+   "lib/vtls/vtls.c::ssl_cf_shutdown"
+  ]
+ },
+ {
+  "file": "lib/cf-ip-happy.c",
+  "line": 657,
+  "callers": [
+   "lib/cf-ip-happy.c::cf_ip_ballers_pending"
+  ],
+  "text": "if(a->cf && a->cf->cft->has_data_pending(a->cf, data))",
+  "targets": [
+   "lib/cf-h1-proxy.c::cf_h1_proxy_data_pending",
+   "lib/cf-https-connect.c::cf_hc_data_pending",
+   "lib/cf-ip-happy.c::cf_ip_happy_data_pending",
+   "lib/cf-recvbuf.c::cf_recvbuf_data_pending",
+   "lib/cfilters.c::Curl_cf_def_data_pending",
+   "lib/vquic/cf-capsule.c::cf_capsule_data_pending",
+   "lib/vtls/vtls.c::ssl_cf_data_pending"
+  ]
+ },
+ {
+  "file": "lib/cf-ip-happy.c",
+  "line": 670,
+  "callers": [
+   "lib/cf-ip-happy.c::cf_ip_ballers_min_reply_ms"
+  ],
+  "text": "if(a->cf && !a->cf->cft->query(a->cf, data, CF_QUERY_CONNECT_REPLY_MS,",
+  "targets": [
+   "lib/cf-h1-proxy.c::cf_h1_proxy_query",
+   "lib/cf-https-connect.c::cf_hc_query",
+   "lib/cf-ip-happy.c::cf_ip_happy_query",
+   "lib/cf-socket.c::cf_socket_query",
+   "lib/cfilters.c::Curl_cf_def_query",
+   "lib/http_proxy.c::cf_http_proxy_query",
+   "lib/socks.c::socks_cf_query",
+   "lib/vquic/cf-capsule.c::cf_capsule_query",
+   "lib/vtls/vtls.c::ssl_cf_query"
+  ]
+ },
+ {
+  "file": "lib/cf-ip-happy.c",
+  "line": 921,
+  "callers": [
+   "lib/cf-ip-happy.c::cf_ip_happy_data_pending"
+  ],
+  "text": "return cf->next->cft->has_data_pending(cf->next, data);",
+  "targets": [
+   "lib/cf-h1-proxy.c::cf_h1_proxy_data_pending",
+   "lib/cf-https-connect.c::cf_hc_data_pending",
+   "lib/cf-ip-happy.c::cf_ip_happy_data_pending",
+   "lib/cf-recvbuf.c::cf_recvbuf_data_pending",
+   "lib/cfilters.c::Curl_cf_def_data_pending",
+   "lib/vquic/cf-capsule.c::cf_capsule_data_pending",
+   "lib/vtls/vtls.c::ssl_cf_data_pending"
+  ]
+ },
+ {
+  "file": "lib/cf-ip-happy.c",
+  "line": 943,
+  "callers": [
+   "lib/cf-ip-happy.c::cf_ip_happy_query"
+  ],
+  "text": "cf->next->cft->query(cf->next, data, query, pres1, pres2) :",
+  "targets": [
+   "lib/cf-h1-proxy.c::cf_h1_proxy_query",
+   "lib/cf-https-connect.c::cf_hc_query",
+   "lib/cf-ip-happy.c::cf_ip_happy_query",
+   "lib/cf-socket.c::cf_socket_query",
+   "lib/cfilters.c::Curl_cf_def_query",
+   "lib/http_proxy.c::cf_http_proxy_query",
+   "lib/socks.c::socks_cf_query",
+   "lib/vquic/cf-capsule.c::cf_capsule_query",
+   "lib/vtls/vtls.c::ssl_cf_query"
+  ]
+ },
+ {
+  "file": "lib/cf-recvbuf.c",
+  "line": 64,
+  "callers": [
+   "lib/cf-recvbuf.c::cf_recvbuf_recv"
+  ],
+  "text": "return cf->next->cft->do_recv(cf->next, data, buf, len, pnread);",
+  "targets": [
+   "lib/cf-recvbuf.c::cf_recvbuf_recv",
+   "lib/cf-socket.c::cf_socket_recv",
+   "lib/cfilters.c::Curl_cf_def_recv",
+   "lib/vquic/cf-capsule.c::cf_capsule_recv",
+   "lib/vtls/vtls.c::ssl_cf_recv"
+  ]
+ },
+ {
+  "file": "lib/cf-recvbuf.c",
+  "line": 78,
+  "callers": [
+   "lib/cf-recvbuf.c::cf_recvbuf_data_pending"
+  ],
+  "text": "cf->next->cft->has_data_pending(cf->next, data) : FALSE;",
+  "targets": [
+   "lib/cf-h1-proxy.c::cf_h1_proxy_data_pending",
+   "lib/cf-https-connect.c::cf_hc_data_pending",
+   "lib/cf-ip-happy.c::cf_ip_happy_data_pending",
+   "lib/cf-recvbuf.c::cf_recvbuf_data_pending",
+   "lib/cfilters.c::Curl_cf_def_data_pending",
+   "lib/vquic/cf-capsule.c::cf_capsule_data_pending",
+   "lib/vtls/vtls.c::ssl_cf_data_pending"
+  ]
+ },
+ {
+  "file": "lib/cf-setup.c",
+  "line": 309,
+  "callers": [
+   "lib/cf-setup.c::cf_setup_add_protocol_filters"
+  ],
+  "text": "result = cf->conn->scheme->run->setup_filters(data, cf);",
+  "targets": [
+   "lib/http.c::Curl_http_setup_filters"
+  ]
+ },
+ {
+  "file": "lib/cf-socket.c",
+  "line": 1915,
+  "callers": [
+   "lib/cf-socket.c::cf_socket_query"
+  ],
+  "text": "cf->next->cft->query(cf->next, data, query, pres1, pres2) :",
+  "targets": [
+   "lib/cf-h1-proxy.c::cf_h1_proxy_query",
+   "lib/cf-https-connect.c::cf_hc_query",
+   "lib/cf-ip-happy.c::cf_ip_happy_query",
+   "lib/cf-socket.c::cf_socket_query",
+   "lib/cfilters.c::Curl_cf_def_query",
+   "lib/http_proxy.c::cf_http_proxy_query",
+   "lib/socks.c::socks_cf_query",
+   "lib/vquic/cf-capsule.c::cf_capsule_query",
+   "lib/vtls/vtls.c::ssl_cf_query"
+  ]
+ },
+ {
+  "file": "lib/cfilters.c",
+  "line": 47,
+  "callers": [
+   "lib/cfilters.c::Curl_cf_def_connect"
+  ],
+  "text": "result = cf->next->cft->do_connect(cf->next, data, done);",
+  "targets": [
+   "lib/cf-h1-proxy.c::cf_h1_proxy_connect",
+   "lib/cf-haproxy.c::cf_haproxy_connect",
+   "lib/cf-https-connect.c::cf_hc_connect",
+   "lib/cf-ip-happy.c::cf_ip_happy_connect",
+   "lib/cf-setup.c::cf_setup_connect",
+   "lib/cf-socket.c::cf_tcp_accept_connect",
+   "lib/cf-socket.c::cf_tcp_connect",
+   "lib/cf-socket.c::cf_udp_connect",
+   "lib/cfilters.c::Curl_cf_def_connect",
+   "lib/http_proxy.c::http_proxy_cf_connect",
+   "lib/socks.c::socks_proxy_cf_connect",
+   "lib/vdns/cf-dns.c::cf_dns_connect",
+   "lib/vquic/cf-capsule.c::cf_capsule_connect",
+   "lib/vtls/vtls.c::ssl_cf_connect"
+  ]
+ },
+ {
+  "file": "lib/cfilters.c",
+  "line": 81,
+  "callers": [
+   "lib/cfilters.c::Curl_cf_def_data_pending"
+  ],
+  "text": "cf->next->cft->has_data_pending(cf->next, data) : FALSE;",
+  "targets": [
+   "lib/cf-h1-proxy.c::cf_h1_proxy_data_pending",
+   "lib/cf-https-connect.c::cf_hc_data_pending",
+   "lib/cf-ip-happy.c::cf_ip_happy_data_pending",
+   "lib/cf-recvbuf.c::cf_recvbuf_data_pending",
+   "lib/cfilters.c::Curl_cf_def_data_pending",
+   "lib/vquic/cf-capsule.c::cf_capsule_data_pending",
+   "lib/vtls/vtls.c::ssl_cf_data_pending"
+  ]
+ },
+ {
+  "file": "lib/cfilters.c",
+  "line": 89,
+  "callers": [
+   "lib/cfilters.c::Curl_cf_def_send"
+  ],
+  "text": "return cf->next->cft->do_send(cf->next, data, buf, len, eos, pnwritten);",
+  "targets": [
+   "lib/cf-socket.c::cf_socket_send",
+   "lib/cfilters.c::Curl_cf_def_send",
+   "lib/vquic/cf-capsule.c::cf_capsule_send",
+   "lib/vtls/vtls.c::ssl_cf_send"
+  ]
+ },
+ {
+  "file": "lib/cfilters.c",
+  "line": 98,
+  "callers": [
+   "lib/cfilters.c::Curl_cf_def_recv"
+  ],
+  "text": "return cf->next->cft->do_recv(cf->next, data, buf, len, pnread);",
+  "targets": [
+   "lib/cf-recvbuf.c::cf_recvbuf_recv",
+   "lib/cf-socket.c::cf_socket_recv",
+   "lib/cfilters.c::Curl_cf_def_recv",
+   "lib/vquic/cf-capsule.c::cf_capsule_recv",
+   "lib/vtls/vtls.c::ssl_cf_recv"
+  ]
+ },
+ {
+  "file": "lib/cfilters.c",
+  "line": 108,
+  "callers": [
+   "lib/cfilters.c::Curl_cf_def_conn_is_alive"
+  ],
+  "text": "cf->next->cft->is_alive(cf->next, data, input_pending) :",
+  "targets": [
+   "lib/cf-socket.c::cf_socket_conn_is_alive",
+   "lib/cfilters.c::Curl_cf_def_conn_is_alive"
+  ]
+ },
+ {
+  "file": "lib/cfilters.c",
+  "line": 116,
+  "callers": [
+   "lib/cfilters.c::Curl_cf_def_conn_keep_alive"
+  ],
+  "text": "cf->next->cft->keep_alive(cf->next, data) :",
+  "targets": [
+   "lib/cfilters.c::Curl_cf_def_conn_keep_alive"
+  ]
+ },
+ {
+  "file": "lib/cfilters.c",
+  "line": 125,
+  "callers": [
+   "lib/cfilters.c::Curl_cf_def_query"
+  ],
+  "text": "cf->next->cft->query(cf->next, data, query, pres1, pres2) :",
+  "targets": [
+   "lib/cf-h1-proxy.c::cf_h1_proxy_query",
+   "lib/cf-https-connect.c::cf_hc_query",
+   "lib/cf-ip-happy.c::cf_ip_happy_query",
+   "lib/cf-socket.c::cf_socket_query",
+   "lib/cfilters.c::Curl_cf_def_query",
+   "lib/http_proxy.c::cf_http_proxy_query",
+   "lib/socks.c::socks_cf_query",
+   "lib/vquic/cf-capsule.c::cf_capsule_query",
+   "lib/vtls/vtls.c::ssl_cf_query"
+  ]
+ },
+ {
+  "file": "lib/cfilters.c",
+  "line": 172,
+  "callers": [
+   "lib/cfilters.c::Curl_conn_cf_discard_chain"
+  ],
+  "text": "cf->cft->destroy(cf, data);",
+  "targets": [
+   "lib/cf-h1-proxy.c::cf_h1_proxy_destroy",
+   "lib/cf-haproxy.c::cf_haproxy_destroy",
+   "lib/cf-https-connect.c::cf_hc_destroy",
+   "lib/cf-ip-happy.c::cf_ip_happy_destroy",
+   "lib/cf-recvbuf.c::cf_recvbuf_destroy",
+   "lib/cf-setup.c::cf_setup_destroy",
+   "lib/cf-socket.c::cf_socket_destroy",
+   "lib/http_proxy.c::http_proxy_cf_destroy",
+   "lib/socks.c::socks_proxy_cf_destroy",
+   "lib/vdns/cf-dns.c::cf_dns_destroy",
+   "lib/vquic/cf-capsule.c::cf_capsule_destroy",
+   "lib/vtls/vtls.c::ssl_cf_destroy"
+  ]
+ },
+ {
+  "file": "lib/cfilters.c",
+  "line": 198,
+  "callers": [
+   "lib/cfilters.c::Curl_cf_recv"
+  ],
+  "text": "return cf->cft->do_recv(cf, data, buf, len, pnread);",
+  "targets": [
+   "lib/cf-recvbuf.c::cf_recvbuf_recv",
+   "lib/cf-socket.c::cf_socket_recv",
+   "lib/cfilters.c::Curl_cf_def_recv",
+   "lib/vquic/cf-capsule.c::cf_capsule_recv",
+   "lib/vtls/vtls.c::ssl_cf_recv"
+  ]
+ },
+ {
+  "file": "lib/cfilters.c",
+  "line": 217,
+  "callers": [
+   "lib/cfilters.c::Curl_cf_send"
+  ],
+  "text": "return cf->cft->do_send(cf, data, buf, len, eos, pnwritten);",
+  "targets": [
+   "lib/cf-socket.c::cf_socket_send",
+   "lib/cfilters.c::Curl_cf_def_send",
+   "lib/vquic/cf-capsule.c::cf_capsule_send",
+   "lib/vtls/vtls.c::ssl_cf_send"
+  ]
+ },
+ {
+  "file": "lib/cfilters.c",
+  "line": 369,
+  "callers": [
+   "lib/cfilters.c::Curl_conn_cf_connect"
+  ],
+  "text": "return cf->cft->do_connect(cf, data, done);",
+  "targets": [
+   "lib/cf-h1-proxy.c::cf_h1_proxy_connect",
+   "lib/cf-haproxy.c::cf_haproxy_connect",
+   "lib/cf-https-connect.c::cf_hc_connect",
+   "lib/cf-ip-happy.c::cf_ip_happy_connect",
+   "lib/cf-setup.c::cf_setup_connect",
+   "lib/cf-socket.c::cf_tcp_accept_connect",
+   "lib/cf-socket.c::cf_tcp_connect",
+   "lib/cf-socket.c::cf_udp_connect",
+   "lib/cfilters.c::Curl_cf_def_connect",
+   "lib/http_proxy.c::http_proxy_cf_connect",
+   "lib/socks.c::socks_proxy_cf_connect",
+   "lib/vdns/cf-dns.c::cf_dns_connect",
+   "lib/vquic/cf-capsule.c::cf_capsule_connect",
+   "lib/vtls/vtls.c::ssl_cf_connect"
+  ]
+ },
+ {
+  "file": "lib/cfilters.c",
+  "line": 378,
+  "callers": [
+   "lib/cfilters.c::Curl_conn_cf_send"
+  ],
+  "text": "return cf->cft->do_send(cf, data, buf, len, eos, pnwritten);",
+  "targets": [
+   "lib/cf-socket.c::cf_socket_send",
+   "lib/cfilters.c::Curl_cf_def_send",
+   "lib/vquic/cf-capsule.c::cf_capsule_send",
+   "lib/vtls/vtls.c::ssl_cf_send"
+  ]
+ },
+ {
+  "file": "lib/cfilters.c",
+  "line": 387,
+  "callers": [
+   "lib/cfilters.c::Curl_conn_cf_recv"
+  ],
+  "text": "return cf->cft->do_recv(cf, data, buf, len, pnread);",
+  "targets": [
+   "lib/cf-recvbuf.c::cf_recvbuf_recv",
+   "lib/cf-socket.c::cf_socket_recv",
+   "lib/cfilters.c::Curl_cf_def_recv",
+   "lib/vquic/cf-capsule.c::cf_capsule_recv",
+   "lib/vtls/vtls.c::ssl_cf_recv"
+  ]
+ },
+ {
+  "file": "lib/cfilters.c",
+  "line": 414,
+  "callers": [
+   "lib/cfilters.c::Curl_conn_cf_is_ip_connected"
+  ],
+  "text": "if(!cf->cft->query(cf, data, CF_QUERY_REALLY_CONNECTED, &value, NULL))",
+  "targets": [
+   "lib/cf-h1-proxy.c::cf_h1_proxy_query",
+   "lib/cf-https-connect.c::cf_hc_query",
+   "lib/cf-ip-happy.c::cf_ip_happy_query",
+   "lib/cf-socket.c::cf_socket_query",
+   "lib/cfilters.c::Curl_cf_def_query",
+   "lib/http_proxy.c::cf_http_proxy_query",
+   "lib/socks.c::socks_cf_query",
+   "lib/vquic/cf-capsule.c::cf_capsule_query",
+   "lib/vtls/vtls.c::ssl_cf_query"
+  ]
+ },
+ {
+  "file": "lib/cfilters.c",
+  "line": 445,
+  "callers": [
+   "lib/cfilters.c::Curl_conn_remove_setup_filters"
+  ],
+  "text": "cf->cft->destroy(cf, data);",
+  "targets": [
+   "lib/cf-h1-proxy.c::cf_h1_proxy_destroy",
+   "lib/cf-haproxy.c::cf_haproxy_destroy",
+   "lib/cf-https-connect.c::cf_hc_destroy",
+   "lib/cf-ip-happy.c::cf_ip_happy_destroy",
+   "lib/cf-recvbuf.c::cf_recvbuf_destroy",
+   "lib/cf-setup.c::cf_setup_destroy",
+   "lib/cf-socket.c::cf_socket_destroy",
+   "lib/http_proxy.c::http_proxy_cf_destroy",
+   "lib/socks.c::socks_proxy_cf_destroy",
+   "lib/vdns/cf-dns.c::cf_dns_destroy",
+   "lib/vquic/cf-capsule.c::cf_capsule_destroy",
+   "lib/vtls/vtls.c::ssl_cf_destroy"
+  ]
+ },
+ {
+  "file": "lib/cfilters.c",
+  "line": 546,
+  "callers": [
+   "lib/cfilters.c::Curl_conn_get_ssl_info"
+  ],
+  "text": "cf->cft->query(cf, data, query, NULL, (void *)info) :",
+  "targets": [
+   "lib/cf-h1-proxy.c::cf_h1_proxy_query",
+   "lib/cf-https-connect.c::cf_hc_query",
+   "lib/cf-ip-happy.c::cf_ip_happy_query",
+   "lib/cf-socket.c::cf_socket_query",
+   "lib/cfilters.c::Curl_cf_def_query",
+   "lib/http_proxy.c::cf_http_proxy_query",
+   "lib/socks.c::socks_cf_query",
+   "lib/vquic/cf-capsule.c::cf_capsule_query",
+   "lib/vtls/vtls.c::ssl_cf_query"
+  ]
+ },
+ {
+  "file": "lib/cfilters.c",
+  "line": 632,
+  "callers": [
+   "lib/cfilters.c::Curl_conn_cf_http_version"
+  ],
+  "text": "result = cf->cft->query(cf, data, CF_QUERY_HTTP_VERSION, &value, NULL);",
+  "targets": [
+   "lib/cf-h1-proxy.c::cf_h1_proxy_query",
+   "lib/cf-https-connect.c::cf_hc_query",
+   "lib/cf-ip-happy.c::cf_ip_happy_query",
+   "lib/cf-socket.c::cf_socket_query",
+   "lib/cfilters.c::Curl_cf_def_query",
+   "lib/http_proxy.c::cf_http_proxy_query",
+   "lib/socks.c::socks_cf_query",
+   "lib/vquic/cf-capsule.c::cf_capsule_query",
+   "lib/vtls/vtls.c::ssl_cf_query"
+  ]
+ },
+ {
+  "file": "lib/cfilters.c",
+  "line": 666,
+  "callers": [
+   "lib/cfilters.c::Curl_conn_data_pending"
+  ],
+  "text": "return cf->cft->has_data_pending(cf, data);",
+  "targets": [
+   "lib/cf-h1-proxy.c::cf_h1_proxy_data_pending",
+   "lib/cf-https-connect.c::cf_hc_data_pending",
+   "lib/cf-ip-happy.c::cf_ip_happy_data_pending",
+   "lib/cf-recvbuf.c::cf_recvbuf_data_pending",
+   "lib/cfilters.c::Curl_cf_def_data_pending",
+   "lib/vquic/cf-capsule.c::cf_capsule_data_pending",
+   "lib/vtls/vtls.c::ssl_cf_data_pending"
+  ]
+ },
+ {
+  "file": "lib/cfilters.c",
+  "line": 676,
+  "callers": [
+   "lib/cfilters.c::Curl_conn_cf_needs_flush"
+  ],
+  "text": "result = cf ? cf->cft->query(cf, data, CF_QUERY_NEED_FLUSH,",
+  "targets": [
+   "lib/cf-h1-proxy.c::cf_h1_proxy_query",
+   "lib/cf-https-connect.c::cf_hc_query",
+   "lib/cf-ip-happy.c::cf_ip_happy_query",
+   "lib/cf-socket.c::cf_socket_query",
+   "lib/cfilters.c::Curl_cf_def_query",
+   "lib/http_proxy.c::cf_http_proxy_query",
+   "lib/socks.c::socks_cf_query",
+   "lib/vquic/cf-capsule.c::cf_capsule_query",
+   "lib/vtls/vtls.c::ssl_cf_query"
+  ]
+ },
+ {
+  "file": "lib/cfilters.c",
+  "line": 703,
+  "callers": [
+   "lib/cfilters.c::Curl_conn_cf_adjust_pollset"
+  ],
+  "text": "result = cf->cft->adjust_pollset(cf, data, ps);",
+  "targets": [
+   "lib/cf-h1-proxy.c::cf_h1_proxy_adjust_pollset",
+   "lib/cf-haproxy.c::cf_haproxy_adjust_pollset",
+   "lib/cf-https-connect.c::cf_hc_adjust_pollset",
+   "lib/cf-ip-happy.c::cf_ip_happy_adjust_pollset",
+   "lib/cf-socket.c::cf_socket_adjust_pollset",
+   "lib/cfilters.c::Curl_cf_def_adjust_pollset",
+   "lib/socks.c::socks_cf_adjust_pollset",
+   "lib/vdns/cf-dns.c::cf_dns_adjust_pollset",
+   "lib/vquic/cf-capsule.c::cf_capsule_adjust_pollset",
+   "lib/vtls/vtls.c::ssl_cf_adjust_pollset"
+  ]
+ },
+ {
+  "file": "lib/cfilters.c",
+  "line": 793,
+  "callers": [
+   "lib/cfilters.c::Curl_conn_get_current_host"
+  ],
+  "text": "if(!cf_proxy || cf_proxy->cft->query(cf_proxy, data, CF_QUERY_HOST_PORT,",
+  "targets": [
+   "lib/cf-h1-proxy.c::cf_h1_proxy_query",
+   "lib/cf-https-connect.c::cf_hc_query",
+   "lib/cf-ip-happy.c::cf_ip_happy_query",
+   "lib/cf-socket.c::cf_socket_query",
+   "lib/cfilters.c::Curl_cf_def_query",
+   "lib/http_proxy.c::cf_http_proxy_query",
+   "lib/socks.c::socks_cf_query",
+   "lib/vquic/cf-capsule.c::cf_capsule_query",
+   "lib/vtls/vtls.c::ssl_cf_query"
+  ]
+ },
+ {
+  "file": "lib/cfilters.c",
+  "line": 826,
+  "callers": [
+   "lib/cfilters.c::Curl_conn_cf_cntrl"
+  ],
+  "text": "result = cf->cft->cntrl(cf, data, event, arg1, arg2);",
+  "targets": [
+   "lib/cf-https-connect.c::cf_hc_cntrl",
+   "lib/cf-socket.c::cf_socket_cntrl",
+   "lib/cfilters.c::Curl_cf_def_cntrl",
+   "lib/vdns/cf-dns.c::cf_dns_cntrl",
+   "lib/vquic/cf-capsule.c::cf_capsule_cntrl",
+   "lib/vtls/vtls.c::ssl_cf_cntrl"
+  ]
+ },
+ {
+  "file": "lib/cfilters.c",
+  "line": 837,
+  "callers": [
+   "lib/cfilters.c::Curl_conn_cf_get_socket"
+  ],
+  "text": "if(cf && !cf->cft->query(cf, data, CF_QUERY_SOCKET, NULL, &sock))",
+  "targets": [
+   "lib/cf-h1-proxy.c::cf_h1_proxy_query",
+   "lib/cf-https-connect.c::cf_hc_query",
+   "lib/cf-ip-happy.c::cf_ip_happy_query",
+   "lib/cf-socket.c::cf_socket_query",
+   "lib/cfilters.c::Curl_cf_def_query",
+   "lib/http_proxy.c::cf_http_proxy_query",
+   "lib/socks.c::socks_cf_query",
+   "lib/vquic/cf-capsule.c::cf_capsule_query",
+   "lib/vtls/vtls.c::ssl_cf_query"
+  ]
+ },
+ {
+  "file": "lib/cfilters.c",
+  "line": 846,
+  "callers": [
+   "lib/cfilters.c::Curl_conn_cf_get_transport"
+  ],
+  "text": "if(cf && !cf->cft->query(cf, data, CF_QUERY_TRANSPORT, &transport, NULL))",
+  "targets": [
+   "lib/cf-h1-proxy.c::cf_h1_proxy_query",
+   "lib/cf-https-connect.c::cf_hc_query",
+   "lib/cf-ip-happy.c::cf_ip_happy_query",
+   "lib/cf-socket.c::cf_socket_query",
+   "lib/cfilters.c::Curl_cf_def_query",
+   "lib/http_proxy.c::cf_http_proxy_query",
+   "lib/socks.c::socks_cf_query",
+   "lib/vquic/cf-capsule.c::cf_capsule_query",
+   "lib/vtls/vtls.c::ssl_cf_query"
+  ]
+ },
+ {
+  "file": "lib/cfilters.c",
+  "line": 856,
+  "callers": [
+   "lib/cfilters.c::Curl_conn_cf_get_alpn_negotiated"
+  ],
+  "text": "if(cf && !cf->cft->query(cf, data, CF_QUERY_ALPN_NEGOTIATED, NULL,",
+  "targets": [
+   "lib/cf-h1-proxy.c::cf_h1_proxy_query",
+   "lib/cf-https-connect.c::cf_hc_query",
+   "lib/cf-ip-happy.c::cf_ip_happy_query",
+   "lib/cf-socket.c::cf_socket_query",
+   "lib/cfilters.c::Curl_cf_def_query",
+   "lib/http_proxy.c::cf_http_proxy_query",
+   "lib/socks.c::socks_cf_query",
+   "lib/vquic/cf-capsule.c::cf_capsule_query",
+   "lib/vtls/vtls.c::ssl_cf_query"
+  ]
+ },
+ {
+  "file": "lib/cfilters.c",
+  "line": 867,
+  "callers": [
+   "lib/cfilters.c::cf_get_remote_addr"
+  ],
+  "text": "!cf->cft->query(cf, data, CF_QUERY_REMOTE_ADDR, NULL,",
+  "targets": [
+   "lib/cf-h1-proxy.c::cf_h1_proxy_query",
+   "lib/cf-https-connect.c::cf_hc_query",
+   "lib/cf-ip-happy.c::cf_ip_happy_query",
+   "lib/cf-socket.c::cf_socket_query",
+   "lib/cfilters.c::Curl_cf_def_query",
+   "lib/http_proxy.c::cf_http_proxy_query",
+   "lib/socks.c::socks_cf_query",
+   "lib/vquic/cf-capsule.c::cf_capsule_query",
+   "lib/vtls/vtls.c::ssl_cf_query"
+  ]
+ },
+ {
+  "file": "lib/cfilters.c",
+  "line": 880,
+  "callers": [
+   "lib/cfilters.c::Curl_conn_cf_get_ip_info"
+  ],
+  "text": "result = cf->cft->query(cf, data, CF_QUERY_IP_INFO, &ipv6, ipquad);",
+  "targets": [
+   "lib/cf-h1-proxy.c::cf_h1_proxy_query",
+   "lib/cf-https-connect.c::cf_hc_query",
+   "lib/cf-ip-happy.c::cf_ip_happy_query",
+   "lib/cf-socket.c::cf_socket_query",
+   "lib/cfilters.c::Curl_cf_def_query",
+   "lib/http_proxy.c::cf_http_proxy_query",
+   "lib/socks.c::socks_cf_query",
+   "lib/vquic/cf-capsule.c::cf_capsule_query",
+   "lib/vtls/vtls.c::ssl_cf_query"
+  ]
+ },
+ {
+  "file": "lib/cfilters.c",
+  "line": 963,
+  "callers": [
+   "lib/cfilters.c::Curl_conn_is_alive"
+  ],
+  "text": "cf->cft->is_alive(cf, data, input_pending);",
+  "targets": [
+   "lib/cf-socket.c::cf_socket_conn_is_alive",
+   "lib/cfilters.c::Curl_cf_def_conn_is_alive"
+  ]
+ },
+ {
+  "file": "lib/cfilters.c",
+  "line": 975,
+  "callers": [
+   "lib/cfilters.c::Curl_conn_keep_alive"
+  ],
+  "text": "result = cf->cft->keep_alive(cf, data);",
+  "targets": [
+   "lib/cfilters.c::Curl_cf_def_conn_keep_alive"
+  ]
+ },
+ {
+  "file": "lib/cfilters.c",
+  "line": 992,
+  "callers": [
+   "lib/cfilters.c::Curl_conn_get_max_concurrent"
+  ],
+  "text": "result = cf ? cf->cft->query(cf, data, CF_QUERY_MAX_CONCURRENT,",
+  "targets": [
+   "lib/cf-h1-proxy.c::cf_h1_proxy_query",
+   "lib/cf-https-connect.c::cf_hc_query",
+   "lib/cf-ip-happy.c::cf_ip_happy_query",
+   "lib/cf-socket.c::cf_socket_query",
+   "lib/cfilters.c::Curl_cf_def_query",
+   "lib/http_proxy.c::cf_http_proxy_query",
+   "lib/socks.c::socks_cf_query",
+   "lib/vquic/cf-capsule.c::cf_capsule_query",
+   "lib/vtls/vtls.c::ssl_cf_query"
+  ]
+ },
+ {
+  "file": "lib/cfilters.c",
+  "line": 1012,
+  "callers": [
+   "lib/cfilters.c::Curl_conn_get_stream_error"
+  ],
+  "text": "result = cf ? cf->cft->query(cf, data, CF_QUERY_STREAM_ERROR,",
+  "targets": [
+   "lib/cf-h1-proxy.c::cf_h1_proxy_query",
+   "lib/cf-https-connect.c::cf_hc_query",
+   "lib/cf-ip-happy.c::cf_ip_happy_query",
+   "lib/cf-socket.c::cf_socket_query",
+   "lib/cfilters.c::Curl_cf_def_query",
+   "lib/http_proxy.c::cf_http_proxy_query",
+   "lib/socks.c::socks_cf_query",
+   "lib/vquic/cf-capsule.c::cf_capsule_query",
+   "lib/vtls/vtls.c::ssl_cf_query"
+  ]
+ },
+ {
+  "file": "lib/conncache.c",
+  "line": 1060,
+  "callers": [
+   "lib/conncache.c::Curl_cpool_conn_seems_healthy"
+  ],
+  "text": "healthy = !conn->scheme->run->connection_is_dead(admin, conn);",
+  "targets": [
+   "lib/rtsp.c::rtsp_conn_is_dead"
+  ]
+ },
+ {
+  "file": "lib/connect.c",
+  "line": 321,
+  "callers": [
+   "lib/connect.c::Curl_conn_connect"
+  ],
+  "text": "result = cf->cft->do_connect(cf, data, done);",
+  "targets": [
+   "lib/cf-h1-proxy.c::cf_h1_proxy_connect",
+   "lib/cf-haproxy.c::cf_haproxy_connect",
+   "lib/cf-https-connect.c::cf_hc_connect",
+   "lib/cf-ip-happy.c::cf_ip_happy_connect",
+   "lib/cf-setup.c::cf_setup_connect",
+   "lib/cf-socket.c::cf_tcp_accept_connect",
+   "lib/cf-socket.c::cf_tcp_connect",
+   "lib/cf-socket.c::cf_udp_connect",
+   "lib/cfilters.c::Curl_cf_def_connect",
+   "lib/http_proxy.c::http_proxy_cf_connect",
+   "lib/socks.c::socks_proxy_cf_connect",
+   "lib/vdns/cf-dns.c::cf_dns_connect",
+   "lib/vquic/cf-capsule.c::cf_capsule_connect",
+   "lib/vtls/vtls.c::ssl_cf_connect"
+  ]
+ },
+ {
+  "file": "lib/content_encoding.c",
+  "line": 200,
+  "callers": [
+   "lib/content_encoding.c::inflate_stream"
+  ],
+  "text": "result = Curl_cwriter_write(data, writer->next, type, zp->buffer,",
+  "targets": [
+   "lib/content_encoding.c::deflate_do_write",
+   "lib/content_encoding.c::error_do_write",
+   "lib/content_encoding.c::gzip_do_write",
+   "lib/cw-out.c::cw_out_write",
+   "lib/cw-pause.c::cw_pause_write",
+   "lib/ftp.c::ftp_cw_lc_write",
+   "lib/headers.c::hds_cw_collect_write",
+   "lib/http_chunks.c::cw_chunked_write",
+   "lib/sendf.c::Curl_cwriter_def_write",
+   "lib/sendf.c::cw_download_write",
+   "lib/sendf.c::cw_raw_write",
+   "lib/ws.c::ws_cw_write"
+  ]
+ },
+ {
+  "file": "lib/content_encoding.c",
+  "line": 287,
+  "callers": [
+   "lib/content_encoding.c::deflate_do_write"
+  ],
+  "text": "return Curl_cwriter_write(data, writer->next, type, buf, nbytes);",
+  "targets": [
+   "lib/content_encoding.c::deflate_do_write",
+   "lib/content_encoding.c::error_do_write",
+   "lib/content_encoding.c::gzip_do_write",
+   "lib/cw-out.c::cw_out_write",
+   "lib/cw-pause.c::cw_pause_write",
+   "lib/ftp.c::ftp_cw_lc_write",
+   "lib/headers.c::hds_cw_collect_write",
+   "lib/http_chunks.c::cw_chunked_write",
+   "lib/sendf.c::Curl_cwriter_def_write",
+   "lib/sendf.c::cw_download_write",
+   "lib/sendf.c::cw_raw_write",
+   "lib/ws.c::ws_cw_write"
+  ]
+ },
+ {
+  "file": "lib/content_encoding.c",
+  "line": 318,
+  "callers": [
+   "lib/content_encoding.c::deflate_do_flush"
+  ],
+  "text": "return Curl_cwriter_flush(data, writer->next, eos);",
+  "targets": [
+   "lib/content_encoding.c::deflate_do_flush",
+   "lib/content_encoding.c::gzip_do_flush",
+   "lib/cw-out.c::cw_out_do_flush",
+   "lib/cw-pause.c::cw_pause_flush",
+   "lib/sendf.c::Curl_cwriter_def_flush",
+   "lib/ws.c::ws_cw_flush"
+  ]
+ },
+ {
+  "file": "lib/content_encoding.c",
+  "line": 362,
+  "callers": [
+   "lib/content_encoding.c::gzip_do_write"
+  ],
+  "text": "return Curl_cwriter_write(data, writer->next, type, buf, nbytes);",
+  "targets": [
+   "lib/content_encoding.c::deflate_do_write",
+   "lib/content_encoding.c::error_do_write",
+   "lib/content_encoding.c::gzip_do_write",
+   "lib/cw-out.c::cw_out_write",
+   "lib/cw-pause.c::cw_pause_write",
+   "lib/ftp.c::ftp_cw_lc_write",
+   "lib/headers.c::hds_cw_collect_write",
+   "lib/http_chunks.c::cw_chunked_write",
+   "lib/sendf.c::Curl_cwriter_def_write",
+   "lib/sendf.c::cw_download_write",
+   "lib/sendf.c::cw_raw_write",
+   "lib/ws.c::ws_cw_write"
+  ]
+ },
+ {
+  "file": "lib/content_encoding.c",
+  "line": 394,
+  "callers": [
+   "lib/content_encoding.c::gzip_do_flush"
+  ],
+  "text": "return Curl_cwriter_flush(data, writer->next, eos);",
+  "targets": [
+   "lib/content_encoding.c::deflate_do_flush",
+   "lib/content_encoding.c::gzip_do_flush",
+   "lib/cw-out.c::cw_out_do_flush",
+   "lib/cw-pause.c::cw_pause_flush",
+   "lib/sendf.c::Curl_cwriter_def_flush",
+   "lib/ws.c::ws_cw_flush"
+  ]
+ },
+ {
+  "file": "lib/content_encoding.c",
+  "line": 751,
+  "callers": [
+   "lib/content_encoding.c::error_do_write"
+  ],
+  "text": "return Curl_cwriter_write(data, writer->next, type, buf, nbytes);",
+  "targets": [
+   "lib/content_encoding.c::deflate_do_write",
+   "lib/content_encoding.c::error_do_write",
+   "lib/content_encoding.c::gzip_do_write",
+   "lib/cw-out.c::cw_out_write",
+   "lib/cw-pause.c::cw_pause_write",
+   "lib/ftp.c::ftp_cw_lc_write",
+   "lib/headers.c::hds_cw_collect_write",
+   "lib/http_chunks.c::cw_chunked_write",
+   "lib/sendf.c::Curl_cwriter_def_write",
+   "lib/sendf.c::cw_download_write",
+   "lib/sendf.c::cw_raw_write",
+   "lib/ws.c::ws_cw_write"
+  ]
+ },
+ {
+  "file": "lib/cshutdn.c",
+  "line": 117,
+  "callers": [
+   "lib/cshutdn.c::cshutdn_run_conn_handler"
+  ],
+  "text": "conn->scheme->run->disconnect(data, conn, (bool)conn->bits.aborted);",
+  "targets": [
+   "lib/file.c::file_disconnect",
+   "lib/ftp.c::ftp_disconnect",
+   "lib/imap.c::imap_disconnect",
+   "lib/pop3.c::pop3_disconnect",
+   "lib/smtp.c::smtp_disconnect"
+  ]
+ },
+ {
+  "file": "lib/cshutdn.c",
+  "line": 162,
+  "callers": [
+   "lib/cshutdn.c::cshutdn_try_once_idx"
+  ],
+  "text": "result = cf->cft->do_shutdown(cf, data, &cfdone);",
+  "targets": [
+   "lib/cf-https-connect.c::cf_hc_shutdown",
+   "lib/cf-ip-happy.c::cf_ip_happy_shutdown",
+   "lib/cf-socket.c::cf_socket_shutdown",
+   "lib/cfilters.c::Curl_cf_def_shutdown",
+   "lib/vquic/cf-capsule.c::cf_capsule_shutdown",
+   "lib/vtls/vtls.c::ssl_cf_shutdown"
+  ]
+ },
+ {
+  "file": "lib/curl_sasl.c",
+  "line": 223,
+  "callers": [
+   "lib/curl_sasl.c::get_server_message"
+  ],
+  "text": "result = sasl->params->getmessage(data, out);",
+  "targets": [
+   "lib/imap.c::imap_get_message",
+   "lib/pop3.c::pop3_get_message",
+   "lib/smtp.c::smtp_get_message"
+  ]
+ },
+ {
+  "file": "lib/curl_sasl.c",
+  "line": 524,
+  "callers": [
+   "lib/curl_sasl.c::Curl_sasl_start"
+  ],
+  "text": "sctx.result = sasl->params->sendauth(data, sctx.mech, &sctx.resp);",
+  "targets": [
+   "lib/imap.c::imap_perform_authenticate",
+   "lib/pop3.c::pop3_perform_auth",
+   "lib/smtp.c::smtp_perform_auth"
+  ]
+ },
+ {
+  "file": "lib/curl_sasl.c",
+  "line": 728,
+  "callers": [
+   "lib/curl_sasl.c::Curl_sasl_continue"
+  ],
+  "text": "result = sasl->params->cancelauth(data, sasl->curmech);",
+  "targets": [
+   "lib/imap.c::imap_cancel_authenticate",
+   "lib/pop3.c::pop3_cancel_auth",
+   "lib/smtp.c::smtp_cancel_auth"
+  ]
+ },
+ {
+  "file": "lib/curl_sasl.c",
+  "line": 734,
+  "callers": [
+   "lib/curl_sasl.c::Curl_sasl_continue"
+  ],
+  "text": "result = sasl->params->contauth(data, sasl->curmech, &resp);",
+  "targets": [
+   "lib/imap.c::imap_continue_authenticate",
+   "lib/pop3.c::pop3_continue_auth",
+   "lib/smtp.c::smtp_continue_auth"
+  ]
+ },
+ {
+  "file": "lib/cw-pause.c",
+  "line": 121,
+  "callers": [
+   "lib/cw-pause.c::cw_pause_flush"
+  ],
+  "text": "result = Curl_cwriter_write(data, cw_pause->next, wtype,",
+  "targets": [
+   "lib/content_encoding.c::deflate_do_write",
+   "lib/content_encoding.c::error_do_write",
+   "lib/content_encoding.c::gzip_do_write",
+   "lib/cw-out.c::cw_out_write",
+   "lib/cw-pause.c::cw_pause_write",
+   "lib/ftp.c::ftp_cw_lc_write",
+   "lib/headers.c::hds_cw_collect_write",
+   "lib/http_chunks.c::cw_chunked_write",
+   "lib/sendf.c::Curl_cwriter_def_write",
+   "lib/sendf.c::cw_download_write",
+   "lib/sendf.c::cw_raw_write",
+   "lib/ws.c::ws_cw_write"
+  ]
+ },
+ {
+  "file": "lib/cw-pause.c",
+  "line": 133,
+  "callers": [
+   "lib/cw-pause.c::cw_pause_flush"
+  ],
+  "text": "result = Curl_cwriter_write(data, cw_pause->next, first->type,",
+  "targets": [
+   "lib/content_encoding.c::deflate_do_write",
+   "lib/content_encoding.c::error_do_write",
+   "lib/content_encoding.c::gzip_do_write",
+   "lib/cw-out.c::cw_out_write",
+   "lib/cw-pause.c::cw_pause_write",
+   "lib/ftp.c::ftp_cw_lc_write",
+   "lib/headers.c::hds_cw_collect_write",
+   "lib/http_chunks.c::cw_chunked_write",
+   "lib/sendf.c::Curl_cwriter_def_write",
+   "lib/sendf.c::cw_download_write",
+   "lib/sendf.c::cw_raw_write",
+   "lib/ws.c::ws_cw_write"
+  ]
+ },
+ {
+  "file": "lib/cw-pause.c",
+  "line": 149,
+  "callers": [
+   "lib/cw-pause.c::cw_pause_flush"
+  ],
+  "text": "result = Curl_cwriter_flush(data, cw_pause->next, eos && !ctx->buf);",
+  "targets": [
+   "lib/content_encoding.c::deflate_do_flush",
+   "lib/content_encoding.c::gzip_do_flush",
+   "lib/cw-out.c::cw_out_do_flush",
+   "lib/cw-pause.c::cw_pause_flush",
+   "lib/sendf.c::Curl_cwriter_def_flush",
+   "lib/ws.c::ws_cw_flush"
+  ]
+ },
+ {
+  "file": "lib/cw-pause.c",
+  "line": 176,
+  "callers": [
+   "lib/cw-pause.c::cw_pause_write"
+  ],
+  "text": "result = Curl_cwriter_write(data, writer->next, wtype, buf, wlen);",
+  "targets": [
+   "lib/content_encoding.c::deflate_do_write",
+   "lib/content_encoding.c::error_do_write",
+   "lib/content_encoding.c::gzip_do_write",
+   "lib/cw-out.c::cw_out_write",
+   "lib/cw-pause.c::cw_pause_write",
+   "lib/ftp.c::ftp_cw_lc_write",
+   "lib/headers.c::hds_cw_collect_write",
+   "lib/http_chunks.c::cw_chunked_write",
+   "lib/sendf.c::Curl_cwriter_def_write",
+   "lib/sendf.c::cw_download_write",
+   "lib/sendf.c::cw_raw_write",
+   "lib/ws.c::ws_cw_write"
+  ]
+ },
+ {
+  "file": "lib/ftp.c",
+  "line": 392,
+  "callers": [
+   "lib/ftp.c::ftp_cw_lc_write"
+  ],
+  "text": "return Curl_cwriter_write(data, writer->next, type, buf, blen);",
+  "targets": [
+   "lib/content_encoding.c::deflate_do_write",
+   "lib/content_encoding.c::error_do_write",
+   "lib/content_encoding.c::gzip_do_write",
+   "lib/cw-out.c::cw_out_write",
+   "lib/cw-pause.c::cw_pause_write",
+   "lib/ftp.c::ftp_cw_lc_write",
+   "lib/headers.c::hds_cw_collect_write",
+   "lib/http_chunks.c::cw_chunked_write",
+   "lib/sendf.c::Curl_cwriter_def_write",
+   "lib/sendf.c::cw_download_write",
+   "lib/sendf.c::cw_raw_write",
+   "lib/ws.c::ws_cw_write"
+  ]
+ },
+ {
+  "file": "lib/ftp.c",
+  "line": 406,
+  "callers": [
+   "lib/ftp.c::ftp_cw_lc_write"
+  ],
+  "text": "result = Curl_cwriter_write(data, writer->next, chunk_type, &nl, 1);",
+  "targets": [
+   "lib/content_encoding.c::deflate_do_write",
+   "lib/content_encoding.c::error_do_write",
+   "lib/content_encoding.c::gzip_do_write",
+   "lib/cw-out.c::cw_out_write",
+   "lib/cw-pause.c::cw_pause_write",
+   "lib/ftp.c::ftp_cw_lc_write",
+   "lib/headers.c::hds_cw_collect_write",
+   "lib/http_chunks.c::cw_chunked_write",
+   "lib/sendf.c::Curl_cwriter_def_write",
+   "lib/sendf.c::cw_download_write",
+   "lib/sendf.c::cw_raw_write",
+   "lib/ws.c::ws_cw_write"
+  ]
+ },
+ {
+  "file": "lib/ftp.c",
+  "line": 422,
+  "callers": [
+   "lib/ftp.c::ftp_cw_lc_write"
+  ],
+  "text": "result = Curl_cwriter_write(data, writer->next, chunk_type,",
+  "targets": [
+   "lib/content_encoding.c::deflate_do_write",
+   "lib/content_encoding.c::error_do_write",
+   "lib/content_encoding.c::gzip_do_write",
+   "lib/cw-out.c::cw_out_write",
+   "lib/cw-pause.c::cw_pause_write",
+   "lib/ftp.c::ftp_cw_lc_write",
+   "lib/headers.c::hds_cw_collect_write",
+   "lib/http_chunks.c::cw_chunked_write",
+   "lib/sendf.c::Curl_cwriter_def_write",
+   "lib/sendf.c::cw_download_write",
+   "lib/sendf.c::cw_raw_write",
+   "lib/ws.c::ws_cw_write"
+  ]
+ },
+ {
+  "file": "lib/ftp.c",
+  "line": 436,
+  "callers": [
+   "lib/ftp.c::ftp_cw_lc_write"
+  ],
+  "text": "return Curl_cwriter_write(data, writer->next, type, buf, blen);",
+  "targets": [
+   "lib/content_encoding.c::deflate_do_write",
+   "lib/content_encoding.c::error_do_write",
+   "lib/content_encoding.c::gzip_do_write",
+   "lib/cw-out.c::cw_out_write",
+   "lib/cw-pause.c::cw_pause_write",
+   "lib/ftp.c::ftp_cw_lc_write",
+   "lib/headers.c::hds_cw_collect_write",
+   "lib/http_chunks.c::cw_chunked_write",
+   "lib/sendf.c::Curl_cwriter_def_write",
+   "lib/sendf.c::cw_download_write",
+   "lib/sendf.c::cw_raw_write",
+   "lib/ws.c::ws_cw_write"
+  ]
+ },
+ {
+  "file": "lib/ftp.c",
+  "line": 442,
+  "callers": [
+   "lib/ftp.c::ftp_cw_lc_write"
+  ],
+  "text": "return Curl_cwriter_write(data, writer->next, type, &nl, 1);",
+  "targets": [
+   "lib/content_encoding.c::deflate_do_write",
+   "lib/content_encoding.c::error_do_write",
+   "lib/content_encoding.c::gzip_do_write",
+   "lib/cw-out.c::cw_out_write",
+   "lib/cw-pause.c::cw_pause_write",
+   "lib/ftp.c::ftp_cw_lc_write",
+   "lib/headers.c::hds_cw_collect_write",
+   "lib/http_chunks.c::cw_chunked_write",
+   "lib/sendf.c::Curl_cwriter_def_write",
+   "lib/sendf.c::cw_download_write",
+   "lib/sendf.c::cw_raw_write",
+   "lib/ws.c::ws_cw_write"
+  ]
+ },
+ {
+  "file": "lib/ftp.c",
+  "line": 445,
+  "callers": [
+   "lib/ftp.c::ftp_cw_lc_write"
+  ],
+  "text": "return Curl_cwriter_write(data, writer->next, type, buf, 0);",
+  "targets": [
+   "lib/content_encoding.c::deflate_do_write",
+   "lib/content_encoding.c::error_do_write",
+   "lib/content_encoding.c::gzip_do_write",
+   "lib/cw-out.c::cw_out_write",
+   "lib/cw-pause.c::cw_pause_write",
+   "lib/ftp.c::ftp_cw_lc_write",
+   "lib/headers.c::hds_cw_collect_write",
+   "lib/http_chunks.c::cw_chunked_write",
+   "lib/sendf.c::Curl_cwriter_def_write",
+   "lib/sendf.c::cw_download_write",
+   "lib/sendf.c::cw_raw_write",
+   "lib/ws.c::ws_cw_write"
+  ]
+ },
+ {
+  "file": "lib/ftp.c",
+  "line": 4161,
+  "callers": [
+   "lib/ftp.c::wc_statemach"
+  ],
+  "text": "wildcard->dtor(wildcard->ftpwc);",
+  "targets": [
+   "lib/ftp.c::wc_data_dtor"
+  ]
+ },
+ {
+  "file": "lib/ftplistparser.c",
+  "line": 197,
+  "callers": [
+   "lib/ftplistparser.c::Curl_wildcard_dtor"
+  ],
+  "text": "wc->dtor(wc->ftpwc);",
+  "targets": [
+   "lib/ftp.c::wc_data_dtor"
+  ]
+ },
+ {
+  "file": "lib/hash.c",
+  "line": 350,
+  "callers": [
+   "lib/hash.c::Curl_hash_add2",
+   "lib/hash.c::hash_elem_link"
+  ],
+  "text": "slot = &h->table[functions->hash(key, key_len, h->slots)];",
+  "targets": [
+   "lib/hash.c::hash_socket",
+   "lib/hash.c::hash_str"
+  ]
+ },
+ {
+  "file": "lib/hash.c",
+  "line": 352,
+  "callers": [
+   "lib/hash.c::Curl_hash_add2"
+  ],
+  "text": "if(functions->compare(hash_elem_key(he), he->key_len, key, key_len)) {",
+  "targets": [
+   "lib/hash.c::compare_bytes",
+   "lib/hash.c::compare_socket"
+  ]
+ },
+ {
+  "file": "lib/hash.c",
+  "line": 401,
+  "callers": [
+   "lib/hash.c::Curl_hash_delete",
+   "lib/hash.c::hash_elem_unlink"
+  ],
+  "text": "he_anchor = &h->table[functions->hash(key, key_len, h->slots)];",
+  "targets": [
+   "lib/hash.c::hash_socket",
+   "lib/hash.c::hash_str"
+  ]
+ },
+ {
+  "file": "lib/hash.c",
+  "line": 404,
+  "callers": [
+   "lib/hash.c::Curl_hash_delete"
+  ],
+  "text": "if(functions->compare(hash_elem_key(he), he->key_len, key, key_len)) {",
+  "targets": [
+   "lib/hash.c::compare_bytes",
+   "lib/hash.c::compare_socket"
+  ]
+ },
+ {
+  "file": "lib/hash.c",
+  "line": 431,
+  "callers": [
+   "lib/hash.c::Curl_hash_pick"
+  ],
+  "text": "he = h->table[functions->hash(key, key_len, h->slots)];",
+  "targets": [
+   "lib/hash.c::hash_socket",
+   "lib/hash.c::hash_str"
+  ]
+ },
+ {
+  "file": "lib/hash.c",
+  "line": 433,
+  "callers": [
+   "lib/hash.c::Curl_hash_pick"
+  ],
+  "text": "if(functions->compare(hash_elem_key(he), he->key_len, key, key_len)) {",
+  "targets": [
+   "lib/hash.c::compare_bytes",
+   "lib/hash.c::compare_socket"
+  ]
+ },
+ {
+  "file": "lib/headers.c",
+  "line": 428,
+  "callers": [
+   "lib/headers.c::hds_cw_collect_write"
+  ],
+  "text": "return Curl_cwriter_write(data, writer->next, type, buf, blen);",
+  "targets": [
+   "lib/content_encoding.c::deflate_do_write",
+   "lib/content_encoding.c::error_do_write",
+   "lib/content_encoding.c::gzip_do_write",
+   "lib/cw-out.c::cw_out_write",
+   "lib/cw-pause.c::cw_pause_write",
+   "lib/ftp.c::ftp_cw_lc_write",
+   "lib/headers.c::hds_cw_collect_write",
+   "lib/http_chunks.c::cw_chunked_write",
+   "lib/sendf.c::Curl_cwriter_def_write",
+   "lib/sendf.c::cw_download_write",
+   "lib/sendf.c::cw_raw_write",
+   "lib/ws.c::ws_cw_write"
+  ]
+ },
+ {
+  "file": "lib/hmac.c",
+  "line": 67,
+  "callers": [
+   "lib/hmac.c::Curl_HMAC_init"
+  ],
+  "text": "if(hashparams->hinit(ctxt->hashctxt1))",
+  "targets": [
+   "lib/curl_sha512_256.c::Curl_sha512_256_init",
+   "lib/md5.c::my_md5_init",
+   "lib/sha256.c::my_sha256_init"
+  ]
+ },
+ {
+  "file": "lib/hmac.c",
+  "line": 69,
+  "callers": [
+   "lib/hmac.c::Curl_HMAC_init"
+  ],
+  "text": "hashparams->hupdate(ctxt->hashctxt1, key, keylen);",
+  "targets": [
+   "lib/curl_sha512_256.c::Curl_sha512_256_update_i",
+   "lib/md5.c::my_md5_update",
+   "lib/sha256.c::my_sha256_update"
+  ]
+ },
+ {
+  "file": "lib/hmac.c",
+  "line": 71,
+  "callers": [
+   "lib/hmac.c::Curl_HMAC_init"
+  ],
+  "text": "hashparams->hfinal(hkey, ctxt->hashctxt1);",
+  "targets": [
+   "lib/curl_sha512_256.c::Curl_sha512_256_finish_v",
+   "lib/md5.c::my_md5_final",
+   "lib/sha256.c::my_sha256_final"
+  ]
+ },
+ {
+  "file": "lib/hmac.c",
+  "line": 77,
+  "callers": [
+   "lib/hmac.c::Curl_HMAC_init"
+  ],
+  "text": "if(hashparams->hinit(ctxt->hashctxt1) ||",
+  "targets": [
+   "lib/curl_sha512_256.c::Curl_sha512_256_init",
+   "lib/md5.c::my_md5_init",
+   "lib/sha256.c::my_sha256_init"
+  ]
+ },
+ {
+  "file": "lib/hmac.c",
+  "line": 78,
+  "callers": [
+   "lib/hmac.c::Curl_HMAC_init"
+  ],
+  "text": "hashparams->hinit(ctxt->hashctxt2))",
+  "targets": [
+   "lib/curl_sha512_256.c::Curl_sha512_256_init",
+   "lib/md5.c::my_md5_init",
+   "lib/sha256.c::my_sha256_init"
+  ]
+ },
+ {
+  "file": "lib/hmac.c",
+  "line": 83,
+  "callers": [
+   "lib/hmac.c::Curl_HMAC_init"
+  ],
+  "text": "hashparams->hupdate(ctxt->hashctxt1, &b, 1);",
+  "targets": [
+   "lib/curl_sha512_256.c::Curl_sha512_256_update_i",
+   "lib/md5.c::my_md5_update",
+   "lib/sha256.c::my_sha256_update"
+  ]
+ },
+ {
+  "file": "lib/hmac.c",
+  "line": 85,
+  "callers": [
+   "lib/hmac.c::Curl_HMAC_init"
+  ],
+  "text": "hashparams->hupdate(ctxt->hashctxt2, &b, 1);",
+  "targets": [
+   "lib/curl_sha512_256.c::Curl_sha512_256_update_i",
+   "lib/md5.c::my_md5_update",
+   "lib/sha256.c::my_sha256_update"
+  ]
+ },
+ {
+  "file": "lib/hmac.c",
+  "line": 89,
+  "callers": [
+   "lib/hmac.c::Curl_HMAC_init"
+  ],
+  "text": "hashparams->hupdate(ctxt->hashctxt1, &hmac_ipad, 1);",
+  "targets": [
+   "lib/curl_sha512_256.c::Curl_sha512_256_update_i",
+   "lib/md5.c::my_md5_update",
+   "lib/sha256.c::my_sha256_update"
+  ]
+ },
+ {
+  "file": "lib/hmac.c",
+  "line": 90,
+  "callers": [
+   "lib/hmac.c::Curl_HMAC_init"
+  ],
+  "text": "hashparams->hupdate(ctxt->hashctxt2, &hmac_opad, 1);",
+  "targets": [
+   "lib/curl_sha512_256.c::Curl_sha512_256_update_i",
+   "lib/md5.c::my_md5_update",
+   "lib/sha256.c::my_sha256_update"
+  ]
+ },
+ {
+  "file": "lib/hmac.c",
+  "line": 106,
+  "callers": [
+   "lib/hmac.c::Curl_HMAC_update"
+  ],
+  "text": "ctxt->hash->hupdate(ctxt->hashctxt1, data, len);",
+  "targets": [
+   "lib/curl_sha512_256.c::Curl_sha512_256_update_i",
+   "lib/md5.c::my_md5_update",
+   "lib/sha256.c::my_sha256_update"
+  ]
+ },
+ {
+  "file": "lib/hmac.c",
+  "line": 119,
+  "callers": [
+   "lib/hmac.c::Curl_HMAC_final"
+  ],
+  "text": "hashparams->hfinal(output, ctxt->hashctxt1);",
+  "targets": [
+   "lib/curl_sha512_256.c::Curl_sha512_256_finish_v",
+   "lib/md5.c::my_md5_final",
+   "lib/sha256.c::my_sha256_final"
+  ]
+ },
+ {
+  "file": "lib/hmac.c",
+  "line": 120,
+  "callers": [
+   "lib/hmac.c::Curl_HMAC_final"
+  ],
+  "text": "hashparams->hupdate(ctxt->hashctxt2, output, hashparams->resultlen);",
+  "targets": [
+   "lib/curl_sha512_256.c::Curl_sha512_256_update_i",
+   "lib/md5.c::my_md5_update",
+   "lib/sha256.c::my_sha256_update"
+  ]
+ },
+ {
+  "file": "lib/hmac.c",
+  "line": 121,
+  "callers": [
+   "lib/hmac.c::Curl_HMAC_final"
+  ],
+  "text": "hashparams->hfinal(output, ctxt->hashctxt2);",
+  "targets": [
+   "lib/curl_sha512_256.c::Curl_sha512_256_finish_v",
+   "lib/md5.c::my_md5_final",
+   "lib/sha256.c::my_sha256_final"
+  ]
+ },
+ {
+  "file": "lib/http_chunks.c",
+  "line": 128,
+  "callers": [
+   "lib/http_chunks.c::httpchunk_readwrite"
+  ],
+  "text": "result = Curl_cwriter_write(data, cw_next, CLIENTWRITE_BODY, buf, blen);",
+  "targets": [
+   "lib/content_encoding.c::deflate_do_write",
+   "lib/content_encoding.c::error_do_write",
+   "lib/content_encoding.c::gzip_do_write",
+   "lib/cw-out.c::cw_out_write",
+   "lib/cw-pause.c::cw_pause_write",
+   "lib/ftp.c::ftp_cw_lc_write",
+   "lib/headers.c::hds_cw_collect_write",
+   "lib/http_chunks.c::cw_chunked_write",
+   "lib/sendf.c::Curl_cwriter_def_write",
+   "lib/sendf.c::cw_download_write",
+   "lib/sendf.c::cw_raw_write",
+   "lib/ws.c::ws_cw_write"
+  ]
+ },
+ {
+  "file": "lib/http_chunks.c",
+  "line": 206,
+  "callers": [
+   "lib/http_chunks.c::httpchunk_readwrite"
+  ],
+  "text": "result = Curl_cwriter_write(data, cw_next, CLIENTWRITE_BODY,",
+  "targets": [
+   "lib/content_encoding.c::deflate_do_write",
+   "lib/content_encoding.c::error_do_write",
+   "lib/content_encoding.c::gzip_do_write",
+   "lib/cw-out.c::cw_out_write",
+   "lib/cw-pause.c::cw_pause_write",
+   "lib/ftp.c::ftp_cw_lc_write",
+   "lib/headers.c::hds_cw_collect_write",
+   "lib/http_chunks.c::cw_chunked_write",
+   "lib/sendf.c::Curl_cwriter_def_write",
+   "lib/sendf.c::cw_download_write",
+   "lib/sendf.c::cw_raw_write",
+   "lib/ws.c::ws_cw_write"
+  ]
+ },
+ {
+  "file": "lib/http_chunks.c",
+  "line": 276,
+  "callers": [
+   "lib/http_chunks.c::httpchunk_readwrite"
+  ],
+  "text": "result = Curl_cwriter_write(data, cw_next, hd_type, tr, trlen);",
+  "targets": [
+   "lib/content_encoding.c::deflate_do_write",
+   "lib/content_encoding.c::error_do_write",
+   "lib/content_encoding.c::gzip_do_write",
+   "lib/cw-out.c::cw_out_write",
+   "lib/cw-pause.c::cw_pause_write",
+   "lib/ftp.c::ftp_cw_lc_write",
+   "lib/headers.c::hds_cw_collect_write",
+   "lib/http_chunks.c::cw_chunked_write",
+   "lib/sendf.c::Curl_cwriter_def_write",
+   "lib/sendf.c::cw_download_write",
+   "lib/sendf.c::cw_raw_write",
+   "lib/ws.c::ws_cw_write"
+  ]
+ },
+ {
+  "file": "lib/http_chunks.c",
+  "line": 438,
+  "callers": [
+   "lib/http_chunks.c::cw_chunked_write"
+  ],
+  "text": "return Curl_cwriter_write(data, writer->next, type, buf, blen);",
+  "targets": [
+   "lib/content_encoding.c::deflate_do_write",
+   "lib/content_encoding.c::error_do_write",
+   "lib/content_encoding.c::gzip_do_write",
+   "lib/cw-out.c::cw_out_write",
+   "lib/cw-pause.c::cw_pause_write",
+   "lib/ftp.c::ftp_cw_lc_write",
+   "lib/headers.c::hds_cw_collect_write",
+   "lib/http_chunks.c::cw_chunked_write",
+   "lib/sendf.c::Curl_cwriter_def_write",
+   "lib/sendf.c::cw_download_write",
+   "lib/sendf.c::cw_raw_write",
+   "lib/ws.c::ws_cw_write"
+  ]
+ },
+ {
+  "file": "lib/http_proxy.c",
+  "line": 562,
+  "callers": [
+   "lib/http_proxy.c::http_proxy_cf_connect"
+  ],
+  "text": "result = cf->next->cft->do_connect(cf->next, data, done);",
+  "targets": [
+   "lib/cf-h1-proxy.c::cf_h1_proxy_connect",
+   "lib/cf-haproxy.c::cf_haproxy_connect",
+   "lib/cf-https-connect.c::cf_hc_connect",
+   "lib/cf-ip-happy.c::cf_ip_happy_connect",
+   "lib/cf-setup.c::cf_setup_connect",
+   "lib/cf-socket.c::cf_tcp_accept_connect",
+   "lib/cf-socket.c::cf_tcp_connect",
+   "lib/cf-socket.c::cf_udp_connect",
+   "lib/cfilters.c::Curl_cf_def_connect",
+   "lib/http_proxy.c::http_proxy_cf_connect",
+   "lib/socks.c::socks_proxy_cf_connect",
+   "lib/vdns/cf-dns.c::cf_dns_connect",
+   "lib/vquic/cf-capsule.c::cf_capsule_connect",
+   "lib/vtls/vtls.c::ssl_cf_connect"
+  ]
+ },
+ {
+  "file": "lib/http_proxy.c",
+  "line": 683,
+  "callers": [
+   "lib/http_proxy.c::cf_http_proxy_query"
+  ],
+  "text": "cf->next->cft->query(cf->next, data, query, pres1, pres2) :",
+  "targets": [
+   "lib/cf-h1-proxy.c::cf_h1_proxy_query",
+   "lib/cf-https-connect.c::cf_hc_query",
+   "lib/cf-ip-happy.c::cf_ip_happy_query",
+   "lib/cf-socket.c::cf_socket_query",
+   "lib/cfilters.c::Curl_cf_def_query",
+   "lib/http_proxy.c::cf_http_proxy_query",
+   "lib/socks.c::socks_cf_query",
+   "lib/vquic/cf-capsule.c::cf_capsule_query",
+   "lib/vtls/vtls.c::ssl_cf_query"
+  ]
+ },
+ {
+  "file": "lib/md5.c",
+  "line": 593,
+  "callers": [
+   "lib/md5.c::Curl_MD5_init"
+  ],
+  "text": "if((*md5params->md5_init_func)(ctxt->md5_hashctx)) {",
+  "targets": [
+   "lib/md5.c::my_md5_init"
+  ]
+ },
+ {
+  "file": "lib/md5.c",
+  "line": 605,
+  "callers": [
+   "lib/md5.c::Curl_MD5_update"
+  ],
+  "text": "(*context->md5_hash->md5_update_func)(context->md5_hashctx, input, len);",
+  "targets": [
+   "lib/md5.c::my_md5_update"
+  ]
+ },
+ {
+  "file": "lib/md5.c",
+  "line": 612,
+  "callers": [
+   "lib/md5.c::Curl_MD5_final"
+  ],
+  "text": "(*context->md5_hash->md5_final_func)(result, context->md5_hashctx);",
+  "targets": [
+   "lib/md5.c::my_md5_final"
+  ]
+ },
+ {
+  "file": "lib/mime.c",
+  "line": 742,
+  "callers": [
+   "lib/mime.c::read_part_content"
+  ],
+  "text": "sz = part->readfunc(buffer, 1, bufsize, part->arg);",
+  "targets": [
+   "lib/mime.c::mime_file_read",
+   "lib/mime.c::mime_mem_read"
+  ]
+ },
+ {
+  "file": "lib/mime.c",
+  "line": 778,
+  "callers": [
+   "lib/mime.c::read_encoded_part_content"
+  ],
+  "text": "sz = part->encoder->encodefunc(buffer, bufsize, ateof, part);",
+  "targets": [
+   "lib/mime.c::encoder_7bit_read",
+   "lib/mime.c::encoder_base64_read",
+   "lib/mime.c::encoder_nop_read",
+   "lib/mime.c::encoder_qp_read"
+  ]
+ },
+ {
+  "file": "lib/mime.c",
+  "line": 989,
+  "callers": [
+   "lib/mime.c::mime_part_rewind"
+  ],
+  "text": "res = part->seekfunc(part->arg, (curl_off_t)0, SEEK_SET);",
+  "targets": [
+   "lib/mime.c::mime_file_seek",
+   "lib/mime.c::mime_mem_seek",
+   "lib/mime.c::mime_subparts_seek"
+  ]
+ },
+ {
+  "file": "lib/mime.c",
+  "line": 1040,
+  "callers": [
+   "lib/mime.c::cleanup_part_content"
+  ],
+  "text": "part->freefunc(part->arg);",
+  "targets": [
+   "lib/mime.c::mime_file_free",
+   "lib/mime.c::mime_mem_free"
+  ]
+ },
+ {
+  "file": "lib/mime.c",
+  "line": 1640,
+  "callers": [
+   "lib/mime.c::mime_size"
+  ],
+  "text": "size = part->encoder->sizefunc(part);",
+  "targets": [
+   "lib/mime.c::encoder_base64_size",
+   "lib/mime.c::encoder_nop_size",
+   "lib/mime.c::encoder_qp_size"
+  ]
+ },
+ {
+  "file": "lib/multi.c",
+  "line": 715,
+  "callers": [
+   "lib/multi.c::multi_done"
+  ],
+  "text": "result = conn->scheme->run->done(data, status, premature);",
+  "targets": [
+   "lib/file.c::file_done",
+   "lib/ftp.c::ftp_done",
+   "lib/http.c::Curl_http_done",
+   "lib/imap.c::imap_done",
+   "lib/mqtt.c::mqtt_done",
+   "lib/pop3.c::pop3_done",
+   "lib/rtsp.c::rtsp_done",
+   "lib/smtp.c::smtp_done",
+   "lib/telnet.c::telnet_done",
+   "lib/tftp.c::tftp_done"
+  ]
+ },
+ {
+  "file": "lib/multi.c",
+  "line": 1036,
+  "callers": [
+   "lib/multi.c::mstate_protocol_pollset"
+  ],
+  "text": "result = conn->scheme->run->proto_pollset(data, ps);",
+  "targets": [
+   "lib/ftp.c::ftp_pollset",
+   "lib/imap.c::imap_pollset",
+   "lib/pop3.c::pop3_pollset",
+   "lib/smtp.c::smtp_pollset",
+   "lib/tftp.c::tftp_pollset"
+  ]
+ },
+ {
+  "file": "lib/multi.c",
+  "line": 1058,
+  "callers": [
+   "lib/multi.c::mstate_do_pollset"
+  ],
+  "text": "result = conn->scheme->run->doing_pollset(data, ps);",
+  "targets": [
+   "lib/ftp.c::ftp_pollset",
+   "lib/http.c::Curl_http_doing_pollset",
+   "lib/imap.c::imap_pollset",
+   "lib/mqtt.c::mqtt_pollset",
+   "lib/pop3.c::pop3_pollset",
+   "lib/rtsp.c::rtsp_do_pollset",
+   "lib/smtp.c::smtp_pollset",
+   "lib/tftp.c::tftp_pollset"
+  ]
+ },
+ {
+  "file": "lib/multi.c",
+  "line": 1077,
+  "callers": [
+   "lib/multi.c::mstate_domore_pollset"
+  ],
+  "text": "result = conn->scheme->run->domore_pollset(data, ps);",
+  "targets": [
+   "lib/ftp.c::ftp_domore_pollset"
+  ]
+ },
+ {
+  "file": "lib/multi.c",
+  "line": 1096,
+  "callers": [
+   "lib/multi.c::mstate_perform_pollset"
+  ],
+  "text": "result = conn->scheme->run->perform_pollset(data, ps);",
+  "targets": [
+   "lib/http.c::Curl_http_perform_pollset"
+  ]
+ },
+ {
+  "file": "lib/multi.c",
+  "line": 1812,
+  "callers": [
+   "lib/multi.c::multi_do"
+  ],
+  "text": "result = conn->scheme->run->do_it(data, done);",
+  "targets": [
+   "lib/dict.c::dict_do",
+   "lib/file.c::file_do",
+   "lib/ftp.c::ftp_do",
+   "lib/gopher.c::gopher_do",
+   "lib/http.c::Curl_http",
+   "lib/imap.c::imap_do",
+   "lib/mqtt.c::mqtt_do",
+   "lib/pop3.c::pop3_do",
+   "lib/rtsp.c::rtsp_do",
+   "lib/smtp.c::smtp_do",
+   "lib/telnet.c::telnet_do",
+   "lib/tftp.c::tftp_do"
+  ]
+ },
+ {
+  "file": "lib/multi.c",
+  "line": 1834,
+  "callers": [
+   "lib/multi.c::multi_do_more"
+  ],
+  "text": "result = conn->scheme->run->do_more(data, complete);",
+  "targets": [
+   "lib/ftp.c::ftp_do_more"
+  ]
+ },
+ {
+  "file": "lib/multi.c",
+  "line": 1905,
+  "callers": [
+   "lib/multi.c::protocol_connecting"
+  ],
+  "text": "result = conn->scheme->run->connecting(data, done);",
+  "targets": [
+   "lib/ftp.c::ftp_multi_statemach",
+   "lib/gopher.c::gopher_connecting",
+   "lib/imap.c::imap_multi_statemach",
+   "lib/mqtt.c::mqtts_connecting",
+   "lib/pop3.c::pop3_multi_statemach",
+   "lib/smtp.c::smtp_multi_statemach",
+   "lib/tftp.c::tftp_multi_statemach"
+  ]
+ },
+ {
+  "file": "lib/multi.c",
+  "line": 1925,
+  "callers": [
+   "lib/multi.c::protocol_doing"
+  ],
+  "text": "result = conn->scheme->run->doing(data, done);",
+  "targets": [
+   "lib/ftp.c::ftp_doing",
+   "lib/imap.c::imap_doing",
+   "lib/mqtt.c::mqtt_doing",
+   "lib/pop3.c::pop3_doing",
+   "lib/smtp.c::smtp_doing",
+   "lib/tftp.c::tftp_doing"
+  ]
+ },
+ {
+  "file": "lib/multi.c",
+  "line": 1951,
+  "callers": [
+   "lib/multi.c::protocol_connect"
+  ],
+  "text": "result = conn->scheme->run->connect_it(data, protocol_done);",
+  "targets": [
+   "lib/file.c::file_connect",
+   "lib/ftp.c::ftp_connect",
+   "lib/gopher.c::gopher_connect",
+   "lib/imap.c::imap_connect",
+   "lib/pop3.c::pop3_connect",
+   "lib/rtsp.c::rtsp_connect",
+   "lib/smtp.c::smtp_connect",
+   "lib/tftp.c::tftp_connect"
+  ]
+ },
+ {
+  "file": "lib/multi.c",
+  "line": 1991,
+  "callers": [
+   "lib/multi.c::multi_follow"
+  ],
+  "text": "return handler->run->follow(data, newurl, type);",
+  "targets": [
+   "lib/http.c::Curl_http_follow"
+  ]
+ },
+ {
+  "file": "lib/multi.c",
+  "line": 2476,
+  "callers": [
+   "lib/multi.c::handle_completed"
+  ],
+  "text": "data->sub_xfer_done(data, master, result);",
+  "targets": [
+   "lib/vdns/doh.c::doh_probe_done"
+  ]
+ },
+ {
+  "file": "lib/pingpong.c",
+  "line": 116,
+  "callers": [
+   "lib/pingpong.c::Curl_pp_statemach"
+  ],
+  "text": "result = pp->statemachine(data, data->conn);",
+  "targets": [
+   "lib/ftp.c::ftp_pp_statemachine",
+   "lib/imap.c::imap_pp_statemachine",
+   "lib/pop3.c::pop3_statemachine",
+   "lib/smtp.c::smtp_pp_statemachine"
+  ]
+ },
+ {
+  "file": "lib/pingpong.c",
+  "line": 307,
+  "callers": [
+   "lib/pingpong.c::Curl_pp_readresp"
+  ],
+  "text": "if(pp->endofresp(data, conn, line, length, code)) {",
+  "targets": [
+   "lib/ftp.c::ftp_endofresp",
+   "lib/imap.c::imap_endofresp",
+   "lib/pop3.c::pop3_endofresp",
+   "lib/smtp.c::smtp_endofresp"
+  ]
+ },
+ {
+  "file": "lib/sendf.c",
+  "line": 46,
+  "callers": [
+   "lib/sendf.c::cl_reset_writer"
+  ],
+  "text": "writer->cwt->do_close(data, writer);",
+  "targets": [
+   "lib/content_encoding.c::deflate_do_close",
+   "lib/content_encoding.c::error_do_close",
+   "lib/content_encoding.c::gzip_do_close",
+   "lib/cw-out.c::cw_out_close",
+   "lib/cw-pause.c::cw_pause_close",
+   "lib/http_chunks.c::cw_chunked_close",
+   "lib/sendf.c::Curl_cwriter_def_close",
+   "lib/ws.c::ws_cw_close"
+  ]
+ },
+ {
+  "file": "lib/sendf.c",
+  "line": 59,
+  "callers": [
+   "lib/sendf.c::cl_reset_reader"
+  ],
+  "text": "reader->crt->do_close(data, reader);",
+  "targets": [
+   "lib/http_chunks.c::cr_chunked_close",
+   "lib/mime.c::cr_mime_close",
+   "lib/sendf.c::Curl_creader_def_close",
+   "lib/sendf.c::cr_lc_close",
+   "lib/smtp.c::cr_eob_close",
+   "lib/ws.c::cr_ws_close"
+  ]
+ },
+ {
+  "file": "lib/sendf.c",
+  "line": 98,
+  "callers": [
+   "lib/sendf.c::Curl_client_start"
+  ],
+  "text": "result = r->crt->cntrl(data, r, CURL_CRCNTRL_REWIND);",
+  "targets": [
+   "lib/mime.c::cr_mime_cntrl",
+   "lib/sendf.c::Curl_creader_def_cntrl",
+   "lib/sendf.c::cr_buf_cntrl",
+   "lib/sendf.c::cr_in_cntrl"
+  ]
+ },
+ {
+  "file": "lib/sendf.c",
+  "line": 134,
+  "callers": [
+   "lib/sendf.c::Curl_cwriter_def_write"
+  ],
+  "text": "return Curl_cwriter_write(data, writer->next, type, buf, nbytes);",
+  "targets": [
+   "lib/content_encoding.c::deflate_do_write",
+   "lib/content_encoding.c::error_do_write",
+   "lib/content_encoding.c::gzip_do_write",
+   "lib/cw-out.c::cw_out_write",
+   "lib/cw-pause.c::cw_pause_write",
+   "lib/ftp.c::ftp_cw_lc_write",
+   "lib/headers.c::hds_cw_collect_write",
+   "lib/http_chunks.c::cw_chunked_write",
+   "lib/sendf.c::Curl_cwriter_def_write",
+   "lib/sendf.c::cw_download_write",
+   "lib/sendf.c::cw_raw_write",
+   "lib/ws.c::ws_cw_write"
+  ]
+ },
+ {
+  "file": "lib/sendf.c",
+  "line": 140,
+  "callers": [
+   "lib/sendf.c::Curl_cwriter_def_flush"
+  ],
+  "text": "return Curl_cwriter_flush(data, writer->next, eos);",
+  "targets": [
+   "lib/content_encoding.c::deflate_do_flush",
+   "lib/content_encoding.c::gzip_do_flush",
+   "lib/cw-out.c::cw_out_do_flush",
+   "lib/cw-pause.c::cw_pause_flush",
+   "lib/sendf.c::Curl_cwriter_def_flush",
+   "lib/ws.c::ws_cw_flush"
+  ]
+ },
+ {
+  "file": "lib/sendf.c",
+  "line": 190,
+  "callers": [
+   "lib/sendf.c::cw_download_write"
+  ],
+  "text": "result = Curl_cwriter_write(data, writer->next, type, buf, nbytes);",
+  "targets": [
+   "lib/content_encoding.c::deflate_do_write",
+   "lib/content_encoding.c::error_do_write",
+   "lib/content_encoding.c::gzip_do_write",
+   "lib/cw-out.c::cw_out_write",
+   "lib/cw-pause.c::cw_pause_write",
+   "lib/ftp.c::ftp_cw_lc_write",
+   "lib/headers.c::hds_cw_collect_write",
+   "lib/http_chunks.c::cw_chunked_write",
+   "lib/sendf.c::Curl_cwriter_def_write",
+   "lib/sendf.c::cw_download_write",
+   "lib/sendf.c::cw_raw_write",
+   "lib/ws.c::ws_cw_write"
+  ]
+ },
+ {
+  "file": "lib/sendf.c",
+  "line": 255,
+  "callers": [
+   "lib/sendf.c::cw_download_write"
+  ],
+  "text": "result = Curl_cwriter_write(data, writer->next, type, buf, nwrite);",
+  "targets": [
+   "lib/content_encoding.c::deflate_do_write",
+   "lib/content_encoding.c::error_do_write",
+   "lib/content_encoding.c::gzip_do_write",
+   "lib/cw-out.c::cw_out_write",
+   "lib/cw-pause.c::cw_pause_write",
+   "lib/ftp.c::ftp_cw_lc_write",
+   "lib/headers.c::hds_cw_collect_write",
+   "lib/http_chunks.c::cw_chunked_write",
+   "lib/sendf.c::Curl_cwriter_def_write",
+   "lib/sendf.c::cw_download_write",
+   "lib/sendf.c::cw_raw_write",
+   "lib/ws.c::ws_cw_write"
+  ]
+ },
+ {
+  "file": "lib/sendf.c",
+  "line": 311,
+  "callers": [
+   "lib/sendf.c::cw_raw_write"
+  ],
+  "text": "return Curl_cwriter_write(data, writer->next, type, buf, nbytes);",
+  "targets": [
+   "lib/content_encoding.c::deflate_do_write",
+   "lib/content_encoding.c::error_do_write",
+   "lib/content_encoding.c::gzip_do_write",
+   "lib/cw-out.c::cw_out_write",
+   "lib/cw-pause.c::cw_pause_write",
+   "lib/ftp.c::ftp_cw_lc_write",
+   "lib/headers.c::hds_cw_collect_write",
+   "lib/http_chunks.c::cw_chunked_write",
+   "lib/sendf.c::Curl_cwriter_def_write",
+   "lib/sendf.c::cw_download_write",
+   "lib/sendf.c::cw_raw_write",
+   "lib/ws.c::ws_cw_write"
+  ]
+ },
+ {
+  "file": "lib/sendf.c",
+  "line": 430,
+  "callers": [
+   "lib/sendf.c::Curl_cwriter_create"
+  ],
+  "text": "result = cwt->do_init(data, writer);",
+  "targets": [
+   "lib/content_encoding.c::deflate_do_init",
+   "lib/content_encoding.c::error_do_init",
+   "lib/content_encoding.c::gzip_do_init",
+   "lib/cw-out.c::cw_out_init",
+   "lib/cw-pause.c::cw_pause_init",
+   "lib/http_chunks.c::cw_chunked_init",
+   "lib/sendf.c::Curl_cwriter_def_init",
+   "lib/ws.c::ws_cw_init"
+  ]
+ },
+ {
+  "file": "lib/sendf.c",
+  "line": 443,
+  "callers": [
+   "lib/sendf.c::Curl_cwriter_free"
+  ],
+  "text": "writer->cwt->do_close(data, writer);",
+  "targets": [
+   "lib/content_encoding.c::deflate_do_close",
+   "lib/content_encoding.c::error_do_close",
+   "lib/content_encoding.c::gzip_do_close",
+   "lib/cw-out.c::cw_out_close",
+   "lib/cw-pause.c::cw_pause_close",
+   "lib/http_chunks.c::cw_chunked_close",
+   "lib/sendf.c::Curl_cwriter_def_close",
+   "lib/ws.c::ws_cw_close"
+  ]
+ },
+ {
+  "file": "lib/sendf.c",
+  "line": 536,
+  "callers": [
+   "lib/sendf.c::Curl_creader_read"
+  ],
+  "text": "return reader->crt->do_read(data, reader, buf, blen, nread, eos);",
+  "targets": [
+   "lib/http.c::cr_exp100_read",
+   "lib/http_chunks.c::cr_chunked_read",
+   "lib/mime.c::cr_mime_read",
+   "lib/sendf.c::cr_buf_read",
+   "lib/sendf.c::cr_in_read",
+   "lib/sendf.c::cr_lc_read",
+   "lib/sendf.c::cr_null_read",
+   "lib/smtp.c::cr_eob_read",
+   "lib/ws.c::cr_ws_read"
+  ]
+ },
+ {
+  "file": "lib/sendf.c",
+  "line": 543,
+  "callers": [
+   "lib/sendf.c::Curl_creader_clear_eos"
+  ],
+  "text": "(void)reader->crt->cntrl(data, reader, CURL_CRCNTRL_CLEAR_EOS);",
+  "targets": [
+   "lib/mime.c::cr_mime_cntrl",
+   "lib/sendf.c::Curl_creader_def_cntrl",
+   "lib/sendf.c::cr_buf_cntrl",
+   "lib/sendf.c::cr_in_cntrl"
+  ]
+ },
+ {
+  "file": "lib/sendf.c",
+  "line": 569,
+  "callers": [
+   "lib/sendf.c::Curl_creader_def_read"
+  ],
+  "text": "return reader->next->crt->do_read(data, reader->next, buf, blen,",
+  "targets": [
+   "lib/http.c::cr_exp100_read",
+   "lib/http_chunks.c::cr_chunked_read",
+   "lib/mime.c::cr_mime_read",
+   "lib/sendf.c::cr_buf_read",
+   "lib/sendf.c::cr_in_read",
+   "lib/sendf.c::cr_lc_read",
+   "lib/sendf.c::cr_null_read",
+   "lib/smtp.c::cr_eob_read",
+   "lib/ws.c::cr_ws_read"
+  ]
+ },
+ {
+  "file": "lib/sendf.c",
+  "line": 590,
+  "callers": [
+   "lib/sendf.c::Curl_creader_def_total_length"
+  ],
+  "text": "reader->next->crt->total_length(data, reader->next) : -1;",
+  "targets": [
+   "lib/http_chunks.c::cr_chunked_total_length",
+   "lib/mime.c::cr_mime_total_length",
+   "lib/sendf.c::Curl_creader_def_total_length",
+   "lib/sendf.c::cr_buf_total_length",
+   "lib/sendf.c::cr_in_total_length",
+   "lib/sendf.c::cr_lc_total_length",
+   "lib/sendf.c::cr_null_total_length",
+   "lib/smtp.c::cr_eob_total_length",
+   "lib/ws.c::cr_ws_total_length"
+  ]
+ },
+ {
+  "file": "lib/sendf.c",
+  "line": 958,
+  "callers": [
+   "lib/sendf.c::Curl_creader_create"
+  ],
+  "text": "result = crt->do_init(data, reader);",
+  "targets": [
+   "lib/http_chunks.c::cr_chunked_init",
+   "lib/mime.c::cr_mime_init",
+   "lib/sendf.c::Curl_creader_def_init",
+   "lib/sendf.c::cr_in_init",
+   "lib/sendf.c::cr_lc_init",
+   "lib/smtp.c::cr_eob_init",
+   "lib/ws.c::cr_ws_init"
+  ]
+ },
+ {
+  "file": "lib/sendf.c",
+  "line": 970,
+  "callers": [
+   "lib/sendf.c::Curl_creader_free"
+  ],
+  "text": "reader->crt->do_close(data, reader);",
+  "targets": [
+   "lib/http_chunks.c::cr_chunked_close",
+   "lib/mime.c::cr_mime_close",
+   "lib/sendf.c::Curl_creader_def_close",
+   "lib/sendf.c::cr_lc_close",
+   "lib/smtp.c::cr_eob_close",
+   "lib/ws.c::cr_ws_close"
+  ]
+ },
+ {
+  "file": "lib/sendf.c",
+  "line": 1128,
+  "callers": [
+   "lib/sendf.c::do_init_reader_stack"
+  ],
+  "text": "clen = r->crt->total_length(data, r);",
+  "targets": [
+   "lib/http_chunks.c::cr_chunked_total_length",
+   "lib/mime.c::cr_mime_total_length",
+   "lib/sendf.c::Curl_creader_def_total_length",
+   "lib/sendf.c::cr_buf_total_length",
+   "lib/sendf.c::cr_in_total_length",
+   "lib/sendf.c::cr_lc_total_length",
+   "lib/sendf.c::cr_null_total_length",
+   "lib/smtp.c::cr_eob_total_length",
+   "lib/ws.c::cr_ws_total_length"
+  ]
+ },
+ {
+  "file": "lib/sendf.c",
+  "line": 1247,
+  "callers": [
+   "lib/sendf.c::Curl_creader_needs_rewind"
+  ],
+  "text": "if(reader->crt->needs_rewind(data, reader)) {",
+  "targets": [
+   "lib/mime.c::cr_mime_needs_rewind",
+   "lib/sendf.c::Curl_creader_def_needs_rewind",
+   "lib/sendf.c::cr_buf_needs_rewind",
+   "lib/sendf.c::cr_in_needs_rewind"
+  ]
+ },
+ {
+  "file": "lib/sendf.c",
+  "line": 1432,
+  "callers": [
+   "lib/sendf.c::Curl_creader_total_length"
+  ],
+  "text": "return r ? r->crt->total_length(data, r) : -1;",
+  "targets": [
+   "lib/http_chunks.c::cr_chunked_total_length",
+   "lib/mime.c::cr_mime_total_length",
+   "lib/sendf.c::Curl_creader_def_total_length",
+   "lib/sendf.c::cr_buf_total_length",
+   "lib/sendf.c::cr_in_total_length",
+   "lib/sendf.c::cr_lc_total_length",
+   "lib/sendf.c::cr_null_total_length",
+   "lib/smtp.c::cr_eob_total_length",
+   "lib/ws.c::cr_ws_total_length"
+  ]
+ },
+ {
+  "file": "lib/sendf.c",
+  "line": 1440,
+  "callers": [
+   "lib/sendf.c::Curl_creader_client_length"
+  ],
+  "text": "return r ? r->crt->total_length(data, r) : -1;",
+  "targets": [
+   "lib/http_chunks.c::cr_chunked_total_length",
+   "lib/mime.c::cr_mime_total_length",
+   "lib/sendf.c::Curl_creader_def_total_length",
+   "lib/sendf.c::cr_buf_total_length",
+   "lib/sendf.c::cr_in_total_length",
+   "lib/sendf.c::cr_lc_total_length",
+   "lib/sendf.c::cr_null_total_length",
+   "lib/smtp.c::cr_eob_total_length",
+   "lib/ws.c::cr_ws_total_length"
+  ]
+ },
+ {
+  "file": "lib/sendf.c",
+  "line": 1449,
+  "callers": [
+   "lib/sendf.c::Curl_creader_unpause"
+  ],
+  "text": "result = reader->crt->cntrl(data, reader, CURL_CRCNTRL_UNPAUSE);",
+  "targets": [
+   "lib/mime.c::cr_mime_cntrl",
+   "lib/sendf.c::Curl_creader_def_cntrl",
+   "lib/sendf.c::cr_buf_cntrl",
+   "lib/sendf.c::cr_in_cntrl"
+  ]
+ },
+ {
+  "file": "lib/sendf.c",
+  "line": 1463,
+  "callers": [
+   "lib/sendf.c::Curl_creader_is_paused"
+  ],
+  "text": "if(reader->crt->is_paused(data, reader))",
+  "targets": [
+   "lib/mime.c::cr_mime_is_paused",
+   "lib/sendf.c::Curl_creader_def_is_paused",
+   "lib/sendf.c::cr_in_is_paused"
+  ]
+ },
+ {
+  "file": "lib/sendf.c",
+  "line": 1474,
+  "callers": [
+   "lib/sendf.c::Curl_creader_done"
+  ],
+  "text": "reader->crt->done(data, reader, premature);",
+  "targets": [
+   "lib/http.c::cr_exp100_done",
+   "lib/sendf.c::Curl_creader_def_done"
+  ]
+ },
+ {
+  "file": "lib/socks.c",
+  "line": 1195,
+  "callers": [
+   "lib/socks.c::socks_proxy_cf_connect"
+  ],
+  "text": "result = cf->next->cft->do_connect(cf->next, data, done);",
+  "targets": [
+   "lib/cf-h1-proxy.c::cf_h1_proxy_connect",
+   "lib/cf-haproxy.c::cf_haproxy_connect",
+   "lib/cf-https-connect.c::cf_hc_connect",
+   "lib/cf-ip-happy.c::cf_ip_happy_connect",
+   "lib/cf-setup.c::cf_setup_connect",
+   "lib/cf-socket.c::cf_tcp_accept_connect",
+   "lib/cf-socket.c::cf_tcp_connect",
+   "lib/cf-socket.c::cf_udp_connect",
+   "lib/cfilters.c::Curl_cf_def_connect",
+   "lib/http_proxy.c::http_proxy_cf_connect",
+   "lib/socks.c::socks_proxy_cf_connect",
+   "lib/vdns/cf-dns.c::cf_dns_connect",
+   "lib/vquic/cf-capsule.c::cf_capsule_connect",
+   "lib/vtls/vtls.c::ssl_cf_connect"
+  ]
+ },
+ {
+  "file": "lib/socks.c",
+  "line": 1309,
+  "callers": [
+   "lib/socks.c::socks_cf_query"
+  ],
+  "text": "cf->next->cft->query(cf->next, data, query, pres1, pres2) :",
+  "targets": [
+   "lib/cf-h1-proxy.c::cf_h1_proxy_query",
+   "lib/cf-https-connect.c::cf_hc_query",
+   "lib/cf-ip-happy.c::cf_ip_happy_query",
+   "lib/cf-socket.c::cf_socket_query",
+   "lib/cfilters.c::Curl_cf_def_query",
+   "lib/http_proxy.c::cf_http_proxy_query",
+   "lib/socks.c::socks_cf_query",
+   "lib/vquic/cf-capsule.c::cf_capsule_query",
+   "lib/vtls/vtls.c::ssl_cf_query"
+  ]
+ },
+ {
+  "file": "lib/transfer.c",
+  "line": 582,
+  "callers": [
+   "lib/transfer.c::Curl_pretransfer"
+  ],
+  "text": "wc->dtor(wc->ftpwc);",
+  "targets": [
+   "lib/ftp.c::wc_data_dtor"
+  ]
+ },
+ {
+  "file": "lib/transfer.c",
+  "line": 760,
+  "callers": [
+   "lib/transfer.c::Curl_xfer_write_resp"
+  ],
+  "text": "result = data->conn->scheme->run->write_resp(data, buf, blen, is_eos);",
+  "targets": [
+   "lib/http.c::Curl_http_write_resp",
+   "lib/pop3.c::pop3_write",
+   "lib/rtsp.c::rtsp_rtp_write_resp"
+  ]
+ },
+ {
+  "file": "lib/transfer.c",
+  "line": 795,
+  "callers": [
+   "lib/transfer.c::Curl_xfer_write_resp_hd"
+  ],
+  "text": "return data->conn->scheme->run->write_resp_hd(data, hd0, hdlen, is_eos);",
+  "targets": [
+   "lib/http.c::Curl_http_write_resp_hd",
+   "lib/rtsp.c::rtsp_rtp_write_resp_hd"
+  ]
+ },
+ {
+  "file": "lib/url.c",
+  "line": 501,
+  "callers": [
+   "lib/url.c::Curl_conn_free"
+  ],
+  "text": "conn->scheme->run->disconnect(data, conn, TRUE);",
+  "targets": [
+   "lib/file.c::file_disconnect",
+   "lib/ftp.c::ftp_disconnect",
+   "lib/imap.c::imap_disconnect",
+   "lib/pop3.c::pop3_disconnect",
+   "lib/smtp.c::smtp_disconnect"
+  ]
+ },
+ {
+  "file": "lib/url.c",
+  "line": 1493,
+  "callers": [
+   "lib/url.c::setup_connection_internals"
+  ],
+  "text": "CURLcode result = conn->scheme->run->setup_connection(data, conn);",
+  "targets": [
+   "lib/file.c::file_setup_connection",
+   "lib/ftp.c::ftp_setup_connection",
+   "lib/http.c::Curl_http_setup_conn",
+   "lib/imap.c::imap_setup_connection",
+   "lib/mqtt.c::mqtt_setup_conn",
+   "lib/pop3.c::pop3_setup_connection",
+   "lib/rtsp.c::rtsp_setup_connection",
+   "lib/smtp.c::smtp_setup_connection",
+   "lib/tftp.c::tftp_setup_connection",
+   "lib/ws.c::ws_setup_conn"
+  ]
+ },
+ {
+  "file": "lib/url.c",
+  "line": 2256,
+  "callers": [
+   "lib/url.c::url_find_or_create_conn"
+  ],
+  "text": "result = needle->scheme->run->connect_it(data, &done);",
+  "targets": [
+   "lib/file.c::file_connect",
+   "lib/ftp.c::ftp_connect",
+   "lib/gopher.c::gopher_connect",
+   "lib/imap.c::imap_connect",
+   "lib/pop3.c::pop3_connect",
+   "lib/rtsp.c::rtsp_connect",
+   "lib/smtp.c::smtp_connect",
+   "lib/tftp.c::tftp_connect"
+  ]
+ },
+ {
+  "file": "lib/url.c",
+  "line": 2276,
+  "callers": [
+   "lib/url.c::url_find_or_create_conn"
+  ],
+  "text": "(void)data->conn->scheme->run->done(data, result, FALSE);",
+  "targets": [
+   "lib/file.c::file_done",
+   "lib/ftp.c::ftp_done",
+   "lib/http.c::Curl_http_done",
+   "lib/imap.c::imap_done",
+   "lib/mqtt.c::mqtt_done",
+   "lib/pop3.c::pop3_done",
+   "lib/rtsp.c::rtsp_done",
+   "lib/smtp.c::smtp_done",
+   "lib/telnet.c::telnet_done",
+   "lib/tftp.c::tftp_done"
+  ]
+ },
+ {
+  "file": "lib/vquic/cf-capsule.c",
+  "line": 67,
+  "callers": [
+   "lib/vquic/cf-capsule.c::cf_capsule_connect"
+  ],
+  "text": "CURLcode result = cf->next->cft->do_connect(cf->next, data, done);",
+  "targets": [
+   "lib/cf-h1-proxy.c::cf_h1_proxy_connect",
+   "lib/cf-haproxy.c::cf_haproxy_connect",
+   "lib/cf-https-connect.c::cf_hc_connect",
+   "lib/cf-ip-happy.c::cf_ip_happy_connect",
+   "lib/cf-setup.c::cf_setup_connect",
+   "lib/cf-socket.c::cf_tcp_accept_connect",
+   "lib/cf-socket.c::cf_tcp_connect",
+   "lib/cf-socket.c::cf_udp_connect",
+   "lib/cfilters.c::Curl_cf_def_connect",
+   "lib/http_proxy.c::http_proxy_cf_connect",
+   "lib/socks.c::socks_proxy_cf_connect",
+   "lib/vdns/cf-dns.c::cf_dns_connect",
+   "lib/vquic/cf-capsule.c::cf_capsule_connect",
+   "lib/vtls/vtls.c::ssl_cf_connect"
+  ]
+ },
+ {
+  "file": "lib/vquic/cf-capsule.c",
+  "line": 168,
+  "callers": [
+   "lib/vquic/cf-capsule.c::cf_capsule_data_pending"
+  ],
+  "text": "return cf->next ? cf->next->cft->has_data_pending(cf->next, data) : FALSE;",
+  "targets": [
+   "lib/cf-h1-proxy.c::cf_h1_proxy_data_pending",
+   "lib/cf-https-connect.c::cf_hc_data_pending",
+   "lib/cf-ip-happy.c::cf_ip_happy_data_pending",
+   "lib/cf-recvbuf.c::cf_recvbuf_data_pending",
+   "lib/cfilters.c::Curl_cf_def_data_pending",
+   "lib/vquic/cf-capsule.c::cf_capsule_data_pending",
+   "lib/vtls/vtls.c::ssl_cf_data_pending"
+  ]
+ },
+ {
+  "file": "lib/vquic/cf-capsule.c",
+  "line": 208,
+  "callers": [
+   "lib/vquic/cf-capsule.c::cf_capsule_query"
+  ],
+  "text": "cf->next->cft->query(cf->next, data, query, pres1, pres2) :",
+  "targets": [
+   "lib/cf-h1-proxy.c::cf_h1_proxy_query",
+   "lib/cf-https-connect.c::cf_hc_query",
+   "lib/cf-ip-happy.c::cf_ip_happy_query",
+   "lib/cf-socket.c::cf_socket_query",
+   "lib/cfilters.c::Curl_cf_def_query",
+   "lib/http_proxy.c::cf_http_proxy_query",
+   "lib/socks.c::socks_cf_query",
+   "lib/vquic/cf-capsule.c::cf_capsule_query",
+   "lib/vtls/vtls.c::ssl_cf_query"
+  ]
+ },
+ {
+  "file": "lib/vtls/openssl.c",
+  "line": 1893,
+  "callers": [
+   "lib/vtls/openssl.c::ossl_shutdown"
+  ],
+  "text": "else if(!cf->next->cft->is_alive(cf->next, data, &input_pending)) {",
+  "targets": [
+   "lib/cf-socket.c::cf_socket_conn_is_alive",
+   "lib/cfilters.c::Curl_cf_def_conn_is_alive"
+  ]
+ },
+ {
+  "file": "lib/vtls/vtls.c",
+  "line": 159,
+  "callers": [
+   "lib/vtls/vtls.c::Curl_ssl_init"
+  ],
+  "text": "return Curl_ssl->init();",
+  "targets": [
+   "lib/vtls/openssl.c::ossl_init"
+  ]
+ },
+ {
+  "file": "lib/vtls/vtls.c",
+  "line": 223,
+  "callers": [
+   "lib/vtls/vtls.c::Curl_ssl_get_channel_binding"
+  ],
+  "text": "return Curl_ssl->get_channel_binding(data, sockindex, binding);",
+  "targets": [
+   "lib/vtls/openssl.c::ossl_get_channel_binding"
+  ]
+ },
+ {
+  "file": "lib/vtls/vtls.c",
+  "line": 230,
+  "callers": [
+   "lib/vtls/vtls.c::Curl_ssl_close_all"
+  ],
+  "text": "Curl_ssl->close_all(data);",
+  "targets": [
+   "lib/vtls/openssl.c::ossl_close_all"
+  ]
+ },
+ {
+  "file": "lib/vtls/vtls.c",
+  "line": 263,
+  "callers": [
+   "lib/vtls/vtls.c::Curl_ssl_engines_list"
+  ],
+  "text": "return Curl_ssl->engines_list(data);",
+  "targets": [
+   "lib/vtls/openssl.c::ossl_engines_list"
+  ]
+ },
+ {
+  "file": "lib/vtls/vtls.c",
+  "line": 274,
+  "callers": [
+   "lib/vtls/vtls.c::Curl_ssl_version"
+  ],
+  "text": "(void)Curl_ssl->version(buffer, size);",
+  "targets": [
+   "lib/vtls/openssl.c::Curl_ossl_version"
+  ]
+ },
+ {
+  "file": "lib/vtls/vtls.c",
+  "line": 353,
+  "callers": [
+   "lib/vtls/vtls.c::Curl_ssl_random"
+  ],
+  "text": "return Curl_ssl->random(data, buffer, length);",
+  "targets": [
+   "lib/vtls/openssl.c::ossl_random"
+  ]
+ },
+ {
+  "file": "lib/vtls/vtls.c",
+  "line": 452,
+  "callers": [
+   "lib/vtls/vtls.c::Curl_pin_peer_pubkey"
+  ],
+  "text": "encode = Curl_ssl->sha256sum(pubkey, pubkeylen,",
+  "targets": [
+   "lib/vtls/openssl.c::ossl_sha256sum"
+  ]
+ },
+ {
+  "file": "lib/vtls/vtls.c",
+  "line": 570,
+  "callers": [
+   "lib/vtls/vtls.c::Curl_ssl_cert_status_request"
+  ],
+  "text": "return Curl_ssl->cert_status_request();",
+  "targets": [
+   "lib/vtls/openssl.c::ossl_cert_status_request"
+  ]
+ },
+ {
+  "file": "lib/vtls/vtls.c",
+  "line": 579,
+  "callers": [
+   "lib/vtls/vtls.c::multissl_init"
+  ],
+  "text": "return Curl_ssl->init();",
+  "targets": [
+   "lib/vtls/openssl.c::ossl_init"
+  ]
+ },
+ {
+  "file": "lib/vtls/vtls.c",
+  "line": 588,
+  "callers": [
+   "lib/vtls/vtls.c::multissl_random"
+  ],
+  "text": "return Curl_ssl->random(data, entropy, length);",
+  "targets": [
+   "lib/vtls/openssl.c::ossl_random"
+  ]
+ },
+ {
+  "file": "lib/vtls/vtls.c",
+  "line": 596,
+  "callers": [
+   "lib/vtls/vtls.c::multissl_connect"
+  ],
+  "text": "return Curl_ssl->do_connect(cf, data, done);",
+  "targets": [
+   "lib/vtls/openssl.c::ossl_connect"
+  ]
+ },
+ {
+  "file": "lib/vtls/vtls.c",
+  "line": 613,
+  "callers": [
+   "lib/vtls/vtls.c::multissl_get_internals"
+  ],
+  "text": "return Curl_ssl->get_internals(connssl, info);",
+  "targets": [
+   "lib/vtls/openssl.c::ossl_get_internals"
+  ]
+ },
+ {
+  "file": "lib/vtls/vtls.c",
+  "line": 620,
+  "callers": [
+   "lib/vtls/vtls.c::multissl_close"
+  ],
+  "text": "Curl_ssl->close(cf, data);",
+  "targets": [
+   "lib/vtls/openssl.c::ossl_close"
+  ]
+ },
+ {
+  "file": "lib/vtls/vtls.c",
+  "line": 629,
+  "callers": [
+   "lib/vtls/vtls.c::multissl_recv_plain"
+  ],
+  "text": "return Curl_ssl->recv_plain(cf, data, buf, len, pnread);",
+  "targets": [
+   "lib/vtls/openssl.c::ossl_recv"
+  ]
+ },
+ {
+  "file": "lib/vtls/vtls.c",
+  "line": 639,
+  "callers": [
+   "lib/vtls/vtls.c::multissl_send_plain"
+  ],
+  "text": "return Curl_ssl->send_plain(cf, data, mem, len, pnwritten);",
+  "targets": [
+   "lib/vtls/openssl.c::ossl_send"
+  ]
+ },
+ {
+  "file": "lib/vtls/vtls.c",
+  "line": 713,
+  "callers": [
+   "lib/vtls/vtls.c::Curl_ssl_cleanup"
+  ],
+  "text": "Curl_ssl->cleanup();",
+  "targets": [
+   "lib/vtls/openssl.c::ossl_cleanup"
+  ]
+ },
+ {
+  "file": "lib/vtls/vtls.c",
+  "line": 743,
+  "callers": [
+   "lib/vtls/vtls.c::multissl_version"
+  ],
+  "text": "if(available_backends[i]->version(vb, sizeof(vb))) {",
+  "targets": [
+   "lib/vtls/openssl.c::Curl_ossl_version",
+   "lib/vtls/vtls.c::multissl_version"
+  ]
+ },
+ {
+  "file": "lib/vtls/vtls.c",
+  "line": 926,
+  "callers": [
+   "lib/vtls/vtls.c::ssl_cf_destroy"
+  ],
+  "text": "connssl->ssl_impl->close(cf, data);",
+  "targets": [
+   "lib/vtls/openssl.c::ossl_close",
+   "lib/vtls/vtls.c::multissl_close"
+  ]
+ },
+ {
+  "file": "lib/vtls/vtls.c",
+  "line": 957,
+  "callers": [
+   "lib/vtls/vtls.c::ssl_cf_connect"
+  ],
+  "text": "result = cf->next->cft->do_connect(cf->next, data, done);",
+  "targets": [
+   "lib/cf-h1-proxy.c::cf_h1_proxy_connect",
+   "lib/cf-haproxy.c::cf_haproxy_connect",
+   "lib/cf-https-connect.c::cf_hc_connect",
+   "lib/cf-ip-happy.c::cf_ip_happy_connect",
+   "lib/cf-setup.c::cf_setup_connect",
+   "lib/cf-socket.c::cf_tcp_accept_connect",
+   "lib/cf-socket.c::cf_tcp_connect",
+   "lib/cf-socket.c::cf_udp_connect",
+   "lib/cfilters.c::Curl_cf_def_connect",
+   "lib/http_proxy.c::http_proxy_cf_connect",
+   "lib/socks.c::socks_proxy_cf_connect",
+   "lib/vdns/cf-dns.c::cf_dns_connect",
+   "lib/vquic/cf-capsule.c::cf_capsule_connect",
+   "lib/vtls/vtls.c::ssl_cf_connect"
+  ]
+ },
+ {
+  "file": "lib/vtls/vtls.c",
+  "line": 976,
+  "callers": [
+   "lib/vtls/vtls.c::ssl_cf_connect"
+  ],
+  "text": "result = connssl->ssl_impl->do_connect(cf, data, done);",
+  "targets": [
+   "lib/vtls/openssl.c::ossl_connect",
+   "lib/vtls/vtls.c::multissl_connect"
+  ]
+ },
+ {
+  "file": "lib/vtls/vtls.c",
+  "line": 1085,
+  "callers": [
+   "lib/vtls/vtls.c::ssl_cf_data_pending"
+  ],
+  "text": "connssl->ssl_impl->data_pending(cf, data))",
+  "targets": [
+   "lib/vtls/openssl.c::ossl_data_pending"
+  ]
+ },
+ {
+  "file": "lib/vtls/vtls.c",
+  "line": 1088,
+  "callers": [
+   "lib/vtls/vtls.c::ssl_cf_data_pending"
+  ],
+  "text": "pending = cf->next->cft->has_data_pending(cf->next, data);",
+  "targets": [
+   "lib/cf-h1-proxy.c::cf_h1_proxy_data_pending",
+   "lib/cf-https-connect.c::cf_hc_data_pending",
+   "lib/cf-ip-happy.c::cf_ip_happy_data_pending",
+   "lib/cf-recvbuf.c::cf_recvbuf_data_pending",
+   "lib/cfilters.c::Curl_cf_def_data_pending",
+   "lib/vquic/cf-capsule.c::cf_capsule_data_pending",
+   "lib/vtls/vtls.c::ssl_cf_data_pending"
+  ]
+ },
+ {
+  "file": "lib/vtls/vtls.c",
+  "line": 1136,
+  "callers": [
+   "lib/vtls/vtls.c::ssl_cf_send"
+  ],
+  "text": "result = connssl->ssl_impl->send_plain(cf, data, buf, blen, &nwritten);",
+  "targets": [
+   "lib/vtls/openssl.c::ossl_send",
+   "lib/vtls/vtls.c::multissl_send_plain"
+  ]
+ },
+ {
+  "file": "lib/vtls/vtls.c",
+  "line": 1168,
+  "callers": [
+   "lib/vtls/vtls.c::ssl_cf_recv"
+  ],
+  "text": "result = connssl->ssl_impl->recv_plain(cf, data, buf, len, pnread);",
+  "targets": [
+   "lib/vtls/openssl.c::ossl_recv",
+   "lib/vtls/vtls.c::multissl_recv_plain"
+  ]
+ },
+ {
+  "file": "lib/vtls/vtls.c",
+  "line": 1189,
+  "callers": [
+   "lib/vtls/vtls.c::ssl_cf_shutdown"
+  ],
+  "text": "result = connssl->ssl_impl->shut_down(cf, data, TRUE, done);",
+  "targets": [
+   "lib/vtls/openssl.c::ossl_shutdown"
+  ]
+ },
+ {
+  "file": "lib/vtls/vtls.c",
+  "line": 1206,
+  "callers": [
+   "lib/vtls/vtls.c::ssl_cf_adjust_pollset"
+  ],
+  "text": "result = connssl->ssl_impl->adjust_pollset(cf, data, ps);",
+  "targets": [
+   "lib/vtls/vtls.c::Curl_ssl_adjust_pollset",
+   "lib/vtls/vtls.c::multissl_adjust_pollset"
+  ]
+ },
+ {
+  "file": "lib/vtls/vtls.c",
+  "line": 1225,
+  "callers": [
+   "lib/vtls/vtls.c::ssl_cf_query"
+  ],
+  "text": "info->internals = connssl->ssl_impl->get_internals(",
+  "targets": [
+   "lib/vtls/openssl.c::ossl_get_internals",
+   "lib/vtls/vtls.c::multissl_get_internals"
+  ]
+ },
+ {
+  "file": "lib/vtls/vtls.c",
+  "line": 1243,
+  "callers": [
+   "lib/vtls/vtls.c::ssl_cf_query"
+  ],
+  "text": "cf->next->cft->query(cf->next, data, query, pres1, pres2) :",
+  "targets": [
+   "lib/cf-h1-proxy.c::cf_h1_proxy_query",
+   "lib/cf-https-connect.c::cf_hc_query",
+   "lib/cf-ip-happy.c::cf_ip_happy_query",
+   "lib/cf-socket.c::cf_socket_query",
+   "lib/cfilters.c::Curl_cf_def_query",
+   "lib/http_proxy.c::cf_http_proxy_query",
+   "lib/socks.c::socks_cf_query",
+   "lib/vquic/cf-capsule.c::cf_capsule_query",
+   "lib/vtls/vtls.c::ssl_cf_query"
+  ]
+ },
+ {
+  "file": "lib/vtls/vtls.c",
+  "line": 1359,
+  "callers": [
+   "lib/vtls/vtls.c::cf_ssl_peer_init"
+  ],
+  "text": "connssl->ssl_impl->version(tls_id, sizeof(tls_id) - 1);",
+  "targets": [
+   "lib/vtls/openssl.c::Curl_ossl_version",
+   "lib/vtls/vtls.c::multissl_version"
+  ]
+ },
+ {
+  "file": "lib/vtls/vtls.c",
+  "line": 1522,
+  "callers": [
+   "lib/vtls/vtls.c::vtls_shutdown_blocking"
+  ],
+  "text": "result = connssl->ssl_impl->shut_down(cf, data, send_shutdown, done);",
+  "targets": [
+   "lib/vtls/openssl.c::ossl_shutdown"
+  ]
+ },
+ {
+  "file": "lib/ws.c",
+  "line": 725,
+  "callers": [
+   "lib/ws.c::ws_cw_dec_next"
+  ],
+  "text": "result = Curl_cwriter_write(data, ctx->next_writer,",
+  "targets": [
+   "lib/content_encoding.c::deflate_do_write",
+   "lib/content_encoding.c::error_do_write",
+   "lib/content_encoding.c::gzip_do_write",
+   "lib/cw-out.c::cw_out_write",
+   "lib/cw-pause.c::cw_pause_write",
+   "lib/ftp.c::ftp_cw_lc_write",
+   "lib/headers.c::hds_cw_collect_write",
+   "lib/http_chunks.c::cw_chunked_write",
+   "lib/sendf.c::Curl_cwriter_def_write",
+   "lib/sendf.c::cw_download_write",
+   "lib/sendf.c::cw_raw_write",
+   "lib/ws.c::ws_cw_write"
+  ]
+ },
+ {
+  "file": "lib/ws.c",
+  "line": 745,
+  "callers": [
+   "lib/ws.c::ws_cw_write"
+  ],
+  "text": "return Curl_cwriter_write(data, writer->next, type, buf, nbytes);",
+  "targets": [
+   "lib/content_encoding.c::deflate_do_write",
+   "lib/content_encoding.c::error_do_write",
+   "lib/content_encoding.c::gzip_do_write",
+   "lib/cw-out.c::cw_out_write",
+   "lib/cw-pause.c::cw_pause_write",
+   "lib/ftp.c::ftp_cw_lc_write",
+   "lib/headers.c::hds_cw_collect_write",
+   "lib/http_chunks.c::cw_chunked_write",
+   "lib/sendf.c::Curl_cwriter_def_write",
+   "lib/sendf.c::cw_download_write",
+   "lib/sendf.c::cw_raw_write",
+   "lib/ws.c::ws_cw_write"
+  ]
+ },
+ {
+  "file": "lib/ws.c",
+  "line": 763,
+  "callers": [
+   "lib/ws.c::ws_cw_write"
+  ],
+  "text": "result = Curl_cwriter_flush(data, writer->next, FALSE);",
+  "targets": [
+   "lib/content_encoding.c::deflate_do_flush",
+   "lib/content_encoding.c::gzip_do_flush",
+   "lib/cw-out.c::cw_out_do_flush",
+   "lib/cw-pause.c::cw_pause_flush",
+   "lib/sendf.c::Curl_cwriter_def_flush",
+   "lib/ws.c::ws_cw_flush"
+  ]
+ },
+ {
+  "file": "lib/ws.c",
+  "line": 824,
+  "callers": [
+   "lib/ws.c::ws_cw_flush"
+  ],
+  "text": "result = Curl_cwriter_flush(data, writer->next, FALSE);",
+  "targets": [
+   "lib/content_encoding.c::deflate_do_flush",
+   "lib/content_encoding.c::gzip_do_flush",
+   "lib/cw-out.c::cw_out_do_flush",
+   "lib/cw-pause.c::cw_pause_flush",
+   "lib/sendf.c::Curl_cwriter_def_flush",
+   "lib/ws.c::ws_cw_flush"
+  ]
+ },
+ {
+  "file": "lib/ws.c",
+  "line": 859,
+  "callers": [
+   "lib/ws.c::ws_cw_flush"
+  ],
+  "text": "result = Curl_cwriter_flush(data, writer->next, eos);",
+  "targets": [
+   "lib/content_encoding.c::deflate_do_flush",
+   "lib/content_encoding.c::gzip_do_flush",
+   "lib/cw-out.c::cw_out_do_flush",
+   "lib/cw-pause.c::cw_pause_flush",
+   "lib/sendf.c::Curl_cwriter_def_flush",
+   "lib/ws.c::ws_cw_flush"
+  ]
+ }
+]

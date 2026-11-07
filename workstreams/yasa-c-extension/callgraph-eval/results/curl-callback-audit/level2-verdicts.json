@@ -1,0 +1,984 @@
+{
+ "criterion": "Manual level-2 verdicts for the fixed-seed sample (level2-sample.json) and their summary.\n\nCriterion: an edge is correct if, whenever the caller executes in this configured build\n(OpenSSL, zlib, proxies and websockets on; no HTTP/2, no HTTP/3, no multi-SSL), the receiver\nat this call site can hold an object whose field is the target. Caller reachability itself is\nnot judged (as for direct calls in gold). '?' = not decidable from code reading here.\n",
+ "reasons": {
+  "cwriter_phase": "writer->next is a writer of the same or a later phase (sendf.c cwriter_add); raw is first, chunked is first in transfer-decode and never duplicated, ftp_lc only in FTP",
+  "cf_top_under_hc": "b->cf is the chain top beneath HTTPS-CONNECT: SETUP while connecting, then SSL",
+  "no_http3": "capsule filter is inserted only under USE_HTTP3 (cf-setup.c), which is off",
+  "recvbuf_never_added": "Curl_cf_recvbuf_add has no caller in lib/; placement of a recvbuf filter is unknown",
+  "socket_is_leaf": "TCP/UDP/UNIX/TCP-ACCEPT socket filters are chain leaves: cf->next is always NULL here",
+  "generic_dispatch": "generic helper over any object of this type in the build",
+  "below_http_proxy": "below HTTP-PROXY: h1-proxy (its sub-filter), SSL-PROXY, SOCKS pre-proxy, happy eyeballs, socket",
+  "client_reader": "loop stops at the CURL_CR_CLIENT reader: in, buf, null or mime",
+  "single_ssl": "CURL_WITH_MULTI_SSL is off: Curl_ssl/ssl_impl is always the OpenSSL backend"
+ },
+ "summary": {
+  "pairs": 121,
+  "correct": 72,
+  "wrong": 40,
+  "uncertain": 9,
+  "precision_lower": 0.5950413223140496,
+  "precision_upper": 0.6694214876033058,
+  "ci95_lower_bound": [
+   0.4214876033057851,
+   0.7745098039215687
+  ],
+  "ci95_upper_bound": [
+   0.49295774647887325,
+   0.8435374149659864
+  ],
+  "lines": 20,
+  "lines_all_correct": 9,
+  "lines_with_wrong": 10
+ },
+ "per_line": {
+  "lib/cf-https-connect.c:590": {
+   "correct": 2,
+   "uncertain": 1,
+   "pairs": 6
+  },
+  "lib/cf-recvbuf.c:64": {
+   "correct": 0,
+   "uncertain": 4,
+   "pairs": 5
+  },
+  "lib/cf-setup.c:309": {
+   "correct": 1,
+   "uncertain": 0,
+   "pairs": 1
+  },
+  "lib/cf-socket.c:1915": {
+   "correct": 0,
+   "uncertain": 0,
+   "pairs": 9
+  },
+  "lib/cfilters.c:676": {
+   "correct": 8,
+   "uncertain": 0,
+   "pairs": 9
+  },
+  "lib/cfilters.c:963": {
+   "correct": 2,
+   "uncertain": 0,
+   "pairs": 2
+  },
+  "lib/content_encoding.c:287": {
+   "correct": 8,
+   "uncertain": 1,
+   "pairs": 12
+  },
+  "lib/content_encoding.c:318": {
+   "correct": 5,
+   "uncertain": 1,
+   "pairs": 6
+  },
+  "lib/curl_sasl.c:524": {
+   "correct": 3,
+   "uncertain": 0,
+   "pairs": 3
+  },
+  "lib/ftp.c:436": {
+   "correct": 1,
+   "uncertain": 0,
+   "pairs": 12
+  },
+  "lib/hash.c:401": {
+   "correct": 2,
+   "uncertain": 0,
+   "pairs": 2
+  },
+  "lib/http_chunks.c:128": {
+   "correct": 8,
+   "uncertain": 1,
+   "pairs": 12
+  },
+  "lib/http_proxy.c:683": {
+   "correct": 5,
+   "uncertain": 1,
+   "pairs": 9
+  },
+  "lib/multi.c:1058": {
+   "correct": 8,
+   "uncertain": 0,
+   "pairs": 8
+  },
+  "lib/sendf.c:1247": {
+   "correct": 4,
+   "uncertain": 0,
+   "pairs": 4
+  },
+  "lib/sendf.c:1440": {
+   "correct": 4,
+   "uncertain": 0,
+   "pairs": 9
+  },
+  "lib/url.c:2256": {
+   "correct": 8,
+   "uncertain": 0,
+   "pairs": 8
+  },
+  "lib/vtls/vtls.c:579": {
+   "correct": 1,
+   "uncertain": 0,
+   "pairs": 1
+  },
+  "lib/vtls/vtls.c:713": {
+   "correct": 1,
+   "uncertain": 0,
+   "pairs": 1
+  },
+  "lib/vtls/vtls.c:1225": {
+   "correct": 1,
+   "uncertain": 0,
+   "pairs": 2
+  }
+ },
+ "rows": [
+  {
+   "file": "lib/cf-https-connect.c",
+   "line": 590,
+   "target": "lib/cf-https-connect.c::cf_hc_shutdown",
+   "verdict": "n",
+   "reason": "b->cf is the chain top beneath HTTPS-CONNECT: SETUP while connecting, then SSL"
+  },
+  {
+   "file": "lib/cf-https-connect.c",
+   "line": 590,
+   "target": "lib/cf-ip-happy.c::cf_ip_happy_shutdown",
+   "verdict": "?",
+   "reason": "b->cf is the chain top beneath HTTPS-CONNECT: SETUP while connecting, then SSL"
+  },
+  {
+   "file": "lib/cf-https-connect.c",
+   "line": 590,
+   "target": "lib/cf-socket.c::cf_socket_shutdown",
+   "verdict": "n",
+   "reason": "b->cf is the chain top beneath HTTPS-CONNECT: SETUP while connecting, then SSL"
+  },
+  {
+   "file": "lib/cf-https-connect.c",
+   "line": 590,
+   "target": "lib/cfilters.c::Curl_cf_def_shutdown",
+   "verdict": "y",
+   "reason": "b->cf is the chain top beneath HTTPS-CONNECT: SETUP while connecting, then SSL"
+  },
+  {
+   "file": "lib/cf-https-connect.c",
+   "line": 590,
+   "target": "lib/vquic/cf-capsule.c::cf_capsule_shutdown",
+   "verdict": "n",
+   "reason": "b->cf is the chain top beneath HTTPS-CONNECT: SETUP while connecting, then SSL"
+  },
+  {
+   "file": "lib/cf-https-connect.c",
+   "line": 590,
+   "target": "lib/vtls/vtls.c::ssl_cf_shutdown",
+   "verdict": "y",
+   "reason": "b->cf is the chain top beneath HTTPS-CONNECT: SETUP while connecting, then SSL"
+  },
+  {
+   "file": "lib/cf-recvbuf.c",
+   "line": 64,
+   "target": "lib/cf-recvbuf.c::cf_recvbuf_recv",
+   "verdict": "?",
+   "reason": "Curl_cf_recvbuf_add has no caller in lib/; placement of a recvbuf filter is unknown"
+  },
+  {
+   "file": "lib/cf-recvbuf.c",
+   "line": 64,
+   "target": "lib/cf-socket.c::cf_socket_recv",
+   "verdict": "?",
+   "reason": "Curl_cf_recvbuf_add has no caller in lib/; placement of a recvbuf filter is unknown"
+  },
+  {
+   "file": "lib/cf-recvbuf.c",
+   "line": 64,
+   "target": "lib/cfilters.c::Curl_cf_def_recv",
+   "verdict": "?",
+   "reason": "Curl_cf_recvbuf_add has no caller in lib/; placement of a recvbuf filter is unknown"
+  },
+  {
+   "file": "lib/cf-recvbuf.c",
+   "line": 64,
+   "target": "lib/vquic/cf-capsule.c::cf_capsule_recv",
+   "verdict": "n",
+   "reason": "Curl_cf_recvbuf_add has no caller in lib/; placement of a recvbuf filter is unknown"
+  },
+  {
+   "file": "lib/cf-recvbuf.c",
+   "line": 64,
+   "target": "lib/vtls/vtls.c::ssl_cf_recv",
+   "verdict": "?",
+   "reason": "Curl_cf_recvbuf_add has no caller in lib/; placement of a recvbuf filter is unknown"
+  },
+  {
+   "file": "lib/cf-setup.c",
+   "line": 309,
+   "target": "lib/http.c::Curl_http_setup_filters",
+   "verdict": "y",
+   "reason": "generic helper over any object of this type in the build"
+  },
+  {
+   "file": "lib/cf-socket.c",
+   "line": 1915,
+   "target": "lib/cf-h1-proxy.c::cf_h1_proxy_query",
+   "verdict": "n",
+   "reason": "TCP/UDP/UNIX/TCP-ACCEPT socket filters are chain leaves: cf->next is always NULL here"
+  },
+  {
+   "file": "lib/cf-socket.c",
+   "line": 1915,
+   "target": "lib/cf-https-connect.c::cf_hc_query",
+   "verdict": "n",
+   "reason": "TCP/UDP/UNIX/TCP-ACCEPT socket filters are chain leaves: cf->next is always NULL here"
+  },
+  {
+   "file": "lib/cf-socket.c",
+   "line": 1915,
+   "target": "lib/cf-ip-happy.c::cf_ip_happy_query",
+   "verdict": "n",
+   "reason": "TCP/UDP/UNIX/TCP-ACCEPT socket filters are chain leaves: cf->next is always NULL here"
+  },
+  {
+   "file": "lib/cf-socket.c",
+   "line": 1915,
+   "target": "lib/cf-socket.c::cf_socket_query",
+   "verdict": "n",
+   "reason": "TCP/UDP/UNIX/TCP-ACCEPT socket filters are chain leaves: cf->next is always NULL here"
+  },
+  {
+   "file": "lib/cf-socket.c",
+   "line": 1915,
+   "target": "lib/cfilters.c::Curl_cf_def_query",
+   "verdict": "n",
+   "reason": "TCP/UDP/UNIX/TCP-ACCEPT socket filters are chain leaves: cf->next is always NULL here"
+  },
+  {
+   "file": "lib/cf-socket.c",
+   "line": 1915,
+   "target": "lib/http_proxy.c::cf_http_proxy_query",
+   "verdict": "n",
+   "reason": "TCP/UDP/UNIX/TCP-ACCEPT socket filters are chain leaves: cf->next is always NULL here"
+  },
+  {
+   "file": "lib/cf-socket.c",
+   "line": 1915,
+   "target": "lib/socks.c::socks_cf_query",
+   "verdict": "n",
+   "reason": "TCP/UDP/UNIX/TCP-ACCEPT socket filters are chain leaves: cf->next is always NULL here"
+  },
+  {
+   "file": "lib/cf-socket.c",
+   "line": 1915,
+   "target": "lib/vquic/cf-capsule.c::cf_capsule_query",
+   "verdict": "n",
+   "reason": "TCP/UDP/UNIX/TCP-ACCEPT socket filters are chain leaves: cf->next is always NULL here"
+  },
+  {
+   "file": "lib/cf-socket.c",
+   "line": 1915,
+   "target": "lib/vtls/vtls.c::ssl_cf_query",
+   "verdict": "n",
+   "reason": "TCP/UDP/UNIX/TCP-ACCEPT socket filters are chain leaves: cf->next is always NULL here"
+  },
+  {
+   "file": "lib/cfilters.c",
+   "line": 676,
+   "target": "lib/cf-h1-proxy.c::cf_h1_proxy_query",
+   "verdict": "y",
+   "reason": "generic helper over any object of this type in the build"
+  },
+  {
+   "file": "lib/cfilters.c",
+   "line": 676,
+   "target": "lib/cf-https-connect.c::cf_hc_query",
+   "verdict": "y",
+   "reason": "generic helper over any object of this type in the build"
+  },
+  {
+   "file": "lib/cfilters.c",
+   "line": 676,
+   "target": "lib/cf-ip-happy.c::cf_ip_happy_query",
+   "verdict": "y",
+   "reason": "generic helper over any object of this type in the build"
+  },
+  {
+   "file": "lib/cfilters.c",
+   "line": 676,
+   "target": "lib/cf-socket.c::cf_socket_query",
+   "verdict": "y",
+   "reason": "generic helper over any object of this type in the build"
+  },
+  {
+   "file": "lib/cfilters.c",
+   "line": 676,
+   "target": "lib/cfilters.c::Curl_cf_def_query",
+   "verdict": "y",
+   "reason": "generic helper over any object of this type in the build"
+  },
+  {
+   "file": "lib/cfilters.c",
+   "line": 676,
+   "target": "lib/http_proxy.c::cf_http_proxy_query",
+   "verdict": "y",
+   "reason": "generic helper over any object of this type in the build"
+  },
+  {
+   "file": "lib/cfilters.c",
+   "line": 676,
+   "target": "lib/socks.c::socks_cf_query",
+   "verdict": "y",
+   "reason": "generic helper over any object of this type in the build"
+  },
+  {
+   "file": "lib/cfilters.c",
+   "line": 676,
+   "target": "lib/vquic/cf-capsule.c::cf_capsule_query",
+   "verdict": "n",
+   "reason": "generic helper over any object of this type in the build"
+  },
+  {
+   "file": "lib/cfilters.c",
+   "line": 676,
+   "target": "lib/vtls/vtls.c::ssl_cf_query",
+   "verdict": "y",
+   "reason": "generic helper over any object of this type in the build"
+  },
+  {
+   "file": "lib/cfilters.c",
+   "line": 963,
+   "target": "lib/cf-socket.c::cf_socket_conn_is_alive",
+   "verdict": "y",
+   "reason": "generic helper over any object of this type in the build"
+  },
+  {
+   "file": "lib/cfilters.c",
+   "line": 963,
+   "target": "lib/cfilters.c::Curl_cf_def_conn_is_alive",
+   "verdict": "y",
+   "reason": "generic helper over any object of this type in the build"
+  },
+  {
+   "file": "lib/content_encoding.c",
+   "line": 287,
+   "target": "lib/content_encoding.c::deflate_do_write",
+   "verdict": "y",
+   "reason": "writer->next is a writer of the same or a later phase (sendf.c cwriter_add); raw is first, chunked is first in transfer-decode and never duplicated, ftp_lc only in FTP"
+  },
+  {
+   "file": "lib/content_encoding.c",
+   "line": 287,
+   "target": "lib/content_encoding.c::error_do_write",
+   "verdict": "y",
+   "reason": "writer->next is a writer of the same or a later phase (sendf.c cwriter_add); raw is first, chunked is first in transfer-decode and never duplicated, ftp_lc only in FTP"
+  },
+  {
+   "file": "lib/content_encoding.c",
+   "line": 287,
+   "target": "lib/content_encoding.c::gzip_do_write",
+   "verdict": "y",
+   "reason": "writer->next is a writer of the same or a later phase (sendf.c cwriter_add); raw is first, chunked is first in transfer-decode and never duplicated, ftp_lc only in FTP"
+  },
+  {
+   "file": "lib/content_encoding.c",
+   "line": 287,
+   "target": "lib/cw-out.c::cw_out_write",
+   "verdict": "y",
+   "reason": "writer->next is a writer of the same or a later phase (sendf.c cwriter_add); raw is first, chunked is first in transfer-decode and never duplicated, ftp_lc only in FTP"
+  },
+  {
+   "file": "lib/content_encoding.c",
+   "line": 287,
+   "target": "lib/cw-pause.c::cw_pause_write",
+   "verdict": "y",
+   "reason": "writer->next is a writer of the same or a later phase (sendf.c cwriter_add); raw is first, chunked is first in transfer-decode and never duplicated, ftp_lc only in FTP"
+  },
+  {
+   "file": "lib/content_encoding.c",
+   "line": 287,
+   "target": "lib/ftp.c::ftp_cw_lc_write",
+   "verdict": "n",
+   "reason": "writer->next is a writer of the same or a later phase (sendf.c cwriter_add); raw is first, chunked is first in transfer-decode and never duplicated, ftp_lc only in FTP"
+  },
+  {
+   "file": "lib/content_encoding.c",
+   "line": 287,
+   "target": "lib/headers.c::hds_cw_collect_write",
+   "verdict": "y",
+   "reason": "writer->next is a writer of the same or a later phase (sendf.c cwriter_add); raw is first, chunked is first in transfer-decode and never duplicated, ftp_lc only in FTP"
+  },
+  {
+   "file": "lib/content_encoding.c",
+   "line": 287,
+   "target": "lib/http_chunks.c::cw_chunked_write",
+   "verdict": "n",
+   "reason": "writer->next is a writer of the same or a later phase (sendf.c cwriter_add); raw is first, chunked is first in transfer-decode and never duplicated, ftp_lc only in FTP"
+  },
+  {
+   "file": "lib/content_encoding.c",
+   "line": 287,
+   "target": "lib/sendf.c::Curl_cwriter_def_write",
+   "verdict": "y",
+   "reason": "writer->next is a writer of the same or a later phase (sendf.c cwriter_add); raw is first, chunked is first in transfer-decode and never duplicated, ftp_lc only in FTP"
+  },
+  {
+   "file": "lib/content_encoding.c",
+   "line": 287,
+   "target": "lib/sendf.c::cw_download_write",
+   "verdict": "y",
+   "reason": "writer->next is a writer of the same or a later phase (sendf.c cwriter_add); raw is first, chunked is first in transfer-decode and never duplicated, ftp_lc only in FTP"
+  },
+  {
+   "file": "lib/content_encoding.c",
+   "line": 287,
+   "target": "lib/sendf.c::cw_raw_write",
+   "verdict": "n",
+   "reason": "writer->next is a writer of the same or a later phase (sendf.c cwriter_add); raw is first, chunked is first in transfer-decode and never duplicated, ftp_lc only in FTP"
+  },
+  {
+   "file": "lib/content_encoding.c",
+   "line": 287,
+   "target": "lib/ws.c::ws_cw_write",
+   "verdict": "?",
+   "reason": "writer->next is a writer of the same or a later phase (sendf.c cwriter_add); raw is first, chunked is first in transfer-decode and never duplicated, ftp_lc only in FTP"
+  },
+  {
+   "file": "lib/content_encoding.c",
+   "line": 318,
+   "target": "lib/content_encoding.c::deflate_do_flush",
+   "verdict": "y",
+   "reason": "writer->next is a writer of the same or a later phase (sendf.c cwriter_add); raw is first, chunked is first in transfer-decode and never duplicated, ftp_lc only in FTP"
+  },
+  {
+   "file": "lib/content_encoding.c",
+   "line": 318,
+   "target": "lib/content_encoding.c::gzip_do_flush",
+   "verdict": "y",
+   "reason": "writer->next is a writer of the same or a later phase (sendf.c cwriter_add); raw is first, chunked is first in transfer-decode and never duplicated, ftp_lc only in FTP"
+  },
+  {
+   "file": "lib/content_encoding.c",
+   "line": 318,
+   "target": "lib/cw-out.c::cw_out_do_flush",
+   "verdict": "y",
+   "reason": "writer->next is a writer of the same or a later phase (sendf.c cwriter_add); raw is first, chunked is first in transfer-decode and never duplicated, ftp_lc only in FTP"
+  },
+  {
+   "file": "lib/content_encoding.c",
+   "line": 318,
+   "target": "lib/cw-pause.c::cw_pause_flush",
+   "verdict": "y",
+   "reason": "writer->next is a writer of the same or a later phase (sendf.c cwriter_add); raw is first, chunked is first in transfer-decode and never duplicated, ftp_lc only in FTP"
+  },
+  {
+   "file": "lib/content_encoding.c",
+   "line": 318,
+   "target": "lib/sendf.c::Curl_cwriter_def_flush",
+   "verdict": "y",
+   "reason": "writer->next is a writer of the same or a later phase (sendf.c cwriter_add); raw is first, chunked is first in transfer-decode and never duplicated, ftp_lc only in FTP"
+  },
+  {
+   "file": "lib/content_encoding.c",
+   "line": 318,
+   "target": "lib/ws.c::ws_cw_flush",
+   "verdict": "?",
+   "reason": "writer->next is a writer of the same or a later phase (sendf.c cwriter_add); raw is first, chunked is first in transfer-decode and never duplicated, ftp_lc only in FTP"
+  },
+  {
+   "file": "lib/curl_sasl.c",
+   "line": 524,
+   "target": "lib/imap.c::imap_perform_authenticate",
+   "verdict": "y",
+   "reason": "generic helper over any object of this type in the build"
+  },
+  {
+   "file": "lib/curl_sasl.c",
+   "line": 524,
+   "target": "lib/pop3.c::pop3_perform_auth",
+   "verdict": "y",
+   "reason": "generic helper over any object of this type in the build"
+  },
+  {
+   "file": "lib/curl_sasl.c",
+   "line": 524,
+   "target": "lib/smtp.c::smtp_perform_auth",
+   "verdict": "y",
+   "reason": "generic helper over any object of this type in the build"
+  },
+  {
+   "file": "lib/ftp.c",
+   "line": 436,
+   "target": "lib/content_encoding.c::deflate_do_write",
+   "verdict": "n",
+   "reason": "writer->next is a writer of the same or a later phase (sendf.c cwriter_add); raw is first, chunked is first in transfer-decode and never duplicated, ftp_lc only in FTP"
+  },
+  {
+   "file": "lib/ftp.c",
+   "line": 436,
+   "target": "lib/content_encoding.c::error_do_write",
+   "verdict": "n",
+   "reason": "writer->next is a writer of the same or a later phase (sendf.c cwriter_add); raw is first, chunked is first in transfer-decode and never duplicated, ftp_lc only in FTP"
+  },
+  {
+   "file": "lib/ftp.c",
+   "line": 436,
+   "target": "lib/content_encoding.c::gzip_do_write",
+   "verdict": "n",
+   "reason": "writer->next is a writer of the same or a later phase (sendf.c cwriter_add); raw is first, chunked is first in transfer-decode and never duplicated, ftp_lc only in FTP"
+  },
+  {
+   "file": "lib/ftp.c",
+   "line": 436,
+   "target": "lib/cw-out.c::cw_out_write",
+   "verdict": "y",
+   "reason": "writer->next is a writer of the same or a later phase (sendf.c cwriter_add); raw is first, chunked is first in transfer-decode and never duplicated, ftp_lc only in FTP"
+  },
+  {
+   "file": "lib/ftp.c",
+   "line": 436,
+   "target": "lib/cw-pause.c::cw_pause_write",
+   "verdict": "n",
+   "reason": "writer->next is a writer of the same or a later phase (sendf.c cwriter_add); raw is first, chunked is first in transfer-decode and never duplicated, ftp_lc only in FTP"
+  },
+  {
+   "file": "lib/ftp.c",
+   "line": 436,
+   "target": "lib/ftp.c::ftp_cw_lc_write",
+   "verdict": "n",
+   "reason": "writer->next is a writer of the same or a later phase (sendf.c cwriter_add); raw is first, chunked is first in transfer-decode and never duplicated, ftp_lc only in FTP"
+  },
+  {
+   "file": "lib/ftp.c",
+   "line": 436,
+   "target": "lib/headers.c::hds_cw_collect_write",
+   "verdict": "n",
+   "reason": "writer->next is a writer of the same or a later phase (sendf.c cwriter_add); raw is first, chunked is first in transfer-decode and never duplicated, ftp_lc only in FTP"
+  },
+  {
+   "file": "lib/ftp.c",
+   "line": 436,
+   "target": "lib/http_chunks.c::cw_chunked_write",
+   "verdict": "n",
+   "reason": "writer->next is a writer of the same or a later phase (sendf.c cwriter_add); raw is first, chunked is first in transfer-decode and never duplicated, ftp_lc only in FTP"
+  },
+  {
+   "file": "lib/ftp.c",
+   "line": 436,
+   "target": "lib/sendf.c::Curl_cwriter_def_write",
+   "verdict": "n",
+   "reason": "writer->next is a writer of the same or a later phase (sendf.c cwriter_add); raw is first, chunked is first in transfer-decode and never duplicated, ftp_lc only in FTP"
+  },
+  {
+   "file": "lib/ftp.c",
+   "line": 436,
+   "target": "lib/sendf.c::cw_download_write",
+   "verdict": "n",
+   "reason": "writer->next is a writer of the same or a later phase (sendf.c cwriter_add); raw is first, chunked is first in transfer-decode and never duplicated, ftp_lc only in FTP"
+  },
+  {
+   "file": "lib/ftp.c",
+   "line": 436,
+   "target": "lib/sendf.c::cw_raw_write",
+   "verdict": "n",
+   "reason": "writer->next is a writer of the same or a later phase (sendf.c cwriter_add); raw is first, chunked is first in transfer-decode and never duplicated, ftp_lc only in FTP"
+  },
+  {
+   "file": "lib/ftp.c",
+   "line": 436,
+   "target": "lib/ws.c::ws_cw_write",
+   "verdict": "n",
+   "reason": "writer->next is a writer of the same or a later phase (sendf.c cwriter_add); raw is first, chunked is first in transfer-decode and never duplicated, ftp_lc only in FTP"
+  },
+  {
+   "file": "lib/hash.c",
+   "line": 401,
+   "target": "lib/hash.c::hash_socket",
+   "verdict": "y",
+   "reason": "generic helper over any object of this type in the build"
+  },
+  {
+   "file": "lib/hash.c",
+   "line": 401,
+   "target": "lib/hash.c::hash_str",
+   "verdict": "y",
+   "reason": "generic helper over any object of this type in the build"
+  },
+  {
+   "file": "lib/http_chunks.c",
+   "line": 128,
+   "target": "lib/content_encoding.c::deflate_do_write",
+   "verdict": "y",
+   "reason": "writer->next is a writer of the same or a later phase (sendf.c cwriter_add); raw is first, chunked is first in transfer-decode and never duplicated, ftp_lc only in FTP"
+  },
+  {
+   "file": "lib/http_chunks.c",
+   "line": 128,
+   "target": "lib/content_encoding.c::error_do_write",
+   "verdict": "y",
+   "reason": "writer->next is a writer of the same or a later phase (sendf.c cwriter_add); raw is first, chunked is first in transfer-decode and never duplicated, ftp_lc only in FTP"
+  },
+  {
+   "file": "lib/http_chunks.c",
+   "line": 128,
+   "target": "lib/content_encoding.c::gzip_do_write",
+   "verdict": "y",
+   "reason": "writer->next is a writer of the same or a later phase (sendf.c cwriter_add); raw is first, chunked is first in transfer-decode and never duplicated, ftp_lc only in FTP"
+  },
+  {
+   "file": "lib/http_chunks.c",
+   "line": 128,
+   "target": "lib/cw-out.c::cw_out_write",
+   "verdict": "y",
+   "reason": "writer->next is a writer of the same or a later phase (sendf.c cwriter_add); raw is first, chunked is first in transfer-decode and never duplicated, ftp_lc only in FTP"
+  },
+  {
+   "file": "lib/http_chunks.c",
+   "line": 128,
+   "target": "lib/cw-pause.c::cw_pause_write",
+   "verdict": "y",
+   "reason": "writer->next is a writer of the same or a later phase (sendf.c cwriter_add); raw is first, chunked is first in transfer-decode and never duplicated, ftp_lc only in FTP"
+  },
+  {
+   "file": "lib/http_chunks.c",
+   "line": 128,
+   "target": "lib/ftp.c::ftp_cw_lc_write",
+   "verdict": "n",
+   "reason": "writer->next is a writer of the same or a later phase (sendf.c cwriter_add); raw is first, chunked is first in transfer-decode and never duplicated, ftp_lc only in FTP"
+  },
+  {
+   "file": "lib/http_chunks.c",
+   "line": 128,
+   "target": "lib/headers.c::hds_cw_collect_write",
+   "verdict": "y",
+   "reason": "writer->next is a writer of the same or a later phase (sendf.c cwriter_add); raw is first, chunked is first in transfer-decode and never duplicated, ftp_lc only in FTP"
+  },
+  {
+   "file": "lib/http_chunks.c",
+   "line": 128,
+   "target": "lib/http_chunks.c::cw_chunked_write",
+   "verdict": "n",
+   "reason": "writer->next is a writer of the same or a later phase (sendf.c cwriter_add); raw is first, chunked is first in transfer-decode and never duplicated, ftp_lc only in FTP"
+  },
+  {
+   "file": "lib/http_chunks.c",
+   "line": 128,
+   "target": "lib/sendf.c::Curl_cwriter_def_write",
+   "verdict": "y",
+   "reason": "writer->next is a writer of the same or a later phase (sendf.c cwriter_add); raw is first, chunked is first in transfer-decode and never duplicated, ftp_lc only in FTP"
+  },
+  {
+   "file": "lib/http_chunks.c",
+   "line": 128,
+   "target": "lib/sendf.c::cw_download_write",
+   "verdict": "y",
+   "reason": "writer->next is a writer of the same or a later phase (sendf.c cwriter_add); raw is first, chunked is first in transfer-decode and never duplicated, ftp_lc only in FTP"
+  },
+  {
+   "file": "lib/http_chunks.c",
+   "line": 128,
+   "target": "lib/sendf.c::cw_raw_write",
+   "verdict": "n",
+   "reason": "writer->next is a writer of the same or a later phase (sendf.c cwriter_add); raw is first, chunked is first in transfer-decode and never duplicated, ftp_lc only in FTP"
+  },
+  {
+   "file": "lib/http_chunks.c",
+   "line": 128,
+   "target": "lib/ws.c::ws_cw_write",
+   "verdict": "?",
+   "reason": "writer->next is a writer of the same or a later phase (sendf.c cwriter_add); raw is first, chunked is first in transfer-decode and never duplicated, ftp_lc only in FTP"
+  },
+  {
+   "file": "lib/http_proxy.c",
+   "line": 683,
+   "target": "lib/cf-h1-proxy.c::cf_h1_proxy_query",
+   "verdict": "y",
+   "reason": "below HTTP-PROXY: h1-proxy (its sub-filter), SSL-PROXY, SOCKS pre-proxy, happy eyeballs, socket"
+  },
+  {
+   "file": "lib/http_proxy.c",
+   "line": 683,
+   "target": "lib/cf-https-connect.c::cf_hc_query",
+   "verdict": "n",
+   "reason": "below HTTP-PROXY: h1-proxy (its sub-filter), SSL-PROXY, SOCKS pre-proxy, happy eyeballs, socket"
+  },
+  {
+   "file": "lib/http_proxy.c",
+   "line": 683,
+   "target": "lib/cf-ip-happy.c::cf_ip_happy_query",
+   "verdict": "y",
+   "reason": "below HTTP-PROXY: h1-proxy (its sub-filter), SSL-PROXY, SOCKS pre-proxy, happy eyeballs, socket"
+  },
+  {
+   "file": "lib/http_proxy.c",
+   "line": 683,
+   "target": "lib/cf-socket.c::cf_socket_query",
+   "verdict": "y",
+   "reason": "below HTTP-PROXY: h1-proxy (its sub-filter), SSL-PROXY, SOCKS pre-proxy, happy eyeballs, socket"
+  },
+  {
+   "file": "lib/http_proxy.c",
+   "line": 683,
+   "target": "lib/cfilters.c::Curl_cf_def_query",
+   "verdict": "?",
+   "reason": "below HTTP-PROXY: h1-proxy (its sub-filter), SSL-PROXY, SOCKS pre-proxy, happy eyeballs, socket"
+  },
+  {
+   "file": "lib/http_proxy.c",
+   "line": 683,
+   "target": "lib/http_proxy.c::cf_http_proxy_query",
+   "verdict": "n",
+   "reason": "below HTTP-PROXY: h1-proxy (its sub-filter), SSL-PROXY, SOCKS pre-proxy, happy eyeballs, socket"
+  },
+  {
+   "file": "lib/http_proxy.c",
+   "line": 683,
+   "target": "lib/socks.c::socks_cf_query",
+   "verdict": "y",
+   "reason": "below HTTP-PROXY: h1-proxy (its sub-filter), SSL-PROXY, SOCKS pre-proxy, happy eyeballs, socket"
+  },
+  {
+   "file": "lib/http_proxy.c",
+   "line": 683,
+   "target": "lib/vquic/cf-capsule.c::cf_capsule_query",
+   "verdict": "n",
+   "reason": "below HTTP-PROXY: h1-proxy (its sub-filter), SSL-PROXY, SOCKS pre-proxy, happy eyeballs, socket"
+  },
+  {
+   "file": "lib/http_proxy.c",
+   "line": 683,
+   "target": "lib/vtls/vtls.c::ssl_cf_query",
+   "verdict": "y",
+   "reason": "below HTTP-PROXY: h1-proxy (its sub-filter), SSL-PROXY, SOCKS pre-proxy, happy eyeballs, socket"
+  },
+  {
+   "file": "lib/multi.c",
+   "line": 1058,
+   "target": "lib/ftp.c::ftp_pollset",
+   "verdict": "y",
+   "reason": "generic helper over any object of this type in the build"
+  },
+  {
+   "file": "lib/multi.c",
+   "line": 1058,
+   "target": "lib/http.c::Curl_http_doing_pollset",
+   "verdict": "y",
+   "reason": "generic helper over any object of this type in the build"
+  },
+  {
+   "file": "lib/multi.c",
+   "line": 1058,
+   "target": "lib/imap.c::imap_pollset",
+   "verdict": "y",
+   "reason": "generic helper over any object of this type in the build"
+  },
+  {
+   "file": "lib/multi.c",
+   "line": 1058,
+   "target": "lib/mqtt.c::mqtt_pollset",
+   "verdict": "y",
+   "reason": "generic helper over any object of this type in the build"
+  },
+  {
+   "file": "lib/multi.c",
+   "line": 1058,
+   "target": "lib/pop3.c::pop3_pollset",
+   "verdict": "y",
+   "reason": "generic helper over any object of this type in the build"
+  },
+  {
+   "file": "lib/multi.c",
+   "line": 1058,
+   "target": "lib/rtsp.c::rtsp_do_pollset",
+   "verdict": "y",
+   "reason": "generic helper over any object of this type in the build"
+  },
+  {
+   "file": "lib/multi.c",
+   "line": 1058,
+   "target": "lib/smtp.c::smtp_pollset",
+   "verdict": "y",
+   "reason": "generic helper over any object of this type in the build"
+  },
+  {
+   "file": "lib/multi.c",
+   "line": 1058,
+   "target": "lib/tftp.c::tftp_pollset",
+   "verdict": "y",
+   "reason": "generic helper over any object of this type in the build"
+  },
+  {
+   "file": "lib/sendf.c",
+   "line": 1247,
+   "target": "lib/mime.c::cr_mime_needs_rewind",
+   "verdict": "y",
+   "reason": "generic helper over any object of this type in the build"
+  },
+  {
+   "file": "lib/sendf.c",
+   "line": 1247,
+   "target": "lib/sendf.c::Curl_creader_def_needs_rewind",
+   "verdict": "y",
+   "reason": "generic helper over any object of this type in the build"
+  },
+  {
+   "file": "lib/sendf.c",
+   "line": 1247,
+   "target": "lib/sendf.c::cr_buf_needs_rewind",
+   "verdict": "y",
+   "reason": "generic helper over any object of this type in the build"
+  },
+  {
+   "file": "lib/sendf.c",
+   "line": 1247,
+   "target": "lib/sendf.c::cr_in_needs_rewind",
+   "verdict": "y",
+   "reason": "generic helper over any object of this type in the build"
+  },
+  {
+   "file": "lib/sendf.c",
+   "line": 1440,
+   "target": "lib/http_chunks.c::cr_chunked_total_length",
+   "verdict": "n",
+   "reason": "loop stops at the CURL_CR_CLIENT reader: in, buf, null or mime"
+  },
+  {
+   "file": "lib/sendf.c",
+   "line": 1440,
+   "target": "lib/mime.c::cr_mime_total_length",
+   "verdict": "y",
+   "reason": "loop stops at the CURL_CR_CLIENT reader: in, buf, null or mime"
+  },
+  {
+   "file": "lib/sendf.c",
+   "line": 1440,
+   "target": "lib/sendf.c::Curl_creader_def_total_length",
+   "verdict": "n",
+   "reason": "loop stops at the CURL_CR_CLIENT reader: in, buf, null or mime"
+  },
+  {
+   "file": "lib/sendf.c",
+   "line": 1440,
+   "target": "lib/sendf.c::cr_buf_total_length",
+   "verdict": "y",
+   "reason": "loop stops at the CURL_CR_CLIENT reader: in, buf, null or mime"
+  },
+  {
+   "file": "lib/sendf.c",
+   "line": 1440,
+   "target": "lib/sendf.c::cr_in_total_length",
+   "verdict": "y",
+   "reason": "loop stops at the CURL_CR_CLIENT reader: in, buf, null or mime"
+  },
+  {
+   "file": "lib/sendf.c",
+   "line": 1440,
+   "target": "lib/sendf.c::cr_lc_total_length",
+   "verdict": "n",
+   "reason": "loop stops at the CURL_CR_CLIENT reader: in, buf, null or mime"
+  },
+  {
+   "file": "lib/sendf.c",
+   "line": 1440,
+   "target": "lib/sendf.c::cr_null_total_length",
+   "verdict": "y",
+   "reason": "loop stops at the CURL_CR_CLIENT reader: in, buf, null or mime"
+  },
+  {
+   "file": "lib/sendf.c",
+   "line": 1440,
+   "target": "lib/smtp.c::cr_eob_total_length",
+   "verdict": "n",
+   "reason": "loop stops at the CURL_CR_CLIENT reader: in, buf, null or mime"
+  },
+  {
+   "file": "lib/sendf.c",
+   "line": 1440,
+   "target": "lib/ws.c::cr_ws_total_length",
+   "verdict": "n",
+   "reason": "loop stops at the CURL_CR_CLIENT reader: in, buf, null or mime"
+  },
+  {
+   "file": "lib/url.c",
+   "line": 2256,
+   "target": "lib/file.c::file_connect",
+   "verdict": "y",
+   "reason": "generic helper over any object of this type in the build"
+  },
+  {
+   "file": "lib/url.c",
+   "line": 2256,
+   "target": "lib/ftp.c::ftp_connect",
+   "verdict": "y",
+   "reason": "generic helper over any object of this type in the build"
+  },
+  {
+   "file": "lib/url.c",
+   "line": 2256,
+   "target": "lib/gopher.c::gopher_connect",
+   "verdict": "y",
+   "reason": "generic helper over any object of this type in the build"
+  },
+  {
+   "file": "lib/url.c",
+   "line": 2256,
+   "target": "lib/imap.c::imap_connect",
+   "verdict": "y",
+   "reason": "generic helper over any object of this type in the build"
+  },
+  {
+   "file": "lib/url.c",
+   "line": 2256,
+   "target": "lib/pop3.c::pop3_connect",
+   "verdict": "y",
+   "reason": "generic helper over any object of this type in the build"
+  },
+  {
+   "file": "lib/url.c",
+   "line": 2256,
+   "target": "lib/rtsp.c::rtsp_connect",
+   "verdict": "y",
+   "reason": "generic helper over any object of this type in the build"
+  },
+  {
+   "file": "lib/url.c",
+   "line": 2256,
+   "target": "lib/smtp.c::smtp_connect",
+   "verdict": "y",
+   "reason": "generic helper over any object of this type in the build"
+  },
+  {
+   "file": "lib/url.c",
+   "line": 2256,
+   "target": "lib/tftp.c::tftp_connect",
+   "verdict": "y",
+   "reason": "generic helper over any object of this type in the build"
+  },
+  {
+   "file": "lib/vtls/vtls.c",
+   "line": 579,
+   "target": "lib/vtls/openssl.c::ossl_init",
+   "verdict": "y",
+   "reason": "CURL_WITH_MULTI_SSL is off: Curl_ssl/ssl_impl is always the OpenSSL backend"
+  },
+  {
+   "file": "lib/vtls/vtls.c",
+   "line": 713,
+   "target": "lib/vtls/openssl.c::ossl_cleanup",
+   "verdict": "y",
+   "reason": "CURL_WITH_MULTI_SSL is off: Curl_ssl/ssl_impl is always the OpenSSL backend"
+  },
+  {
+   "file": "lib/vtls/vtls.c",
+   "line": 1225,
+   "target": "lib/vtls/openssl.c::ossl_get_internals",
+   "verdict": "y",
+   "reason": "CURL_WITH_MULTI_SSL is off: Curl_ssl/ssl_impl is always the OpenSSL backend"
+  },
+  {
+   "file": "lib/vtls/vtls.c",
+   "line": 1225,
+   "target": "lib/vtls/vtls.c::multissl_get_internals",
+   "verdict": "n",
+   "reason": "CURL_WITH_MULTI_SSL is off: Curl_ssl/ssl_impl is always the OpenSSL backend"
+  }
+ ]
+}

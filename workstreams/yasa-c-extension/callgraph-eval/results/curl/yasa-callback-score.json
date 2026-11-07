@@ -1,0 +1,429 @@
+{
+  "tool": "yasa-callback",
+  "raw_records": 15540,
+  "record_target_scopes": {
+    "active_internal": 10677,
+    "unresolved": 4863
+  },
+  "definition_coverage": {
+    "gold": 2674,
+    "active_definitions_found": 2674,
+    "recall": 1.0,
+    "unknown_function_ids_in_normalized_functions": []
+  },
+  "primary_strict": {
+    "callsite_target": {
+      "gold": 7510,
+      "predicted": 7453,
+      "tp": 7453,
+      "fp": 0,
+      "fn": 57,
+      "precision": 1.0,
+      "recall": 0.9924101198402131,
+      "f1": 0.9961906034886052
+    },
+    "function_pair": {
+      "gold": 5819,
+      "predicted": 5786,
+      "tp": 5786,
+      "fp": 0,
+      "fn": 33,
+      "precision": 1.0,
+      "recall": 0.994328922495274,
+      "f1": 0.9971563981042654
+    },
+    "emitted_callsite_coverage": {
+      "all_primary_points_with_any_record": 8503,
+      "internal_gold_points_with_any_record": 7453,
+      "internal_gold_points_with_internal_resolution": 7453,
+      "primary_points_with_internal_resolution": 7453
+    },
+    "record_attribution": {
+      "unmapped_caller": 23,
+      "strict": 8644,
+      "excluded_macro_direct_coordinate": 3789,
+      "no_compiler_direct_line": 245,
+      "line_with_indirect_calls": 2813,
+      "direct_line_but_unmatched_coordinate": 26
+    },
+    "attributed_record_target_scopes": {
+      "unresolved": 1191,
+      "active_internal": 7453
+    }
+  },
+  "primary_single_coordinate_line_fallback": {
+    "callsite_target": {
+      "gold": 7510,
+      "predicted": 7453,
+      "tp": 7453,
+      "fp": 0,
+      "fn": 57,
+      "precision": 1.0,
+      "recall": 0.9924101198402131,
+      "f1": 0.9961906034886052
+    },
+    "function_pair": {
+      "gold": 5819,
+      "predicted": 5786,
+      "tp": 5786,
+      "fp": 0,
+      "fn": 33,
+      "precision": 1.0,
+      "recall": 0.994328922495274,
+      "f1": 0.9971563981042654
+    },
+    "emitted_callsite_coverage": {
+      "all_primary_points_with_any_record": 8503,
+      "internal_gold_points_with_any_record": 7453,
+      "internal_gold_points_with_internal_resolution": 7453,
+      "primary_points_with_internal_resolution": 7453
+    },
+    "record_attribution": {
+      "unmapped_caller": 23,
+      "strict": 8644,
+      "excluded_macro_direct_coordinate": 3789,
+      "no_compiler_direct_line": 245,
+      "line_with_indirect_calls": 2813,
+      "direct_line_but_unmatched_coordinate": 6,
+      "single_coordinate_line_fallback": 20
+    },
+    "attributed_record_target_scopes": {
+      "unresolved": 1211,
+      "active_internal": 7453
+    }
+  },
+  "full_ast_direct_pair_recall": {
+    "gold": 6959,
+    "found": 6877,
+    "missing": 82,
+    "recall": 0.9882166978014082,
+    "precision": null,
+    "note": "Clang syntactic AST includes macros, compile-time checking helpers and path-infeasible branches; this supplementary measure does not assert runtime reachability."
+  },
+  "curated_indirect": {
+    "label": "curated_indirect_subset_recall_only",
+    "selected_sites": 11,
+    "strict_site_target": {
+      "gold": 25,
+      "found": 25,
+      "missing": 0,
+      "recall": 1.0
+    },
+    "single_coordinate_line_fallback_site_target": {
+      "gold": 25,
+      "found": 25,
+      "missing": 0,
+      "recall": 1.0
+    },
+    "location_free_caller_target": {
+      "gold": 25,
+      "found": 25,
+      "missing": 0,
+      "recall": 1.0
+    },
+    "per_site": [
+      {
+        "id": "mime-encode-read",
+        "site": [
+          "lib/mime.c::read_encoded_part_content",
+          "lib/mime.c",
+          778,
+          12
+        ],
+        "expected_targets": [
+          "lib/mime.c::encoder_7bit_read",
+          "lib/mime.c::encoder_base64_read",
+          "lib/mime.c::encoder_nop_read",
+          "lib/mime.c::encoder_qp_read"
+        ],
+        "strict_found": [
+          "lib/mime.c::encoder_7bit_read",
+          "lib/mime.c::encoder_base64_read",
+          "lib/mime.c::encoder_nop_read",
+          "lib/mime.c::encoder_qp_read"
+        ],
+        "fallback_found": [
+          "lib/mime.c::encoder_7bit_read",
+          "lib/mime.c::encoder_base64_read",
+          "lib/mime.c::encoder_nop_read",
+          "lib/mime.c::encoder_qp_read"
+        ],
+        "caller_pair_found": [
+          "lib/mime.c::encoder_7bit_read",
+          "lib/mime.c::encoder_base64_read",
+          "lib/mime.c::encoder_nop_read",
+          "lib/mime.c::encoder_qp_read"
+        ]
+      },
+      {
+        "id": "mime-encode-size",
+        "site": [
+          "lib/mime.c::mime_size",
+          "lib/mime.c",
+          1640,
+          12
+        ],
+        "expected_targets": [
+          "lib/mime.c::encoder_base64_size",
+          "lib/mime.c::encoder_nop_size",
+          "lib/mime.c::encoder_qp_size"
+        ],
+        "strict_found": [
+          "lib/mime.c::encoder_base64_size",
+          "lib/mime.c::encoder_nop_size",
+          "lib/mime.c::encoder_qp_size"
+        ],
+        "fallback_found": [
+          "lib/mime.c::encoder_base64_size",
+          "lib/mime.c::encoder_nop_size",
+          "lib/mime.c::encoder_qp_size"
+        ],
+        "caller_pair_found": [
+          "lib/mime.c::encoder_base64_size",
+          "lib/mime.c::encoder_nop_size",
+          "lib/mime.c::encoder_qp_size"
+        ]
+      },
+      {
+        "id": "md5-init",
+        "site": [
+          "lib/md5.c::Curl_MD5_init",
+          "lib/md5.c",
+          593,
+          6
+        ],
+        "expected_targets": [
+          "lib/md5.c::my_md5_init"
+        ],
+        "strict_found": [
+          "lib/md5.c::my_md5_init"
+        ],
+        "fallback_found": [
+          "lib/md5.c::my_md5_init"
+        ],
+        "caller_pair_found": [
+          "lib/md5.c::my_md5_init"
+        ]
+      },
+      {
+        "id": "md5-update",
+        "site": [
+          "lib/md5.c::Curl_MD5_update",
+          "lib/md5.c",
+          605,
+          3
+        ],
+        "expected_targets": [
+          "lib/md5.c::my_md5_update"
+        ],
+        "strict_found": [
+          "lib/md5.c::my_md5_update"
+        ],
+        "fallback_found": [
+          "lib/md5.c::my_md5_update"
+        ],
+        "caller_pair_found": [
+          "lib/md5.c::my_md5_update"
+        ]
+      },
+      {
+        "id": "md5-final",
+        "site": [
+          "lib/md5.c::Curl_MD5_final",
+          "lib/md5.c",
+          612,
+          3
+        ],
+        "expected_targets": [
+          "lib/md5.c::my_md5_final"
+        ],
+        "strict_found": [
+          "lib/md5.c::my_md5_final"
+        ],
+        "fallback_found": [
+          "lib/md5.c::my_md5_final"
+        ],
+        "caller_pair_found": [
+          "lib/md5.c::my_md5_final"
+        ]
+      },
+      {
+        "id": "hmac-init",
+        "site": [
+          "lib/hmac.c::Curl_HMAC_init",
+          "lib/hmac.c",
+          77,
+          6
+        ],
+        "expected_targets": [
+          "lib/md5.c::my_md5_init",
+          "lib/sha256.c::my_sha256_init"
+        ],
+        "strict_found": [
+          "lib/md5.c::my_md5_init",
+          "lib/sha256.c::my_sha256_init"
+        ],
+        "fallback_found": [
+          "lib/md5.c::my_md5_init",
+          "lib/sha256.c::my_sha256_init"
+        ],
+        "caller_pair_found": [
+          "lib/md5.c::my_md5_init",
+          "lib/sha256.c::my_sha256_init"
+        ]
+      },
+      {
+        "id": "hmac-update",
+        "site": [
+          "lib/hmac.c::Curl_HMAC_update",
+          "lib/hmac.c",
+          106,
+          3
+        ],
+        "expected_targets": [
+          "lib/md5.c::my_md5_update",
+          "lib/sha256.c::my_sha256_update"
+        ],
+        "strict_found": [
+          "lib/md5.c::my_md5_update",
+          "lib/sha256.c::my_sha256_update"
+        ],
+        "fallback_found": [
+          "lib/md5.c::my_md5_update",
+          "lib/sha256.c::my_sha256_update"
+        ],
+        "caller_pair_found": [
+          "lib/md5.c::my_md5_update",
+          "lib/sha256.c::my_sha256_update"
+        ]
+      },
+      {
+        "id": "hmac-final",
+        "site": [
+          "lib/hmac.c::Curl_HMAC_final",
+          "lib/hmac.c",
+          119,
+          3
+        ],
+        "expected_targets": [
+          "lib/md5.c::my_md5_final",
+          "lib/sha256.c::my_sha256_final"
+        ],
+        "strict_found": [
+          "lib/md5.c::my_md5_final",
+          "lib/sha256.c::my_sha256_final"
+        ],
+        "fallback_found": [
+          "lib/md5.c::my_md5_final",
+          "lib/sha256.c::my_sha256_final"
+        ],
+        "caller_pair_found": [
+          "lib/md5.c::my_md5_final",
+          "lib/sha256.c::my_sha256_final"
+        ]
+      },
+      {
+        "id": "pingpong-state",
+        "site": [
+          "lib/pingpong.c::Curl_pp_statemach",
+          "lib/pingpong.c",
+          116,
+          14
+        ],
+        "expected_targets": [
+          "lib/ftp.c::ftp_pp_statemachine",
+          "lib/imap.c::imap_pp_statemachine",
+          "lib/pop3.c::pop3_statemachine",
+          "lib/smtp.c::smtp_pp_statemachine"
+        ],
+        "strict_found": [
+          "lib/ftp.c::ftp_pp_statemachine",
+          "lib/imap.c::imap_pp_statemachine",
+          "lib/pop3.c::pop3_statemachine",
+          "lib/smtp.c::smtp_pp_statemachine"
+        ],
+        "fallback_found": [
+          "lib/ftp.c::ftp_pp_statemachine",
+          "lib/imap.c::imap_pp_statemachine",
+          "lib/pop3.c::pop3_statemachine",
+          "lib/smtp.c::smtp_pp_statemachine"
+        ],
+        "caller_pair_found": [
+          "lib/ftp.c::ftp_pp_statemachine",
+          "lib/imap.c::imap_pp_statemachine",
+          "lib/pop3.c::pop3_statemachine",
+          "lib/smtp.c::smtp_pp_statemachine"
+        ]
+      },
+      {
+        "id": "pingpong-response",
+        "site": [
+          "lib/pingpong.c::Curl_pp_readresp",
+          "lib/pingpong.c",
+          307,
+          12
+        ],
+        "expected_targets": [
+          "lib/ftp.c::ftp_endofresp",
+          "lib/imap.c::imap_endofresp",
+          "lib/pop3.c::pop3_endofresp",
+          "lib/smtp.c::smtp_endofresp"
+        ],
+        "strict_found": [
+          "lib/ftp.c::ftp_endofresp",
+          "lib/imap.c::imap_endofresp",
+          "lib/pop3.c::pop3_endofresp",
+          "lib/smtp.c::smtp_endofresp"
+        ],
+        "fallback_found": [
+          "lib/ftp.c::ftp_endofresp",
+          "lib/imap.c::imap_endofresp",
+          "lib/pop3.c::pop3_endofresp",
+          "lib/smtp.c::smtp_endofresp"
+        ],
+        "caller_pair_found": [
+          "lib/ftp.c::ftp_endofresp",
+          "lib/imap.c::imap_endofresp",
+          "lib/pop3.c::pop3_endofresp",
+          "lib/smtp.c::smtp_endofresp"
+        ]
+      },
+      {
+        "id": "ftp-wildcard-dtor",
+        "site": [
+          "lib/ftplistparser.c::Curl_wildcard_dtor",
+          "lib/ftplistparser.c",
+          197,
+          5
+        ],
+        "expected_targets": [
+          "lib/ftp.c::wc_data_dtor"
+        ],
+        "strict_found": [
+          "lib/ftp.c::wc_data_dtor"
+        ],
+        "fallback_found": [
+          "lib/ftp.c::wc_data_dtor"
+        ],
+        "caller_pair_found": [
+          "lib/ftp.c::wc_data_dtor"
+        ]
+      }
+    ]
+  },
+  "normalization_metadata": {
+    "source_graph": "<workspace>/work/callback-fix/curl/results/yasa-callback/report/callgraph.json",
+    "raw_nodes": 5585,
+    "raw_edges": 15540,
+    "node_mapping_reasons": {
+      "placeholder": 2909,
+      "same_file_active_span": 2674,
+      "uncompiled_project_body": 2
+    },
+    "column_convention": "Native 1-based, calibrated on independent small C example."
+  },
+  "scoring_protocol_sha256": "d2495d5e3f9ac857d5ffa64cdaf41e7f508379328dfc0feba0df1d7ceeb8e4cd",
+  "gold_sha256": "48b85a9c4670cefbd35cec6242cfe95cfeeaa1eeb6154585db9992f082feb9ac",
+  "curated_gold_sha256": "64d8f77f8e0599683012cbf19fa01be3c4aa12b176e2f024373de49e9dcf41e1",
+  "normalized_sha256": "fc9164ae149b0991234d163eb24dea1fe6b34f2da79e8d565041567bd98a317b"
+}

@@ -1,0 +1,1152 @@
+{
+  "created_utc": "2026-11-07T12:40:11.252721+00:00",
+  "scope": "Complete configured libcurl static library; see build and input manifests.",
+  "scoring_protocol": {
+    "version": 1,
+    "primary_population": "Clang direct callsites without enclosing_macro_expansions or macro_origin_differs; exclude any caller/file/line containing an indirect call",
+    "strict_attribution": "exact caller, relative source file, 1-based line and column",
+    "fallback_attribution": "strict first; otherwise accept same caller/file/line only if all Clang direct observations on that line have one distinct coordinate and the line has no indirect observations",
+    "internal_predictions": "active_internal and inactive_project targets; inactive_project targets receive distinct identity even if file::name equals an active definition",
+    "external_and_unresolved": "not internal resolved predictions; missing expected internal targets remain false negatives",
+    "pair_aggregation": "deduplicate caller-target pairs only after attribution to fixed primary population",
+    "full_ast_recall": "location-free coverage of all Clang internal direct caller-target pairs; no precision because this graph can contain valid indirect edges",
+    "indirect_subset": "11 analyzer-blind selected sites, 25 expected site-target edges; site-level recall and location-free caller-target recall only, no extrapolation"
+  },
+  "scoring_protocol_sha256": "d2495d5e3f9ac857d5ffa64cdaf41e7f508379328dfc0feba0df1d7ceeb8e4cd",
+  "population": {
+    "definitions": 2674,
+    "full_ast_direct_pairs": 6959,
+    "primary_direct_sites": 8577,
+    "primary_internal_sites": 7510,
+    "primary_internal_pairs": 5819
+  },
+  "tools": {
+    "codegraph": {
+      "tool": "codegraph",
+      "raw_records": 12741,
+      "record_target_scopes": {
+        "active_internal": 10334,
+        "inactive_project": 2378,
+        "unresolved": 29
+      },
+      "definition_coverage": {
+        "gold": 2674,
+        "active_definitions_found": 2614,
+        "recall": 0.9775617053103964,
+        "unknown_function_ids_in_normalized_functions": []
+      },
+      "primary_strict": {
+        "callsite_target": {
+          "gold": 7510,
+          "predicted": 7436,
+          "tp": 7391,
+          "fp": 45,
+          "fn": 119,
+          "precision": 0.9939483593329748,
+          "recall": 0.9841544607190412,
+          "f1": 0.9890271644587182
+        },
+        "function_pair": {
+          "gold": 5819,
+          "predicted": 5753,
+          "tp": 5711,
+          "fp": 42,
+          "fn": 108,
+          "precision": 0.992699461150704,
+          "recall": 0.9814401099845335,
+          "f1": 0.9870376771517456
+        },
+        "emitted_callsite_coverage": {
+          "all_primary_points_with_any_record": 7436,
+          "internal_gold_points_with_any_record": 7436,
+          "internal_gold_points_with_internal_resolution": 7436,
+          "primary_points_with_internal_resolution": 7436
+        },
+        "record_attribution": {
+          "unmapped_caller": 71,
+          "no_compiler_direct_line": 3947,
+          "strict": 7436,
+          "direct_line_but_unmatched_coordinate": 22,
+          "line_with_indirect_calls": 1263,
+          "excluded_macro_direct_coordinate": 2
+        },
+        "attributed_record_target_scopes": {
+          "active_internal": 7391,
+          "inactive_project": 45
+        }
+      },
+      "primary_single_coordinate_line_fallback": {
+        "callsite_target": {
+          "gold": 7510,
+          "predicted": 7437,
+          "tp": 7391,
+          "fp": 46,
+          "fn": 119,
+          "precision": 0.9938147102326207,
+          "recall": 0.9841544607190412,
+          "f1": 0.9889609955174951
+        },
+        "function_pair": {
+          "gold": 5819,
+          "predicted": 5754,
+          "tp": 5711,
+          "fp": 43,
+          "fn": 108,
+          "precision": 0.9925269377824122,
+          "recall": 0.9814401099845335,
+          "f1": 0.9869523891817161
+        },
+        "emitted_callsite_coverage": {
+          "all_primary_points_with_any_record": 7436,
+          "internal_gold_points_with_any_record": 7436,
+          "internal_gold_points_with_internal_resolution": 7436,
+          "primary_points_with_internal_resolution": 7436
+        },
+        "record_attribution": {
+          "unmapped_caller": 71,
+          "no_compiler_direct_line": 3947,
+          "strict": 7436,
+          "direct_line_but_unmatched_coordinate": 21,
+          "line_with_indirect_calls": 1263,
+          "excluded_macro_direct_coordinate": 2,
+          "single_coordinate_line_fallback": 1
+        },
+        "attributed_record_target_scopes": {
+          "active_internal": 7391,
+          "inactive_project": 46
+        }
+      },
+      "full_ast_direct_pair_recall": {
+        "gold": 6959,
+        "found": 5777,
+        "missing": 1182,
+        "recall": 0.8301480097715189,
+        "precision": null,
+        "note": "Clang syntactic AST includes macros, compile-time checking helpers and path-infeasible branches; this supplementary measure does not assert runtime reachability."
+      },
+      "curated_indirect": {
+        "label": "curated_indirect_subset_recall_only",
+        "selected_sites": 11,
+        "strict_site_target": {
+          "gold": 25,
+          "found": 0,
+          "missing": 25,
+          "recall": 0.0
+        },
+        "single_coordinate_line_fallback_site_target": {
+          "gold": 25,
+          "found": 9,
+          "missing": 16,
+          "recall": 0.36
+        },
+        "location_free_caller_target": {
+          "gold": 25,
+          "found": 10,
+          "missing": 15,
+          "recall": 0.4
+        },
+        "per_site": [
+          {
+            "id": "mime-encode-read",
+            "site": [
+              "lib/mime.c::read_encoded_part_content",
+              "lib/mime.c",
+              778,
+              12
+            ],
+            "expected_targets": [
+              "lib/mime.c::encoder_7bit_read",
+              "lib/mime.c::encoder_base64_read",
+              "lib/mime.c::encoder_nop_read",
+              "lib/mime.c::encoder_qp_read"
+            ],
+            "strict_found": [],
+            "fallback_found": [
+              "lib/mime.c::encoder_7bit_read",
+              "lib/mime.c::encoder_base64_read",
+              "lib/mime.c::encoder_nop_read",
+              "lib/mime.c::encoder_qp_read"
+            ],
+            "caller_pair_found": [
+              "lib/mime.c::encoder_7bit_read",
+              "lib/mime.c::encoder_base64_read",
+              "lib/mime.c::encoder_nop_read",
+              "lib/mime.c::encoder_qp_read"
+            ]
+          },
+          {
+            "id": "mime-encode-size",
+            "site": [
+              "lib/mime.c::mime_size",
+              "lib/mime.c",
+              1640,
+              12
+            ],
+            "expected_targets": [
+              "lib/mime.c::encoder_base64_size",
+              "lib/mime.c::encoder_nop_size",
+              "lib/mime.c::encoder_qp_size"
+            ],
+            "strict_found": [],
+            "fallback_found": [
+              "lib/mime.c::encoder_base64_size",
+              "lib/mime.c::encoder_nop_size",
+              "lib/mime.c::encoder_qp_size"
+            ],
+            "caller_pair_found": [
+              "lib/mime.c::encoder_base64_size",
+              "lib/mime.c::encoder_nop_size",
+              "lib/mime.c::encoder_qp_size"
+            ]
+          },
+          {
+            "id": "md5-init",
+            "site": [
+              "lib/md5.c::Curl_MD5_init",
+              "lib/md5.c",
+              593,
+              6
+            ],
+            "expected_targets": [
+              "lib/md5.c::my_md5_init"
+            ],
+            "strict_found": [],
+            "fallback_found": [],
+            "caller_pair_found": []
+          },
+          {
+            "id": "md5-update",
+            "site": [
+              "lib/md5.c::Curl_MD5_update",
+              "lib/md5.c",
+              605,
+              3
+            ],
+            "expected_targets": [
+              "lib/md5.c::my_md5_update"
+            ],
+            "strict_found": [],
+            "fallback_found": [],
+            "caller_pair_found": []
+          },
+          {
+            "id": "md5-final",
+            "site": [
+              "lib/md5.c::Curl_MD5_final",
+              "lib/md5.c",
+              612,
+              3
+            ],
+            "expected_targets": [
+              "lib/md5.c::my_md5_final"
+            ],
+            "strict_found": [],
+            "fallback_found": [],
+            "caller_pair_found": []
+          },
+          {
+            "id": "hmac-init",
+            "site": [
+              "lib/hmac.c::Curl_HMAC_init",
+              "lib/hmac.c",
+              77,
+              6
+            ],
+            "expected_targets": [
+              "lib/md5.c::my_md5_init",
+              "lib/sha256.c::my_sha256_init"
+            ],
+            "strict_found": [],
+            "fallback_found": [],
+            "caller_pair_found": [
+              "lib/sha256.c::my_sha256_init"
+            ]
+          },
+          {
+            "id": "hmac-update",
+            "site": [
+              "lib/hmac.c::Curl_HMAC_update",
+              "lib/hmac.c",
+              106,
+              3
+            ],
+            "expected_targets": [
+              "lib/md5.c::my_md5_update",
+              "lib/sha256.c::my_sha256_update"
+            ],
+            "strict_found": [],
+            "fallback_found": [
+              "lib/sha256.c::my_sha256_update"
+            ],
+            "caller_pair_found": [
+              "lib/sha256.c::my_sha256_update"
+            ]
+          },
+          {
+            "id": "hmac-final",
+            "site": [
+              "lib/hmac.c::Curl_HMAC_final",
+              "lib/hmac.c",
+              119,
+              3
+            ],
+            "expected_targets": [
+              "lib/md5.c::my_md5_final",
+              "lib/sha256.c::my_sha256_final"
+            ],
+            "strict_found": [],
+            "fallback_found": [
+              "lib/sha256.c::my_sha256_final"
+            ],
+            "caller_pair_found": [
+              "lib/sha256.c::my_sha256_final"
+            ]
+          },
+          {
+            "id": "pingpong-state",
+            "site": [
+              "lib/pingpong.c::Curl_pp_statemach",
+              "lib/pingpong.c",
+              116,
+              14
+            ],
+            "expected_targets": [
+              "lib/ftp.c::ftp_pp_statemachine",
+              "lib/imap.c::imap_pp_statemachine",
+              "lib/pop3.c::pop3_statemachine",
+              "lib/smtp.c::smtp_pp_statemachine"
+            ],
+            "strict_found": [],
+            "fallback_found": [],
+            "caller_pair_found": []
+          },
+          {
+            "id": "pingpong-response",
+            "site": [
+              "lib/pingpong.c::Curl_pp_readresp",
+              "lib/pingpong.c",
+              307,
+              12
+            ],
+            "expected_targets": [
+              "lib/ftp.c::ftp_endofresp",
+              "lib/imap.c::imap_endofresp",
+              "lib/pop3.c::pop3_endofresp",
+              "lib/smtp.c::smtp_endofresp"
+            ],
+            "strict_found": [],
+            "fallback_found": [],
+            "caller_pair_found": []
+          },
+          {
+            "id": "ftp-wildcard-dtor",
+            "site": [
+              "lib/ftplistparser.c::Curl_wildcard_dtor",
+              "lib/ftplistparser.c",
+              197,
+              5
+            ],
+            "expected_targets": [
+              "lib/ftp.c::wc_data_dtor"
+            ],
+            "strict_found": [],
+            "fallback_found": [],
+            "caller_pair_found": []
+          }
+        ]
+      },
+      "normalization_metadata": {
+        "source_database": "<workspace>/work/curl-large/input/.codegraph/codegraph.db",
+        "raw_nodes": 10521,
+        "raw_edges": 12741,
+        "node_mapping_reasons": {
+          "not_function_definition": 6597,
+          "uncompiled_project_body": 1198,
+          "same_file_active_span": 2614,
+          "same_name_inactive_body": 112
+        },
+        "lexical_source_repairs": 0,
+        "column_convention": "Native 0-based plus 1, calibrated on independent small C example."
+      },
+      "normalized_sha256": "b92a0ae31a4585238de10106f8cfa720a498ff412b47faa208309aad9803713f",
+      "run": {
+        "tool": "codegraph",
+        "argv": [
+          "<workspace>/work/tools/codegraph-v1.6.2/codegraph-darwin-arm64/bin/codegraph",
+          "init",
+          "--yes",
+          "<workspace>/work/curl-large/input"
+        ],
+        "cwd": "<workspace>",
+        "started_utc": "2026-11-06T15:30:16.007950+00:00",
+        "timeout_seconds": 1200,
+        "timing_note": "Concurrent with Yasa after its initial ~8 minutes; no compiler/reference tasks. Elapsed time is not a controlled speed comparison; filesystem caches not flushed.",
+        "status": "exited",
+        "exit_code": 0,
+        "elapsed_seconds": 2.802834875,
+        "completed_utc": "2026-11-06T15:30:18.811036+00:00"
+      }
+    },
+    "yasa": {
+      "tool": "yasa",
+      "metrics_available": false,
+      "reason": "No validated completed callgraph output; precision and recall are unavailable, not zero.",
+      "run": {
+        "tool": "yasa",
+        "argv": [
+          "<workspace>/work/tools/codegraph-v1.6.2/codegraph-darwin-arm64/node",
+          "--max-old-space-size=8192",
+          "--inspect=127.0.0.1:0",
+          "--import",
+          "tsx",
+          "src/main.ts",
+          "--sourcePath",
+          "<workspace>/work/curl-large/input",
+          "--language",
+          "c",
+          "--cTarget",
+          "macos",
+          "--cUnknownMacros",
+          "undefined",
+          "--cDefine",
+          "__APPLE__=1,__BYTE_ORDER__=__ORDER_LITTLE_ENDIAN__,__CHAR_BIT__=8,__ENVIRONMENT_MAC_OS_X_VERSION_MIN_REQUIRED__=260000,__ENVIRONMENT_OS_VERSION_MIN_REQUIRED__=260000,__GNUC_MINOR__=2,__GNUC__=4,__LONG_MAX__=9223372036854775807L,__LP64__=1,__MACH__=1,__ORDER_BIG_ENDIAN__=4321,__ORDER_LITTLE_ENDIAN__=1234,__SIZEOF_LONG__=8,__STDC_HOSTED__=1,__STDC_VERSION__=201710L,__STDC__=1,__aarch64__=1,__apple_build_version__=21000099,__clang__=1,__clang_major__=21,BUILDING_LIBCURL=1,CURL_HIDDEN_SYMBOLS=1,HAVE_CONFIG_H=1,NDEBUG=1",
+          "--cUndefine",
+          "__unix,__unix__,__x86_64__,unix",
+          "--cIncludeDir",
+          "<workspace>/work/curl-large/input/include,<workspace>/work/curl-large/input/lib,/opt/homebrew/opt/openssl@3/include,/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include,/Library/Developer/CommandLineTools/usr/lib/clang/21/include",
+          "--checkerIds",
+          "callgraph",
+          "--dumpAllCG",
+          "--ruleConfigFile",
+          "resource/example-rule-config/rule_config_c.json",
+          "--report",
+          "<workspace>/work/curl-large/results/yasa/report"
+        ],
+        "cwd": "<workspace>/work/official-c-integration/engine",
+        "started_utc": "2026-11-07T11:29:14.966526+00:00",
+        "timeout_seconds": null,
+        "timing_note": "No compiler/reference workload. See concurrency-note.json for analyzer overlap; no controlled speed ratio is claimed.",
+        "status": "user_stopped",
+        "exit_code": -15,
+        "elapsed_seconds": 4178.799009917,
+        "completed_utc": "2026-11-07T12:38:53.765850+00:00",
+        "process_exit_status": "exited",
+        "stop_reason": "User explicitly requested termination after repaired run completed.",
+        "stopped_by_user": true,
+        "wall_elapsed_seconds": 4178.799324
+      }
+    },
+    "yasa-fixed": {
+      "tool": "yasa-fixed",
+      "raw_records": 14387,
+      "record_target_scopes": {
+        "active_internal": 9478,
+        "unresolved": 4909
+      },
+      "definition_coverage": {
+        "gold": 2674,
+        "active_definitions_found": 2674,
+        "recall": 1.0,
+        "unknown_function_ids_in_normalized_functions": []
+      },
+      "primary_strict": {
+        "callsite_target": {
+          "gold": 7510,
+          "predicted": 7453,
+          "tp": 7453,
+          "fp": 0,
+          "fn": 57,
+          "precision": 1.0,
+          "recall": 0.9924101198402131,
+          "f1": 0.9961906034886052
+        },
+        "function_pair": {
+          "gold": 5819,
+          "predicted": 5786,
+          "tp": 5786,
+          "fp": 0,
+          "fn": 33,
+          "precision": 1.0,
+          "recall": 0.994328922495274,
+          "f1": 0.9971563981042654
+        },
+        "emitted_callsite_coverage": {
+          "all_primary_points_with_any_record": 8503,
+          "internal_gold_points_with_any_record": 7453,
+          "internal_gold_points_with_internal_resolution": 7453,
+          "primary_points_with_internal_resolution": 7453
+        },
+        "record_attribution": {
+          "unmapped_caller": 23,
+          "strict": 8642,
+          "excluded_macro_direct_coordinate": 3786,
+          "no_compiler_direct_line": 241,
+          "line_with_indirect_calls": 1669,
+          "direct_line_but_unmatched_coordinate": 26
+        },
+        "attributed_record_target_scopes": {
+          "unresolved": 1189,
+          "active_internal": 7453
+        }
+      },
+      "primary_single_coordinate_line_fallback": {
+        "callsite_target": {
+          "gold": 7510,
+          "predicted": 7453,
+          "tp": 7453,
+          "fp": 0,
+          "fn": 57,
+          "precision": 1.0,
+          "recall": 0.9924101198402131,
+          "f1": 0.9961906034886052
+        },
+        "function_pair": {
+          "gold": 5819,
+          "predicted": 5786,
+          "tp": 5786,
+          "fp": 0,
+          "fn": 33,
+          "precision": 1.0,
+          "recall": 0.994328922495274,
+          "f1": 0.9971563981042654
+        },
+        "emitted_callsite_coverage": {
+          "all_primary_points_with_any_record": 8503,
+          "internal_gold_points_with_any_record": 7453,
+          "internal_gold_points_with_internal_resolution": 7453,
+          "primary_points_with_internal_resolution": 7453
+        },
+        "record_attribution": {
+          "unmapped_caller": 23,
+          "strict": 8642,
+          "excluded_macro_direct_coordinate": 3786,
+          "no_compiler_direct_line": 241,
+          "line_with_indirect_calls": 1669,
+          "direct_line_but_unmatched_coordinate": 6,
+          "single_coordinate_line_fallback": 20
+        },
+        "attributed_record_target_scopes": {
+          "unresolved": 1209,
+          "active_internal": 7453
+        }
+      },
+      "full_ast_direct_pair_recall": {
+        "gold": 6959,
+        "found": 6877,
+        "missing": 82,
+        "recall": 0.9882166978014082,
+        "precision": null,
+        "note": "Clang syntactic AST includes macros, compile-time checking helpers and path-infeasible branches; this supplementary measure does not assert runtime reachability."
+      },
+      "curated_indirect": {
+        "label": "curated_indirect_subset_recall_only",
+        "selected_sites": 11,
+        "strict_site_target": {
+          "gold": 25,
+          "found": 0,
+          "missing": 25,
+          "recall": 0.0
+        },
+        "single_coordinate_line_fallback_site_target": {
+          "gold": 25,
+          "found": 0,
+          "missing": 25,
+          "recall": 0.0
+        },
+        "location_free_caller_target": {
+          "gold": 25,
+          "found": 0,
+          "missing": 25,
+          "recall": 0.0
+        },
+        "per_site": [
+          {
+            "id": "mime-encode-read",
+            "site": [
+              "lib/mime.c::read_encoded_part_content",
+              "lib/mime.c",
+              778,
+              12
+            ],
+            "expected_targets": [
+              "lib/mime.c::encoder_7bit_read",
+              "lib/mime.c::encoder_base64_read",
+              "lib/mime.c::encoder_nop_read",
+              "lib/mime.c::encoder_qp_read"
+            ],
+            "strict_found": [],
+            "fallback_found": [],
+            "caller_pair_found": []
+          },
+          {
+            "id": "mime-encode-size",
+            "site": [
+              "lib/mime.c::mime_size",
+              "lib/mime.c",
+              1640,
+              12
+            ],
+            "expected_targets": [
+              "lib/mime.c::encoder_base64_size",
+              "lib/mime.c::encoder_nop_size",
+              "lib/mime.c::encoder_qp_size"
+            ],
+            "strict_found": [],
+            "fallback_found": [],
+            "caller_pair_found": []
+          },
+          {
+            "id": "md5-init",
+            "site": [
+              "lib/md5.c::Curl_MD5_init",
+              "lib/md5.c",
+              593,
+              6
+            ],
+            "expected_targets": [
+              "lib/md5.c::my_md5_init"
+            ],
+            "strict_found": [],
+            "fallback_found": [],
+            "caller_pair_found": []
+          },
+          {
+            "id": "md5-update",
+            "site": [
+              "lib/md5.c::Curl_MD5_update",
+              "lib/md5.c",
+              605,
+              3
+            ],
+            "expected_targets": [
+              "lib/md5.c::my_md5_update"
+            ],
+            "strict_found": [],
+            "fallback_found": [],
+            "caller_pair_found": []
+          },
+          {
+            "id": "md5-final",
+            "site": [
+              "lib/md5.c::Curl_MD5_final",
+              "lib/md5.c",
+              612,
+              3
+            ],
+            "expected_targets": [
+              "lib/md5.c::my_md5_final"
+            ],
+            "strict_found": [],
+            "fallback_found": [],
+            "caller_pair_found": []
+          },
+          {
+            "id": "hmac-init",
+            "site": [
+              "lib/hmac.c::Curl_HMAC_init",
+              "lib/hmac.c",
+              77,
+              6
+            ],
+            "expected_targets": [
+              "lib/md5.c::my_md5_init",
+              "lib/sha256.c::my_sha256_init"
+            ],
+            "strict_found": [],
+            "fallback_found": [],
+            "caller_pair_found": []
+          },
+          {
+            "id": "hmac-update",
+            "site": [
+              "lib/hmac.c::Curl_HMAC_update",
+              "lib/hmac.c",
+              106,
+              3
+            ],
+            "expected_targets": [
+              "lib/md5.c::my_md5_update",
+              "lib/sha256.c::my_sha256_update"
+            ],
+            "strict_found": [],
+            "fallback_found": [],
+            "caller_pair_found": []
+          },
+          {
+            "id": "hmac-final",
+            "site": [
+              "lib/hmac.c::Curl_HMAC_final",
+              "lib/hmac.c",
+              119,
+              3
+            ],
+            "expected_targets": [
+              "lib/md5.c::my_md5_final",
+              "lib/sha256.c::my_sha256_final"
+            ],
+            "strict_found": [],
+            "fallback_found": [],
+            "caller_pair_found": []
+          },
+          {
+            "id": "pingpong-state",
+            "site": [
+              "lib/pingpong.c::Curl_pp_statemach",
+              "lib/pingpong.c",
+              116,
+              14
+            ],
+            "expected_targets": [
+              "lib/ftp.c::ftp_pp_statemachine",
+              "lib/imap.c::imap_pp_statemachine",
+              "lib/pop3.c::pop3_statemachine",
+              "lib/smtp.c::smtp_pp_statemachine"
+            ],
+            "strict_found": [],
+            "fallback_found": [],
+            "caller_pair_found": []
+          },
+          {
+            "id": "pingpong-response",
+            "site": [
+              "lib/pingpong.c::Curl_pp_readresp",
+              "lib/pingpong.c",
+              307,
+              12
+            ],
+            "expected_targets": [
+              "lib/ftp.c::ftp_endofresp",
+              "lib/imap.c::imap_endofresp",
+              "lib/pop3.c::pop3_endofresp",
+              "lib/smtp.c::smtp_endofresp"
+            ],
+            "strict_found": [],
+            "fallback_found": [],
+            "caller_pair_found": []
+          },
+          {
+            "id": "ftp-wildcard-dtor",
+            "site": [
+              "lib/ftplistparser.c::Curl_wildcard_dtor",
+              "lib/ftplistparser.c",
+              197,
+              5
+            ],
+            "expected_targets": [
+              "lib/ftp.c::wc_data_dtor"
+            ],
+            "strict_found": [],
+            "fallback_found": [],
+            "caller_pair_found": []
+          }
+        ]
+      },
+      "normalization_metadata": {
+        "source_graph": "<workspace>/work/curl-large/results/yasa-fixed/report/callgraph.json",
+        "raw_nodes": 5611,
+        "raw_edges": 14387,
+        "node_mapping_reasons": {
+          "placeholder": 2935,
+          "same_file_active_span": 2674,
+          "uncompiled_project_body": 2
+        },
+        "column_convention": "Native 1-based, calibrated on independent small C example."
+      },
+      "normalized_sha256": "ebcc3c3d2d81008196ace3913703c09c8590ac1bf12a5391a6a27cbdd9e5bce4",
+      "run": {
+        "tool": "yasa-fixed",
+        "argv": [
+          "<workspace>/work/tools/codegraph-v1.6.2/codegraph-darwin-arm64/node",
+          "--max-old-space-size=8192",
+          "--inspect=127.0.0.1:0",
+          "--import",
+          "tsx",
+          "src/main.ts",
+          "--sourcePath",
+          "<workspace>/work/curl-large/input",
+          "--language",
+          "c",
+          "--cTarget",
+          "macos",
+          "--cUnknownMacros",
+          "undefined",
+          "--cDefine",
+          "__APPLE__=1,__BYTE_ORDER__=__ORDER_LITTLE_ENDIAN__,__CHAR_BIT__=8,__ENVIRONMENT_MAC_OS_X_VERSION_MIN_REQUIRED__=260000,__ENVIRONMENT_OS_VERSION_MIN_REQUIRED__=260000,__GNUC_MINOR__=2,__GNUC__=4,__LONG_MAX__=9223372036854775807L,__LP64__=1,__MACH__=1,__ORDER_BIG_ENDIAN__=4321,__ORDER_LITTLE_ENDIAN__=1234,__SIZEOF_LONG__=8,__STDC_HOSTED__=1,__STDC_VERSION__=201710L,__STDC__=1,__aarch64__=1,__apple_build_version__=21000099,__clang__=1,__clang_major__=21,BUILDING_LIBCURL=1,CURL_HIDDEN_SYMBOLS=1,HAVE_CONFIG_H=1,NDEBUG=1",
+          "--cUndefine",
+          "__unix,__unix__,__x86_64__,unix",
+          "--cIncludeDir",
+          "<workspace>/work/curl-large/input/include,<workspace>/work/curl-large/input/lib,/opt/homebrew/opt/openssl@3/include,/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include,/Library/Developer/CommandLineTools/usr/lib/clang/21/include",
+          "--checkerIds",
+          "callgraph",
+          "--dumpAllCG",
+          "--ruleConfigFile",
+          "resource/example-rule-config/rule_config_c.json",
+          "--report",
+          "<workspace>/work/curl-large/results/yasa-fixed/report"
+        ],
+        "cwd": "<workspace>/work/curl-large/fixed-engine",
+        "started_utc": "2026-11-07T12:25:52.486329+00:00",
+        "timeout_seconds": null,
+        "timing_note": "No compiler/reference workload. See concurrency-note.json for analyzer overlap; no controlled speed ratio is claimed.",
+        "status": "exited",
+        "exit_code": 0,
+        "elapsed_seconds": 151.476740917,
+        "completed_utc": "2026-11-07T12:28:23.963400+00:00"
+      }
+    }
+  },
+  "runtime_changes": {
+    "created_utc": "2026-11-07T11:36:24.193900+00:00",
+    "source_unchanged": {
+      "engine": "e2f89d9c8c9edcf554a3eb82ad9e1adcb51e6c40",
+      "gold_sha256": "48b85a9c4670cefbd35cec6242cfe95cfeeaa1eeb6154585db9992f082feb9ac"
+    },
+    "baseline": {
+      "directory": "results/yasa-default-heap",
+      "heap_limit_mb": 4288,
+      "failure": "V8 heap out of memory during processModule",
+      "exit_code": -6,
+      "monotonic_elapsed_seconds": 2751.0457956660002,
+      "wall_elapsed_seconds": 59188.113739
+    },
+    "retry": {
+      "directory": "results/yasa",
+      "node_old_space_limit_mb": 8192,
+      "timeout_seconds": null,
+      "started_utc": "2026-11-07T11:29:14.966526+00:00",
+      "reason": "Same frozen code/input; resource-only retry after default heap OOM."
+    },
+    "diagnostics": [
+      "Baseline 1-second native sample; JS functions not symbolicated.",
+      "Baseline inspector activation was denied by original process sandbox.",
+      "Retry uses localhost inspector; three-second CPU sampling during processModule, no Debugger.pause.",
+      "Read-only progress Runtime.evaluate with throwOnSideEffect hit diagnostic evaluation timeout; analyzer remained running, no app writes.",
+      "Independent parse-only census runs concurrently to inspect illegal top-level UAST statements."
+    ],
+    "timing_limitation": "Host idle/sleep affected timestamps; no controlled performance ratio claimed."
+  },
+  "repaired_candidate_manifest": {
+    "created_utc": "2026-11-07T12:25:52.432090+00:00",
+    "label": "Yasa repaired-parser candidate; separate from untouched original run",
+    "engine_commit": "e2f89d9c8c9edcf554a3eb82ad9e1adcb51e6c40",
+    "parser_base_commit": "3f2141f93be48299c5908afbd6c8e8720bae431e",
+    "patch_sha256": "174c44a74d601d775d3eed0810b9f4b8ab07c30c522412074afcefcfce48c7a5",
+    "parser_hashes": {
+      "src/macros.ts": "22671ed9f052fab46db8efb23a48cb8de554fc3434e4e9f0c82946be8bcd3e29",
+      "src/parser.ts": "2f90e25877e5e8d37eee4d4ee7573eaedb3d64e1584bf10e501b6597825d83bf",
+      "tests/index.ts": "eb7d66bed9df91c518b5a364bc4b7661b0eb0249218827fa9b9142b4e225f5c3",
+      "dist/src/macros.js": "5c0d0dfd901e751911bded94c2bff0c681958d1c825725297449a48834306fd1",
+      "dist/src/parser.js": "e336a35f52d3653ef77628b03329b0a577809bf85aec143465853e364a03c010"
+    },
+    "scoring_protocol_unchanged": true,
+    "gold_sha256": "48b85a9c4670cefbd35cec6242cfe95cfeeaa1eeb6154585db9992f082feb9ac",
+    "input_manifest_sha256": "978c78439977083eefd55a8485022c17b89252708b28cafd2f2cd25b9c5dbbe7",
+    "config_sha256": "5e58e81004a927e98afd3a75d7c1e408fbdee75ac7b45008284d83f0443422e4",
+    "global_timeout_seconds": null,
+    "node_old_space_mb": 8192,
+    "independent_review": "69 tests passed; tsc --noEmit passed; no remaining blocking findings.",
+    "publication": "Local candidate only; no commit or push."
+  },
+  "macro_coverage_audit": {
+    "title": "Headline-excluded libcurl direct-pair coverage audit",
+    "source_commit": "b052c835a32bb3e1e5622dd46ccfaa128d92b750",
+    "scoring_protocol_sha256": "d2495d5e3f9ac857d5ffa64cdaf41e7f508379328dfc0feba0df1d7ceeb8e4cd",
+    "gold_sha256": "48b85a9c4670cefbd35cec6242cfe95cfeeaa1eeb6154585db9992f082feb9ac",
+    "codegraph_normalized_sha256": "b92a0ae31a4585238de10106f8cfa720a498ff412b47faa208309aad9803713f",
+    "scoring_rules_unchanged": true,
+    "population": {
+      "full_clang_ast_internal_direct_pairs": 6959,
+      "headline_internal_direct_pairs": 5819,
+      "headline_coverage": 0.8361833596781146,
+      "headline_excluded_pairs": 1140
+    },
+    "meaning": [
+      "All sets are unique caller-target pairs, not translation-unit observations.",
+      "Presence recall checks active_internal caller-target graph edges without requiring their location; it is not proof that the original macro callsite was resolved.",
+      "macro_only means the pair has at least one macro-bearing gold observation and no mixed-direct/indirect-line observation; macro_and_mixed_line means both properties occur among its observations. These categories partition excluded pairs.",
+      "any_macro and any_mixed_line overlap; they must not be added. Six excluded pairs have only mixed-line attribution, without a macro-bearing observation.",
+      "Non-typecheck target means the callee is not named Wcurl_*; it does not independently establish runtime path feasibility.",
+      "Clang AST reference includes syntactic path-infeasible branches, and the headline is conditional on no-macro/no-indirect-line source attribution. Neither headline precision nor recall represents the complete callgraph."
+    ],
+    "breakdown": {
+      "macro_only": {
+        "gold_pairs": 1081,
+        "codegraph_pair_presence_found": 59,
+        "codegraph_pair_presence_missing": 1022,
+        "codegraph_pair_presence_recall": 0.0545790934320074
+      },
+      "macro_and_mixed_line": {
+        "gold_pairs": 53,
+        "codegraph_pair_presence_found": 0,
+        "codegraph_pair_presence_missing": 53,
+        "codegraph_pair_presence_recall": 0.0
+      },
+      "mixed_line_only": {
+        "gold_pairs": 6,
+        "codegraph_pair_presence_found": 6,
+        "codegraph_pair_presence_missing": 0,
+        "codegraph_pair_presence_recall": 1.0
+      },
+      "all_excluded": {
+        "gold_pairs": 1140,
+        "codegraph_pair_presence_found": 65,
+        "codegraph_pair_presence_missing": 1075,
+        "codegraph_pair_presence_recall": 0.05701754385964912
+      },
+      "any_macro": {
+        "gold_pairs": 1134,
+        "codegraph_pair_presence_found": 59,
+        "codegraph_pair_presence_missing": 1075,
+        "codegraph_pair_presence_recall": 0.05202821869488536
+      },
+      "any_mixed_line": {
+        "gold_pairs": 59,
+        "codegraph_pair_presence_found": 6,
+        "codegraph_pair_presence_missing": 53,
+        "codegraph_pair_presence_recall": 0.1016949152542373
+      },
+      "typecheck_helper": {
+        "gold_pairs": 44,
+        "codegraph_pair_presence_found": 0,
+        "codegraph_pair_presence_missing": 44,
+        "codegraph_pair_presence_recall": 0.0
+      },
+      "non_typecheck_target": {
+        "gold_pairs": 1096,
+        "codegraph_pair_presence_found": 65,
+        "codegraph_pair_presence_missing": 1031,
+        "codegraph_pair_presence_recall": 0.05930656934306569
+      },
+      "macro_non_typecheck_target": {
+        "gold_pairs": 1090,
+        "codegraph_pair_presence_found": 59,
+        "codegraph_pair_presence_missing": 1031,
+        "codegraph_pair_presence_recall": 0.05412844036697248
+      }
+    },
+    "top_excluded_targets": [
+      {
+        "callee": "lib/curl_trc.c::Curl_failf",
+        "excluded_caller_target_pairs": 261,
+        "codegraph_found": 0,
+        "codegraph_missing": 261
+      },
+      {
+        "callee": "lib/curl_trc.c::Curl_infof",
+        "excluded_caller_target_pairs": 160,
+        "codegraph_found": 0,
+        "codegraph_missing": 160
+      },
+      {
+        "callee": "lib/curl_trc.c::Curl_trc_cf_infof",
+        "excluded_caller_target_pairs": 86,
+        "codegraph_found": 0,
+        "codegraph_missing": 86
+      },
+      {
+        "callee": "lib/curl_trc.c::Curl_trc_multi",
+        "excluded_caller_target_pairs": 54,
+        "codegraph_found": 0,
+        "codegraph_missing": 54
+      },
+      {
+        "callee": "lib/u8_strset.c::Curl_u8_strset_get",
+        "excluded_caller_target_pairs": 51,
+        "codegraph_found": 0,
+        "codegraph_missing": 51
+      },
+      {
+        "callee": "lib/ftp.c::ftp_state_low",
+        "excluded_caller_target_pairs": 30,
+        "codegraph_found": 0,
+        "codegraph_missing": 30
+      },
+      {
+        "callee": "lib/connect.c::Curl_conncontrol",
+        "excluded_caller_target_pairs": 28,
+        "codegraph_found": 0,
+        "codegraph_missing": 28
+      },
+      {
+        "callee": "lib/api.c::Curl_cbapi_leave",
+        "excluded_caller_target_pairs": 24,
+        "codegraph_found": 0,
+        "codegraph_missing": 24
+      },
+      {
+        "callee": "lib/api.c::Curl_cbapi_enter",
+        "excluded_caller_target_pairs": 24,
+        "codegraph_found": 0,
+        "codegraph_missing": 24
+      },
+      {
+        "callee": "lib/curl_trc.c::Curl_trc_dns",
+        "excluded_caller_target_pairs": 22,
+        "codegraph_found": 0,
+        "codegraph_missing": 22
+      },
+      {
+        "callee": "lib/multi.c::mstate",
+        "excluded_caller_target_pairs": 19,
+        "codegraph_found": 0,
+        "codegraph_missing": 19
+      },
+      {
+        "callee": "lib/api.c::Curl_mapi_leave",
+        "excluded_caller_target_pairs": 19,
+        "codegraph_found": 0,
+        "codegraph_missing": 19
+      },
+      {
+        "callee": "lib/select.c::Curl_pollset_change",
+        "excluded_caller_target_pairs": 19,
+        "codegraph_found": 0,
+        "codegraph_missing": 19
+      },
+      {
+        "callee": "lib/api.c::Curl_mapi_enter",
+        "excluded_caller_target_pairs": 19,
+        "codegraph_found": 0,
+        "codegraph_missing": 19
+      },
+      {
+        "callee": "lib/strequal.c::curl_strnequal",
+        "excluded_caller_target_pairs": 18,
+        "codegraph_found": 0,
+        "codegraph_missing": 18
+      },
+      {
+        "callee": "lib/curl_trc.c::Curl_trc_ftp",
+        "excluded_caller_target_pairs": 17,
+        "codegraph_found": 0,
+        "codegraph_missing": 17
+      },
+      {
+        "callee": "lib/curl_trc.c::Curl_trc_ws",
+        "excluded_caller_target_pairs": 16,
+        "codegraph_found": 0,
+        "codegraph_missing": 16
+      },
+      {
+        "callee": "lib/curl_trc.c::Curl_trc_write",
+        "excluded_caller_target_pairs": 16,
+        "codegraph_found": 0,
+        "codegraph_missing": 16
+      },
+      {
+        "callee": "lib/api.c::Curl_eapi_leave",
+        "excluded_caller_target_pairs": 15,
+        "codegraph_found": 0,
+        "codegraph_missing": 15
+      },
+      {
+        "callee": "lib/curl_trc.c::Curl_trc_read",
+        "excluded_caller_target_pairs": 15,
+        "codegraph_found": 0,
+        "codegraph_missing": 15
+      },
+      {
+        "callee": "lib/api.c::Curl_eapi_enter",
+        "excluded_caller_target_pairs": 15,
+        "codegraph_found": 0,
+        "codegraph_missing": 15
+      },
+      {
+        "callee": "lib/vdns/hostip.c::Curl_resolv_query_str",
+        "excluded_caller_target_pairs": 12,
+        "codegraph_found": 11,
+        "codegraph_missing": 1
+      },
+      {
+        "callee": "lib/curl_trc.c::Curl_trc_smtp",
+        "excluded_caller_target_pairs": 9,
+        "codegraph_found": 0,
+        "codegraph_missing": 9
+      },
+      {
+        "callee": "lib/curl_share.c::Curl_share_unlock_share",
+        "excluded_caller_target_pairs": 9,
+        "codegraph_found": 0,
+        "codegraph_missing": 9
+      },
+      {
+        "callee": "lib/curl_share.c::Curl_share_lock_share",
+        "excluded_caller_target_pairs": 9,
+        "codegraph_found": 0,
+        "codegraph_missing": 9
+      },
+      {
+        "callee": "lib/select.c::Curl_socket_check",
+        "excluded_caller_target_pairs": 7,
+        "codegraph_found": 0,
+        "codegraph_missing": 7
+      },
+      {
+        "callee": "lib/easy_lock.h::curl_simple_lock_lock",
+        "excluded_caller_target_pairs": 6,
+        "codegraph_found": 0,
+        "codegraph_missing": 6
+      },
+      {
+        "callee": "lib/easy_lock.h::curl_simple_lock_unlock",
+        "excluded_caller_target_pairs": 6,
+        "codegraph_found": 0,
+        "codegraph_missing": 6
+      },
+      {
+        "callee": "lib/curl_trc.c::Curl_trc_ssls",
+        "excluded_caller_target_pairs": 5,
+        "codegraph_found": 0,
+        "codegraph_missing": 5
+      },
+      {
+        "callee": "lib/curl_trc.c::Curl_trc_timer",
+        "excluded_caller_target_pairs": 5,
+        "codegraph_found": 0,
+        "codegraph_missing": 5
+      }
+    ],
+    "examples": [
+      {
+        "caller": "lib/cf-h1-proxy.c::H1_CONNECT",
+        "callee": "lib/curl_trc.c::Curl_failf",
+        "file": "lib/cf-h1-proxy.c",
+        "line": 667,
+        "column": 7,
+        "macro_names": [
+          "failf"
+        ],
+        "source_line": "      failf(data, \"Proxy CONNECT aborted due to timeout\");",
+        "caller_definition_indexed_by_codegraph": true,
+        "expected_pair_present_anywhere_in_codegraph": false
+      },
+      {
+        "caller": "lib/ftp.c::ftp_done_control_reply",
+        "callee": "lib/connect.c::Curl_conncontrol",
+        "file": "lib/ftp.c",
+        "line": 3750,
+        "column": 7,
+        "macro_names": [
+          "connclose"
+        ],
+        "source_line": "      connclose(conn); /* close */",
+        "caller_definition_indexed_by_codegraph": true,
+        "expected_pair_present_anywhere_in_codegraph": false
+      },
+      {
+        "caller": "lib/cookie.c::Curl_flush_cookies",
+        "callee": "lib/u8_strset.c::Curl_u8_strset_get",
+        "file": "lib/cookie.c",
+        "line": 1682,
+        "column": 29,
+        "macro_names": [
+          "CURL_EASY_STR"
+        ],
+        "source_line": "    const char *cookiejar = CURL_EASY_STR(data, STRING_COOKIEJAR);",
+        "caller_definition_indexed_by_codegraph": true,
+        "expected_pair_present_anywhere_in_codegraph": false
+      }
+    ],
+    "report_recommendation": "Present no-macro direct precision/recall and full-AST direct-pair recall side by side. Macro expansion is a material application capability, not a footnote or mere typecheck noise. Display the excluded ordinary-target subset and concrete macro examples; keep curated indirect and inactive-configuration edges separate."
+  }
+}
