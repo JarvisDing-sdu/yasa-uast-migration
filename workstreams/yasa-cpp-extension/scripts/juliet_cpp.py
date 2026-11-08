@@ -16,6 +16,10 @@ Usage:
   juliet_cpp.py --self-test
 """
 import argparse
+import contextlib
+import hashlib
+import io
+from pathlib import Path
 import json
 import os
 import re
@@ -51,38 +55,139 @@ def case_files(juliet, cwe, variant, limit=None):
 base.case_files = case_files
 
 
+def sha256(path):
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+
+def read_json(path):
+    with open(path) as fh:
+        return json.load(fh)
+
+
 def run(args):
     groups = case_files(args.juliet, args.cwe, args.variant, args.limit)
-    support = os.path.join(args.juliet, 'testcasesupport')
-    os.makedirs(args.out, exist_ok=True)
+    if not groups or args.batch < 1:
+        raise ValueError('no selected cases or invalid batch size')
+    out = Path(args.out).resolve()
+    if out.exists() and any(out.iterdir()):
+        raise ValueError('output directory must be empty; keep previous raw results')
+    out.mkdir(parents=True, exist_ok=True)
     names = list(groups)
     batches = [names[i:i + args.batch] for i in range(0, len(names), args.batch)]
-    meta = {'cwe': args.cwe, 'variant': args.variant, 'flows': args.flows, 'cases': len(names), 'batches': []}
+    meta = {'schema': 1, 'cwe': args.cwe, 'variant': args.variant,
+            'flows': sorted(FLOWS) if FLOWS else None, 'cases': len(names),
+            'case_names': names, 'rules_sha256': sha256(args.rules), 'batches': []}
+    manifest = out / 'run.json'
+    manifest.write_text(json.dumps(meta, indent=2))
     for index, batch in enumerate(batches):
-        src = os.path.join(args.out, f'src-{index:03d}')
-        report = os.path.join(args.out, f'report-{index:03d}')
-        shutil.rmtree(src, ignore_errors=True)
-        shutil.rmtree(report, ignore_errors=True)
-        os.makedirs(src)
+        src = out / f'src-{index:03d}'
+        report = out / f'report-{index:03d}'
+        src.mkdir()
         for header in ('std_testcase.h', 'std_testcase_io.h'):
-            if os.path.exists(os.path.join(support, header)):
-                shutil.copy(os.path.join(support, header), src)
+            original = Path(args.juliet) / 'testcasesupport' / header
+            if original.exists():
+                shutil.copy(original, src)
         for case in batch:
             for f in groups[case]:
-                shutil.copy(f, src)
+                target = src / os.path.basename(f)
+                if target.exists():
+                    raise ValueError(f'duplicate source basename: {target.name}')
+                shutil.copy(f, target)
+        argv = ['node', '--import', 'tsx', 'src/main.ts', '--sourcePath', str(src), '--language', 'cpp',
+                '--ruleConfigFile', os.path.abspath(args.rules), '--checkerPackIds', 'taint-flow-cpp-default',
+                '--report', str(report)]
+        record = {'index': index, 'cases': len(batch), 'case_names': batch,
+                  'files': {f.name: sha256(f) for f in sorted(src.iterdir())},
+                  'source_path': str(src), 'argv': argv, 'exit': None}
+        meta['batches'].append(record)
+        manifest.write_text(json.dumps(meta, indent=2))
         started = time.time()
-        proc = subprocess.run(
-            ['npx', 'tsx', 'src/main.ts', '--sourcePath', src, '--language', 'cpp',
-             '--ruleConfigFile', os.path.abspath(args.rules), '--checkerPackIds', 'taint-flow-cpp-default',
-             '--report', report],
-            cwd=args.engine, capture_output=True, text=True)
-        elapsed = time.time() - started
-        with open(os.path.join(args.out, f'engine-{index:03d}.log'), 'w') as fh:
-            fh.write(proc.stdout + proc.stderr)
-        meta['batches'].append({'index': index, 'cases': len(batch), 'seconds': round(elapsed, 1), 'exit': proc.returncode})
-        print(f'batch {index + 1}/{len(batches)}: {len(batch)} cases, {elapsed:.1f}s, exit {proc.returncode}', flush=True)
-    with open(os.path.join(args.out, 'run.json'), 'w') as fh:
-        json.dump(meta, fh, indent=2)
+        proc = subprocess.run(argv, cwd=args.engine, capture_output=True, text=True)
+        (out / f'engine-{index:03d}.log').write_text(proc.stdout + proc.stderr)
+        record.update(seconds=round(time.time() - started, 1), exit=proc.returncode)
+        manifest.write_text(json.dumps(meta, indent=2))
+        print(f'batch {index + 1}/{len(batches)}: {len(batch)} cases, {record["seconds"]:.1f}s, exit {proc.returncode}', flush=True)
+        if proc.returncode:
+            raise ValueError(f'batch {index} failed; raw output retained, score refused')
+    validate_run(args)
+
+
+def validate_run(args):
+    """Verify evidence before counting an undetected bad/good flow as FN/TN.
+
+    fileCount proves file coverage, not semantic completeness of supported C++ constructs.
+    A successful zero-finding scan legitimately has no report.sarif.
+    """
+    out = Path(args.out).resolve()
+    meta = read_json(out / 'run.json')
+    groups = case_files(args.juliet, args.cwe, args.variant, args.limit)
+    if (meta.get('schema') != 1 or not groups or meta.get('cwe') != args.cwe or
+        meta.get('variant') != args.variant or meta.get('case_names') != list(groups) or
+        meta.get('cases') != len(groups)):
+        raise ValueError('run manifest does not match requested test selection')
+    batches = meta.get('batches', [])
+    if not batches or [b.get('index') for b in batches] != list(range(len(batches))):
+        raise ValueError('missing or invalid batches')
+    if [c for b in batches for c in b.get('case_names', [])] != list(groups):
+        raise ValueError('batch partition does not cover selected cases')
+    for prefix in ('src-', 'report-'):
+        if {p.name for p in out.glob(prefix + '*')} != {f'{prefix}{i:03d}' for i in range(len(batches))}:
+            raise ValueError('missing or stale batch directories')
+    for batch in batches:
+        index = batch['index']
+        src, report = out / f'src-{index:03d}', out / f'report-{index:03d}'
+        if batch.get('exit') != 0 or batch.get('cases') != len(batch['case_names']):
+            raise ValueError(f'batch {index} did not complete successfully')
+        expected = {Path(f).name: sha256(f) for c in batch['case_names'] for f in groups[c]}
+        for header in ('std_testcase.h', 'std_testcase_io.h'):
+            original = Path(args.juliet) / 'testcasesupport' / header
+            if original.exists():
+                expected[header] = sha256(original)
+        actual = {f.name: sha256(f) for f in src.iterdir() if f.is_file()}
+        if batch.get('files') != expected or actual != expected:
+            raise ValueError(f'batch {index} source manifest mismatch')
+        log = (out / f'engine-{index:03d}.log').read_text()
+        if re.search(r'#files unable to be parsed:|(?:Error|Exception|FATAL)\b', log):
+            raise ValueError(f'batch {index} engine error in log')
+        summary = read_json(report / 'scan_summary.json')
+        original_src = batch.get('source_path')
+        argv = batch.get('argv', [])
+        if not original_src and '--sourcePath' in argv:
+            original_src = argv[argv.index('--sourcePath') + 1]
+        # Raw output may be archived elsewhere. Verify the original scan path while
+        # checking the copied inputs above by content, so an archive stays rescorable.
+        original_src = Path(original_src or src).resolve()
+        if (summary.get('language') != 'cpp' or summary.get('fileCount') != len(expected) or
+            not summary.get('scanEndTime') or Path(summary.get('projectPath', '')).resolve() != original_src):
+            raise ValueError(f'batch {index} missing scan coverage/completion evidence')
+        sarif = report / 'report.sarif'
+        if sarif.exists():
+            data = read_json(sarif)
+            if not data.get('runs'):
+                raise ValueError(f'batch {index} empty SARIF runs')
+            count = sum(len(r.get('results', [])) for r in data['runs'])
+        else:
+            count = 0
+        if count != summary.get('findingCount'):
+            raise ValueError(f'batch {index} SARIF missing or finding count mismatch')
+    return meta
+
+
+def score(args):
+    validate_run(args)
+    # Keep the existing C scoring labels and logic. Publish only after unmapped == 0.
+    with tempfile.TemporaryDirectory() as tmp:
+        checked = argparse.Namespace(**vars(args))
+        checked.json = os.path.join(tmp, 'score.json')
+        output = io.StringIO()
+        with contextlib.redirect_stdout(output):
+            base.score(checked)
+        result = read_json(checked.json)
+        if result['unmapped']:
+            raise ValueError(f'{result["unmapped"]} unmapped findings; score refused')
+        if args.json:
+            Path(args.json).write_text(json.dumps(result, indent=2))
+        print(output.getvalue(), end='')
 
 
 SELF_TEST_FILES = {
@@ -131,8 +236,16 @@ def self_test():
         result = os.path.join(tmp, 'result.json')
         args = argparse.Namespace(juliet=os.path.join(tmp, 'juliet'), cwe='X', variant='char', out=out,
                                   json=result, limit=None)
-        base.score(args)
-        scored = json.load(open(result))
+        files = {f.name: sha256(f) for f in Path(out, 'src-000').iterdir()}
+        Path(out, 'run.json').write_text(json.dumps({'schema': 1, 'cwe': 'X', 'variant': 'char',
+            'cases': len(groups), 'case_names': list(groups), 'batches': [{
+                'index': 0, 'cases': len(groups), 'case_names': list(groups), 'files': files, 'exit': 0}]}))
+        Path(out, 'engine-000.log').write_text('synthetic self-test scan complete')
+        Path(out, 'report-000', 'scan_summary.json').write_text(json.dumps({
+            'language': 'cpp', 'fileCount': len(files), 'findingCount': len(hits),
+            'projectPath': str(Path(out, 'src-000')), 'scanEndTime': 'self-test'}))
+        score(args)
+        scored = read_json(result)
         cases = {row['case']: (row['bad'], row['good']) for row in scored['cases']}
         assert cases == {'X__char_env_system_01': ('TP', 'TN'), 'X__char_env_system_82': ('TP', 'FP')}, cases
         assert scored['unmapped'] == 0, scored['unmapped']
@@ -163,8 +276,11 @@ def main():
             sys.exit('run needs --engine and --rules')
         run(args)
     else:
-        base.score(args)
+        score(args)
 
 
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    except (ValueError, OSError, KeyError, TypeError) as exc:
+        sys.exit(f'evaluation refused: {exc}')
