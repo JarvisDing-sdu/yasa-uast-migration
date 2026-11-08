@@ -1,0 +1,12 @@
+{
+  "workstreams/yasa-cpp-extension/results/c-baseline/summary.json": "fe29d003f7d031ff630415990c01fe27a1fc59afbca479b3321ad4aecd582e5f",
+  "workstreams/yasa-cpp-extension/results/m1/c-regression/summary.json": "ae31f64f3974381812554aa0ab5520e03a06e107e15e370a0fbd18788cf3bde9",
+  "workstreams/yasa-cpp-extension/results/m1/juliet/CWE134_Uncontrolled_Format_String-char.json": "7a7f313af1005494393a8ce79043d8d4229fece0c40c3aba0f09bc78fb873a52",
+  "workstreams/yasa-cpp-extension/results/m1/juliet/CWE134_Uncontrolled_Format_String-wchar_t.json": "c307ea719730ab812dc8c94d067a83ab712bbfbbb6b821255cc337ac497c3a6f",
+  "workstreams/yasa-cpp-extension/results/m1/juliet/CWE23_Relative_Path_Traversal-char.json": "28818f9b7825def95994981ea6869c0e82bda13734ec5734af463f56b916ab85",
+  "workstreams/yasa-cpp-extension/results/m1/juliet/CWE23_Relative_Path_Traversal-wchar_t.json": "c843849e89aa15e31635fd3b448ba2f2fe76349141ad7ad366038178c74dcac9",
+  "workstreams/yasa-cpp-extension/results/m1/juliet/CWE36_Absolute_Path_Traversal-char.json": "7b78f81f53f284d306384fc5b17d4c8007da8d79bb6b2948cfb8b3d8c5acf7ae",
+  "workstreams/yasa-cpp-extension/results/m1/juliet/CWE36_Absolute_Path_Traversal-wchar_t.json": "b32074d60a7ae61235c2604416a32f72c3bfa04b999d487b0936db4cc775b5e6",
+  "workstreams/yasa-cpp-extension/results/m1/juliet/CWE78_OS_Command_Injection-char.json": "8a9ce1613c0a8255e3dd5978ce82f2084a891d330c862546f621d9ffee9c7c01",
+  "workstreams/yasa-cpp-extension/results/m1/juliet/CWE78_OS_Command_Injection-wchar_t.json": "ac7c0a5694b303dfe61317a7b54b82dc0d9b17e2d143ceb2c9d0ed5917361bc0"
+}

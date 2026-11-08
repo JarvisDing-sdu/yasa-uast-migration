@@ -1,0 +1,212 @@
+{
+  "cwe": "CWE23_Relative_Path_Traversal",
+  "variant": "char",
+  "totals": {
+    "TP": 10,
+    "FN": 15,
+    "TN": 25,
+    "FP": 0
+  },
+  "unmapped": 0,
+  "by": {
+    "source": {
+      "connect_socket": {
+        "TP": 2,
+        "FN": 3,
+        "TN": 5,
+        "FP": 0
+      },
+      "console": {
+        "TP": 2,
+        "FN": 3,
+        "TN": 5,
+        "FP": 0
+      },
+      "environment": {
+        "TP": 2,
+        "FN": 3,
+        "TN": 5,
+        "FP": 0
+      },
+      "file": {
+        "TP": 2,
+        "FN": 3,
+        "TN": 5,
+        "FP": 0
+      },
+      "listen_socket": {
+        "TP": 2,
+        "FN": 3,
+        "TN": 5,
+        "FP": 0
+      }
+    },
+    "sink": {
+      "fopen": {
+        "TP": 5,
+        "FN": 0,
+        "TN": 5,
+        "FP": 0
+      },
+      "ifstream": {
+        "TP": 0,
+        "FN": 5,
+        "TN": 5,
+        "FP": 0
+      },
+      "ofstream": {
+        "TP": 0,
+        "FN": 5,
+        "TN": 5,
+        "FP": 0
+      },
+      "open": {
+        "TP": 5,
+        "FN": 0,
+        "TN": 5,
+        "FP": 0
+      },
+      "w32CreateFile": {
+        "TP": 0,
+        "FN": 5,
+        "TN": 5,
+        "FP": 0
+      }
+    },
+    "flow": {
+      "01": {
+        "TP": 10,
+        "FN": 15,
+        "TN": 25,
+        "FP": 0
+      }
+    }
+  },
+  "cases": [
+    {
+      "case": "CWE23_Relative_Path_Traversal__char_connect_socket_fopen_01",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE23_Relative_Path_Traversal__char_connect_socket_ifstream_01",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE23_Relative_Path_Traversal__char_connect_socket_ofstream_01",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE23_Relative_Path_Traversal__char_connect_socket_open_01",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE23_Relative_Path_Traversal__char_connect_socket_w32CreateFile_01",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE23_Relative_Path_Traversal__char_console_fopen_01",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE23_Relative_Path_Traversal__char_console_ifstream_01",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE23_Relative_Path_Traversal__char_console_ofstream_01",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE23_Relative_Path_Traversal__char_console_open_01",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE23_Relative_Path_Traversal__char_console_w32CreateFile_01",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE23_Relative_Path_Traversal__char_environment_fopen_01",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE23_Relative_Path_Traversal__char_environment_ifstream_01",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE23_Relative_Path_Traversal__char_environment_ofstream_01",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE23_Relative_Path_Traversal__char_environment_open_01",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE23_Relative_Path_Traversal__char_environment_w32CreateFile_01",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE23_Relative_Path_Traversal__char_file_fopen_01",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE23_Relative_Path_Traversal__char_file_ifstream_01",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE23_Relative_Path_Traversal__char_file_ofstream_01",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE23_Relative_Path_Traversal__char_file_open_01",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE23_Relative_Path_Traversal__char_file_w32CreateFile_01",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE23_Relative_Path_Traversal__char_listen_socket_fopen_01",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE23_Relative_Path_Traversal__char_listen_socket_ifstream_01",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE23_Relative_Path_Traversal__char_listen_socket_ofstream_01",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE23_Relative_Path_Traversal__char_listen_socket_open_01",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE23_Relative_Path_Traversal__char_listen_socket_w32CreateFile_01",
+      "bad": "FN",
+      "good": "TN"
+    }
+  ]
+}

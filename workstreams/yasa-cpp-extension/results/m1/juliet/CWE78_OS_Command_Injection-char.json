@@ -1,0 +1,2671 @@
+{
+  "cwe": "CWE78_OS_Command_Injection",
+  "variant": "char",
+  "totals": {
+    "TP": 80,
+    "FN": 420,
+    "TN": 500,
+    "FP": 0
+  },
+  "unmapped": 0,
+  "by": {
+    "source": {
+      "connect_socket": {
+        "TP": 20,
+        "FN": 80,
+        "TN": 100,
+        "FP": 0
+      },
+      "console": {
+        "TP": 20,
+        "FN": 80,
+        "TN": 100,
+        "FP": 0
+      },
+      "environment": {
+        "TP": 0,
+        "FN": 100,
+        "TN": 100,
+        "FP": 0
+      },
+      "file": {
+        "TP": 20,
+        "FN": 80,
+        "TN": 100,
+        "FP": 0
+      },
+      "listen_socket": {
+        "TP": 20,
+        "FN": 80,
+        "TN": 100,
+        "FP": 0
+      }
+    },
+    "sink": {
+      "execl": {
+        "TP": 8,
+        "FN": 42,
+        "TN": 50,
+        "FP": 0
+      },
+      "execlp": {
+        "TP": 8,
+        "FN": 42,
+        "TN": 50,
+        "FP": 0
+      },
+      "popen": {
+        "TP": 8,
+        "FN": 42,
+        "TN": 50,
+        "FP": 0
+      },
+      "system": {
+        "TP": 8,
+        "FN": 42,
+        "TN": 50,
+        "FP": 0
+      },
+      "w32_execv": {
+        "TP": 8,
+        "FN": 42,
+        "TN": 50,
+        "FP": 0
+      },
+      "w32_execvp": {
+        "TP": 8,
+        "FN": 42,
+        "TN": 50,
+        "FP": 0
+      },
+      "w32_spawnlp": {
+        "TP": 8,
+        "FN": 42,
+        "TN": 50,
+        "FP": 0
+      },
+      "w32_spawnv": {
+        "TP": 8,
+        "FN": 42,
+        "TN": 50,
+        "FP": 0
+      },
+      "w32_spawnvp": {
+        "TP": 8,
+        "FN": 42,
+        "TN": 50,
+        "FP": 0
+      },
+      "w32spawnl": {
+        "TP": 8,
+        "FN": 42,
+        "TN": 50,
+        "FP": 0
+      }
+    },
+    "flow": {
+      "33": {
+        "TP": 0,
+        "FN": 50,
+        "TN": 50,
+        "FP": 0
+      },
+      "43": {
+        "TP": 40,
+        "FN": 10,
+        "TN": 50,
+        "FP": 0
+      },
+      "62": {
+        "TP": 40,
+        "FN": 10,
+        "TN": 50,
+        "FP": 0
+      },
+      "72": {
+        "TP": 0,
+        "FN": 50,
+        "TN": 50,
+        "FP": 0
+      },
+      "73": {
+        "TP": 0,
+        "FN": 50,
+        "TN": 50,
+        "FP": 0
+      },
+      "74": {
+        "TP": 0,
+        "FN": 50,
+        "TN": 50,
+        "FP": 0
+      },
+      "81": {
+        "TP": 0,
+        "FN": 50,
+        "TN": 50,
+        "FP": 0
+      },
+      "82": {
+        "TP": 0,
+        "FN": 50,
+        "TN": 50,
+        "FP": 0
+      },
+      "83": {
+        "TP": 0,
+        "FN": 50,
+        "TN": 50,
+        "FP": 0
+      },
+      "84": {
+        "TP": 0,
+        "FN": 50,
+        "TN": 50,
+        "FP": 0
+      }
+    }
+  },
+  "cases": [
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_execl_33",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_execl_43",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_execl_62",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_execl_72",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_execl_73",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_execl_74",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_execl_81",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_execl_82",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_execl_83",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_execl_84",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_execlp_33",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_execlp_43",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_execlp_62",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_execlp_72",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_execlp_73",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_execlp_74",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_execlp_81",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_execlp_82",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_execlp_83",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_execlp_84",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_popen_33",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_popen_43",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_popen_62",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_popen_72",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_popen_73",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_popen_74",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_popen_81",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_popen_82",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_popen_83",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_popen_84",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_system_33",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_system_43",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_system_62",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_system_72",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_system_73",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_system_74",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_system_81",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_system_82",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_system_83",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_system_84",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32_execv_33",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32_execv_43",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32_execv_62",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32_execv_72",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32_execv_73",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32_execv_74",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32_execv_81",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32_execv_82",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32_execv_83",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32_execv_84",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32_execvp_33",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32_execvp_43",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32_execvp_62",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32_execvp_72",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32_execvp_73",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32_execvp_74",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32_execvp_81",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32_execvp_82",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32_execvp_83",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32_execvp_84",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32_spawnlp_33",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32_spawnlp_43",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32_spawnlp_62",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32_spawnlp_72",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32_spawnlp_73",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32_spawnlp_74",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32_spawnlp_81",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32_spawnlp_82",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32_spawnlp_83",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32_spawnlp_84",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32_spawnv_33",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32_spawnv_43",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32_spawnv_62",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32_spawnv_72",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32_spawnv_73",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32_spawnv_74",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32_spawnv_81",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32_spawnv_82",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32_spawnv_83",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32_spawnv_84",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32_spawnvp_33",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32_spawnvp_43",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32_spawnvp_62",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32_spawnvp_72",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32_spawnvp_73",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32_spawnvp_74",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32_spawnvp_81",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32_spawnvp_82",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32_spawnvp_83",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32_spawnvp_84",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32spawnl_33",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32spawnl_43",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32spawnl_62",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32spawnl_72",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32spawnl_73",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32spawnl_74",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32spawnl_81",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32spawnl_82",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32spawnl_83",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_connect_socket_w32spawnl_84",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_execl_33",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_execl_43",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_execl_62",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_execl_72",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_execl_73",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_execl_74",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_execl_81",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_execl_82",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_execl_83",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_execl_84",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_execlp_33",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_execlp_43",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_execlp_62",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_execlp_72",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_execlp_73",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_execlp_74",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_execlp_81",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_execlp_82",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_execlp_83",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_execlp_84",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_popen_33",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_popen_43",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_popen_62",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_popen_72",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_popen_73",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_popen_74",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_popen_81",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_popen_82",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_popen_83",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_popen_84",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_system_33",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_system_43",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_system_62",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_system_72",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_system_73",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_system_74",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_system_81",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_system_82",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_system_83",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_system_84",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32_execv_33",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32_execv_43",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32_execv_62",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32_execv_72",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32_execv_73",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32_execv_74",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32_execv_81",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32_execv_82",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32_execv_83",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32_execv_84",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32_execvp_33",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32_execvp_43",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32_execvp_62",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32_execvp_72",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32_execvp_73",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32_execvp_74",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32_execvp_81",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32_execvp_82",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32_execvp_83",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32_execvp_84",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32_spawnlp_33",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32_spawnlp_43",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32_spawnlp_62",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32_spawnlp_72",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32_spawnlp_73",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32_spawnlp_74",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32_spawnlp_81",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32_spawnlp_82",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32_spawnlp_83",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32_spawnlp_84",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32_spawnv_33",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32_spawnv_43",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32_spawnv_62",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32_spawnv_72",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32_spawnv_73",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32_spawnv_74",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32_spawnv_81",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32_spawnv_82",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32_spawnv_83",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32_spawnv_84",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32_spawnvp_33",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32_spawnvp_43",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32_spawnvp_62",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32_spawnvp_72",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32_spawnvp_73",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32_spawnvp_74",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32_spawnvp_81",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32_spawnvp_82",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32_spawnvp_83",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32_spawnvp_84",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32spawnl_33",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32spawnl_43",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32spawnl_62",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32spawnl_72",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32spawnl_73",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32spawnl_74",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32spawnl_81",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32spawnl_82",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32spawnl_83",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_console_w32spawnl_84",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_execl_33",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_execl_43",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_execl_62",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_execl_72",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_execl_73",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_execl_74",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_execl_81",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_execl_82",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_execl_83",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_execl_84",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_execlp_33",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_execlp_43",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_execlp_62",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_execlp_72",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_execlp_73",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_execlp_74",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_execlp_81",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_execlp_82",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_execlp_83",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_execlp_84",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_popen_33",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_popen_43",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_popen_62",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_popen_72",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_popen_73",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_popen_74",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_popen_81",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_popen_82",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_popen_83",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_popen_84",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_system_33",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_system_43",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_system_62",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_system_72",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_system_73",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_system_74",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_system_81",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_system_82",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_system_83",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_system_84",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32_execv_33",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32_execv_43",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32_execv_62",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32_execv_72",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32_execv_73",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32_execv_74",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32_execv_81",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32_execv_82",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32_execv_83",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32_execv_84",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32_execvp_33",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32_execvp_43",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32_execvp_62",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32_execvp_72",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32_execvp_73",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32_execvp_74",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32_execvp_81",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32_execvp_82",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32_execvp_83",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32_execvp_84",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32_spawnlp_33",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32_spawnlp_43",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32_spawnlp_62",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32_spawnlp_72",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32_spawnlp_73",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32_spawnlp_74",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32_spawnlp_81",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32_spawnlp_82",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32_spawnlp_83",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32_spawnlp_84",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32_spawnv_33",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32_spawnv_43",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32_spawnv_62",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32_spawnv_72",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32_spawnv_73",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32_spawnv_74",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32_spawnv_81",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32_spawnv_82",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32_spawnv_83",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32_spawnv_84",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32_spawnvp_33",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32_spawnvp_43",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32_spawnvp_62",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32_spawnvp_72",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32_spawnvp_73",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32_spawnvp_74",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32_spawnvp_81",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32_spawnvp_82",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32_spawnvp_83",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32_spawnvp_84",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32spawnl_33",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32spawnl_43",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32spawnl_62",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32spawnl_72",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32spawnl_73",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32spawnl_74",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32spawnl_81",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32spawnl_82",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32spawnl_83",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_environment_w32spawnl_84",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_execl_33",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_execl_43",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_execl_62",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_execl_72",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_execl_73",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_execl_74",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_execl_81",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_execl_82",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_execl_83",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_execl_84",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_execlp_33",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_execlp_43",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_execlp_62",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_execlp_72",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_execlp_73",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_execlp_74",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_execlp_81",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_execlp_82",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_execlp_83",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_execlp_84",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_popen_33",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_popen_43",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_popen_62",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_popen_72",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_popen_73",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_popen_74",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_popen_81",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_popen_82",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_popen_83",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_popen_84",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_system_33",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_system_43",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_system_62",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_system_72",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_system_73",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_system_74",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_system_81",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_system_82",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_system_83",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_system_84",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32_execv_33",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32_execv_43",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32_execv_62",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32_execv_72",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32_execv_73",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32_execv_74",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32_execv_81",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32_execv_82",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32_execv_83",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32_execv_84",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32_execvp_33",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32_execvp_43",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32_execvp_62",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32_execvp_72",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32_execvp_73",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32_execvp_74",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32_execvp_81",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32_execvp_82",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32_execvp_83",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32_execvp_84",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32_spawnlp_33",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32_spawnlp_43",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32_spawnlp_62",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32_spawnlp_72",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32_spawnlp_73",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32_spawnlp_74",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32_spawnlp_81",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32_spawnlp_82",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32_spawnlp_83",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32_spawnlp_84",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32_spawnv_33",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32_spawnv_43",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32_spawnv_62",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32_spawnv_72",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32_spawnv_73",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32_spawnv_74",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32_spawnv_81",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32_spawnv_82",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32_spawnv_83",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32_spawnv_84",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32_spawnvp_33",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32_spawnvp_43",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32_spawnvp_62",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32_spawnvp_72",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32_spawnvp_73",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32_spawnvp_74",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32_spawnvp_81",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32_spawnvp_82",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32_spawnvp_83",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32_spawnvp_84",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32spawnl_33",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32spawnl_43",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32spawnl_62",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32spawnl_72",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32spawnl_73",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32spawnl_74",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32spawnl_81",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32spawnl_82",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32spawnl_83",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_file_w32spawnl_84",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_execl_33",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_execl_43",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_execl_62",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_execl_72",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_execl_73",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_execl_74",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_execl_81",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_execl_82",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_execl_83",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_execl_84",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_execlp_33",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_execlp_43",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_execlp_62",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_execlp_72",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_execlp_73",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_execlp_74",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_execlp_81",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_execlp_82",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_execlp_83",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_execlp_84",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_popen_33",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_popen_43",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_popen_62",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_popen_72",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_popen_73",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_popen_74",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_popen_81",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_popen_82",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_popen_83",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_popen_84",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_system_33",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_system_43",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_system_62",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_system_72",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_system_73",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_system_74",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_system_81",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_system_82",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_system_83",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_system_84",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32_execv_33",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32_execv_43",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32_execv_62",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32_execv_72",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32_execv_73",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32_execv_74",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32_execv_81",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32_execv_82",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32_execv_83",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32_execv_84",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32_execvp_33",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32_execvp_43",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32_execvp_62",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32_execvp_72",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32_execvp_73",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32_execvp_74",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32_execvp_81",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32_execvp_82",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32_execvp_83",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32_execvp_84",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32_spawnlp_33",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32_spawnlp_43",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32_spawnlp_62",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32_spawnlp_72",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32_spawnlp_73",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32_spawnlp_74",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32_spawnlp_81",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32_spawnlp_82",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32_spawnlp_83",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32_spawnlp_84",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32_spawnv_33",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32_spawnv_43",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32_spawnv_62",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32_spawnv_72",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32_spawnv_73",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32_spawnv_74",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32_spawnv_81",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32_spawnv_82",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32_spawnv_83",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32_spawnv_84",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32_spawnvp_33",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32_spawnvp_43",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32_spawnvp_62",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32_spawnvp_72",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32_spawnvp_73",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32_spawnvp_74",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32_spawnvp_81",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32_spawnvp_82",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32_spawnvp_83",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32_spawnvp_84",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32spawnl_33",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32spawnl_43",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32spawnl_62",
+      "bad": "TP",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32spawnl_72",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32spawnl_73",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32spawnl_74",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32spawnl_81",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32spawnl_82",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32spawnl_83",
+      "bad": "FN",
+      "good": "TN"
+    },
+    {
+      "case": "CWE78_OS_Command_Injection__char_listen_socket_w32spawnl_84",
+      "bad": "FN",
+      "good": "TN"
+    }
+  ]
+}
