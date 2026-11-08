@@ -23,3 +23,56 @@ UAST 快照语料：sast-c；curl `b052c835`；Redis `ad49ff0d`；SQLite `9626d8
 路径通过环境变量指定，默认值对应原评测工作区：`YASA_ROOT`、`CORPUS`、`JULIET`、`CURL_LARGE`、`NODE_BUNDLE`。
 
 基线：`results/c-baseline/summary.json`，在未改动的代码（engine `8efda87`、uast `36b3cee`）上生成。仓库只保存 summary，原始输出可重新运行脚本生成。
+
+## 使用
+
+```bash
+cd engine
+npx tsx src/main.ts --sourcePath <项目> --language cpp \
+  --ruleConfigFile resource/example-rule-config/rule_config_cpp.json \
+  --checkerPackIds taint-flow-cpp-default --report <输出目录>
+```
+
+cpp 模式扫描 `.cpp .cc .cxx .c++ .hpp .hh .hxx .h .inl`，`.h` 按 C++ 解析，`.c` 不参与；预处理选项（`--cIncludeDir`、`-D/-U`）与 C 相同，并定义 `__cplusplus=201703L`。
+
+## M1 检查点（2026-11-08）
+
+代码：uast `36b3cee..f2097bd`（parser-C 扩展点、parser-CPP），engine `8efda87..bd15cac`（cpp 语言、CppAnalyzer、`taint_flow_cpp_input`）。
+
+### 特性清单
+
+| 状态 | 特性 |
+| --- | --- |
+| 已建模 | C 子集（与 C 分析相同）；命名空间（嵌套、`A::B`、匿名）；限定名调用（`A::f`、`std::system`、`::g`）；`using namespace` / `using A::f`（同一编译单元内）；`if/switch/while` 条件中的声明与 init 语句；`nullptr`；`static_cast` 等四种具名转换 |
+| 只解析不建模 | 引用 `T&` / `T&&`（UAST 上有 `_meta.reference`，Engine 仍按值处理）；类与成员函数（类外定义的限定符按命名空间处理）；模板（解析失败的部分由 tree-sitter 错误恢复跳过） |
+| 不支持 | `new` / `delete` 表达式；虚函数分派；STL 容器与 iostream 模型；异常；lambda；头文件中的 `using` 作用到包含者 |
+
+### Juliet C++
+
+`scripts/juliet_cpp.py`（计分口径同 `juliet_c.py`）。CWE78 / CWE134 的 C++ 用例没有 01 号变体（只有 33、43、62、72–74、81–84 这些 C++ 特有变体），因此跑全部 C++ 用例；CWE23 / CWE36 跑 01 号变体。结果在 `results/m1/juliet/`。
+
+| 集合 | 用例 | TP | FN | TN | FP |
+| --- | --- | --- | --- | --- | --- |
+| CWE78 char（全部 C++ 变体） | 500 | 80 | 420 | 500 | 0 |
+| CWE78 wchar_t（全部 C++ 变体） | 500 | 80 | 420 | 500 | 0 |
+| CWE134 char（全部 C++ 变体） | 300 | 48 | 252 | 300 | 0 |
+| CWE134 wchar_t（全部 C++ 变体） | 300 | 48 | 252 | 300 | 0 |
+| CWE23 char / wchar_t（01） | 25 / 25 | 10 / 10 | 15 / 15 | 25 / 25 | 0 / 0 |
+| CWE36 char / wchar_t（01） | 25 / 25 | 10 / 10 | 15 / 15 | 25 / 25 | 0 / 0 |
+
+漏报按原因分类（CWE78 / CWE134 两种字符类型相同）：
+
+| 原因 | 涉及 | 归属 |
+| --- | --- | --- |
+| 类与虚函数 | 81–84 号变体全部 | M2 |
+| 引用别名（`char *&dataRef = data` 先于赋值绑定） | 33 号变体全部 | M2 |
+| STL 容器传递数据 | 72–74 号变体全部 | M3 |
+| C++ 文件流 `ifstream` / `ofstream` | CWE23/36 01 号的这两个 sink | M3 |
+| 规则缺失：`CreateFile` | CWE23/36 01 号的 w32CreateFile sink | 规则补充 |
+| 被调函数中 `strncat(data+len, getenv(...))` 写入参数指向的缓冲区 | 43/62 号的 environment source | C 引擎已有局限（同样的 C 代码也漏报），不是 C++ 引入 |
+
+43 / 62 号变体中其余 source 全部检出；所有集合误报为 0。
+
+### C 回归
+
+`results/m1/c-regression/summary.json`：与基线完全一致（parser-C、test-c、sast-c、2,451 个文件的 UAST 快照、Juliet C、curl 调用图）。
