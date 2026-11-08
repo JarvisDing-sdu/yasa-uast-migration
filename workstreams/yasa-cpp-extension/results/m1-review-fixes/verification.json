@@ -1,0 +1,177 @@
+{
+  "date": "2026-11-08",
+  "branch": "feat/cpp-support-m1",
+  "source_commits": {
+    "integration": "6aa25a1209bd363d78e931b9ffa42c67e12e869e",
+    "engine": "d6773455b9eea2c5ae27d54f18d003359470b38d",
+    "uast": "73bb51077958db26600a578b4527d1d5ff7d0f70"
+  },
+  "environment": {
+    "node": "v25.9.0",
+    "python": "3.9.6"
+  },
+  "tests": {
+    "parser_c": 72,
+    "parser_cpp": 18,
+    "engine_c": 112,
+    "engine_cpp": 40,
+    "scorer_integrity": 13,
+    "clang_cpp17_files": 40,
+    "scorer_self_test": "passed",
+    "engine_tsc": "passed",
+    "targeted_engine_eslint": {
+      "errors": 0,
+      "warnings": 6
+    }
+  },
+  "c_regression": {
+    "comparison": "identical to baseline",
+    "uast_files": 2451,
+    "juliet_batches": [
+      {
+        "set": "juliet-CWE134_Uncontrolled_Format_String-char",
+        "batch": 0,
+        "exit": 0,
+        "cases": 400,
+        "file_count": 583,
+        "finding_count": 425
+      },
+      {
+        "set": "juliet-CWE134_Uncontrolled_Format_String-char",
+        "batch": 1,
+        "exit": 0,
+        "cases": 400,
+        "file_count": 599,
+        "finding_count": 458
+      },
+      {
+        "set": "juliet-CWE134_Uncontrolled_Format_String-char",
+        "batch": 2,
+        "exit": 0,
+        "cases": 340,
+        "file_count": 504,
+        "finding_count": 368
+      },
+      {
+        "set": "juliet-CWE134_Uncontrolled_Format_String-wchar_t",
+        "batch": 0,
+        "exit": 0,
+        "cases": 400,
+        "file_count": 583,
+        "finding_count": 420
+      },
+      {
+        "set": "juliet-CWE134_Uncontrolled_Format_String-wchar_t",
+        "batch": 1,
+        "exit": 0,
+        "cases": 400,
+        "file_count": 599,
+        "finding_count": 426
+      },
+      {
+        "set": "juliet-CWE134_Uncontrolled_Format_String-wchar_t",
+        "batch": 2,
+        "exit": 0,
+        "cases": 340,
+        "file_count": 504,
+        "finding_count": 358
+      },
+      {
+        "set": "juliet-CWE78_OS_Command_Injection-char",
+        "batch": 0,
+        "exit": 0,
+        "cases": 400,
+        "file_count": 583,
+        "finding_count": 801
+      },
+      {
+        "set": "juliet-CWE78_OS_Command_Injection-char",
+        "batch": 1,
+        "exit": 0,
+        "cases": 400,
+        "file_count": 599,
+        "finding_count": 769
+      },
+      {
+        "set": "juliet-CWE78_OS_Command_Injection-char",
+        "batch": 2,
+        "exit": 0,
+        "cases": 400,
+        "file_count": 583,
+        "finding_count": 421
+      },
+      {
+        "set": "juliet-CWE78_OS_Command_Injection-char",
+        "batch": 3,
+        "exit": 0,
+        "cases": 400,
+        "file_count": 599,
+        "finding_count": 522
+      },
+      {
+        "set": "juliet-CWE78_OS_Command_Injection-char",
+        "batch": 4,
+        "exit": 0,
+        "cases": 300,
+        "file_count": 446,
+        "finding_count": 600
+      },
+      {
+        "set": "juliet-CWE78_OS_Command_Injection-wchar_t",
+        "batch": 0,
+        "exit": 0,
+        "cases": 400,
+        "file_count": 583,
+        "finding_count": 801
+      },
+      {
+        "set": "juliet-CWE78_OS_Command_Injection-wchar_t",
+        "batch": 1,
+        "exit": 0,
+        "cases": 400,
+        "file_count": 599,
+        "finding_count": 769
+      },
+      {
+        "set": "juliet-CWE78_OS_Command_Injection-wchar_t",
+        "batch": 2,
+        "exit": 0,
+        "cases": 400,
+        "file_count": 583,
+        "finding_count": 421
+      },
+      {
+        "set": "juliet-CWE78_OS_Command_Injection-wchar_t",
+        "batch": 3,
+        "exit": 0,
+        "cases": 400,
+        "file_count": 599,
+        "finding_count": 522
+      },
+      {
+        "set": "juliet-CWE78_OS_Command_Injection-wchar_t",
+        "batch": 4,
+        "exit": 0,
+        "cases": 300,
+        "file_count": 446,
+        "finding_count": 600
+      }
+    ]
+  },
+  "juliet_cpp": {
+    "sets": 8,
+    "batches": 10,
+    "all_exit_zero": true,
+    "unmapped": 0,
+    "full_scores_identical_to_m1": true,
+    "archived_rescore_identical": true
+  },
+  "preserved_reference_files": 10,
+  "raw_evidence": "outputs/C++-M1-修复验证-2026-11-08",
+  "limitations": [
+    "dynamic global initializer sources are still missed",
+    "class/virtual dispatch, reference aliases and STL/streams remain future milestones",
+    "header using propagation remains unsupported",
+    "no independent re-review or remote push performed"
+  ]
+}

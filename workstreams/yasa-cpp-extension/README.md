@@ -76,3 +76,18 @@ cpp 模式扫描 `.cpp .cc .cxx .c++ .hpp .hh .hxx .h .inl`，`.h` 按 C++ 解�
 ### C 回归
 
 `results/m1/c-regression/summary.json`：与基线完全一致（parser-C、test-c、sast-c、2,451 个文件的 UAST 快照、Juliet C、curl 调用图）。
+
+
+## M1 评审修复（2026-11-08）
+
+修复说明：[docs/2026-11-08-cpp-m1-review-fixes.md](docs/2026-11-08-cpp-m1-review-fixes.md)。Engine `d677345`、UAST `73bb510`；已合入各自最新 main，并保留 C 编译单元控制流修复。
+
+本轮处理名称查找、命名空间外定义、using 的函数/块范围、变量统一读写绑定、匿名命名空间内部链接、用户标准库同名函数、条件函数定义并集、while 条件声明重复求值及其初始化器；补充原始字符串。C++ 测试 40 项、parser-CPP 18 项通过。混合项目测试现在要求 .h 中的实现实际参与分析。
+
+Juliet C++ 重测的 8 份评分 JSON 与原 M1 完全相同（包括逐用例结果），没有总体召回率提升。新结果见 [results/m1-review-fixes](results/m1-review-fixes)，旧 `results/c-baseline` 和 `results/m1` 保留。
+
+`scripts/juliet_cpp.py` 先校验 run.json、批次退出状态、源文件清单与哈希、扫描摘要/文件数、SARIF 数量和 unmapped；不完整结果拒绝计分。零发现的成功扫描允许没有 SARIF，原始结果归档后可重计分。新运行必须使用空输出目录；旧版无完整运行清单的输出不会被新版脚本直接当作有效证据。完整性测试 13 项与自测通过。
+
+剩余范围仍包括类/虚函数、引用别名、STL 与文件流、包含者的 header using 等。本次额外发现动态全局初始化中的 source 未检出，已在修复说明中记录，未算作支持完成。
+
+完整 C 回归比较通过：C 原测试均保留且零失败，sast-c 逐用例、2,451 个 UAST 快照、四组 Juliet C 评分和 curl 三块调用图评分与原基线逐项一致。详细核验见 `results/m1-review-fixes/verification.json`。
