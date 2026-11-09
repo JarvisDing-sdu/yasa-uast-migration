@@ -1,0 +1,1039 @@
+{
+  "version": 1,
+  "profileId": "mixed-acceptance-v1",
+  "frozenBeforeNewMode": true,
+  "notes": "Labels and expected edges are hand-authored. SHA256 covers every fixture byte. Build and link only; never execute binaries. Failure case is linked with generated.h, then only its staged header is removed.",
+  "cases": [
+    {
+      "goldName": "cpp_to_c_T",
+      "directory": "cpp_to_c_T",
+      "outcome": "finding",
+      "programs": [
+        {
+          "domainId": "app",
+          "sources": [
+            "main.cpp",
+            "sink.c"
+          ]
+        }
+      ],
+      "sourceFile": "main.cpp",
+      "sinkFile": "sink.c",
+      "sinkRule": "system",
+      "traceFiles": [
+        "main.cpp",
+        "sink.c"
+      ],
+      "expectedEdges": [
+        [
+          "main",
+          "c_sink"
+        ],
+        [
+          "c_sink",
+          "system"
+        ]
+      ],
+      "sha256": {
+        "main.cpp": "2a14af06b98a24416b2f54fcf4bb1c320e66a653c642f1a93519cca25b44090c",
+        "sink.c": "b490d4a30d3bbfdd18ccad9bac6f6b4fb64bb14e304b004215db78c42ac95a8d"
+      },
+      "sourceLine": 3,
+      "sinkLine": 2,
+      "findingDomainId": "app"
+    },
+    {
+      "goldName": "c_to_cpp_T",
+      "directory": "c_to_cpp_T",
+      "outcome": "finding",
+      "programs": [
+        {
+          "domainId": "app",
+          "sources": [
+            "main.c",
+            "sink.cpp"
+          ]
+        }
+      ],
+      "sourceFile": "main.c",
+      "sinkFile": "sink.cpp",
+      "sinkRule": "system",
+      "traceFiles": [
+        "main.c",
+        "sink.cpp"
+      ],
+      "expectedEdges": [
+        [
+          "main",
+          "cpp_sink"
+        ],
+        [
+          "cpp_sink",
+          "system"
+        ]
+      ],
+      "sha256": {
+        "main.c": "58aa51c9138dcbd4db709ef13727be7a6608d6645840183339da3e4df60c72cc",
+        "sink.cpp": "24f73383de94f556c3bb73af6fb3018bdf957fae9ed51852b8d08ff25e49d52a"
+      },
+      "sourceLine": 3,
+      "sinkLine": 2,
+      "findingDomainId": "app"
+    },
+    {
+      "goldName": "cross_language_return_T",
+      "directory": "cross_language_return_T",
+      "outcome": "finding",
+      "programs": [
+        {
+          "domainId": "app",
+          "sources": [
+            "main.cpp",
+            "source.c"
+          ]
+        }
+      ],
+      "sourceFile": "source.c",
+      "sinkFile": "main.cpp",
+      "sinkRule": "system",
+      "traceFiles": [
+        "source.c",
+        "main.cpp"
+      ],
+      "expectedEdges": [
+        [
+          "main",
+          "c_source"
+        ],
+        [
+          "main",
+          "system"
+        ]
+      ],
+      "sha256": {
+        "main.cpp": "97031dfa825d98f52bf0945749ee3f46f1890c1fa3b81b1a0ea97668df525492",
+        "source.c": "44b0846040482b3359eed17fc4650d1b26be5e81d3fd0df7c71a2fc1e0a75403"
+      },
+      "sourceLine": 2,
+      "sinkLine": 3,
+      "findingDomainId": "app"
+    },
+    {
+      "goldName": "pointer_writeback_T",
+      "directory": "pointer_writeback_T",
+      "outcome": "finding",
+      "programs": [
+        {
+          "domainId": "app",
+          "sources": [
+            "main.cpp",
+            "fill.c"
+          ]
+        }
+      ],
+      "sourceFile": "fill.c",
+      "sinkFile": "main.cpp",
+      "sinkRule": "system",
+      "traceFiles": [
+        "fill.c",
+        "main.cpp"
+      ],
+      "expectedEdges": [
+        [
+          "main",
+          "c_fill"
+        ],
+        [
+          "main",
+          "system"
+        ]
+      ],
+      "sha256": {
+        "main.cpp": "83e524b973f62137fd750184aa007b4ec12e5bebac9c0a9f9c7682fd5a708472",
+        "fill.c": "3ed9a0819351cf8917d81aa371ee02950d5c19357d13439b8667e84e3da1322a"
+      },
+      "sourceLine": 2,
+      "sinkLine": 3,
+      "findingDomainId": "app"
+    },
+    {
+      "goldName": "c_registers_cpp_callback_T",
+      "directory": "c_registers_cpp_callback_T",
+      "outcome": "finding",
+      "programs": [
+        {
+          "domainId": "app",
+          "sources": [
+            "main.c",
+            "callback.cpp"
+          ]
+        }
+      ],
+      "sourceFile": "main.c",
+      "sinkFile": "callback.cpp",
+      "sinkRule": "system",
+      "traceFiles": [
+        "main.c",
+        "callback.cpp"
+      ],
+      "expectedEdges": [
+        [
+          "main",
+          "c_register"
+        ],
+        [
+          "c_dispatch",
+          "cpp_callback"
+        ],
+        [
+          "cpp_callback",
+          "system"
+        ]
+      ],
+      "sha256": {
+        "main.c": "124df2bee4218ec33623a7da04be8fee8ffb6b14b39e5df7f5129a04ad44a15d",
+        "callback.cpp": "d92195d37063a7b43d421a3df0d452a4be967887e17660bbd06b59b0cc9f7422"
+      },
+      "sourceLine": 7,
+      "sinkLine": 2,
+      "findingDomainId": "app"
+    },
+    {
+      "goldName": "namespace_extern_c_T",
+      "directory": "namespace_extern_c_T",
+      "outcome": "finding",
+      "programs": [
+        {
+          "domainId": "app",
+          "sources": [
+            "main.c",
+            "sink.cpp"
+          ]
+        }
+      ],
+      "sourceFile": "main.c",
+      "sinkFile": "sink.cpp",
+      "sinkRule": "system",
+      "traceFiles": [
+        "main.c",
+        "sink.cpp"
+      ],
+      "expectedEdges": [
+        [
+          "main",
+          "namespace_sink"
+        ],
+        [
+          "namespace_sink",
+          "system"
+        ]
+      ],
+      "sha256": {
+        "main.c": "902eb976df4e049e23e677cc2f5c25c7570057981d6452e0586fc0871ae2b5e7",
+        "sink.cpp": "49a9e99ed47ca745a3d84171f9c37cb91736e3ccd6e3cddc4706ba50fed95102"
+      },
+      "sourceLine": 3,
+      "sinkLine": 3,
+      "findingDomainId": "app"
+    },
+    {
+      "goldName": "inherited_extern_c_T",
+      "directory": "inherited_extern_c_T",
+      "outcome": "finding",
+      "programs": [
+        {
+          "domainId": "app",
+          "sources": [
+            "main.c",
+            "sink.cpp"
+          ]
+        }
+      ],
+      "sourceFile": "main.c",
+      "sinkFile": "sink.cpp",
+      "sinkRule": "system",
+      "traceFiles": [
+        "main.c",
+        "sink.cpp"
+      ],
+      "expectedEdges": [
+        [
+          "main",
+          "inherited_sink"
+        ],
+        [
+          "inherited_sink",
+          "system"
+        ]
+      ],
+      "sha256": {
+        "main.c": "2ea5e2dc7a28c51436db72d45a46dfb5abaecaeff3a8baea2feef42b255b7599",
+        "sink.cpp": "2f85e5ae5b7d61304bfaeae2235e7a207caf4272a5ddb3f8a50c9a415f19c31d"
+      },
+      "sourceLine": 3,
+      "sinkLine": 3,
+      "findingDomainId": "app"
+    },
+    {
+      "goldName": "cpp_same_name_distinct_from_c_abi_T",
+      "directory": "cpp_same_name_distinct_from_c_abi_T",
+      "outcome": "finding",
+      "programs": [
+        {
+          "domainId": "app",
+          "sources": [
+            "main.cpp",
+            "sink.c"
+          ]
+        }
+      ],
+      "sourceFile": "main.cpp",
+      "sinkFile": "sink.c",
+      "sinkRule": "system",
+      "traceFiles": [
+        "main.cpp",
+        "sink.c"
+      ],
+      "expectedEdges": [
+        [
+          "main",
+          "same_name (C++)"
+        ],
+        [
+          "same_name (C++)",
+          "c_sink"
+        ]
+      ],
+      "sha256": {
+        "main.cpp": "7cd11da5c741a0993ad2201e5b9501e0cd58c776980d6d826248f4e2b4bf4624",
+        "sink.c": "2eda27486e921a7fcc64382300e089d63b44a3823efd2dad4aa5d285785b1ebe"
+      },
+      "sourceLine": 4,
+      "sinkLine": 3,
+      "findingDomainId": "app"
+    },
+    {
+      "goldName": "separate_domains_same_names_T",
+      "directory": "separate_domains_same_names_T",
+      "outcome": "finding",
+      "programs": [
+        {
+          "domainId": "tainted-app",
+          "sources": [
+            "a/main.c",
+            "a/implementation.cpp"
+          ]
+        },
+        {
+          "domainId": "constant-app",
+          "sources": [
+            "b/main.c",
+            "b/implementation.cpp"
+          ]
+        }
+      ],
+      "sourceFile": "a/main.c",
+      "sinkFile": "a/implementation.cpp",
+      "sinkRule": "system",
+      "traceFiles": [
+        "a/main.c",
+        "a/implementation.cpp"
+      ],
+      "expectedEdges": [
+        [
+          "tainted-app::main",
+          "tainted-app::domain_sink"
+        ],
+        [
+          "constant-app::main",
+          "constant-app::domain_sink"
+        ]
+      ],
+      "sha256": {
+        "a/main.c": "555268b41df1ada199a329bdb902822e2d8206073a272b5a00930efae14a1bec",
+        "a/implementation.cpp": "81d57b8a29870d2af03d9e81db5862a835a382d141bbda115f90165bb1a00c05",
+        "b/main.c": "949c116b7c983265c3aab8615147d4b12253f446fa938552250056169135b89a",
+        "b/implementation.cpp": "81d57b8a29870d2af03d9e81db5862a835a382d141bbda115f90165bb1a00c05"
+      },
+      "sourceLine": 3,
+      "sinkLine": 2,
+      "findingDomainId": "tainted-app"
+    },
+    {
+      "goldName": "header_macro_c_and_cpp_T",
+      "directory": "header_macro_c_and_cpp_T",
+      "outcome": "finding",
+      "programs": [
+        {
+          "domainId": "app",
+          "sources": [
+            "main.cpp",
+            "sink.c"
+          ]
+        }
+      ],
+      "sourceFile": "shared.h",
+      "sinkFile": "sink.c",
+      "sinkRule": "system",
+      "traceFiles": [
+        "shared.h",
+        "main.cpp",
+        "sink.c"
+      ],
+      "expectedEdges": [
+        [
+          "main",
+          "header_command [C++]"
+        ],
+        [
+          "main",
+          "c_sink"
+        ],
+        [
+          "c_probe",
+          "header_command [C]"
+        ]
+      ],
+      "sha256": {
+        "shared.h": "c788c53c555a465b509548c58d18ecb2656b4aa2b80431e5e33de51c19d25aa0",
+        "main.cpp": "3ff9fc7467432374abc59db2cf81a52897371ff57ab2c81a2f056402e913794f",
+        "sink.c": "5d69a4b0ee10d59ef76f58198a5322ddb0df30a8d5b090981e87714d67dded50"
+      },
+      "sourceLine": 6,
+      "sinkLine": 3,
+      "findingDomainId": "app"
+    },
+    {
+      "goldName": "static_and_anonymous_per_tu_T",
+      "directory": "static_and_anonymous_per_tu_T",
+      "outcome": "finding",
+      "programs": [
+        {
+          "domainId": "app",
+          "sources": [
+            "main.c",
+            "first.cpp",
+            "second.cpp"
+          ]
+        }
+      ],
+      "sourceFile": "main.c",
+      "sinkFile": "first.cpp",
+      "sinkRule": "system",
+      "traceFiles": [
+        "main.c",
+        "first.cpp"
+      ],
+      "expectedEdges": [
+        [
+          "main",
+          "set_first"
+        ],
+        [
+          "main",
+          "consume_first"
+        ]
+      ],
+      "sha256": {
+        "main.c": "27426fb067d7018840b80343bf1ddc306795f104c48a2b27b4717072c8320a78",
+        "first.cpp": "5a5febb417dd0ec93469cc69dbfe6338afebf1f92c81711fb40d0bcb412da253",
+        "second.cpp": "5c7bb09061bccf361b56f7ea3dcc2f4ba35790baa0696c9c158bf66eca2ea2ea"
+      },
+      "sourceLine": 5,
+      "sinkLine": 3,
+      "findingDomainId": "app"
+    },
+    {
+      "goldName": "external_inline_shared_static_T",
+      "directory": "external_inline_shared_static_T",
+      "outcome": "finding",
+      "programs": [
+        {
+          "domainId": "app",
+          "sources": [
+            "main.c",
+            "store.cpp",
+            "consume.cpp"
+          ]
+        }
+      ],
+      "sourceFile": "main.c",
+      "sinkFile": "consume.cpp",
+      "sinkRule": "system",
+      "traceFiles": [
+        "main.c",
+        "store.cpp",
+        "consume.cpp"
+      ],
+      "expectedEdges": [
+        [
+          "store",
+          "slot [shared external]"
+        ],
+        [
+          "consume",
+          "slot [same local static]"
+        ]
+      ],
+      "sha256": {
+        "slot.h": "1a6b754a75313ca2035ba715e8cc99ed1d9b896630015197bb48d76b566065bc",
+        "main.c": "abe9c4425eccca3e6f7073538297917a0edfcf4a660efd250e77609bcbe4f627",
+        "store.cpp": "a742c2966cf969a80fd2e82aef79b9bd438937ce3183cf9e45928092bda52c94",
+        "consume.cpp": "377041828caffef1c1bdf4c9a525b91aca76c4c9478918c6bd14d73920df6806"
+      },
+      "sourceLine": 4,
+      "sinkLine": 3,
+      "findingDomainId": "app"
+    },
+    {
+      "goldName": "internal_staticinline_separation_T",
+      "directory": "internal_staticinline_separation_T",
+      "outcome": "finding",
+      "programs": [
+        {
+          "domainId": "app",
+          "sources": [
+            "main.c",
+            "store.cpp",
+            "consume.cpp"
+          ]
+        }
+      ],
+      "sourceFile": "main.c",
+      "sinkFile": "store.cpp",
+      "sinkRule": "system",
+      "traceFiles": [
+        "main.c",
+        "store.cpp"
+      ],
+      "expectedEdges": [
+        [
+          "store",
+          "slot [store.cpp]"
+        ],
+        [
+          "main",
+          "consume_local"
+        ]
+      ],
+      "sha256": {
+        "slot.h": "ccae4aeef34d52a0ffa617edad68dc48a6038129abf6a256c7ee4d8814441471",
+        "main.c": "9b606cec516b1d8a792384f3244b8e30b34fb898d3f0e565288983d80e198b3d",
+        "store.cpp": "eee83dfb0a54135bef03934c13bc40dc86eb4f0eb2e701da762b196cdf0cb8d3",
+        "consume.cpp": "88add39c9b71eb7e3cc8ed8f43b15827f5b2198bb7f6beb210d7bca66a4821e9"
+      },
+      "sourceLine": 5,
+      "sinkLine": 4,
+      "findingDomainId": "app"
+    },
+    {
+      "goldName": "cpp_to_c_F",
+      "directory": "cpp_to_c_F",
+      "outcome": "clean",
+      "programs": [
+        {
+          "domainId": "app",
+          "sources": [
+            "main.cpp",
+            "sink.c"
+          ]
+        }
+      ],
+      "sourceFile": "main.cpp",
+      "sinkFile": "sink.c",
+      "sinkRule": "system",
+      "traceFiles": [],
+      "expectedEdges": [
+        [
+          "main",
+          "c_sink"
+        ],
+        [
+          "c_sink",
+          "system"
+        ]
+      ],
+      "sha256": {
+        "main.cpp": "5da16c7030ea32f0351474258c9884efa71891190672c53e0aaac9633a12e3f1",
+        "sink.c": "b490d4a30d3bbfdd18ccad9bac6f6b4fb64bb14e304b004215db78c42ac95a8d"
+      },
+      "sourceLine": null,
+      "sinkLine": 2,
+      "findingDomainId": "app"
+    },
+    {
+      "goldName": "c_to_cpp_F",
+      "directory": "c_to_cpp_F",
+      "outcome": "clean",
+      "programs": [
+        {
+          "domainId": "app",
+          "sources": [
+            "main.c",
+            "sink.cpp"
+          ]
+        }
+      ],
+      "sourceFile": "main.c",
+      "sinkFile": "sink.cpp",
+      "sinkRule": "system",
+      "traceFiles": [],
+      "expectedEdges": [
+        [
+          "main",
+          "cpp_sink"
+        ],
+        [
+          "cpp_sink",
+          "system"
+        ]
+      ],
+      "sha256": {
+        "main.c": "c554044ba544ff367a6baa4e37ea467c66bd027970b26004f18712f10936c8eb",
+        "sink.cpp": "24f73383de94f556c3bb73af6fb3018bdf957fae9ed51852b8d08ff25e49d52a"
+      },
+      "sourceLine": null,
+      "sinkLine": 2,
+      "findingDomainId": "app"
+    },
+    {
+      "goldName": "cross_language_return_F",
+      "directory": "cross_language_return_F",
+      "outcome": "clean",
+      "programs": [
+        {
+          "domainId": "app",
+          "sources": [
+            "main.cpp",
+            "source.c"
+          ]
+        }
+      ],
+      "sourceFile": "source.c",
+      "sinkFile": "main.cpp",
+      "sinkRule": "system",
+      "traceFiles": [],
+      "expectedEdges": [
+        [
+          "main",
+          "c_source"
+        ],
+        [
+          "main",
+          "system"
+        ]
+      ],
+      "sha256": {
+        "main.cpp": "97031dfa825d98f52bf0945749ee3f46f1890c1fa3b81b1a0ea97668df525492",
+        "source.c": "773a30adf0541073f23b8de171e747d52f044e73edab5e2a50dc79b76ab7257d"
+      },
+      "sourceLine": null,
+      "sinkLine": 3,
+      "findingDomainId": "app"
+    },
+    {
+      "goldName": "pointer_writeback_F",
+      "directory": "pointer_writeback_F",
+      "outcome": "clean",
+      "programs": [
+        {
+          "domainId": "app",
+          "sources": [
+            "main.cpp",
+            "fill.c"
+          ]
+        }
+      ],
+      "sourceFile": "fill.c",
+      "sinkFile": "main.cpp",
+      "sinkRule": "system",
+      "traceFiles": [],
+      "expectedEdges": [
+        [
+          "main",
+          "c_fill"
+        ],
+        [
+          "main",
+          "system"
+        ]
+      ],
+      "sha256": {
+        "main.cpp": "83e524b973f62137fd750184aa007b4ec12e5bebac9c0a9f9c7682fd5a708472",
+        "fill.c": "e0bc631e1c779fe1264502db72354d7ea4f2840e0d341fc77182c1cbb8b5afab"
+      },
+      "sourceLine": null,
+      "sinkLine": 3,
+      "findingDomainId": "app"
+    },
+    {
+      "goldName": "c_registers_cpp_callback_F",
+      "directory": "c_registers_cpp_callback_F",
+      "outcome": "clean",
+      "programs": [
+        {
+          "domainId": "app",
+          "sources": [
+            "main.c",
+            "callback.cpp"
+          ]
+        }
+      ],
+      "sourceFile": "main.c",
+      "sinkFile": "callback.cpp",
+      "sinkRule": "system",
+      "traceFiles": [],
+      "expectedEdges": [
+        [
+          "main",
+          "c_register"
+        ],
+        [
+          "c_dispatch",
+          "cpp_callback"
+        ],
+        [
+          "cpp_callback",
+          "system"
+        ]
+      ],
+      "sha256": {
+        "main.c": "27e82442797cd434c1dba7444857ed624d83c9a9331626313360a2e74819ed67",
+        "callback.cpp": "d92195d37063a7b43d421a3df0d452a4be967887e17660bbd06b59b0cc9f7422"
+      },
+      "sourceLine": null,
+      "sinkLine": 2,
+      "findingDomainId": "app"
+    },
+    {
+      "goldName": "namespace_extern_c_F",
+      "directory": "namespace_extern_c_F",
+      "outcome": "clean",
+      "programs": [
+        {
+          "domainId": "app",
+          "sources": [
+            "main.c",
+            "sink.cpp"
+          ]
+        }
+      ],
+      "sourceFile": "main.c",
+      "sinkFile": "sink.cpp",
+      "sinkRule": "system",
+      "traceFiles": [],
+      "expectedEdges": [
+        [
+          "main",
+          "namespace_sink"
+        ],
+        [
+          "namespace_sink",
+          "system"
+        ]
+      ],
+      "sha256": {
+        "main.c": "7b3c850aad4121461fe6d34255417d471590218e404d269eb2bc9ef1bf0fac1e",
+        "sink.cpp": "49a9e99ed47ca745a3d84171f9c37cb91736e3ccd6e3cddc4706ba50fed95102"
+      },
+      "sourceLine": null,
+      "sinkLine": 3,
+      "findingDomainId": "app"
+    },
+    {
+      "goldName": "inherited_extern_c_F",
+      "directory": "inherited_extern_c_F",
+      "outcome": "clean",
+      "programs": [
+        {
+          "domainId": "app",
+          "sources": [
+            "main.c",
+            "sink.cpp"
+          ]
+        }
+      ],
+      "sourceFile": "main.c",
+      "sinkFile": "sink.cpp",
+      "sinkRule": "system",
+      "traceFiles": [],
+      "expectedEdges": [
+        [
+          "main",
+          "inherited_sink"
+        ],
+        [
+          "inherited_sink",
+          "system"
+        ]
+      ],
+      "sha256": {
+        "main.c": "f0fbdc6ea2e509859da3d77969f3e1dce5e23468641630daf8a80a4cf2bfbda5",
+        "sink.cpp": "2f85e5ae5b7d61304bfaeae2235e7a207caf4272a5ddb3f8a50c9a415f19c31d"
+      },
+      "sourceLine": null,
+      "sinkLine": 3,
+      "findingDomainId": "app"
+    },
+    {
+      "goldName": "cpp_same_name_distinct_from_c_abi_F",
+      "directory": "cpp_same_name_distinct_from_c_abi_F",
+      "outcome": "clean",
+      "programs": [
+        {
+          "domainId": "app",
+          "sources": [
+            "main.cpp",
+            "sink.c"
+          ]
+        }
+      ],
+      "sourceFile": "main.cpp",
+      "sinkFile": "sink.c",
+      "sinkRule": "system",
+      "traceFiles": [],
+      "expectedEdges": [
+        [
+          "main",
+          "same_name (C++) only"
+        ]
+      ],
+      "sha256": {
+        "main.cpp": "6f61a1a525f0276d4e345b0826df6e0a0745f852eb58993284337407fd63628a",
+        "sink.c": "4316393fcb7d074f5711c77f8d7a8a41a05124a2c9040f919a0aafa41d4fa584"
+      },
+      "sourceLine": 4,
+      "sinkLine": 3,
+      "findingDomainId": "app"
+    },
+    {
+      "goldName": "separate_domains_same_names_F",
+      "directory": "separate_domains_same_names_F",
+      "outcome": "clean",
+      "programs": [
+        {
+          "domainId": "tainted-app",
+          "sources": [
+            "a/main.c",
+            "a/implementation.cpp"
+          ]
+        },
+        {
+          "domainId": "constant-app",
+          "sources": [
+            "b/main.c",
+            "b/implementation.cpp"
+          ]
+        }
+      ],
+      "sourceFile": "a/main.c",
+      "sinkFile": "a/implementation.cpp",
+      "sinkRule": "system",
+      "traceFiles": [],
+      "expectedEdges": [
+        [
+          "tainted-app::main",
+          "tainted-app::domain_sink"
+        ],
+        [
+          "constant-app::main",
+          "constant-app::domain_sink"
+        ]
+      ],
+      "sha256": {
+        "a/main.c": "555268b41df1ada199a329bdb902822e2d8206073a272b5a00930efae14a1bec",
+        "a/implementation.cpp": "77a0ff96687a5cfb0b9d53447b240e7123945008f59f56b8d58eb479e5bde661",
+        "b/main.c": "949c116b7c983265c3aab8615147d4b12253f446fa938552250056169135b89a",
+        "b/implementation.cpp": "81d57b8a29870d2af03d9e81db5862a835a382d141bbda115f90165bb1a00c05"
+      },
+      "sourceLine": 3,
+      "sinkLine": null,
+      "findingDomainId": "tainted-app"
+    },
+    {
+      "goldName": "header_macro_c_and_cpp_F",
+      "directory": "header_macro_c_and_cpp_F",
+      "outcome": "clean",
+      "programs": [
+        {
+          "domainId": "app",
+          "sources": [
+            "main.cpp",
+            "sink.c"
+          ]
+        }
+      ],
+      "sourceFile": "shared.h",
+      "sinkFile": "sink.c",
+      "sinkRule": "system",
+      "traceFiles": [],
+      "expectedEdges": [
+        [
+          "main",
+          "header_command [C++]"
+        ],
+        [
+          "main",
+          "c_sink"
+        ],
+        [
+          "c_probe",
+          "header_command [C]"
+        ]
+      ],
+      "sha256": {
+        "shared.h": "c788c53c555a465b509548c58d18ecb2656b4aa2b80431e5e33de51c19d25aa0",
+        "main.cpp": "a5c1d7934661ad2cf824c267afac72f5d5a9143651d3fa2e9c09efd5c007312b",
+        "sink.c": "5d69a4b0ee10d59ef76f58198a5322ddb0df30a8d5b090981e87714d67dded50"
+      },
+      "sourceLine": 6,
+      "sinkLine": 3,
+      "findingDomainId": "app"
+    },
+    {
+      "goldName": "static_and_anonymous_per_tu_F",
+      "directory": "static_and_anonymous_per_tu_F",
+      "outcome": "clean",
+      "programs": [
+        {
+          "domainId": "app",
+          "sources": [
+            "main.c",
+            "first.cpp",
+            "second.cpp"
+          ]
+        }
+      ],
+      "sourceFile": "main.c",
+      "sinkFile": "first.cpp",
+      "sinkRule": "system",
+      "traceFiles": [],
+      "expectedEdges": [
+        [
+          "main",
+          "set_first"
+        ],
+        [
+          "main",
+          "consume_second"
+        ]
+      ],
+      "sha256": {
+        "main.c": "567ea5a819ad3e30d056304277c7dc472471e0e60d2f270f2fc5ff753c70f538",
+        "first.cpp": "5a5febb417dd0ec93469cc69dbfe6338afebf1f92c81711fb40d0bcb412da253",
+        "second.cpp": "5c7bb09061bccf361b56f7ea3dcc2f4ba35790baa0696c9c158bf66eca2ea2ea"
+      },
+      "sourceLine": 5,
+      "sinkLine": 3,
+      "findingDomainId": "app"
+    },
+    {
+      "goldName": "external_inline_shared_static_F",
+      "directory": "external_inline_shared_static_F",
+      "outcome": "clean",
+      "programs": [
+        {
+          "domainId": "app",
+          "sources": [
+            "main.c",
+            "store.cpp",
+            "consume.cpp"
+          ]
+        }
+      ],
+      "sourceFile": "main.c",
+      "sinkFile": "consume.cpp",
+      "sinkRule": "system",
+      "traceFiles": [],
+      "expectedEdges": [
+        [
+          "store",
+          "slot [shared external]"
+        ],
+        [
+          "consume",
+          "slot [same local static]"
+        ]
+      ],
+      "sha256": {
+        "slot.h": "1a6b754a75313ca2035ba715e8cc99ed1d9b896630015197bb48d76b566065bc",
+        "main.c": "07a936af678198580636b9b9af8ec2f7496e9b7eea5edc3c7037318ac968f2fd",
+        "store.cpp": "a742c2966cf969a80fd2e82aef79b9bd438937ce3183cf9e45928092bda52c94",
+        "consume.cpp": "377041828caffef1c1bdf4c9a525b91aca76c4c9478918c6bd14d73920df6806"
+      },
+      "sourceLine": null,
+      "sinkLine": 3,
+      "findingDomainId": "app"
+    },
+    {
+      "goldName": "internal_staticinline_separation_F",
+      "directory": "internal_staticinline_separation_F",
+      "outcome": "clean",
+      "programs": [
+        {
+          "domainId": "app",
+          "sources": [
+            "main.c",
+            "store.cpp",
+            "consume.cpp"
+          ]
+        }
+      ],
+      "sourceFile": "main.c",
+      "sinkFile": "store.cpp",
+      "sinkRule": "system",
+      "traceFiles": [],
+      "expectedEdges": [
+        [
+          "store",
+          "slot [store.cpp]"
+        ],
+        [
+          "main",
+          "consume_other [different slot]"
+        ]
+      ],
+      "sha256": {
+        "slot.h": "ccae4aeef34d52a0ffa617edad68dc48a6038129abf6a256c7ee4d8814441471",
+        "main.c": "e779b88259642242afee7b39bf25c1b242271c983500b541e52d46ca0f0cff56",
+        "store.cpp": "eee83dfb0a54135bef03934c13bc40dc86eb4f0eb2e701da762b196cdf0cb8d3",
+        "consume.cpp": "88add39c9b71eb7e3cc8ed8f43b15827f5b2198bb7f6beb210d7bca66a4821e9"
+      },
+      "sourceLine": 5,
+      "sinkLine": 4,
+      "findingDomainId": "app"
+    },
+    {
+      "goldName": "missing_generated_header",
+      "directory": "missing_generated_header",
+      "outcome": "failure",
+      "programs": [
+        {
+          "domainId": "app",
+          "sources": [
+            "main.c",
+            "sink.cpp"
+          ]
+        }
+      ],
+      "sourceFile": "main.c",
+      "sinkFile": "sink.cpp",
+      "sinkRule": "system",
+      "traceFiles": [],
+      "expectedEdges": [
+        [
+          "main",
+          "generated_sink"
+        ]
+      ],
+      "sha256": {
+        "main.c": "aa6fac18a189adda367c6c353c0978bc54f6de142d78ac1efa80b0387f207b08",
+        "sink.cpp": "eb0c26b7517fc76520184c478a9d53f2f62101c16f000893a9c3bd2757e9e9fa",
+        "generated.h": "5c90aedbd87575efdb746a320e2f7b32c953bd0762782512cbe0e3ea5bbd337e"
+      },
+      "sourceLine": null,
+      "sinkLine": null,
+      "findingDomainId": "app"
+    }
+  ]
+}

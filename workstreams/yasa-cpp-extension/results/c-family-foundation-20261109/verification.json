@@ -1,0 +1,165 @@
+{
+  "date": "2026-11-09",
+  "branch": "feat/c-family-foundation",
+  "commits": {
+    "engine": "60cad7264cc8022b108ce3a61c2721fbe1fc02ee",
+    "uast": "e68116cb7165f2e5622d67afe29639a5e015fcfb"
+  },
+  "tests": {
+    "parser_c": 72,
+    "parser_cpp": 19,
+    "engine_c": 112,
+    "original_engine_cpp": 40,
+    "library_aliases": 11,
+    "single_header_language": 11,
+    "combined_cpp_cli_suite": 62,
+    "cli_help_and_dataflow": 8,
+    "engine_tsc_exit": 0
+  },
+  "c_comparison": "all summary fields identical to frozen M1 review-fixes baseline; original C-baseline comparison also passes",
+  "cpp_comparison": {
+    "CWE134_Uncontrolled_Format_String-char": true,
+    "CWE134_Uncontrolled_Format_String-wchar_t": true,
+    "CWE23_Relative_Path_Traversal-char": true,
+    "CWE23_Relative_Path_Traversal-wchar_t": true,
+    "CWE36_Absolute_Path_Traversal-char": true,
+    "CWE36_Absolute_Path_Traversal-wchar_t": true,
+    "CWE78_OS_Command_Injection-char": true,
+    "CWE78_OS_Command_Injection-wchar_t": true
+  },
+  "batch_exits": {
+    "confirmed": [
+      {
+        "set": "juliet-CWE134_Uncontrolled_Format_String-char",
+        "batches": 3,
+        "cases": 1140
+      },
+      {
+        "set": "juliet-CWE134_Uncontrolled_Format_String-wchar_t",
+        "batches": 3,
+        "cases": 1140
+      },
+      {
+        "set": "juliet-CWE78_OS_Command_Injection-char",
+        "batches": 5,
+        "cases": 1900
+      },
+      {
+        "set": "juliet-CWE78_OS_Command_Injection-wchar_t",
+        "batches": 5,
+        "cases": 1900
+      }
+    ],
+    "cpp-juliet-final": [
+      {
+        "set": "CWE134_Uncontrolled_Format_String-char",
+        "batches": 1,
+        "cases": 300
+      },
+      {
+        "set": "CWE134_Uncontrolled_Format_String-wchar_t",
+        "batches": 1,
+        "cases": 300
+      },
+      {
+        "set": "CWE23_Relative_Path_Traversal-char",
+        "batches": 1,
+        "cases": 25
+      },
+      {
+        "set": "CWE23_Relative_Path_Traversal-wchar_t",
+        "batches": 1,
+        "cases": 25
+      },
+      {
+        "set": "CWE36_Absolute_Path_Traversal-char",
+        "batches": 1,
+        "cases": 25
+      },
+      {
+        "set": "CWE36_Absolute_Path_Traversal-wchar_t",
+        "batches": 1,
+        "cases": 25
+      },
+      {
+        "set": "CWE78_OS_Command_Injection-char",
+        "batches": 2,
+        "cases": 500
+      },
+      {
+        "set": "CWE78_OS_Command_Injection-wchar_t",
+        "batches": 2,
+        "cases": 500
+      }
+    ]
+  },
+  "baseline_sha256": {
+    "workstreams/yasa-cpp-extension/results/c-baseline/summary.json": "fe29d003f7d031ff630415990c01fe27a1fc59afbca479b3321ad4aecd582e5f",
+    "workstreams/yasa-cpp-extension/results/m1/c-regression/summary.json": "ae31f64f3974381812554aa0ab5520e03a06e107e15e370a0fbd18788cf3bde9",
+    "workstreams/yasa-cpp-extension/results/m1/juliet/CWE134_Uncontrolled_Format_String-char.json": "7a7f313af1005494393a8ce79043d8d4229fece0c40c3aba0f09bc78fb873a52",
+    "workstreams/yasa-cpp-extension/results/m1/juliet/CWE134_Uncontrolled_Format_String-wchar_t.json": "c307ea719730ab812dc8c94d067a83ab712bbfbbb6b821255cc337ac497c3a6f",
+    "workstreams/yasa-cpp-extension/results/m1/juliet/CWE23_Relative_Path_Traversal-char.json": "28818f9b7825def95994981ea6869c0e82bda13734ec5734af463f56b916ab85",
+    "workstreams/yasa-cpp-extension/results/m1/juliet/CWE23_Relative_Path_Traversal-wchar_t.json": "c843849e89aa15e31635fd3b448ba2f2fe76349141ad7ad366038178c74dcac9",
+    "workstreams/yasa-cpp-extension/results/m1/juliet/CWE36_Absolute_Path_Traversal-char.json": "7b78f81f53f284d306384fc5b17d4c8007da8d79bb6b2948cfb8b3d8c5acf7ae",
+    "workstreams/yasa-cpp-extension/results/m1/juliet/CWE36_Absolute_Path_Traversal-wchar_t.json": "b32074d60a7ae61235c2604416a32f72c3bfa04b999d487b0936db4cc775b5e6",
+    "workstreams/yasa-cpp-extension/results/m1/juliet/CWE78_OS_Command_Injection-char.json": "8a9ce1613c0a8255e3dd5978ce82f2084a891d330c862546f621d9ffee9c7c01",
+    "workstreams/yasa-cpp-extension/results/m1/juliet/CWE78_OS_Command_Injection-wchar_t.json": "ac7c0a5694b303dfe61317a7b54b82dc0d9b17e2d143ceb2c9d0ed5917361bc0"
+  },
+  "pilot_control_counts": {
+    "danger": 1,
+    "literal": 0,
+    "same_name_safe": 0,
+    "overload_safe": 0,
+    "abi_danger": 1,
+    "abi_safe": 0
+  },
+  "zlib_selected_direct_calls": [
+    {
+      "site": 46,
+      "matched": true
+    },
+    {
+      "site": 67,
+      "matched": true
+    },
+    {
+      "site": 95,
+      "matched": true
+    },
+    {
+      "site": 117,
+      "matched": true
+    },
+    {
+      "site": 197,
+      "matched": true
+    },
+    {
+      "site": 237,
+      "matched": true
+    },
+    {
+      "site": 252,
+      "matched": true
+    }
+  ],
+  "review_closed": [
+    "M1 qualified using source/sink",
+    "single-line functions entry selection",
+    "nested user std prototype identity",
+    "header sequential AST exports",
+    "header initialization failure cleanup"
+  ],
+  "release_status": "development only; mixed CLI and complete system-header handling pending",
+  "limitations": [
+    "c-cpp CLI integration pending",
+    "full system-header input remains 2006 parse diagnostics",
+    "zlib direct-call check uses project-header view, omits system bodies",
+    "no full C++ classes/references/virtual/STL semantics claimed"
+  ],
+  "lint": {
+    "cpp_analyzer_errors": 0,
+    "cpp_analyzer_warnings": 4,
+    "whole_repository_lint": "not clean; existing starter lint errors recorded in verification/eslint.log"
+  }
+}

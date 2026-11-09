@@ -1,0 +1,86 @@
+{
+  "date": "2026-11-09",
+  "status": "experimental_checkpoint",
+  "releaseReady": false,
+  "knownBlocker": "Full zlib dataflow analysis exhausts the heap; no verified memory fix applied",
+  "userDecision": "Merge today's checkpoint into main; continue later improvements separately; no version tag or release",
+  "components": {
+    "engine": "b4d0eca",
+    "uast": "faf1bea"
+  },
+  "freshPreMergeVerification": {
+    "parserC": 79,
+    "parserCPP": 27,
+    "engineCAndCPP": 163,
+    "familyIncludingLanguageCases": 87,
+    "typecheckPassed": true,
+    "date": "2026-11-09"
+  },
+  "frozenMixed": {
+    "TP": 13,
+    "FN": 0,
+    "TN": 13,
+    "FP": 0
+  },
+  "failureConformance": {
+    "expected": 1,
+    "passed": 1,
+    "failed": 0
+  },
+  "legacyC": {
+    "engineTests": 112,
+    "sast": {
+      "TP": 110,
+      "FN": 0,
+      "TN": 54,
+      "FP": 0
+    },
+    "uastSnapshotsUnchanged": 2451,
+    "julietGroups": 4,
+    "julietCases": 6080,
+    "julietBatches": 16,
+    "allScoreObjectsUnchanged": true,
+    "curlStrict": {
+      "TP": 7453,
+      "FP": 0,
+      "FN": 57
+    },
+    "curlFullAstTP": 6877,
+    "curlCallbacks": "25/25",
+    "allCurlScoreObjectsUnchanged": true
+  },
+  "legacyCPP": {
+    "engineTestsIncludingLanguageCases": 62,
+    "julietGroups": 8,
+    "julietCases": 1700,
+    "julietBatches": 10,
+    "allScoreObjectsUnchanged": true
+  },
+  "rawEvidence": {
+    "preservedLocally": true,
+    "regularFilesVerified": 25197,
+    "bytesVerified": 3015159618,
+    "artifact": "完整原始证据.tar.gz",
+    "note": "Existing baselines and original results retained; archive deliberately kept outside Git history"
+  },
+  "capabilityLimits": [
+    "Explicit --language c-cpp opt-in",
+    "Actual Clang required; GCC metadata not implemented",
+    "Unsupported required object/template/reference semantics are partial",
+    "No general real-project vulnerability accuracy claim"
+  ],
+  "componentPullRequests": {
+    "uast": {
+      "url": "https://github.com/JarvisDing-sdu/yasa-uast/pull/5",
+      "state": "MERGED",
+      "mergeCommit": "d44c61e825814ca8fe4a97b2552b82151a4c3f58",
+      "mergedAt": "2026-11-09T07:14:03Z"
+    },
+    "engine": {
+      "url": "https://github.com/JarvisDing-sdu/yasa-engine/pull/6",
+      "state": "MERGED",
+      "mergeCommit": "6916f747a535124b3268114fb28747e5e5cdef72",
+      "mergedAt": "2026-11-09T07:15:13Z"
+    }
+  }
+}
