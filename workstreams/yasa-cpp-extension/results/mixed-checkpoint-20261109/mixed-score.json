@@ -1,0 +1,227 @@
+{
+  "schema": 1,
+  "formalPassed": true,
+  "denominator": {
+    "positive": 13,
+    "negative": 13,
+    "failure": 1
+  },
+  "totals": {
+    "TP": 13,
+    "FN": 0,
+    "TN": 13,
+    "FP": 0
+  },
+  "failedNormalCases": 0,
+  "failedNegativeCases": 0,
+  "failureConformance": {
+    "expected": 1,
+    "passed": 1,
+    "failed": 0
+  },
+  "integrityErrors": [],
+  "cases": [
+    {
+      "goldName": "cpp_to_c_T",
+      "expected": "finding",
+      "outcome": "TP",
+      "findingCount": 1,
+      "errors": []
+    },
+    {
+      "goldName": "c_to_cpp_T",
+      "expected": "finding",
+      "outcome": "TP",
+      "findingCount": 1,
+      "errors": []
+    },
+    {
+      "goldName": "cross_language_return_T",
+      "expected": "finding",
+      "outcome": "TP",
+      "findingCount": 1,
+      "errors": []
+    },
+    {
+      "goldName": "pointer_writeback_T",
+      "expected": "finding",
+      "outcome": "TP",
+      "findingCount": 1,
+      "errors": []
+    },
+    {
+      "goldName": "c_registers_cpp_callback_T",
+      "expected": "finding",
+      "outcome": "TP",
+      "findingCount": 1,
+      "errors": []
+    },
+    {
+      "goldName": "namespace_extern_c_T",
+      "expected": "finding",
+      "outcome": "TP",
+      "findingCount": 1,
+      "errors": []
+    },
+    {
+      "goldName": "inherited_extern_c_T",
+      "expected": "finding",
+      "outcome": "TP",
+      "findingCount": 1,
+      "errors": []
+    },
+    {
+      "goldName": "cpp_same_name_distinct_from_c_abi_T",
+      "expected": "finding",
+      "outcome": "TP",
+      "findingCount": 1,
+      "errors": []
+    },
+    {
+      "goldName": "separate_domains_same_names_T",
+      "expected": "finding",
+      "outcome": "TP",
+      "findingCount": 1,
+      "errors": []
+    },
+    {
+      "goldName": "header_macro_c_and_cpp_T",
+      "expected": "finding",
+      "outcome": "TP",
+      "findingCount": 1,
+      "errors": []
+    },
+    {
+      "goldName": "static_and_anonymous_per_tu_T",
+      "expected": "finding",
+      "outcome": "TP",
+      "findingCount": 1,
+      "errors": []
+    },
+    {
+      "goldName": "external_inline_shared_static_T",
+      "expected": "finding",
+      "outcome": "TP",
+      "findingCount": 1,
+      "errors": []
+    },
+    {
+      "goldName": "internal_staticinline_separation_T",
+      "expected": "finding",
+      "outcome": "TP",
+      "findingCount": 1,
+      "errors": []
+    },
+    {
+      "goldName": "cpp_to_c_F",
+      "expected": "clean",
+      "outcome": "TN",
+      "findingCount": 0,
+      "errors": []
+    },
+    {
+      "goldName": "c_to_cpp_F",
+      "expected": "clean",
+      "outcome": "TN",
+      "findingCount": 0,
+      "errors": []
+    },
+    {
+      "goldName": "cross_language_return_F",
+      "expected": "clean",
+      "outcome": "TN",
+      "findingCount": 0,
+      "errors": []
+    },
+    {
+      "goldName": "pointer_writeback_F",
+      "expected": "clean",
+      "outcome": "TN",
+      "findingCount": 0,
+      "errors": []
+    },
+    {
+      "goldName": "c_registers_cpp_callback_F",
+      "expected": "clean",
+      "outcome": "TN",
+      "findingCount": 0,
+      "errors": []
+    },
+    {
+      "goldName": "namespace_extern_c_F",
+      "expected": "clean",
+      "outcome": "TN",
+      "findingCount": 0,
+      "errors": []
+    },
+    {
+      "goldName": "inherited_extern_c_F",
+      "expected": "clean",
+      "outcome": "TN",
+      "findingCount": 0,
+      "errors": []
+    },
+    {
+      "goldName": "cpp_same_name_distinct_from_c_abi_F",
+      "expected": "clean",
+      "outcome": "TN",
+      "findingCount": 0,
+      "errors": []
+    },
+    {
+      "goldName": "separate_domains_same_names_F",
+      "expected": "clean",
+      "outcome": "TN",
+      "findingCount": 0,
+      "errors": []
+    },
+    {
+      "goldName": "header_macro_c_and_cpp_F",
+      "expected": "clean",
+      "outcome": "TN",
+      "findingCount": 0,
+      "errors": []
+    },
+    {
+      "goldName": "static_and_anonymous_per_tu_F",
+      "expected": "clean",
+      "outcome": "TN",
+      "findingCount": 0,
+      "errors": []
+    },
+    {
+      "goldName": "external_inline_shared_static_F",
+      "expected": "clean",
+      "outcome": "TN",
+      "findingCount": 0,
+      "errors": []
+    },
+    {
+      "goldName": "internal_staticinline_separation_F",
+      "expected": "clean",
+      "outcome": "TN",
+      "findingCount": 0,
+      "errors": []
+    },
+    {
+      "goldName": "missing_generated_header",
+      "expected": "failure",
+      "outcome": "EXPECTED_FAILURE",
+      "findingCount": 0,
+      "errors": []
+    }
+  ],
+  "usage": {
+    "elapsedSeconds": 31.853249,
+    "childUserSeconds": 35.675895,
+    "childSystemSeconds": 6.538163,
+    "childMaxRss": 445448192,
+    "maxRssUnit": "bytes",
+    "maxRssMeaning": "OS child-process high-water mark; not aggregate concurrent memory"
+  },
+  "partial": false,
+  "limits": [
+    "Checksums detect corruption; they do not authenticate a wholly replaced archive.",
+    "Synthetic fixture acceptance does not measure real-project recall."
+  ]
+}

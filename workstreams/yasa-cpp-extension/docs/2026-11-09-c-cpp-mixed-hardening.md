@@ -1,6 +1,6 @@
 # C/C++ 混合扫描完善记录（2026-11-09）
 
-当前为本地开发分支 `feat/c-cpp-scan`，只有验收通过后才发布。原 C、C++ 模式和历史基线保持独立；本次结果不能替代原始基线。
+开发分支为 `feat/c-cpp-scan`。用户在本轮结束时明确授权将今天的检查点提交到 GitHub 并合并主分支，后续改进以后继续；这不代表混合扫描正式发布达标。原 C、C++ 模式和历史基线保持独立；本次结果不能替代原始基线。
 
 ## 实现范围
 
@@ -60,4 +60,12 @@ Engine本地检查点为 `b4d0eca`（实现 `177754d`），UAST为 `faf1bea`。�
 
 发布门槛仍未通过：真实zlib全数据流在现有堆限额内未完成。三次受限分配诊断均保留，未找到可验证的保留根；强引用试验也不能确立根因，未采用任何共享内存策略修改。下一步应保留当前local symbol table在指令边界采集真正的堆保留路径，再给出保持污点、别名、分支和trace语义的红测及最小修复。不得把清理入口状态后的GC下降冒充内存问题已解决。
 
-所有正式失败、诊断终止和成功结果单独保留，校验值及归档在本轮outputs目录。仅保存本地开发分支；没有推送、合并或发布混合功能。原feat/c-family-foundation分支和所有基线保留。
+所有正式失败、诊断终止和成功结果单独保留，校验值及归档在本轮outputs目录。根据用户最新授权，今天的检查点提交 GitHub 并按 UAST → Engine → 集成仓库的顺序合并 main；不创建版本标签或正式 release，不宣称 OOM 已解决。原 feat/c-family-foundation 分支和所有基线保留。
+
+## 合并前再次验证
+
+在用户实际项目目录重新运行：parser-C79、parser-CPP27、现有C/CPP Engine163、混合相关87项通过，TypeScript通过。完整历史基线结果不重写；简明结果随 `results/mixed-checkpoint-20261109` 提交。原始证据的25,197文件、3,015,159,618字节已从压缩归档逐项校验。
+
+## 组件主分支引用
+
+UAST PR #5：https://github.com/JarvisDing-sdu/yasa-uast/pull/5；Engine PR #6：https://github.com/JarvisDing-sdu/yasa-engine/pull/6。两者 CI 通过后合并，实际 merge commit 见 `results/mixed-checkpoint-20261109/summary.json`；集成仓库 pin 对应主分支合并提交。保留原始测试提交和开发分支，便于复核。
