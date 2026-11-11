@@ -115,4 +115,32 @@ Yasa 回调修复按结构体类型与字段汇总候选，提升召回也增加
 
 示例：`include/spdlog/fmt/bundled/base.h` 的诊断出现在 `FMT_PRAGMA_CLANG(...)`、`FMT_PRAGMA_GCC(...)`、模板别名及 `FMT_API` 附近；仅根据位置不能证明每一处都是宏导致。后续应在固定编译配置下缩小样例，并比较编译器预处理和 parser 的宏处理结果，避免直接删除宏或排除分支造成漏解析。
 
-针对头文件处理增加确定分支上的 `#pragma once` 支持、循环包含集合与宏替换快路径；未知分支采用保守重分析，不声称完整建模所有条件路径。测试：parser-C 91 项、parser-CPP 43 项通过。指定 spdlog include 路径的完整导出在 600 秒上限后退出 124，未完成；此前超过一小时的尝试也未完成，因此目前不能声称头文件性能已解决。代码未提交。
+针对头文件处理增加确定分支上的 `#pragma once` 支持、循环包含集合与宏替换快路径；未知分支采用保守重分析，不声称完整建模所有条件路径。测试：parser-C 91 项、parser-CPP 43 项通过。指定 spdlog include 路径的完整导出在 600 秒上限后退出 124，未完成；此前超过一小时的尝试也未完成，因此目前不能声称头文件性能已解决。相关 parser 代码已提交于 UAST `1b87787`。
+
+### C 根级错误：隔离研究（2026-11-11）
+
+研究阶段只在 `/tmp/yasa-c-grammar-experiment` 中修改和构建实验语法；随后已集成位域部分，四个文件的根级错误仍未修复。底层基线为 `tree-sitter-c` 0.23.6，实验用 tree-sitter-cli 0.25.10 和本机 Docker 中的 Emscripten 4.0.4 生成 WASM。两版通过相同 `parseWithParser` 调用和配置比较。
+
+- 条件编译：`int a[] = { 1,\n#ifdef FEATURE\n2,\n#endif\n3 };`（此处 `\n` 表示换行）在 `unknownMacros: cover` 下报告 `#ifdef` 和 `#endif` 两处语法错误；FEATURE 的配置已知时能选择相应分支。默认保留未知分支时，不能仅靠选定一个分支来声称解析了所有配置。Redis 的 `deps/tre/lib/tre-parse.c` 包含类似结构。
+- 匿名位域：合法代码 `struct S { int :32; };` 在现有语法中报错。实验将语法的 `_field_declaration_declarator` 扩展为允许单独的 `bitfield_clause`，最小例子不再报语法错误。但现有 visitor 对没有声明名的位域返回 `Noop`，还需要设计并验证位宽在 UAST 的表示，不能把零语法错误等同于完整翻译。
+- 对已有 GCC 预处理文件复测（并非 `dumpAllAST` 端到端结果）：curl OpenSSL 从 13 个诊断降至 2 个，jemalloc log 从 12 个降至 1 个。剩余的 curl 诊断是 `__attribute__((fallthrough))`，jemalloc 诊断位于 `__builtin_va_arg(ap,const char *)`。这些预处理输入位于 `/tmp/yasa-curl-openssl.i` 和 `/tmp/yasa-jemalloc-log.i`，为之前实验生成的临时文件；本次未重建，不能据此断言它们代表所有构建配置。
+- 对四个未预处理原始文件使用默认配置复测，实验语法未改变结果：Redis tre `ERROR/28`、jemalloc log `ERROR/30`，curl OpenSSL `ERROR/50`，SQLite os_win `ERROR/114`（格式为 Tree-sitter 原始根类型/诊断数）。因此匿名位域修改本身不解决当前四个根级错误。
+
+位域实验语法的核心改动如下（随后已集成并进行下述验证）：
+
+```js
+_field_declaration_declarator: $ => commaSep1(choice(
+  seq(field('declarator', $._field_declarator), optional($.bitfield_clause)),
+  $.bitfield_clause,
+)),
+```
+
+随后对位域的 UAST 表示、语法 WASM 的维护及 C/C++ 回归与 `dumpAllAST` 做了下述验证；条件分支表示仍待解决。
+
+### C 位域修复与 dump 验证（2026-11-11）
+
+C parser 已集成本地 C 语法的匿名位域规则，并在 UAST 元数据中保留匿名及命名位域的位宽；匿名位域不计入结构体初始化成员。语法来源、许可证与重新生成方式记录在 `uast/parser-C/grammar/README.md`。C 单测 92 项、C++ 单测 43 项通过。
+
+使用 Engine `--dumpAllAST` 测试了一个位域小样本和上述四个真实项目文件，均产生输出：位域小样本零语法诊断且含位域信息；四个真实文件仍分别为根 `ERROR`，诊断数 28、30、50、114。因此这项修复改善的是位域处理，并未解决四个原始文件的根级错误。已有 GCC 预处理文件用正式集成的 parser 复测为 curl 2 个诊断、jemalloc 1 个诊断。此次只验证五个文件，并未重新全量测试三个项目。
+
+条件编译的实验语法可使带 `#ifdef/#else` 的初始化列表语法通过，但现有 UAST 转换会将两条分支当作一个顺序数组项，后续元素的下标可能错误；该实验未集成，需要先设计能够保留各分支及其各自位置的表示。
