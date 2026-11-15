@@ -1,0 +1,26 @@
+[
+  {
+    "sample": "curl-altsvc",
+    "original_bytes": 19580843,
+    "compact_bytes": 10212561,
+    "compact_seconds": 0.09164608299999998,
+    "two_pass_pretty_seconds": 0.819346998,
+    "one_pass_compact_seconds": 0.2985566450000001,
+    "metadata_expected": "b8df9a701dc6cb5ecd87078b9edb9d6c62abea5affb68eb855cc2fe393113db3",
+    "metadata_actual": "b8df9a701dc6cb5ecd87078b9edb9d6c62abea5affb68eb855cc2fe393113db3",
+    "uast_expected": "a665690fc742f9dd55913673f4f2217e63b7a83a3dcef13e913795db0193b074",
+    "uast_actual": "a665690fc742f9dd55913673f4f2217e63b7a83a3dcef13e913795db0193b074"
+  },
+  {
+    "sample": "spdlog-async",
+    "original_bytes": 319960528,
+    "compact_bytes": 116573788,
+    "compact_seconds": 0.9569356970000001,
+    "two_pass_pretty_seconds": 8.032479518,
+    "one_pass_compact_seconds": 2.9643914619999996,
+    "metadata_expected": "89dd0b198cdbf87982bc95e58fd36f22cff0324b2d060c9e9568429e2a428a0d",
+    "metadata_actual": "89dd0b198cdbf87982bc95e58fd36f22cff0324b2d060c9e9568429e2a428a0d",
+    "uast_expected": "b1e42843e156c85cdcc3039007841504103cbad381977c0d7f0404866acff471",
+    "uast_actual": "b1e42843e156c85cdcc3039007841504103cbad381977c0d7f0404866acff471"
+  }
+]

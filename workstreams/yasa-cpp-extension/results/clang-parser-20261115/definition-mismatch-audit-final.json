@@ -1,0 +1,178 @@
+{
+  "counts": {
+    "template_declaration_start_line": 7,
+    "duplicate_reference_entity": 6
+  },
+  "frozen_matching_rule_preserved": true,
+  "records": [
+    {
+      "source": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/src/spdlog.cpp",
+      "reference": {
+        "file": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+        "line": 3816,
+        "name": "format",
+        "kind": "FUNCTION_TEMPLATE",
+        "end": 3827,
+        "usr": "c:@N@fmt@N@v12@N@detail@ST>3#T#T#N$@N@fmt@N@v12@N@detail@E@type@native_formatter@FT@>1#Tformat#&1t0.0#&t1.0# #1"
+      },
+      "classification": "template_declaration_start_line",
+      "already_matched_same_usr": 0
+    },
+    {
+      "source": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/src/stdout_sinks.cpp",
+      "reference": {
+        "file": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/base.h",
+        "line": 1630,
+        "name": "on_index",
+        "kind": "CXX_METHOD",
+        "end": 1630,
+        "usr": "c:@N@fmt@N@v12@N@detail@FT@>2#T#Tparse_replacement_field#*1t0.0#S0_#&&t0.1#S0_#@S@id_adapter@F@on_index#I#"
+      },
+      "classification": "duplicate_reference_entity",
+      "already_matched_same_usr": 1
+    },
+    {
+      "source": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/src/stdout_sinks.cpp",
+      "reference": {
+        "file": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/base.h",
+        "line": 1631,
+        "name": "on_name",
+        "kind": "CXX_METHOD",
+        "end": 1633,
+        "usr": "c:@N@fmt@N@v12@N@detail@FT@>2#T#Tparse_replacement_field#*1t0.0#S0_#&&t0.1#S0_#@S@id_adapter@F@on_name#>@N@fmt@N@v12@ST>1#T@basic_string_view1S1_#"
+      },
+      "classification": "duplicate_reference_entity",
+      "already_matched_same_usr": 1
+    },
+    {
+      "source": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/src/stdout_sinks.cpp",
+      "reference": {
+        "file": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+        "line": 3816,
+        "name": "format",
+        "kind": "FUNCTION_TEMPLATE",
+        "end": 3827,
+        "usr": "c:@N@fmt@N@v12@N@detail@ST>3#T#T#N$@N@fmt@N@v12@N@detail@E@type@native_formatter@FT@>1#Tformat#&1t0.0#&t1.0# #1"
+      },
+      "classification": "template_declaration_start_line",
+      "already_matched_same_usr": 0
+    },
+    {
+      "source": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/src/color_sinks.cpp",
+      "reference": {
+        "file": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/base.h",
+        "line": 1630,
+        "name": "on_index",
+        "kind": "CXX_METHOD",
+        "end": 1630,
+        "usr": "c:@N@fmt@N@v12@N@detail@FT@>2#T#Tparse_replacement_field#*1t0.0#S0_#&&t0.1#S0_#@S@id_adapter@F@on_index#I#"
+      },
+      "classification": "duplicate_reference_entity",
+      "already_matched_same_usr": 1
+    },
+    {
+      "source": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/src/color_sinks.cpp",
+      "reference": {
+        "file": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/base.h",
+        "line": 1631,
+        "name": "on_name",
+        "kind": "CXX_METHOD",
+        "end": 1633,
+        "usr": "c:@N@fmt@N@v12@N@detail@FT@>2#T#Tparse_replacement_field#*1t0.0#S0_#&&t0.1#S0_#@S@id_adapter@F@on_name#>@N@fmt@N@v12@ST>1#T@basic_string_view1S1_#"
+      },
+      "classification": "duplicate_reference_entity",
+      "already_matched_same_usr": 1
+    },
+    {
+      "source": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/src/color_sinks.cpp",
+      "reference": {
+        "file": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+        "line": 3816,
+        "name": "format",
+        "kind": "FUNCTION_TEMPLATE",
+        "end": 3827,
+        "usr": "c:@N@fmt@N@v12@N@detail@ST>3#T#T#N$@N@fmt@N@v12@N@detail@E@type@native_formatter@FT@>1#Tformat#&1t0.0#&t1.0# #1"
+      },
+      "classification": "template_declaration_start_line",
+      "already_matched_same_usr": 0
+    },
+    {
+      "source": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/src/file_sinks.cpp",
+      "reference": {
+        "file": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+        "line": 3816,
+        "name": "format",
+        "kind": "FUNCTION_TEMPLATE",
+        "end": 3827,
+        "usr": "c:@N@fmt@N@v12@N@detail@ST>3#T#T#N$@N@fmt@N@v12@N@detail@E@type@native_formatter@FT@>1#Tformat#&1t0.0#&t1.0# #1"
+      },
+      "classification": "template_declaration_start_line",
+      "already_matched_same_usr": 0
+    },
+    {
+      "source": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/src/async.cpp",
+      "reference": {
+        "file": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+        "line": 3816,
+        "name": "format",
+        "kind": "FUNCTION_TEMPLATE",
+        "end": 3827,
+        "usr": "c:@N@fmt@N@v12@N@detail@ST>3#T#T#N$@N@fmt@N@v12@N@detail@E@type@native_formatter@FT@>1#Tformat#&1t0.0#&t1.0# #1"
+      },
+      "classification": "template_declaration_start_line",
+      "already_matched_same_usr": 0
+    },
+    {
+      "source": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/src/cfg.cpp",
+      "reference": {
+        "file": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/base.h",
+        "line": 1630,
+        "name": "on_index",
+        "kind": "CXX_METHOD",
+        "end": 1630,
+        "usr": "c:@N@fmt@N@v12@N@detail@FT@>2#T#Tparse_replacement_field#*1t0.0#S0_#&&t0.1#S0_#@S@id_adapter@F@on_index#I#"
+      },
+      "classification": "duplicate_reference_entity",
+      "already_matched_same_usr": 1
+    },
+    {
+      "source": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/src/cfg.cpp",
+      "reference": {
+        "file": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/base.h",
+        "line": 1631,
+        "name": "on_name",
+        "kind": "CXX_METHOD",
+        "end": 1633,
+        "usr": "c:@N@fmt@N@v12@N@detail@FT@>2#T#Tparse_replacement_field#*1t0.0#S0_#&&t0.1#S0_#@S@id_adapter@F@on_name#>@N@fmt@N@v12@ST>1#T@basic_string_view1S1_#"
+      },
+      "classification": "duplicate_reference_entity",
+      "already_matched_same_usr": 1
+    },
+    {
+      "source": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/src/cfg.cpp",
+      "reference": {
+        "file": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+        "line": 3816,
+        "name": "format",
+        "kind": "FUNCTION_TEMPLATE",
+        "end": 3827,
+        "usr": "c:@N@fmt@N@v12@N@detail@ST>3#T#T#N$@N@fmt@N@v12@N@detail@E@type@native_formatter@FT@>1#Tformat#&1t0.0#&t1.0# #1"
+      },
+      "classification": "template_declaration_start_line",
+      "already_matched_same_usr": 0
+    },
+    {
+      "source": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/src/bundled_fmtlib_format.cpp",
+      "reference": {
+        "file": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+        "line": 3816,
+        "name": "format",
+        "kind": "FUNCTION_TEMPLATE",
+        "end": 3827,
+        "usr": "c:@N@fmt@N@v12@N@detail@ST>3#T#T#N$@N@fmt@N@v12@N@detail@E@type@native_formatter@FT@>1#Tformat#&1t0.0#&t1.0# #1"
+      },
+      "classification": "template_declaration_start_line",
+      "already_matched_same_usr": 0
+    }
+  ]
+}

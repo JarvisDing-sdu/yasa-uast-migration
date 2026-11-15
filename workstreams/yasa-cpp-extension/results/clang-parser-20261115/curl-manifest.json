@@ -1,0 +1,2204 @@
+{
+  "compilationDatabase": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-session-45min-20261115/curl-static-compile.json",
+  "sourcePath": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl",
+  "language": "c",
+  "astBackend": "clang",
+  "coverage": "compilation_database_entries",
+  "total": 196,
+  "completed": 196,
+  "results": [
+    {
+      "entryId": "0384477c3c8f96f899ae0a7d88af0202a9ad5638752ad880ff7a22a77e4330e5",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/altsvc.c",
+      "output": "0384477c3c8f96f899ae0a7d88af0202a9ad5638752ad880ff7a22a77e4330e5.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 853
+    },
+    {
+      "entryId": "7ee4967dee3afa191e5b4ce2ead2045a62981d865c809439c71a06532405da06",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/amigaos.c",
+      "output": "7ee4967dee3afa191e5b4ce2ead2045a62981d865c809439c71a06532405da06.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 425
+    },
+    {
+      "entryId": "979e60cd5769ea8a1fb6eede1a27d5d806118817c4baf25f660a39be6f2a821f",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/api.c",
+      "output": "979e60cd5769ea8a1fb6eede1a27d5d806118817c4baf25f660a39be6f2a821f.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 688
+    },
+    {
+      "entryId": "dd8142d9cee3f355817b1b7f67e750f02f34e06c2994d8c8e693f9bb3d6b2c80",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/bufq.c",
+      "output": "dd8142d9cee3f355817b1b7f67e750f02f34e06c2994d8c8e693f9bb3d6b2c80.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 460
+    },
+    {
+      "entryId": "67147be5012248d17903d234e7e507ad38294c6294f216dca33b91a5b78ea643",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/bufref.c",
+      "output": "67147be5012248d17903d234e7e507ad38294c6294f216dca33b91a5b78ea643.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 588
+    },
+    {
+      "entryId": "f7c318a27f8bec587526f56d5b9e48557e5c11099917bec0b9fee97f72e25838",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/cf-h1-proxy.c",
+      "output": "f7c318a27f8bec587526f56d5b9e48557e5c11099917bec0b9fee97f72e25838.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 763
+    },
+    {
+      "entryId": "161b22debe79af22d020d3af5ff01ed21790747be1e2807bd0b3869cec522493",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/cf-h2-proxy.c",
+      "output": "161b22debe79af22d020d3af5ff01ed21790747be1e2807bd0b3869cec522493.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 419
+    },
+    {
+      "entryId": "0802d189ff093fd6916cf1dd744dcf80093ea99e3333636c76b58696bfe25fc9",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/cf-haproxy.c",
+      "output": "0802d189ff093fd6916cf1dd744dcf80093ea99e3333636c76b58696bfe25fc9.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 620
+    },
+    {
+      "entryId": "e81a5f284f74a263f7e67b852503f82ab46da40390b8254e8f811b4e28de21de",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/cf-https-connect.c",
+      "output": "e81a5f284f74a263f7e67b852503f82ab46da40390b8254e8f811b4e28de21de.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 713
+    },
+    {
+      "entryId": "a2c306d0ca55a44b1b8052ff9eb108bb24854c99b35dfb929219b791e2d4a573",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/cf-ip-happy.c",
+      "output": "a2c306d0ca55a44b1b8052ff9eb108bb24854c99b35dfb929219b791e2d4a573.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3,
+        "goto_control_flow": 3
+      },
+      "milliseconds": 844
+    },
+    {
+      "entryId": "870e86c36560345303a8a63c778e7682d86bb2059d7b492ff4454eae7f7be81a",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/cf-recvbuf.c",
+      "output": "870e86c36560345303a8a63c778e7682d86bb2059d7b492ff4454eae7f7be81a.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 621
+    },
+    {
+      "entryId": "c7a0f1e04f51b11e3df23152a80b310250bcb597fd39c846e126dc29e3f6f0b7",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/cf-setup.c",
+      "output": "c7a0f1e04f51b11e3df23152a80b310250bcb597fd39c846e126dc29e3f6f0b7.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3,
+        "goto_control_flow": 7
+      },
+      "milliseconds": 673
+    },
+    {
+      "entryId": "e2c6c7a75f5b7896a134ad7d9694acbb976d87b643a6a694c06f14b34e9fd8ac",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/cf-socket.c",
+      "output": "e2c6c7a75f5b7896a134ad7d9694acbb976d87b643a6a694c06f14b34e9fd8ac.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3,
+        "StmtExpr": 2,
+        "CompoundLiteralExpr": 7
+      },
+      "milliseconds": 953
+    },
+    {
+      "entryId": "142933ca39dd3ebb29f47c8154af02034399335f16f08b7bfecf473bb26b5e7c",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/cfilters.c",
+      "output": "142933ca39dd3ebb29f47c8154af02034399335f16f08b7bfecf473bb26b5e7c.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 738
+    },
+    {
+      "entryId": "8fb7aa359b357c0466591c45f8e5c3508c3896ac7bac86ba344dffe3e162e551",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/conncache.c",
+      "output": "8fb7aa359b357c0466591c45f8e5c3508c3896ac7bac86ba344dffe3e162e551.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 831
+    },
+    {
+      "entryId": "3f58179b4ff2c40be5d706db2483f704c1b9bcc36462d51be5bad28039cabec1",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/connect.c",
+      "output": "3f58179b4ff2c40be5d706db2483f704c1b9bcc36462d51be5bad28039cabec1.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 625
+    },
+    {
+      "entryId": "bdb9cc3a47c7bfb14d1a6fd72a6e463fd4a1edbc33cb78c57804f0b782b90140",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/content_encoding.c",
+      "output": "bdb9cc3a47c7bfb14d1a6fd72a6e463fd4a1edbc33cb78c57804f0b782b90140.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 637
+    },
+    {
+      "entryId": "692bb7570cdccaad0c5775d9297444cc381c7185e1e680d61694bf24264957cf",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/cookie.c",
+      "output": "692bb7570cdccaad0c5775d9297444cc381c7185e1e680d61694bf24264957cf.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 726
+    },
+    {
+      "entryId": "bc4acfa6e9b54fbf0e82dde3bdf75e03c495bfd9cdba4460c46c0b38a7dae042",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/creds.c",
+      "output": "bc4acfa6e9b54fbf0e82dde3bdf75e03c495bfd9cdba4460c46c0b38a7dae042.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3,
+        "OffsetOfExpr": 1
+      },
+      "milliseconds": 587
+    },
+    {
+      "entryId": "094733709ea79a1f0f77d70b2b04f789b16272d64e3ac368806a4f0d31fcb002",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/cshutdn.c",
+      "output": "094733709ea79a1f0f77d70b2b04f789b16272d64e3ac368806a4f0d31fcb002.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 687
+    },
+    {
+      "entryId": "83dd3017e7883c7fc49a08fb7694529e78bcc6320d193165289ab37968aaa092",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/curl_addrinfo.c",
+      "output": "83dd3017e7883c7fc49a08fb7694529e78bcc6320d193165289ab37968aaa092.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "OffsetOfExpr": 1
+      },
+      "milliseconds": 486
+    },
+    {
+      "entryId": "7d7c10586752b3457e3a0894441ee482041aa7f42858393a008ea37445c8959b",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/curl_endian.c",
+      "output": "7d7c10586752b3457e3a0894441ee482041aa7f42858393a008ea37445c8959b.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 384
+    },
+    {
+      "entryId": "425a47a3435204d7beb9658fb548a984612c92bf513e9080ac6ff70c18047935",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/curl_fnmatch.c",
+      "output": "425a47a3435204d7beb9658fb548a984612c92bf513e9080ac6ff70c18047935.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 382
+    },
+    {
+      "entryId": "8ea9e4df20e54d260997a6a68dbc9570572c439130ec054c60ca7c637cd7fb8b",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/curl_fopen.c",
+      "output": "8ea9e4df20e54d260997a6a68dbc9570572c439130ec054c60ca7c637cd7fb8b.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 579
+    },
+    {
+      "entryId": "fa51bd0a10eb10724150bef662a4d97e38c2fd0ed22ed2dee14879b62a3875f5",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/curl_get_line.c",
+      "output": "fa51bd0a10eb10724150bef662a4d97e38c2fd0ed22ed2dee14879b62a3875f5.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 384
+    },
+    {
+      "entryId": "f03f5240f6fdf46b8a4119f125e267c7144a9f63a92faff02976329ae3bd5292",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/curl_gethostname.c",
+      "output": "f03f5240f6fdf46b8a4119f125e267c7144a9f63a92faff02976329ae3bd5292.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 379
+    },
+    {
+      "entryId": "0e0eeeea4f8294ade9f0a39c0450b59ffa4ef74d1a332ac330a41125a4326178",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/curl_gssapi.c",
+      "output": "0e0eeeea4f8294ade9f0a39c0450b59ffa4ef74d1a332ac330a41125a4326178.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 386
+    },
+    {
+      "entryId": "ded5770da6d8b2e136648d6e39a39cd18e894460fbb8c67fb9f670dfaff77394",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/curl_memrchr.c",
+      "output": "ded5770da6d8b2e136648d6e39a39cd18e894460fbb8c67fb9f670dfaff77394.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 387
+    },
+    {
+      "entryId": "57eb05e62b8387ba8049796eadac23090bfa41774389e9deb12d7d21cf591700",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/curl_ntlm_core.c",
+      "output": "57eb05e62b8387ba8049796eadac23090bfa41774389e9deb12d7d21cf591700.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 389
+    },
+    {
+      "entryId": "ac377b4db3224b0ea70fbff1d25e3e17fe70eb2a467271e83974f5f70887955b",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/curl_range.c",
+      "output": "ac377b4db3224b0ea70fbff1d25e3e17fe70eb2a467271e83974f5f70887955b.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 591
+    },
+    {
+      "entryId": "e59ef0f49aa6cc11fc46f323915698d58d29baad194d01d5b51a33561515c5e7",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/curl_sasl.c",
+      "output": "e59ef0f49aa6cc11fc46f323915698d58d29baad194d01d5b51a33561515c5e7.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 662
+    },
+    {
+      "entryId": "e26cc75f0224166b0b7e7daede57c510d9c89d9a341f1b8ae47c2381219dcbda",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/curl_sha512_256.c",
+      "output": "e26cc75f0224166b0b7e7daede57c510d9c89d9a341f1b8ae47c2381219dcbda.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 619
+    },
+    {
+      "entryId": "26f9b8d2aae71282bdce7eb69ec505cf059848912d9273dfe2f5bb3de0a81537",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/curl_share.c",
+      "output": "26f9b8d2aae71282bdce7eb69ec505cf059848912d9273dfe2f5bb3de0a81537.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3,
+        "VAArgExpr": 5
+      },
+      "milliseconds": 615
+    },
+    {
+      "entryId": "a7d494799e8161ff6bb89b501a72e628a0c9d9e038e48ca8ff6bfc30540b6ea8",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/curl_sspi.c",
+      "output": "a7d494799e8161ff6bb89b501a72e628a0c9d9e038e48ca8ff6bfc30540b6ea8.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 379
+    },
+    {
+      "entryId": "8a3088a645cd5004296af33f4fd49d914085fde9e2326f19f80d921493b12dd0",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/curl_threads.c",
+      "output": "8a3088a645cd5004296af33f4fd49d914085fde9e2326f19f80d921493b12dd0.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 399
+    },
+    {
+      "entryId": "b3c42867f1ed5d534cca2e2391251dd31c6f1db3af3119f4b28331dde0e6019d",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/curl_trc.c",
+      "output": "b3c42867f1ed5d534cca2e2391251dd31c6f1db3af3119f4b28331dde0e6019d.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 679
+    },
+    {
+      "entryId": "0eb01010ae53100a027d8c1b80c515e6c191f785e026474b5b28421e5a9a3372",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/cw-out.c",
+      "output": "0eb01010ae53100a027d8c1b80c515e6c191f785e026474b5b28421e5a9a3372.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 681
+    },
+    {
+      "entryId": "f24b2cc5fca0b8874a9ce1b71c6aaf390227acac3672f9bf58708ce4d213c722",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/cw-pause.c",
+      "output": "f24b2cc5fca0b8874a9ce1b71c6aaf390227acac3672f9bf58708ce4d213c722.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 628
+    },
+    {
+      "entryId": "27a28b236401dc3ad4a17c9ed56bf08cf5841a9ce8c9827b7ab4b1ec94344f92",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/dict.c",
+      "output": "27a28b236401dc3ad4a17c9ed56bf08cf5841a9ce8c9827b7ab4b1ec94344f92.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 620
+    },
+    {
+      "entryId": "d9c64815a5d98d6c5bc0b9f322e840a36ab0adef169f1510bcaff56be1368cec",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/dynhds.c",
+      "output": "d9c64815a5d98d6c5bc0b9f322e840a36ab0adef169f1510bcaff56be1368cec.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 419
+    },
+    {
+      "entryId": "c77d478de92aba16322bd5b6dbf7f33b8b62f417a22039a0404e765f6520923e",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/easy.c",
+      "output": "c77d478de92aba16322bd5b6dbf7f33b8b62f417a22039a0404e765f6520923e.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3,
+        "AtomicExpr": 3,
+        "StmtExpr": 2,
+        "VAArgExpr": 1
+      },
+      "milliseconds": 725
+    },
+    {
+      "entryId": "3e376f43c8a9639c6a21f05d43f654e07c466277fb180a57a56e4d889fe02f7a",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/easygetopt.c",
+      "output": "3e376f43c8a9639c6a21f05d43f654e07c466277fb180a57a56e4d889fe02f7a.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 378
+    },
+    {
+      "entryId": "05fad920bb9102f8ce0618c049304a0871285407592b9920f2e2eeb63090a146",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/easyoptions.c",
+      "output": "05fad920bb9102f8ce0618c049304a0871285407592b9920f2e2eeb63090a146.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 487
+    },
+    {
+      "entryId": "2a61a209258fdce2b828c1d1a57c9bd037d6fba8707eb26b5c9fb5f627d2e6c6",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/escape.c",
+      "output": "2a61a209258fdce2b828c1d1a57c9bd037d6fba8707eb26b5c9fb5f627d2e6c6.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 647
+    },
+    {
+      "entryId": "8b71af3e7cf07c182e7d3b7cfcc3f80fc72f75364e908870d57642519d6a4257",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/fake_addrinfo.c",
+      "output": "8b71af3e7cf07c182e7d3b7cfcc3f80fc72f75364e908870d57642519d6a4257.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 404
+    },
+    {
+      "entryId": "367f53c852625bfe7517870bfd07c4a4d53149407492ec5bff106cf91a6ab74c",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/file.c",
+      "output": "367f53c852625bfe7517870bfd07c4a4d53149407492ec5bff106cf91a6ab74c.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 654
+    },
+    {
+      "entryId": "636f05cc2c10e9265e10323b31471653c840bb050c01d66fa2c2d2923024b4e7",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/fileinfo.c",
+      "output": "636f05cc2c10e9265e10323b31471653c840bb050c01d66fa2c2d2923024b4e7.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 390
+    },
+    {
+      "entryId": "f4961be500726cd4e1eb2c0ef668d399b020dc14797158246b6ea66741072105",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/formdata.c",
+      "output": "f4961be500726cd4e1eb2c0ef668d399b020dc14797158246b6ea66741072105.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3,
+        "VAArgExpr": 15
+      },
+      "milliseconds": 621
+    },
+    {
+      "entryId": "3cc2e786e1791dcbd139d2f82324cd8199dab20c0c1f4292e0c04ee431aee620",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/ftp.c",
+      "output": "3cc2e786e1791dcbd139d2f82324cd8199dab20c0c1f4292e0c04ee431aee620.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3,
+        "CompoundLiteralExpr": 4
+      },
+      "milliseconds": 1177
+    },
+    {
+      "entryId": "aa1ac130d975672ce3c35a41651f4814943d01f8c158f4e7ab511d2009ba3249",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/ftplistparser.c",
+      "output": "aa1ac130d975672ce3c35a41651f4814943d01f8c158f4e7ab511d2009ba3249.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 739
+    },
+    {
+      "entryId": "6f02bd4496d5245b53452b4f85f78e4b0ec3ca218f118833d4d3e7545d78c260",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/getenv.c",
+      "output": "6f02bd4496d5245b53452b4f85f78e4b0ec3ca218f118833d4d3e7545d78c260.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 394
+    },
+    {
+      "entryId": "b172bbe52a9fb9330e602d7dd41c2674903fe0f3f2286b77d70b8d07e6bf2e7a",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/getinfo.c",
+      "output": "b172bbe52a9fb9330e602d7dd41c2674903fe0f3f2286b77d70b8d07e6bf2e7a.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3,
+        "VAArgExpr": 6
+      },
+      "milliseconds": 634
+    },
+    {
+      "entryId": "0548ead58a9d8d5883b3437325e35ffa8cc1d1bd862ee5041b505c0ec5cfcddc",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/gopher.c",
+      "output": "0548ead58a9d8d5883b3437325e35ffa8cc1d1bd862ee5041b505c0ec5cfcddc.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 612
+    },
+    {
+      "entryId": "38dc17d9def9738c2e8e972c2073f65ee52f9ccd05b17407c5ae1f70e97de6a6",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/hash.c",
+      "output": "38dc17d9def9738c2e8e972c2073f65ee52f9ccd05b17407c5ae1f70e97de6a6.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "OffsetOfExpr": 1
+      },
+      "milliseconds": 423
+    },
+    {
+      "entryId": "6f5ad92b23474440b6b3498ed995ecc2673acd455d6ae53621bcd67eb09089d0",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/headers.c",
+      "output": "6f5ad92b23474440b6b3498ed995ecc2673acd455d6ae53621bcd67eb09089d0.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 631
+    },
+    {
+      "entryId": "a0506f394bbc55c1d05911334f7fcbf8489352a31e711fb4176c79f85377bf9f",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/hmac.c",
+      "output": "a0506f394bbc55c1d05911334f7fcbf8489352a31e711fb4176c79f85377bf9f.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 433
+    },
+    {
+      "entryId": "9bbdde8047f21d084a33c6a2dc3077bc46e935d7553beb604b795b4d360abbda",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/hsts.c",
+      "output": "9bbdde8047f21d084a33c6a2dc3077bc46e935d7553beb604b795b4d360abbda.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 670
+    },
+    {
+      "entryId": "73b8ac10354e5e197e9a412368a327e51cdcdd89657a6a225f2a56cadf26a334",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/http.c",
+      "output": "73b8ac10354e5e197e9a412368a327e51cdcdd89657a6a225f2a56cadf26a334.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 1361
+    },
+    {
+      "entryId": "1706ac9e395eb09581ec0870cde9e59b0fb77dc1fb7cd76757ae4114d32dc7d2",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/http1.c",
+      "output": "1706ac9e395eb09581ec0870cde9e59b0fb77dc1fb7cd76757ae4114d32dc7d2.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 604
+    },
+    {
+      "entryId": "3bd353bff8fd5b8a73e005e1761d6d6a535179d677c600b61600b923a72b22c6",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/http2.c",
+      "output": "3bd353bff8fd5b8a73e005e1761d6d6a535179d677c600b61600b923a72b22c6.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 384
+    },
+    {
+      "entryId": "6f9765ca03cb94d12eead013ddc287adc1797bcd0e29e0a71d7045a38d03e520",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/http_aws_sigv4.c",
+      "output": "6f9765ca03cb94d12eead013ddc287adc1797bcd0e29e0a71d7045a38d03e520.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3,
+        "implicit_array_tail": 2
+      },
+      "milliseconds": 811
+    },
+    {
+      "entryId": "7d2bf1d05f3584fcbe7092a119ef4ffb51f02ed27e792f7231885324621fe095",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/http_httpsig.c",
+      "output": "7d2bf1d05f3584fcbe7092a119ef4ffb51f02ed27e792f7231885324621fe095.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 457
+    },
+    {
+      "entryId": "54daa8aee7bcb95aacbcab6e8494e855134e87d722ffbfacd74a776158ce6936",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/curl_ed25519.c",
+      "output": "54daa8aee7bcb95aacbcab6e8494e855134e87d722ffbfacd74a776158ce6936.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 414
+    },
+    {
+      "entryId": "8fe044ee043c799b1e87e6dc8bce586ec07dcf81e9bacc93135846dbf30126d7",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/http_chunks.c",
+      "output": "8fe044ee043c799b1e87e6dc8bce586ec07dcf81e9bacc93135846dbf30126d7.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 686
+    },
+    {
+      "entryId": "26f1916100fa73086008a1a6b1ee6fe8e19f36f3df5c3822b28cfd0e494587c6",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/http_digest.c",
+      "output": "26f1916100fa73086008a1a6b1ee6fe8e19f36f3df5c3822b28cfd0e494587c6.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 574
+    },
+    {
+      "entryId": "3eb9dd5236a4d61195857a6a93200267755e79277c7ea06103bf658e6ea4fb8f",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/http_negotiate.c",
+      "output": "3eb9dd5236a4d61195857a6a93200267755e79277c7ea06103bf658e6ea4fb8f.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 408
+    },
+    {
+      "entryId": "b983332bcef9de311cf56aaf4755c9ab5e68e1094295b87207a0a3a9156fb8b8",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/http_ntlm.c",
+      "output": "b983332bcef9de311cf56aaf4755c9ab5e68e1094295b87207a0a3a9156fb8b8.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 395
+    },
+    {
+      "entryId": "ff9344edd05bb7e5dd1256346aec8364f22beca062b32361a38d652600f56366",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/http_proxy.c",
+      "output": "ff9344edd05bb7e5dd1256346aec8364f22beca062b32361a38d652600f56366.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3,
+        "goto_control_flow": 1
+      },
+      "milliseconds": 671
+    },
+    {
+      "entryId": "9bba10417534114ff4538a6ee1a2e40cbf819ca581dd07a1fb8f71772148b372",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/idn.c",
+      "output": "9bba10417534114ff4538a6ee1a2e40cbf819ca581dd07a1fb8f71772148b372.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 568
+    },
+    {
+      "entryId": "f07515aa73fb42631b18f4b253ce646ab1a79fc648b1f34f64d7c570cbf4f650",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/if2ip.c",
+      "output": "f07515aa73fb42631b18f4b253ce646ab1a79fc648b1f34f64d7c570cbf4f650.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 423
+    },
+    {
+      "entryId": "e353238e44a6f21ce138bc15043ba055b108ab47f653f254339f0b19765c39f7",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/imap.c",
+      "output": "e353238e44a6f21ce138bc15043ba055b108ab47f653f254339f0b19765c39f7.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3,
+        "goto_control_flow": 1
+      },
+      "milliseconds": 905
+    },
+    {
+      "entryId": "ac4fa64bb30e439e2640ab3367cfbffb0603a11d3a6a756099ad4f7d96484f2e",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/ldap.c",
+      "output": "ac4fa64bb30e439e2640ab3367cfbffb0603a11d3a6a756099ad4f7d96484f2e.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 559
+    },
+    {
+      "entryId": "a4a81ec45533a3ab288b9b0bb196ed5eef745124ee8502cc77178389fda16cd1",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/llist.c",
+      "output": "a4a81ec45533a3ab288b9b0bb196ed5eef745124ee8502cc77178389fda16cd1.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 397
+    },
+    {
+      "entryId": "b473ec3c4b64f7ae21e54d3cf0f599e8cce41531d28c472f5e30ca1c6f4137bd",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/macos.c",
+      "output": "b473ec3c4b64f7ae21e54d3cf0f599e8cce41531d28c472f5e30ca1c6f4137bd.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 377
+    },
+    {
+      "entryId": "4045bf18bd6eb2e807a789c281bec219c647f6fb86c1d1e5c991b4b485a87f18",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/md4.c",
+      "output": "4045bf18bd6eb2e807a789c281bec219c647f6fb86c1d1e5c991b4b485a87f18.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 393
+    },
+    {
+      "entryId": "5bec9b93dd2c1fde81f52a2e392612dc627beb24ee33a0edd040240a1fcdf76c",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/md5.c",
+      "output": "5bec9b93dd2c1fde81f52a2e392612dc627beb24ee33a0edd040240a1fcdf76c.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 642
+    },
+    {
+      "entryId": "8823dadb6ae98db5935b7244f735119076323bedb5b625400d1f3a550fc5f4a5",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/memdebug.c",
+      "output": "8823dadb6ae98db5935b7244f735119076323bedb5b625400d1f3a550fc5f4a5.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 382
+    },
+    {
+      "entryId": "70f264cfa8def2ca0b84cc36772a013c1e57fdfc3d17df54d66888b53d88c784",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/mime.c",
+      "output": "70f264cfa8def2ca0b84cc36772a013c1e57fdfc3d17df54d66888b53d88c784.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 872
+    },
+    {
+      "entryId": "87a84108f0fe1759250c8e3d9beccac66a35d2141998a6351e6e4a8b7f17d7b9",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/mprintf.c",
+      "output": "87a84108f0fe1759250c8e3d9beccac66a35d2141998a6351e6e4a8b7f17d7b9.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "VAArgExpr": 10
+      },
+      "milliseconds": 546
+    },
+    {
+      "entryId": "3ec2a9c681a2a8b548a0843cf62532fb4aeee12d17201a632ecb1b4ca2accd48",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/mqtt.c",
+      "output": "3ec2a9c681a2a8b548a0843cf62532fb4aeee12d17201a632ecb1b4ca2accd48.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3,
+        "implicit_array_tail": 1,
+        "switch_pre_label_statement": 4,
+        "goto_control_flow": 1
+      },
+      "milliseconds": 742
+    },
+    {
+      "entryId": "1d23214b2b6fa2ec2f9e88a51090ff76a8396ea8a844d138ba79351833514f1e",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/multi.c",
+      "output": "1d23214b2b6fa2ec2f9e88a51090ff76a8396ea8a844d138ba79351833514f1e.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3,
+        "VAArgExpr": 16
+      },
+      "milliseconds": 1105
+    },
+    {
+      "entryId": "5b64e85ff927cd0bda264680a5d6e5bc0a3640c6a3ce03866db0f3f35e90cb2c",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/multi_ev.c",
+      "output": "5b64e85ff927cd0bda264680a5d6e5bc0a3640c6a3ce03866db0f3f35e90cb2c.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 644
+    },
+    {
+      "entryId": "b6a6341ab28ed02dc511ba17194b6b5d7db5cba71c740ef8305f0c1aefd582a5",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/multi_ntfy.c",
+      "output": "b6a6341ab28ed02dc511ba17194b6b5d7db5cba71c740ef8305f0c1aefd582a5.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 578
+    },
+    {
+      "entryId": "08ea4e873b79d4745261fa85c08f3943d594a2f519ea15dd7bedac4ed76b415b",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/netrc.c",
+      "output": "08ea4e873b79d4745261fa85c08f3943d594a2f519ea15dd7bedac4ed76b415b.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 648
+    },
+    {
+      "entryId": "90456fa0a5541de36dd231c7e994fe2c52959181c237703063037ab0e61e89b2",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/ngh2_shim.c",
+      "output": "90456fa0a5541de36dd231c7e994fe2c52959181c237703063037ab0e61e89b2.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 384
+    },
+    {
+      "entryId": "21cb4e56665c317bf0c9fb2c9a826e6bc65472cef4543c856bc6ae641347f800",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/openldap.c",
+      "output": "21cb4e56665c317bf0c9fb2c9a826e6bc65472cef4543c856bc6ae641347f800.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 381
+    },
+    {
+      "entryId": "f2f0a13122c88d2464a6143b9acd718eaa665322f74aeeb890a2043e740a52d6",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/parsedate.c",
+      "output": "f2f0a13122c88d2464a6143b9acd718eaa665322f74aeeb890a2043e740a52d6.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 483
+    },
+    {
+      "entryId": "33e52245ddb4e5f1954c9c48d90d4efe9c18f8435b4509a63dda15a9a7eceb24",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/peer.c",
+      "output": "33e52245ddb4e5f1954c9c48d90d4efe9c18f8435b4509a63dda15a9a7eceb24.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 675
+    },
+    {
+      "entryId": "e41acad434e6641f93abb7c5273aad35ee2d7d5e279fb934750a376abb87ae68",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/pingpong.c",
+      "output": "e41acad434e6641f93abb7c5273aad35ee2d7d5e279fb934750a376abb87ae68.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 635
+    },
+    {
+      "entryId": "5bed24a0c1a606e7cf0b5affbcf522ad8330a859cc688c3167a61253b4081c52",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/pop3.c",
+      "output": "5bed24a0c1a606e7cf0b5affbcf522ad8330a859cc688c3167a61253b4081c52.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3,
+        "goto_control_flow": 1
+      },
+      "milliseconds": 770
+    },
+    {
+      "entryId": "4093cc3a24d2bed1f8a05183f88712d44dec1250fa3215df944cea9509bd940a",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/progress.c",
+      "output": "4093cc3a24d2bed1f8a05183f88712d44dec1250fa3215df944cea9509bd940a.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 715
+    },
+    {
+      "entryId": "a500dfed1603f886e9e1a75aaf38b60de0ee8a35557b8df7aeb9b8d9759cd832",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/protocol.c",
+      "output": "a500dfed1603f886e9e1a75aaf38b60de0ee8a35557b8df7aeb9b8d9759cd832.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 609
+    },
+    {
+      "entryId": "2c46c7a1709891eb06ba793be44b1f3b43a0e122456124a303f987fe71c5ea58",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/proxy.c",
+      "output": "2c46c7a1709891eb06ba793be44b1f3b43a0e122456124a303f987fe71c5ea58.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3,
+        "implicit_array_tail": 1
+      },
+      "milliseconds": 636
+    },
+    {
+      "entryId": "ea7fde6ecb032bad7433ac97747b5f1bcd2a1c36ed483d7c6e50339f12c43d33",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/psl.c",
+      "output": "ea7fde6ecb032bad7433ac97747b5f1bcd2a1c36ed483d7c6e50339f12c43d33.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 376
+    },
+    {
+      "entryId": "3223760abd9ffedcb5d89a919854d6a841cb2dc0069900930f82cc219dd654e1",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/ptrarray.c",
+      "output": "3223760abd9ffedcb5d89a919854d6a841cb2dc0069900930f82cc219dd654e1.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 401
+    },
+    {
+      "entryId": "018eedc8a64218d4515cf6a772168f4633e656ba181eec4377519982ee543067",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/rand.c",
+      "output": "018eedc8a64218d4515cf6a772168f4633e656ba181eec4377519982ee543067.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 595
+    },
+    {
+      "entryId": "e32404d61c79381026682956127750b179b4887d900b9612f8a6d40307308c5e",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/ratelimit.c",
+      "output": "e32404d61c79381026682956127750b179b4887d900b9612f8a6d40307308c5e.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 599
+    },
+    {
+      "entryId": "0346646be638a11b428fba0bff86158c95fffac27cefa5528215a23fcfa7744e",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/request.c",
+      "output": "0346646be638a11b428fba0bff86158c95fffac27cefa5528215a23fcfa7744e.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 669
+    },
+    {
+      "entryId": "4d72920fa1eeaf64c8092b3726d01275462071363fcc6bcdb2f90899527b5b7d",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/rtsp.c",
+      "output": "4d72920fa1eeaf64c8092b3726d01275462071363fcc6bcdb2f90899527b5b7d.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 734
+    },
+    {
+      "entryId": "fe9fec7c0c0d8813f943e775dfa541e8bbc6d895e898ea76f854a33477505fff",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/select.c",
+      "output": "fe9fec7c0c0d8813f943e775dfa541e8bbc6d895e898ea76f854a33477505fff.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 651
+    },
+    {
+      "entryId": "d867bc5292f608cacdf68931b8393da8544a2ac4698def199de095cb5d7e658c",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/sendf.c",
+      "output": "d867bc5292f608cacdf68931b8393da8544a2ac4698def199de095cb5d7e658c.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 833
+    },
+    {
+      "entryId": "e56b713b217b32242bf6c99c9cdccc5edc2d520ee26856013dc9817717481275",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/setopt.c",
+      "output": "e56b713b217b32242bf6c99c9cdccc5edc2d520ee26856013dc9817717481275.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3,
+        "VAArgExpr": 31
+      },
+      "milliseconds": 870
+    },
+    {
+      "entryId": "49ddcd10699842fd2448179b8ab73e577609b97f7a3e20ea30a5b9ee849124c8",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/sha256.c",
+      "output": "49ddcd10699842fd2448179b8ab73e577609b97f7a3e20ea30a5b9ee849124c8.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 630
+    },
+    {
+      "entryId": "282e46c829a37983e14a202b507dc9547b779aee52244d24852383771afbe579",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/slist.c",
+      "output": "282e46c829a37983e14a202b507dc9547b779aee52244d24852383771afbe579.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 423
+    },
+    {
+      "entryId": "77b1888f0b78cba0105815c75c143bd3815aa0145958fd9a6fbeeda24c7b9845",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/smtp.c",
+      "output": "77b1888f0b78cba0105815c75c143bd3815aa0145958fd9a6fbeeda24c7b9845.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3,
+        "goto_control_flow": 1
+      },
+      "milliseconds": 797
+    },
+    {
+      "entryId": "cc4e6dc3056a7f2427bf0d406f89c67e6d0f582153b44bf9becbc143b823d9b7",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/socketpair.c",
+      "output": "cc4e6dc3056a7f2427bf0d406f89c67e6d0f582153b44bf9becbc143b823d9b7.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 601
+    },
+    {
+      "entryId": "512024ec03fd900cb9c2b75ecb9e3ff738a43f5cb4fee7d896964ba850b62d6d",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/socks.c",
+      "output": "512024ec03fd900cb9c2b75ecb9e3ff738a43f5cb4fee7d896964ba850b62d6d.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3,
+        "goto_control_flow": 3
+      },
+      "milliseconds": 743
+    },
+    {
+      "entryId": "0a580df7249b98adf2bea85e469e8b96d86a80845a7b8e92aee9c43a79662ad0",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/socks_gssapi.c",
+      "output": "0a580df7249b98adf2bea85e469e8b96d86a80845a7b8e92aee9c43a79662ad0.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 383
+    },
+    {
+      "entryId": "76680a0cdb366bdb3f0faa09f224b0dbaedcde72113d8d85a2d657de02a527da",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/socks_sspi.c",
+      "output": "76680a0cdb366bdb3f0faa09f224b0dbaedcde72113d8d85a2d657de02a527da.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 391
+    },
+    {
+      "entryId": "9db170609315f91baed65c8a857442f31e8f806e643ba8d71c01e64c0483f304",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/splay.c",
+      "output": "9db170609315f91baed65c8a857442f31e8f806e643ba8d71c01e64c0483f304.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 642
+    },
+    {
+      "entryId": "b30bc6f2a7fe690b308f75b3580b2fb8657ee177d1f315977382c58445867bed",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/strcase.c",
+      "output": "b30bc6f2a7fe690b308f75b3580b2fb8657ee177d1f315977382c58445867bed.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 522
+    },
+    {
+      "entryId": "2a3edb47444554633be0ac70365bd2aa8bdc2981d2c7b3bc3c0ab91479d0ade5",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/strequal.c",
+      "output": "2a3edb47444554633be0ac70365bd2aa8bdc2981d2c7b3bc3c0ab91479d0ade5.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 418
+    },
+    {
+      "entryId": "5b46c1513e0483f75ee3ba1eec434df3cf195808d8113199f5bd0a80c25563c4",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/strerror.c",
+      "output": "5b46c1513e0483f75ee3ba1eec434df3cf195808d8113199f5bd0a80c25563c4.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 435
+    },
+    {
+      "entryId": "830f9da9744e1224e3a96b0d878a14bda8147684b8a2a77466884d5b60cb391a",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/telnet.c",
+      "output": "830f9da9744e1224e3a96b0d878a14bda8147684b8a2a77466884d5b60cb391a.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 844
+    },
+    {
+      "entryId": "d6d781b69c7a92cfbc37174f12a3c046b60a4af9cedab6f0b2ad6dee36908619",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/tftp.c",
+      "output": "d6d781b69c7a92cfbc37174f12a3c046b60a4af9cedab6f0b2ad6dee36908619.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3,
+        "CompoundLiteralExpr": 11
+      },
+      "milliseconds": 789
+    },
+    {
+      "entryId": "fb25da15a8a256dba1d81007239064943bb3c419a0a0e134cfb0959ee22125fc",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/thrdpool.c",
+      "output": "fb25da15a8a256dba1d81007239064943bb3c419a0a0e134cfb0959ee22125fc.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 641
+    },
+    {
+      "entryId": "4e87e346259326576007b508788cb7f52d98122593f537aa14b920846c091699",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/thrdqueue.c",
+      "output": "4e87e346259326576007b508788cb7f52d98122593f537aa14b920846c091699.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 680
+    },
+    {
+      "entryId": "cbb2a87e1816b98192b719e24dee7d1fbc1cf1744d66cd9591fa6e36c8349c5e",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/transfer.c",
+      "output": "cbb2a87e1816b98192b719e24dee7d1fbc1cf1744d66cd9591fa6e36c8349c5e.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 837
+    },
+    {
+      "entryId": "124b976c2a233c6d3c4b8000aa6f92eed53b9c58ab9e55fc1bfd21fb7f4ebec5",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/u8_strset.c",
+      "output": "124b976c2a233c6d3c4b8000aa6f92eed53b9c58ab9e55fc1bfd21fb7f4ebec5.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 421
+    },
+    {
+      "entryId": "cacea5aafbba8fc47a089f725e909108dabd42dd30727cc815086f07e8e57c70",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/u32_ptrset.c",
+      "output": "cacea5aafbba8fc47a089f725e909108dabd42dd30727cc815086f07e8e57c70.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 424
+    },
+    {
+      "entryId": "5d6bd2ca7918f01e33572d280c0658ce0bb08c7da5c1c3f98f40a74bd5f200a6",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/uint-bset.c",
+      "output": "5d6bd2ca7918f01e33572d280c0658ce0bb08c7da5c1c3f98f40a74bd5f200a6.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 412
+    },
+    {
+      "entryId": "2978a4b95f7518448ebef1740b4f22171f91a731affd7f16f85c23afb5be0b7f",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/uint-spbset.c",
+      "output": "2978a4b95f7518448ebef1740b4f22171f91a731affd7f16f85c23afb5be0b7f.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 420
+    },
+    {
+      "entryId": "94ba3a922027dbc671d21df25d310b780b0f4c17fa48681a7d22f6cc2fc8356e",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/uint-table.c",
+      "output": "94ba3a922027dbc671d21df25d310b780b0f4c17fa48681a7d22f6cc2fc8356e.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 408
+    },
+    {
+      "entryId": "d497e70c612ec7dec1024d9fd0013620e8503285b7c43288872c2786e005937c",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/url.c",
+      "output": "d497e70c612ec7dec1024d9fd0013620e8503285b7c43288872c2786e005937c.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 1019
+    },
+    {
+      "entryId": "0a930b3803bd2bb77d429791b71031d1c0bdba0642c11995bca8f3fd98dbe88d",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/urlapi.c",
+      "output": "0a930b3803bd2bb77d429791b71031d1c0bdba0642c11995bca8f3fd98dbe88d.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3,
+        "implicit_array_tail": 4
+      },
+      "milliseconds": 917
+    },
+    {
+      "entryId": "2d5c240a51d1ebbec900d8dfe0884bc06333e62dfa7670bef13dfb36543b0777",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/version.c",
+      "output": "2d5c240a51d1ebbec900d8dfe0884bc06333e62dfa7670bef13dfb36543b0777.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3,
+        "AtomicExpr": 3,
+        "implicit_array_tail": 1
+      },
+      "milliseconds": 625
+    },
+    {
+      "entryId": "83d27d83734739c170dd42c014026c186927019dad253eedc92bda670e93a820",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/ws.c",
+      "output": "83d27d83734739c170dd42c014026c186927019dad253eedc92bda670e93a820.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 922
+    },
+    {
+      "entryId": "7677fbb7ee35f3f7441a124f416e53931faaba9692f2e28655b996ff817ac61f",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/vauth/cleartext.c",
+      "output": "7677fbb7ee35f3f7441a124f416e53931faaba9692f2e28655b996ff817ac61f.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 572
+    },
+    {
+      "entryId": "16b38e421d0f1e3d011bca471918bc582f608653f39c667df15254781100947f",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/vauth/cram.c",
+      "output": "16b38e421d0f1e3d011bca471918bc582f608653f39c667df15254781100947f.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 623
+    },
+    {
+      "entryId": "c45f2fbf5e2f87706592c5bb05b7842be29e1eb478381904899c1c72ca6a1457",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/vauth/digest.c",
+      "output": "c45f2fbf5e2f87706592c5bb05b7842be29e1eb478381904899c1c72ca6a1457.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3,
+        "implicit_array_tail": 1
+      },
+      "milliseconds": 741
+    },
+    {
+      "entryId": "80778138dad9bd6982a59ad948e76cc04fee798c94e644bfa0cdd7fdac40c8ba",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/vauth/digest_sspi.c",
+      "output": "80778138dad9bd6982a59ad948e76cc04fee798c94e644bfa0cdd7fdac40c8ba.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 404
+    },
+    {
+      "entryId": "19114e2aa1e661efb520ae324a5b993da148dba801b28c1fd7e833b845a5bb2a",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/vauth/gsasl.c",
+      "output": "19114e2aa1e661efb520ae324a5b993da148dba801b28c1fd7e833b845a5bb2a.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 393
+    },
+    {
+      "entryId": "2190c5a19f00d8b389e2b21fd89d09e1a75ec17b1d70b72ba11dfddee4d75d11",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/vauth/krb5_gssapi.c",
+      "output": "2190c5a19f00d8b389e2b21fd89d09e1a75ec17b1d70b72ba11dfddee4d75d11.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 444
+    },
+    {
+      "entryId": "a7594fd51c24ee16ae5240ec1fd91fccd26c5c7da1977ff535dcdc4c1aeb7361",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/vauth/krb5_sspi.c",
+      "output": "a7594fd51c24ee16ae5240ec1fd91fccd26c5c7da1977ff535dcdc4c1aeb7361.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 414
+    },
+    {
+      "entryId": "47e1fea72bc028e9b132870c50615b056dda20466b40bc45564421689f3e50f9",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/vauth/ntlm.c",
+      "output": "47e1fea72bc028e9b132870c50615b056dda20466b40bc45564421689f3e50f9.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 391
+    },
+    {
+      "entryId": "a14cf8d0074c7872281aebab25d710672ab3dd19938fe6539b082e09d7454948",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/vauth/ntlm_sspi.c",
+      "output": "a14cf8d0074c7872281aebab25d710672ab3dd19938fe6539b082e09d7454948.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 394
+    },
+    {
+      "entryId": "c921cf0affb931fccdcfb9611f77fa09f6c0a518cc90054d09aebd31b8833472",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/vauth/oauth2.c",
+      "output": "c921cf0affb931fccdcfb9611f77fa09f6c0a518cc90054d09aebd31b8833472.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 569
+    },
+    {
+      "entryId": "8d3146d67f438f7c4b90babb22e34364da2a0bb72466fa270e7abba090f739bb",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/vauth/spnego_gssapi.c",
+      "output": "8d3146d67f438f7c4b90babb22e34364da2a0bb72466fa270e7abba090f739bb.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 452
+    },
+    {
+      "entryId": "27419c23163fa623c6ec2a6b697f7ab707cd6635da0c55c3cfb0f0e99292b078",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/vauth/spnego_sspi.c",
+      "output": "27419c23163fa623c6ec2a6b697f7ab707cd6635da0c55c3cfb0f0e99292b078.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 433
+    },
+    {
+      "entryId": "63250bad072f71b558522aa342c30aff92917e641adb70f977c808507835477d",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/vauth/vauth.c",
+      "output": "63250bad072f71b558522aa342c30aff92917e641adb70f977c808507835477d.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 588
+    },
+    {
+      "entryId": "bdce0ed61ff5b56af78ec66493f5b6191921a95b1fbc91c128e3e2e49026614b",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/vdns/asyn-ares.c",
+      "output": "bdce0ed61ff5b56af78ec66493f5b6191921a95b1fbc91c128e3e2e49026614b.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 396
+    },
+    {
+      "entryId": "95af24afebe2c57857782d5db931b56ff05373bde82f5801c1a414a6c0cead1e",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/vdns/asyn-base.c",
+      "output": "95af24afebe2c57857782d5db931b56ff05373bde82f5801c1a414a6c0cead1e.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 602
+    },
+    {
+      "entryId": "bcc7f5f31dae7a4adb0f67310fab5370f9a39aa314e73c8d3f2c72bbe509141f",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/vdns/asyn-thrdd.c",
+      "output": "bcc7f5f31dae7a4adb0f67310fab5370f9a39aa314e73c8d3f2c72bbe509141f.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3,
+        "StmtExpr": 1
+      },
+      "milliseconds": 694
+    },
+    {
+      "entryId": "d5d5671d258822013ca8ea32545d93fc6ba92a6078f0677567538f588629e6e1",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/vdns/cf-dns.c",
+      "output": "d5d5671d258822013ca8ea32545d93fc6ba92a6078f0677567538f588629e6e1.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 678
+    },
+    {
+      "entryId": "db486ecd95e199856bd015e2f13b0c0f872bf31426e2a3a8aa574305eaea824d",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/vdns/dnscache.c",
+      "output": "db486ecd95e199856bd015e2f13b0c0f872bf31426e2a3a8aa574305eaea824d.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 761
+    },
+    {
+      "entryId": "f073a64f6f5259a37a96e5a86a7c3291a606f6deb457c951aa0a66e01fe4e376",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/vdns/doh.c",
+      "output": "f073a64f6f5259a37a96e5a86a7c3291a606f6deb457c951aa0a66e01fe4e376.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3,
+        "StmtExpr": 27
+      },
+      "milliseconds": 3589
+    },
+    {
+      "entryId": "75e45b33844def2c98423acdb6b019d68ac8b1787b0197134e648a80206324f7",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/vdns/hostip.c",
+      "output": "75e45b33844def2c98423acdb6b019d68ac8b1787b0197134e648a80206324f7.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3,
+        "AtomicExpr": 3
+      },
+      "milliseconds": 790
+    },
+    {
+      "entryId": "664a983c92dd7e3e5a0accd935441a8a0cb0b439354ee16ce354488cf5d9174e",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/vdns/hostip4.c",
+      "output": "664a983c92dd7e3e5a0accd935441a8a0cb0b439354ee16ce354488cf5d9174e.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 415
+    },
+    {
+      "entryId": "76c2450ce5ee09d001e7e2508fb583fe37892fa02911cdbce5fb9500a4744090",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/vdns/hostip6.c",
+      "output": "76c2450ce5ee09d001e7e2508fb583fe37892fa02911cdbce5fb9500a4744090.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 600
+    },
+    {
+      "entryId": "f2f85ba9d9e769ae9e3f42ee93992d813f1ec9bbc510e69a85f14abe44840eda",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/vdns/httpsrr.c",
+      "output": "f2f85ba9d9e769ae9e3f42ee93992d813f1ec9bbc510e69a85f14abe44840eda.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 388
+    },
+    {
+      "entryId": "4d7e8f69788b3d815940b23493db0c0e4af22cb17de6cb8f822f879c5723d318",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/vtls/apple.c",
+      "output": "4d7e8f69788b3d815940b23493db0c0e4af22cb17de6cb8f822f879c5723d318.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 406
+    },
+    {
+      "entryId": "2266e38edd43e9782de67677bb57e567a88c5b365b6a85d66a7b9da85141f9f1",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/vtls/cipher_suite.c",
+      "output": "2266e38edd43e9782de67677bb57e567a88c5b365b6a85d66a7b9da85141f9f1.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 396
+    },
+    {
+      "entryId": "e71f23fe61a571668f96f92523d6cacc00bd7d021dbec19ab764760dde8efb9f",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/vtls/gtls.c",
+      "output": "e71f23fe61a571668f96f92523d6cacc00bd7d021dbec19ab764760dde8efb9f.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 413
+    },
+    {
+      "entryId": "60b323e4a3d28190e8dd276d3b6b04c408ce3caebedbc3c1e76c487baf2a7386",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/vtls/hostcheck.c",
+      "output": "60b323e4a3d28190e8dd276d3b6b04c408ce3caebedbc3c1e76c487baf2a7386.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 427
+    },
+    {
+      "entryId": "70cdb938e1b0e0f0c4f7b993c0337dd1ab22e4c03b05e0676c3293eb50ecc39f",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/vtls/keylog.c",
+      "output": "70cdb938e1b0e0f0c4f7b993c0337dd1ab22e4c03b05e0676c3293eb50ecc39f.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 451
+    },
+    {
+      "entryId": "c5457f4c402120923cac20851ac88e508a69c8bcdcc5990e2979437efb9206e5",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/vtls/mbedtls.c",
+      "output": "c5457f4c402120923cac20851ac88e508a69c8bcdcc5990e2979437efb9206e5.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 424
+    },
+    {
+      "entryId": "2a96061b9434af614e77908d3a0990484962a61e2474b8eeed9197d675caf37d",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/vtls/openssl.c",
+      "output": "2a96061b9434af614e77908d3a0990484962a61e2474b8eeed9197d675caf37d.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 1889
+    },
+    {
+      "entryId": "809fb5858ca5460504cf637099e20fd1d29aa7f5dc0add9fd5f948f910224d98",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/vtls/rustls.c",
+      "output": "809fb5858ca5460504cf637099e20fd1d29aa7f5dc0add9fd5f948f910224d98.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 387
+    },
+    {
+      "entryId": "03aa085eee8a0e9fa5fab32e08de1727ddf735f0d948c5d71cf3f83c9c7948f9",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/vtls/schannel.c",
+      "output": "03aa085eee8a0e9fa5fab32e08de1727ddf735f0d948c5d71cf3f83c9c7948f9.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 411
+    },
+    {
+      "entryId": "359ffdb69358d9d5544a1daa75b4e2efead51d8bfe5a86e2a6d4c6bd0fe5aa38",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/vtls/schannel_verify.c",
+      "output": "359ffdb69358d9d5544a1daa75b4e2efead51d8bfe5a86e2a6d4c6bd0fe5aa38.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 403
+    },
+    {
+      "entryId": "a8f997820981ade050b8f550ed6a02026bf245c846fa89ce8ee3842f6cf9b272",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/vtls/vtls.c",
+      "output": "a8f997820981ade050b8f550ed6a02026bf245c846fa89ce8ee3842f6cf9b272.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3,
+        "implicit_array_tail": 2
+      },
+      "milliseconds": 1520
+    },
+    {
+      "entryId": "843799994bee2e7f03e94435d6ddbeb28051984cfbd15edafcd864dfc07c4f5d",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/vtls/vtls_config.c",
+      "output": "843799994bee2e7f03e94435d6ddbeb28051984cfbd15edafcd864dfc07c4f5d.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 695
+    },
+    {
+      "entryId": "12aef0fe8a8d9a709e84e6ba3f3dc17f668cb640374a37dfed2ebf2fb1a93826",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/vtls/vtls_scache.c",
+      "output": "12aef0fe8a8d9a709e84e6ba3f3dc17f668cb640374a37dfed2ebf2fb1a93826.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 775
+    },
+    {
+      "entryId": "ad70f48757a7611ae4758904fb1de4c5eae7edb676401df9cf9ff016861ec980",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/vtls/vtls_spack.c",
+      "output": "ad70f48757a7611ae4758904fb1de4c5eae7edb676401df9cf9ff016861ec980.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 413
+    },
+    {
+      "entryId": "091ae259728b736fbea6b825084e25156da4d16fdfed79ea41d7c9f9f5caa9ff",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/vtls/wolfssl.c",
+      "output": "091ae259728b736fbea6b825084e25156da4d16fdfed79ea41d7c9f9f5caa9ff.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 389
+    },
+    {
+      "entryId": "987eca8527b7e26ffc245b9a3874939eac99e13318721c18db1d796ea20c1756",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/vtls/x509asn1.c",
+      "output": "987eca8527b7e26ffc245b9a3874939eac99e13318721c18db1d796ea20c1756.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 401
+    },
+    {
+      "entryId": "60bcf63796d366dac0e00d8199eeaf1a480e12a6fa8070906ce9e5be413cb94a",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/vquic/capsule.c",
+      "output": "60bcf63796d366dac0e00d8199eeaf1a480e12a6fa8070906ce9e5be413cb94a.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 667
+    },
+    {
+      "entryId": "1955b387d0d8f1d753b0ce316b14a25604b76fe24b5cc9af2691ab917cbf4048",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/vquic/cf-capsule.c",
+      "output": "1955b387d0d8f1d753b0ce316b14a25604b76fe24b5cc9af2691ab917cbf4048.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 626
+    },
+    {
+      "entryId": "ef7ac6052b38d7f632d00632517cb4d50611c946228d65b9c42d3ba0e1590ece",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/vquic/cf-ngtcp2.c",
+      "output": "ef7ac6052b38d7f632d00632517cb4d50611c946228d65b9c42d3ba0e1590ece.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 432
+    },
+    {
+      "entryId": "8e633de9a070dac02afe1dad1718ccc5081ee5acc9f2d50bbe58de9ef8b94391",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/vquic/cf-ngtcp2-cmn.c",
+      "output": "8e633de9a070dac02afe1dad1718ccc5081ee5acc9f2d50bbe58de9ef8b94391.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 391
+    },
+    {
+      "entryId": "953813876a244e8cdac8d9b51f24b5863a91227b0e9cdc1a5b3cf986ce2bf18c",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/vquic/cf-ngtcp2-proxy.c",
+      "output": "953813876a244e8cdac8d9b51f24b5863a91227b0e9cdc1a5b3cf986ce2bf18c.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 416
+    },
+    {
+      "entryId": "204b42b2c9cc2b746b6be38eaa0d12f872d607d92e9ce278354850f7d0b8e6fd",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/vquic/cf-quiche.c",
+      "output": "204b42b2c9cc2b746b6be38eaa0d12f872d607d92e9ce278354850f7d0b8e6fd.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 408
+    },
+    {
+      "entryId": "703d1732455318887de9bb070ca580140199f363910a64502a12dda02bf703ca",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/vquic/vquic.c",
+      "output": "703d1732455318887de9bb070ca580140199f363910a64502a12dda02bf703ca.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 584
+    },
+    {
+      "entryId": "37d2841b72fd539afcdebd0018f822e14bfa3f977cd64c02af9b6353521f0114",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/vquic/vquic-tls.c",
+      "output": "37d2841b72fd539afcdebd0018f822e14bfa3f977cd64c02af9b6353521f0114.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 410
+    },
+    {
+      "entryId": "15e64291f345bc569161ee5cbe3675eea253cdc83bf7e90b979262f99525611b",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/vssh/libssh.c",
+      "output": "15e64291f345bc569161ee5cbe3675eea253cdc83bf7e90b979262f99525611b.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 436
+    },
+    {
+      "entryId": "3cccd67e2b4dc306d597420fc66136b813f2de249c43cfff7e0a7d604b01b1e1",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/vssh/libssh2.c",
+      "output": "3cccd67e2b4dc306d597420fc66136b813f2de249c43cfff7e0a7d604b01b1e1.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 418
+    },
+    {
+      "entryId": "a8599f40c5ac0a827032b417223f429f5094b99ee12de1b7b5f9bcd05b162f08",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/vssh/vssh.c",
+      "output": "a8599f40c5ac0a827032b417223f429f5094b99ee12de1b7b5f9bcd05b162f08.json",
+      "exitCode": 0,
+      "status": "partial_conversion",
+      "diagnostics": 0,
+      "conversionDiagnostics": {
+        "dependent_enum_value": 3
+      },
+      "milliseconds": 588
+    },
+    {
+      "entryId": "79b0cf123b0bc50835cf20c2b3842d33a74e9c1a7beba9c31d087310aab3f5e4",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/curlx/base64.c",
+      "output": "79b0cf123b0bc50835cf20c2b3842d33a74e9c1a7beba9c31d087310aab3f5e4.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 434
+    },
+    {
+      "entryId": "0cc2e9a52c64bd2303c587e551ecb03a95ae323a3636abc7a7ee58914e9827c9",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/curlx/basename.c",
+      "output": "0cc2e9a52c64bd2303c587e551ecb03a95ae323a3636abc7a7ee58914e9827c9.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 405
+    },
+    {
+      "entryId": "4ff103fb0f38abba0d34c51dbf03c6cbe9270cb8fbf0798c714608b8c0dd6e55",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/curlx/dynbuf.c",
+      "output": "4ff103fb0f38abba0d34c51dbf03c6cbe9270cb8fbf0798c714608b8c0dd6e55.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 423
+    },
+    {
+      "entryId": "00ceaf41573cdc54e01f2a52ae1dcb5c389f62f187efbc1f464bfde29449fe07",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/curlx/win32-fopen.c",
+      "output": "00ceaf41573cdc54e01f2a52ae1dcb5c389f62f187efbc1f464bfde29449fe07.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 396
+    },
+    {
+      "entryId": "74b465f5fefe920b57f657f35d697a0a81842a46967a491bf135c32b733190d4",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/curlx/inet_ntop.c",
+      "output": "74b465f5fefe920b57f657f35d697a0a81842a46967a491bf135c32b733190d4.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 445
+    },
+    {
+      "entryId": "11aa748463f7cc7133f25d789ec933bdf915d96d0d66ebe591a6f5701a0a7ab4",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/curlx/inet_pton.c",
+      "output": "11aa748463f7cc7133f25d789ec933bdf915d96d0d66ebe591a6f5701a0a7ab4.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 445
+    },
+    {
+      "entryId": "7b52a42769d40f45fa54b5c8a241c7bdd9ce3babbec4a1583de1df42e76db6ae",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/curlx/multibyte.c",
+      "output": "7b52a42769d40f45fa54b5c8a241c7bdd9ce3babbec4a1583de1df42e76db6ae.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 450
+    },
+    {
+      "entryId": "11e82a2e8ae12e5fa5f16b07977d12d0d04ba5a7bfb1e779735650e5296a238b",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/curlx/nonblock.c",
+      "output": "11e82a2e8ae12e5fa5f16b07977d12d0d04ba5a7bfb1e779735650e5296a238b.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 427
+    },
+    {
+      "entryId": "8510c15b7db577e33570ef7926ac6e753cfcb4016975c8ce45234d0a13e6f27a",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/curlx/snprintf.c",
+      "output": "8510c15b7db577e33570ef7926ac6e753cfcb4016975c8ce45234d0a13e6f27a.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 405
+    },
+    {
+      "entryId": "04a7af47246ccdcbb19802e35f74de1c35814256f1d46ec4fb12619002d3da59",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/curlx/strcopy.c",
+      "output": "04a7af47246ccdcbb19802e35f74de1c35814256f1d46ec4fb12619002d3da59.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 400
+    },
+    {
+      "entryId": "1f03b988da590f04962418fd68bba576c317adf42f71be2d7638db44a58e2f0c",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/curlx/strdup.c",
+      "output": "1f03b988da590f04962418fd68bba576c317adf42f71be2d7638db44a58e2f0c.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 408
+    },
+    {
+      "entryId": "612168f73756f607b0c6e503c3e1608ab0c71d8b179df05875f7d6fb961dcb67",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/curlx/strerr.c",
+      "output": "612168f73756f607b0c6e503c3e1608ab0c71d8b179df05875f7d6fb961dcb67.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 415
+    },
+    {
+      "entryId": "37a3fc695ae6717da2d8c44fe9c500f14dbbd92accb197728af5011dbc5f33a7",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/curlx/strparse.c",
+      "output": "37a3fc695ae6717da2d8c44fe9c500f14dbbd92accb197728af5011dbc5f33a7.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 440
+    },
+    {
+      "entryId": "b53a76ed992b0bf335a02414e198cdbf6619ee042063eafd2625ddd0eb1e5233",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/curlx/timediff.c",
+      "output": "b53a76ed992b0bf335a02414e198cdbf6619ee042063eafd2625ddd0eb1e5233.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 401
+    },
+    {
+      "entryId": "c3031a64f0917719af309e5645b03cf2d031317ec4db33b4816160e43e76e114",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/curlx/timeval.c",
+      "output": "c3031a64f0917719af309e5645b03cf2d031317ec4db33b4816160e43e76e114.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 422
+    },
+    {
+      "entryId": "d1006dddd0c3334a275fdae9e55a9dc95e7789f709ecdfa0faf78149aad5b81e",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/curlx/version_win32.c",
+      "output": "d1006dddd0c3334a275fdae9e55a9dc95e7789f709ecdfa0faf78149aad5b81e.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 412
+    },
+    {
+      "entryId": "791df9b2dd89216bdbcc10a55860390e0ab6ef7e705d7f22e2eb44096a2ae967",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/curlx/wait.c",
+      "output": "791df9b2dd89216bdbcc10a55860390e0ab6ef7e705d7f22e2eb44096a2ae967.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 438
+    },
+    {
+      "entryId": "e38acad1b6d2b85c3e7012f26cfdf3943bb059905d9f4a1ffe104b9eb38dcb2d",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/curlx/warnless.c",
+      "output": "e38acad1b6d2b85c3e7012f26cfdf3943bb059905d9f4a1ffe104b9eb38dcb2d.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 427
+    },
+    {
+      "entryId": "f6e89cfbac2d7deb5d45da79bf402a4a77c92cb303f5a199f4d478361c230229",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/curlx/winapi.c",
+      "output": "f6e89cfbac2d7deb5d45da79bf402a4a77c92cb303f5a199f4d478361c230229.json",
+      "exitCode": 0,
+      "status": "no_syntax_errors",
+      "diagnostics": 0,
+      "conversionDiagnostics": {},
+      "milliseconds": 417
+    }
+  ]
+}

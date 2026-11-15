@@ -1,0 +1,1817 @@
+{
+  "version": 1,
+  "language": "c-cpp",
+  "astBackend": "clang",
+  "status": "failed",
+  "sourcePath": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/src",
+  "units": [
+    {
+      "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac",
+      "domainId": "spdlog-static",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/src/spdlog.cpp",
+      "language": "cpp",
+      "status": "analysis_failed",
+      "diagnostics": [
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::swap",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::find_if",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::begin",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::end",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::equal",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::distance",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::equal",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::remove",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::this_thread::sleep_for",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::any_of",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::operator!=",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::operator==",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::operator+",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::operator+",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::swap",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "__gnu_cxx::operator!=",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "__gnu_cxx::operator==",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::next",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::chrono::operator<",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::chrono::operator-",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::back_inserter",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::chrono::duration_cast",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::chrono::operator-",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::chrono::duration_cast",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::chrono::duration_cast",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::chrono::operator-",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::chrono::duration_cast",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::chrono::duration_cast",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::chrono::operator-",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::chrono::duration_cast",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::chrono::duration_cast",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::chrono::operator>=",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::find_first_of",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::begin",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::end",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::operator!=",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::max",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::prev",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::chrono::operator!=",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "__gnu_cxx::operator!=",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "__gnu_cxx::operator==",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "__gnu_cxx::operator!=",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::min",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::swap",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::find_if",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::begin",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::end",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::equal",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::distance",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::equal",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::remove",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::this_thread::sleep_for",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::any_of",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::operator!=",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::operator==",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::operator+",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::operator+",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::swap",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "__gnu_cxx::operator!=",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "__gnu_cxx::operator==",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::next",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::chrono::operator<",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::chrono::operator-",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::back_inserter",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::chrono::duration_cast",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::chrono::operator-",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::chrono::duration_cast",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::chrono::duration_cast",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::chrono::operator-",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::chrono::duration_cast",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::chrono::duration_cast",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::chrono::operator-",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::chrono::duration_cast",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::chrono::duration_cast",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::chrono::operator>=",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::find_first_of",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::begin",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::end",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::operator!=",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::max",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::prev",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::chrono::operator!=",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "__gnu_cxx::operator!=",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "__gnu_cxx::operator==",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "__gnu_cxx::operator!=",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::min",
+          "unitId": "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "dependent_name_resolution: 512"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "cpp_baseclass_semantics: 301"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "dependent_enum_value: 24"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "ParenListExpr: 153"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "base_or_delegating_constructor: 168"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "UnresolvedUsingValueDecl: 3"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "dependent_construction: 109"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "dependent_member_resolution: 479"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "implicit_array_tail: 6"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "PackExpansionExpr: 42"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "SizeOfPackExpr: 1"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "lambda_capture_semantics: 7"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "BinaryOperator: 65"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "NamespaceAliasDecl: 1"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "cpp_allocation_semantics: 91"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "CXXStdInitializerListExpr: 1"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "cpp_virtual_dispatch: 8"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "CXXDefaultArgExpr: 84"
+        },
+        {
+          "code": "analysis_failed",
+          "message": "Command failed: /usr/bin/node --import tsx /home/jarvis/文档/projects/yasa-c-family-experiment/engine/src/interface/c-family-analysis-worker.ts /home/jarvis/文档/projects/yasa-uast-migration/artifacts/clang-hardening-20261115/spdlog-engine-final/domains/4fc7c5446755d40ce8e244309d2c3675781e0e3403cb6c4df7a377ebc6bdf024/request.json\n"
+        }
+      ],
+      "artifactHash": "e1e1b106d71125e2476191098c1e6b32bc5938e3ec10553daf7227e144c97716",
+      "functionDeclarations": 12285
+    },
+    {
+      "unitId": "c3795346d0088afe31fe539b7f8da277ca587116fe6142a60bc099d15b9f2572",
+      "domainId": "spdlog-static",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/src/stdout_sinks.cpp",
+      "language": "cpp",
+      "status": "analysis_failed",
+      "diagnostics": [
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::swap",
+          "unitId": "c3795346d0088afe31fe539b7f8da277ca587116fe6142a60bc099d15b9f2572"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::operator==",
+          "unitId": "c3795346d0088afe31fe539b7f8da277ca587116fe6142a60bc099d15b9f2572"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "c3795346d0088afe31fe539b7f8da277ca587116fe6142a60bc099d15b9f2572"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "c3795346d0088afe31fe539b7f8da277ca587116fe6142a60bc099d15b9f2572"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "c3795346d0088afe31fe539b7f8da277ca587116fe6142a60bc099d15b9f2572"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "c3795346d0088afe31fe539b7f8da277ca587116fe6142a60bc099d15b9f2572"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "c3795346d0088afe31fe539b7f8da277ca587116fe6142a60bc099d15b9f2572"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "c3795346d0088afe31fe539b7f8da277ca587116fe6142a60bc099d15b9f2572"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "c3795346d0088afe31fe539b7f8da277ca587116fe6142a60bc099d15b9f2572"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "c3795346d0088afe31fe539b7f8da277ca587116fe6142a60bc099d15b9f2572"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "c3795346d0088afe31fe539b7f8da277ca587116fe6142a60bc099d15b9f2572"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "c3795346d0088afe31fe539b7f8da277ca587116fe6142a60bc099d15b9f2572"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "c3795346d0088afe31fe539b7f8da277ca587116fe6142a60bc099d15b9f2572"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "c3795346d0088afe31fe539b7f8da277ca587116fe6142a60bc099d15b9f2572"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "c3795346d0088afe31fe539b7f8da277ca587116fe6142a60bc099d15b9f2572"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "c3795346d0088afe31fe539b7f8da277ca587116fe6142a60bc099d15b9f2572"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::swap",
+          "unitId": "c3795346d0088afe31fe539b7f8da277ca587116fe6142a60bc099d15b9f2572"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::operator==",
+          "unitId": "c3795346d0088afe31fe539b7f8da277ca587116fe6142a60bc099d15b9f2572"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "c3795346d0088afe31fe539b7f8da277ca587116fe6142a60bc099d15b9f2572"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "c3795346d0088afe31fe539b7f8da277ca587116fe6142a60bc099d15b9f2572"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "c3795346d0088afe31fe539b7f8da277ca587116fe6142a60bc099d15b9f2572"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "c3795346d0088afe31fe539b7f8da277ca587116fe6142a60bc099d15b9f2572"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "c3795346d0088afe31fe539b7f8da277ca587116fe6142a60bc099d15b9f2572"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "c3795346d0088afe31fe539b7f8da277ca587116fe6142a60bc099d15b9f2572"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "c3795346d0088afe31fe539b7f8da277ca587116fe6142a60bc099d15b9f2572"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "c3795346d0088afe31fe539b7f8da277ca587116fe6142a60bc099d15b9f2572"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "c3795346d0088afe31fe539b7f8da277ca587116fe6142a60bc099d15b9f2572"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "c3795346d0088afe31fe539b7f8da277ca587116fe6142a60bc099d15b9f2572"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "c3795346d0088afe31fe539b7f8da277ca587116fe6142a60bc099d15b9f2572"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "c3795346d0088afe31fe539b7f8da277ca587116fe6142a60bc099d15b9f2572"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "c3795346d0088afe31fe539b7f8da277ca587116fe6142a60bc099d15b9f2572"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "c3795346d0088afe31fe539b7f8da277ca587116fe6142a60bc099d15b9f2572"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "dependent_name_resolution: 466"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "cpp_baseclass_semantics: 141"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "dependent_enum_value: 24"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "ParenListExpr: 82"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "base_or_delegating_constructor: 45"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "UnresolvedUsingValueDecl: 3"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "dependent_construction: 109"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "dependent_member_resolution: 438"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "implicit_array_tail: 3"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "PackExpansionExpr: 36"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "SizeOfPackExpr: 1"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "lambda_capture_semantics: 9"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "BinaryOperator: 64"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "NamespaceAliasDecl: 1"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "cpp_allocation_semantics: 5"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "CXXStdInitializerListExpr: 1"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "cpp_virtual_dispatch: 4"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "CXXDefaultArgExpr: 50"
+        },
+        {
+          "code": "analysis_failed",
+          "message": "Command failed: /usr/bin/node --import tsx /home/jarvis/文档/projects/yasa-c-family-experiment/engine/src/interface/c-family-analysis-worker.ts /home/jarvis/文档/projects/yasa-uast-migration/artifacts/clang-hardening-20261115/spdlog-engine-final/domains/4fc7c5446755d40ce8e244309d2c3675781e0e3403cb6c4df7a377ebc6bdf024/request.json\n"
+        }
+      ],
+      "artifactHash": "9cb8fef3eb654db24dde6704609ed50a62a901f95aa4b0b49b6b19757d52260b",
+      "functionDeclarations": 5245
+    },
+    {
+      "unitId": "82daba8024849e32ae56aa66166ce79960366c937dd7c568d9fa4782cb80ba05",
+      "domainId": "spdlog-static",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/src/color_sinks.cpp",
+      "language": "cpp",
+      "status": "analysis_failed",
+      "diagnostics": [
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::swap",
+          "unitId": "82daba8024849e32ae56aa66166ce79960366c937dd7c568d9fa4782cb80ba05"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::operator==",
+          "unitId": "82daba8024849e32ae56aa66166ce79960366c937dd7c568d9fa4782cb80ba05"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "82daba8024849e32ae56aa66166ce79960366c937dd7c568d9fa4782cb80ba05"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "82daba8024849e32ae56aa66166ce79960366c937dd7c568d9fa4782cb80ba05"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "82daba8024849e32ae56aa66166ce79960366c937dd7c568d9fa4782cb80ba05"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "82daba8024849e32ae56aa66166ce79960366c937dd7c568d9fa4782cb80ba05"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "82daba8024849e32ae56aa66166ce79960366c937dd7c568d9fa4782cb80ba05"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "82daba8024849e32ae56aa66166ce79960366c937dd7c568d9fa4782cb80ba05"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "82daba8024849e32ae56aa66166ce79960366c937dd7c568d9fa4782cb80ba05"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "82daba8024849e32ae56aa66166ce79960366c937dd7c568d9fa4782cb80ba05"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "82daba8024849e32ae56aa66166ce79960366c937dd7c568d9fa4782cb80ba05"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "82daba8024849e32ae56aa66166ce79960366c937dd7c568d9fa4782cb80ba05"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "82daba8024849e32ae56aa66166ce79960366c937dd7c568d9fa4782cb80ba05"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "82daba8024849e32ae56aa66166ce79960366c937dd7c568d9fa4782cb80ba05"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "82daba8024849e32ae56aa66166ce79960366c937dd7c568d9fa4782cb80ba05"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "82daba8024849e32ae56aa66166ce79960366c937dd7c568d9fa4782cb80ba05"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::swap",
+          "unitId": "82daba8024849e32ae56aa66166ce79960366c937dd7c568d9fa4782cb80ba05"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::operator==",
+          "unitId": "82daba8024849e32ae56aa66166ce79960366c937dd7c568d9fa4782cb80ba05"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "82daba8024849e32ae56aa66166ce79960366c937dd7c568d9fa4782cb80ba05"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "82daba8024849e32ae56aa66166ce79960366c937dd7c568d9fa4782cb80ba05"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "82daba8024849e32ae56aa66166ce79960366c937dd7c568d9fa4782cb80ba05"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "82daba8024849e32ae56aa66166ce79960366c937dd7c568d9fa4782cb80ba05"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "82daba8024849e32ae56aa66166ce79960366c937dd7c568d9fa4782cb80ba05"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "82daba8024849e32ae56aa66166ce79960366c937dd7c568d9fa4782cb80ba05"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "82daba8024849e32ae56aa66166ce79960366c937dd7c568d9fa4782cb80ba05"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "82daba8024849e32ae56aa66166ce79960366c937dd7c568d9fa4782cb80ba05"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "82daba8024849e32ae56aa66166ce79960366c937dd7c568d9fa4782cb80ba05"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "82daba8024849e32ae56aa66166ce79960366c937dd7c568d9fa4782cb80ba05"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "82daba8024849e32ae56aa66166ce79960366c937dd7c568d9fa4782cb80ba05"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "82daba8024849e32ae56aa66166ce79960366c937dd7c568d9fa4782cb80ba05"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "82daba8024849e32ae56aa66166ce79960366c937dd7c568d9fa4782cb80ba05"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "82daba8024849e32ae56aa66166ce79960366c937dd7c568d9fa4782cb80ba05"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "dependent_name_resolution: 466"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "cpp_baseclass_semantics: 144"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "dependent_enum_value: 24"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "ParenListExpr: 84"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "base_or_delegating_constructor: 45"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "UnresolvedUsingValueDecl: 3"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "dependent_construction: 109"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "dependent_member_resolution: 438"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "implicit_array_tail: 3"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "PackExpansionExpr: 36"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "SizeOfPackExpr: 1"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "lambda_capture_semantics: 9"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "BinaryOperator: 64"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "NamespaceAliasDecl: 1"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "cpp_allocation_semantics: 5"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "CXXStdInitializerListExpr: 1"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "cpp_virtual_dispatch: 4"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "CXXDefaultArgExpr: 53"
+        },
+        {
+          "code": "analysis_failed",
+          "message": "Command failed: /usr/bin/node --import tsx /home/jarvis/文档/projects/yasa-c-family-experiment/engine/src/interface/c-family-analysis-worker.ts /home/jarvis/文档/projects/yasa-uast-migration/artifacts/clang-hardening-20261115/spdlog-engine-final/domains/4fc7c5446755d40ce8e244309d2c3675781e0e3403cb6c4df7a377ebc6bdf024/request.json\n"
+        }
+      ],
+      "artifactHash": "12db9b271e2d9bc6382f0c3e15407c5f3b31dece1852a756a2b5cc011b0c78a5",
+      "functionDeclarations": 5270
+    },
+    {
+      "unitId": "5bbc478e0a0e07b79ed7152f602706aea5ce87d4431b27840c1cdf153f75de46",
+      "domainId": "spdlog-static",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/src/file_sinks.cpp",
+      "language": "cpp",
+      "status": "analysis_failed",
+      "diagnostics": [
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::swap",
+          "unitId": "5bbc478e0a0e07b79ed7152f602706aea5ce87d4431b27840c1cdf153f75de46"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::operator+",
+          "unitId": "5bbc478e0a0e07b79ed7152f602706aea5ce87d4431b27840c1cdf153f75de46"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::operator+",
+          "unitId": "5bbc478e0a0e07b79ed7152f602706aea5ce87d4431b27840c1cdf153f75de46"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_tuple",
+          "unitId": "5bbc478e0a0e07b79ed7152f602706aea5ce87d4431b27840c1cdf153f75de46"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_tuple",
+          "unitId": "5bbc478e0a0e07b79ed7152f602706aea5ce87d4431b27840c1cdf153f75de46"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::tie",
+          "unitId": "5bbc478e0a0e07b79ed7152f602706aea5ce87d4431b27840c1cdf153f75de46"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::operator+",
+          "unitId": "5bbc478e0a0e07b79ed7152f602706aea5ce87d4431b27840c1cdf153f75de46"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::swap",
+          "unitId": "5bbc478e0a0e07b79ed7152f602706aea5ce87d4431b27840c1cdf153f75de46"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::operator+",
+          "unitId": "5bbc478e0a0e07b79ed7152f602706aea5ce87d4431b27840c1cdf153f75de46"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::operator+",
+          "unitId": "5bbc478e0a0e07b79ed7152f602706aea5ce87d4431b27840c1cdf153f75de46"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_tuple",
+          "unitId": "5bbc478e0a0e07b79ed7152f602706aea5ce87d4431b27840c1cdf153f75de46"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_tuple",
+          "unitId": "5bbc478e0a0e07b79ed7152f602706aea5ce87d4431b27840c1cdf153f75de46"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::tie",
+          "unitId": "5bbc478e0a0e07b79ed7152f602706aea5ce87d4431b27840c1cdf153f75de46"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::operator+",
+          "unitId": "5bbc478e0a0e07b79ed7152f602706aea5ce87d4431b27840c1cdf153f75de46"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "dependent_name_resolution: 456"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "cpp_baseclass_semantics: 171"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "dependent_enum_value: 24"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "ParenListExpr: 84"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "base_or_delegating_constructor: 38"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "UnresolvedUsingValueDecl: 3"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "dependent_construction: 109"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "dependent_member_resolution: 406"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "implicit_array_tail: 4"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "PackExpansionExpr: 24"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "SizeOfPackExpr: 1"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "lambda_capture_semantics: 6"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "BinaryOperator: 64"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "NamespaceAliasDecl: 1"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "cpp_allocation_semantics: 3"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "cpp_virtual_dispatch: 7"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "CXXDefaultArgExpr: 59"
+        },
+        {
+          "code": "analysis_failed",
+          "message": "Command failed: /usr/bin/node --import tsx /home/jarvis/文档/projects/yasa-c-family-experiment/engine/src/interface/c-family-analysis-worker.ts /home/jarvis/文档/projects/yasa-uast-migration/artifacts/clang-hardening-20261115/spdlog-engine-final/domains/4fc7c5446755d40ce8e244309d2c3675781e0e3403cb6c4df7a377ebc6bdf024/request.json\n"
+        }
+      ],
+      "artifactHash": "e1f9b5af6f72f204518bb29d7a8e4734ce7116a3924e4188c5a7f6bad6ad0805",
+      "functionDeclarations": 4953
+    },
+    {
+      "unitId": "3004e0e7be78f9c684f55c1a1099ce2e59e2f70cca786f14280e8bf7dd5fa17a",
+      "domainId": "spdlog-static",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/src/async.cpp",
+      "language": "cpp",
+      "status": "analysis_failed",
+      "diagnostics": [
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::swap",
+          "unitId": "3004e0e7be78f9c684f55c1a1099ce2e59e2f70cca786f14280e8bf7dd5fa17a"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "3004e0e7be78f9c684f55c1a1099ce2e59e2f70cca786f14280e8bf7dd5fa17a"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "__gnu_cxx::operator!=",
+          "unitId": "3004e0e7be78f9c684f55c1a1099ce2e59e2f70cca786f14280e8bf7dd5fa17a"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "3004e0e7be78f9c684f55c1a1099ce2e59e2f70cca786f14280e8bf7dd5fa17a"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "__gnu_cxx::operator!=",
+          "unitId": "3004e0e7be78f9c684f55c1a1099ce2e59e2f70cca786f14280e8bf7dd5fa17a"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::swap",
+          "unitId": "3004e0e7be78f9c684f55c1a1099ce2e59e2f70cca786f14280e8bf7dd5fa17a"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "3004e0e7be78f9c684f55c1a1099ce2e59e2f70cca786f14280e8bf7dd5fa17a"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "__gnu_cxx::operator!=",
+          "unitId": "3004e0e7be78f9c684f55c1a1099ce2e59e2f70cca786f14280e8bf7dd5fa17a"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_shared",
+          "unitId": "3004e0e7be78f9c684f55c1a1099ce2e59e2f70cca786f14280e8bf7dd5fa17a"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "__gnu_cxx::operator!=",
+          "unitId": "3004e0e7be78f9c684f55c1a1099ce2e59e2f70cca786f14280e8bf7dd5fa17a"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "dependent_name_resolution: 458"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "cpp_baseclass_semantics: 164"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "dependent_enum_value: 24"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "ParenListExpr: 75"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "base_or_delegating_constructor: 45"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "UnresolvedUsingValueDecl: 3"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "dependent_construction: 109"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "dependent_member_resolution: 438"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "implicit_array_tail: 5"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "PackExpansionExpr: 34"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "SizeOfPackExpr: 1"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "lambda_capture_semantics: 12"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "BinaryOperator: 63"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "NamespaceAliasDecl: 1"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "cpp_allocation_semantics: 1"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "CXXStdInitializerListExpr: 2"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "cpp_virtual_dispatch: 1"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "CXXDefaultArgExpr: 52"
+        },
+        {
+          "code": "analysis_failed",
+          "message": "Command failed: /usr/bin/node --import tsx /home/jarvis/文档/projects/yasa-c-family-experiment/engine/src/interface/c-family-analysis-worker.ts /home/jarvis/文档/projects/yasa-uast-migration/artifacts/clang-hardening-20261115/spdlog-engine-final/domains/4fc7c5446755d40ce8e244309d2c3675781e0e3403cb6c4df7a377ebc6bdf024/request.json\n"
+        }
+      ],
+      "artifactHash": "41fda3209e954289b6424bb2f15a9d6d20195ad8ad927c5b3d5ed141f05aceef",
+      "functionDeclarations": 4993
+    },
+    {
+      "unitId": "c51c9ac48eb0a1cebb91810f2f3f2658d43e1539dd7d5c5fd6390f5ae66522c9",
+      "domainId": "spdlog-static",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/src/cfg.cpp",
+      "language": "cpp",
+      "status": "analysis_failed",
+      "diagnostics": [
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::swap",
+          "unitId": "c51c9ac48eb0a1cebb91810f2f3f2658d43e1539dd7d5c5fd6390f5ae66522c9"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::transform",
+          "unitId": "c51c9ac48eb0a1cebb91810f2f3f2658d43e1539dd7d5c5fd6390f5ae66522c9"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_pair",
+          "unitId": "c51c9ac48eb0a1cebb91810f2f3f2658d43e1539dd7d5c5fd6390f5ae66522c9"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::operator!=",
+          "unitId": "c51c9ac48eb0a1cebb91810f2f3f2658d43e1539dd7d5c5fd6390f5ae66522c9"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::swap",
+          "unitId": "c51c9ac48eb0a1cebb91810f2f3f2658d43e1539dd7d5c5fd6390f5ae66522c9"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::transform",
+          "unitId": "c51c9ac48eb0a1cebb91810f2f3f2658d43e1539dd7d5c5fd6390f5ae66522c9"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::make_pair",
+          "unitId": "c51c9ac48eb0a1cebb91810f2f3f2658d43e1539dd7d5c5fd6390f5ae66522c9"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::operator!=",
+          "unitId": "c51c9ac48eb0a1cebb91810f2f3f2658d43e1539dd7d5c5fd6390f5ae66522c9"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "dependent_name_resolution: 440"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "cpp_baseclass_semantics: 123"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "dependent_enum_value: 24"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "ParenListExpr: 68"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "base_or_delegating_constructor: 29"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "UnresolvedUsingValueDecl: 3"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "dependent_construction: 106"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "dependent_member_resolution: 404"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "implicit_array_tail: 3"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "PackExpansionExpr: 22"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "SizeOfPackExpr: 1"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "lambda_capture_semantics: 6"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "BinaryOperator: 64"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "NamespaceAliasDecl: 1"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "cpp_allocation_semantics: 1"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "CXXDefaultArgExpr: 35"
+        },
+        {
+          "code": "analysis_failed",
+          "message": "Command failed: /usr/bin/node --import tsx /home/jarvis/文档/projects/yasa-c-family-experiment/engine/src/interface/c-family-analysis-worker.ts /home/jarvis/文档/projects/yasa-uast-migration/artifacts/clang-hardening-20261115/spdlog-engine-final/domains/4fc7c5446755d40ce8e244309d2c3675781e0e3403cb6c4df7a377ebc6bdf024/request.json\n"
+        }
+      ],
+      "artifactHash": "45db94cbdf380f738c16eb358fc8f0b32c863117bc708d34b547652f396d975a",
+      "functionDeclarations": 5216
+    },
+    {
+      "unitId": "d82546a8855ad0e2117917596b93334f9778eca21a0e9ae662a8f66bd500ec7c",
+      "domainId": "spdlog-static",
+      "sourceFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/src/bundled_fmtlib_format.cpp",
+      "language": "cpp",
+      "status": "analysis_failed",
+      "diagnostics": [
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::isalpha",
+          "unitId": "d82546a8855ad0e2117917596b93334f9778eca21a0e9ae662a8f66bd500ec7c"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::use_facet",
+          "unitId": "d82546a8855ad0e2117917596b93334f9778eca21a0e9ae662a8f66bd500ec7c"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::use_facet",
+          "unitId": "d82546a8855ad0e2117917596b93334f9778eca21a0e9ae662a8f66bd500ec7c"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "__gnu_cxx::operator==",
+          "unitId": "d82546a8855ad0e2117917596b93334f9778eca21a0e9ae662a8f66bd500ec7c"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::has_facet",
+          "unitId": "d82546a8855ad0e2117917596b93334f9778eca21a0e9ae662a8f66bd500ec7c"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::use_facet",
+          "unitId": "d82546a8855ad0e2117917596b93334f9778eca21a0e9ae662a8f66bd500ec7c"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::isalpha",
+          "unitId": "d82546a8855ad0e2117917596b93334f9778eca21a0e9ae662a8f66bd500ec7c"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::use_facet",
+          "unitId": "d82546a8855ad0e2117917596b93334f9778eca21a0e9ae662a8f66bd500ec7c"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::use_facet",
+          "unitId": "d82546a8855ad0e2117917596b93334f9778eca21a0e9ae662a8f66bd500ec7c"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "__gnu_cxx::operator==",
+          "unitId": "d82546a8855ad0e2117917596b93334f9778eca21a0e9ae662a8f66bd500ec7c"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::has_facet",
+          "unitId": "d82546a8855ad0e2117917596b93334f9778eca21a0e9ae662a8f66bd500ec7c"
+        },
+        {
+          "code": "unmodeled_system_template",
+          "stage": "parse",
+          "message": "std::use_facet",
+          "unitId": "d82546a8855ad0e2117917596b93334f9778eca21a0e9ae662a8f66bd500ec7c"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "dependent_name_resolution: 515"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "cpp_baseclass_semantics: 361"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "dependent_enum_value: 26"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "ParenListExpr: 70"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "base_or_delegating_constructor: 39"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "UnresolvedUsingValueDecl: 6"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "dependent_construction: 112"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "dependent_member_resolution: 521"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "implicit_array_tail: 13"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "PackExpansionExpr: 22"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "SizeOfPackExpr: 1"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "lambda_capture_semantics: 21"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "BinaryOperator: 73"
+        },
+        {
+          "code": "clang_conversion_partial",
+          "message": "CXXDefaultArgExpr: 71"
+        },
+        {
+          "code": "analysis_failed",
+          "message": "Command failed: /usr/bin/node --import tsx /home/jarvis/文档/projects/yasa-c-family-experiment/engine/src/interface/c-family-analysis-worker.ts /home/jarvis/文档/projects/yasa-uast-migration/artifacts/clang-hardening-20261115/spdlog-engine-final/domains/4fc7c5446755d40ce8e244309d2c3675781e0e3403cb6c4df7a377ebc6bdf024/request.json\n"
+        }
+      ],
+      "artifactHash": "35a4228cfc9466f789babdc806d2c2bc299ca53fc742a41751f639cec8af2237",
+      "functionDeclarations": 4985
+    }
+  ],
+  "domains": [
+    {
+      "domainId": "spdlog-static",
+      "status": "failed",
+      "units": [
+        "40b4967d4c65f3502ed398a7c42a7732add79f2b4734eebe340f1468f546feac",
+        "c3795346d0088afe31fe539b7f8da277ca587116fe6142a60bc099d15b9f2572",
+        "82daba8024849e32ae56aa66166ce79960366c937dd7c568d9fa4782cb80ba05",
+        "5bbc478e0a0e07b79ed7152f602706aea5ce87d4431b27840c1cdf153f75de46",
+        "3004e0e7be78f9c684f55c1a1099ce2e59e2f70cca786f14280e8bf7dd5fa17a",
+        "c51c9ac48eb0a1cebb91810f2f3f2658d43e1539dd7d5c5fd6390f5ae66522c9",
+        "d82546a8855ad0e2117917596b93334f9778eca21a0e9ae662a8f66bd500ec7c"
+      ],
+      "diagnostic": "Command failed: /usr/bin/node --import tsx /home/jarvis/文档/projects/yasa-c-family-experiment/engine/src/interface/c-family-analysis-worker.ts /home/jarvis/文档/projects/yasa-uast-migration/artifacts/clang-hardening-20261115/spdlog-engine-final/domains/4fc7c5446755d40ce8e244309d2c3675781e0e3403cb6c4df7a377ebc6bdf024/request.json\n"
+    }
+  ],
+  "diagnostics": [],
+  "started": "2026-11-15T09:27:10.751Z",
+  "profileId": "spdlog-static-native",
+  "inputs": {
+    "compileCommands": "b3bcad30829bcc351f0a1b09289ca3dbb2d3376feb950d1d892c68f6afa13561",
+    "buildProfile": "90dafd1656efa38ace378d9e48a6009c6356487169f5fe58b2f2661f48241df9",
+    "ruleConfig": "6d7e9503c98b79f97ef57469eda702173b2bd3ff0aaf59ad5ffc3681458f6cea"
+  },
+  "unselected": [],
+  "uncoveredSources": [],
+  "finished": "2026-11-15T09:38:30.424Z"
+}

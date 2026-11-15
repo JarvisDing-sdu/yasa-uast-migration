@@ -1,0 +1,117 @@
+{
+  "saved_utc": "2026-11-15T09:53:09.589444+00:00",
+  "exports": {
+    "curl-verified": {
+      "total": 196,
+      "completed": 196,
+      "failed": 0,
+      "syntax_diagnostics": 0,
+      "statuses": {
+        "partial_conversion": 100,
+        "no_syntax_errors": 96
+      },
+      "conversion_diagnostics": {
+        "dependent_enum_value": 291,
+        "goto_control_flow": 18,
+        "StmtExpr": 32,
+        "CompoundLiteralExpr": 22,
+        "OffsetOfExpr": 3,
+        "VAArgExpr": 84,
+        "AtomicExpr": 9,
+        "implicit_array_tail": 12,
+        "switch_pre_label_statement": 4
+      },
+      "cumulative_unit_seconds": 114.941
+    },
+    "spdlog-verified": {
+      "total": 7,
+      "completed": 7,
+      "failed": 0,
+      "syntax_diagnostics": 0,
+      "statuses": {
+        "partial_conversion": 7
+      },
+      "conversion_diagnostics": {
+        "dependent_name_resolution": 3313,
+        "cpp_baseclass_semantics": 1405,
+        "dependent_enum_value": 170,
+        "ParenListExpr": 616,
+        "base_or_delegating_constructor": 409,
+        "UnresolvedUsingValueDecl": 24,
+        "dependent_construction": 763,
+        "dependent_member_resolution": 3124,
+        "implicit_array_tail": 37,
+        "PackExpansionExpr": 216,
+        "SizeOfPackExpr": 7,
+        "lambda_capture_semantics": 70,
+        "BinaryOperator": 457,
+        "NamespaceAliasDecl": 6,
+        "cpp_allocation_semantics": 106,
+        "CXXStdInitializerListExpr": 5,
+        "cpp_virtual_dispatch": 24,
+        "CXXDefaultArgExpr": 404
+      },
+      "cumulative_unit_seconds": 49.766
+    }
+  },
+  "definition_coverage": {
+    "curl": {
+      "matching_rule": "one-to-one same physical file, template-normalized name, predicted start inside libclang reference extent",
+      "meaning": "definition presence only; instantiated duplicates retained separately; compiler-derived reference does not establish semantic or callgraph accuracy",
+      "units": 196,
+      "reference_definitions": 12885,
+      "predicted_definitions": 12885,
+      "matched_reference_definitions": 12885,
+      "missing_kinds": {}
+    },
+    "spdlog": {
+      "matching_rule": "one-to-one same physical file, template-normalized name, predicted start inside libclang reference extent",
+      "meaning": "definition presence only; instantiated duplicates retained separately; compiler-derived reference does not establish semantic or callgraph accuracy",
+      "units": 7,
+      "reference_definitions": 5170,
+      "predicted_definitions": 7854,
+      "matched_reference_definitions": 5157,
+      "missing_kinds": {
+        "FUNCTION_TEMPLATE": 7,
+        "CXX_METHOD": 6
+      }
+    }
+  },
+  "tests": {
+    "combined_engine_regressions": 310,
+    "focused_boundary_tests": 36,
+    "native_engine_tests": 10,
+    "focused_overlaps_combined": true,
+    "parser_c": 103,
+    "parser_cpp": 51,
+    "typecheck_exit": 0
+  },
+  "full_engine": {
+    "manifest": "spdlog-engine-final/analysis-manifest.json",
+    "status": "failed",
+    "parsed_units": 7,
+    "uncovered_sources": [],
+    "completed_entrypoint_events": 4586,
+    "worker_timeout_ms": 600000,
+    "outcome": "symbolic interpretation reached entry budgets and overall worker timeout; no completed full-target analysis or final worker-state record"
+  },
+  "frozen_results": {
+    "TP": 13,
+    "FN": 0,
+    "TN": 13,
+    "FP": 0
+  },
+  "frozen_formal_passed": true,
+  "scope_notes": [
+    "One configured libcurl_static target and one configured spdlog static-library target.",
+    "Successful dump and zero syntax diagnostics coexist with explicit semantic conversion gaps.",
+    "Function-definition presence is scored separately from callgraph precision and recall.",
+    "Whole-library Engine interpretation did not finish.",
+    "Full UAST exports and intermediate archives remain in the local artifacts directory. This directory publishes result summaries and manifests."
+  ],
+  "source_versions": {
+    "engine": "0e79be49652ded000dc124384ca5b672b39f9af4",
+    "uast": "2242701664c04ee7a8013a23d0e2450e5286852c",
+    "branch": "codex/c-family-pilot-20261115"
+  }
+}

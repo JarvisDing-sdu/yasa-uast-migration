@@ -1,0 +1,146 @@
+[
+  {
+    "sample": "curl-altsvc",
+    "backend": "tree-sitter",
+    "runs": 3,
+    "exit_codes": [
+      0,
+      0,
+      0
+    ],
+    "median_seconds": 0.88,
+    "median_rss_kib": 230524,
+    "syntax_diagnostics": 0,
+    "counts": {
+      "FunctionDefinition": 71,
+      "CallExpression": 146,
+      "Noop": 823
+    }
+  },
+  {
+    "sample": "curl-altsvc",
+    "backend": "clang",
+    "runs": 3,
+    "exit_codes": [
+      0,
+      0,
+      0
+    ],
+    "median_seconds": 1.25,
+    "median_rss_kib": 220240,
+    "syntax_diagnostics": 0,
+    "counts": {
+      "FunctionDefinition": 71,
+      "CallExpression": 144,
+      "Noop": 894
+    }
+  },
+  {
+    "sample": "curl-openssl",
+    "backend": "tree-sitter",
+    "runs": 3,
+    "exit_codes": [
+      0,
+      0,
+      0
+    ],
+    "median_seconds": 1.38,
+    "median_rss_kib": 343216,
+    "syntax_diagnostics": 0,
+    "counts": {
+      "CallExpression": 1033,
+      "FunctionDefinition": 144,
+      "Noop": 1239
+    }
+  },
+  {
+    "sample": "curl-openssl",
+    "backend": "clang",
+    "runs": 3,
+    "exit_codes": [
+      0,
+      0,
+      0
+    ],
+    "median_seconds": 2.6,
+    "median_rss_kib": 333028,
+    "syntax_diagnostics": 0,
+    "counts": {
+      "CallExpression": 1032,
+      "FunctionDefinition": 144,
+      "Noop": 1309
+    }
+  },
+  {
+    "sample": "spdlog-async",
+    "backend": "tree-sitter",
+    "runs": 3,
+    "exit_codes": [
+      0,
+      0,
+      0
+    ],
+    "median_seconds": 1.41,
+    "median_rss_kib": 379576,
+    "syntax_diagnostics": 23,
+    "counts": {
+      "FunctionDefinition": 726,
+      "CallExpression": 1504,
+      "Noop": 562
+    }
+  },
+  {
+    "sample": "spdlog-async",
+    "backend": "clang",
+    "runs": 3,
+    "exit_codes": [
+      0,
+      0,
+      0
+    ],
+    "median_seconds": 6.1,
+    "median_rss_kib": 409588,
+    "syntax_diagnostics": 0,
+    "counts": {
+      "Noop": 1374,
+      "FunctionDefinition": 1011,
+      "CallExpression": 2014
+    }
+  },
+  {
+    "sample": "spdlog-spdlog",
+    "backend": "tree-sitter",
+    "runs": 3,
+    "exit_codes": [
+      0,
+      0,
+      0
+    ],
+    "median_seconds": 1.62,
+    "median_rss_kib": 416536,
+    "syntax_diagnostics": 25,
+    "counts": {
+      "Noop": 720,
+      "FunctionDefinition": 983,
+      "CallExpression": 2144
+    }
+  },
+  {
+    "sample": "spdlog-spdlog",
+    "backend": "clang",
+    "runs": 3,
+    "exit_codes": [
+      0,
+      0,
+      0
+    ],
+    "median_seconds": 13.9,
+    "median_rss_kib": 554144,
+    "syntax_diagnostics": 0,
+    "counts": {
+      "FunctionDefinition": 1573,
+      "CallExpression": 3599,
+      "Noop": 2044
+    }
+  }
+]
