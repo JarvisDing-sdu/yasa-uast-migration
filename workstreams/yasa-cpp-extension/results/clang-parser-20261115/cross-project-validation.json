@@ -1,0 +1,272 @@
+{
+  "purpose": "Cross-project configured parser export baseline and member-pointer regression. No callgraph scoring.",
+  "featureMatrix": {
+    "contractChecks": 16,
+    "knownGapReproductions": 2,
+    "knownGaps": [
+      "tree-sitter C++ constructor marker",
+      "tree-sitter C++ lambda body"
+    ]
+  },
+  "regressionChecks": {
+    "total": 335,
+    "knownGapReproductionsIncluded": 2,
+    "typescript": "passed"
+  },
+  "baseline": [
+    {
+      "project": "jsoncpp",
+      "role": "independent-first-baseline",
+      "backend": "tree-sitter",
+      "command": [
+        "node",
+        "--max-old-space-size=4096",
+        "--import",
+        "tsx",
+        "src/main.ts",
+        "--sourcePath",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/jsoncpp-source",
+        "--language",
+        "cpp",
+        "--dumpAllAST",
+        "--cCompileCommands",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/jsoncpp-build/compile_commands.json",
+        "--cAstBackend",
+        "tree-sitter",
+        "--report",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/baseline/jsoncpp-tree-sitter"
+      ],
+      "exitCode": 0,
+      "seconds": 2.268,
+      "expectedCommands": 3,
+      "selectedCommands": 3,
+      "completed": 3,
+      "coverageMatches": true,
+      "statuses": {
+        "syntax_errors": 3
+      },
+      "syntaxDiagnostics": 9,
+      "roots": {
+        "CompileUnit": 3
+      },
+      "functionDefinitionRecords": 645,
+      "unhandledNodes": {
+        "new_expression": 11,
+        "static_assert_declaration": 3,
+        "lambda_expression": 3,
+        "template_declaration": 15,
+        "operator_name": 6
+      },
+      "invalidExports": [],
+      "manifestSha256": "9175d2c5a1a02da4c8c8e9df26dcce616f4be899a459359879b0ab803f7c6a04",
+      "conversionDiagnostics": {}
+    },
+    {
+      "project": "jsoncpp",
+      "role": "independent-first-baseline",
+      "backend": "clang",
+      "command": [
+        "node",
+        "--max-old-space-size=4096",
+        "--import",
+        "tsx",
+        "src/main.ts",
+        "--sourcePath",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/jsoncpp-source",
+        "--language",
+        "cpp",
+        "--dumpAllAST",
+        "--cCompileCommands",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/jsoncpp-build/compile_commands.json",
+        "--cAstBackend",
+        "clang",
+        "--report",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/baseline/jsoncpp-clang"
+      ],
+      "exitCode": 2,
+      "seconds": 12.386,
+      "expectedCommands": 3,
+      "selectedCommands": 3,
+      "completed": 3,
+      "coverageMatches": true,
+      "statuses": {
+        "failed": 3
+      },
+      "syntaxDiagnostics": 0,
+      "roots": {},
+      "functionDefinitionRecords": 0,
+      "unhandledNodes": {},
+      "invalidExports": [],
+      "manifestSha256": "dcc48d43fec5cdf9aa35ceaeac0c9f5d44a1973b240b6280e25cefc514f6444d",
+      "conversionDiagnostics": {}
+    },
+    {
+      "project": "sqlite",
+      "role": "historical-regression",
+      "backend": "tree-sitter",
+      "command": [
+        "node",
+        "--max-old-space-size=4096",
+        "--import",
+        "tsx",
+        "src/main.ts",
+        "--sourcePath",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts",
+        "--language",
+        "c",
+        "--dumpAllAST",
+        "--cCompileCommands",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/sqlite-compile.json",
+        "--cAstBackend",
+        "tree-sitter",
+        "--report",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/baseline/sqlite-tree-sitter"
+      ],
+      "exitCode": 0,
+      "seconds": 30.624,
+      "expectedCommands": 102,
+      "selectedCommands": 102,
+      "completed": 102,
+      "coverageMatches": true,
+      "statuses": {
+        "no_syntax_errors": 102
+      },
+      "syntaxDiagnostics": 0,
+      "roots": {
+        "CompileUnit": 102
+      },
+      "functionDefinitionRecords": 2744,
+      "unhandledNodes": {
+        "generic_expression": 6
+      },
+      "invalidExports": [],
+      "manifestSha256": "b76db752107ba76f603e91d859a39cda798717f8440d669d4455481f9d16a845",
+      "conversionDiagnostics": {}
+    },
+    {
+      "project": "sqlite",
+      "role": "historical-regression",
+      "backend": "clang",
+      "command": [
+        "node",
+        "--max-old-space-size=4096",
+        "--import",
+        "tsx",
+        "src/main.ts",
+        "--sourcePath",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts",
+        "--language",
+        "c",
+        "--dumpAllAST",
+        "--cCompileCommands",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/sqlite-compile.json",
+        "--cAstBackend",
+        "clang",
+        "--report",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/baseline/sqlite-clang"
+      ],
+      "exitCode": 0,
+      "seconds": 55.267,
+      "expectedCommands": 102,
+      "selectedCommands": 102,
+      "completed": 102,
+      "coverageMatches": true,
+      "statuses": {
+        "no_syntax_errors": 83,
+        "partial_conversion": 19
+      },
+      "syntaxDiagnostics": 0,
+      "roots": {
+        "CompileUnit": 102
+      },
+      "functionDefinitionRecords": 2744,
+      "unhandledNodes": {
+        "Clang.AtomicExpr": 38,
+        "Clang.CaseStmt": 7
+      },
+      "invalidExports": [],
+      "manifestSha256": "a36e9ae991df561b84a196cfaa482ff8ca39031ff9af800752528fd287b8a447",
+      "conversionDiagnostics": {
+        "AtomicExpr": 38,
+        "goto_control_flow": 76,
+        "CaseStmt": 7,
+        "implicit_array_tail": 3,
+        "switch_pre_label_statement": 1
+      }
+    }
+  ],
+  "postFixRegression": [
+    {
+      "project": "jsoncpp",
+      "role": "post-fix-regression",
+      "backend": "clang",
+      "command": [
+        "node",
+        "--max-old-space-size=4096",
+        "--import",
+        "tsx",
+        "src/main.ts",
+        "--sourcePath",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/jsoncpp-source",
+        "--language",
+        "cpp",
+        "--dumpAllAST",
+        "--cCompileCommands",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/jsoncpp-build/compile_commands.json",
+        "--cAstBackend",
+        "clang",
+        "--report",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/runner-verified/jsoncpp-clang"
+      ],
+      "exitCode": 0,
+      "seconds": 16.996,
+      "expectedCommands": 3,
+      "selectedCommands": 3,
+      "completed": 3,
+      "coverageMatches": true,
+      "statuses": {
+        "partial_conversion": 3
+      },
+      "syntaxDiagnostics": 0,
+      "roots": {
+        "CompileUnit": 3
+      },
+      "functionDefinitionRecords": 661,
+      "unhandledNodes": {
+        "Clang.CompoundAssignOperator": 1,
+        "Clang.CXXStdInitializerListExpr": 2,
+        "Clang.BinaryOperator": 25,
+        "Clang.CXXPseudoDestructorExpr": 3,
+        "Clang.ParenListExpr": 4
+      },
+      "conversionDiagnostics": {
+        "dependent_name_resolution": 32,
+        "ParenListExpr": 4,
+        "cpp_allocation_semantics": 13,
+        "CXXPseudoDestructorExpr": 3,
+        "BinaryOperator": 25,
+        "cpp_baseclass_semantics": 25,
+        "base_or_delegating_constructor": 20,
+        "member_pointer_resolution": 15,
+        "cpp_virtual_dispatch": 3,
+        "CompoundAssignOperator": 1,
+        "CXXStdInitializerListExpr": 2,
+        "CXXDefaultArgExpr": 118,
+        "dependent_construction": 1,
+        "cpp_delete_semantics": 1
+      },
+      "invalidExports": [],
+      "manifestSha256": "9f77df095681f9f664233f081adb20367bed5e79ffbde075cce8ed99c5f0fc6a"
+    }
+  ],
+  "inputsUnchangedDuringRuns": true,
+  "jsoncppRevision": "93acc7b155048f1a66c43235cc205519f1e7a6ea",
+  "sqliteVersion": "3.55.0",
+  "builds": {
+    "jsoncpp_static": "passed",
+    "libsqlite3.a_disable_amalgamation": "passed"
+  },
+  "rawEvidence": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115",
+  "baselineExportArchiveSha256": "cf67b57b60be23ab975d544555da9bbc4b695d5363e2238749452c4f86984b37",
+  "publicationStatus": "Uncommitted local changes. jsoncpp becomes a regression project after its first baseline is examined."
+}

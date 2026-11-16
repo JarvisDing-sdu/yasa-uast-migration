@@ -1,0 +1,76 @@
+{
+  "baselineEngineCommit": "0e79be49652ded000dc124384ca5b672b39f9af4",
+  "before": {
+    "units": 196,
+    "statuses": {
+      "partial_conversion": 100,
+      "no_syntax_errors": 96
+    },
+    "nonzeroExits": 0,
+    "syntaxDiagnostics": 0,
+    "conversionOccurrences": {
+      "dependent_enum_value": 291,
+      "goto_control_flow": 18,
+      "StmtExpr": 32,
+      "CompoundLiteralExpr": 22,
+      "OffsetOfExpr": 3,
+      "VAArgExpr": 84,
+      "AtomicExpr": 9,
+      "implicit_array_tail": 12,
+      "switch_pre_label_statement": 4
+    }
+  },
+  "after": {
+    "units": 196,
+    "statuses": {
+      "no_syntax_errors": 180,
+      "partial_conversion": 16
+    },
+    "nonzeroExits": 0,
+    "syntaxDiagnostics": 0,
+    "conversionOccurrences": {
+      "goto_control_flow": 18,
+      "AtomicExpr": 9,
+      "implicit_array_tail": 12,
+      "switch_pre_label_statement": 4
+    }
+  },
+  "roots": {
+    "CompileUnit": 196
+  },
+  "functionDefinitionRecords": 12885,
+  "functionDefinitionDifferences": [],
+  "scope": "Linux libcurl_static build, Clang backend, configured dumpAllAST. Counts include repeated headers across translation units.",
+  "tests": {
+    "engineCFamilyCAndCpp": 316,
+    "typescript": "passed",
+    "command": "node_modules/.bin/mocha --require tsx/cjs 'test/c-family/*.ts' 'test/c/*.ts' 'test/cpp/*.ts'"
+  },
+  "dumpCommand": [
+    "node",
+    "--max-old-space-size=4096",
+    "--import",
+    "tsx",
+    "src/main.ts",
+    "--sourcePath",
+    "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl",
+    "--language",
+    "c",
+    "--dumpAllAST",
+    "--cCompileCommands",
+    "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-session-45min-20261115/curl-static-compile.json",
+    "--cAstBackend",
+    "clang",
+    "--report",
+    "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-parser-hardening-20261115/curl-verified"
+  ],
+  "workingDirectory": "/home/jarvis/文档/projects/yasa-c-family-experiment/engine",
+  "manifestSha256": "cb3a8bf01b0d141bb9b59ef9e8e2a7eaf66e9a4c57178449d8e8244987a82137",
+  "sourceSha256": {
+    "src/engine/parser/c-family/clang-uast.ts": "5aa276112e1ce7d2836d976f0bb53b8df078220bbc52cf14bd27e2eccfd2232a",
+    "src/engine/analyzer/c/common/c-analyzer.ts": "84ced8835d50fc69583a9613a20b484b1ab42afd7944b8559e0462ac09df73ed",
+    "test/c-family/test-clang-uast.ts": "4b81d4a75684905e26e8ce1d0b70bb502bc60ca857e7fdd7a659fc97470aed78",
+    "test/c-family/test-clang-engine.ts": "a2c7e322383d0ccdb6fbf14bd1fcdca078ea26eca2da93bbf5431520bf06f014"
+  },
+  "publicationStatus": "Uncommitted local changes in experimental Engine worktree."
+}

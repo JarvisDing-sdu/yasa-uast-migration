@@ -1,0 +1,449 @@
+{
+  "session": {
+    "startedUtc": "2026-11-15 15:20:19 UTC",
+    "deadlineUtc": "2026-11-15 15:50:19 UTC",
+    "scope": "Clang AST to UAST conversion, fixed-project regressions and new project baselines",
+    "ncnnConfiguration": "CPU static, Vulkan/OpenMP/runtime CPU/AVX disabled",
+    "ncnnLocalChange": "Existing tools/pnnx/src/CMakeLists.txt modification is outside selected target; tools build disabled",
+    "completedUtc": "2026-11-15 15:50:30 UTC"
+  },
+  "testResults": {
+    "combinedPassing": 339,
+    "typescript": "passed",
+    "command": "node_modules/.bin/mocha --require tsx/cjs 'test/c-family/*.ts' 'test/c/*.ts' 'test/cpp/*.ts'",
+    "workingDirectory": "/home/jarvis/文档/projects/yasa-c-family-experiment/engine",
+    "log": "artifacts/clang-session-30min-20261115/final-tests.log"
+  },
+  "finalProjects": [
+    {
+      "project": "jsoncpp",
+      "role": "fixed-regression",
+      "backend": "clang",
+      "command": [
+        "node",
+        "--max-old-space-size=4096",
+        "--import",
+        "tsx",
+        "src/main.ts",
+        "--sourcePath",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/jsoncpp-source",
+        "--language",
+        "cpp",
+        "--dumpAllAST",
+        "--cCompileCommands",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/jsoncpp-build/compile_commands.json",
+        "--cAstBackend",
+        "clang",
+        "--report",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/clang-session-30min-20261115/final/jsoncpp-clang"
+      ],
+      "exitCode": 0,
+      "seconds": 15.893,
+      "expectedCommands": 3,
+      "selectedCommands": 3,
+      "completed": 3,
+      "coverageMatches": true,
+      "statuses": {
+        "partial_conversion": 3
+      },
+      "syntaxDiagnostics": 0,
+      "roots": {
+        "CompileUnit": 3
+      },
+      "functionDefinitionRecords": 661,
+      "unhandledNodes": {
+        "Clang.CXXPseudoDestructorExpr": 3,
+        "Clang.PackExpansionExpr": 3
+      },
+      "conversionDiagnostics": {
+        "dependent_name_resolution": 32,
+        "PackExpansionExpr": 3,
+        "dependent_parenthesized_initialization": 4,
+        "cpp_allocation_semantics": 13,
+        "CXXPseudoDestructorExpr": 3,
+        "assignment_location_semantics": 26,
+        "cpp_baseclass_semantics": 25,
+        "base_or_delegating_constructor": 20,
+        "member_pointer_resolution": 15,
+        "cpp_virtual_dispatch": 3,
+        "initializer_list_object_semantics": 2,
+        "dependent_construction": 1,
+        "cpp_delete_semantics": 1
+      },
+      "invalidExports": [],
+      "manifestSha256": "196f301c7d550529fcf6638d9a6f858ca5d91a7cbc46807167e3ae5c4420ef18"
+    },
+    {
+      "project": "sqlite",
+      "role": "fixed-regression",
+      "backend": "clang",
+      "command": [
+        "node",
+        "--max-old-space-size=4096",
+        "--import",
+        "tsx",
+        "src/main.ts",
+        "--sourcePath",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts",
+        "--language",
+        "c",
+        "--dumpAllAST",
+        "--cCompileCommands",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/sqlite-compile.json",
+        "--cAstBackend",
+        "clang",
+        "--report",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/clang-session-30min-20261115/final/sqlite-clang"
+      ],
+      "exitCode": 0,
+      "seconds": 52.71,
+      "expectedCommands": 102,
+      "selectedCommands": 102,
+      "completed": 102,
+      "coverageMatches": true,
+      "statuses": {
+        "no_syntax_errors": 83,
+        "partial_conversion": 19
+      },
+      "syntaxDiagnostics": 0,
+      "roots": {
+        "CompileUnit": 102
+      },
+      "functionDefinitionRecords": 2744,
+      "unhandledNodes": {
+        "Clang.AtomicExpr": 38,
+        "Clang.CaseStmt": 7
+      },
+      "conversionDiagnostics": {
+        "AtomicExpr": 38,
+        "goto_control_flow": 76,
+        "CaseStmt": 7,
+        "implicit_array_tail": 3,
+        "switch_pre_label_statement": 1
+      },
+      "invalidExports": [],
+      "manifestSha256": "11e4356373d42909e03e6404104b4b863f30fc8ebd6520fce74a08fe017a26f9"
+    },
+    {
+      "project": "curl",
+      "role": "development-regression",
+      "backend": "clang",
+      "command": [
+        "node",
+        "--max-old-space-size=4096",
+        "--import",
+        "tsx",
+        "src/main.ts",
+        "--sourcePath",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl",
+        "--language",
+        "c",
+        "--dumpAllAST",
+        "--cCompileCommands",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-session-45min-20261115/curl-static-compile.json",
+        "--cAstBackend",
+        "clang",
+        "--report",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/clang-session-30min-20261115/final/curl-clang"
+      ],
+      "exitCode": 0,
+      "seconds": 117.975,
+      "expectedCommands": 196,
+      "selectedCommands": 196,
+      "completed": 196,
+      "coverageMatches": true,
+      "statuses": {
+        "no_syntax_errors": 180,
+        "partial_conversion": 16
+      },
+      "syntaxDiagnostics": 0,
+      "roots": {
+        "CompileUnit": 196
+      },
+      "functionDefinitionRecords": 12885,
+      "unhandledNodes": {
+        "Clang.AtomicExpr": 9
+      },
+      "conversionDiagnostics": {
+        "goto_control_flow": 18,
+        "AtomicExpr": 9,
+        "implicit_array_tail": 12,
+        "switch_pre_label_statement": 4
+      },
+      "invalidExports": [],
+      "manifestSha256": "234375358d15a5820805b5198ed95fccc4182d7ffee29024da8b617b6f781943"
+    },
+    {
+      "project": "spdlog",
+      "role": "historical-regression",
+      "backend": "clang",
+      "command": [
+        "node",
+        "--max-old-space-size=4096",
+        "--import",
+        "tsx",
+        "src/main.ts",
+        "--sourcePath",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog",
+        "--language",
+        "cpp",
+        "--dumpAllAST",
+        "--cCompileCommands",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-route-experiment-20261115/spdlog-build/compile_commands.json",
+        "--cAstBackend",
+        "clang",
+        "--report",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/clang-session-30min-20261115/final/spdlog-clang"
+      ],
+      "exitCode": 0,
+      "seconds": 45.144,
+      "expectedCommands": 7,
+      "selectedCommands": 7,
+      "completed": 7,
+      "coverageMatches": true,
+      "statuses": {
+        "partial_conversion": 7
+      },
+      "syntaxDiagnostics": 0,
+      "roots": {
+        "CompileUnit": 7
+      },
+      "functionDefinitionRecords": 7861,
+      "unhandledNodes": {
+        "Clang.PackExpansionExpr": 222,
+        "Clang.NamespaceAliasDecl": 6,
+        "Clang.BinaryOperator": 294,
+        "Clang.UnresolvedUsingValueDecl": 24,
+        "Clang.SizeOfPackExpr": 7
+      },
+      "conversionDiagnostics": {
+        "dependent_name_resolution": 3362,
+        "cpp_baseclass_semantics": 1405,
+        "dependent_parenthesized_initialization": 616,
+        "base_or_delegating_constructor": 409,
+        "UnresolvedUsingValueDecl": 24,
+        "dependent_construction": 770,
+        "dependent_member_resolution": 3166,
+        "implicit_array_tail": 37,
+        "dependent_enum_value": 7,
+        "PackExpansionExpr": 222,
+        "SizeOfPackExpr": 7,
+        "lambda_capture_semantics": 70,
+        "BinaryOperator": 294,
+        "assignment_location_semantics": 163,
+        "NamespaceAliasDecl": 6,
+        "cpp_allocation_semantics": 106,
+        "initializer_list_object_semantics": 5,
+        "cpp_virtual_dispatch": 24
+      },
+      "invalidExports": [],
+      "manifestSha256": "7e406d1f51b932634b1c0cf55b68020a2a62c5058251e7273fdf298336dac9cd"
+    },
+    {
+      "project": "ncnn-assignment",
+      "role": "post-baseline-reduced-regression",
+      "backend": "clang",
+      "command": [
+        "node",
+        "--max-old-space-size=4096",
+        "--import",
+        "tsx",
+        "src/main.ts",
+        "--sourcePath",
+        "/home/jarvis/文档/projects/yasa-uast-migration/upstream/ncnn-research",
+        "--language",
+        "cpp",
+        "--dumpAllAST",
+        "--cCompileCommands",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/clang-session-30min-20261115/ncnn-assignment-compile.json",
+        "--cAstBackend",
+        "clang",
+        "--report",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/clang-session-30min-20261115/final/ncnn-assignment-clang"
+      ],
+      "exitCode": 0,
+      "seconds": 19.651,
+      "expectedCommands": 5,
+      "selectedCommands": 5,
+      "completed": 5,
+      "coverageMatches": true,
+      "statuses": {
+        "partial_conversion": 5
+      },
+      "syntaxDiagnostics": 0,
+      "roots": {
+        "CompileUnit": 5
+      },
+      "functionDefinitionRecords": 900,
+      "unhandledNodes": {
+        "Clang.AtomicExpr": 9,
+        "Clang.GCCAsmStmt": 2,
+        "Clang.StmtExpr": 3
+      },
+      "conversionDiagnostics": {
+        "cpp_baseclass_semantics": 26,
+        "dependent_enum_value": 60,
+        "AtomicExpr": 9,
+        "base_or_delegating_constructor": 13,
+        "cpp_virtual_dispatch": 24,
+        "cpp_allocation_semantics": 73,
+        "cpp_delete_semantics": 36,
+        "assignment_location_semantics": 19,
+        "GCCAsmStmt": 2,
+        "implicit_array_tail": 14,
+        "StmtExpr": 3
+      },
+      "invalidExports": [],
+      "manifestSha256": "ab9088025d72f064bc3816b5c756ecbfbc999a27f95c9e9e823bbf9df2cecd5b"
+    }
+  ],
+  "structureAudit": [
+    {
+      "project": "jsoncpp-clang",
+      "counts": {
+        "callsBefore": 2251,
+        "callsAfter": 2277,
+        "functionsBefore": 661,
+        "functionsAfter": 661,
+        "removedCalls": 0,
+        "addedCalls": 26,
+        "removedFunctions": 0
+      },
+      "deduplicatedUnhandledCounts": {
+        "Clang.CXXPseudoDestructorExpr": 1,
+        "Clang.PackExpansionExpr": 1
+      }
+    },
+    {
+      "project": "sqlite-clang",
+      "counts": {
+        "callsBefore": 15094,
+        "callsAfter": 15094,
+        "functionsBefore": 2744,
+        "functionsAfter": 2744,
+        "removedCalls": 0,
+        "addedCalls": 0,
+        "removedFunctions": 0
+      },
+      "deduplicatedUnhandledCounts": {
+        "Clang.AtomicExpr": 38,
+        "Clang.CaseStmt": 7
+      }
+    },
+    {
+      "project": "curl-clang",
+      "counts": {
+        "callsBefore": 21336,
+        "callsAfter": 21336,
+        "functionsBefore": 12885,
+        "functionsAfter": 12885,
+        "removedCalls": 0,
+        "addedCalls": 0,
+        "removedFunctions": 0
+      },
+      "deduplicatedUnhandledCounts": {
+        "Clang.AtomicExpr": 3
+      }
+    },
+    {
+      "project": "spdlog-clang",
+      "counts": {
+        "callsBefore": 17740,
+        "callsAfter": 17988,
+        "functionsBefore": 7854,
+        "functionsAfter": 7861,
+        "removedCalls": 0,
+        "addedCalls": 248,
+        "removedFunctions": 0
+      },
+      "deduplicatedUnhandledCounts": {
+        "Clang.PackExpansionExpr": 46,
+        "Clang.NamespaceAliasDecl": 1,
+        "Clang.BinaryOperator": 42,
+        "Clang.UnresolvedUsingValueDecl": 6,
+        "Clang.SizeOfPackExpr": 1
+      }
+    },
+    {
+      "project": "ncnn-assignment-clang",
+      "counts": {
+        "callsBefore": 1985,
+        "callsAfter": 2006,
+        "functionsBefore": 900,
+        "functionsAfter": 900,
+        "removedCalls": 0,
+        "addedCalls": 21,
+        "removedFunctions": 0
+      },
+      "deduplicatedUnhandledCounts": {
+        "Clang.AtomicExpr": 3,
+        "Clang.GCCAsmStmt": 2,
+        "Clang.StmtExpr": 3
+      }
+    }
+  ],
+  "performanceObservation": {
+    "source": "/home/jarvis/文档/projects/yasa-uast-migration/upstream/ncnn-research/src/allocator.cpp",
+    "runs": [
+      {
+        "seconds": 4.1,
+        "peakRssKiB": 245356,
+        "root": "CompileUnit",
+        "status": "partial_conversion",
+        "sha256": "f3ce38df5f8137427930c1e113e6f6a637fc92bd687e2aad320ecdfbb4b6661b"
+      },
+      {
+        "seconds": 4.04,
+        "peakRssKiB": 244364,
+        "root": "CompileUnit",
+        "status": "partial_conversion",
+        "sha256": "2f5dde33f69e680a37f5a6f0d7d919f975932fba88b96fa846d196a140f0e8f1"
+      },
+      {
+        "seconds": 4.03,
+        "peakRssKiB": 236516,
+        "root": "CompileUnit",
+        "status": "partial_conversion",
+        "sha256": "3f0a9d0d7b248a217e1dd2ff0e20e4c6cb81ffb0be962d31a49f03c55762b2f6"
+      }
+    ],
+    "purpose": "Observed end-to-end CLI time and peak RSS; no pre-change performance comparison"
+  },
+  "newBaselines": {
+    "zlib": {
+      "units": 15,
+      "syntaxDiagnostics": 0,
+      "clear": 14,
+      "partial": 1,
+      "results": "artifacts/clang-session-30min-20261115/zlib-baseline/summary.json"
+    },
+    "ncnn": {
+      "units": 200,
+      "syntaxDiagnostics": 0,
+      "clear": 8,
+      "partial": 192,
+      "phase": "Before final assignment fix; final fix retested on 5 selected units only",
+      "runner": "artifacts/clang-session-30min-20261115/ncnn-dump.py",
+      "results": "artifacts/clang-session-30min-20261115/ncnn-after-flags/summary.json"
+    }
+  },
+  "limitations": [
+    "CallExpression records are structural evidence, not callgraph accuracy or recall.",
+    "Partial conversions retain explicit semantic gaps.",
+    "Performance is observed end-to-end CLI cost, not controlled before/after comparison."
+  ],
+  "evidenceDirectory": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/clang-session-30min-20261115",
+  "sourceHashes": {
+    "src/engine/parser/c-family/clang-uast.ts": "e18c63a671f68cd538c98e6f62d03143019f6851eaac2560160d42e265bbcb96",
+    "src/interface/compiler-dump.ts": "93ca72a47d35a1cab3620cb26b76a4e8bf0820cc87de3dc4478e0c71f28ac99c",
+    "test/c-family/test-clang-uast.ts": "f617bd2abf266f8f0451f007e5238e6869d92d1f4238333d273f9ef807c1bd6e",
+    "test/c-family/test-compiler-dump.ts": "2ee44183f427a4a0a1224f2cf8d22644f09f9a531db148164f7c16839445a78c",
+    "test/c-family/test-clang-engine.ts": "9c0a5bd226b2ca67506de8dd283cf77adf0b19fc603a3e59bac15dc1c1769412"
+  },
+  "detailedStructureAudit": "artifacts/clang-session-30min-20261115/final-structure-audit.json",
+  "integrity": {
+    "unchangedDuringRun": true,
+    "implementationUnchangedDuringRun": true
+  },
+  "uncommitted": true
+}

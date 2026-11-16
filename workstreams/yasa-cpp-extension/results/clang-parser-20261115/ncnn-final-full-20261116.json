@@ -1,0 +1,186 @@
+{
+  "date": "2026-11-16",
+  "scope": "ncnn CPU static library, all 200 selected compilation commands, Clang backend through official dumpAST; no full Engine/callgraph evaluation",
+  "completedUtc": "2026-11-16T05:03:36.710178+00:00",
+  "units": 200,
+  "exitCodes": {
+    "0": 200
+  },
+  "roots": {
+    "CompileUnit": 200
+  },
+  "statuses": {
+    "partial_conversion": 192,
+    "no_syntax_errors": 8
+  },
+  "structuralComparison": {
+    "callsBefore": 92039,
+    "callsAfter": 92409,
+    "functionsBefore": 26767,
+    "functionsAfter": 26767,
+    "removedCalls": 0,
+    "addedCalls": 370,
+    "removedFunctions": 0,
+    "addedFunctions": 0
+  },
+  "locationBounds": {
+    "withinFile": 119176
+  },
+  "locationCheckScope": "File existence and line bounds only; not proof of exact source mapping.",
+  "identity": "Multiset of name, original sourcefile and start line; line-based structural regression, not callgraph precision.",
+  "unhandled": {
+    "Clang.AtomicExpr": {
+      "uniqueFileLines": 3,
+      "affectedUnits": 190,
+      "locations": [
+        [
+          "/home/jarvis/文档/projects/yasa-uast-migration/upstream/ncnn-research/src/mat.h",
+          1549
+        ],
+        [
+          "/home/jarvis/文档/projects/yasa-uast-migration/upstream/ncnn-research/src/mat.h",
+          1578
+        ],
+        [
+          "/home/jarvis/文档/projects/yasa-uast-migration/upstream/ncnn-research/src/mat.h",
+          1583
+        ]
+      ]
+    },
+    "Clang.GCCAsmStmt": {
+      "uniqueFileLines": 2,
+      "affectedUnits": 1,
+      "locations": [
+        [
+          "/home/jarvis/文档/projects/yasa-uast-migration/upstream/ncnn-research/src/cpu.cpp",
+          569
+        ],
+        [
+          "/home/jarvis/文档/projects/yasa-uast-migration/upstream/ncnn-research/src/cpu.cpp",
+          585
+        ]
+      ]
+    },
+    "Clang.StmtExpr": {
+      "uniqueFileLines": 3,
+      "affectedUnits": 1,
+      "locations": [
+        [
+          "/home/jarvis/文档/projects/yasa-uast-migration/upstream/ncnn-research/src/cpu.cpp",
+          2371
+        ],
+        [
+          "/home/jarvis/文档/projects/yasa-uast-migration/upstream/ncnn-research/src/cpu.cpp",
+          2376
+        ],
+        [
+          "/home/jarvis/文档/projects/yasa-uast-migration/upstream/ncnn-research/src/cpu.cpp",
+          2386
+        ]
+      ]
+    }
+  },
+  "semanticDiagnostics": {
+    "cpp_baseclass_semantics": {
+      "occurrences": 1168,
+      "affectedUnits": 191
+    },
+    "dependent_enum_value": {
+      "occurrences": 3800,
+      "affectedUnits": 190
+    },
+    "AtomicExpr": {
+      "occurrences": 570,
+      "affectedUnits": 190
+    },
+    "base_or_delegating_constructor": {
+      "occurrences": 192,
+      "affectedUnits": 175
+    },
+    "cpp_allocation_semantics": {
+      "occurrences": 274,
+      "affectedUnits": 11
+    },
+    "cpp_delete_semantics": {
+      "occurrences": 94,
+      "affectedUnits": 24
+    },
+    "cpp_virtual_dispatch": {
+      "occurrences": 32,
+      "affectedUnits": 2
+    },
+    "assignment_location_semantics": {
+      "occurrences": 211,
+      "affectedUnits": 58
+    },
+    "GCCAsmStmt": {
+      "occurrences": 2,
+      "affectedUnits": 1
+    },
+    "implicit_array_tail": {
+      "occurrences": 27,
+      "affectedUnits": 8
+    },
+    "StmtExpr": {
+      "occurrences": 3,
+      "affectedUnits": 1
+    },
+    "dependent_member_resolution": {
+      "occurrences": 59,
+      "affectedUnits": 9
+    },
+    "dependent_name_resolution": {
+      "occurrences": 44,
+      "affectedUnits": 9
+    }
+  },
+  "integrity": {
+    "inputsUnchanged": true,
+    "implementationUnchanged": true
+  },
+  "baselineInputsMatch": {
+    "sources": true,
+    "commands": true,
+    "revision": true,
+    "interface": true
+  },
+  "implementationSha256": "e18c63a671f68cd538c98e6f62d03143019f6851eaac2560160d42e265bbcb96",
+  "revision": "45b9b45f3df263f6a16922c10ae3ef2384071f76",
+  "configuration": "CPU static; Vulkan/OpenMP/runtime CPU/AVX disabled",
+  "performance": {
+    "parallelism": 4,
+    "wallSeconds": 276.04918571100006,
+    "purpose": "Final full-project acceptance; parallel timing is not directly comparable to previous serial run",
+    "cliSecondsMedian": 5.19,
+    "cliSecondsMax": 11.88,
+    "peakRssKiBMedian": 247462.0,
+    "peakRssKiBMax": 952924
+  },
+  "evidenceDirectory": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/clang-session-30min-20261115/ncnn-final-full-20261116",
+  "runner": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/clang-session-30min-20261115/ncnn-final-full.py",
+  "auditScript": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/clang-session-30min-20261115/audit-ncnn-final.py",
+  "modificationsThisRun": "Validation scripts and report only; converter unchanged",
+  "limitations": [
+    "Same build configuration only; no Vulkan/OpenMP/AVX coverage.",
+    "Structural identity comparison does not measure callgraph precision or recall.",
+    "Source position bounds do not prove exact mapping.",
+    "Four concurrent CLI processes; no controlled speedup comparison."
+  ],
+  "priorities": [
+    {
+      "priority": 1,
+      "kind": "AtomicExpr",
+      "goal": "Preserve operation, operands and return-value structure; explicitly delimit concurrent memory-order semantics"
+    },
+    {
+      "priority": 2,
+      "kind": "StmtExpr",
+      "goal": "Preserve C++ GNU statement block, lexical scope, side effects and result; test temporary object boundaries"
+    },
+    {
+      "priority": 3,
+      "kind": "assignment_location_semantics",
+      "goal": "Clarify reference-returning lvalue and write-back contract; operands already retained"
+    }
+  ]
+}

@@ -1,0 +1,496 @@
+{
+  "results": [
+    {
+      "project": "jsoncpp",
+      "role": "fixed-regression",
+      "backend": "tree-sitter",
+      "command": [
+        "node",
+        "--max-old-space-size=4096",
+        "--import",
+        "tsx",
+        "src/main.ts",
+        "--sourcePath",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/jsoncpp-source",
+        "--language",
+        "cpp",
+        "--dumpAllAST",
+        "--cCompileCommands",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/jsoncpp-build/compile_commands.json",
+        "--cAstBackend",
+        "tree-sitter",
+        "--report",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/final-fixed-projects/jsoncpp-tree-sitter"
+      ],
+      "exitCode": 0,
+      "seconds": 2.268,
+      "expectedCommands": 3,
+      "selectedCommands": 3,
+      "completed": 3,
+      "coverageMatches": true,
+      "statuses": {
+        "syntax_errors": 3
+      },
+      "syntaxDiagnostics": 9,
+      "roots": {
+        "CompileUnit": 3
+      },
+      "functionDefinitionRecords": 648,
+      "unhandledNodes": {
+        "new_expression": 11,
+        "cpp_constructor_initializer_semantics": 44,
+        "static_assert_declaration": 3,
+        "template_declaration": 15,
+        "operator_name": 6
+      },
+      "conversionDiagnostics": {},
+      "invalidExports": [],
+      "manifestSha256": "3c12cd0e4371011bee44ba6d8b0abd2573f82209fe2c1124350a1df940d1a4c6"
+    },
+    {
+      "project": "jsoncpp",
+      "role": "fixed-regression",
+      "backend": "clang",
+      "command": [
+        "node",
+        "--max-old-space-size=4096",
+        "--import",
+        "tsx",
+        "src/main.ts",
+        "--sourcePath",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/jsoncpp-source",
+        "--language",
+        "cpp",
+        "--dumpAllAST",
+        "--cCompileCommands",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/jsoncpp-build/compile_commands.json",
+        "--cAstBackend",
+        "clang",
+        "--report",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/final-fixed-projects/jsoncpp-clang"
+      ],
+      "exitCode": 0,
+      "seconds": 15.842,
+      "expectedCommands": 3,
+      "selectedCommands": 3,
+      "completed": 3,
+      "coverageMatches": true,
+      "statuses": {
+        "partial_conversion": 3
+      },
+      "syntaxDiagnostics": 0,
+      "roots": {
+        "CompileUnit": 3
+      },
+      "functionDefinitionRecords": 661,
+      "unhandledNodes": {
+        "Clang.CompoundAssignOperator": 1,
+        "Clang.CXXStdInitializerListExpr": 2,
+        "Clang.BinaryOperator": 25,
+        "Clang.CXXPseudoDestructorExpr": 3,
+        "Clang.ParenListExpr": 4
+      },
+      "conversionDiagnostics": {
+        "dependent_name_resolution": 32,
+        "ParenListExpr": 4,
+        "cpp_allocation_semantics": 13,
+        "CXXPseudoDestructorExpr": 3,
+        "BinaryOperator": 25,
+        "cpp_baseclass_semantics": 25,
+        "base_or_delegating_constructor": 20,
+        "member_pointer_resolution": 15,
+        "cpp_virtual_dispatch": 3,
+        "CompoundAssignOperator": 1,
+        "CXXStdInitializerListExpr": 2,
+        "CXXDefaultArgExpr": 118,
+        "dependent_construction": 1,
+        "cpp_delete_semantics": 1
+      },
+      "invalidExports": [],
+      "manifestSha256": "30ea16f32dcb68560293bb5f7089c7292a0e1d8c4707b38007007c98f01c3301"
+    },
+    {
+      "project": "sqlite",
+      "role": "fixed-regression",
+      "backend": "tree-sitter",
+      "command": [
+        "node",
+        "--max-old-space-size=4096",
+        "--import",
+        "tsx",
+        "src/main.ts",
+        "--sourcePath",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts",
+        "--language",
+        "c",
+        "--dumpAllAST",
+        "--cCompileCommands",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/sqlite-compile.json",
+        "--cAstBackend",
+        "tree-sitter",
+        "--report",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/final-fixed-projects/sqlite-tree-sitter"
+      ],
+      "exitCode": 0,
+      "seconds": 30.669,
+      "expectedCommands": 102,
+      "selectedCommands": 102,
+      "completed": 102,
+      "coverageMatches": true,
+      "statuses": {
+        "no_syntax_errors": 102
+      },
+      "syntaxDiagnostics": 0,
+      "roots": {
+        "CompileUnit": 102
+      },
+      "functionDefinitionRecords": 2744,
+      "unhandledNodes": {
+        "generic_expression": 6
+      },
+      "conversionDiagnostics": {},
+      "invalidExports": [],
+      "manifestSha256": "d44e9c934c913e421622dda0c9098bde78a77eabbd45dbcd14b9a76d25693be9"
+    },
+    {
+      "project": "sqlite",
+      "role": "fixed-regression",
+      "backend": "clang",
+      "command": [
+        "node",
+        "--max-old-space-size=4096",
+        "--import",
+        "tsx",
+        "src/main.ts",
+        "--sourcePath",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts",
+        "--language",
+        "c",
+        "--dumpAllAST",
+        "--cCompileCommands",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/sqlite-compile.json",
+        "--cAstBackend",
+        "clang",
+        "--report",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/final-fixed-projects/sqlite-clang"
+      ],
+      "exitCode": 0,
+      "seconds": 55.563,
+      "expectedCommands": 102,
+      "selectedCommands": 102,
+      "completed": 102,
+      "coverageMatches": true,
+      "statuses": {
+        "no_syntax_errors": 83,
+        "partial_conversion": 19
+      },
+      "syntaxDiagnostics": 0,
+      "roots": {
+        "CompileUnit": 102
+      },
+      "functionDefinitionRecords": 2744,
+      "unhandledNodes": {
+        "Clang.AtomicExpr": 38,
+        "Clang.CaseStmt": 7
+      },
+      "conversionDiagnostics": {
+        "AtomicExpr": 38,
+        "goto_control_flow": 76,
+        "CaseStmt": 7,
+        "implicit_array_tail": 3,
+        "switch_pre_label_statement": 1
+      },
+      "invalidExports": [],
+      "manifestSha256": "7d2ea49b201bce7895abd3ba670efb3241bd6c65379c866295eb4cd4002e6bfc"
+    },
+    {
+      "project": "curl",
+      "role": "development-regression",
+      "backend": "tree-sitter",
+      "command": [
+        "node",
+        "--max-old-space-size=4096",
+        "--import",
+        "tsx",
+        "src/main.ts",
+        "--sourcePath",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl",
+        "--language",
+        "c",
+        "--dumpAllAST",
+        "--cCompileCommands",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-session-45min-20261115/curl-static-compile.json",
+        "--cAstBackend",
+        "tree-sitter",
+        "--report",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/final-fixed-projects/curl-tree-sitter"
+      ],
+      "exitCode": 0,
+      "seconds": 57.272,
+      "expectedCommands": 196,
+      "selectedCommands": 196,
+      "completed": 196,
+      "coverageMatches": true,
+      "statuses": {
+        "no_syntax_errors": 196
+      },
+      "syntaxDiagnostics": 0,
+      "roots": {
+        "CompileUnit": 196
+      },
+      "functionDefinitionRecords": 12885,
+      "unhandledNodes": {
+        "generic_expression": 114
+      },
+      "conversionDiagnostics": {},
+      "invalidExports": [],
+      "manifestSha256": "615a674d9d50372837e9ea018ef75e6eb7a16ed911c5ef06d70f68e0693bc8a7"
+    },
+    {
+      "project": "curl",
+      "role": "development-regression",
+      "backend": "clang",
+      "command": [
+        "node",
+        "--max-old-space-size=4096",
+        "--import",
+        "tsx",
+        "src/main.ts",
+        "--sourcePath",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl",
+        "--language",
+        "c",
+        "--dumpAllAST",
+        "--cCompileCommands",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-session-45min-20261115/curl-static-compile.json",
+        "--cAstBackend",
+        "clang",
+        "--report",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/final-fixed-projects/curl-clang"
+      ],
+      "exitCode": 0,
+      "seconds": 114.973,
+      "expectedCommands": 196,
+      "selectedCommands": 196,
+      "completed": 196,
+      "coverageMatches": true,
+      "statuses": {
+        "no_syntax_errors": 180,
+        "partial_conversion": 16
+      },
+      "syntaxDiagnostics": 0,
+      "roots": {
+        "CompileUnit": 196
+      },
+      "functionDefinitionRecords": 12885,
+      "unhandledNodes": {
+        "Clang.AtomicExpr": 9
+      },
+      "conversionDiagnostics": {
+        "goto_control_flow": 18,
+        "AtomicExpr": 9,
+        "implicit_array_tail": 12,
+        "switch_pre_label_statement": 4
+      },
+      "invalidExports": [],
+      "manifestSha256": "80e2116d2d246f2f3c78cc2defce6dd3b45f7d1fdbafd5814aa387ce2fbcde29"
+    },
+    {
+      "project": "spdlog",
+      "role": "historical-regression",
+      "backend": "tree-sitter",
+      "command": [
+        "node",
+        "--max-old-space-size=4096",
+        "--import",
+        "tsx",
+        "src/main.ts",
+        "--sourcePath",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog",
+        "--language",
+        "cpp",
+        "--dumpAllAST",
+        "--cCompileCommands",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-route-experiment-20261115/spdlog-build/compile_commands.json",
+        "--cAstBackend",
+        "tree-sitter",
+        "--report",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/final-fixed-projects/spdlog-tree-sitter"
+      ],
+      "exitCode": 0,
+      "seconds": 7.026,
+      "expectedCommands": 7,
+      "selectedCommands": 7,
+      "completed": 7,
+      "coverageMatches": true,
+      "statuses": {
+        "syntax_errors": 7
+      },
+      "syntaxDiagnostics": 185,
+      "roots": {
+        "CompileUnit": 7
+      },
+      "functionDefinitionRecords": 5406,
+      "unhandledNodes": {
+        "template_instantiation": 43,
+        "function_declarator": 2,
+        "new_expression": 9,
+        "cpp_constructor_initializer_semantics": 765,
+        "static_assert_declaration": 149,
+        "cpp_lambda_capture_semantics": 144,
+        "template_declaration": 577,
+        "qualified_identifier": 18,
+        "namespace_alias_definition": 6,
+        "template_type": 14
+      },
+      "conversionDiagnostics": {},
+      "invalidExports": [],
+      "manifestSha256": "6cd7eb55ce1d9e44e26819f90dff9ff813102f4ad5195ff0e1c6843f28fa9c4c"
+    },
+    {
+      "project": "spdlog",
+      "role": "historical-regression",
+      "backend": "clang",
+      "command": [
+        "node",
+        "--max-old-space-size=4096",
+        "--import",
+        "tsx",
+        "src/main.ts",
+        "--sourcePath",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog",
+        "--language",
+        "cpp",
+        "--dumpAllAST",
+        "--cCompileCommands",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-route-experiment-20261115/spdlog-build/compile_commands.json",
+        "--cAstBackend",
+        "clang",
+        "--report",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/final-fixed-projects/spdlog-clang"
+      ],
+      "exitCode": 0,
+      "seconds": 44.444,
+      "expectedCommands": 7,
+      "selectedCommands": 7,
+      "completed": 7,
+      "coverageMatches": true,
+      "statuses": {
+        "partial_conversion": 7
+      },
+      "syntaxDiagnostics": 0,
+      "roots": {
+        "CompileUnit": 7
+      },
+      "functionDefinitionRecords": 7854,
+      "unhandledNodes": {
+        "Clang.PackExpansionExpr": 212,
+        "Clang.ParenListExpr": 594,
+        "Clang.BinaryOperator": 457,
+        "Clang.CXXStdInitializerListExpr": 5,
+        "Clang.NamespaceAliasDecl": 6,
+        "Clang.UnresolvedUsingValueDecl": 24,
+        "Clang.SizeOfPackExpr": 7
+      },
+      "conversionDiagnostics": {
+        "dependent_name_resolution": 3313,
+        "cpp_baseclass_semantics": 1405,
+        "ParenListExpr": 616,
+        "base_or_delegating_constructor": 409,
+        "UnresolvedUsingValueDecl": 24,
+        "dependent_construction": 763,
+        "dependent_member_resolution": 3124,
+        "implicit_array_tail": 37,
+        "dependent_enum_value": 7,
+        "PackExpansionExpr": 216,
+        "SizeOfPackExpr": 7,
+        "lambda_capture_semantics": 70,
+        "BinaryOperator": 457,
+        "NamespaceAliasDecl": 6,
+        "cpp_allocation_semantics": 106,
+        "CXXStdInitializerListExpr": 5,
+        "cpp_virtual_dispatch": 24,
+        "CXXDefaultArgExpr": 404
+      },
+      "invalidExports": [],
+      "manifestSha256": "0f7825b6135c402566352cd82af2bf21bc521df71fd34815772eb6a02bbd9b89"
+    }
+  ],
+  "integrity": {
+    "unchangedDuringRun": true,
+    "implementationUnchangedDuringRun": true
+  },
+  "totalExportedUnits": 616,
+  "regressionChecks": 335,
+  "parserCppUnitTests": 54,
+  "featureContracts": 18,
+  "typescript": "passed",
+  "jsoncppTreeFunctionDiff": {
+    "beforeRecords": 645,
+    "afterRecords": 648,
+    "removed": [],
+    "added": [
+      [
+        null,
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/jsoncpp-source/src/lib_json/json_reader.cpp",
+        78634
+      ],
+      [
+        null,
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/jsoncpp-source/src/lib_json/json_reader.cpp",
+        77714
+      ],
+      [
+        null,
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/jsoncpp-source/src/lib_json/json_writer.cpp",
+        79034
+      ]
+    ]
+  },
+  "jsoncppTreeConstructorDefinitionRecords": 86,
+  "timingScope": "Concurrent validation runs; timings are not a controlled backend performance benchmark.",
+  "publicationStatus": "Uncommitted local Engine and UAST worktrees.",
+  "sourceHashes": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/final-fixed-projects/engine-source-sha256.json",
+  "archives": {
+    "jsoncpp-tree-sitter": {
+      "archive": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/final-fixed-projects/jsoncpp-tree-sitter-exports.tar.gz",
+      "exports": 3,
+      "sha256": "2aa54ff25fc972ba3f88a195bbfba46b9a24baec33ab97c34c076443030a0b03"
+    },
+    "jsoncpp-clang": {
+      "archive": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/final-fixed-projects/jsoncpp-clang-exports.tar.gz",
+      "exports": 3,
+      "sha256": "e774dc14be1aeccf7c0a5267aa0c2fcb53c2407c4bd4f5850d0125326526c651"
+    },
+    "sqlite-tree-sitter": {
+      "archive": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/final-fixed-projects/sqlite-tree-sitter-exports.tar.gz",
+      "exports": 102,
+      "sha256": "700ef04a4ca8bda9587cb761de385606c7da0d469510977865f7e988d3ca71b3"
+    },
+    "sqlite-clang": {
+      "archive": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/final-fixed-projects/sqlite-clang-exports.tar.gz",
+      "exports": 102,
+      "sha256": "950989aad68ce01a84fc5406b2dc77693ff288c3c07f19b9e2960fe4cf2c7955"
+    },
+    "curl-tree-sitter": {
+      "archive": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/final-fixed-projects/curl-tree-sitter-exports.tar.gz",
+      "exports": 196,
+      "sha256": "5268a3d82768eb0b5d810fd912608e22d822e9f344436c5b0e540a7594139b3e"
+    },
+    "curl-clang": {
+      "archive": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/final-fixed-projects/curl-clang-exports.tar.gz",
+      "exports": 196,
+      "sha256": "b866ac523ca0c08d6be0645dfa777e45ff510deff79dd5ba53e51ddd56f2b1b5"
+    },
+    "spdlog-tree-sitter": {
+      "archive": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/final-fixed-projects/spdlog-tree-sitter-exports.tar.gz",
+      "exports": 7,
+      "sha256": "1a5f4d2c7e1d000ac6609d3c47105d1420d8f0b1e0e67f437574f537b20405bf"
+    },
+    "spdlog-clang": {
+      "archive": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/final-fixed-projects/spdlog-clang-exports.tar.gz",
+      "exports": 7,
+      "sha256": "69966cc99073ea6b65a04ebc5808259a6cf39d6d5ffecaa96796997a78b9ed3c"
+    }
+  }
+}
