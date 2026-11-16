@@ -1,0 +1,942 @@
+{
+  "date": "2026-11-16",
+  "scope": "Official Clang dump verification of curl, SQLite, jsoncpp, spdlog, ncnn and zlib under their selected build configurations",
+  "changes": [
+    "Preserve case/default clauses wrapped in ordinary labels, including chained labels and fallthrough.",
+    "Use compiler-desugared typedef element types for implicit array defaults."
+  ],
+  "tests": {
+    "regressionPassing": 347,
+    "newRegressionBeforeFix": "Failed: 2 case clauses instead of 4",
+    "newRegressionAfterFix": "Passed",
+    "typecheck": "npm run typecheck passed"
+  },
+  "totalUnits": 523,
+  "fixedProjects": [
+    {
+      "project": "jsoncpp",
+      "role": "fixed-regression",
+      "backend": "clang",
+      "command": [
+        "node",
+        "--max-old-space-size=4096",
+        "--import",
+        "tsx",
+        "src/main.ts",
+        "--sourcePath",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/jsoncpp-source",
+        "--language",
+        "cpp",
+        "--dumpAllAST",
+        "--cCompileCommands",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/jsoncpp-build/compile_commands.json",
+        "--cAstBackend",
+        "clang",
+        "--report",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/clang-session-30min-20261115/project-stability-fixed/jsoncpp-clang"
+      ],
+      "exitCode": 0,
+      "seconds": 22.815,
+      "expectedCommands": 3,
+      "selectedCommands": 3,
+      "completed": 3,
+      "coverageMatches": true,
+      "statuses": {
+        "partial_conversion": 3
+      },
+      "syntaxDiagnostics": 0,
+      "roots": {
+        "CompileUnit": 3
+      },
+      "functionDefinitionRecords": 661,
+      "unhandledNodes": {
+        "Clang.CXXPseudoDestructorExpr": 3,
+        "Clang.PackExpansionExpr": 3
+      },
+      "conversionDiagnostics": {
+        "dependent_name_resolution": 32,
+        "PackExpansionExpr": 3,
+        "dependent_parenthesized_initialization": 4,
+        "cpp_allocation_semantics": 13,
+        "CXXPseudoDestructorExpr": 3,
+        "assignment_location_semantics": 26,
+        "cpp_baseclass_semantics": 25,
+        "base_or_delegating_constructor": 20,
+        "member_pointer_resolution": 15,
+        "cpp_virtual_dispatch": 3,
+        "initializer_list_object_semantics": 2,
+        "dependent_construction": 1,
+        "cpp_delete_semantics": 1
+      },
+      "invalidExports": [],
+      "manifestSha256": "404355bafb416ecf77627d865b9473b2464d803f9573180a503d57a416797a2e"
+    },
+    {
+      "project": "sqlite",
+      "role": "fixed-regression",
+      "backend": "clang",
+      "command": [
+        "node",
+        "--max-old-space-size=4096",
+        "--import",
+        "tsx",
+        "src/main.ts",
+        "--sourcePath",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts",
+        "--language",
+        "c",
+        "--dumpAllAST",
+        "--cCompileCommands",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/sqlite-compile.json",
+        "--cAstBackend",
+        "clang",
+        "--report",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/clang-session-30min-20261115/project-stability-fixed/sqlite-clang"
+      ],
+      "exitCode": 0,
+      "seconds": 80.999,
+      "expectedCommands": 102,
+      "selectedCommands": 102,
+      "completed": 102,
+      "coverageMatches": true,
+      "statuses": {
+        "no_syntax_errors": 86,
+        "partial_conversion": 16
+      },
+      "syntaxDiagnostics": 0,
+      "roots": {
+        "CompileUnit": 102
+      },
+      "functionDefinitionRecords": 2744,
+      "unhandledNodes": {
+        "Clang.CaseStmt": 7
+      },
+      "conversionDiagnostics": {
+        "atomic_memory_semantics": 38,
+        "goto_control_flow": 76,
+        "CaseStmt": 7
+      },
+      "invalidExports": [],
+      "manifestSha256": "d4eecac2fd861f8bd3237931fad9a5aa3bad2a894bb70b0416d0657a8cfb3c23"
+    },
+    {
+      "project": "curl",
+      "role": "development-regression",
+      "backend": "clang",
+      "command": [
+        "node",
+        "--max-old-space-size=4096",
+        "--import",
+        "tsx",
+        "src/main.ts",
+        "--sourcePath",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl",
+        "--language",
+        "c",
+        "--dumpAllAST",
+        "--cCompileCommands",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-session-45min-20261115/curl-static-compile.json",
+        "--cAstBackend",
+        "clang",
+        "--report",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/clang-session-30min-20261115/project-stability-fixed/curl-clang"
+      ],
+      "exitCode": 0,
+      "seconds": 170.839,
+      "expectedCommands": 196,
+      "selectedCommands": 196,
+      "completed": 196,
+      "coverageMatches": true,
+      "statuses": {
+        "no_syntax_errors": 185,
+        "partial_conversion": 11
+      },
+      "syntaxDiagnostics": 0,
+      "roots": {
+        "CompileUnit": 196
+      },
+      "functionDefinitionRecords": 12885,
+      "unhandledNodes": {},
+      "conversionDiagnostics": {
+        "goto_control_flow": 18,
+        "atomic_memory_semantics": 9
+      },
+      "invalidExports": [],
+      "manifestSha256": "d0cea7da059608ad63ab45670cacdbf2b269e8675dc2ee8089d4b3e60d3424c7"
+    },
+    {
+      "project": "spdlog",
+      "role": "historical-regression",
+      "backend": "clang",
+      "command": [
+        "node",
+        "--max-old-space-size=4096",
+        "--import",
+        "tsx",
+        "src/main.ts",
+        "--sourcePath",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog",
+        "--language",
+        "cpp",
+        "--dumpAllAST",
+        "--cCompileCommands",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-route-experiment-20261115/spdlog-build/compile_commands.json",
+        "--cAstBackend",
+        "clang",
+        "--report",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/clang-session-30min-20261115/project-stability-fixed/spdlog-clang"
+      ],
+      "exitCode": 0,
+      "seconds": 54.78,
+      "expectedCommands": 7,
+      "selectedCommands": 7,
+      "completed": 7,
+      "coverageMatches": true,
+      "statuses": {
+        "partial_conversion": 7
+      },
+      "syntaxDiagnostics": 0,
+      "roots": {
+        "CompileUnit": 7
+      },
+      "functionDefinitionRecords": 7861,
+      "unhandledNodes": {
+        "Clang.PackExpansionExpr": 222,
+        "Clang.NamespaceAliasDecl": 6,
+        "Clang.BinaryOperator": 294,
+        "Clang.UnresolvedUsingValueDecl": 24,
+        "Clang.SizeOfPackExpr": 7
+      },
+      "conversionDiagnostics": {
+        "dependent_name_resolution": 3362,
+        "cpp_baseclass_semantics": 1405,
+        "dependent_parenthesized_initialization": 616,
+        "base_or_delegating_constructor": 409,
+        "UnresolvedUsingValueDecl": 24,
+        "dependent_construction": 770,
+        "dependent_member_resolution": 3166,
+        "dependent_enum_value": 7,
+        "PackExpansionExpr": 222,
+        "implicit_array_tail": 13,
+        "SizeOfPackExpr": 7,
+        "lambda_capture_semantics": 70,
+        "BinaryOperator": 294,
+        "assignment_location_semantics": 163,
+        "NamespaceAliasDecl": 6,
+        "cpp_allocation_semantics": 106,
+        "initializer_list_object_semantics": 5,
+        "cpp_virtual_dispatch": 24
+      },
+      "invalidExports": [],
+      "manifestSha256": "9ff7a5dd68fb407507f26c7d74b0dba7e9bfed19977b8b8d6f91084bf5de27cf"
+    },
+    {
+      "project": "zlib",
+      "role": "independent-regression",
+      "backend": "clang",
+      "command": [
+        "node",
+        "--max-old-space-size=4096",
+        "--import",
+        "tsx",
+        "src/main.ts",
+        "--sourcePath",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/clang-session-30min-20261115",
+        "--language",
+        "c",
+        "--dumpAllAST",
+        "--cCompileCommands",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/clang-session-30min-20261115/zlib-build/compile_commands.json",
+        "--cAstBackend",
+        "clang",
+        "--report",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/clang-session-30min-20261115/project-stability-fixed/zlib-clang"
+      ],
+      "exitCode": 0,
+      "seconds": 5.626,
+      "expectedCommands": 15,
+      "selectedCommands": 15,
+      "completed": 15,
+      "coverageMatches": true,
+      "statuses": {
+        "no_syntax_errors": 14,
+        "partial_conversion": 1
+      },
+      "syntaxDiagnostics": 0,
+      "roots": {
+        "CompileUnit": 15
+      },
+      "functionDefinitionRecords": 160,
+      "unhandledNodes": {},
+      "conversionDiagnostics": {
+        "goto_control_flow": 2
+      },
+      "invalidExports": [],
+      "manifestSha256": "6c1559972c307facfd453e045716bd9179b1b729201b870ac2c4de03b963cf84"
+    }
+  ],
+  "fixedStructuralComparison": [
+    {
+      "project": "jsoncpp-clang",
+      "counts": {
+        "callsBefore": 2277,
+        "callsAfter": 2277,
+        "functionsBefore": 661,
+        "functionsAfter": 661,
+        "removedCalls": 0,
+        "addedCalls": 0,
+        "removedFunctions": 0
+      },
+      "differences": [],
+      "deduplicatedUnhandled": {
+        "Clang.CXXPseudoDestructorExpr": [
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/jsoncpp-source/include/json/allocator.h",
+            74
+          ]
+        ],
+        "Clang.PackExpansionExpr": [
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/jsoncpp-source/include/json/allocator.h",
+            60
+          ]
+        ]
+      }
+    },
+    {
+      "project": "sqlite-clang",
+      "counts": {
+        "callsBefore": 15132,
+        "callsAfter": 15132,
+        "functionsBefore": 2744,
+        "functionsAfter": 2744,
+        "removedCalls": 0,
+        "addedCalls": 0,
+        "removedFunctions": 0
+      },
+      "differences": [],
+      "deduplicatedUnhandled": {
+        "Clang.CaseStmt": [
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/sqlite/src/json.c",
+            1751
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/sqlite/src/json.c",
+            1834
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/sqlite/src/json.c",
+            1843
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/sqlite/src/vdbe.c",
+            4541
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/sqlite/src/vdbe.c",
+            5696
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/sqlite/src/vdbe.c",
+            6674
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/sqlite/src/vdbe.c",
+            6689
+          ]
+        ]
+      }
+    },
+    {
+      "project": "curl-clang",
+      "counts": {
+        "callsBefore": 21345,
+        "callsAfter": 21347,
+        "functionsBefore": 12885,
+        "functionsAfter": 12885,
+        "removedCalls": 0,
+        "addedCalls": 2,
+        "removedFunctions": 0
+      },
+      "differences": [
+        {
+          "file": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/mqtt.c",
+          "removedCalls": [],
+          "addedCalls": [
+            [
+              "mqstate",
+              "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/mqtt.c",
+              715
+            ],
+            [
+              "mqtt_verify_suback",
+              "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/c-dumpallast-20261111/inputs/curl/lib/mqtt.c",
+              711
+            ]
+          ],
+          "removedFunctions": []
+        }
+      ],
+      "deduplicatedUnhandled": {}
+    },
+    {
+      "project": "spdlog-clang",
+      "counts": {
+        "callsBefore": 17988,
+        "callsAfter": 17988,
+        "functionsBefore": 7861,
+        "functionsAfter": 7861,
+        "removedCalls": 0,
+        "addedCalls": 0,
+        "removedFunctions": 0
+      },
+      "differences": [],
+      "deduplicatedUnhandled": {
+        "Clang.PackExpansionExpr": [
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/async.h",
+            50
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/async.h",
+            65
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/async.h",
+            72
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/common.h",
+            356
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/details/synchronous_factory.h",
+            16
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/base.h",
+            1719
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/base.h",
+            1722
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/base.h",
+            1724
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/base.h",
+            2374
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/base.h",
+            2376
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/base.h",
+            2828
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/base.h",
+            2876
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/base.h",
+            2906
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/base.h",
+            2932
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/base.h",
+            2941
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/base.h",
+            2960
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/base.h",
+            2977
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/base.h",
+            2988
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/base.h",
+            2998
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            268
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            4274
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            4307
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            4323
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            4331
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            4349
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            946
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            948
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/logger.h",
+            134
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/logger.h",
+            139
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/logger.h",
+            144
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/logger.h",
+            149
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/logger.h",
+            154
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/logger.h",
+            159
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/logger.h",
+            336
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/logger.h",
+            83
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/logger.h",
+            89
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/pattern_formatter.h",
+            86
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/spdlog.h",
+            156
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/spdlog.h",
+            161
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/spdlog.h",
+            166
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/spdlog.h",
+            171
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/spdlog.h",
+            176
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/spdlog.h",
+            181
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/spdlog.h",
+            186
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/spdlog.h",
+            191
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/spdlog.h",
+            36
+          ]
+        ],
+        "Clang.NamespaceAliasDecl": [
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/common.h",
+            177
+          ]
+        ],
+        "Clang.BinaryOperator": [
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            1729
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            1730
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            1780
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            1781
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            1794
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            1798
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            1802
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            1807
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            1821
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            1828
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            1837
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            1844
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            1851
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            1853
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            1863
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            1926
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            1981
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            2111
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            2119
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            2237
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            2303
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            2307
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            2361
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            2446
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            2522
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            2526
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            2538
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            2554
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            2555
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            2557
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            2590
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            2594
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            3457
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            3534
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            3538
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            3541
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            3547
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            3548
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            3551
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            3558
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            3562
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            3616
+          ]
+        ],
+        "Clang.UnresolvedUsingValueDecl": [
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/base.h",
+            1279
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/base.h",
+            506
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format-inl.h",
+            1521
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format-inl.h",
+            1567
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format-inl.h",
+            1611
+          ],
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            912
+          ]
+        ],
+        "Clang.SizeOfPackExpr": [
+          [
+            "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog/include/spdlog/fmt/bundled/format.h",
+            270
+          ]
+        ]
+      }
+    },
+    {
+      "project": "zlib-clang",
+      "counts": {
+        "callsBefore": 558,
+        "callsAfter": 558,
+        "functionsBefore": 160,
+        "functionsAfter": 160,
+        "removedCalls": 0,
+        "addedCalls": 0,
+        "removedFunctions": 0
+      },
+      "differences": [],
+      "deduplicatedUnhandled": {}
+    }
+  ],
+  "fixedIntegrity": {
+    "unchangedDuringRun": true,
+    "implementationUnchangedDuringRun": true
+  },
+  "ncnn": {
+    "units": 200,
+    "exitCodes": {
+      "0": 200
+    },
+    "roots": {
+      "CompileUnit": 200
+    },
+    "statuses": {
+      "partial_conversion": 192,
+      "no_syntax_errors": 8
+    },
+    "structureComparison": {
+      "callsBefore": 92988,
+      "callsAfter": 92988,
+      "functionsBefore": 26767,
+      "functionsAfter": 26767,
+      "removedCalls": 0,
+      "addedCalls": 0,
+      "removedFunctions": 0,
+      "addedFunctions": 0
+    },
+    "remainingDiagnostics": {
+      "cpp_baseclass_semantics": 1168,
+      "dependent_enum_value": 3800,
+      "atomic_memory_semantics": 570,
+      "base_or_delegating_constructor": 192,
+      "cpp_allocation_semantics": 274,
+      "cpp_delete_semantics": 94,
+      "cpp_virtual_dispatch": 32,
+      "assignment_location_semantics": 211,
+      "GCCAsmStmt": 2,
+      "cpp_statement_expression_lifetime": 3,
+      "dependent_member_resolution": 59,
+      "dependent_name_resolution": 44
+    },
+    "integrity": {
+      "inputsUnchanged": true,
+      "implementationUnchanged": true
+    },
+    "evidence": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/clang-session-30min-20261115/ncnn-project-stability-20261116"
+  },
+  "diagnosticChanges": {
+    "jsoncpp": {
+      "implicit_array_tail": {
+        "before": 0,
+        "after": 0
+      },
+      "switch_pre_label_statement": {
+        "before": 0,
+        "after": 0
+      },
+      "goto_control_flow": {
+        "before": 0,
+        "after": 0
+      }
+    },
+    "sqlite": {
+      "implicit_array_tail": {
+        "before": 2,
+        "after": 0
+      },
+      "switch_pre_label_statement": {
+        "before": 0,
+        "after": 0
+      },
+      "goto_control_flow": {
+        "before": 76,
+        "after": 76
+      }
+    },
+    "curl": {
+      "implicit_array_tail": {
+        "before": 0,
+        "after": 0
+      },
+      "switch_pre_label_statement": {
+        "before": 4,
+        "after": 0
+      },
+      "goto_control_flow": {
+        "before": 18,
+        "after": 18
+      }
+    },
+    "spdlog": {
+      "implicit_array_tail": {
+        "before": 14,
+        "after": 13
+      },
+      "switch_pre_label_statement": {
+        "before": 0,
+        "after": 0
+      },
+      "goto_control_flow": {
+        "before": 0,
+        "after": 0
+      }
+    }
+  },
+  "sourceSha256": {
+    "src/engine/parser/c-family/clang-uast.ts": "eab0711c57386791a37d42e1a515671debb0b7fb13f61405ace172cb048eca85",
+    "test/c-family/test-clang-uast.ts": "73be8453d0ad633767b6a81c409a4d2c9a4bbe6a40326aa7140be3a880a643c6",
+    "test/c-family/test-clang-engine.ts": "1e9d0477f6d0cdcbd207dd3af7852754c0d6f673424b13c24d1641e5c65b29e1"
+  },
+  "evidence": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/clang-session-30min-20261115/project-stability-evidence",
+  "configurationFile": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/clang-session-30min-20261115/project-stability-config.json",
+  "limitations": [
+    "Full validation covers Clang backend only; Tree-sitter was not rerun.",
+    "Successful export and CompileUnit roots do not imply full semantic coverage or callgraph accuracy.",
+    "General backward goto, C++ closures/templates and other diagnosed semantics remain partial.",
+    "Compilation configuration coverage is limited to the recorded targets."
+  ],
+  "uncommitted": true,
+  "targetedMqttComparison": {
+    "file": "curl/lib/mqtt.c",
+    "caseClausesBefore": 13,
+    "caseClausesAfter": 14,
+    "callsBefore": 170,
+    "callsAfter": 172,
+    "restoredCalls": [
+      {
+        "name": "mqtt_verify_suback",
+        "line": 711
+      },
+      {
+        "name": "mqstate",
+        "line": 715
+      }
+    ]
+  }
+}

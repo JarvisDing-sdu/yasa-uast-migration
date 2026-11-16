@@ -1,8 +1,8 @@
 # C/C++ Parser 实验结果
 
-日期为 2026 年 11 月 15 日。可读说明见[阶段报告](../../../C与CPP解析器调研与实施规划.md)。
+更新于 2026 年 11 月 16 日。可读说明见[阶段报告](../../../C与CPP解析器调研与实施规划.md)。
 
-## 对应源码
+## 对应源码（历史首轮）
 
 - Engine 提交为 [`0e79be4`](https://github.com/JarvisDing-sdu/yasa-engine/commit/0e79be49652ded000dc124384ca5b672b39f9af4)。
 - UAST 提交为 [`2242701`](https://github.com/JarvisDing-sdu/yasa-uast/commit/2242701664c04ee7a8013a23d0e2450e5286852c)。
@@ -12,6 +12,9 @@
 
 | 文件 | 内容 |
 | --- | --- |
+| [semantic-round-20261116.json](semantic-round-20261116.json) | 最新完整验收：358 项回归、六项目 523 单元；恢复参数包调用，源码提交 341fbd1 |
+| [semantic-gaps-20261116.json](semantic-gaps-20261116.json) | 最新语义修复：闭包快照、枚举、继承、别名和分支；357 项回归；六项目正式 dump 复测中断，已完成范围见记录。修复尚未提交，文件内记录源码哈希 |
+| [project-stability-20261116.json](project-stability-20261116.json) | 上一轮 523 单元基线：带标签分支与 typedef 数组修复 |
 | [summary.json](summary.json) | 导出、定义覆盖、测试与 Engine 执行状态汇总 |
 | [curl-manifest.json](curl-manifest.json) | 196 个 libcurl_static 编译单元的导出状态与转换诊断 |
 | [spdlog-manifest.json](spdlog-manifest.json) | 7 个 spdlog 编译单元的导出状态与转换诊断 |

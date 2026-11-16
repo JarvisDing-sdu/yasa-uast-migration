@@ -4,68 +4,29 @@
 
 ## 1. 当前结果
 
-**已跑通真实构建配置下的源码到 UAST 导出，并完成一轮语义修复和性能优化。当前仍处于实验验收阶段。**
+**最新 Clang 路线已完成六个真实项目、523 个编译单元的正式 dump 验收：全部导出，根节点均为 CompileUnit，语法诊断 0。358 项联合回归通过，TypeScript 检查通过。**
 
-| 验证范围 | 当前结果 |
-| --- | --- |
-| libcurl_static，196 个编译单元 | 全部导出，失败 0，语法诊断 0。180 个单元未触发已知转换缺口，16 个标记为 partial。196 个根节点均为 `CompileUnit` |
-| spdlog 静态库，7 个编译单元 | 全部导出，失败 0，语法诊断 0。7 个均标记为 partial |
-| 函数定义存在性，既有参考核验 | curl 匹配 12,885/12,885 条参考记录，spdlog 匹配 5,157/5,170 条 |
-| 回归测试 | 独立 parser 单测上轮为 C 103 项、C++ 51 项。最新联合回归 343 项检查通过，原有 2 项缺口复现已转为正常功能检查。parser-CPP 最新 54 项单测通过，TypeScript 检查通过 |
-| 冻结混合语言样例 | 13 个阳性、13 个安全对照全部符合预期，1 个预期失败符合要求 |
-| 完整 spdlog Engine 分析 | 已完成解析和符号索引，符号解释触发入口预算及整体 600 秒超时，完整分析尚未完成 |
+| 项目 | 编译单元 | 导出成功 | 部分转换（partial） |
+| --- | ---: | ---: | ---: |
+| curl | 196 | 196 | 11 |
+| sqlite | 102 | 102 | 16 |
+| jsoncpp | 3 | 3 | 3 |
+| spdlog | 7 | 7 | 7 |
+| ncnn | 200 | 200 | 192 |
+| zlib | 15 | 15 | 1 |
+| **合计** | **523** | **523** | **230** |
 
-验证使用 Linux、Clang 21.1.8 和各项目所选构建目标的编译数据库。此前完整目标复测覆盖 curl、SQLite、spdlog、jsoncpp 的两条路线；本次修复后重跑了这四个项目的 Clang 路线。curl 配置关闭了 libpsl。`partial` 表示存在尚未完整转换的语义，具体类别保存在逐单元 manifest 中。
+### 本轮补齐了什么
 
-函数定义匹配按文件、规范化名称和定义范围核验，包含头文件在不同编译单元中的重复记录。spdlog 余下 13 条匹配差异已定位为声明起始行差异和参考实体重复。调用图准召率仍需单独评分。
+- **结构与常量**：修复较大枚举常量误判；保留模板参数包展开中的表达式和调用；保留嵌套 case 子结构。参数包和嵌套跳转仍明确标记未完整支持。
+- **C++ 语义**：支持简单标量值捕获快照、重复创建闭包、mutable 修改隔离、无成员遮蔽的非虚单继承、命名空间别名。复杂捕获和继承仍保留诊断。
+- **C 控制流与初始化**：包含前几轮有界数组补零、简单后向跳转、switch 前置声明及标签修复；新增有界 GNU case 区间转换，以及共用分析器中的字面量 switch 选择和贯穿。
 
-### 跨项目验收与语言覆盖
+六项目按“函数／调用名称＋原始文件＋起始行”比较，旧函数和调用记录未减少。jsoncpp 恢复 3 条、spdlog 恢复 92 条调用记录；ncnn 的 3,800 次重复枚举值误判已消除；这些是结构记录，不能据此推算调用图准召率。诊断变化及完整命令见[本轮验收记录](yasa-cpp-extension/results/clang-parser-20261115/semantic-round-20261116.json)。
 
-固定项目验收统一调用正式 `dumpAllAST`，冻结源码文件校验值、编译数据库、后端及转换代码，导出后核对覆盖数、根节点、函数记录、语法诊断和未转换节点。SQLite 和 jsoncpp 均按所选配置实际构建静态库，两条解析路线复用对应编译数据库。最新结果见 [固定项目验收记录](yasa-cpp-extension/results/clang-parser-20261115/fixed-projects-validation.json)，首次基线保留在 [交叉验收记录](yasa-cpp-extension/results/clang-parser-20261115/cross-project-validation.json)。本轮覆盖 308 个选定编译单元，两条路线合计 616 次导出全部成功，运行前后的源码、配置及实现校验一致。
+**验收边界**：使用 Linux、Clang 21.1.8 和固定编译数据库；ncnn 为关闭 Vulkan、OpenMP、运行时 CPU 分派和 AVX 的 CPU 构建。partial 表示仍有语义缺口，成功导出不等于完整支持。本轮大项目使用正式 dump，另用小样例验证 Engine 对捕获和分支的消费；未重新评测完整项目调用图或 CodeGraph，历史 spdlog 完整分析超时仍待解决。
 
-| 项目与角色 | Tree-sitter 路线 | Clang 路线 |
-| --- | --- | --- |
-| curl，开发样本，196 个单元 | 全部导出，语法诊断 0，114 处泛型表达式未转换 | 全部导出，语法诊断 0，180 个无已知转换缺口，16 个 partial |
-| SQLite，历史回归，102 个单元 | 全部导出，语法诊断 0，6 处泛型表达式未转换 | 全部导出，语法诊断 0，83 个无已知转换缺口、19 个 partial |
-| jsoncpp，独立基线后转回归，3 个单元 | 全部导出，9 条语法诊断，恢复 3 个 lambda 函数体 | 全部导出，语法诊断 0，3 个均为 partial |
-| spdlog，历史回归，7 个单元 | 全部导出，185 条语法诊断，并有模板、捕获等转换缺口 | 全部导出，语法诊断 0，7 个均为 partial |
-
-新增独立项目基线使用 zlib 静态库和 ncnn CPU 静态库，均按自己的构建系统成功编译。zlib 的 15 个单元全部导出、语法诊断 0，14 个无已知转换缺口，1 个因后向 goto 标为 partial。ncnn 配置关闭 Vulkan、OpenMP、运行时 CPU 分派和 AVX，200 个单元全部导出、语法诊断 0，其中 8 个无已知转换缺口，192 个 partial。ncnn 首次遇到 dump 参数限制的 200 条失败记录已保留，参数修复后的完整基线用于后续结构回归。宏、生成头文件及跨文件信息的保留继续通过真实构建目标验收。
-
-本次 30 分钟修复后的 Clang 路线复测覆盖上述四个固定项目的全部 308 个编译单元，以及 ncnn 的 5 个问题单元，全部导出、语法诊断 0。按原始位置核对调用表达式记录，jsoncpp 从 2,251 增至 2,277，spdlog 从 17,740 增至 17,988，ncnn 的 5 个单元从 1,985 增至 2,006；curl、SQLite 数量不变，各组均未发现旧调用记录丢失。记录可能包含头文件在多个单元中的重复项，不能用这些数字替代调用图准召率。ncnn 全部 200 个单元的最终版复测已于 11 月 16 日完成，结果如下。详见 [本次结果与命令](yasa-cpp-extension/results/clang-parser-20261115/clang-session-30min-summary.json)。
-
-SQLite 两条路线各导出 2,744 条函数定义记录，函数数量用于结构检查。jsoncpp 首次验收结果已冻结，后续纳入回归项目。Redis 保留历史回归身份，本轮未重跑。各路线的诊断类别不同，当前结果用于定位缺口，调用图评分另行进行。
-
-| 语言能力 | 已有及新增验收 | 当前边界 |
-| --- | --- | --- |
-| 宏、条件分支、项目头文件 | C/C++、开关各两种取值，双路线检查调用目标和原始文件行号 | 多配置合并待做 |
-| typedef、函数指针、多维数组 | 双路线声明、数组层级及调用结构检查 | 复杂声明组合继续补充 |
-| 分支、循环、switch、嵌套作用域 | 双路线结构检查，Clang 另有作用域和赋值传播回归 | 后向 goto 等缺口已记录 |
-| 指定初始化、复合字面量 | 双路线按字段名和值核对，Clang 另有输入传播对照 | 隐式数组尾部补零仍有缺口 |
-| 枚举、变参、字符串及宽字符 | 现有 Clang 边界测试覆盖取值、类型和编码 | 超范围整数转换保留诊断 |
-| C++ 重载、构造函数 | 双路线检查重载结构，Clang 检查构造标记和初始化 | 构造函数定义标记已补齐，初始化列表语义继续保留诊断 |
-| C++ 模板、lambda | 双路线对照；Clang 另有模板、捕获读写回归 | 两路线均保留 lambda 函数体，Tree-sitter 捕获语义继续保留诊断 |
-| 成员指针、未知节点与失败 | 最小样例检查操作数和调用保留，缺失语义显式诊断；批量失败测试检查后续单元 | 成员指针目标解析待做 |
-
-`test/c-family/test-parser-feature-matrix.ts` 现有 18 项结构契约检查。此前两项缺口已修复并转为正常功能检查。双路线按字段名核对指定初始化，允许各自保留源码顺序或字段布局顺序。
-
-### 11 月 16 日：原子操作与 C++ 语句表达式修复
-
-**已恢复两类节点的结构；完整复测 508 个编译单元，全部导出成功、语法诊断 0。** 范围为 ncnn 200、curl 196、SQLite 102、jsoncpp 3、spdlog 7 个单元，使用正式 `dumpAST` / `dumpAllAST` 的 Clang 后端。本轮没有新增 Engine 分析语义。
-
-| 修复 | 具体做法 | 真实项目结果与边界 |
-| --- | --- | --- |
-| 原子操作 `AtomicExpr` | 转为带内建操作名的调用节点；按预处理文本中的参数位置恢复源码参数顺序，保留地址、值和内存序。标明 fetch-add 等操作返回修改前还是修改后的值；位置不足时保留操作数并显式诊断 | ncnn 恢复 570 条记录，来自 `mat.h:1549、1578、1583` 的 3 处源码；curl 恢复 9 条、SQLite 恢复 38 条。原子写回及并发内存序分析仍标记为 partial |
-| C++ GNU 语句表达式 `StmtExpr` | 复用已有的带作用域标记的 `Sequence`，保留内部声明、嵌套结构、副作用和末项结果，增加结果类型元数据 | ncnn 的 `cpu.cpp:2371、2376、2386` 三处 `CPU_SET/CLR/ISSET` 展开结构已恢复。C++ 对象清理及临时对象生命周期仍明确诊断 |
-
-- **单测**：修复前 3 个真实编译反例失败，修复后通过；加上参数位置缺失的保留测试，共新增 4 项。联合回归 **343 项通过**，`npm run typecheck` 通过。测试覆盖 C/C++、C11 原子内建操作、比较交换参数顺序、宏定位、嵌套作用域、无返回值语句块和带析构对象。
-- **结构核对**：ncnn 调用表达式记录 92,409 → **92,988（+579）**，其中 570 条为原子内建操作，9 条为恢复的语句块中的 `sizeof` 表示；这些不是新增的普通项目函数调用，不能据此声称调用图召回率提升。函数定义保持 26,767 条。五个项目按名称、原始文件和起始行核对，旧调用和函数记录均未丢失。
-- **仍有缺口**：ncnn 整节点未转换的位置从 8 处降至 **2 处内联汇编**（`cpu.cpp:569、585`）。仍有 192 个单元为 partial，因为原子内存语义、C++ 生命周期、继承、模板枚举及引用赋值写回等限制没有被隐藏。
-- **验收范围**：保持同一 CPU 静态库配置，运行期间源码、配置及实现校验一致；未覆盖 Vulkan、OpenMP、AVX 等其他配置。源码位置另做了文件存在性和行号范围检查，不代表所有位置都已人工核准。
-
-本轮实现见 [clang-uast.ts](https://github.com/JarvisDing-sdu/yasa-engine/blob/fefff259f4bb7d724c849a46fdc39b7380625675/src/engine/parser/c-family/clang-uast.ts)，测试位于 [test-clang-uast.ts](https://github.com/JarvisDing-sdu/yasa-engine/blob/fefff259f4bb7d724c849a46fdc39b7380625675/test/c-family/test-clang-uast.ts)，已提交到 `codex/c-family-pilot-20261115` 分支。[本轮机器可读结果](yasa-cpp-extension/results/clang-parser-20261115/atomic-stmtexpr-fix-20261116.json)包含测试、源码校验、命令与输出位置；[修复前完整基线](yasa-cpp-extension/results/clang-parser-20261115/ncnn-final-full-20261116.json)继续保留。
-
-下一步可以处理剩余内联汇编的操作数保留，并按最小语言样例完善引用赋值、模板和继承的语义契约；暂不以减少 partial 数量作为唯一目标。
+此前两路线对照中，curl、SQLite、jsoncpp、spdlog 的 308 个单元均可导出；Tree-sitter 的 jsoncpp、spdlog 分别有 9、185 条语法诊断，Clang 均为 0。本轮未重跑 Tree-sitter。独立 C++ parser 的 54 项通过属于此前测试，与本轮 358 项不是同一测试集。
 
 ## 2. 源码到 UAST 的两条路线
 
@@ -196,50 +157,47 @@ WASM 提供语法规则，TypeScript visitor 负责生成 UAST。配置化入口
 
 ## 3. 剩余问题与推进顺序
 
-**当前按语言特性测试和固定项目基线推进 Parser 转换质量及数据处理成本。** 每项修复先用最小样例验证，再复测原问题文件，最后运行完整构建目标。
+继续限定现有六项目，以“最小正反例 → 原文件 → 固定目标全量复测”推进。
 
-| 顺序 | 工作重点 | 验收方式 |
+| 顺序 | 工作 | 验收重点 |
 | --- | --- | --- |
-| 1 | 处理 C 剩余后向跳转、数组隐式补零和 switch 标签前语句缺口；原子操作的结构已恢复，内存语义另行处理 | 补充预期 UAST 单测，复测 curl 196 个单元，记录 partial 的数量及原因变化 |
-| 2 | 补齐 C++ 剩余默认实参绑定、值捕获和依赖模板名等调用相关语义 | 最小结构及调用样例通过，复测 spdlog 7 个单元，逐项核对转换诊断 |
-| 随上述两步复测 | 按实测瓶颈继续优化 Parser 性能 | 检查输出等价性，重复测量耗时和峰值内存 |
-| 随后 | 单独定位完整 Engine 的符号解释超时 | 缩减超时入口，完成固定构建目标的分析并保留执行状态 |
-| 最后 | 使用正式调用图入口比较 CodeGraph，收敛默认后端与发布包 | 冻结参考集，分别报告准召率、时间和内存，完成统一入口验收 |
+| 1 | 保留其他未转换节点的有效子结构，区分模板定义与具体实例 | 不丢函数、调用、初始化及副作用；未解决语义继续诊断 |
+| 2 | C 的一般 goto、嵌套 case 分派及聚合初始化 | 核对跳转路径、作用域和求值次数 |
+| 3 | C++ 对象／混合捕获、复杂继承、模板及对象生命周期 | 分别验证结构与 Engine 消费，避免把节点存在当成语义正确 |
+| 随后 | 原子内存语义、完整 Engine 超时与调用图对比 | 固定参考集后报告准召率、时间和内存 |
 
-每个修复先明确语言规则并补最小反例，再运行相关特性与固定项目回归。新增验收项目先冻结首次结果；用于调试后转为回归项目。多配置结果合并随后推进。
+本轮未开展专项性能对比；多配置语义合并仍待实现。
 
 ## 4. 代码、命令与实验材料
 
-本轮完整结果及校验后的逐单元输出归档位于本机 `artifacts/parser-validation-20261115/final-fixed-projects/`。
+本轮配置为本机 `artifacts/clang-session-30min-20261115/project-stability-config.json`；五项目结果在 `semantic-round-fixed/`，ncnn 结果在 `ncnn-semantic-round-20261116/`（均位于同一目录）。完整 UAST 已压缩并校验，测试日志在 `artifacts/semantic-round-20261116/`。
 
-跨项目入口为 `workstreams/yasa-cpp-extension/scripts/parser_acceptance.py`，以 `--config 项目配置.json --engine 实验Engine目录 --out 新结果目录` 运行。本轮实际配置及输入锁位于本机 `artifacts/parser-validation-20261115/`，初次导出保存在校验过的 `baseline-exports.tar.gz`。
-
-实现位于独立工作区 `/home/jarvis/文档/projects/yasa-c-family-experiment/`，分支为 `codex/c-family-pilot-20261115`。本轮 C/C++ 修复已提交，下面的远程源码链接固定到本次提交版本。完整 UAST、逐文件日志及源码快照保留在本机，远程仓库保存报告、结果摘要和通用验收脚本。本轮命令、前后结果、测试数量及源码校验值见 [C 验证记录](yasa-cpp-extension/results/clang-parser-20261115/c-hardening-summary.json)，完整逐单元输出位于本机 `artifacts/c-parser-hardening-20261115/curl-verified/`。
+跨项目脚本为 `workstreams/yasa-cpp-extension/scripts/parser_acceptance.py`，调用正式 `dumpAllAST`；ncnn 逐单元调用正式 `dumpAST`。本轮摘要保留完整命令、源码哈希、诊断变化和结构对照。实现位于独立工作区 `/home/jarvis/文档/projects/yasa-c-family-experiment/engine`，分支为 `codex/c-family-pilot-20261115`；本轮同时修改 `clang-uast.ts`、共用 `c-analyzer.ts` 和两份 Clang 回归测试。
 
 | 查阅内容 | 入口 |
 | --- | --- |
 | Clang AST→UAST 转换 | [clang-uast.ts][clang-uast] |
-| 预处理、AST 读取和符号处理 | [Engine C-family 源码目录](https://github.com/JarvisDing-sdu/yasa-engine/tree/fefff259f4bb7d724c849a46fdc39b7380625675/src/engine/parser/c-family) |
-| dump 与分析命令说明 | [Engine C-family 文档](https://github.com/JarvisDing-sdu/yasa-engine/blob/fefff259f4bb7d724c849a46fdc39b7380625675/docs/c-family.md) |
-| 最小样例和集成测试 | [test/c-family](https://github.com/JarvisDing-sdu/yasa-engine/tree/fefff259f4bb7d724c849a46fdc39b7380625675/test/c-family) |
+| 预处理、AST 读取和符号处理 | [Engine C-family 源码目录](https://github.com/JarvisDing-sdu/yasa-engine/tree/341fbd1a265911f00625281f232a48f23cf74b01/src/engine/parser/c-family) |
+| dump 与分析命令说明 | [Engine C-family 文档](https://github.com/JarvisDing-sdu/yasa-engine/blob/341fbd1a265911f00625281f232a48f23cf74b01/docs/c-family.md) |
+| 最小样例和集成测试 | [test/c-family](https://github.com/JarvisDing-sdu/yasa-engine/tree/341fbd1a265911f00625281f232a48f23cf74b01/test/c-family) |
 | 结果、计时及验证材料 | [远程实验记录索引](yasa-cpp-extension/results/clang-parser-20261115/README.md) |
 
 早期工具调研和跨语言微型实验保存在本机 `artifacts/clang-hardening-20261115/report-history-before-condensing.md`。本报告集中展示当前结果、转换过程和后续安排。
 
-[dump]: https://github.com/JarvisDing-sdu/yasa-engine/blob/fefff259f4bb7d724c849a46fdc39b7380625675/src/interface/compiler-dump.ts
-[database]: https://github.com/JarvisDing-sdu/yasa-engine/blob/fefff259f4bb7d724c849a46fdc39b7380625675/src/engine/parser/c-family/compilation-database.ts
-[selection]: https://github.com/JarvisDing-sdu/yasa-engine/blob/fefff259f4bb7d724c849a46fdc39b7380625675/src/engine/parser/c-family/build-selection.ts
-[preprocess]: https://github.com/JarvisDing-sdu/yasa-engine/blob/fefff259f4bb7d724c849a46fdc39b7380625675/src/engine/parser/c-family/compiler-preprocess.ts
-[source-map]: https://github.com/JarvisDing-sdu/yasa-engine/blob/fefff259f4bb7d724c849a46fdc39b7380625675/src/engine/parser/c-family/source-map.ts
+[dump]: https://github.com/JarvisDing-sdu/yasa-engine/blob/341fbd1a265911f00625281f232a48f23cf74b01/src/interface/compiler-dump.ts
+[database]: https://github.com/JarvisDing-sdu/yasa-engine/blob/341fbd1a265911f00625281f232a48f23cf74b01/src/engine/parser/c-family/compilation-database.ts
+[selection]: https://github.com/JarvisDing-sdu/yasa-engine/blob/341fbd1a265911f00625281f232a48f23cf74b01/src/engine/parser/c-family/build-selection.ts
+[preprocess]: https://github.com/JarvisDing-sdu/yasa-engine/blob/341fbd1a265911f00625281f232a48f23cf74b01/src/engine/parser/c-family/compiler-preprocess.ts
+[source-map]: https://github.com/JarvisDing-sdu/yasa-engine/blob/341fbd1a265911f00625281f232a48f23cf74b01/src/engine/parser/c-family/source-map.ts
 [unified]: https://github.com/JarvisDing-sdu/yasa-uast/blob/c51763aed6d67b2f3cf965ca0d8c35d4fb0abd66/parser-CPP/src/index.ts
 [c-parser]: https://github.com/JarvisDing-sdu/yasa-uast/blob/c51763aed6d67b2f3cf965ca0d8c35d4fb0abd66/parser-C/src/parser.ts
 [cpp-parser]: https://github.com/JarvisDing-sdu/yasa-uast/blob/c51763aed6d67b2f3cf965ca0d8c35d4fb0abd66/parser-CPP/src/parser.ts
 [linkage]: https://github.com/JarvisDing-sdu/yasa-uast/blob/c51763aed6d67b2f3cf965ca0d8c35d4fb0abd66/parser-CPP/src/handlers/linkage.ts
 [handlers]: https://github.com/JarvisDing-sdu/yasa-uast/blob/c51763aed6d67b2f3cf965ca0d8c35d4fb0abd66/parser-CPP/src/handlers/index.ts
-[deep-json]: https://github.com/JarvisDing-sdu/yasa-engine/blob/fefff259f4bb7d724c849a46fdc39b7380625675/src/util/deep-json.ts
-[compiler-json]: https://github.com/JarvisDing-sdu/yasa-engine/blob/fefff259f4bb7d724c849a46fdc39b7380625675/src/engine/parser/c-family/compiler-json.ts
-[declarations]: https://github.com/JarvisDing-sdu/yasa-engine/blob/fefff259f4bb7d724c849a46fdc39b7380625675/src/engine/parser/c-family/compiler-declarations.ts
-[clang-uast]: https://github.com/JarvisDing-sdu/yasa-engine/blob/fefff259f4bb7d724c849a46fdc39b7380625675/src/engine/parser/c-family/clang-uast.ts
-[clang-string]: https://github.com/JarvisDing-sdu/yasa-engine/blob/fefff259f4bb7d724c849a46fdc39b7380625675/src/engine/parser/c-family/clang-string.ts
-[runner]: https://github.com/JarvisDing-sdu/yasa-engine/blob/fefff259f4bb7d724c849a46fdc39b7380625675/src/interface/c-family-runner.ts
-[builder]: https://github.com/JarvisDing-sdu/yasa-engine/blob/fefff259f4bb7d724c849a46fdc39b7380625675/src/engine/parser/c-family/c-family-ast-builder.ts
+[deep-json]: https://github.com/JarvisDing-sdu/yasa-engine/blob/341fbd1a265911f00625281f232a48f23cf74b01/src/util/deep-json.ts
+[compiler-json]: https://github.com/JarvisDing-sdu/yasa-engine/blob/341fbd1a265911f00625281f232a48f23cf74b01/src/engine/parser/c-family/compiler-json.ts
+[declarations]: https://github.com/JarvisDing-sdu/yasa-engine/blob/341fbd1a265911f00625281f232a48f23cf74b01/src/engine/parser/c-family/compiler-declarations.ts
+[clang-uast]: https://github.com/JarvisDing-sdu/yasa-engine/blob/341fbd1a265911f00625281f232a48f23cf74b01/src/engine/parser/c-family/clang-uast.ts
+[clang-string]: https://github.com/JarvisDing-sdu/yasa-engine/blob/341fbd1a265911f00625281f232a48f23cf74b01/src/engine/parser/c-family/clang-string.ts
+[runner]: https://github.com/JarvisDing-sdu/yasa-engine/blob/341fbd1a265911f00625281f232a48f23cf74b01/src/interface/c-family-runner.ts
+[builder]: https://github.com/JarvisDing-sdu/yasa-engine/blob/341fbd1a265911f00625281f232a48f23cf74b01/src/engine/parser/c-family/c-family-ast-builder.ts

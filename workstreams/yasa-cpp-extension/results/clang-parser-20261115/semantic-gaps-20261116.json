@@ -1,0 +1,138 @@
+{
+  "status": "interrupted_before_full_project_acceptance",
+  "tests": {
+    "passing": 357,
+    "evidence": "Observed completed Mocha output before interruption; temporary log no longer available",
+    "typecheck": "passed before interruption"
+  },
+  "completedFixedProjects": [
+    {
+      "project": "jsoncpp",
+      "role": "fixed-regression",
+      "backend": "clang",
+      "command": [
+        "node",
+        "--max-old-space-size=4096",
+        "--import",
+        "tsx",
+        "src/main.ts",
+        "--sourcePath",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/jsoncpp-source",
+        "--language",
+        "cpp",
+        "--dumpAllAST",
+        "--cCompileCommands",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/jsoncpp-build/compile_commands.json",
+        "--cAstBackend",
+        "clang",
+        "--report",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/clang-session-30min-20261115/semantic-gaps-fixed/jsoncpp-clang"
+      ],
+      "exitCode": 0,
+      "seconds": 35.692,
+      "expectedCommands": 3,
+      "selectedCommands": 3,
+      "completed": 3,
+      "coverageMatches": true,
+      "statuses": {
+        "partial_conversion": 3
+      },
+      "syntaxDiagnostics": 0,
+      "roots": {
+        "CompileUnit": 3
+      },
+      "functionDefinitionRecords": 661,
+      "unhandledNodes": {
+        "Clang.CXXPseudoDestructorExpr": 3,
+        "Clang.PackExpansionExpr": 3
+      },
+      "conversionDiagnostics": {
+        "dependent_name_resolution": 32,
+        "PackExpansionExpr": 3,
+        "dependent_parenthesized_initialization": 4,
+        "cpp_allocation_semantics": 13,
+        "CXXPseudoDestructorExpr": 3,
+        "assignment_location_semantics": 26,
+        "cpp_baseclass_semantics": 21,
+        "base_or_delegating_constructor": 20,
+        "member_pointer_resolution": 15,
+        "cpp_virtual_dispatch": 3,
+        "initializer_list_object_semantics": 2,
+        "dependent_construction": 1,
+        "cpp_delete_semantics": 1
+      },
+      "invalidExports": [],
+      "manifestSha256": "6910bcf2edf83bff08bd1f5c3d4c267e5540f1ac44b9c7e9c52401f8afa6c3f2"
+    },
+    {
+      "project": "sqlite",
+      "role": "fixed-regression",
+      "backend": "clang",
+      "command": [
+        "node",
+        "--max-old-space-size=4096",
+        "--import",
+        "tsx",
+        "src/main.ts",
+        "--sourcePath",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts",
+        "--language",
+        "c",
+        "--dumpAllAST",
+        "--cCompileCommands",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/sqlite-compile.json",
+        "--cAstBackend",
+        "clang",
+        "--report",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/clang-session-30min-20261115/semantic-gaps-fixed/sqlite-clang"
+      ],
+      "exitCode": 0,
+      "seconds": 111.415,
+      "expectedCommands": 102,
+      "selectedCommands": 102,
+      "completed": 102,
+      "coverageMatches": true,
+      "statuses": {
+        "no_syntax_errors": 86,
+        "partial_conversion": 16
+      },
+      "syntaxDiagnostics": 0,
+      "roots": {
+        "CompileUnit": 102
+      },
+      "functionDefinitionRecords": 2744,
+      "unhandledNodes": {},
+      "conversionDiagnostics": {
+        "atomic_memory_semantics": 38,
+        "goto_control_flow": 76,
+        "nested_switch_label_control_flow": 18
+      },
+      "invalidExports": [],
+      "manifestSha256": "9d46db9a12b79e95b0765996cdaed8f9a3cdfea70e03507756b4d8120b8d9775"
+    }
+  ],
+  "ncnnRecordedUnits": 170,
+  "ncnnExitCodes": {
+    "0": 170
+  },
+  "changes": [
+    "wide enum constants",
+    "scalar lambda snapshots and repeated instances",
+    "simple nonvirtual single inheritance",
+    "namespace aliases",
+    "bounded GNU case ranges",
+    "nested case subtree retention with explicit diagnostic",
+    "literal switch dispatch and fallthrough"
+  ],
+  "sourceSha256": {
+    "src/engine/parser/c-family/clang-uast.ts": "6f93d1908feea15c4ee7322ee035f14bfa3d28534bc8cb137be18fca985da049",
+    "src/engine/analyzer/c/common/c-analyzer.ts": "ced6b4bb712a93edcfdc154a7f4a0244189f968d1c2631d21250fc9d4939c17c",
+    "test/c-family/test-clang-engine.ts": "f60e15920060b534daef22d440c00c14f5e73a57f980897e167552a56dd8761f",
+    "test/c-family/test-clang-uast.ts": "6ea78c75a8404bf01ce25cd225bf69715a93370a95f017e766fae7ba13e3d070"
+  },
+  "limitations": [
+    "Latest 523-unit full validation was interrupted; previous complete baseline is separate.",
+    "Nested case control flow, general goto, complex captures, virtual/multiple inheritance, templates and memory semantics remain partial."
+  ],
+  "uncommitted": true
+}
