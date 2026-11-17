@@ -1,10 +1,12 @@
 # C/C++ Parser 阶段报告
 
-更新于 2026 年 11 月 16 日。
+更新于 2026 年 11 月 17 日。
 
 ## 1. 当前结果
 
-**最新 Clang 路线已完成六个真实项目、523 个编译单元的正式 dump 验收：全部导出，根节点均为 CompileUnit，语法诊断 0。358 项联合回归通过，TypeScript 检查通过。**
+**11 月 17 日增量**：修复依赖类型运算符赋值被整条丢弃的问题。spdlog 恢复 294 条赋值、343 条调用表达式和 287 条一元运算记录，旧结构无减少；仍保留 294 次 `dependent_assignment_target` 诊断。jsoncpp 3、spdlog 7 个单元正式 dump 均成功，partial 数未下降。联合回归 **359 项通过**，类型检查通过。其余四项目本轮未重跑，下表是 11 月 16 日完整基线。[增量验收记录](yasa-cpp-extension/results/clang-parser-20261115/dependent-assignment-20261117.json)。
+
+**11 月 16 日完整基线：Clang 路线已完成六个真实项目、523 个编译单元的正式 dump 验收：全部导出，根节点均为 CompileUnit，语法诊断 0。358 项联合回归通过，TypeScript 检查通过。**
 
 | 项目 | 编译单元 | 导出成功 | 部分转换（partial） |
 | --- | ---: | ---: | ---: |
@@ -177,27 +179,27 @@ WASM 提供语法规则，TypeScript visitor 负责生成 UAST。配置化入口
 | 查阅内容 | 入口 |
 | --- | --- |
 | Clang AST→UAST 转换 | [clang-uast.ts][clang-uast] |
-| 预处理、AST 读取和符号处理 | [Engine C-family 源码目录](https://github.com/JarvisDing-sdu/yasa-engine/tree/341fbd1a265911f00625281f232a48f23cf74b01/src/engine/parser/c-family) |
-| dump 与分析命令说明 | [Engine C-family 文档](https://github.com/JarvisDing-sdu/yasa-engine/blob/341fbd1a265911f00625281f232a48f23cf74b01/docs/c-family.md) |
-| 最小样例和集成测试 | [test/c-family](https://github.com/JarvisDing-sdu/yasa-engine/tree/341fbd1a265911f00625281f232a48f23cf74b01/test/c-family) |
+| 预处理、AST 读取和符号处理 | [Engine C-family 源码目录](https://github.com/JarvisDing-sdu/yasa-engine/tree/f25a1b68d45777b1594e3db412549c22b96c6732/src/engine/parser/c-family) |
+| dump 与分析命令说明 | [Engine C-family 文档](https://github.com/JarvisDing-sdu/yasa-engine/blob/f25a1b68d45777b1594e3db412549c22b96c6732/docs/c-family.md) |
+| 最小样例和集成测试 | [test/c-family](https://github.com/JarvisDing-sdu/yasa-engine/tree/f25a1b68d45777b1594e3db412549c22b96c6732/test/c-family) |
 | 结果、计时及验证材料 | [远程实验记录索引](yasa-cpp-extension/results/clang-parser-20261115/README.md) |
 
 早期工具调研和跨语言微型实验保存在本机 `artifacts/clang-hardening-20261115/report-history-before-condensing.md`。本报告集中展示当前结果、转换过程和后续安排。
 
-[dump]: https://github.com/JarvisDing-sdu/yasa-engine/blob/341fbd1a265911f00625281f232a48f23cf74b01/src/interface/compiler-dump.ts
-[database]: https://github.com/JarvisDing-sdu/yasa-engine/blob/341fbd1a265911f00625281f232a48f23cf74b01/src/engine/parser/c-family/compilation-database.ts
-[selection]: https://github.com/JarvisDing-sdu/yasa-engine/blob/341fbd1a265911f00625281f232a48f23cf74b01/src/engine/parser/c-family/build-selection.ts
-[preprocess]: https://github.com/JarvisDing-sdu/yasa-engine/blob/341fbd1a265911f00625281f232a48f23cf74b01/src/engine/parser/c-family/compiler-preprocess.ts
-[source-map]: https://github.com/JarvisDing-sdu/yasa-engine/blob/341fbd1a265911f00625281f232a48f23cf74b01/src/engine/parser/c-family/source-map.ts
+[dump]: https://github.com/JarvisDing-sdu/yasa-engine/blob/f25a1b68d45777b1594e3db412549c22b96c6732/src/interface/compiler-dump.ts
+[database]: https://github.com/JarvisDing-sdu/yasa-engine/blob/f25a1b68d45777b1594e3db412549c22b96c6732/src/engine/parser/c-family/compilation-database.ts
+[selection]: https://github.com/JarvisDing-sdu/yasa-engine/blob/f25a1b68d45777b1594e3db412549c22b96c6732/src/engine/parser/c-family/build-selection.ts
+[preprocess]: https://github.com/JarvisDing-sdu/yasa-engine/blob/f25a1b68d45777b1594e3db412549c22b96c6732/src/engine/parser/c-family/compiler-preprocess.ts
+[source-map]: https://github.com/JarvisDing-sdu/yasa-engine/blob/f25a1b68d45777b1594e3db412549c22b96c6732/src/engine/parser/c-family/source-map.ts
 [unified]: https://github.com/JarvisDing-sdu/yasa-uast/blob/c51763aed6d67b2f3cf965ca0d8c35d4fb0abd66/parser-CPP/src/index.ts
 [c-parser]: https://github.com/JarvisDing-sdu/yasa-uast/blob/c51763aed6d67b2f3cf965ca0d8c35d4fb0abd66/parser-C/src/parser.ts
 [cpp-parser]: https://github.com/JarvisDing-sdu/yasa-uast/blob/c51763aed6d67b2f3cf965ca0d8c35d4fb0abd66/parser-CPP/src/parser.ts
 [linkage]: https://github.com/JarvisDing-sdu/yasa-uast/blob/c51763aed6d67b2f3cf965ca0d8c35d4fb0abd66/parser-CPP/src/handlers/linkage.ts
 [handlers]: https://github.com/JarvisDing-sdu/yasa-uast/blob/c51763aed6d67b2f3cf965ca0d8c35d4fb0abd66/parser-CPP/src/handlers/index.ts
-[deep-json]: https://github.com/JarvisDing-sdu/yasa-engine/blob/341fbd1a265911f00625281f232a48f23cf74b01/src/util/deep-json.ts
-[compiler-json]: https://github.com/JarvisDing-sdu/yasa-engine/blob/341fbd1a265911f00625281f232a48f23cf74b01/src/engine/parser/c-family/compiler-json.ts
-[declarations]: https://github.com/JarvisDing-sdu/yasa-engine/blob/341fbd1a265911f00625281f232a48f23cf74b01/src/engine/parser/c-family/compiler-declarations.ts
-[clang-uast]: https://github.com/JarvisDing-sdu/yasa-engine/blob/341fbd1a265911f00625281f232a48f23cf74b01/src/engine/parser/c-family/clang-uast.ts
-[clang-string]: https://github.com/JarvisDing-sdu/yasa-engine/blob/341fbd1a265911f00625281f232a48f23cf74b01/src/engine/parser/c-family/clang-string.ts
-[runner]: https://github.com/JarvisDing-sdu/yasa-engine/blob/341fbd1a265911f00625281f232a48f23cf74b01/src/interface/c-family-runner.ts
-[builder]: https://github.com/JarvisDing-sdu/yasa-engine/blob/341fbd1a265911f00625281f232a48f23cf74b01/src/engine/parser/c-family/c-family-ast-builder.ts
+[deep-json]: https://github.com/JarvisDing-sdu/yasa-engine/blob/f25a1b68d45777b1594e3db412549c22b96c6732/src/util/deep-json.ts
+[compiler-json]: https://github.com/JarvisDing-sdu/yasa-engine/blob/f25a1b68d45777b1594e3db412549c22b96c6732/src/engine/parser/c-family/compiler-json.ts
+[declarations]: https://github.com/JarvisDing-sdu/yasa-engine/blob/f25a1b68d45777b1594e3db412549c22b96c6732/src/engine/parser/c-family/compiler-declarations.ts
+[clang-uast]: https://github.com/JarvisDing-sdu/yasa-engine/blob/f25a1b68d45777b1594e3db412549c22b96c6732/src/engine/parser/c-family/clang-uast.ts
+[clang-string]: https://github.com/JarvisDing-sdu/yasa-engine/blob/f25a1b68d45777b1594e3db412549c22b96c6732/src/engine/parser/c-family/clang-string.ts
+[runner]: https://github.com/JarvisDing-sdu/yasa-engine/blob/f25a1b68d45777b1594e3db412549c22b96c6732/src/interface/c-family-runner.ts
+[builder]: https://github.com/JarvisDing-sdu/yasa-engine/blob/f25a1b68d45777b1594e3db412549c22b96c6732/src/engine/parser/c-family/c-family-ast-builder.ts

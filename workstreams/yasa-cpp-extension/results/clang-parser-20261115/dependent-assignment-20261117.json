@@ -1,0 +1,160 @@
+{
+  "date": "2026-11-17",
+  "scope": "Dependent operator assignment structure preservation",
+  "status": "validated",
+  "tests": {
+    "passing": 359,
+    "typecheck": "passed"
+  },
+  "projects": [
+    {
+      "project": "jsoncpp",
+      "role": "fixed-regression",
+      "backend": "clang",
+      "command": [
+        "node",
+        "--max-old-space-size=4096",
+        "--import",
+        "tsx",
+        "src/main.ts",
+        "--sourcePath",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/jsoncpp-source",
+        "--language",
+        "cpp",
+        "--dumpAllAST",
+        "--cCompileCommands",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-validation-20261115/jsoncpp-build/compile_commands.json",
+        "--cAstBackend",
+        "clang",
+        "--report",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/partial-20261117/projects/jsoncpp-clang"
+      ],
+      "exitCode": 0,
+      "seconds": 20.309,
+      "expectedCommands": 3,
+      "selectedCommands": 3,
+      "completed": 3,
+      "coverageMatches": true,
+      "statuses": {
+        "partial_conversion": 3
+      },
+      "syntaxDiagnostics": 0,
+      "roots": {
+        "CompileUnit": 3
+      },
+      "functionDefinitionRecords": 661,
+      "unhandledNodes": {
+        "Clang.CXXPseudoDestructorExpr": 3
+      },
+      "conversionDiagnostics": {
+        "dependent_name_resolution": 35,
+        "PackExpansionExpr": 3,
+        "dependent_parenthesized_initialization": 4,
+        "cpp_allocation_semantics": 13,
+        "CXXPseudoDestructorExpr": 3,
+        "assignment_location_semantics": 26,
+        "cpp_baseclass_semantics": 21,
+        "base_or_delegating_constructor": 20,
+        "member_pointer_resolution": 15,
+        "cpp_virtual_dispatch": 3,
+        "initializer_list_object_semantics": 2,
+        "dependent_construction": 1,
+        "cpp_delete_semantics": 1
+      },
+      "invalidExports": [],
+      "manifestSha256": "f1b13c3c3cda50909a92d7c36dd0a230464d3dcf04f488aa6abbf00c03c98b44"
+    },
+    {
+      "project": "spdlog",
+      "role": "historical-regression",
+      "backend": "clang",
+      "command": [
+        "node",
+        "--max-old-space-size=4096",
+        "--import",
+        "tsx",
+        "src/main.ts",
+        "--sourcePath",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/cpp-dumpallast-20261111/inputs/spdlog",
+        "--language",
+        "cpp",
+        "--dumpAllAST",
+        "--cCompileCommands",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/parser-route-experiment-20261115/spdlog-build/compile_commands.json",
+        "--cAstBackend",
+        "clang",
+        "--report",
+        "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/partial-20261117/projects/spdlog-clang"
+      ],
+      "exitCode": 0,
+      "seconds": 56.096,
+      "expectedCommands": 7,
+      "selectedCommands": 7,
+      "completed": 7,
+      "coverageMatches": true,
+      "statuses": {
+        "partial_conversion": 7
+      },
+      "syntaxDiagnostics": 0,
+      "roots": {
+        "CompileUnit": 7
+      },
+      "functionDefinitionRecords": 7861,
+      "unhandledNodes": {
+        "Clang.UnresolvedUsingValueDecl": 24,
+        "Clang.SizeOfPackExpr": 7
+      },
+      "conversionDiagnostics": {
+        "dependent_name_resolution": 3468,
+        "cpp_baseclass_semantics": 1405,
+        "dependent_parenthesized_initialization": 616,
+        "base_or_delegating_constructor": 409,
+        "UnresolvedUsingValueDecl": 24,
+        "dependent_construction": 770,
+        "dependent_member_resolution": 3166,
+        "dependent_enum_value": 7,
+        "PackExpansionExpr": 222,
+        "implicit_array_tail": 13,
+        "SizeOfPackExpr": 7,
+        "lambda_capture_semantics": 68,
+        "dependent_assignment_target": 294,
+        "assignment_location_semantics": 163,
+        "cpp_allocation_semantics": 106,
+        "initializer_list_object_semantics": 5,
+        "cpp_virtual_dispatch": 24
+      },
+      "invalidExports": [],
+      "manifestSha256": "fcb3b6d4fc8278ef8940fbdd5ac7cb5f3b1a2ebee0f94976459fb3866b139b82"
+    }
+  ],
+  "structureComparison": [
+    {
+      "project": "jsoncpp",
+      "difference": {}
+    },
+    {
+      "project": "spdlog",
+      "difference": {
+        "addedAssignmentExpression": 294,
+        "addedCallExpression": 343,
+        "addedUnaryExpression": 287
+      }
+    }
+  ],
+  "integrity": {
+    "unchangedDuringRun": true,
+    "implementationUnchangedDuringRun": true
+  },
+  "sourceSha256": {
+    "src/engine/parser/c-family/clang-uast.ts": "4f38ee369a7791f83d4286461aeb7b0091da9ff4746f95a3282f73d7d5c76dfe",
+    "test/c-family/test-clang-uast.ts": "a397e2bb9edeba65eeaee36498517651cfa24ec1ce380e09a566d01e011080e0"
+  },
+  "evidenceDirectory": "/home/jarvis/文档/projects/yasa-uast-migration/artifacts/partial-20261117",
+  "limitations": [
+    "The 294 BinaryOperator gaps are replaced by 294 explicit dependent_assignment_target diagnostics; semantic write-back is not solved.",
+    "Partial unit counts remain jsoncpp 3 and spdlog 7.",
+    "Counts include header repetition across compile units, and are not callgraph precision or recall.",
+    "Other four projects were not rerun this round."
+  ],
+  "engineCommit": "f25a1b68d45777b1594e3db412549c22b96c6732"
+}
