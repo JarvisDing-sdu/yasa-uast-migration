@@ -1,0 +1,43 @@
+{
+  "project": "libgit2",
+  "commit": "42a89d7cc9374a19e72fa57011e5fe3a99c7b3bf",
+  "compileCommands": 237,
+  "clang": {
+    "directory": "/mnt/d/yasa_new/benchmark/results/libgit2-clang-dump-final-20261118",
+    "total": 237,
+    "completed": 237,
+    "exportedFiles": 237,
+    "statuses": {
+      "no_syntax_errors": 237
+    },
+    "syntaxDiagnostics": 0,
+    "roots": {
+      "CompileUnit": 237
+    },
+    "functionDefinitions": 21750,
+    "callExpressions": 43688,
+    "conversionDiagnostics": {}
+  },
+  "tree-sitter": {
+    "directory": "/mnt/d/yasa_new/benchmark/results/libgit2-acceptance-20261118/libgit2-tree-sitter",
+    "total": 237,
+    "completed": 237,
+    "exportedFiles": 237,
+    "statuses": {
+      "no_syntax_errors": 46,
+      "syntax_errors": 191
+    },
+    "syntaxDiagnostics": 817,
+    "roots": {
+      "CompileUnit": 237
+    },
+    "functionDefinitions": 21750,
+    "callExpressions": 43805,
+    "conversionDiagnostics": {}
+  },
+  "deltaTreeSitterVsClang": {
+    "functionDefinitions": 0,
+    "callExpressions": 117,
+    "syntaxDiagnostics": 817
+  }
+}

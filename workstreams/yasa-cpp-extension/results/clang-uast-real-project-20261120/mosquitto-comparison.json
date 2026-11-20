@@ -1,0 +1,44 @@
+{
+  "project": "mosquitto",
+  "commit": "7ae66ca5cf5e75dca18ba2f6cbdd21453c8e51a5",
+  "compileCommands": 197,
+  "backends": {
+    "clang": {
+      "directory": "/mnt/d/yasa_new/benchmark/results/mosquitto-acceptance-20261120/mosquitto-clang",
+      "total": 197,
+      "completed": 197,
+      "exportedFiles": 197,
+      "statuses": {
+        "no_syntax_errors": 197
+      },
+      "syntaxDiagnostics": 0,
+      "roots": {
+        "CompileUnit": 197
+      },
+      "functionDefinitions": 1290,
+      "callExpressions": 12130,
+      "conversionDiagnostics": {}
+    },
+    "tree-sitter": {
+      "directory": "/mnt/d/yasa_new/benchmark/results/mosquitto-acceptance-20261120/mosquitto-tree-sitter",
+      "total": 197,
+      "completed": 197,
+      "exportedFiles": 197,
+      "statuses": {
+        "no_syntax_errors": 197
+      },
+      "syntaxDiagnostics": 0,
+      "roots": {
+        "CompileUnit": 197
+      },
+      "functionDefinitions": 1290,
+      "callExpressions": 12130,
+      "conversionDiagnostics": {}
+    }
+  },
+  "deltaTreeSitterVsClang": {
+    "functionDefinitions": 0,
+    "callExpressions": 0,
+    "syntaxDiagnostics": 0
+  }
+}

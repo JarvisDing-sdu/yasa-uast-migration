@@ -1,0 +1,45 @@
+{
+  "project": "libevent",
+  "commit": "d82464a277d0f42703702c4dfd9af6af38595a83",
+  "compileCommands": 57,
+  "backends": {
+    "clang": {
+      "directory": "/mnt/d/yasa_new/benchmark/results/libevent-acceptance-20261120-v2/libevent-clang",
+      "total": 57,
+      "completed": 57,
+      "exportedFiles": 57,
+      "statuses": {
+        "no_syntax_errors": 57
+      },
+      "syntaxDiagnostics": 0,
+      "roots": {
+        "CompileUnit": 57
+      },
+      "functionDefinitions": 2820,
+      "callExpressions": 11551,
+      "conversionDiagnostics": {}
+    },
+    "tree-sitter": {
+      "directory": "/mnt/d/yasa_new/benchmark/results/libevent-acceptance-20261120-v2/libevent-tree-sitter",
+      "total": 57,
+      "completed": 57,
+      "exportedFiles": 57,
+      "statuses": {
+        "no_syntax_errors": 52,
+        "syntax_errors": 5
+      },
+      "syntaxDiagnostics": 10,
+      "roots": {
+        "CompileUnit": 57
+      },
+      "functionDefinitions": 2820,
+      "callExpressions": 11507,
+      "conversionDiagnostics": {}
+    }
+  },
+  "deltaTreeSitterVsClang": {
+    "functionDefinitions": 0,
+    "callExpressions": -44,
+    "syntaxDiagnostics": 10
+  }
+}
