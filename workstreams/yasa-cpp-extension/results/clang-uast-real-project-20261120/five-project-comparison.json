@@ -1,0 +1,136 @@
+{
+  "scope": "Final Clang converter vs unchanged Tree-sitter baseline on the same five C projects / compile databases",
+  "projects": [
+    {
+      "project": "jansson",
+      "clang": {
+        "exported": 33,
+        "statuses": {
+          "no_syntax_errors": 33
+        },
+        "syntax": 0,
+        "functions": 875,
+        "calls": 8485
+      },
+      "tree-sitter": {
+        "exported": 33,
+        "statuses": {
+          "no_syntax_errors": 33
+        },
+        "syntax": 0,
+        "functions": 875,
+        "calls": 8490
+      },
+      "deltaTreeSitterVsClang": {
+        "functions": 0,
+        "calls": 5,
+        "syntaxDiagnostics": 0
+      }
+    },
+    {
+      "project": "libpng",
+      "clang": {
+        "exported": 16,
+        "statuses": {
+          "no_syntax_errors": 16
+        },
+        "syntax": 0,
+        "functions": 573,
+        "calls": 2235
+      },
+      "tree-sitter": {
+        "exported": 16,
+        "statuses": {
+          "no_syntax_errors": 16
+        },
+        "syntax": 0,
+        "functions": 573,
+        "calls": 2905
+      },
+      "deltaTreeSitterVsClang": {
+        "functions": 0,
+        "calls": 670,
+        "syntaxDiagnostics": 0
+      }
+    },
+    {
+      "project": "libuv",
+      "clang": {
+        "exported": 76,
+        "statuses": {
+          "no_syntax_errors": 76
+        },
+        "syntax": 0,
+        "functions": 2574,
+        "calls": 6912
+      },
+      "tree-sitter": {
+        "exported": 76,
+        "statuses": {
+          "no_syntax_errors": 74,
+          "syntax_errors": 2
+        },
+        "syntax": 10,
+        "functions": 2574,
+        "calls": 7400
+      },
+      "deltaTreeSitterVsClang": {
+        "functions": 0,
+        "calls": 488,
+        "syntaxDiagnostics": 10
+      }
+    },
+    {
+      "project": "lz4",
+      "clang": {
+        "exported": 17,
+        "statuses": {
+          "no_syntax_errors": 17
+        },
+        "syntax": 0,
+        "functions": 1033,
+        "calls": 5379
+      },
+      "tree-sitter": {
+        "exported": 17,
+        "statuses": {
+          "no_syntax_errors": 17
+        },
+        "syntax": 0,
+        "functions": 1033,
+        "calls": 5585
+      },
+      "deltaTreeSitterVsClang": {
+        "functions": 0,
+        "calls": 206,
+        "syntaxDiagnostics": 0
+      }
+    },
+    {
+      "project": "zlib",
+      "clang": {
+        "exported": 37,
+        "statuses": {
+          "no_syntax_errors": 37
+        },
+        "syntax": 0,
+        "functions": 397,
+        "calls": 2356
+      },
+      "tree-sitter": {
+        "exported": 37,
+        "statuses": {
+          "no_syntax_errors": 37
+        },
+        "syntax": 0,
+        "functions": 397,
+        "calls": 2896
+      },
+      "deltaTreeSitterVsClang": {
+        "functions": 0,
+        "calls": 540,
+        "syntaxDiagnostics": 0
+      }
+    }
+  ]
+}

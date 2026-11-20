@@ -1,0 +1,44 @@
+{
+  "project": "libarchive",
+  "commit": "432ab464725aa99c53de7572979bd9bbbf382ed1",
+  "compileCommands": 125,
+  "backends": {
+    "clang": {
+      "directory": "/mnt/d/yasa_new/benchmark/results/libarchive-acceptance-20261119-v3/libarchive-clang",
+      "total": 125,
+      "completed": 125,
+      "exportedFiles": 125,
+      "statuses": {
+        "no_syntax_errors": 125
+      },
+      "syntaxDiagnostics": 0,
+      "roots": {
+        "CompileUnit": 125
+      },
+      "functionDefinitions": 2697,
+      "callExpressions": 12225,
+      "conversionDiagnostics": {}
+    },
+    "tree-sitter": {
+      "directory": "/mnt/d/yasa_new/benchmark/results/libarchive-acceptance-20261119-v3/libarchive-tree-sitter",
+      "total": 125,
+      "completed": 125,
+      "exportedFiles": 125,
+      "statuses": {
+        "no_syntax_errors": 125
+      },
+      "syntaxDiagnostics": 0,
+      "roots": {
+        "CompileUnit": 125
+      },
+      "functionDefinitions": 2697,
+      "callExpressions": 12373,
+      "conversionDiagnostics": {}
+    }
+  },
+  "deltaTreeSitterVsClang": {
+    "functionDefinitions": 0,
+    "callExpressions": 148,
+    "syntaxDiagnostics": 0
+  }
+}
