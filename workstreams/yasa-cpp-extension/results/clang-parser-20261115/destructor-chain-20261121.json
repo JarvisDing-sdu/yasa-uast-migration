@@ -1,0 +1,136 @@
+{
+  "previous": "ncnn-cpp-subscript-nov21",
+  "revision": "45b9b45f3df263f6a16922c10ae3ef2384071f76",
+  "configuration": "CPU static; Vulkan/OpenMP/runtime CPU/AVX disabled",
+  "sameProjectAndCommands": true,
+  "integrity": {
+    "inputsUnchanged": true,
+    "implementationUnchanged": true
+  },
+  "before": {
+    "exported": 200,
+    "syntaxDiagnostics": 0,
+    "status": {
+      "partial_conversion": 36,
+      "no_syntax_errors": 164
+    },
+    "diagnostics": {
+      "base_or_delegating_constructor": 8,
+      "cpp_allocation_semantics": 274,
+      "cpp_delete_semantics": 72,
+      "cpp_virtual_dispatch": 32,
+      "cpp_baseclass_semantics": 9,
+      "dependent_member_resolution": 59,
+      "dependent_name_resolution": 44
+    },
+    "deleteForms": {
+      "opaque": 72,
+      "guarded_calls": 22
+    },
+    "unresolvedTargets": {},
+    "layerPointerDeletes": {
+      "opaque": 53
+    }
+  },
+  "after": {
+    "exported": 200,
+    "syntaxDiagnostics": 0,
+    "status": {
+      "partial_conversion": 36,
+      "no_syntax_errors": 164
+    },
+    "diagnostics": {
+      "base_or_delegating_constructor": 8,
+      "cpp_allocation_semantics": 274,
+      "cpp_delete_semantics": 67,
+      "cpp_virtual_dispatch": 32,
+      "cpp_baseclass_semantics": 9,
+      "dependent_member_resolution": 59,
+      "dependent_name_resolution": 44
+    },
+    "deleteForms": {
+      "guarded_calls": 33,
+      "opaque": 61
+    },
+    "unresolvedTargets": {
+      "dynamic_type_required": 29
+    },
+    "layerPointerDeletes": {
+      "dynamic_type_required": 21,
+      "opaque": 32
+    }
+  },
+  "structure": {
+    "addedFunctions": 0,
+    "removedFunctions": 0,
+    "addedCalls": 23,
+    "removedCalls": 0
+  },
+  "controls": {
+    "jsoncpp": [
+      {
+        "status": {
+          "partial_conversion": 3
+        },
+        "syntaxDiagnostics": 0,
+        "deleteDiagnostics": 1
+      },
+      {
+        "status": {
+          "partial_conversion": 3
+        },
+        "syntaxDiagnostics": 0,
+        "deleteDiagnostics": 1
+      }
+    ],
+    "spdlog": [
+      {
+        "status": {
+          "partial_conversion": 7
+        },
+        "syntaxDiagnostics": 0,
+        "deleteDiagnostics": 0
+      },
+      {
+        "status": {
+          "partial_conversion": 7
+        },
+        "syntaxDiagnostics": 0,
+        "deleteDiagnostics": 0
+      }
+    ]
+  },
+  "changedDeleteDiagnostics": [
+    {
+      "file": "src/c_api.cpp",
+      "before": 9,
+      "after": 7
+    },
+    {
+      "file": "src/datareader.cpp",
+      "before": 2,
+      "after": 1
+    },
+    {
+      "file": "src/modelbin.cpp",
+      "before": 2,
+      "after": 0
+    }
+  ],
+  "newlyConverted": [],
+  "newlyPartial": [],
+  "tests": {
+    "suite": "Engine C-family, C and C++ regression suites",
+    "passing": 386,
+    "typecheck": "passed"
+  },
+  "nativeOracle": {
+    "clang++ -fsized-deallocation": "FBSB2",
+    "clang++ -fno-sized-deallocation": "FBSB2",
+    "g++ -fsized-deallocation": "FBSB2",
+    "g++ -fno-sized-deallocation": "FBSB2"
+  },
+  "engineWorkspaceBase": "64bbf32",
+  "implementationSha256": "b7363717db8ca01ff55a21767924dad775fe120079c2d7b5ee5ff9e8fee7b190",
+  "engineCommit": "36d53f3b2e5e0f966ca6150ea58cba0967daebf1"
+}
