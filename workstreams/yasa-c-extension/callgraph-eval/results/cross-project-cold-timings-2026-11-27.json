@@ -1,0 +1,2254 @@
+{
+  "protocol": {
+    "date_local": "2026-11-27",
+    "platform": "macOS 27.2.1 arm64",
+    "node": "v24.16.0",
+    "yasa": "0.3.3",
+    "engine_head_with_local_changes": "7d8abb2e25ebdee3a830ccbce68fa5c5d349190b",
+    "uast_head_with_local_changes": "c51763aed6d67b2f3cf965ca0d8c35d4fb0abd66",
+    "engine_src_sha256": "791bf1ac521f38b2201a14128e263758887c79929db7b3fa363d465eb89ec3cf",
+    "engine_src_hash_recipe": "For each file in ascending relative path order: sha256.update(UTF8(relative_posix_path) + 0 byte + raw SHA256(file_bytes)). Same recipe for each input tree.",
+    "clock": "Monotonic wall time from spawning a fresh Node CLI to process exit including graph export. Report reading and hash comparison happen afterward. Independent, sequential CLI runs and new report directories. Operating-system disk cache was not flushed.",
+    "workers": "Requested worker counts refer to parsing only. Inputs with fewer than 10 files are parsed on the main thread.",
+    "timeout_s": 180,
+    "input_staging": "Exact files copied to one stable directory per project. File lists and combined input hashes below. Compiler macros use the same macOS arm64 base as the libcurl benchmark, with project-specific flags.",
+    "summary_method": "Independent medians per metric per worker configuration. Raw node/edge counts include external callees, synthetic nodes and call sites. These counts differ from the deduplicated internal function pairs in reference checks.",
+    "parser_js_sha256": {
+      "parser-C": "95894fbd2f37ec8b015c2c929d98e5e4c96538f01846b91462e7d0f3de6c174c",
+      "parser-CPP": "a5f8a2f919860be5cdc0339d42ce0b8f077d2e58f6872a6c058ae1cdce5d33ed"
+    }
+  },
+  "projects": {
+    "kilo": {
+      "version": "323d93b29bd89a2cb446de90c4ed4fea1764176e",
+      "scope": "complete editor (kilo.c), C99",
+      "defines": [],
+      "c_files": 1,
+      "h_files": 0,
+      "source_bytes": 41602,
+      "source_tree_sha256": "e921fda5d28c94e7b026561ece288441f8075709408064dd8c98f5ffdd1c36b3",
+      "source_files": [
+        "kilo.c"
+      ],
+      "physical_lines_including_headers": 1308,
+      "command_argv": [
+        "<repo>/workstreams/yasa-python-migration/codegraph-eval/.work/tools/codegraph-darwin-arm64/node",
+        "--max-old-space-size=8192",
+        "--inspect=127.0.0.1:0",
+        "--import",
+        "tsx",
+        "src/main.ts",
+        "--sourcePath",
+        "<benchmark>/inputs/kilo",
+        "--language",
+        "c",
+        "--cTarget",
+        "macos",
+        "--cUnknownMacros",
+        "undefined",
+        "--cDefine",
+        "__APPLE__=1,__BYTE_ORDER__=__ORDER_LITTLE_ENDIAN__,__CHAR_BIT__=8,__ENVIRONMENT_MAC_OS_X_VERSION_MIN_REQUIRED__=260000,__ENVIRONMENT_OS_VERSION_MIN_REQUIRED__=260000,__GNUC_MINOR__=2,__GNUC__=4,__LONG_MAX__=9223372036854775807L,__LP64__=1,__MACH__=1,__ORDER_BIG_ENDIAN__=4321,__ORDER_LITTLE_ENDIAN__=1234,__SIZEOF_LONG__=8,__STDC_HOSTED__=1,__STDC_VERSION__=199901L,__STDC__=1,__aarch64__=1,__apple_build_version__=21000099,__clang__=1,__clang_major__=21",
+        "--cUndefine",
+        "__unix,__unix__,__x86_64__,unix",
+        "--cIncludeDir",
+        "<benchmark>/inputs/kilo,/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include,/Library/Developer/CommandLineTools/usr/lib/clang/21/include",
+        "--checkerIds",
+        "callgraph",
+        "--dumpAllCG",
+        "--ruleConfigFile",
+        "resource/example-rule-config/rule_config_c.json",
+        "--report",
+        "<fresh-report>",
+        "--workerCount",
+        "<worker-count>"
+      ],
+      "correctness_note": "The fully matched Clang reference covers direct internal calls and function definitions only.",
+      "four_worker": {
+        "attempts": 3,
+        "graphs_exported": 3,
+        "wall_s_median": 0.521,
+        "wall_s_range": [
+          0.519,
+          1.087
+        ],
+        "parse_ms_median": 95,
+        "graph_ms_median": 118
+      },
+      "one_worker": {
+        "attempts": 3,
+        "graphs_exported": 3,
+        "wall_s_median": 0.601,
+        "wall_s_range": [
+          0.591,
+          0.647
+        ],
+        "parse_ms_median": 104,
+        "graph_ms_median": 144
+      },
+      "all_completed_graphs_byte_identical": true,
+      "runs": [
+        {
+          "project": "kilo",
+          "requested_workers": 1,
+          "round": 1,
+          "wall_s": 0.591,
+          "exit_code": 0,
+          "timeout": false,
+          "error_log_lines": 0,
+          "parse_ms": 96,
+          "graph_ms": 188,
+          "analyzed_files": 1,
+          "lines": 1309,
+          "nodes": 158,
+          "edges": 239,
+          "output_sha256": "dc4d78898dde8a9426914b99c4d35958723fa1ff4cc6cd13760163c88e6eb29e",
+          "output_bytes": 148646,
+          "worker_pool_started": false,
+          "process_module_ms": 14,
+          "error_log_messages": {},
+          "console_diagnostics": []
+        },
+        {
+          "project": "kilo",
+          "requested_workers": 1,
+          "round": 2,
+          "wall_s": 0.647,
+          "exit_code": 0,
+          "timeout": false,
+          "error_log_lines": 0,
+          "parse_ms": 122,
+          "graph_ms": 144,
+          "analyzed_files": 1,
+          "lines": 1309,
+          "nodes": 158,
+          "edges": 239,
+          "output_sha256": "dc4d78898dde8a9426914b99c4d35958723fa1ff4cc6cd13760163c88e6eb29e",
+          "output_bytes": 148646,
+          "worker_pool_started": false,
+          "process_module_ms": 17,
+          "error_log_messages": {},
+          "console_diagnostics": []
+        },
+        {
+          "project": "kilo",
+          "requested_workers": 1,
+          "round": 3,
+          "wall_s": 0.601,
+          "exit_code": 0,
+          "timeout": false,
+          "error_log_lines": 0,
+          "parse_ms": 104,
+          "graph_ms": 142,
+          "analyzed_files": 1,
+          "lines": 1309,
+          "nodes": 158,
+          "edges": 239,
+          "output_sha256": "dc4d78898dde8a9426914b99c4d35958723fa1ff4cc6cd13760163c88e6eb29e",
+          "output_bytes": 148646,
+          "worker_pool_started": false,
+          "process_module_ms": 16,
+          "error_log_messages": {},
+          "console_diagnostics": []
+        },
+        {
+          "project": "kilo",
+          "requested_workers": 4,
+          "round": 1,
+          "wall_s": 1.087,
+          "exit_code": 0,
+          "timeout": false,
+          "error_log_lines": 0,
+          "parse_ms": 133,
+          "graph_ms": 132,
+          "analyzed_files": 1,
+          "lines": 1309,
+          "nodes": 158,
+          "edges": 239,
+          "output_sha256": "dc4d78898dde8a9426914b99c4d35958723fa1ff4cc6cd13760163c88e6eb29e",
+          "output_bytes": 148646,
+          "worker_pool_started": false,
+          "process_module_ms": 14,
+          "error_log_messages": {},
+          "console_diagnostics": []
+        },
+        {
+          "project": "kilo",
+          "requested_workers": 4,
+          "round": 2,
+          "wall_s": 0.519,
+          "exit_code": 0,
+          "timeout": false,
+          "error_log_lines": 0,
+          "parse_ms": 91,
+          "graph_ms": 118,
+          "analyzed_files": 1,
+          "lines": 1309,
+          "nodes": 158,
+          "edges": 239,
+          "output_sha256": "dc4d78898dde8a9426914b99c4d35958723fa1ff4cc6cd13760163c88e6eb29e",
+          "output_bytes": 148646,
+          "worker_pool_started": false,
+          "process_module_ms": 14,
+          "error_log_messages": {},
+          "console_diagnostics": []
+        },
+        {
+          "project": "kilo",
+          "requested_workers": 4,
+          "round": 3,
+          "wall_s": 0.521,
+          "exit_code": 0,
+          "timeout": false,
+          "error_log_lines": 0,
+          "parse_ms": 95,
+          "graph_ms": 115,
+          "analyzed_files": 1,
+          "lines": 1309,
+          "nodes": 158,
+          "edges": 239,
+          "output_sha256": "dc4d78898dde8a9426914b99c4d35958723fa1ff4cc6cd13760163c88e6eb29e",
+          "output_bytes": 148646,
+          "worker_pool_started": false,
+          "process_module_ms": 14,
+          "error_log_messages": {},
+          "console_diagnostics": []
+        }
+      ],
+      "clang_reference_source": "Fixed kilo definitions and function pairs in workstreams/yasa-c-extension/antlr-eval/fixtures/expected.json plus sameConfigNativeInternalCallSites from yasa-c-real-backend-kilo/comparison.json.",
+      "clang_reference": {
+        "definitions": {
+          "reference": 36,
+          "predicted": 36,
+          "matched": 36,
+          "missing": [],
+          "extra": []
+        },
+        "rawEdges": 239,
+        "internalRecords": 80,
+        "functionPairs": {
+          "reference": 47,
+          "predicted": 47,
+          "matched": 47,
+          "missing": [],
+          "extra": []
+        },
+        "siteLines": {
+          "reference": 80,
+          "predicted": 80,
+          "matched": 80,
+          "missing": [],
+          "extra": []
+        }
+      }
+    },
+    "jansson": {
+      "version": "684e18c927e89615c2d501737e90018f4930d6c5",
+      "scope": "Jansson 2.14 static library, 12 build-selected translation units, internal/public and generated headers",
+      "defines": [
+        "HAVE_CONFIG_H=1",
+        "JANSSON_USING_CMAKE=1"
+      ],
+      "c_files": 12,
+      "h_files": 8,
+      "source_bytes": 166055,
+      "source_tree_sha256": "c0f02ad26a27792241cffdf5c40678399790a04993a277764d53d5bff04623b4",
+      "source_files": [
+        "dump.c",
+        "error.c",
+        "hashtable.c",
+        "hashtable.h",
+        "hashtable_seed.c",
+        "jansson.h",
+        "jansson_config.h",
+        "jansson_private.h",
+        "jansson_private_config.h",
+        "load.c",
+        "lookup3.h",
+        "memory.c",
+        "pack_unpack.c",
+        "strbuffer.c",
+        "strbuffer.h",
+        "strconv.c",
+        "utf.c",
+        "utf.h",
+        "value.c",
+        "version.c"
+      ],
+      "physical_lines_including_headers": 6090,
+      "command_argv": [
+        "<repo>/workstreams/yasa-python-migration/codegraph-eval/.work/tools/codegraph-darwin-arm64/node",
+        "--max-old-space-size=8192",
+        "--inspect=127.0.0.1:0",
+        "--import",
+        "tsx",
+        "src/main.ts",
+        "--sourcePath",
+        "<benchmark>/inputs/jansson",
+        "--language",
+        "c",
+        "--cTarget",
+        "macos",
+        "--cUnknownMacros",
+        "undefined",
+        "--cDefine",
+        "__APPLE__=1,__BYTE_ORDER__=__ORDER_LITTLE_ENDIAN__,__CHAR_BIT__=8,__ENVIRONMENT_MAC_OS_X_VERSION_MIN_REQUIRED__=260000,__ENVIRONMENT_OS_VERSION_MIN_REQUIRED__=260000,__GNUC_MINOR__=2,__GNUC__=4,__LONG_MAX__=9223372036854775807L,__LP64__=1,__MACH__=1,__ORDER_BIG_ENDIAN__=4321,__ORDER_LITTLE_ENDIAN__=1234,__SIZEOF_LONG__=8,__STDC_HOSTED__=1,__STDC_VERSION__=201710L,__STDC__=1,__aarch64__=1,__apple_build_version__=21000099,__clang__=1,__clang_major__=21,HAVE_CONFIG_H=1,JANSSON_USING_CMAKE=1",
+        "--cUndefine",
+        "__unix,__unix__,__x86_64__,unix",
+        "--cIncludeDir",
+        "<benchmark>/inputs/jansson,/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include,/Library/Developer/CommandLineTools/usr/lib/clang/21/include",
+        "--checkerIds",
+        "callgraph",
+        "--dumpAllCG",
+        "--ruleConfigFile",
+        "resource/example-rule-config/rule_config_c.json",
+        "--report",
+        "<fresh-report>",
+        "--workerCount",
+        "<worker-count>"
+      ],
+      "correctness_note": "All 510 direct internal function pairs matched. json_error_code (jansson.h:181-183) was missing. One nested call site in dump.c has original source line 239 vs line 238 in the preprocessed Clang reference.",
+      "four_worker": {
+        "attempts": 3,
+        "graphs_exported": 3,
+        "wall_s_median": 1.399,
+        "wall_s_range": [
+          1.229,
+          1.688
+        ],
+        "parse_ms_median": 734,
+        "graph_ms_median": 281
+      },
+      "one_worker": {
+        "attempts": 3,
+        "graphs_exported": 3,
+        "wall_s_median": 1.315,
+        "wall_s_range": [
+          1.043,
+          1.32
+        ],
+        "parse_ms_median": 549,
+        "graph_ms_median": 334
+      },
+      "all_completed_graphs_byte_identical": true,
+      "runs": [
+        {
+          "project": "jansson",
+          "requested_workers": 1,
+          "round": 1,
+          "wall_s": 1.043,
+          "exit_code": 0,
+          "timeout": false,
+          "error_log_lines": 12,
+          "parse_ms": 420,
+          "graph_ms": 272,
+          "analyzed_files": 20,
+          "lines": 6110,
+          "nodes": 457,
+          "edges": 989,
+          "output_sha256": "d407e9d8d013791c8fa9ec4779f0a2397f990b50f12180e9692068f472bbff78",
+          "output_bytes": 634082,
+          "worker_pool_started": true,
+          "process_module_ms": 40,
+          "error_log_messages": {
+            "processFunctionDefinition error! loc is<benchmark>/inputs/jansson/jansson.h::181_183": 1,
+            "TypeError: Cannot read properties of undefined (reading 'parameters')": 1
+          },
+          "console_diagnostics": []
+        },
+        {
+          "project": "jansson",
+          "requested_workers": 1,
+          "round": 2,
+          "wall_s": 1.315,
+          "exit_code": 0,
+          "timeout": false,
+          "error_log_lines": 12,
+          "parse_ms": 549,
+          "graph_ms": 334,
+          "analyzed_files": 20,
+          "lines": 6110,
+          "nodes": 457,
+          "edges": 989,
+          "output_sha256": "d407e9d8d013791c8fa9ec4779f0a2397f990b50f12180e9692068f472bbff78",
+          "output_bytes": 634082,
+          "worker_pool_started": true,
+          "process_module_ms": 52,
+          "error_log_messages": {
+            "processFunctionDefinition error! loc is<benchmark>/inputs/jansson/jansson.h::181_183": 1,
+            "TypeError: Cannot read properties of undefined (reading 'parameters')": 1
+          },
+          "console_diagnostics": []
+        },
+        {
+          "project": "jansson",
+          "requested_workers": 1,
+          "round": 3,
+          "wall_s": 1.32,
+          "exit_code": 0,
+          "timeout": false,
+          "error_log_lines": 12,
+          "parse_ms": 552,
+          "graph_ms": 337,
+          "analyzed_files": 20,
+          "lines": 6110,
+          "nodes": 457,
+          "edges": 989,
+          "output_sha256": "d407e9d8d013791c8fa9ec4779f0a2397f990b50f12180e9692068f472bbff78",
+          "output_bytes": 634082,
+          "worker_pool_started": true,
+          "process_module_ms": 52,
+          "error_log_messages": {
+            "processFunctionDefinition error! loc is<benchmark>/inputs/jansson/jansson.h::181_183": 1,
+            "TypeError: Cannot read properties of undefined (reading 'parameters')": 1
+          },
+          "console_diagnostics": []
+        },
+        {
+          "project": "jansson",
+          "requested_workers": 4,
+          "round": 1,
+          "wall_s": 1.399,
+          "exit_code": 0,
+          "timeout": false,
+          "error_log_lines": 12,
+          "parse_ms": 734,
+          "graph_ms": 278,
+          "analyzed_files": 20,
+          "lines": 6110,
+          "nodes": 457,
+          "edges": 989,
+          "output_sha256": "d407e9d8d013791c8fa9ec4779f0a2397f990b50f12180e9692068f472bbff78",
+          "output_bytes": 634082,
+          "worker_pool_started": true,
+          "process_module_ms": 50,
+          "error_log_messages": {
+            "processFunctionDefinition error! loc is<benchmark>/inputs/jansson/jansson.h::181_183": 1,
+            "TypeError: Cannot read properties of undefined (reading 'parameters')": 1
+          },
+          "console_diagnostics": []
+        },
+        {
+          "project": "jansson",
+          "requested_workers": 4,
+          "round": 2,
+          "wall_s": 1.688,
+          "exit_code": 0,
+          "timeout": false,
+          "error_log_lines": 12,
+          "parse_ms": 850,
+          "graph_ms": 435,
+          "analyzed_files": 20,
+          "lines": 6110,
+          "nodes": 457,
+          "edges": 989,
+          "output_sha256": "d407e9d8d013791c8fa9ec4779f0a2397f990b50f12180e9692068f472bbff78",
+          "output_bytes": 634082,
+          "worker_pool_started": true,
+          "process_module_ms": 70,
+          "error_log_messages": {
+            "processFunctionDefinition error! loc is<benchmark>/inputs/jansson/jansson.h::181_183": 1,
+            "TypeError: Cannot read properties of undefined (reading 'parameters')": 1
+          },
+          "console_diagnostics": []
+        },
+        {
+          "project": "jansson",
+          "requested_workers": 4,
+          "round": 3,
+          "wall_s": 1.229,
+          "exit_code": 0,
+          "timeout": false,
+          "error_log_lines": 12,
+          "parse_ms": 582,
+          "graph_ms": 281,
+          "analyzed_files": 20,
+          "lines": 6110,
+          "nodes": 457,
+          "edges": 989,
+          "output_sha256": "d407e9d8d013791c8fa9ec4779f0a2397f990b50f12180e9692068f472bbff78",
+          "output_bytes": 634082,
+          "worker_pool_started": true,
+          "process_module_ms": 45,
+          "error_log_messages": {
+            "processFunctionDefinition error! loc is<benchmark>/inputs/jansson/jansson.h::181_183": 1,
+            "TypeError: Cannot read properties of undefined (reading 'parameters')": 1
+          },
+          "console_diagnostics": []
+        }
+      ],
+      "clang_reference_source": "Existing native-direct reference from the Jansson static-library build, direct-reference.json, SHA-256 5f05696149fe41fa21bbbaff46d38f77d89213a0d803ecb20ab4d1d662538e7b",
+      "clang_reference": {
+        "definitions": {
+          "reference": 224,
+          "predicted": 223,
+          "matched": 223,
+          "missing": [
+            [
+              "jansson.h",
+              "json_error_code"
+            ]
+          ],
+          "extra": []
+        },
+        "rawEdges": 989,
+        "internalRecords": 665,
+        "functionPairs": {
+          "reference": 510,
+          "predicted": 510,
+          "matched": 510,
+          "missing": [],
+          "extra": []
+        },
+        "siteLines": {
+          "reference": 662,
+          "predicted": 662,
+          "matched": 661,
+          "missing": [
+            [
+              [
+                "dump.c",
+                "do_dump"
+              ],
+              [
+                "dump.c",
+                238
+              ],
+              [
+                "value.c",
+                "json_integer_value"
+              ]
+            ]
+          ],
+          "extra": [
+            [
+              [
+                "dump.c",
+                "do_dump"
+              ],
+              [
+                "dump.c",
+                239
+              ],
+              [
+                "value.c",
+                "json_integer_value"
+              ]
+            ]
+          ]
+        }
+      }
+    },
+    "zlib": {
+      "version": "99623ef7097352da7993ba614161fd6a311e046e",
+      "scope": "zlib 1.4 zlibstatic, all 15 library translation units and top-level headers, CMake-generated zconf.h",
+      "defines": [
+        "HAVE_HIDDEN=1",
+        "ZLIB_BUILD=1"
+      ],
+      "c_files": 15,
+      "h_files": 11,
+      "source_bytes": 1115983,
+      "source_tree_sha256": "abf4dd4d607dc23fb3755ca28495b20c4d07ecddb86897c03afe80cae240e2f9",
+      "source_files": [
+        "adler32.c",
+        "compress.c",
+        "crc32.c",
+        "crc32.h",
+        "deflate.c",
+        "deflate.h",
+        "gzclose.c",
+        "gzguts.h",
+        "gzlib.c",
+        "gzread.c",
+        "gzwrite.c",
+        "infback.c",
+        "inffast.c",
+        "inffast.h",
+        "inffixed.h",
+        "inflate.c",
+        "inflate.h",
+        "inftrees.c",
+        "inftrees.h",
+        "trees.c",
+        "trees.h",
+        "uncompr.c",
+        "zconf.h",
+        "zlib.h",
+        "zutil.c",
+        "zutil.h"
+      ],
+      "physical_lines_including_headers": 23326,
+      "command_argv": [
+        "<repo>/workstreams/yasa-python-migration/codegraph-eval/.work/tools/codegraph-darwin-arm64/node",
+        "--max-old-space-size=8192",
+        "--inspect=127.0.0.1:0",
+        "--import",
+        "tsx",
+        "src/main.ts",
+        "--sourcePath",
+        "<benchmark>/inputs/zlib",
+        "--language",
+        "c",
+        "--cTarget",
+        "macos",
+        "--cUnknownMacros",
+        "undefined",
+        "--cDefine",
+        "__APPLE__=1,__BYTE_ORDER__=__ORDER_LITTLE_ENDIAN__,__CHAR_BIT__=8,__ENVIRONMENT_MAC_OS_X_VERSION_MIN_REQUIRED__=260000,__ENVIRONMENT_OS_VERSION_MIN_REQUIRED__=260000,__GNUC_MINOR__=2,__GNUC__=4,__LONG_MAX__=9223372036854775807L,__LP64__=1,__MACH__=1,__ORDER_BIG_ENDIAN__=4321,__ORDER_LITTLE_ENDIAN__=1234,__SIZEOF_LONG__=8,__STDC_HOSTED__=1,__STDC_VERSION__=201710L,__STDC__=1,__aarch64__=1,__apple_build_version__=21000099,__clang__=1,__clang_major__=21,HAVE_HIDDEN=1,ZLIB_BUILD=1",
+        "--cUndefine",
+        "__unix,__unix__,__x86_64__,unix",
+        "--cIncludeDir",
+        "<benchmark>/inputs/zlib,/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include,/Library/Developer/CommandLineTools/usr/lib/clang/21/include",
+        "--checkerIds",
+        "callgraph",
+        "--dumpAllCG",
+        "--ruleConfigFile",
+        "resource/example-rule-config/rule_config_c.json",
+        "--report",
+        "<fresh-report>",
+        "--workerCount",
+        "<worker-count>"
+      ],
+      "four_worker": {
+        "attempts": 3,
+        "graphs_exported": 3,
+        "wall_s_median": 3.959,
+        "wall_s_range": [
+          3.935,
+          4.006
+        ],
+        "parse_ms_median": 690,
+        "graph_ms_median": 2877
+      },
+      "one_worker": {
+        "attempts": 3,
+        "graphs_exported": 3,
+        "wall_s_median": 4.976,
+        "wall_s_range": [
+          3.917,
+          4.988
+        ],
+        "parse_ms_median": 974,
+        "graph_ms_median": 3307
+      },
+      "all_completed_graphs_byte_identical": true,
+      "runs": [
+        {
+          "project": "zlib",
+          "requested_workers": 1,
+          "round": 1,
+          "wall_s": 3.917,
+          "exit_code": 0,
+          "timeout": false,
+          "error_log_lines": 0,
+          "parse_ms": 738,
+          "graph_ms": 2740,
+          "analyzed_files": 26,
+          "lines": 23352,
+          "nodes": 443,
+          "edges": 1013,
+          "output_sha256": "b7fdf5b08a75d9d42a53a2e9c9774e4be512294e273674fd330126e9d9af9238",
+          "output_bytes": 598768,
+          "worker_pool_started": true,
+          "process_module_ms": 78,
+          "error_log_messages": {},
+          "console_diagnostics": []
+        },
+        {
+          "project": "zlib",
+          "requested_workers": 1,
+          "round": 2,
+          "wall_s": 4.976,
+          "exit_code": 0,
+          "timeout": false,
+          "error_log_lines": 0,
+          "parse_ms": 974,
+          "graph_ms": 3488,
+          "analyzed_files": 26,
+          "lines": 23352,
+          "nodes": 443,
+          "edges": 1013,
+          "output_sha256": "b7fdf5b08a75d9d42a53a2e9c9774e4be512294e273674fd330126e9d9af9238",
+          "output_bytes": 598768,
+          "worker_pool_started": true,
+          "process_module_ms": 105,
+          "error_log_messages": {},
+          "console_diagnostics": []
+        },
+        {
+          "project": "zlib",
+          "requested_workers": 1,
+          "round": 3,
+          "wall_s": 4.988,
+          "exit_code": 0,
+          "timeout": false,
+          "error_log_lines": 0,
+          "parse_ms": 1139,
+          "graph_ms": 3307,
+          "analyzed_files": 26,
+          "lines": 23352,
+          "nodes": 443,
+          "edges": 1013,
+          "output_sha256": "b7fdf5b08a75d9d42a53a2e9c9774e4be512294e273674fd330126e9d9af9238",
+          "output_bytes": 598768,
+          "worker_pool_started": true,
+          "process_module_ms": 115,
+          "error_log_messages": {},
+          "console_diagnostics": []
+        },
+        {
+          "project": "zlib",
+          "requested_workers": 4,
+          "round": 1,
+          "wall_s": 3.959,
+          "exit_code": 0,
+          "timeout": false,
+          "error_log_lines": 0,
+          "parse_ms": 690,
+          "graph_ms": 2884,
+          "analyzed_files": 26,
+          "lines": 23352,
+          "nodes": 443,
+          "edges": 1013,
+          "output_sha256": "b7fdf5b08a75d9d42a53a2e9c9774e4be512294e273674fd330126e9d9af9238",
+          "output_bytes": 598768,
+          "worker_pool_started": true,
+          "process_module_ms": 79,
+          "error_log_messages": {},
+          "console_diagnostics": []
+        },
+        {
+          "project": "zlib",
+          "requested_workers": 4,
+          "round": 2,
+          "wall_s": 3.935,
+          "exit_code": 0,
+          "timeout": false,
+          "error_log_lines": 0,
+          "parse_ms": 675,
+          "graph_ms": 2877,
+          "analyzed_files": 26,
+          "lines": 23352,
+          "nodes": 443,
+          "edges": 1013,
+          "output_sha256": "b7fdf5b08a75d9d42a53a2e9c9774e4be512294e273674fd330126e9d9af9238",
+          "output_bytes": 598768,
+          "worker_pool_started": true,
+          "process_module_ms": 83,
+          "error_log_messages": {},
+          "console_diagnostics": []
+        },
+        {
+          "project": "zlib",
+          "requested_workers": 4,
+          "round": 3,
+          "wall_s": 4.006,
+          "exit_code": 0,
+          "timeout": false,
+          "error_log_lines": 0,
+          "parse_ms": 840,
+          "graph_ms": 2757,
+          "analyzed_files": 26,
+          "lines": 23352,
+          "nodes": 443,
+          "edges": 1013,
+          "output_sha256": "b7fdf5b08a75d9d42a53a2e9c9774e4be512294e273674fd330126e9d9af9238",
+          "output_bytes": 598768,
+          "worker_pool_started": true,
+          "process_module_ms": 94,
+          "error_log_messages": {},
+          "console_diagnostics": []
+        }
+      ]
+    },
+    "sqlite": {
+      "version": "3.49.2",
+      "scope": "SQLite core amalgamation and both shipped headers, default engine features",
+      "defines": [],
+      "c_files": 1,
+      "h_files": 2,
+      "source_bytes": 9931213,
+      "source_tree_sha256": "c8f3d75d8c83cdf5260145e97deab7a9d6127e4a5bddf2ae6e848aa8e5f2db21",
+      "source_files": [
+        "sqlite3.c",
+        "sqlite3.h",
+        "sqlite3ext.h"
+      ],
+      "physical_lines_including_headers": 275914,
+      "command_argv": [
+        "<repo>/workstreams/yasa-python-migration/codegraph-eval/.work/tools/codegraph-darwin-arm64/node",
+        "--max-old-space-size=8192",
+        "--inspect=127.0.0.1:0",
+        "--import",
+        "tsx",
+        "src/main.ts",
+        "--sourcePath",
+        "<benchmark>/inputs/sqlite",
+        "--language",
+        "c",
+        "--cTarget",
+        "macos",
+        "--cUnknownMacros",
+        "undefined",
+        "--cDefine",
+        "__APPLE__=1,__BYTE_ORDER__=__ORDER_LITTLE_ENDIAN__,__CHAR_BIT__=8,__ENVIRONMENT_MAC_OS_X_VERSION_MIN_REQUIRED__=260000,__ENVIRONMENT_OS_VERSION_MIN_REQUIRED__=260000,__GNUC_MINOR__=2,__GNUC__=4,__LONG_MAX__=9223372036854775807L,__LP64__=1,__MACH__=1,__ORDER_BIG_ENDIAN__=4321,__ORDER_LITTLE_ENDIAN__=1234,__SIZEOF_LONG__=8,__STDC_HOSTED__=1,__STDC_VERSION__=201710L,__STDC__=1,__aarch64__=1,__apple_build_version__=21000099,__clang__=1,__clang_major__=21",
+        "--cUndefine",
+        "__unix,__unix__,__x86_64__,unix",
+        "--cIncludeDir",
+        "<benchmark>/inputs/sqlite,/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include,/Library/Developer/CommandLineTools/usr/lib/clang/21/include",
+        "--checkerIds",
+        "callgraph",
+        "--dumpAllCG",
+        "--ruleConfigFile",
+        "resource/example-rule-config/rule_config_c.json",
+        "--report",
+        "<fresh-report>",
+        "--workerCount",
+        "<worker-count>"
+      ],
+      "sqlite3_c_physical_lines": 261480,
+      "four_worker": {
+        "attempts": 1,
+        "graphs_exported": 0
+      },
+      "one_worker": {
+        "attempts": 0,
+        "graphs_exported": 0
+      },
+      "all_completed_graphs_byte_identical": null,
+      "runs": [
+        {
+          "project": "sqlite",
+          "requested_workers": 4,
+          "round": 1,
+          "wall_s": 180.289,
+          "exit_code": -9,
+          "timeout": true,
+          "error_log_lines": 0,
+          "parse_ms": 3623,
+          "graph_ms": null,
+          "worker_pool_started": false,
+          "last_stage_started": "processModule",
+          "error_log_messages": {},
+          "console_diagnostics": []
+        }
+      ],
+      "cpu_profile": {
+        "sampling": "Separate diagnostic CLI run, main thread only, default 5 ms interval over requested 12-22 s from startup, terminated after capturing profile. Excluded from wall times. Percentages are sample counts in this window, not estimates for the entire run.",
+        "samples": 1544,
+        "observed_seconds": 10.0,
+        "self": [
+          {
+            "function": "containsBranchTerminator",
+            "source": "engine/src/util/ast-util.ts",
+            "line": 2,
+            "samples": 302,
+            "percent": 19.56
+          },
+          {
+            "function": "uuidEntry",
+            "source": "engine/src/engine/analyzer/common/symbol-table-manager.ts",
+            "line": 2,
+            "samples": 96,
+            "percent": 6.22
+          },
+          {
+            "function": "(garbage collector)",
+            "source": "",
+            "line": 0,
+            "samples": 82,
+            "percent": 5.31
+          },
+          {
+            "function": "ValueBase",
+            "source": "engine/src/engine/analyzer/common/value/value-base.ts",
+            "line": 2,
+            "samples": 76,
+            "percent": 4.92
+          },
+          {
+            "function": "oneShotDigest",
+            "source": "",
+            "line": 0,
+            "samples": 53,
+            "percent": 3.43
+          },
+          {
+            "function": "register",
+            "source": "engine/src/engine/analyzer/common/symbol-table-manager.ts",
+            "line": 2,
+            "samples": 50,
+            "percent": 3.24
+          },
+          {
+            "function": "enqueue",
+            "source": "engine/src/util/ast-util.ts",
+            "line": 2,
+            "samples": 43,
+            "percent": 2.78
+          },
+          {
+            "function": "register",
+            "source": "engine/src/engine/analyzer/common/ast-manager.ts",
+            "line": 2,
+            "samples": 34,
+            "percent": 2.2
+          },
+          {
+            "function": "<anonymous>",
+            "source": "engine/src/engine/analyzer/common/analyzer.ts",
+            "line": 3,
+            "samples": 32,
+            "percent": 2.07
+          },
+          {
+            "function": "endInstructionAndUpdateStats",
+            "source": "engine/src/util/performance-tracker.ts",
+            "line": 2,
+            "samples": 29,
+            "percent": 1.88
+          },
+          {
+            "function": "(program)",
+            "source": "",
+            "line": 0,
+            "samples": 28,
+            "percent": 1.81
+          },
+          {
+            "function": "ownKeys",
+            "source": "engine/src/engine/analyzer/common/value/union.ts",
+            "line": 2,
+            "samples": 26,
+            "percent": 1.68
+          }
+        ],
+        "inclusive": [
+          {
+            "function": "(root)",
+            "source": "",
+            "line": 0,
+            "samples": 1544,
+            "percent": 100.0
+          },
+          {
+            "function": "executeSingleCall",
+            "source": "engine/src/engine/analyzer/common/analyzer.ts",
+            "line": 3,
+            "samples": 1429,
+            "percent": 92.55
+          },
+          {
+            "function": "processCallExpression",
+            "source": "engine/src/engine/analyzer/common/analyzer.ts",
+            "line": 3,
+            "samples": 1429,
+            "percent": 92.55
+          },
+          {
+            "function": "processExpressionStatement",
+            "source": "engine/src/engine/analyzer/common/analyzer.ts",
+            "line": 3,
+            "samples": 1429,
+            "percent": 92.55
+          },
+          {
+            "function": "processReturnStatement",
+            "source": "engine/src/engine/analyzer/common/analyzer.ts",
+            "line": 3,
+            "samples": 1429,
+            "percent": 92.55
+          },
+          {
+            "function": "processAssignmentExpression",
+            "source": "engine/src/engine/analyzer/c/common/c-analyzer.ts",
+            "line": 2,
+            "samples": 1429,
+            "percent": 92.55
+          },
+          {
+            "function": "processCBranch",
+            "source": "engine/src/engine/analyzer/c/common/c-analyzer.ts",
+            "line": 2,
+            "samples": 1429,
+            "percent": 92.55
+          },
+          {
+            "function": "processIfStatement",
+            "source": "engine/src/engine/analyzer/c/common/c-analyzer.ts",
+            "line": 2,
+            "samples": 1429,
+            "percent": 92.55
+          },
+          {
+            "function": "executeCall",
+            "source": "engine/src/engine/analyzer/c/common/c-analyzer.ts",
+            "line": 2,
+            "samples": 1429,
+            "percent": 92.55
+          },
+          {
+            "function": "<anonymous>",
+            "source": "engine/src/engine/analyzer/common/analyzer.ts",
+            "line": 3,
+            "samples": 1429,
+            "percent": 92.55
+          },
+          {
+            "function": "processInstruction",
+            "source": "engine/src/engine/analyzer/c/common/c-analyzer.ts",
+            "line": 2,
+            "samples": 1429,
+            "percent": 92.55
+          },
+          {
+            "function": "executeWithSummary",
+            "source": "engine/src/engine/analyzer/common/analyzer.ts",
+            "line": 3,
+            "samples": 1429,
+            "percent": 92.55
+          },
+          {
+            "function": "executeWithCallSummary",
+            "source": "engine/src/engine/analyzer/common/call-summary/session.ts",
+            "line": 2,
+            "samples": 1429,
+            "percent": 92.55
+          },
+          {
+            "function": "processCallExpression",
+            "source": "engine/src/engine/analyzer/c/common/c-analyzer.ts",
+            "line": 2,
+            "samples": 1429,
+            "percent": 92.55
+          },
+          {
+            "function": "executeCall",
+            "source": "engine/src/engine/analyzer/common/analyzer.ts",
+            "line": 3,
+            "samples": 1429,
+            "percent": 92.55
+          },
+          {
+            "function": "processAssignmentExpression",
+            "source": "engine/src/engine/analyzer/common/analyzer.ts",
+            "line": 3,
+            "samples": 1429,
+            "percent": 92.55
+          },
+          {
+            "function": "processScopedStatement",
+            "source": "engine/src/engine/analyzer/common/analyzer.ts",
+            "line": 3,
+            "samples": 1429,
+            "percent": 92.55
+          },
+          {
+            "function": "processIfStatement",
+            "source": "engine/src/engine/analyzer/common/analyzer.ts",
+            "line": 3,
+            "samples": 1429,
+            "percent": 92.55
+          },
+          {
+            "function": "executeFdeclOrExecute",
+            "source": "engine/src/engine/analyzer/common/analyzer.ts",
+            "line": 3,
+            "samples": 1429,
+            "percent": 92.55
+          },
+          {
+            "function": "processReturnStatement",
+            "source": "engine/src/engine/analyzer/c/common/c-analyzer.ts",
+            "line": 2,
+            "samples": 1429,
+            "percent": 92.55
+          },
+          {
+            "function": "processInstruction",
+            "source": "engine/src/engine/analyzer/common/analyzer.ts",
+            "line": 3,
+            "samples": 1429,
+            "percent": 92.55
+          },
+          {
+            "function": "postBranchProcessing",
+            "source": "engine/src/engine/analyzer/common/analyzer.ts",
+            "line": 3,
+            "samples": 474,
+            "percent": 30.7
+          },
+          {
+            "function": "containsBranchTerminator",
+            "source": "engine/src/util/ast-util.ts",
+            "line": 2,
+            "samples": 430,
+            "percent": 27.85
+          },
+          {
+            "function": "ValueBase",
+            "source": "engine/src/engine/analyzer/common/value/value-base.ts",
+            "line": 2,
+            "samples": 297,
+            "percent": 19.24
+          },
+          {
+            "function": "_getMemberValue",
+            "source": "engine/src/engine/analyzer/common/memSpace.ts",
+            "line": 2,
+            "samples": 236,
+            "percent": 15.28
+          },
+          {
+            "function": "Unit",
+            "source": "engine/src/engine/analyzer/common/value/unit.ts",
+            "line": 2,
+            "samples": 221,
+            "percent": 14.31
+          },
+          {
+            "function": "register",
+            "source": "engine/src/engine/analyzer/common/symbol-table-manager.ts",
+            "line": 2,
+            "samples": 220,
+            "percent": 14.25
+          },
+          {
+            "function": "getMemberValue",
+            "source": "engine/src/engine/analyzer/common/memSpace.ts",
+            "line": 2,
+            "samples": 205,
+            "percent": 13.28
+          },
+          {
+            "function": "calculateAndRegisterUUID",
+            "source": "engine/src/engine/analyzer/common/value/unit.ts",
+            "line": 2,
+            "samples": 204,
+            "percent": 13.21
+          },
+          {
+            "function": "processMemberAccess",
+            "source": "engine/src/engine/analyzer/common/analyzer.ts",
+            "line": 3,
+            "samples": 176,
+            "percent": 11.4
+          },
+          {
+            "function": "processMemberAccess",
+            "source": "engine/src/engine/analyzer/c/common/c-analyzer.ts",
+            "line": 2,
+            "samples": 176,
+            "percent": 11.4
+          },
+          {
+            "function": "uuidEntry",
+            "source": "engine/src/engine/analyzer/common/symbol-table-manager.ts",
+            "line": 2,
+            "samples": 170,
+            "percent": 11.01
+          },
+          {
+            "function": "EntityValue",
+            "source": "engine/src/engine/analyzer/common/value/entity-value.ts",
+            "line": 2,
+            "samples": 164,
+            "percent": 10.62
+          },
+          {
+            "function": "_getMemberValueRec",
+            "source": "engine/src/engine/analyzer/common/memSpace.ts",
+            "line": 2,
+            "samples": 143,
+            "percent": 9.26
+          },
+          {
+            "function": "_getMemberValueDirect",
+            "source": "engine/src/engine/analyzer/common/memSpace.ts",
+            "line": 2,
+            "samples": 139,
+            "percent": 9.0
+          },
+          {
+            "function": "saveVarInCurrentScope",
+            "source": "engine/src/engine/analyzer/common/memSpace.ts",
+            "line": 2,
+            "samples": 129,
+            "percent": 8.35
+          },
+          {
+            "function": "createSubScope",
+            "source": "engine/src/engine/analyzer/common/scope.ts",
+            "line": 2,
+            "samples": 95,
+            "percent": 6.15
+          },
+          {
+            "function": "ObjectValue",
+            "source": "engine/src/engine/analyzer/common/value/object.ts",
+            "line": 2,
+            "samples": 84,
+            "percent": 5.44
+          },
+          {
+            "function": "SymbolValue",
+            "source": "engine/src/engine/analyzer/common/value/symbolic.ts",
+            "line": 2,
+            "samples": 83,
+            "percent": 5.38
+          },
+          {
+            "function": "saveVarInScope",
+            "source": "engine/src/engine/analyzer/common/memSpace.ts",
+            "line": 2,
+            "samples": 83,
+            "percent": 5.38
+          },
+          {
+            "function": "saveVarInScope",
+            "source": "engine/src/engine/analyzer/c/common/c-analyzer.ts",
+            "line": 2,
+            "samples": 83,
+            "percent": 5.38
+          },
+          {
+            "function": "Scoped",
+            "source": "engine/src/engine/analyzer/common/value/scoped.ts",
+            "line": 2,
+            "samples": 82,
+            "percent": 5.31
+          }
+        ],
+        "most_frequent_leaf_stack_first": [
+          [
+            "containsBranchTerminator",
+            "engine/src/util/ast-util.ts",
+            2
+          ],
+          [
+            "<anonymous>",
+            "engine/src/engine/analyzer/common/analyzer.ts",
+            3
+          ],
+          [
+            "postBranchProcessing",
+            "engine/src/engine/analyzer/common/analyzer.ts",
+            3
+          ],
+          [
+            "processIfStatement",
+            "engine/src/engine/analyzer/common/analyzer.ts",
+            3
+          ],
+          [
+            "processIfStatement",
+            "engine/src/engine/analyzer/c/common/c-analyzer.ts",
+            2
+          ],
+          [
+            "processInstruction",
+            "engine/src/engine/analyzer/common/analyzer.ts",
+            3
+          ],
+          [
+            "processInstruction",
+            "engine/src/engine/analyzer/c/common/c-analyzer.ts",
+            2
+          ],
+          [
+            "<anonymous>",
+            "engine/src/engine/analyzer/common/analyzer.ts",
+            3
+          ],
+          [
+            "processScopedStatement",
+            "engine/src/engine/analyzer/common/analyzer.ts",
+            3
+          ]
+        ]
+      }
+    },
+    "espresso": {
+      "version": "Berkeley Espresso 2.3 in PyEDA 0.29.0",
+      "scope": "All 36 C implementation files selected by setup.py for the Espresso core, plus 7 headers. Excludes standalone CLI and CPython wrapper.",
+      "defines": [],
+      "c_files": 36,
+      "h_files": 7,
+      "source_bytes": 373297,
+      "source_tree_sha256": "cdfe6fc38115e0fa8bb253171c43f9cb899565fbfd8bf20d6a99c6088788302a",
+      "source_files": [
+        "cofactor.c",
+        "cols.c",
+        "compl.c",
+        "contain.c",
+        "cubestr.c",
+        "cvrin.c",
+        "cvrm.c",
+        "cvrmisc.c",
+        "cvrout.c",
+        "dominate.c",
+        "espresso.c",
+        "espresso.h",
+        "essen.c",
+        "exact.c",
+        "expand.c",
+        "gasp.c",
+        "gimpel.c",
+        "globals.c",
+        "hack.c",
+        "indep.c",
+        "irred.c",
+        "main.h",
+        "matrix.c",
+        "mincov.c",
+        "mincov_int.h",
+        "opo.c",
+        "pair.c",
+        "part.c",
+        "primes.c",
+        "reduce.c",
+        "rows.c",
+        "set.c",
+        "set.h",
+        "setc.c",
+        "sharp.c",
+        "sminterf.c",
+        "solution.c",
+        "sparse.c",
+        "sparse.h",
+        "sparse_int.h",
+        "unate.c",
+        "utility.h",
+        "verify.c"
+      ],
+      "physical_lines_including_headers": 13142,
+      "command_argv": [
+        "<repo>/workstreams/yasa-python-migration/codegraph-eval/.work/tools/codegraph-darwin-arm64/node",
+        "--max-old-space-size=8192",
+        "--inspect=127.0.0.1:0",
+        "--import",
+        "tsx",
+        "src/main.ts",
+        "--sourcePath",
+        "<benchmark>/inputs/espresso",
+        "--language",
+        "c",
+        "--cTarget",
+        "macos",
+        "--cUnknownMacros",
+        "undefined",
+        "--cDefine",
+        "__APPLE__=1,__BYTE_ORDER__=__ORDER_LITTLE_ENDIAN__,__CHAR_BIT__=8,__ENVIRONMENT_MAC_OS_X_VERSION_MIN_REQUIRED__=260000,__ENVIRONMENT_OS_VERSION_MIN_REQUIRED__=260000,__GNUC_MINOR__=2,__GNUC__=4,__LONG_MAX__=9223372036854775807L,__LP64__=1,__MACH__=1,__ORDER_BIG_ENDIAN__=4321,__ORDER_LITTLE_ENDIAN__=1234,__SIZEOF_LONG__=8,__STDC_HOSTED__=1,__STDC_VERSION__=201710L,__STDC__=1,__aarch64__=1,__apple_build_version__=21000099,__clang__=1,__clang_major__=21",
+        "--cUndefine",
+        "__unix,__unix__,__x86_64__,unix",
+        "--cIncludeDir",
+        "<benchmark>/inputs/espresso,/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include,/Library/Developer/CommandLineTools/usr/lib/clang/21/include",
+        "--checkerIds",
+        "callgraph",
+        "--dumpAllCG",
+        "--ruleConfigFile",
+        "resource/example-rule-config/rule_config_c.json",
+        "--report",
+        "<fresh-report>",
+        "--workerCount",
+        "<worker-count>"
+      ],
+      "four_worker": {
+        "attempts": 3,
+        "graphs_exported": 3,
+        "wall_s_median": 5.681,
+        "wall_s_range": [
+          4.457,
+          5.721
+        ],
+        "parse_ms_median": 1069,
+        "graph_ms_median": 3930
+      },
+      "one_worker": {
+        "attempts": 3,
+        "graphs_exported": 3,
+        "wall_s_median": 4.011,
+        "wall_s_range": [
+          3.946,
+          6.289
+        ],
+        "parse_ms_median": 997,
+        "graph_ms_median": 2544
+      },
+      "all_completed_graphs_byte_identical": true,
+      "runs": [
+        {
+          "project": "espresso",
+          "requested_workers": 1,
+          "round": 1,
+          "wall_s": 3.946,
+          "exit_code": 0,
+          "timeout": false,
+          "error_log_lines": 324,
+          "parse_ms": 985,
+          "graph_ms": 2466,
+          "analyzed_files": 43,
+          "lines": 13185,
+          "nodes": 745,
+          "edges": 2298,
+          "output_sha256": "a55b663c6dcfc5f783a128c9ee1da5ef67837a02271093a4dc7243c9b522ca85",
+          "output_bytes": 1297625,
+          "worker_pool_started": true,
+          "process_module_ms": 72,
+          "error_log_messages": {
+            "Error occurred in Memspace.getValueDirect": 27,
+            "TypeError: Cannot read properties of null (reading 'toString')": 27
+          },
+          "console_diagnostics": []
+        },
+        {
+          "project": "espresso",
+          "requested_workers": 1,
+          "round": 2,
+          "wall_s": 4.011,
+          "exit_code": 0,
+          "timeout": false,
+          "error_log_lines": 324,
+          "parse_ms": 997,
+          "graph_ms": 2544,
+          "analyzed_files": 43,
+          "lines": 13185,
+          "nodes": 745,
+          "edges": 2298,
+          "output_sha256": "a55b663c6dcfc5f783a128c9ee1da5ef67837a02271093a4dc7243c9b522ca85",
+          "output_bytes": 1297625,
+          "worker_pool_started": true,
+          "process_module_ms": 74,
+          "error_log_messages": {
+            "Error occurred in Memspace.getValueDirect": 27,
+            "TypeError: Cannot read properties of null (reading 'toString')": 27
+          },
+          "console_diagnostics": []
+        },
+        {
+          "project": "espresso",
+          "requested_workers": 1,
+          "round": 3,
+          "wall_s": 6.289,
+          "exit_code": 0,
+          "timeout": false,
+          "error_log_lines": 324,
+          "parse_ms": 1015,
+          "graph_ms": 4679,
+          "analyzed_files": 43,
+          "lines": 13185,
+          "nodes": 745,
+          "edges": 2298,
+          "output_sha256": "a55b663c6dcfc5f783a128c9ee1da5ef67837a02271093a4dc7243c9b522ca85",
+          "output_bytes": 1297625,
+          "worker_pool_started": true,
+          "process_module_ms": 79,
+          "error_log_messages": {
+            "Error occurred in Memspace.getValueDirect": 27,
+            "TypeError: Cannot read properties of null (reading 'toString')": 27
+          },
+          "console_diagnostics": []
+        },
+        {
+          "project": "espresso",
+          "requested_workers": 4,
+          "round": 1,
+          "wall_s": 5.681,
+          "exit_code": 0,
+          "timeout": false,
+          "error_log_lines": 324,
+          "parse_ms": 897,
+          "graph_ms": 4094,
+          "analyzed_files": 43,
+          "lines": 13185,
+          "nodes": 745,
+          "edges": 2298,
+          "output_sha256": "a55b663c6dcfc5f783a128c9ee1da5ef67837a02271093a4dc7243c9b522ca85",
+          "output_bytes": 1297625,
+          "worker_pool_started": true,
+          "process_module_ms": 119,
+          "error_log_messages": {
+            "Error occurred in Memspace.getValueDirect": 27,
+            "TypeError: Cannot read properties of null (reading 'toString')": 27
+          },
+          "console_diagnostics": []
+        },
+        {
+          "project": "espresso",
+          "requested_workers": 4,
+          "round": 2,
+          "wall_s": 4.457,
+          "exit_code": 0,
+          "timeout": false,
+          "error_log_lines": 324,
+          "parse_ms": 1069,
+          "graph_ms": 2885,
+          "analyzed_files": 43,
+          "lines": 13185,
+          "nodes": 745,
+          "edges": 2298,
+          "output_sha256": "a55b663c6dcfc5f783a128c9ee1da5ef67837a02271093a4dc7243c9b522ca85",
+          "output_bytes": 1297625,
+          "worker_pool_started": true,
+          "process_module_ms": 132,
+          "error_log_messages": {
+            "Error occurred in Memspace.getValueDirect": 27,
+            "TypeError: Cannot read properties of null (reading 'toString')": 27
+          },
+          "console_diagnostics": []
+        },
+        {
+          "project": "espresso",
+          "requested_workers": 4,
+          "round": 3,
+          "wall_s": 5.721,
+          "exit_code": 0,
+          "timeout": false,
+          "error_log_lines": 324,
+          "parse_ms": 1162,
+          "graph_ms": 3930,
+          "analyzed_files": 43,
+          "lines": 13185,
+          "nodes": 745,
+          "edges": 2298,
+          "output_sha256": "a55b663c6dcfc5f783a128c9ee1da5ef67837a02271093a4dc7243c9b522ca85",
+          "output_bytes": 1297625,
+          "worker_pool_started": true,
+          "process_module_ms": 206,
+          "error_log_messages": {
+            "Error occurred in Memspace.getValueDirect": 27,
+            "TypeError: Cannot read properties of null (reading 'toString')": 27
+          },
+          "console_diagnostics": []
+        }
+      ]
+    },
+    "nauty": {
+      "version": "nauty and Traces 2.8.6",
+      "scope": "Complete default nauty.a static library (15 translation units), the configure-generated native headers, all local transitive includes and the sorttemplates.c include-only fragment.",
+      "defines": [],
+      "c_files": 16,
+      "h_files": 11,
+      "source_tree_sha256": "ef9c7c2fba07b45686212c1c86d58007ac331638f1bf7c55a1c856ab16edc614",
+      "source_bytes": 1187284,
+      "source_files": [
+        "gtnauty.c",
+        "gtools.c",
+        "gtools.h",
+        "gutil1.c",
+        "gutil2.c",
+        "gutils.h",
+        "naugraph.c",
+        "naugroup.c",
+        "naugroup.h",
+        "naurng.c",
+        "naurng.h",
+        "nausparse.c",
+        "nausparse.h",
+        "nautil.c",
+        "nautinv.c",
+        "nautinv.h",
+        "naututil.c",
+        "naututil.h",
+        "nauty.c",
+        "nauty.h",
+        "nautycliquer.c",
+        "nautycliquer.h",
+        "schreier.c",
+        "schreier.h",
+        "sorttemplates.c",
+        "traces.c",
+        "traces.h"
+      ],
+      "source_root": "/Applications/SageMath-10-9.app/Contents/Frameworks/Sage.framework/Versions/10.9/local/lib/gap/pkg/grape/nauty2_8_6",
+      "makefile": "makefile",
+      "make_target": "nauty.a",
+      "make_target_selection": [
+        "make",
+        "-Bn",
+        "nauty.a"
+      ],
+      "translation_units": [
+        "gtnauty.c",
+        "gtools.c",
+        "gutil1.c",
+        "gutil2.c",
+        "naugraph.c",
+        "naugroup.c",
+        "naurng.c",
+        "nausparse.c",
+        "nautil.c",
+        "nautinv.c",
+        "naututil.c",
+        "nauty.c",
+        "nautycliquer.c",
+        "schreier.c",
+        "traces.c"
+      ],
+      "include_only_c_files": [
+        "sorttemplates.c"
+      ],
+      "include_dirs": [
+        "."
+      ],
+      "normalized_compiler_flags": [
+        "-O2",
+        "-mmacosx-version-min=12.0",
+        "-Wno-implicit-function-declaration",
+        "-I."
+      ],
+      "dependency_method": "Clang -MM on each translation unit with the target recipe flags and shipped configure-generated nauty.h; clang -fsyntax-only passed for all 15 translation units in the staged tree.",
+      "translation_unit_dependencies": [
+        {
+          "translation_unit": "nauty.c",
+          "dependencies": [
+            "naurng.h",
+            "nausparse.h",
+            "naututil.h",
+            "nauty.c",
+            "nauty.h",
+            "schreier.h"
+          ]
+        },
+        {
+          "translation_unit": "nautil.c",
+          "dependencies": [
+            "nautil.c",
+            "nauty.h",
+            "sorttemplates.c"
+          ]
+        },
+        {
+          "translation_unit": "nausparse.c",
+          "dependencies": [
+            "nausparse.c",
+            "nausparse.h",
+            "nauty.h",
+            "sorttemplates.c"
+          ]
+        },
+        {
+          "translation_unit": "naugraph.c",
+          "dependencies": [
+            "naugraph.c",
+            "nauty.h"
+          ]
+        },
+        {
+          "translation_unit": "schreier.c",
+          "dependencies": [
+            "naurng.h",
+            "nausparse.h",
+            "naututil.h",
+            "nauty.h",
+            "schreier.c",
+            "schreier.h"
+          ]
+        },
+        {
+          "translation_unit": "naurng.c",
+          "dependencies": [
+            "naurng.c",
+            "naurng.h",
+            "nausparse.h",
+            "naututil.h",
+            "nauty.h"
+          ]
+        },
+        {
+          "translation_unit": "traces.c",
+          "dependencies": [
+            "gtools.h",
+            "naurng.h",
+            "nausparse.h",
+            "naututil.h",
+            "nauty.h",
+            "schreier.h",
+            "sorttemplates.c",
+            "traces.c",
+            "traces.h"
+          ]
+        },
+        {
+          "translation_unit": "gtools.c",
+          "dependencies": [
+            "gtools.c",
+            "gtools.h",
+            "naurng.h",
+            "nausparse.h",
+            "naututil.h",
+            "nauty.h"
+          ]
+        },
+        {
+          "translation_unit": "naututil.c",
+          "dependencies": [
+            "naurng.h",
+            "nausparse.h",
+            "naututil.c",
+            "naututil.h",
+            "nauty.h",
+            "sorttemplates.c"
+          ]
+        },
+        {
+          "translation_unit": "nautinv.c",
+          "dependencies": [
+            "nautinv.c",
+            "nautinv.h",
+            "nauty.h"
+          ]
+        },
+        {
+          "translation_unit": "gutil1.c",
+          "dependencies": [
+            "gtools.h",
+            "gutil1.c",
+            "gutils.h",
+            "naurng.h",
+            "nausparse.h",
+            "naututil.h",
+            "nauty.h"
+          ]
+        },
+        {
+          "translation_unit": "gutil2.c",
+          "dependencies": [
+            "gtools.h",
+            "gutil2.c",
+            "gutils.h",
+            "naurng.h",
+            "nausparse.h",
+            "naututil.h",
+            "nauty.h"
+          ]
+        },
+        {
+          "translation_unit": "gtnauty.c",
+          "dependencies": [
+            "gtnauty.c",
+            "gtools.h",
+            "naurng.h",
+            "nausparse.h",
+            "naututil.h",
+            "nauty.h",
+            "sorttemplates.c"
+          ]
+        },
+        {
+          "translation_unit": "naugroup.c",
+          "dependencies": [
+            "naugroup.c",
+            "naugroup.h",
+            "nauty.h"
+          ]
+        },
+        {
+          "translation_unit": "nautycliquer.c",
+          "dependencies": [
+            "gtools.h",
+            "naurng.h",
+            "nausparse.h",
+            "naututil.h",
+            "nauty.h",
+            "nautycliquer.c",
+            "nautycliquer.h"
+          ]
+        }
+      ],
+      "physical_lines_including_headers": 33946,
+      "command_argv": [
+        "<repo>/workstreams/yasa-python-migration/codegraph-eval/.work/tools/codegraph-darwin-arm64/node",
+        "--max-old-space-size=8192",
+        "--inspect=127.0.0.1:0",
+        "--import",
+        "tsx",
+        "src/main.ts",
+        "--sourcePath",
+        "<benchmark>/inputs/nauty",
+        "--language",
+        "c",
+        "--cTarget",
+        "macos",
+        "--cUnknownMacros",
+        "undefined",
+        "--cDefine",
+        "__APPLE__=1,__BYTE_ORDER__=__ORDER_LITTLE_ENDIAN__,__CHAR_BIT__=8,__ENVIRONMENT_MAC_OS_X_VERSION_MIN_REQUIRED__=260000,__ENVIRONMENT_OS_VERSION_MIN_REQUIRED__=260000,__GNUC_MINOR__=2,__GNUC__=4,__LONG_MAX__=9223372036854775807L,__LP64__=1,__MACH__=1,__ORDER_BIG_ENDIAN__=4321,__ORDER_LITTLE_ENDIAN__=1234,__SIZEOF_LONG__=8,__STDC_HOSTED__=1,__STDC_VERSION__=201710L,__STDC__=1,__aarch64__=1,__apple_build_version__=21000099,__clang__=1,__clang_major__=21",
+        "--cUndefine",
+        "__unix,__unix__,__x86_64__,unix",
+        "--cIncludeDir",
+        "<benchmark>/inputs/nauty,/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include,/Library/Developer/CommandLineTools/usr/lib/clang/21/include",
+        "--checkerIds",
+        "callgraph",
+        "--dumpAllCG",
+        "--ruleConfigFile",
+        "resource/example-rule-config/rule_config_c.json",
+        "--report",
+        "<fresh-report>",
+        "--workerCount",
+        "<worker-count>"
+      ],
+      "directory_scan_note": "The legacy directory scan also processes sorttemplates.c, a template included by several TUs; it is not compiled as a separate object by the project.",
+      "four_worker": {
+        "attempts": 1,
+        "graphs_exported": 0
+      },
+      "one_worker": {
+        "attempts": 0,
+        "graphs_exported": 0
+      },
+      "all_completed_graphs_byte_identical": null,
+      "runs": [
+        {
+          "project": "nauty",
+          "requested_workers": 4,
+          "round": 1,
+          "wall_s": 180.332,
+          "exit_code": -9,
+          "timeout": true,
+          "error_log_lines": 0,
+          "parse_ms": 2214,
+          "graph_ms": null,
+          "worker_pool_started": true,
+          "last_stage_started": "processModule",
+          "error_log_messages": {},
+          "console_diagnostics": []
+        }
+      ],
+      "cpu_profile": {
+        "sampling": "Separate diagnostic CLI run, main thread only, default 5 ms interval over requested 12-22 s from startup, terminated after capturing profile. Excluded from wall times. Percentages are sample counts in this window, not estimates for the entire run.",
+        "samples": 1590,
+        "observed_seconds": 9.999,
+        "self": [
+          {
+            "function": "containsBranchTerminator",
+            "source": "engine/src/util/ast-util.ts",
+            "line": 2,
+            "samples": 735,
+            "percent": 46.23
+          },
+          {
+            "function": "enqueue",
+            "source": "engine/src/util/ast-util.ts",
+            "line": 2,
+            "samples": 243,
+            "percent": 15.28
+          },
+          {
+            "function": "<anonymous>",
+            "source": "engine/src/engine/analyzer/common/analyzer.ts",
+            "line": 3,
+            "samples": 178,
+            "percent": 11.19
+          },
+          {
+            "function": "get _direct",
+            "source": "engine/src/engine/analyzer/common/value/value-ref.ts",
+            "line": 2,
+            "samples": 176,
+            "percent": 11.07
+          },
+          {
+            "function": "(program)",
+            "source": "",
+            "line": 0,
+            "samples": 48,
+            "percent": 3.02
+          },
+          {
+            "function": "get",
+            "source": "engine/src/engine/analyzer/common/value/member-expr.ts",
+            "line": 2,
+            "samples": 28,
+            "percent": 1.76
+          },
+          {
+            "function": "(garbage collector)",
+            "source": "",
+            "line": 0,
+            "samples": 20,
+            "percent": 1.26
+          },
+          {
+            "function": "MemberExprValue",
+            "source": "engine/src/engine/analyzer/common/value/member-expr.ts",
+            "line": 2,
+            "samples": 15,
+            "percent": 0.94
+          },
+          {
+            "function": "_getMemberValueRec",
+            "source": "engine/src/engine/analyzer/common/memSpace.ts",
+            "line": 2,
+            "samples": 14,
+            "percent": 0.88
+          },
+          {
+            "function": "processInstruction",
+            "source": "engine/src/engine/analyzer/c/common/c-analyzer.ts",
+            "line": 2,
+            "samples": 13,
+            "percent": 0.82
+          },
+          {
+            "function": "uuidEntry",
+            "source": "engine/src/engine/analyzer/common/symbol-table-manager.ts",
+            "line": 2,
+            "samples": 12,
+            "percent": 0.75
+          },
+          {
+            "function": "toStringIDCached",
+            "source": "engine/src/engine/analyzer/common/sym-address.ts",
+            "line": 2,
+            "samples": 12,
+            "percent": 0.75
+          }
+        ],
+        "inclusive": [
+          {
+            "function": "(root)",
+            "source": "",
+            "line": 0,
+            "samples": 1590,
+            "percent": 100.0
+          },
+          {
+            "function": "processInstruction",
+            "source": "engine/src/engine/analyzer/c/common/c-analyzer.ts",
+            "line": 2,
+            "samples": 1457,
+            "percent": 91.64
+          },
+          {
+            "function": "<anonymous>",
+            "source": "engine/src/engine/analyzer/common/analyzer.ts",
+            "line": 3,
+            "samples": 1456,
+            "percent": 91.57
+          },
+          {
+            "function": "processIfStatement",
+            "source": "engine/src/engine/analyzer/c/common/c-analyzer.ts",
+            "line": 2,
+            "samples": 1455,
+            "percent": 91.51
+          },
+          {
+            "function": "processIfStatement",
+            "source": "engine/src/engine/analyzer/common/analyzer.ts",
+            "line": 3,
+            "samples": 1454,
+            "percent": 91.45
+          },
+          {
+            "function": "processScopedStatement",
+            "source": "engine/src/engine/analyzer/common/analyzer.ts",
+            "line": 3,
+            "samples": 1451,
+            "percent": 91.26
+          },
+          {
+            "function": "processExpressionStatement",
+            "source": "engine/src/engine/analyzer/common/analyzer.ts",
+            "line": 3,
+            "samples": 1450,
+            "percent": 91.19
+          },
+          {
+            "function": "processModuleDirect",
+            "source": "engine/src/engine/analyzer/c/common/c-analyzer.ts",
+            "line": 2,
+            "samples": 1448,
+            "percent": 91.07
+          },
+          {
+            "function": "processModule",
+            "source": "engine/src/engine/analyzer/c/common/c-analyzer.ts",
+            "line": 2,
+            "samples": 1448,
+            "percent": 91.07
+          },
+          {
+            "function": "scanModules",
+            "source": "engine/src/engine/analyzer/c/common/c-analyzer.ts",
+            "line": 2,
+            "samples": 1448,
+            "percent": 91.07
+          },
+          {
+            "function": "processTicksAndRejections",
+            "source": "node:internal/process/task_queues",
+            "line": 72,
+            "samples": 1448,
+            "percent": 91.07
+          },
+          {
+            "function": "processCompileUnit",
+            "source": "engine/src/engine/analyzer/common/analyzer.ts",
+            "line": 3,
+            "samples": 1448,
+            "percent": 91.07
+          },
+          {
+            "function": "processCallExpression",
+            "source": "engine/src/engine/analyzer/common/analyzer.ts",
+            "line": 3,
+            "samples": 1446,
+            "percent": 90.94
+          },
+          {
+            "function": "executeCall",
+            "source": "engine/src/engine/analyzer/common/analyzer.ts",
+            "line": 3,
+            "samples": 1446,
+            "percent": 90.94
+          },
+          {
+            "function": "processCallExpression",
+            "source": "engine/src/engine/analyzer/c/common/c-analyzer.ts",
+            "line": 2,
+            "samples": 1446,
+            "percent": 90.94
+          },
+          {
+            "function": "executeCall",
+            "source": "engine/src/engine/analyzer/c/common/c-analyzer.ts",
+            "line": 2,
+            "samples": 1446,
+            "percent": 90.94
+          },
+          {
+            "function": "executeWithCallSummary",
+            "source": "engine/src/engine/analyzer/common/call-summary/session.ts",
+            "line": 2,
+            "samples": 1445,
+            "percent": 90.88
+          },
+          {
+            "function": "executeWithSummary",
+            "source": "engine/src/engine/analyzer/common/analyzer.ts",
+            "line": 3,
+            "samples": 1445,
+            "percent": 90.88
+          },
+          {
+            "function": "processInstruction",
+            "source": "engine/src/engine/analyzer/common/analyzer.ts",
+            "line": 3,
+            "samples": 1442,
+            "percent": 90.69
+          },
+          {
+            "function": "executeFdeclOrExecute",
+            "source": "engine/src/engine/analyzer/common/analyzer.ts",
+            "line": 3,
+            "samples": 1438,
+            "percent": 90.44
+          },
+          {
+            "function": "executeSingleCall",
+            "source": "engine/src/engine/analyzer/common/analyzer.ts",
+            "line": 3,
+            "samples": 1438,
+            "percent": 90.44
+          },
+          {
+            "function": "processAssignmentExpression",
+            "source": "engine/src/engine/analyzer/c/common/c-analyzer.ts",
+            "line": 2,
+            "samples": 1437,
+            "percent": 90.38
+          },
+          {
+            "function": "processAssignmentExpression",
+            "source": "engine/src/engine/analyzer/common/analyzer.ts",
+            "line": 3,
+            "samples": 1437,
+            "percent": 90.38
+          },
+          {
+            "function": "runLoop",
+            "source": "engine/src/engine/analyzer/c/common/c-analyzer.ts",
+            "line": 2,
+            "samples": 1429,
+            "percent": 89.87
+          },
+          {
+            "function": "processWhileStatement",
+            "source": "engine/src/engine/analyzer/c/common/c-analyzer.ts",
+            "line": 2,
+            "samples": 1427,
+            "percent": 89.75
+          },
+          {
+            "function": "processCBranch",
+            "source": "engine/src/engine/analyzer/c/common/c-analyzer.ts",
+            "line": 2,
+            "samples": 1426,
+            "percent": 89.69
+          },
+          {
+            "function": "processForStatement",
+            "source": "engine/src/engine/analyzer/c/common/c-analyzer.ts",
+            "line": 2,
+            "samples": 1402,
+            "percent": 88.18
+          },
+          {
+            "function": "postBranchProcessing",
+            "source": "engine/src/engine/analyzer/common/analyzer.ts",
+            "line": 3,
+            "samples": 1366,
+            "percent": 85.91
+          },
+          {
+            "function": "containsBranchTerminator",
+            "source": "engine/src/util/ast-util.ts",
+            "line": 2,
+            "samples": 1186,
+            "percent": 74.59
+          },
+          {
+            "function": "processSwitchStatement",
+            "source": "engine/src/engine/analyzer/common/analyzer.ts",
+            "line": 3,
+            "samples": 254,
+            "percent": 15.97
+          },
+          {
+            "function": "processSwitchStatement",
+            "source": "engine/src/engine/analyzer/c/common/c-analyzer.ts",
+            "line": 2,
+            "samples": 254,
+            "percent": 15.97
+          },
+          {
+            "function": "enqueue",
+            "source": "engine/src/util/ast-util.ts",
+            "line": 2,
+            "samples": 243,
+            "percent": 15.28
+          },
+          {
+            "function": "get",
+            "source": "engine/src/engine/analyzer/common/value/member-expr.ts",
+            "line": 2,
+            "samples": 204,
+            "percent": 12.83
+          },
+          {
+            "function": "resolve",
+            "source": "engine/src/engine/analyzer/common/value/value-ref.ts",
+            "line": 2,
+            "samples": 181,
+            "percent": 11.38
+          },
+          {
+            "function": "get _direct",
+            "source": "engine/src/engine/analyzer/common/value/value-ref.ts",
+            "line": 2,
+            "samples": 176,
+            "percent": 11.07
+          },
+          {
+            "function": "_getMemberValueRec",
+            "source": "engine/src/engine/analyzer/common/memSpace.ts",
+            "line": 2,
+            "samples": 81,
+            "percent": 5.09
+          },
+          {
+            "function": "_getMemberValueDirect",
+            "source": "engine/src/engine/analyzer/common/memSpace.ts",
+            "line": 2,
+            "samples": 61,
+            "percent": 3.84
+          },
+          {
+            "function": "(program)",
+            "source": "",
+            "line": 0,
+            "samples": 48,
+            "percent": 3.02
+          },
+          {
+            "function": "MemberExprValue",
+            "source": "engine/src/engine/analyzer/common/value/member-expr.ts",
+            "line": 2,
+            "samples": 37,
+            "percent": 2.33
+          },
+          {
+            "function": "processMemberAccess",
+            "source": "engine/src/engine/analyzer/c/common/c-analyzer.ts",
+            "line": 2,
+            "samples": 28,
+            "percent": 1.76
+          },
+          {
+            "function": "processMemberAccess",
+            "source": "engine/src/engine/analyzer/common/analyzer.ts",
+            "line": 3,
+            "samples": 27,
+            "percent": 1.7
+          },
+          {
+            "function": "_getMemberValue",
+            "source": "engine/src/engine/analyzer/common/memSpace.ts",
+            "line": 2,
+            "samples": 27,
+            "percent": 1.7
+          }
+        ],
+        "most_frequent_leaf_stack_first": [
+          [
+            "containsBranchTerminator",
+            "engine/src/util/ast-util.ts",
+            2
+          ],
+          [
+            "<anonymous>",
+            "engine/src/engine/analyzer/common/analyzer.ts",
+            3
+          ],
+          [
+            "postBranchProcessing",
+            "engine/src/engine/analyzer/common/analyzer.ts",
+            3
+          ],
+          [
+            "processIfStatement",
+            "engine/src/engine/analyzer/common/analyzer.ts",
+            3
+          ],
+          [
+            "processIfStatement",
+            "engine/src/engine/analyzer/c/common/c-analyzer.ts",
+            2
+          ],
+          [
+            "processInstruction",
+            "engine/src/engine/analyzer/common/analyzer.ts",
+            3
+          ],
+          [
+            "processInstruction",
+            "engine/src/engine/analyzer/c/common/c-analyzer.ts",
+            2
+          ],
+          [
+            "<anonymous>",
+            "engine/src/engine/analyzer/common/analyzer.ts",
+            3
+          ],
+          [
+            "processScopedStatement",
+            "engine/src/engine/analyzer/common/analyzer.ts",
+            3
+          ]
+        ]
+      }
+    }
+  }
+}
