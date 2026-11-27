@@ -1,0 +1,731 @@
+{
+  "project": "Small C fixtures for nested branches, aliases and callback targets",
+  "date": "2026-11-27",
+  "scope": "Seven focused callback cases, alongside the existing F_global_branch_alias fixture. Counts cover the seven cases only.",
+  "baseline_engine": "7d8abb2e25ebdee3a830ccbce68fa5c5d349190b",
+  "command_arguments": [
+    "--language",
+    "c",
+    "--cIncludeDir",
+    "<source>",
+    "--checkerIds",
+    "callgraph",
+    "--dumpAllCG",
+    "--workerCount",
+    "1",
+    "--ruleConfigFile",
+    "resource/example-rule-config/rule_config_c.json"
+  ],
+  "input_method": "The same four raw UASTs were serialized once with node:v8; each engine received a fresh deserialization per file. All four per-file input hashes matched.",
+  "input_v8_sha256": {
+    "define.c": "ec189e13090ee83ec9a024624659794b59415357ffc17260d2d7f8d3bb4ce3d9",
+    "hooks.h": "9473dd54986b987772e3fd23e402670f281eefdb811260c5218cf00f78c337fd",
+    "invoke.c": "81a6418cf52be3b13aa332c1dc7d4dc28ff2728d2002bcdd1347647b6880523f",
+    "matrix.c": "c8b59b0eba13c4994483bb9c5fef77b51ccb1afe1107a688e8914d95faa21967"
+  },
+  "fixture_sources": {
+    "matrix.c": "typedef int (*action)(int);\nstruct callbacks {action left; action right;};\nstatic int red(int x) {return x + 10;}\nstatic int blue(int x) {return x + 20;}\nstatic int green(int x) {return x + 30;}\nstatic int amber(int x) {return x + 40;}\nstatic struct callbacks board;\nstatic action slot;\nint plain_nested(int a,int b,int x) {\n  action f;\n  if(a) { if(b) f = red; else f = blue; } else f = green;\n  return f(x);\n}\nint global_nested(int a,int b,int x) {\n  slot=red;\n  if(a) {\n    if(b) slot=blue;\n    else slot=green;\n  } else if(b) slot=amber;\n  return slot(x);\n}\nint member_nested(int a,int b,int x) {\n  struct callbacks *p=&board, *q=p;\n  if(a) {\n    if(b) p->left=red; else q->left=blue;\n  } else q->left=green;\n  q->right=amber;\n  return board.left(x)+p->right(x);\n}\nint ptr_to_ptr(int a,int b,int x) {\n  action f=red,*p=&f,**pp=&p;\n  if(a) { if(b) **pp=blue; else *p=green; }\n  return f(x);\n}\nstatic int invoke_arg(action f,int x){return f(x);}\nint callback_param(int a,int b,int x) {\n  action f=red;\n  if(a) {if(b) f=blue; else f=green;}\n  else f=amber;\n  return invoke_arg(f,x);\n}\nint index_select(int a,int b,int x) {\n  action fs[2]; fs[0]=red; fs[1]=blue;\n  if(a) {if(b) fs[0]=green; else fs[1]=amber;}\n  return fs[0](x)+fs[1](x);\n}\nint early(int a,int b,int x){\n  action f=red;\n  if(a) {if(b) return green(x); f=blue;}\n  else f=amber;\n  return f(x);\n}\n",
+    "other_files": "engine/test/c/callgraph-cases/F_global_branch_alias/{define.c,hooks.h,invoke.c}"
+  },
+  "oracle": {
+    "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+    "command": [
+      "clang",
+      "-std=c17",
+      "-O0",
+      "oracle.c",
+      "-o",
+      "oracle"
+    ],
+    "cases": 7,
+    "runs_per_case": 4,
+    "arguments": "All (a,b) in {0,1} × {0,1}, x=12. An entry probe in each of red/blue/green/amber records which concrete targets ran. The indirect call for callback_param resides in invoke_arg.",
+    "instrumented_source": "#include <stdio.h>\nstatic unsigned targets;\ntypedef int (*action)(int);\nstruct callbacks {action left; action right;};\nstatic int red(int x) {targets |= 1; return x + 10;}\nstatic int blue(int x) {targets |= 2; return x + 20;}\nstatic int green(int x) {targets |= 4; return x + 30;}\nstatic int amber(int x) {targets |= 8; return x + 40;}\nstatic struct callbacks board;\nstatic action slot;\nint plain_nested(int a,int b,int x) {\n  action f;\n  if(a) { if(b) f = red; else f = blue; } else f = green;\n  return f(x);\n}\nint global_nested(int a,int b,int x) {\n  slot=red;\n  if(a) {\n    if(b) slot=blue;\n    else slot=green;\n  } else if(b) slot=amber;\n  return slot(x);\n}\nint member_nested(int a,int b,int x) {\n  struct callbacks *p=&board, *q=p;\n  if(a) {\n    if(b) p->left=red; else q->left=blue;\n  } else q->left=green;\n  q->right=amber;\n  return board.left(x)+p->right(x);\n}\nint ptr_to_ptr(int a,int b,int x) {\n  action f=red,*p=&f,**pp=&p;\n  if(a) { if(b) **pp=blue; else *p=green; }\n  return f(x);\n}\nstatic int invoke_arg(action f,int x){return f(x);}\nint callback_param(int a,int b,int x) {\n  action f=red;\n  if(a) {if(b) f=blue; else f=green;}\n  else f=amber;\n  return invoke_arg(f,x);\n}\nint index_select(int a,int b,int x) {\n  action fs[2]; fs[0]=red; fs[1]=blue;\n  if(a) {if(b) fs[0]=green; else fs[1]=amber;}\n  return fs[0](x)+fs[1](x);\n}\nint early(int a,int b,int x){\n  action f=red;\n  if(a) {if(b) return green(x); f=blue;}\n  else f=amber;\n  return f(x);\n}\n\nint main(void) {\n  int (*const cases[])(int,int,int)={plain_nested,global_nested,member_nested,ptr_to_ptr,callback_param,index_select,early};\n  const char *names[]={\"plain_nested\",\"global_nested\",\"member_nested\",\"ptr_to_ptr\",\"invoke_arg\",\"index_select\",\"early\"};\n  for (int i=0;i<7;i++) {\n    targets=0;\n    for(int a=0;a<2;a++) for(int b=0;b<2;b++) cases[i](a,b,12);\n    printf(\"%s %u\\n\",names[i],targets);\n  }\n  return 0;\n}\n"
+  },
+  "graphs": {
+    "nodes": 31,
+    "edges": 31,
+    "byte_sha256": {
+      "engine_HEAD": "ade619792a3c805230bb05784988d1508f9fe9def14c4438f8b57d016ebe7d53",
+      "pre_run_worktree": "ade619792a3c805230bb05784988d1508f9fe9def14c4438f8b57d016ebe7d53",
+      "candidate": "ade619792a3c805230bb05784988d1508f9fe9def14c4438f8b57d016ebe7d53",
+      "candidate_force_dense_join": "ade619792a3c805230bb05784988d1508f9fe9def14c4438f8b57d016ebe7d53"
+    },
+    "candidate_global_joins": {
+      "skipped": 20,
+      "dense": 19
+    },
+    "force_dense_global_joins": {
+      "skipped": 0,
+      "dense": 39
+    }
+  },
+  "case_results": {
+    "plain_nested": {
+      "native_targets": [
+        "blue",
+        "green",
+        "red"
+      ],
+      "resolved_graph_targets": [
+        "green"
+      ],
+      "missing": [
+        "blue",
+        "red"
+      ],
+      "extra": [],
+      "graph_edges": [
+        {
+          "source": "plain_nested \\n[matrix.c : 9_13]",
+          "target": "matrix.plain_nested.<BVT_matrix_3_1_3_39_L>",
+          "resolved": false
+        },
+        {
+          "source": "plain_nested \\n[matrix.c : 9_13]",
+          "target": "<wrapValue>",
+          "resolved": false
+        },
+        {
+          "source": "plain_nested \\n[matrix.c : 9_13]",
+          "target": "green \\n[matrix.c : 5_5]",
+          "resolved": true
+        }
+      ]
+    },
+    "global_nested": {
+      "native_targets": [
+        "amber",
+        "blue",
+        "green",
+        "red"
+      ],
+      "resolved_graph_targets": [],
+      "missing": [
+        "amber",
+        "blue",
+        "green",
+        "red"
+      ],
+      "extra": [],
+      "graph_edges": [
+        {
+          "source": "global_nested \\n[matrix.c : 14_21]",
+          "target": "matrix.<BVT_matrix_6_1_6_41_T>",
+          "resolved": false
+        },
+        {
+          "source": "global_nested \\n[matrix.c : 14_21]",
+          "target": "<wrapValue>",
+          "resolved": false
+        }
+      ]
+    },
+    "member_nested": {
+      "native_targets": [
+        "amber",
+        "blue",
+        "green",
+        "red"
+      ],
+      "resolved_graph_targets": [
+        "amber",
+        "blue",
+        "green",
+        "red"
+      ],
+      "missing": [],
+      "extra": [],
+      "graph_edges": [
+        {
+          "source": "member_nested \\n[matrix.c : 22_29]",
+          "target": "matrix.<BVT_matrix_3_1_3_39_L>",
+          "resolved": false
+        },
+        {
+          "source": "member_nested \\n[matrix.c : 22_29]",
+          "target": "<wrapValue>",
+          "resolved": false
+        },
+        {
+          "source": "member_nested \\n[matrix.c : 22_29]",
+          "target": "green \\n[matrix.c : 5_5]",
+          "resolved": true
+        },
+        {
+          "source": "member_nested \\n[matrix.c : 22_29]",
+          "target": "red \\n[matrix.c : 3_3]",
+          "resolved": true
+        },
+        {
+          "source": "member_nested \\n[matrix.c : 22_29]",
+          "target": "blue \\n[matrix.c : 4_4]",
+          "resolved": true
+        },
+        {
+          "source": "member_nested \\n[matrix.c : 22_29]",
+          "target": "amber \\n[matrix.c : 6_6]",
+          "resolved": true
+        }
+      ]
+    },
+    "ptr_to_ptr": {
+      "native_targets": [
+        "blue",
+        "green",
+        "red"
+      ],
+      "resolved_graph_targets": [],
+      "missing": [
+        "blue",
+        "green",
+        "red"
+      ],
+      "extra": [],
+      "graph_edges": [
+        {
+          "source": "ptr_to_ptr \\n[matrix.c : 30_34]",
+          "target": "matrix.ptr_to_ptr.<BVT_matrix_4_1_4_40_L>",
+          "resolved": false
+        },
+        {
+          "source": "ptr_to_ptr \\n[matrix.c : 30_34]",
+          "target": "<wrapValue>",
+          "resolved": false
+        }
+      ]
+    },
+    "invoke_arg": {
+      "native_targets": [
+        "amber",
+        "blue",
+        "green"
+      ],
+      "resolved_graph_targets": [],
+      "missing": [
+        "amber",
+        "blue",
+        "green"
+      ],
+      "extra": [],
+      "graph_edges": [
+        {
+          "source": "invoke_arg \\n[matrix.c : 35_35]",
+          "target": "matrix.invoke_arg.invoke_arg_scope.f",
+          "resolved": false
+        }
+      ]
+    },
+    "index_select": {
+      "native_targets": [
+        "amber",
+        "blue",
+        "green",
+        "red"
+      ],
+      "resolved_graph_targets": [],
+      "missing": [
+        "amber",
+        "blue",
+        "green",
+        "red"
+      ],
+      "extra": [],
+      "graph_edges": [
+        {
+          "source": "index_select \\n[matrix.c : 42_46]",
+          "target": "matrix.index_select.<BVT_matrix_5_1_5_41_L>",
+          "resolved": false
+        },
+        {
+          "source": "index_select \\n[matrix.c : 42_46]",
+          "target": "<wrapValue>",
+          "resolved": false
+        },
+        {
+          "source": "index_select \\n[matrix.c : 42_46]",
+          "target": "matrix.index_select.<BVT_matrix_6_1_6_41_R>",
+          "resolved": false
+        },
+        {
+          "source": "index_select \\n[matrix.c : 42_46]",
+          "target": "<wrapValue>",
+          "resolved": false
+        }
+      ]
+    },
+    "early": {
+      "native_targets": [
+        "amber",
+        "blue",
+        "green"
+      ],
+      "resolved_graph_targets": [
+        "amber",
+        "blue",
+        "green",
+        "red"
+      ],
+      "missing": [],
+      "extra": [
+        "red"
+      ],
+      "graph_edges": [
+        {
+          "source": "early \\n[matrix.c : 47_52]",
+          "target": "green \\n[matrix.c : 5_5]",
+          "resolved": true
+        },
+        {
+          "source": "early \\n[matrix.c : 47_52]",
+          "target": "blue \\n[matrix.c : 4_4]",
+          "resolved": true
+        },
+        {
+          "source": "early \\n[matrix.c : 47_52]",
+          "target": "red \\n[matrix.c : 3_3]",
+          "resolved": true
+        },
+        {
+          "source": "early \\n[matrix.c : 47_52]",
+          "target": "amber \\n[matrix.c : 6_6]",
+          "resolved": true
+        }
+      ]
+    }
+  },
+  "resolved_caller_target_pairs": {
+    "runtime": 24,
+    "true_positive": 8,
+    "false_positive": 1,
+    "false_negative": 16
+  },
+  "discarded_callgraph_prototype": {
+    "method": "At a C indirect call in a joined state (empty branch path), if the callee was a BVT whose current L and R children both resolved to function definitions, report the two definitions. Ignore saved L_ and R_ children. The prototype was tested only in an isolated process.",
+    "rejection": "A branch can return or jump away before the call. The surviving BVT alone did not distinguish those terminated paths.",
+    "oracle_paths": 56,
+    "additional_fixture_source": "int inner_overwrite(int a,int b,int x) {\n  action f=red;\n  if(a) {if(b) { f=red; f=blue; } else f=green;} else f=amber;\n  return f(x);\n}\nint branch_return(int a,int b,int x) {\n  action f=red;\n  if(a) {if(b) { f=blue; return x; } else f=green;} else f=amber;\n  return f(x);\n}\nint branch_return_alternate(int a,int b,int x) {\n  action f=red;\n  if(a) {if(b) f=blue; else { f=green; return x; }} else f=amber;\n  return f(x);\n}\nint partial_nested(int a,int b,int x) {\n  action f=red;\n  if(a) {if(b) f=blue;} else f=amber;\n  return f(x);\n}\nint single_arm(int a,int b,int x) {\n  action f=red;\n  if(a) f=blue;\n  return f(x)+b;\n}\nint dead_inner(int a,int b,int x) {\n  action f=red;\n  if(a) {if(0) f=blue; else f=green;} else f=amber;\n  return f(x)+b;\n}\nint branch_goto(int a,int b,int x) {\n  action f=red;\n  if(a) {if(b) {f=blue; goto exit;} else f=green;} else f=amber;\n  return f(x);\nexit: return x;\n}\n",
+    "new_reachable_pairs": 9,
+    "new_unreachable_pairs": 3,
+    "cases": {
+      "plain_nested": {
+        "native": [
+          "blue",
+          "green",
+          "red"
+        ],
+        "old": [
+          "green"
+        ],
+        "prototype": [
+          "blue",
+          "green",
+          "red"
+        ],
+        "added_correct": [
+          "blue",
+          "red"
+        ],
+        "added_incorrect": []
+      },
+      "global_nested": {
+        "native": [
+          "amber",
+          "blue",
+          "green",
+          "red"
+        ],
+        "old": [],
+        "prototype": [],
+        "added_correct": [],
+        "added_incorrect": []
+      },
+      "member_nested": {
+        "native": [
+          "amber",
+          "blue",
+          "green",
+          "red"
+        ],
+        "old": [
+          "amber",
+          "blue",
+          "green",
+          "red"
+        ],
+        "prototype": [
+          "amber",
+          "blue",
+          "green",
+          "red"
+        ],
+        "added_correct": [],
+        "added_incorrect": []
+      },
+      "ptr_to_ptr": {
+        "native": [
+          "blue",
+          "green",
+          "red"
+        ],
+        "old": [],
+        "prototype": [
+          "blue",
+          "green"
+        ],
+        "added_correct": [
+          "blue",
+          "green"
+        ],
+        "added_incorrect": []
+      },
+      "invoke_arg": {
+        "native": [
+          "amber",
+          "blue",
+          "green"
+        ],
+        "old": [],
+        "prototype": [],
+        "added_correct": [],
+        "added_incorrect": []
+      },
+      "index_select": {
+        "native": [
+          "amber",
+          "blue",
+          "green",
+          "red"
+        ],
+        "old": [],
+        "prototype": [],
+        "added_correct": [],
+        "added_incorrect": []
+      },
+      "early": {
+        "native": [
+          "amber",
+          "blue",
+          "green"
+        ],
+        "old": [
+          "amber",
+          "blue",
+          "green",
+          "red"
+        ],
+        "prototype": [
+          "amber",
+          "blue",
+          "green",
+          "red"
+        ],
+        "added_correct": [],
+        "added_incorrect": []
+      },
+      "inner_overwrite": {
+        "native": [
+          "amber",
+          "blue",
+          "green"
+        ],
+        "old": [
+          "amber"
+        ],
+        "prototype": [
+          "amber",
+          "blue",
+          "green"
+        ],
+        "added_correct": [
+          "blue",
+          "green"
+        ],
+        "added_incorrect": []
+      },
+      "branch_return": {
+        "native": [
+          "amber",
+          "green"
+        ],
+        "old": [
+          "amber"
+        ],
+        "prototype": [
+          "amber",
+          "blue",
+          "green"
+        ],
+        "added_correct": [
+          "green"
+        ],
+        "added_incorrect": [
+          "blue"
+        ]
+      },
+      "branch_return_alternate": {
+        "native": [
+          "amber",
+          "blue"
+        ],
+        "old": [
+          "amber"
+        ],
+        "prototype": [
+          "amber",
+          "blue",
+          "green"
+        ],
+        "added_correct": [
+          "blue"
+        ],
+        "added_incorrect": [
+          "green"
+        ]
+      },
+      "partial_nested": {
+        "native": [
+          "amber",
+          "blue",
+          "red"
+        ],
+        "old": [
+          "amber"
+        ],
+        "prototype": [
+          "amber"
+        ],
+        "added_correct": [],
+        "added_incorrect": []
+      },
+      "single_arm": {
+        "native": [
+          "blue",
+          "red"
+        ],
+        "old": [
+          "blue",
+          "red"
+        ],
+        "prototype": [
+          "blue",
+          "red"
+        ],
+        "added_correct": [],
+        "added_incorrect": []
+      },
+      "dead_inner": {
+        "native": [
+          "amber",
+          "green"
+        ],
+        "old": [
+          "amber",
+          "green",
+          "red"
+        ],
+        "prototype": [
+          "amber",
+          "green",
+          "red"
+        ],
+        "added_correct": [],
+        "added_incorrect": []
+      },
+      "branch_goto": {
+        "native": [
+          "amber",
+          "green"
+        ],
+        "old": [
+          "amber"
+        ],
+        "prototype": [
+          "amber",
+          "blue",
+          "green"
+        ],
+        "added_correct": [
+          "green"
+        ],
+        "added_incorrect": [
+          "blue"
+        ]
+      }
+    }
+  },
+  "retained_local_callback_join": {
+    "scope": "Local function callback joins for C full call-graph mode. Both engines read freshly deserialized copies of each frozen per-file UAST. Resolved-pair comparisons include only endpoints with a function definition. Raw edge IDs include unresolved placeholders and call coordinates.",
+    "original_seven": {
+      "input_sha256": {
+        "define.c": "ec189e13090ee83ec9a024624659794b59415357ffc17260d2d7f8d3bb4ce3d9",
+        "hooks.h": "9473dd54986b987772e3fd23e402670f281eefdb811260c5218cf00f78c337fd",
+        "invoke.c": "81a6418cf52be3b13aa332c1dc7d4dc28ff2728d2002bcdd1347647b6880523f",
+        "matrix.c": "c8b59b0eba13c4994483bb9c5fef77b51ccb1afe1107a688e8914d95faa21967"
+      },
+      "verified_identical_input_per_file": true,
+      "graphs": {
+        "seven_before": {
+          "graph_sha256": "cfa44479bf6ed4c407f1639288de949c8d9b829f6656e2858e634f5009f07cc6",
+          "nodes": 31,
+          "edges": 31
+        },
+        "seven_after": {
+          "graph_sha256": "97f522510d47f4c308cd4f2631f8cf1670eb79e8fe4c2725a504935d9ad06b49",
+          "nodes": 29,
+          "edges": 31
+        }
+      },
+      "native_pairs": 24,
+      "before": {
+        "true_positive": 8,
+        "false_positive": 1,
+        "false_negative": 16
+      },
+      "after": {
+        "true_positive": 13,
+        "false_positive": 0,
+        "false_negative": 11
+      },
+      "matched_native_pairs_gained": [
+        "plain_nested -> blue",
+        "plain_nested -> red",
+        "ptr_to_ptr -> blue",
+        "ptr_to_ptr -> green",
+        "ptr_to_ptr -> red"
+      ],
+      "matched_native_pairs_lost": [],
+      "incorrect_pairs_gained": [],
+      "incorrect_pairs_removed": [
+        "early -> red"
+      ],
+      "all_resolved_pairs_gained": [
+        "plain_nested -> blue",
+        "plain_nested -> red",
+        "ptr_to_ptr -> blue",
+        "ptr_to_ptr -> green",
+        "ptr_to_ptr -> red"
+      ],
+      "all_resolved_pairs_lost": [
+        "early -> red"
+      ],
+      "all_raw_edges_added": [
+        "plain_nested \\n[matrix.c : 9_13]->blue \\n[matrix.c : 4_4]@loc:matrix.c:12:10",
+        "plain_nested \\n[matrix.c : 9_13]->red \\n[matrix.c : 3_3]@loc:matrix.c:12:10",
+        "ptr_to_ptr \\n[matrix.c : 30_34]->blue \\n[matrix.c : 4_4]@loc:matrix.c:33:10",
+        "ptr_to_ptr \\n[matrix.c : 30_34]->green \\n[matrix.c : 5_5]@loc:matrix.c:33:10",
+        "ptr_to_ptr \\n[matrix.c : 30_34]->red \\n[matrix.c : 3_3]@loc:matrix.c:33:10"
+      ],
+      "all_raw_edges_removed": [
+        "early \\n[matrix.c : 47_52]->red \\n[matrix.c : 3_3]@loc:matrix.c:51:10",
+        "plain_nested \\n[matrix.c : 9_13]-><wrapValue>@loc:matrix.c:12:10",
+        "plain_nested \\n[matrix.c : 9_13]->matrix.plain_nested.<BVT_matrix_3_1_3_39_L>@loc:matrix.c:12:10",
+        "ptr_to_ptr \\n[matrix.c : 30_34]-><wrapValue>@loc:matrix.c:33:10",
+        "ptr_to_ptr \\n[matrix.c : 30_34]->matrix.ptr_to_ptr.<BVT_matrix_4_1_4_40_L>@loc:matrix.c:33:10"
+      ]
+    },
+    "extended_fourteen": {
+      "input_sha256": {
+        "define.c": "66b3d3dbd66f7bee26723e6a6c8a0f7e8ea0356001ee0248f92c3e508f07672e",
+        "hooks.h": "8e831c8bfa1694c63aeb73a7e75c76be250debda23de25264c0928f0f87faa2a",
+        "invoke.c": "25b1bf339c536ffde3444c62345c5e44d96adaf6700585aa50b653c91977942d",
+        "matrix.c": "ef5eca57bae38dc460d14b447d80e3af42d681d71d9ed55a43309c6bbacc2197"
+      },
+      "verified_identical_input_per_file": true,
+      "graphs": {
+        "current_before": {
+          "graph_sha256": "a6498ae702cf344d76fe4de136c738e6409b07c348b2a94fb16d0b882aed28df",
+          "nodes": 43,
+          "edges": 51
+        },
+        "current_after": {
+          "graph_sha256": "7640e0453589beaccb3dda6e35475034af49c24cc1bbf12e27797e9ceaa30e08",
+          "nodes": 36,
+          "edges": 47
+        }
+      },
+      "native_pairs": 40,
+      "before": {
+        "true_positive": 17,
+        "false_positive": 2,
+        "false_negative": 23
+      },
+      "after": {
+        "true_positive": 29,
+        "false_positive": 0,
+        "false_negative": 11
+      },
+      "matched_native_pairs_gained": [
+        "branch_goto -> green",
+        "branch_return -> green",
+        "branch_return_alternate -> blue",
+        "inner_overwrite -> blue",
+        "inner_overwrite -> green",
+        "partial_nested -> blue",
+        "partial_nested -> red",
+        "plain_nested -> blue",
+        "plain_nested -> red",
+        "ptr_to_ptr -> blue",
+        "ptr_to_ptr -> green",
+        "ptr_to_ptr -> red"
+      ],
+      "matched_native_pairs_lost": [],
+      "incorrect_pairs_gained": [],
+      "incorrect_pairs_removed": [
+        "dead_inner -> red",
+        "early -> red"
+      ],
+      "all_resolved_pairs_gained": [
+        "branch_goto -> green",
+        "branch_return -> green",
+        "branch_return_alternate -> blue",
+        "inner_overwrite -> blue",
+        "inner_overwrite -> green",
+        "partial_nested -> blue",
+        "partial_nested -> red",
+        "plain_nested -> blue",
+        "plain_nested -> red",
+        "ptr_to_ptr -> blue",
+        "ptr_to_ptr -> green",
+        "ptr_to_ptr -> red"
+      ],
+      "all_resolved_pairs_lost": [
+        "dead_inner -> red",
+        "early -> red"
+      ],
+      "all_raw_edges_added": [
+        "branch_goto \\n[matrix.c : 83_88]->green \\n[matrix.c : 5_5]@loc:matrix.c:86:10",
+        "branch_return \\n[matrix.c : 58_62]->green \\n[matrix.c : 5_5]@loc:matrix.c:61:10",
+        "branch_return_alternate \\n[matrix.c : 63_67]->blue \\n[matrix.c : 4_4]@loc:matrix.c:66:10",
+        "inner_overwrite \\n[matrix.c : 53_57]->blue \\n[matrix.c : 4_4]@loc:matrix.c:56:10",
+        "inner_overwrite \\n[matrix.c : 53_57]->green \\n[matrix.c : 5_5]@loc:matrix.c:56:10",
+        "partial_nested \\n[matrix.c : 68_72]->blue \\n[matrix.c : 4_4]@loc:matrix.c:71:10",
+        "partial_nested \\n[matrix.c : 68_72]->red \\n[matrix.c : 3_3]@loc:matrix.c:71:10",
+        "plain_nested \\n[matrix.c : 9_13]->blue \\n[matrix.c : 4_4]@loc:matrix.c:12:10",
+        "plain_nested \\n[matrix.c : 9_13]->red \\n[matrix.c : 3_3]@loc:matrix.c:12:10",
+        "ptr_to_ptr \\n[matrix.c : 30_34]->blue \\n[matrix.c : 4_4]@loc:matrix.c:33:10",
+        "ptr_to_ptr \\n[matrix.c : 30_34]->green \\n[matrix.c : 5_5]@loc:matrix.c:33:10",
+        "ptr_to_ptr \\n[matrix.c : 30_34]->red \\n[matrix.c : 3_3]@loc:matrix.c:33:10"
+      ],
+      "all_raw_edges_removed": [
+        "branch_goto \\n[matrix.c : 83_88]-><wrapValue>@loc:matrix.c:86:10",
+        "branch_goto \\n[matrix.c : 83_88]->matrix.branch_goto.<BVT_matrix_4_1_4_40_L>@loc:matrix.c:86:10",
+        "branch_return \\n[matrix.c : 58_62]-><wrapValue>@loc:matrix.c:61:10",
+        "branch_return \\n[matrix.c : 58_62]->matrix.branch_return.<BVT_matrix_4_1_4_40_L>@loc:matrix.c:61:10",
+        "branch_return_alternate \\n[matrix.c : 63_67]-><wrapValue>@loc:matrix.c:66:10",
+        "branch_return_alternate \\n[matrix.c : 63_67]->matrix.branch_return_alternate.<BVT_matrix_4_1_4_40_L>@loc:matrix.c:66:10",
+        "dead_inner \\n[matrix.c : 78_82]->red \\n[matrix.c : 3_3]@loc:matrix.c:81:10",
+        "early \\n[matrix.c : 47_52]->red \\n[matrix.c : 3_3]@loc:matrix.c:51:10",
+        "inner_overwrite \\n[matrix.c : 53_57]-><wrapValue>@loc:matrix.c:56:10",
+        "inner_overwrite \\n[matrix.c : 53_57]->matrix.inner_overwrite.<BVT_matrix_3_1_3_39_L>@loc:matrix.c:56:10",
+        "partial_nested \\n[matrix.c : 68_72]-><wrapValue>@loc:matrix.c:71:10",
+        "partial_nested \\n[matrix.c : 68_72]->matrix.partial_nested.<BVT_matrix_4_1_4_40_T>@loc:matrix.c:71:10",
+        "plain_nested \\n[matrix.c : 9_13]-><wrapValue>@loc:matrix.c:12:10",
+        "plain_nested \\n[matrix.c : 9_13]->matrix.plain_nested.<BVT_matrix_3_1_3_39_L>@loc:matrix.c:12:10",
+        "ptr_to_ptr \\n[matrix.c : 30_34]-><wrapValue>@loc:matrix.c:33:10",
+        "ptr_to_ptr \\n[matrix.c : 30_34]->matrix.ptr_to_ptr.<BVT_matrix_4_1_4_40_L>@loc:matrix.c:33:10"
+      ]
+    },
+    "regression_suite": "38 C call-graph tests passed, including a goto that resumes immediately before the indirect call."
+  }
+}

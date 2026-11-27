@@ -1,0 +1,3262 @@
+{
+  "date": "2026-11-27",
+  "host": {
+    "os": "macOS 27.2.1 (26B131)",
+    "arch": "arm64",
+    "node": "v24.16.0",
+    "cpu": "Apple M4 (4 performance, 6 efficiency cores)",
+    "memory": "16 GB"
+  },
+  "baseline": {
+    "engine": "7d8abb2e25ebdee3a830ccbce68fa5c5d349190b",
+    "uast": "c51763aed6d67b2f3cf965ca0d8c35d4fb0abd66",
+    "build": "git archive of both gitlinks, compiled C and C++ parsers, independent module resolution"
+  },
+  "candidate": {
+    "base_engine": "7d8abb2e25ebdee3a830ccbce68fa5c5d349190b",
+    "base_uast": "c51763aed6d67b2f3cf965ca0d8c35d4fb0abd66",
+    "build": "uncommitted worktree, source and compiled parsers copied before benchmark",
+    "fingerprints": {
+      "engine/src": {
+        "sha256": "222e62cab89e73c5020ecb4b113561f54ef363ab592aae1a9e650fe3384a990a",
+        "file_count": 346
+      },
+      "uast/parser-C/src": {
+        "sha256": "b5efec5ac442fb6fbb044e4e0f31b301e443d97ccb3856478126f10f88b24604",
+        "file_count": 4
+      },
+      "uast/parser-C/dist": {
+        "sha256": "5fcfc8848ba33cd6ff163244095a0a6ad1a52d2576e8d802a47480a74d2fda25",
+        "file_count": 17
+      },
+      "uast/parser-CPP/src": {
+        "sha256": "7a121967ccffbd1d5a5acedbe5ea5ddd070b53ced94b2aeda59d06d8371198b9",
+        "file_count": 9
+      },
+      "uast/parser-CPP/dist": {
+        "sha256": "e68c0aac3620e81a2ad65ba4d8a0cb71514efb9105475a35e93e423a36833612",
+        "file_count": 28
+      }
+    }
+  },
+  "measurement": {
+    "workers": 1,
+    "clock": "elapsed real time from CLI process spawn to exit, fresh process and output directory per sample; no saved graph or saved UAST; OS filesystem cache not flushed",
+    "small_protocol": "Three successive pairs per project, baseline then candidate or reverse in alternating order. Each run completes before the next starts. Median elapsed time computed per version.",
+    "large_protocol": "A long-budget legacy libcurl run completed after the 180 s timeout. The nauty and SQLite baseline runs used the original 180 s cap. For the candidate, libcurl was repeated three times; nauty and SQLite twice. Compare endpoints on the same Mac, serially; host background load was uncontrolled. The legacy libcurl sample occurred before the candidate sequence. Stage times are YASA internal wall-clock milliseconds.",
+    "eligibility": "Complete JSON graph required for node/edge counts; exit 0 and error log checked independently. Timeouts are censored."
+  },
+  "projects": {
+    "kilo": {
+      "scope": "complete editor (kilo.c), C99",
+      "source_tree_sha256": "e921fda5d28c94e7b026561ece288441f8075709408064dd8c98f5ffdd1c36b3",
+      "version": "323d93b29bd89a2cb446de90c4ed4fea1764176e",
+      "command": [
+        "node",
+        "--max-old-space-size=8192",
+        "--inspect=127.0.0.1:0",
+        "--import",
+        "tsx",
+        "src/main.ts",
+        "--sourcePath",
+        "<source-input>",
+        "--language",
+        "c",
+        "--cTarget",
+        "macos",
+        "--cUnknownMacros",
+        "undefined",
+        "--cDefine",
+        "__APPLE__=1,__BYTE_ORDER__=__ORDER_LITTLE_ENDIAN__,__CHAR_BIT__=8,__ENVIRONMENT_MAC_OS_X_VERSION_MIN_REQUIRED__=260000,__ENVIRONMENT_OS_VERSION_MIN_REQUIRED__=260000,__GNUC_MINOR__=2,__GNUC__=4,__LONG_MAX__=9223372036854775807L,__LP64__=1,__MACH__=1,__ORDER_BIG_ENDIAN__=4321,__ORDER_LITTLE_ENDIAN__=1234,__SIZEOF_LONG__=8,__STDC_HOSTED__=1,__STDC_VERSION__=199901L,__STDC__=1,__aarch64__=1,__apple_build_version__=21000099,__clang__=1,__clang_major__=21",
+        "--cUndefine",
+        "__unix,__unix__,__x86_64__,unix",
+        "--cIncludeDir",
+        "/private<inputs>/kilo,/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include,/Library/Developer/CommandLineTools/usr/lib/clang/21/include",
+        "--checkerIds",
+        "callgraph",
+        "--dumpAllCG",
+        "--ruleConfigFile",
+        "resource/example-rule-config/rule_config_c.json",
+        "--report",
+        "<report>",
+        "--workerCount",
+        "1"
+      ],
+      "baseline": [
+        {
+          "total_s": 1.776,
+          "rc": 0,
+          "timed_out": false,
+          "limit_s": 180,
+          "stages_ms": {
+            "parseCode": 348,
+            "processModule": 35,
+            "makeFullCallGraph(BySymbolInterpret)": 407
+          },
+          "cpu_user_s": 2.307,
+          "cpu_system_s": 0.206,
+          "started": "2026-11-27T18:34:48.990161+08:00",
+          "load_before": [
+            12.443359375,
+            9.49609375,
+            10.31103515625
+          ],
+          "error_count": 0,
+          "nodes": 158,
+          "edges": 239,
+          "sha256": "dc4d78898dde8a9426914b99c4d35958723fa1ff4cc6cd13760163c88e6eb29e",
+          "files": 1,
+          "configured_workers": 1,
+          "last_stage": "symbolInterpret"
+        },
+        {
+          "total_s": 1.281,
+          "rc": 0,
+          "timed_out": false,
+          "limit_s": 180,
+          "stages_ms": {
+            "parseCode": 248,
+            "processModule": 25,
+            "makeFullCallGraph(BySymbolInterpret)": 337
+          },
+          "cpu_user_s": 1.851,
+          "cpu_system_s": 0.143,
+          "started": "2026-11-27T18:35:33.486428+08:00",
+          "load_before": [
+            9.2822265625,
+            9.05615234375,
+            10.1044921875
+          ],
+          "error_count": 0,
+          "nodes": 158,
+          "edges": 239,
+          "sha256": "dc4d78898dde8a9426914b99c4d35958723fa1ff4cc6cd13760163c88e6eb29e",
+          "files": 1,
+          "configured_workers": 1,
+          "last_stage": "symbolInterpret"
+        },
+        {
+          "total_s": 1.217,
+          "rc": 0,
+          "timed_out": false,
+          "limit_s": 180,
+          "stages_ms": {
+            "parseCode": 214,
+            "processModule": 19,
+            "makeFullCallGraph(BySymbolInterpret)": 264
+          },
+          "cpu_user_s": 1.663,
+          "cpu_system_s": 0.147,
+          "started": "2026-11-27T18:36:14.702764+08:00",
+          "load_before": [
+            6.7900390625,
+            8.44970703125,
+            9.83349609375
+          ],
+          "error_count": 0,
+          "nodes": 158,
+          "edges": 239,
+          "sha256": "dc4d78898dde8a9426914b99c4d35958723fa1ff4cc6cd13760163c88e6eb29e",
+          "files": 1,
+          "configured_workers": 1,
+          "last_stage": "symbolInterpret"
+        }
+      ],
+      "candidate": [
+        {
+          "total_s": 0.819,
+          "rc": 0,
+          "timed_out": false,
+          "limit_s": 180,
+          "stages_ms": {
+            "parseCode": 151,
+            "processModule": 21,
+            "makeFullCallGraph(BySymbolInterpret)": 128
+          },
+          "cpu_user_s": 1.215,
+          "cpu_system_s": 0.117,
+          "started": "2026-11-27T18:34:50.827735+08:00",
+          "load_before": [
+            11.60693359375,
+            9.37158203125,
+            10.26220703125
+          ],
+          "error_count": 0,
+          "nodes": 158,
+          "edges": 239,
+          "sha256": "30ffa80ef12f914b3bfd0a3a717ce57a3a80770842af00e5406f4018d470ff66",
+          "files": 1,
+          "configured_workers": 1,
+          "last_stage": "symbolInterpret"
+        },
+        {
+          "total_s": 0.636,
+          "rc": 0,
+          "timed_out": false,
+          "limit_s": 180,
+          "stages_ms": {
+            "parseCode": 129,
+            "processModule": 20,
+            "makeFullCallGraph(BySymbolInterpret)": 113
+          },
+          "cpu_user_s": 0.989,
+          "cpu_system_s": 0.098,
+          "started": "2026-11-27T18:35:32.799145+08:00",
+          "load_before": [
+            9.2822265625,
+            9.05615234375,
+            10.1044921875
+          ],
+          "error_count": 0,
+          "nodes": 158,
+          "edges": 239,
+          "sha256": "30ffa80ef12f914b3bfd0a3a717ce57a3a80770842af00e5406f4018d470ff66",
+          "files": 1,
+          "configured_workers": 1,
+          "last_stage": "symbolInterpret"
+        },
+        {
+          "total_s": 0.614,
+          "rc": 0,
+          "timed_out": false,
+          "limit_s": 180,
+          "stages_ms": {
+            "parseCode": 122,
+            "processModule": 18,
+            "makeFullCallGraph(BySymbolInterpret)": 113
+          },
+          "cpu_user_s": 0.963,
+          "cpu_system_s": 0.093,
+          "started": "2026-11-27T18:36:15.966818+08:00",
+          "load_before": [
+            6.486328125,
+            8.35888671875,
+            9.79296875
+          ],
+          "error_count": 0,
+          "nodes": 158,
+          "edges": 239,
+          "sha256": "30ffa80ef12f914b3bfd0a3a717ce57a3a80770842af00e5406f4018d470ff66",
+          "files": 1,
+          "configured_workers": 1,
+          "last_stage": "symbolInterpret"
+        }
+      ],
+      "baseline_completed_median_s": 1.281,
+      "candidate_completed_median_s": 0.636,
+      "candidate_output_byte_identical_across_repetitions": true,
+      "speedup": 2.014,
+      "accuracy": {
+        "definitions": {
+          "pred": 36,
+          "truth": 36,
+          "hit": 36,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "functionPairs": {
+          "pred": 47,
+          "truth": 47,
+          "hit": 47,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "directOnlyFunctionPairs": {
+          "pred": 47,
+          "truth": 47,
+          "hit": 47,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "siteLines": {
+          "pred": 80,
+          "truth": 80,
+          "hit": 80,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "directOnlySiteLines": {
+          "pred": 80,
+          "truth": 80,
+          "hit": 80,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "reference_sha256": "f6dc7080da0ec071303fa8d0a22454a01bac8d407ffcb6df67fcffa62938ebac",
+        "missing_direct_pairs": [],
+        "missing_site_lines": []
+      }
+    },
+    "jansson": {
+      "scope": "Jansson 2.14 static library, 12 build-selected translation units, internal/public and generated headers",
+      "source_tree_sha256": "c0f02ad26a27792241cffdf5c40678399790a04993a277764d53d5bff04623b4",
+      "version": "684e18c927e89615c2d501737e90018f4930d6c5",
+      "command": [
+        "node",
+        "--max-old-space-size=8192",
+        "--inspect=127.0.0.1:0",
+        "--import",
+        "tsx",
+        "src/main.ts",
+        "--sourcePath",
+        "<source-input>",
+        "--language",
+        "c",
+        "--cTarget",
+        "macos",
+        "--cUnknownMacros",
+        "undefined",
+        "--cDefine",
+        "__APPLE__=1,__BYTE_ORDER__=__ORDER_LITTLE_ENDIAN__,__CHAR_BIT__=8,__ENVIRONMENT_MAC_OS_X_VERSION_MIN_REQUIRED__=260000,__ENVIRONMENT_OS_VERSION_MIN_REQUIRED__=260000,__GNUC_MINOR__=2,__GNUC__=4,__LONG_MAX__=9223372036854775807L,__LP64__=1,__MACH__=1,__ORDER_BIG_ENDIAN__=4321,__ORDER_LITTLE_ENDIAN__=1234,__SIZEOF_LONG__=8,__STDC_HOSTED__=1,__STDC_VERSION__=201710L,__STDC__=1,__aarch64__=1,__apple_build_version__=21000099,__clang__=1,__clang_major__=21,HAVE_CONFIG_H=1,JANSSON_USING_CMAKE=1",
+        "--cUndefine",
+        "__unix,__unix__,__x86_64__,unix",
+        "--cIncludeDir",
+        "/private<inputs>/jansson,/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include,/Library/Developer/CommandLineTools/usr/lib/clang/21/include",
+        "--checkerIds",
+        "callgraph",
+        "--dumpAllCG",
+        "--ruleConfigFile",
+        "resource/example-rule-config/rule_config_c.json",
+        "--report",
+        "<report>",
+        "--workerCount",
+        "1"
+      ],
+      "baseline": [
+        {
+          "total_s": 2.817,
+          "rc": 0,
+          "timed_out": false,
+          "limit_s": 180,
+          "stages_ms": {
+            "parseCode": 1573,
+            "processModule": 52,
+            "makeFullCallGraph(BySymbolInterpret)": 465
+          },
+          "cpu_user_s": 4.102,
+          "cpu_system_s": 0.302,
+          "started": "2026-11-27T18:34:53.330781+08:00",
+          "load_before": [
+            11.60693359375,
+            9.37158203125,
+            10.26220703125
+          ],
+          "error_count": 2,
+          "nodes": 457,
+          "edges": 989,
+          "sha256": "d407e9d8d013791c8fa9ec4779f0a2397f990b50f12180e9692068f472bbff78",
+          "files": 20,
+          "configured_workers": 1,
+          "last_stage": "symbolInterpret"
+        },
+        {
+          "total_s": 2.843,
+          "rc": 0,
+          "timed_out": false,
+          "limit_s": 180,
+          "stages_ms": {
+            "parseCode": 1608,
+            "processModule": 55,
+            "makeFullCallGraph(BySymbolInterpret)": 459
+          },
+          "cpu_user_s": 4.231,
+          "cpu_system_s": 0.319,
+          "started": "2026-11-27T18:35:34.825746+08:00",
+          "load_before": [
+            8.85888671875,
+            8.97216796875,
+            10.068359375
+          ],
+          "error_count": 2,
+          "nodes": 457,
+          "edges": 989,
+          "sha256": "d407e9d8d013791c8fa9ec4779f0a2397f990b50f12180e9692068f472bbff78",
+          "files": 20,
+          "configured_workers": 1,
+          "last_stage": "symbolInterpret"
+        },
+        {
+          "total_s": 4.517,
+          "rc": 0,
+          "timed_out": false,
+          "limit_s": 180,
+          "stages_ms": {
+            "parseCode": 2270,
+            "processModule": 69,
+            "makeFullCallGraph(BySymbolInterpret)": 551
+          },
+          "cpu_user_s": 6.051,
+          "cpu_system_s": 0.578,
+          "started": "2026-11-27T18:36:18.447175+08:00",
+          "load_before": [
+            6.486328125,
+            8.35888671875,
+            9.79296875
+          ],
+          "error_count": 2,
+          "nodes": 457,
+          "edges": 989,
+          "sha256": "d407e9d8d013791c8fa9ec4779f0a2397f990b50f12180e9692068f472bbff78",
+          "files": 20,
+          "configured_workers": 1,
+          "last_stage": "symbolInterpret"
+        }
+      ],
+      "candidate": [
+        {
+          "total_s": 1.563,
+          "rc": 0,
+          "timed_out": false,
+          "limit_s": 180,
+          "stages_ms": {
+            "parseCode": 674,
+            "processModule": 58,
+            "makeFullCallGraph(BySymbolInterpret)": 392
+          },
+          "cpu_user_s": 2.585,
+          "cpu_system_s": 0.201,
+          "started": "2026-11-27T18:34:51.704279+08:00",
+          "load_before": [
+            11.60693359375,
+            9.37158203125,
+            10.26220703125
+          ],
+          "error_count": 0,
+          "nodes": 458,
+          "edges": 989,
+          "sha256": "b0415c6da8d12324ae93f046681a1fbcff633e75980b1ebc129c597ad7d84806",
+          "files": 20,
+          "configured_workers": 1,
+          "last_stage": "symbolInterpret"
+        },
+        {
+          "total_s": 1.451,
+          "rc": 0,
+          "timed_out": false,
+          "limit_s": 180,
+          "stages_ms": {
+            "parseCode": 625,
+            "processModule": 49,
+            "makeFullCallGraph(BySymbolInterpret)": 330
+          },
+          "cpu_user_s": 2.45,
+          "cpu_system_s": 0.189,
+          "started": "2026-11-27T18:35:37.723898+08:00",
+          "load_before": [
+            8.85888671875,
+            8.97216796875,
+            10.068359375
+          ],
+          "error_count": 0,
+          "nodes": 458,
+          "edges": 989,
+          "sha256": "b0415c6da8d12324ae93f046681a1fbcff633e75980b1ebc129c597ad7d84806",
+          "files": 20,
+          "configured_workers": 1,
+          "last_stage": "symbolInterpret"
+        },
+        {
+          "total_s": 1.689,
+          "rc": 0,
+          "timed_out": false,
+          "limit_s": 180,
+          "stages_ms": {
+            "parseCode": 619,
+            "processModule": 52,
+            "makeFullCallGraph(BySymbolInterpret)": 585
+          },
+          "cpu_user_s": 2.546,
+          "cpu_system_s": 0.21,
+          "started": "2026-11-27T18:36:16.631909+08:00",
+          "load_before": [
+            6.486328125,
+            8.35888671875,
+            9.79296875
+          ],
+          "error_count": 0,
+          "nodes": 458,
+          "edges": 989,
+          "sha256": "b0415c6da8d12324ae93f046681a1fbcff633e75980b1ebc129c597ad7d84806",
+          "files": 20,
+          "configured_workers": 1,
+          "last_stage": "symbolInterpret"
+        }
+      ],
+      "baseline_completed_median_s": 2.843,
+      "candidate_completed_median_s": 1.563,
+      "candidate_output_byte_identical_across_repetitions": true,
+      "speedup": 1.819,
+      "accuracy": {
+        "definitions": {
+          "pred": 224,
+          "truth": 224,
+          "hit": 224,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "functionPairs": {
+          "pred": 510,
+          "truth": 510,
+          "hit": 510,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "directOnlyFunctionPairs": {
+          "pred": 509,
+          "truth": 510,
+          "hit": 509,
+          "precision": 1.0,
+          "recall": 0.99804
+        },
+        "siteLines": {
+          "pred": 662,
+          "truth": 662,
+          "hit": 661,
+          "precision": 0.99849,
+          "recall": 0.99849
+        },
+        "directOnlySiteLines": {
+          "pred": 661,
+          "truth": 662,
+          "hit": 661,
+          "precision": 1.0,
+          "recall": 0.99849
+        },
+        "reference_sha256": "fc9a92700051bff906ba66d5ca843add5c5006e8587d14ef3a1c9956448eabf6",
+        "missing_direct_pairs": [],
+        "missing_site_lines": [
+          [
+            [
+              "dump.c",
+              "do_dump"
+            ],
+            [
+              "dump.c",
+              238
+            ],
+            [
+              "value.c",
+              "json_integer_value"
+            ]
+          ]
+        ]
+      }
+    },
+    "zlib": {
+      "scope": "zlib 1.4 zlibstatic, all 15 library translation units and top-level headers, CMake-generated zconf.h",
+      "source_tree_sha256": "abf4dd4d607dc23fb3755ca28495b20c4d07ecddb86897c03afe80cae240e2f9",
+      "version": "99623ef7097352da7993ba614161fd6a311e046e",
+      "command": [
+        "node",
+        "--max-old-space-size=8192",
+        "--inspect=127.0.0.1:0",
+        "--import",
+        "tsx",
+        "src/main.ts",
+        "--sourcePath",
+        "<source-input>",
+        "--language",
+        "c",
+        "--cTarget",
+        "macos",
+        "--cUnknownMacros",
+        "undefined",
+        "--cDefine",
+        "__APPLE__=1,__BYTE_ORDER__=__ORDER_LITTLE_ENDIAN__,__CHAR_BIT__=8,__ENVIRONMENT_MAC_OS_X_VERSION_MIN_REQUIRED__=260000,__ENVIRONMENT_OS_VERSION_MIN_REQUIRED__=260000,__GNUC_MINOR__=2,__GNUC__=4,__LONG_MAX__=9223372036854775807L,__LP64__=1,__MACH__=1,__ORDER_BIG_ENDIAN__=4321,__ORDER_LITTLE_ENDIAN__=1234,__SIZEOF_LONG__=8,__STDC_HOSTED__=1,__STDC_VERSION__=201710L,__STDC__=1,__aarch64__=1,__apple_build_version__=21000099,__clang__=1,__clang_major__=21,HAVE_HIDDEN=1,ZLIB_BUILD=1",
+        "--cUndefine",
+        "__unix,__unix__,__x86_64__,unix",
+        "--cIncludeDir",
+        "/private<inputs>/zlib,/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include,/Library/Developer/CommandLineTools/usr/lib/clang/21/include",
+        "--checkerIds",
+        "callgraph",
+        "--dumpAllCG",
+        "--ruleConfigFile",
+        "resource/example-rule-config/rule_config_c.json",
+        "--report",
+        "<report>",
+        "--workerCount",
+        "1"
+      ],
+      "baseline": [
+        {
+          "total_s": 12.23,
+          "rc": 0,
+          "timed_out": false,
+          "limit_s": 180,
+          "stages_ms": {
+            "parseCode": 2628,
+            "processModule": 122,
+            "makeFullCallGraph(BySymbolInterpret)": 8752
+          },
+          "cpu_user_s": 14.39,
+          "cpu_system_s": 0.564,
+          "started": "2026-11-27T18:34:56.198564+08:00",
+          "load_before": [
+            10.83740234375,
+            9.2490234375,
+            10.21337890625
+          ],
+          "error_count": 0,
+          "nodes": 443,
+          "edges": 1013,
+          "sha256": "b7fdf5b08a75d9d42a53a2e9c9774e4be512294e273674fd330126e9d9af9238",
+          "files": 26,
+          "configured_workers": 1,
+          "last_stage": "symbolInterpret"
+        },
+        {
+          "total_s": 11.454,
+          "rc": 0,
+          "timed_out": false,
+          "limit_s": 180,
+          "stages_ms": {
+            "parseCode": 2357,
+            "processModule": 110,
+            "makeFullCallGraph(BySymbolInterpret)": 8374
+          },
+          "cpu_user_s": 13.28,
+          "cpu_system_s": 0.518,
+          "started": "2026-11-27T18:35:42.088542+08:00",
+          "load_before": [
+            8.6298828125,
+            8.92236328125,
+            10.04443359375
+          ],
+          "error_count": 0,
+          "nodes": 443,
+          "edges": 1013,
+          "sha256": "b7fdf5b08a75d9d42a53a2e9c9774e4be512294e273674fd330126e9d9af9238",
+          "files": 26,
+          "configured_workers": 1,
+          "last_stage": "symbolInterpret"
+        },
+        {
+          "total_s": 13.867,
+          "rc": 0,
+          "timed_out": false,
+          "limit_s": 180,
+          "stages_ms": {
+            "parseCode": 3694,
+            "processModule": 143,
+            "makeFullCallGraph(BySymbolInterpret)": 9285
+          },
+          "cpu_user_s": 16.083,
+          "cpu_system_s": 0.69,
+          "started": "2026-11-27T18:36:23.026207+08:00",
+          "load_before": [
+            6.3671875,
+            8.302734375,
+            9.7646484375
+          ],
+          "error_count": 0,
+          "nodes": 443,
+          "edges": 1013,
+          "sha256": "b7fdf5b08a75d9d42a53a2e9c9774e4be512294e273674fd330126e9d9af9238",
+          "files": 26,
+          "configured_workers": 1,
+          "last_stage": "symbolInterpret"
+        }
+      ],
+      "candidate": [
+        {
+          "total_s": 3.556,
+          "rc": 0,
+          "timed_out": false,
+          "limit_s": 180,
+          "stages_ms": {
+            "parseCode": 1478,
+            "processModule": 167,
+            "makeFullCallGraph(BySymbolInterpret)": 1447
+          },
+          "cpu_user_s": 5.483,
+          "cpu_system_s": 0.328,
+          "started": "2026-11-27T18:35:08.488482+08:00",
+          "load_before": [
+            10.134765625,
+            9.15625,
+            10.16943359375
+          ],
+          "error_count": 0,
+          "nodes": 388,
+          "edges": 893,
+          "sha256": "35afcae3dc0ac0f6f2c1a6d38313d39570a6b6d2fd7a14409c26b6be98c545c4",
+          "files": 26,
+          "configured_workers": 1,
+          "last_stage": "symbolInterpret"
+        },
+        {
+          "total_s": 2.753,
+          "rc": 0,
+          "timed_out": false,
+          "limit_s": 180,
+          "stages_ms": {
+            "parseCode": 1044,
+            "processModule": 109,
+            "makeFullCallGraph(BySymbolInterpret)": 1161
+          },
+          "cpu_user_s": 4.137,
+          "cpu_system_s": 0.257,
+          "started": "2026-11-27T18:35:39.285230+08:00",
+          "load_before": [
+            8.85888671875,
+            8.97216796875,
+            10.068359375
+          ],
+          "error_count": 0,
+          "nodes": 388,
+          "edges": 893,
+          "sha256": "35afcae3dc0ac0f6f2c1a6d38313d39570a6b6d2fd7a14409c26b6be98c545c4",
+          "files": 26,
+          "configured_workers": 1,
+          "last_stage": "symbolInterpret"
+        },
+        {
+          "total_s": 3.994,
+          "rc": 0,
+          "timed_out": false,
+          "limit_s": 180,
+          "stages_ms": {
+            "parseCode": 1203,
+            "processModule": 327,
+            "makeFullCallGraph(BySymbolInterpret)": 1916
+          },
+          "cpu_user_s": 5.487,
+          "cpu_system_s": 0.409,
+          "started": "2026-11-27T18:36:36.960396+08:00",
+          "load_before": [
+            6.53857421875,
+            8.23974609375,
+            9.7158203125
+          ],
+          "error_count": 0,
+          "nodes": 388,
+          "edges": 893,
+          "sha256": "35afcae3dc0ac0f6f2c1a6d38313d39570a6b6d2fd7a14409c26b6be98c545c4",
+          "files": 26,
+          "configured_workers": 1,
+          "last_stage": "symbolInterpret"
+        }
+      ],
+      "baseline_completed_median_s": 12.23,
+      "candidate_completed_median_s": 3.556,
+      "candidate_output_byte_identical_across_repetitions": true,
+      "speedup": 3.439,
+      "accuracy": {
+        "definitions": {
+          "pred": 160,
+          "truth": 160,
+          "hit": 160,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "functionPairs": {
+          "pred": 248,
+          "truth": 231,
+          "hit": 231,
+          "precision": 0.93145,
+          "recall": 1.0
+        },
+        "directOnlyFunctionPairs": {
+          "pred": 231,
+          "truth": 231,
+          "hit": 231,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "siteLines": {
+          "pred": 367,
+          "truth": 331,
+          "hit": 331,
+          "precision": 0.90191,
+          "recall": 1.0
+        },
+        "directOnlySiteLines": {
+          "pred": 331,
+          "truth": 331,
+          "hit": 331,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "reference_sha256": "3fbe0b27a0101a370b2d50117c7fbf35838deb2aa6c25d6795ab88bf1883a220",
+        "missing_direct_pairs": [],
+        "missing_site_lines": []
+      }
+    },
+    "espresso": {
+      "scope": "All 36 C implementation files selected by setup.py for the Espresso core, plus 7 headers. Excludes standalone CLI and CPython wrapper.",
+      "source_tree_sha256": "cdfe6fc38115e0fa8bb253171c43f9cb899565fbfd8bf20d6a99c6088788302a",
+      "version": "Berkeley Espresso 2.3 in PyEDA 0.29.0",
+      "command": [
+        "node",
+        "--max-old-space-size=8192",
+        "--inspect=127.0.0.1:0",
+        "--import",
+        "tsx",
+        "src/main.ts",
+        "--sourcePath",
+        "<source-input>",
+        "--language",
+        "c",
+        "--cTarget",
+        "macos",
+        "--cUnknownMacros",
+        "undefined",
+        "--cDefine",
+        "__APPLE__=1,__BYTE_ORDER__=__ORDER_LITTLE_ENDIAN__,__CHAR_BIT__=8,__ENVIRONMENT_MAC_OS_X_VERSION_MIN_REQUIRED__=260000,__ENVIRONMENT_OS_VERSION_MIN_REQUIRED__=260000,__GNUC_MINOR__=2,__GNUC__=4,__LONG_MAX__=9223372036854775807L,__LP64__=1,__MACH__=1,__ORDER_BIG_ENDIAN__=4321,__ORDER_LITTLE_ENDIAN__=1234,__SIZEOF_LONG__=8,__STDC_HOSTED__=1,__STDC_VERSION__=201710L,__STDC__=1,__aarch64__=1,__apple_build_version__=21000099,__clang__=1,__clang_major__=21",
+        "--cUndefine",
+        "__unix,__unix__,__x86_64__,unix",
+        "--cIncludeDir",
+        "/private<inputs>/espresso,/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include,/Library/Developer/CommandLineTools/usr/lib/clang/21/include",
+        "--checkerIds",
+        "callgraph",
+        "--dumpAllCG",
+        "--ruleConfigFile",
+        "resource/example-rule-config/rule_config_c.json",
+        "--report",
+        "<report>",
+        "--workerCount",
+        "1"
+      ],
+      "baseline": [
+        {
+          "total_s": 17.727,
+          "rc": 0,
+          "timed_out": false,
+          "limit_s": 180,
+          "stages_ms": {
+            "parseCode": 3417,
+            "processModule": 92,
+            "makeFullCallGraph(BySymbolInterpret)": 13588
+          },
+          "cpu_user_s": 20.34,
+          "cpu_system_s": 0.584,
+          "started": "2026-11-27T18:35:15.013230+08:00",
+          "load_before": [
+            10.5810546875,
+            9.28271484375,
+            10.20166015625
+          ],
+          "error_count": 54,
+          "nodes": 745,
+          "edges": 2298,
+          "sha256": "a55b663c6dcfc5f783a128c9ee1da5ef67837a02271093a4dc7243c9b522ca85",
+          "files": 43,
+          "configured_workers": 1,
+          "last_stage": "symbolInterpret"
+        },
+        {
+          "total_s": 16.493,
+          "rc": 0,
+          "timed_out": false,
+          "limit_s": 180,
+          "stages_ms": {
+            "parseCode": 3140,
+            "processModule": 80,
+            "makeFullCallGraph(BySymbolInterpret)": 12592
+          },
+          "cpu_user_s": 18.838,
+          "cpu_system_s": 0.561,
+          "started": "2026-11-27T18:35:53.593366+08:00",
+          "load_before": [
+            7.98486328125,
+            8.77587890625,
+            9.97900390625
+          ],
+          "error_count": 54,
+          "nodes": 745,
+          "edges": 2298,
+          "sha256": "a55b663c6dcfc5f783a128c9ee1da5ef67837a02271093a4dc7243c9b522ca85",
+          "files": 43,
+          "configured_workers": 1,
+          "last_stage": "symbolInterpret"
+        },
+        {
+          "total_s": 15.847,
+          "rc": 0,
+          "timed_out": false,
+          "limit_s": 180,
+          "stages_ms": {
+            "parseCode": 3503,
+            "processModule": 87,
+            "makeFullCallGraph(BySymbolInterpret)": 11393
+          },
+          "cpu_user_s": 18.117,
+          "cpu_system_s": 0.644,
+          "started": "2026-11-27T18:36:44.303794+08:00",
+          "load_before": [
+            6.2548828125,
+            8.15234375,
+            9.67626953125
+          ],
+          "error_count": 54,
+          "nodes": 745,
+          "edges": 2298,
+          "sha256": "a55b663c6dcfc5f783a128c9ee1da5ef67837a02271093a4dc7243c9b522ca85",
+          "files": 43,
+          "configured_workers": 1,
+          "last_stage": "symbolInterpret"
+        }
+      ],
+      "candidate": [
+        {
+          "total_s": 2.864,
+          "rc": 0,
+          "timed_out": false,
+          "limit_s": 180,
+          "stages_ms": {
+            "parseCode": 1154,
+            "processModule": 77,
+            "makeFullCallGraph(BySymbolInterpret)": 1245
+          },
+          "cpu_user_s": 4.405,
+          "cpu_system_s": 0.249,
+          "started": "2026-11-27T18:35:12.096117+08:00",
+          "load_before": [
+            10.28369140625,
+            9.203125,
+            10.1796875
+          ],
+          "error_count": 0,
+          "nodes": 732,
+          "edges": 2390,
+          "sha256": "6af145e84eb2d9e8251b2037f78dcc487367bb0d2c1954399455eba4fabd4d20",
+          "files": 43,
+          "configured_workers": 1,
+          "last_stage": "symbolInterpret"
+        },
+        {
+          "total_s": 4.493,
+          "rc": 0,
+          "timed_out": false,
+          "limit_s": 180,
+          "stages_ms": {
+            "parseCode": 1737,
+            "processModule": 160,
+            "makeFullCallGraph(BySymbolInterpret)": 1947
+          },
+          "cpu_user_s": 6.828,
+          "cpu_system_s": 0.428,
+          "started": "2026-11-27T18:36:10.146294+08:00",
+          "load_before": [
+            6.7900390625,
+            8.44970703125,
+            9.83349609375
+          ],
+          "error_count": 0,
+          "nodes": 732,
+          "edges": 2390,
+          "sha256": "6af145e84eb2d9e8251b2037f78dcc487367bb0d2c1954399455eba4fabd4d20",
+          "files": 43,
+          "configured_workers": 1,
+          "last_stage": "symbolInterpret"
+        },
+        {
+          "total_s": 3.21,
+          "rc": 0,
+          "timed_out": false,
+          "limit_s": 180,
+          "stages_ms": {
+            "parseCode": 1232,
+            "processModule": 83,
+            "makeFullCallGraph(BySymbolInterpret)": 1409
+          },
+          "cpu_user_s": 4.915,
+          "cpu_system_s": 0.322,
+          "started": "2026-11-27T18:36:41.026071+08:00",
+          "load_before": [
+            6.2548828125,
+            8.15234375,
+            9.67626953125
+          ],
+          "error_count": 0,
+          "nodes": 732,
+          "edges": 2390,
+          "sha256": "6af145e84eb2d9e8251b2037f78dcc487367bb0d2c1954399455eba4fabd4d20",
+          "files": 43,
+          "configured_workers": 1,
+          "last_stage": "symbolInterpret"
+        }
+      ],
+      "baseline_completed_median_s": 16.493,
+      "candidate_completed_median_s": 3.21,
+      "candidate_output_byte_identical_across_repetitions": true,
+      "speedup": 5.138,
+      "accuracy": {
+        "definitions": {
+          "pred": 337,
+          "truth": 337,
+          "hit": 337,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "functionPairs": {
+          "pred": 1063,
+          "truth": 1059,
+          "hit": 1059,
+          "precision": 0.99624,
+          "recall": 1.0
+        },
+        "directOnlyFunctionPairs": {
+          "pred": 1059,
+          "truth": 1059,
+          "hit": 1059,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "siteLines": {
+          "pred": 1513,
+          "truth": 1509,
+          "hit": 1509,
+          "precision": 0.99736,
+          "recall": 1.0
+        },
+        "directOnlySiteLines": {
+          "pred": 1509,
+          "truth": 1509,
+          "hit": 1509,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "reference_sha256": "d260155b8f3258ec66df20501e144bbf0f638f86471ac31c6de72c65ceef340d",
+        "missing_direct_pairs": [],
+        "missing_site_lines": []
+      }
+    },
+    "libcurl": {
+      "scope": "libcurl 8.23.1-DEV, 190 C and 199 headers",
+      "source_tree_sha256": null,
+      "version": "8.23.1-DEV",
+      "command": [
+        "node",
+        "--max-old-space-size=8192",
+        "--inspect=127.0.0.1:0",
+        "--import",
+        "tsx",
+        "src/main.ts",
+        "--sourcePath",
+        "<source-input>",
+        "--language",
+        "c",
+        "--cTarget",
+        "macos",
+        "--cUnknownMacros",
+        "undefined",
+        "--cDefine",
+        "__APPLE__=1,__BYTE_ORDER__=__ORDER_LITTLE_ENDIAN__,__CHAR_BIT__=8,__ENVIRONMENT_MAC_OS_X_VERSION_MIN_REQUIRED__=260000,__ENVIRONMENT_OS_VERSION_MIN_REQUIRED__=260000,__GNUC_MINOR__=2,__GNUC__=4,__LONG_MAX__=9223372036854775807L,__LP64__=1,__MACH__=1,__ORDER_BIG_ENDIAN__=4321,__ORDER_LITTLE_ENDIAN__=1234,__SIZEOF_LONG__=8,__STDC_HOSTED__=1,__STDC_VERSION__=201710L,__STDC__=1,__aarch64__=1,__apple_build_version__=21000099,__clang__=1,__clang_major__=21,BUILDING_LIBCURL=1,CURL_HIDDEN_SYMBOLS=1,HAVE_CONFIG_H=1,NDEBUG=1",
+        "--cUndefine",
+        "__unix,__unix__,__x86_64__,unix",
+        "--cIncludeDir",
+        "<source-input>/include,<source-input>/lib,/opt/homebrew/opt/openssl@3/include,/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include,/Library/Developer/CommandLineTools/usr/lib/clang/21/include",
+        "--checkerIds",
+        "callgraph",
+        "--dumpAllCG",
+        "--ruleConfigFile",
+        "resource/example-rule-config/rule_config_c.json",
+        "--report",
+        "<report>",
+        "--workerCount",
+        "1"
+      ],
+      "baseline": [
+        {
+          "total_s": 180.142,
+          "rc": -9,
+          "timed_out": true,
+          "limit_s": 180,
+          "stages_ms": {
+            "parseCode": 151083,
+            "makeFullCallGraph(BySymbolInterpret)": null
+          },
+          "cpu_user_s": 136.089,
+          "cpu_system_s": 15.661,
+          "started": "2026-11-27T18:17:01.434665+08:00",
+          "load_before": [
+            15.748046875,
+            16.80419921875,
+            10.88037109375
+          ],
+          "error_log_lines": 0,
+          "error_count": 0
+        },
+        {
+          "total_s": 432.223,
+          "rc": 0,
+          "timed_out": false,
+          "limit_s": 600,
+          "stages_ms": {
+            "parseCode": 92335,
+            "makeFullCallGraph(BySymbolInterpret)": 336929
+          },
+          "cpu_user_s": 423.603,
+          "cpu_system_s": 12.553,
+          "started": "2026-11-27T18:26:07.182991+08:00",
+          "load_before": [
+            9.2353515625,
+            13.2265625,
+            12.00146484375
+          ],
+          "error_log_lines": 391,
+          "nodes": 5370,
+          "edges": 15226,
+          "sha256": "0a96d95296174d6fc7bb299ccb3c1e7b7f988dbe2590e91726eff78090a98bb1",
+          "files": 389,
+          "error_count": 191
+        }
+      ],
+      "candidate": [
+        {
+          "total_s": 15.801,
+          "rc": 0,
+          "timed_out": false,
+          "limit_s": 180,
+          "stages_ms": {
+            "parseCode": 7732,
+            "processModule": 521,
+            "makeFullCallGraph(BySymbolInterpret)": 6596
+          },
+          "cpu_user_s": 21.114,
+          "cpu_system_s": 1.089,
+          "started": "2026-11-27T18:33:21.488312+08:00",
+          "load_before": [
+            6.30908203125,
+            8.54150390625,
+            10.13134765625
+          ],
+          "error_count": 0,
+          "nodes": 5333,
+          "edges": 15242,
+          "sha256": "9118ac916cd7cd38b1e6e2e6e763e77aba7fad7d9818e72fae10aecd14bd3d9f",
+          "files": 389,
+          "configured_workers": 1,
+          "last_stage": "symbolInterpret"
+        },
+        {
+          "total_s": 12.4,
+          "rc": 0,
+          "timed_out": false,
+          "limit_s": 180,
+          "stages_ms": {
+            "parseCode": 5542,
+            "processModule": 488,
+            "makeFullCallGraph(BySymbolInterpret)": 5882
+          },
+          "cpu_user_s": 17.458,
+          "cpu_system_s": 0.802,
+          "started": "2026-11-27T18:37:00.779617+08:00",
+          "load_before": [
+            5.85400390625,
+            7.9453125,
+            9.56640625
+          ],
+          "error_count": 0,
+          "nodes": 5333,
+          "edges": 15242,
+          "sha256": "9118ac916cd7cd38b1e6e2e6e763e77aba7fad7d9818e72fae10aecd14bd3d9f",
+          "files": 389,
+          "configured_workers": 1,
+          "last_stage": "symbolInterpret"
+        },
+        {
+          "total_s": 13.014,
+          "rc": 0,
+          "timed_out": false,
+          "limit_s": 180,
+          "stages_ms": {
+            "parseCode": 6091,
+            "processModule": 509,
+            "makeFullCallGraph(BySymbolInterpret)": 5808
+          },
+          "cpu_user_s": 18.469,
+          "cpu_system_s": 0.691,
+          "started": "2026-11-27T18:38:02.367459+08:00",
+          "load_before": [
+            4.955078125,
+            7.326171875,
+            9.2236328125
+          ],
+          "error_count": 0,
+          "nodes": 5333,
+          "edges": 15242,
+          "sha256": "9118ac916cd7cd38b1e6e2e6e763e77aba7fad7d9818e72fae10aecd14bd3d9f",
+          "files": 389,
+          "configured_workers": 1,
+          "last_stage": "symbolInterpret"
+        }
+      ],
+      "baseline_completed_median_s": 432.223,
+      "candidate_completed_median_s": 13.014,
+      "candidate_output_byte_identical_across_repetitions": true,
+      "speedup": 33.212,
+      "accuracy": {
+        "definition_coverage": {
+          "gold": 2674,
+          "active_definitions_found": 2674,
+          "recall": 1.0,
+          "unknown_function_ids_in_normalized_functions": []
+        },
+        "primary_strict": {
+          "callsite_target": {
+            "gold": 7510,
+            "predicted": 7482,
+            "tp": 7482,
+            "fp": 0,
+            "fn": 28,
+            "precision": 1.0,
+            "recall": 0.9962716378162451,
+            "f1": 0.9981323372465315
+          },
+          "function_pair": {
+            "gold": 5819,
+            "predicted": 5801,
+            "tp": 5801,
+            "fp": 0,
+            "fn": 18,
+            "precision": 1.0,
+            "recall": 0.9969066849974222,
+            "f1": 0.9984509466437177
+          },
+          "emitted_callsite_coverage": {
+            "all_primary_points_with_any_record": 8537,
+            "internal_gold_points_with_any_record": 7482,
+            "internal_gold_points_with_internal_resolution": 7482,
+            "primary_points_with_internal_resolution": 7482
+          },
+          "record_attribution": {
+            "strict": 8679,
+            "excluded_macro_direct_coordinate": 3531,
+            "no_compiler_direct_line": 169,
+            "line_with_indirect_calls": 2818,
+            "unmapped_caller": 22,
+            "direct_line_but_unmatched_coordinate": 23
+          },
+          "attributed_record_target_scopes": {
+            "active_internal": 7482,
+            "unresolved": 1197
+          }
+        },
+        "full_ast_direct_pair_recall": {
+          "gold": 6959,
+          "found": 6892,
+          "missing": 67,
+          "recall": 0.9903721799109068,
+          "precision": null,
+          "note": "Clang syntactic AST includes macros, compile-time checking helpers and path-infeasible branches; this supplementary measure does not assert runtime reachability."
+        },
+        "curated_indirect": {
+          "label": "curated_indirect_subset_recall_only",
+          "selected_sites": 11,
+          "strict_site_target": {
+            "gold": 25,
+            "found": 25,
+            "missing": 0,
+            "recall": 1.0
+          },
+          "single_coordinate_line_fallback_site_target": {
+            "gold": 25,
+            "found": 25,
+            "missing": 0,
+            "recall": 1.0
+          },
+          "location_free_caller_target": {
+            "gold": 25,
+            "found": 25,
+            "missing": 0,
+            "recall": 1.0
+          },
+          "per_site": [
+            {
+              "id": "mime-encode-read",
+              "site": [
+                "lib/mime.c::read_encoded_part_content",
+                "lib/mime.c",
+                778,
+                12
+              ],
+              "expected_targets": [
+                "lib/mime.c::encoder_7bit_read",
+                "lib/mime.c::encoder_base64_read",
+                "lib/mime.c::encoder_nop_read",
+                "lib/mime.c::encoder_qp_read"
+              ],
+              "strict_found": [
+                "lib/mime.c::encoder_7bit_read",
+                "lib/mime.c::encoder_base64_read",
+                "lib/mime.c::encoder_nop_read",
+                "lib/mime.c::encoder_qp_read"
+              ],
+              "fallback_found": [
+                "lib/mime.c::encoder_7bit_read",
+                "lib/mime.c::encoder_base64_read",
+                "lib/mime.c::encoder_nop_read",
+                "lib/mime.c::encoder_qp_read"
+              ],
+              "caller_pair_found": [
+                "lib/mime.c::encoder_7bit_read",
+                "lib/mime.c::encoder_base64_read",
+                "lib/mime.c::encoder_nop_read",
+                "lib/mime.c::encoder_qp_read"
+              ]
+            },
+            {
+              "id": "mime-encode-size",
+              "site": [
+                "lib/mime.c::mime_size",
+                "lib/mime.c",
+                1640,
+                12
+              ],
+              "expected_targets": [
+                "lib/mime.c::encoder_base64_size",
+                "lib/mime.c::encoder_nop_size",
+                "lib/mime.c::encoder_qp_size"
+              ],
+              "strict_found": [
+                "lib/mime.c::encoder_base64_size",
+                "lib/mime.c::encoder_nop_size",
+                "lib/mime.c::encoder_qp_size"
+              ],
+              "fallback_found": [
+                "lib/mime.c::encoder_base64_size",
+                "lib/mime.c::encoder_nop_size",
+                "lib/mime.c::encoder_qp_size"
+              ],
+              "caller_pair_found": [
+                "lib/mime.c::encoder_base64_size",
+                "lib/mime.c::encoder_nop_size",
+                "lib/mime.c::encoder_qp_size"
+              ]
+            },
+            {
+              "id": "md5-init",
+              "site": [
+                "lib/md5.c::Curl_MD5_init",
+                "lib/md5.c",
+                593,
+                6
+              ],
+              "expected_targets": [
+                "lib/md5.c::my_md5_init"
+              ],
+              "strict_found": [
+                "lib/md5.c::my_md5_init"
+              ],
+              "fallback_found": [
+                "lib/md5.c::my_md5_init"
+              ],
+              "caller_pair_found": [
+                "lib/md5.c::my_md5_init"
+              ]
+            },
+            {
+              "id": "md5-update",
+              "site": [
+                "lib/md5.c::Curl_MD5_update",
+                "lib/md5.c",
+                605,
+                3
+              ],
+              "expected_targets": [
+                "lib/md5.c::my_md5_update"
+              ],
+              "strict_found": [
+                "lib/md5.c::my_md5_update"
+              ],
+              "fallback_found": [
+                "lib/md5.c::my_md5_update"
+              ],
+              "caller_pair_found": [
+                "lib/md5.c::my_md5_update"
+              ]
+            },
+            {
+              "id": "md5-final",
+              "site": [
+                "lib/md5.c::Curl_MD5_final",
+                "lib/md5.c",
+                612,
+                3
+              ],
+              "expected_targets": [
+                "lib/md5.c::my_md5_final"
+              ],
+              "strict_found": [
+                "lib/md5.c::my_md5_final"
+              ],
+              "fallback_found": [
+                "lib/md5.c::my_md5_final"
+              ],
+              "caller_pair_found": [
+                "lib/md5.c::my_md5_final"
+              ]
+            },
+            {
+              "id": "hmac-init",
+              "site": [
+                "lib/hmac.c::Curl_HMAC_init",
+                "lib/hmac.c",
+                77,
+                6
+              ],
+              "expected_targets": [
+                "lib/md5.c::my_md5_init",
+                "lib/sha256.c::my_sha256_init"
+              ],
+              "strict_found": [
+                "lib/md5.c::my_md5_init",
+                "lib/sha256.c::my_sha256_init"
+              ],
+              "fallback_found": [
+                "lib/md5.c::my_md5_init",
+                "lib/sha256.c::my_sha256_init"
+              ],
+              "caller_pair_found": [
+                "lib/md5.c::my_md5_init",
+                "lib/sha256.c::my_sha256_init"
+              ]
+            },
+            {
+              "id": "hmac-update",
+              "site": [
+                "lib/hmac.c::Curl_HMAC_update",
+                "lib/hmac.c",
+                106,
+                3
+              ],
+              "expected_targets": [
+                "lib/md5.c::my_md5_update",
+                "lib/sha256.c::my_sha256_update"
+              ],
+              "strict_found": [
+                "lib/md5.c::my_md5_update",
+                "lib/sha256.c::my_sha256_update"
+              ],
+              "fallback_found": [
+                "lib/md5.c::my_md5_update",
+                "lib/sha256.c::my_sha256_update"
+              ],
+              "caller_pair_found": [
+                "lib/md5.c::my_md5_update",
+                "lib/sha256.c::my_sha256_update"
+              ]
+            },
+            {
+              "id": "hmac-final",
+              "site": [
+                "lib/hmac.c::Curl_HMAC_final",
+                "lib/hmac.c",
+                119,
+                3
+              ],
+              "expected_targets": [
+                "lib/md5.c::my_md5_final",
+                "lib/sha256.c::my_sha256_final"
+              ],
+              "strict_found": [
+                "lib/md5.c::my_md5_final",
+                "lib/sha256.c::my_sha256_final"
+              ],
+              "fallback_found": [
+                "lib/md5.c::my_md5_final",
+                "lib/sha256.c::my_sha256_final"
+              ],
+              "caller_pair_found": [
+                "lib/md5.c::my_md5_final",
+                "lib/sha256.c::my_sha256_final"
+              ]
+            },
+            {
+              "id": "pingpong-state",
+              "site": [
+                "lib/pingpong.c::Curl_pp_statemach",
+                "lib/pingpong.c",
+                116,
+                14
+              ],
+              "expected_targets": [
+                "lib/ftp.c::ftp_pp_statemachine",
+                "lib/imap.c::imap_pp_statemachine",
+                "lib/pop3.c::pop3_statemachine",
+                "lib/smtp.c::smtp_pp_statemachine"
+              ],
+              "strict_found": [
+                "lib/ftp.c::ftp_pp_statemachine",
+                "lib/imap.c::imap_pp_statemachine",
+                "lib/pop3.c::pop3_statemachine",
+                "lib/smtp.c::smtp_pp_statemachine"
+              ],
+              "fallback_found": [
+                "lib/ftp.c::ftp_pp_statemachine",
+                "lib/imap.c::imap_pp_statemachine",
+                "lib/pop3.c::pop3_statemachine",
+                "lib/smtp.c::smtp_pp_statemachine"
+              ],
+              "caller_pair_found": [
+                "lib/ftp.c::ftp_pp_statemachine",
+                "lib/imap.c::imap_pp_statemachine",
+                "lib/pop3.c::pop3_statemachine",
+                "lib/smtp.c::smtp_pp_statemachine"
+              ]
+            },
+            {
+              "id": "pingpong-response",
+              "site": [
+                "lib/pingpong.c::Curl_pp_readresp",
+                "lib/pingpong.c",
+                307,
+                12
+              ],
+              "expected_targets": [
+                "lib/ftp.c::ftp_endofresp",
+                "lib/imap.c::imap_endofresp",
+                "lib/pop3.c::pop3_endofresp",
+                "lib/smtp.c::smtp_endofresp"
+              ],
+              "strict_found": [
+                "lib/ftp.c::ftp_endofresp",
+                "lib/imap.c::imap_endofresp",
+                "lib/pop3.c::pop3_endofresp",
+                "lib/smtp.c::smtp_endofresp"
+              ],
+              "fallback_found": [
+                "lib/ftp.c::ftp_endofresp",
+                "lib/imap.c::imap_endofresp",
+                "lib/pop3.c::pop3_endofresp",
+                "lib/smtp.c::smtp_endofresp"
+              ],
+              "caller_pair_found": [
+                "lib/ftp.c::ftp_endofresp",
+                "lib/imap.c::imap_endofresp",
+                "lib/pop3.c::pop3_endofresp",
+                "lib/smtp.c::smtp_endofresp"
+              ]
+            },
+            {
+              "id": "ftp-wildcard-dtor",
+              "site": [
+                "lib/ftplistparser.c::Curl_wildcard_dtor",
+                "lib/ftplistparser.c",
+                197,
+                5
+              ],
+              "expected_targets": [
+                "lib/ftp.c::wc_data_dtor"
+              ],
+              "strict_found": [
+                "lib/ftp.c::wc_data_dtor"
+              ],
+              "fallback_found": [
+                "lib/ftp.c::wc_data_dtor"
+              ],
+              "caller_pair_found": [
+                "lib/ftp.c::wc_data_dtor"
+              ]
+            }
+          ]
+        },
+        "protocolSha256": "d2495d5e3f9ac857d5ffa64cdaf41e7f508379328dfc0feba0df1d7ceeb8e4cd",
+        "goldSha256": "48b85a9c4670cefbd35cec6242cfe95cfeeaa1eeb6154585db9992f082feb9ac",
+        "curatedGoldSha256": "64d8f77f8e0599683012cbf19fa01be3c4aa12b176e2f024373de49e9dcf41e1"
+      },
+      "input_verification": {
+        "archiveSha256": "177e9662cab8f178978b69c7c345f7d67fdf8a28a2da2de406ca36e9594b829d",
+        "goldSha256": "48b85a9c4670cefbd35cec6242cfe95cfeeaa1eeb6154585db9992f082feb9ac",
+        "curatedSha256": "64d8f77f8e0599683012cbf19fa01be3c4aa12b176e2f024373de49e9dcf41e1",
+        "matchingStagedCHFiles": 389,
+        "missingStagedCHFiles": 0,
+        "changedStagedCHFiles": 0,
+        "additionalStagedCHFiles": 0
+      }
+    },
+    "nauty": {
+      "scope": "Complete default nauty.a static library (15 translation units), the configure-generated native headers, all local transitive includes and the sorttemplates.c include-only fragment.",
+      "source_tree_sha256": "ef9c7c2fba07b45686212c1c86d58007ac331638f1bf7c55a1c856ab16edc614",
+      "version": "nauty and Traces 2.8.6",
+      "command": [
+        "node",
+        "--max-old-space-size=8192",
+        "--inspect=127.0.0.1:0",
+        "--import",
+        "tsx",
+        "src/main.ts",
+        "--sourcePath",
+        "<source-input>",
+        "--language",
+        "c",
+        "--cTarget",
+        "macos",
+        "--cUnknownMacros",
+        "undefined",
+        "--cDefine",
+        "__APPLE__=1,__BYTE_ORDER__=__ORDER_LITTLE_ENDIAN__,__CHAR_BIT__=8,__ENVIRONMENT_MAC_OS_X_VERSION_MIN_REQUIRED__=260000,__ENVIRONMENT_OS_VERSION_MIN_REQUIRED__=260000,__GNUC_MINOR__=2,__GNUC__=4,__LONG_MAX__=9223372036854775807L,__LP64__=1,__MACH__=1,__ORDER_BIG_ENDIAN__=4321,__ORDER_LITTLE_ENDIAN__=1234,__SIZEOF_LONG__=8,__STDC_HOSTED__=1,__STDC_VERSION__=201710L,__STDC__=1,__aarch64__=1,__apple_build_version__=21000099,__clang__=1,__clang_major__=21",
+        "--cUndefine",
+        "__unix,__unix__,__x86_64__,unix",
+        "--cIncludeDir",
+        "/private<inputs>/nauty,/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include,/Library/Developer/CommandLineTools/usr/lib/clang/21/include",
+        "--checkerIds",
+        "callgraph",
+        "--dumpAllCG",
+        "--ruleConfigFile",
+        "resource/example-rule-config/rule_config_c.json",
+        "--report",
+        "<report>",
+        "--workerCount",
+        "1"
+      ],
+      "baseline": [
+        {
+          "total_s": 180.164,
+          "rc": -9,
+          "timed_out": true,
+          "limit_s": 180,
+          "stages_ms": {
+            "parseCode": 12603,
+            "makeFullCallGraph(BySymbolInterpret)": null
+          },
+          "cpu_user_s": 138.571,
+          "cpu_system_s": 10.771,
+          "started": "2026-11-27T18:20:01.586857+08:00",
+          "load_before": [
+            14.24072265625,
+            16.04638671875,
+            11.7060546875
+          ],
+          "error_log_lines": 0,
+          "error_count": 0
+        }
+      ],
+      "candidate": [
+        {
+          "total_s": 36.111,
+          "rc": 0,
+          "timed_out": false,
+          "limit_s": 180,
+          "stages_ms": {
+            "parseCode": 3404,
+            "processModule": 201,
+            "makeFullCallGraph(BySymbolInterpret)": 31720
+          },
+          "cpu_user_s": 42.175,
+          "cpu_system_s": 1.798,
+          "started": "2026-11-27T18:33:37.444766+08:00",
+          "load_before": [
+            5.5751953125,
+            8.26904296875,
+            10.005859375
+          ],
+          "error_count": 0,
+          "nodes": 1583,
+          "edges": 4604,
+          "sha256": "651fc43e369439038d432299f517e60a417801fa88a9b860582603d8cd4f9ea5",
+          "files": 27,
+          "configured_workers": 1,
+          "last_stage": "symbolInterpret"
+        },
+        {
+          "total_s": 24.7,
+          "rc": 0,
+          "timed_out": false,
+          "limit_s": 180,
+          "stages_ms": {
+            "parseCode": 2818,
+            "processModule": 138,
+            "makeFullCallGraph(BySymbolInterpret)": 20875
+          },
+          "cpu_user_s": 30.229,
+          "cpu_system_s": 1.143,
+          "started": "2026-11-27T18:37:37.588061+08:00",
+          "load_before": [
+            5.1396484375,
+            7.5380859375,
+            9.35205078125
+          ],
+          "error_count": 0,
+          "nodes": 1583,
+          "edges": 4604,
+          "sha256": "651fc43e369439038d432299f517e60a417801fa88a9b860582603d8cd4f9ea5",
+          "files": 27,
+          "configured_workers": 1,
+          "last_stage": "symbolInterpret"
+        }
+      ],
+      "baseline_completed_median_s": null,
+      "candidate_completed_median_s": 30.405,
+      "candidate_output_byte_identical_across_repetitions": true,
+      "speedup": null,
+      "accuracy": {
+        "definitions": {
+          "pred": 454,
+          "truth": 461,
+          "hit": 454,
+          "precision": 1.0,
+          "recall": 0.98482
+        },
+        "functionPairs": {
+          "pred": 779,
+          "truth": 773,
+          "hit": 758,
+          "precision": 0.97304,
+          "recall": 0.9806
+        },
+        "directOnlyFunctionPairs": {
+          "pred": 752,
+          "truth": 767,
+          "hit": 752,
+          "precision": 1.0,
+          "recall": 0.98044
+        },
+        "siteLines": {
+          "pred": 1478,
+          "truth": 1481,
+          "hit": 1454,
+          "precision": 0.98376,
+          "recall": 0.98177
+        },
+        "directOnlySiteLines": {
+          "pred": 1400,
+          "truth": 1427,
+          "hit": 1400,
+          "precision": 1.0,
+          "recall": 0.98108
+        },
+        "reference_sha256": "6148ca7caf2eab296e3e4bb03ebc2dd63f51f21a6916753c87d222447de353a6",
+        "missing_direct_pairs": [
+          [
+            [
+              "gtnauty.c",
+              "breakcellwt"
+            ],
+            [
+              "sorttemplates.c",
+              "sortwt"
+            ]
+          ],
+          [
+            [
+              "gtnauty.c",
+              "setlabptn"
+            ],
+            [
+              "sorttemplates.c",
+              "sortwt"
+            ]
+          ],
+          [
+            [
+              "nausparse.c",
+              "refine_sg"
+            ],
+            [
+              "sorttemplates.c",
+              "sortindirect"
+            ]
+          ],
+          [
+            [
+              "nausparse.c",
+              "refine_sg"
+            ],
+            [
+              "sorttemplates.c",
+              "sortints"
+            ]
+          ],
+          [
+            [
+              "nausparse.c",
+              "sortlists_sg"
+            ],
+            [
+              "sorttemplates.c",
+              "sortints"
+            ]
+          ],
+          [
+            [
+              "nausparse.c",
+              "sortlists_sg"
+            ],
+            [
+              "sorttemplates.c",
+              "sortweights"
+            ]
+          ],
+          [
+            [
+              "nautil.c",
+              "doref"
+            ],
+            [
+              "sorttemplates.c",
+              "sortparallel"
+            ]
+          ],
+          [
+            [
+              "naututil.c",
+              "putdegseq"
+            ],
+            [
+              "sorttemplates.c",
+              "sort1int"
+            ]
+          ],
+          [
+            [
+              "naututil.c",
+              "putdegseq_sg"
+            ],
+            [
+              "sorttemplates.c",
+              "sort1int"
+            ]
+          ],
+          [
+            [
+              "traces.c",
+              "Adjust_Cycles"
+            ],
+            [
+              "sorttemplates.c",
+              "sort2ints"
+            ]
+          ],
+          [
+            [
+              "traces.c",
+              "NonSingDegPlus1"
+            ],
+            [
+              "sorttemplates.c",
+              "sort2ints"
+            ]
+          ],
+          [
+            [
+              "traces.c",
+              "WeightCodes"
+            ],
+            [
+              "sorttemplates.c",
+              "sortweights"
+            ]
+          ],
+          [
+            [
+              "traces.c",
+              "grouporderplus"
+            ],
+            [
+              "sorttemplates.c",
+              "sort2ints"
+            ]
+          ],
+          [
+            [
+              "traces.c",
+              "traces_vertexclass_refine"
+            ],
+            [
+              "sorttemplates.c",
+              "sort2ints"
+            ]
+          ],
+          [
+            [
+              "traces.c",
+              "trie_classify"
+            ],
+            [
+              "sorttemplates.c",
+              "sort2ints"
+            ]
+          ]
+        ],
+        "missing_site_lines": [
+          [
+            [
+              "gtnauty.c",
+              "breakcellwt"
+            ],
+            [
+              "gtnauty.c",
+              85
+            ],
+            [
+              "sorttemplates.c",
+              "sortwt"
+            ]
+          ],
+          [
+            [
+              "gtnauty.c",
+              "setlabptn"
+            ],
+            [
+              "gtnauty.c",
+              53
+            ],
+            [
+              "sorttemplates.c",
+              "sortwt"
+            ]
+          ],
+          [
+            [
+              "nausparse.c",
+              "refine_sg"
+            ],
+            [
+              "nausparse.c",
+              813
+            ],
+            [
+              "sorttemplates.c",
+              "sortindirect"
+            ]
+          ],
+          [
+            [
+              "nausparse.c",
+              "refine_sg"
+            ],
+            [
+              "nausparse.c",
+              906
+            ],
+            [
+              "sorttemplates.c",
+              "sortints"
+            ]
+          ],
+          [
+            [
+              "nausparse.c",
+              "refine_sg"
+            ],
+            [
+              "nausparse.c",
+              986
+            ],
+            [
+              "sorttemplates.c",
+              "sortints"
+            ]
+          ],
+          [
+            [
+              "nausparse.c",
+              "refine_sg"
+            ],
+            [
+              "nausparse.c",
+              1075
+            ],
+            [
+              "sorttemplates.c",
+              "sortindirect"
+            ]
+          ],
+          [
+            [
+              "nausparse.c",
+              "sortlists_sg"
+            ],
+            [
+              "nausparse.c",
+              1318
+            ],
+            [
+              "sorttemplates.c",
+              "sortweights"
+            ]
+          ],
+          [
+            [
+              "nausparse.c",
+              "sortlists_sg"
+            ],
+            [
+              "nausparse.c",
+              1323
+            ],
+            [
+              "sorttemplates.c",
+              "sortints"
+            ]
+          ],
+          [
+            [
+              "nautil.c",
+              "doref"
+            ],
+            [
+              "nautil.c",
+              521
+            ],
+            [
+              "sorttemplates.c",
+              "sortparallel"
+            ]
+          ],
+          [
+            [
+              "naututil.c",
+              "putdegseq"
+            ],
+            [
+              "naututil.c",
+              3074
+            ],
+            [
+              "sorttemplates.c",
+              "sort1int"
+            ]
+          ],
+          [
+            [
+              "naututil.c",
+              "putdegseq_sg"
+            ],
+            [
+              "naututil.c",
+              3114
+            ],
+            [
+              "sorttemplates.c",
+              "sort1int"
+            ]
+          ],
+          [
+            [
+              "traces.c",
+              "Adjust_Cycles"
+            ],
+            [
+              "traces.c",
+              5380
+            ],
+            [
+              "sorttemplates.c",
+              "sort2ints"
+            ]
+          ],
+          [
+            [
+              "traces.c",
+              "NonSingDegPlus1"
+            ],
+            [
+              "traces.c",
+              8873
+            ],
+            [
+              "sorttemplates.c",
+              "sort2ints"
+            ]
+          ],
+          [
+            [
+              "traces.c",
+              "WeightCodes"
+            ],
+            [
+              "traces.c",
+              10296
+            ],
+            [
+              "sorttemplates.c",
+              "sortweights"
+            ]
+          ],
+          [
+            [
+              "traces.c",
+              "WeightCodes"
+            ],
+            [
+              "traces.c",
+              10310
+            ],
+            [
+              "sorttemplates.c",
+              "sortweights"
+            ]
+          ],
+          [
+            [
+              "traces.c",
+              "WeightCodes"
+            ],
+            [
+              "traces.c",
+              10314
+            ],
+            [
+              "sorttemplates.c",
+              "sortweights"
+            ]
+          ],
+          [
+            [
+              "traces.c",
+              "grouporderplus"
+            ],
+            [
+              "traces.c",
+              8279
+            ],
+            [
+              "sorttemplates.c",
+              "sort2ints"
+            ]
+          ],
+          [
+            [
+              "traces.c",
+              "refine_tr_refine"
+            ],
+            [
+              "traces.c",
+              5263
+            ],
+            [
+              "traces.c",
+              "sort_Split_Array"
+            ]
+          ],
+          [
+            [
+              "traces.c",
+              "traces_refine"
+            ],
+            [
+              "traces.c",
+              1997
+            ],
+            [
+              "traces.c",
+              "sort_Split_Array"
+            ]
+          ],
+          [
+            [
+              "traces.c",
+              "traces_refine_comptrie"
+            ],
+            [
+              "traces.c",
+              3833
+            ],
+            [
+              "traces.c",
+              "sort_Split_Array"
+            ]
+          ],
+          [
+            [
+              "traces.c",
+              "traces_refine_comptrie"
+            ],
+            [
+              "traces.c",
+              3862
+            ],
+            [
+              "traces.c",
+              "trie_comp"
+            ]
+          ],
+          [
+            [
+              "traces.c",
+              "traces_refine_maketrie"
+            ],
+            [
+              "traces.c",
+              3251
+            ],
+            [
+              "traces.c",
+              "sort_Split_Array"
+            ]
+          ],
+          [
+            [
+              "traces.c",
+              "traces_refine_maketrie"
+            ],
+            [
+              "traces.c",
+              3280
+            ],
+            [
+              "traces.c",
+              "trie_make"
+            ]
+          ],
+          [
+            [
+              "traces.c",
+              "traces_refine_notrace"
+            ],
+            [
+              "traces.c",
+              2670
+            ],
+            [
+              "traces.c",
+              "sort_Split_Array"
+            ]
+          ],
+          [
+            [
+              "traces.c",
+              "traces_refine_sametrace"
+            ],
+            [
+              "traces.c",
+              4480
+            ],
+            [
+              "traces.c",
+              "sort_Split_Array"
+            ]
+          ],
+          [
+            [
+              "traces.c",
+              "traces_vertexclass_refine"
+            ],
+            [
+              "traces.c",
+              1336
+            ],
+            [
+              "sorttemplates.c",
+              "sort2ints"
+            ]
+          ],
+          [
+            [
+              "traces.c",
+              "trie_classify"
+            ],
+            [
+              "traces.c",
+              10068
+            ],
+            [
+              "sorttemplates.c",
+              "sort2ints"
+            ]
+          ]
+        ]
+      }
+    },
+    "sqlite": {
+      "scope": "SQLite core amalgamation and both shipped headers, default engine features",
+      "source_tree_sha256": "c8f3d75d8c83cdf5260145e97deab7a9d6127e4a5bddf2ae6e848aa8e5f2db21",
+      "version": "3.49.2",
+      "command": [
+        "node",
+        "--max-old-space-size=8192",
+        "--inspect=127.0.0.1:0",
+        "--import",
+        "tsx",
+        "src/main.ts",
+        "--sourcePath",
+        "<source-input>",
+        "--language",
+        "c",
+        "--cTarget",
+        "macos",
+        "--cUnknownMacros",
+        "undefined",
+        "--cDefine",
+        "__APPLE__=1,__BYTE_ORDER__=__ORDER_LITTLE_ENDIAN__,__CHAR_BIT__=8,__ENVIRONMENT_MAC_OS_X_VERSION_MIN_REQUIRED__=260000,__ENVIRONMENT_OS_VERSION_MIN_REQUIRED__=260000,__GNUC_MINOR__=2,__GNUC__=4,__LONG_MAX__=9223372036854775807L,__LP64__=1,__MACH__=1,__ORDER_BIG_ENDIAN__=4321,__ORDER_LITTLE_ENDIAN__=1234,__SIZEOF_LONG__=8,__STDC_HOSTED__=1,__STDC_VERSION__=201710L,__STDC__=1,__aarch64__=1,__apple_build_version__=21000099,__clang__=1,__clang_major__=21",
+        "--cUndefine",
+        "__unix,__unix__,__x86_64__,unix",
+        "--cIncludeDir",
+        "/private<inputs>/sqlite,/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include,/Library/Developer/CommandLineTools/usr/lib/clang/21/include",
+        "--checkerIds",
+        "callgraph",
+        "--dumpAllCG",
+        "--ruleConfigFile",
+        "resource/example-rule-config/rule_config_c.json",
+        "--report",
+        "<report>",
+        "--workerCount",
+        "1"
+      ],
+      "baseline": [
+        {
+          "total_s": 180.146,
+          "rc": -9,
+          "timed_out": true,
+          "limit_s": 180,
+          "stages_ms": {
+            "parseCode": 15824,
+            "makeFullCallGraph(BySymbolInterpret)": null
+          },
+          "cpu_user_s": 167.703,
+          "cpu_system_s": 7.613,
+          "started": "2026-11-27T18:23:01.760332+08:00",
+          "load_before": [
+            14.03564453125,
+            15.29052734375,
+            12.19775390625
+          ],
+          "error_log_lines": 0,
+          "error_count": 0
+        }
+      ],
+      "candidate": [
+        {
+          "total_s": 35.158,
+          "rc": 0,
+          "timed_out": false,
+          "limit_s": 180,
+          "stages_ms": {
+            "parseCode": 5344,
+            "processModule": 518,
+            "makeFullCallGraph(BySymbolInterpret)": 28432
+          },
+          "cpu_user_s": 40.74,
+          "cpu_system_s": 1.399,
+          "started": "2026-11-27T18:34:13.641972+08:00",
+          "load_before": [
+            6.42333984375,
+            8.201171875,
+            9.91064453125
+          ],
+          "error_count": 0,
+          "nodes": 4727,
+          "edges": 16760,
+          "sha256": "0d6f76e0ff3e288acb84dd7b55989bbe567455c4760479b3c08f5eac2b035a65",
+          "files": 3,
+          "configured_workers": 1,
+          "last_stage": "symbolInterpret"
+        },
+        {
+          "total_s": 24.048,
+          "rc": 0,
+          "timed_out": false,
+          "limit_s": 180,
+          "stages_ms": {
+            "parseCode": 4462,
+            "processModule": 369,
+            "makeFullCallGraph(BySymbolInterpret)": 18349
+          },
+          "cpu_user_s": 28.515,
+          "cpu_system_s": 0.974,
+          "started": "2026-11-27T18:37:13.300559+08:00",
+          "load_before": [
+            5.548828125,
+            7.81396484375,
+            9.5009765625
+          ],
+          "error_count": 0,
+          "nodes": 4727,
+          "edges": 16760,
+          "sha256": "0d6f76e0ff3e288acb84dd7b55989bbe567455c4760479b3c08f5eac2b035a65",
+          "files": 3,
+          "configured_workers": 1,
+          "last_stage": "symbolInterpret"
+        }
+      ],
+      "baseline_completed_median_s": null,
+      "candidate_completed_median_s": 29.603,
+      "candidate_output_byte_identical_across_repetitions": true,
+      "speedup": null,
+      "accuracy": {
+        "definitions": {
+          "pred": 2577,
+          "truth": 2577,
+          "hit": 2577,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "functionPairs": {
+          "pred": 9338,
+          "truth": 8702,
+          "hit": 8701,
+          "precision": 0.93178,
+          "recall": 0.99989
+        },
+        "directOnlyFunctionPairs": {
+          "pred": 8697,
+          "truth": 8697,
+          "hit": 8696,
+          "precision": 0.99989,
+          "recall": 0.99989
+        },
+        "siteLines": {
+          "pred": 13385,
+          "truth": 12523,
+          "hit": 12522,
+          "precision": 0.93552,
+          "recall": 0.99992
+        },
+        "directOnlySiteLines": {
+          "pred": 12518,
+          "truth": 12518,
+          "hit": 12517,
+          "precision": 0.99992,
+          "recall": 0.99992
+        },
+        "reference_sha256": "1b7cb9262c0b706455f89222359b4117600883c2189505b6ae82e676740dd110",
+        "missing_direct_pairs": [
+          [
+            [
+              "sqlite3.c",
+              "pager_incr_changecounter"
+            ],
+            [
+              "sqlite3.c",
+              "sqlite3OsWrite"
+            ]
+          ]
+        ],
+        "missing_site_lines": [
+          [
+            [
+              "sqlite3.c",
+              "pager_incr_changecounter"
+            ],
+            [
+              "sqlite3.c",
+              63675
+            ],
+            [
+              "sqlite3.c",
+              "sqlite3OsWrite"
+            ]
+          ]
+        ]
+      }
+    }
+  },
+  "notes": {
+    "scope": "C call graph export under the indicated build flags. Clang direct internal calls form a partial reference. Indirect targets are separately tested using a compiler-executed finite fixture and the curated libcurl labels.",
+    "macro_template_limit": "Seven physical function names generated by re-including sorttemplates.c with different macros in different nauty translation units; 15 unique direct function pairs in the native oracle refer to them.",
+    "watch_equivalence": {
+      "method": "Differ only by the namespace-join fast path, full CLI export at fixed intermediate source snapshot",
+      "checks": {
+        "sources": {
+          "engine": "09facad38d4b4edaaa0dd4043f8fe8691c97efe4a14e49738cd4efca35eba752",
+          "c": "44f1963c10811d20331181129e517a7ab9908eb2c5aced116512f2b80419e91b",
+          "cpp": "cd8296e838665ac1c2a316eeba6b51e931fb6296db8187eab104865180bad3d2"
+        },
+        "runs": {
+          "espresso-fast": {
+            "rc": 0,
+            "errors": 0,
+            "log_delta_bytes": 0,
+            "seconds": 9.019,
+            "nodes": 732,
+            "edges": 2390,
+            "sha256": "6af145e84eb2d9e8251b2037f78dcc487367bb0d2c1954399455eba4fabd4d20"
+          },
+          "espresso-dense": {
+            "rc": 0,
+            "errors": 0,
+            "log_delta_bytes": 0,
+            "seconds": 11.52,
+            "nodes": 732,
+            "edges": 2390,
+            "sha256": "6af145e84eb2d9e8251b2037f78dcc487367bb0d2c1954399455eba4fabd4d20"
+          },
+          "jansson-fast": {
+            "rc": 0,
+            "errors": 0,
+            "log_delta_bytes": 0,
+            "seconds": 3.189,
+            "nodes": 458,
+            "edges": 989,
+            "sha256": "b0415c6da8d12324ae93f046681a1fbcff633e75980b1ebc129c597ad7d84806"
+          },
+          "jansson-dense": {
+            "rc": 0,
+            "errors": 0,
+            "log_delta_bytes": 0,
+            "seconds": 3.239,
+            "nodes": 458,
+            "edges": 989,
+            "sha256": "b0415c6da8d12324ae93f046681a1fbcff633e75980b1ebc129c597ad7d84806"
+          }
+        }
+      }
+    },
+    "callback_native": {
+      "original_seven": {
+        "native_pairs": 24,
+        "before": {
+          "true_positive": 8,
+          "false_positive": 1,
+          "false_negative": 16
+        },
+        "after": {
+          "true_positive": 13,
+          "false_positive": 0,
+          "false_negative": 11
+        },
+        "matched_native_pairs_lost": [],
+        "incorrect_pairs_gained": []
+      },
+      "extended_fourteen": {
+        "native_pairs": 40,
+        "before": {
+          "true_positive": 17,
+          "false_positive": 2,
+          "false_negative": 23
+        },
+        "after": {
+          "true_positive": 29,
+          "false_positive": 0,
+          "false_negative": 11
+        },
+        "matched_native_pairs_lost": [],
+        "incorrect_pairs_gained": []
+      }
+    },
+    "cli_identical_input": {
+      "kilo": "e921fda5d28c94e7b026561ece288441f8075709408064dd8c98f5ffdd1c36b3",
+      "jansson": "c0f02ad26a27792241cffdf5c40678399790a04993a277764d53d5bff04623b4",
+      "zlib": "abf4dd4d607dc23fb3755ca28495b20c4d07ecddb86897c03afe80cae240e2f9",
+      "sqlite": "c8f3d75d8c83cdf5260145e97deab7a9d6127e4a5bddf2ae6e848aa8e5f2db21",
+      "espresso": "cdfe6fc38115e0fa8bb253171c43f9cb899565fbfd8bf20d6a99c6088788302a",
+      "nauty": "ef9c7c2fba07b45686212c1c86d58007ac331638f1bf7c55a1c856ab16edc614"
+    },
+    "oracle_delta": {
+      "kilo": {
+        "ready": true,
+        "gold_hits": {
+          "definitions": [
+            36,
+            36
+          ],
+          "functionPairs": [
+            47,
+            47
+          ],
+          "siteLines": [
+            80,
+            80
+          ],
+          "directOnlyFunctionPairs": [
+            47,
+            47
+          ],
+          "directOnlySiteLines": [
+            80,
+            80
+          ]
+        },
+        "vs_legacy": {
+          "definitions": [
+            0,
+            0
+          ],
+          "functionPairs": [
+            0,
+            0
+          ],
+          "siteLines": [
+            0,
+            0
+          ],
+          "directOnlyFunctionPairs": [
+            0,
+            0
+          ],
+          "directOnlySiteLines": [
+            0,
+            0
+          ],
+          "active_definitions": [
+            0,
+            0
+          ],
+          "active_internal_pairs": [
+            0,
+            0
+          ],
+          "active_internal_coordinates": [
+            0,
+            0
+          ]
+        },
+        "vs_pre-fix": {
+          "definitions": [
+            0,
+            0
+          ],
+          "functionPairs": [
+            0,
+            0
+          ],
+          "siteLines": [
+            0,
+            0
+          ],
+          "directOnlyFunctionPairs": [
+            0,
+            0
+          ],
+          "directOnlySiteLines": [
+            0,
+            0
+          ],
+          "active_definitions": [
+            0,
+            0
+          ],
+          "active_internal_pairs": [
+            0,
+            0
+          ],
+          "active_internal_coordinates": [
+            0,
+            0
+          ]
+        }
+      },
+      "jansson": {
+        "ready": true,
+        "gold_hits": {
+          "definitions": [
+            224,
+            224
+          ],
+          "functionPairs": [
+            510,
+            510
+          ],
+          "siteLines": [
+            661,
+            662
+          ],
+          "directOnlyFunctionPairs": [
+            509,
+            510
+          ],
+          "directOnlySiteLines": [
+            661,
+            662
+          ]
+        },
+        "vs_legacy": {
+          "definitions": [
+            1,
+            0
+          ],
+          "functionPairs": [
+            0,
+            0
+          ],
+          "siteLines": [
+            0,
+            0
+          ],
+          "directOnlyFunctionPairs": [
+            0,
+            0
+          ],
+          "directOnlySiteLines": [
+            0,
+            0
+          ],
+          "active_definitions": [
+            1,
+            0
+          ],
+          "active_internal_pairs": [
+            0,
+            0
+          ],
+          "active_internal_coordinates": [
+            0,
+            0
+          ]
+        },
+        "vs_pre-fix": {
+          "definitions": [
+            1,
+            0
+          ],
+          "functionPairs": [
+            0,
+            0
+          ],
+          "siteLines": [
+            0,
+            0
+          ],
+          "directOnlyFunctionPairs": [
+            0,
+            0
+          ],
+          "directOnlySiteLines": [
+            0,
+            0
+          ],
+          "active_definitions": [
+            1,
+            0
+          ],
+          "active_internal_pairs": [
+            0,
+            0
+          ],
+          "active_internal_coordinates": [
+            0,
+            0
+          ]
+        }
+      },
+      "zlib": {
+        "ready": true,
+        "gold_hits": {
+          "definitions": [
+            160,
+            160
+          ],
+          "functionPairs": [
+            231,
+            231
+          ],
+          "siteLines": [
+            331,
+            331
+          ],
+          "directOnlyFunctionPairs": [
+            231,
+            231
+          ],
+          "directOnlySiteLines": [
+            331,
+            331
+          ]
+        },
+        "vs_legacy": {
+          "definitions": [
+            3,
+            0
+          ],
+          "functionPairs": [
+            0,
+            0
+          ],
+          "siteLines": [
+            0,
+            0
+          ],
+          "directOnlyFunctionPairs": [
+            0,
+            0
+          ],
+          "directOnlySiteLines": [
+            0,
+            0
+          ],
+          "active_definitions": [
+            3,
+            0
+          ],
+          "active_internal_pairs": [
+            2,
+            0
+          ],
+          "active_internal_coordinates": [
+            3,
+            0
+          ]
+        },
+        "vs_pre-fix": {
+          "definitions": [
+            3,
+            0
+          ],
+          "functionPairs": [
+            0,
+            0
+          ],
+          "siteLines": [
+            0,
+            0
+          ],
+          "directOnlyFunctionPairs": [
+            0,
+            0
+          ],
+          "directOnlySiteLines": [
+            0,
+            0
+          ],
+          "active_definitions": [
+            3,
+            0
+          ],
+          "active_internal_pairs": [
+            2,
+            0
+          ],
+          "active_internal_coordinates": [
+            3,
+            0
+          ]
+        }
+      },
+      "espresso": {
+        "ready": true,
+        "gold_hits": {
+          "definitions": [
+            337,
+            337
+          ],
+          "functionPairs": [
+            1059,
+            1059
+          ],
+          "siteLines": [
+            1509,
+            1509
+          ],
+          "directOnlyFunctionPairs": [
+            1059,
+            1059
+          ],
+          "directOnlySiteLines": [
+            1509,
+            1509
+          ]
+        },
+        "vs_legacy": {
+          "definitions": [
+            0,
+            0
+          ],
+          "functionPairs": [
+            54,
+            0
+          ],
+          "siteLines": [
+            92,
+            0
+          ],
+          "directOnlyFunctionPairs": [
+            54,
+            0
+          ],
+          "directOnlySiteLines": [
+            92,
+            0
+          ],
+          "active_definitions": [
+            0,
+            0
+          ],
+          "active_internal_pairs": [
+            54,
+            0
+          ],
+          "active_internal_coordinates": [
+            92,
+            0
+          ]
+        },
+        "vs_pre-fix": {
+          "definitions": [
+            0,
+            0
+          ],
+          "functionPairs": [
+            54,
+            0
+          ],
+          "siteLines": [
+            92,
+            0
+          ],
+          "directOnlyFunctionPairs": [
+            54,
+            0
+          ],
+          "directOnlySiteLines": [
+            92,
+            0
+          ],
+          "active_definitions": [
+            0,
+            0
+          ],
+          "active_internal_pairs": [
+            54,
+            0
+          ],
+          "active_internal_coordinates": [
+            92,
+            0
+          ]
+        }
+      },
+      "nauty": {
+        "ready": true,
+        "gold_hits": {
+          "definitions": [
+            454,
+            461
+          ],
+          "functionPairs": [
+            758,
+            773
+          ],
+          "siteLines": [
+            1454,
+            1481
+          ],
+          "directOnlyFunctionPairs": [
+            752,
+            767
+          ],
+          "directOnlySiteLines": [
+            1400,
+            1427
+          ]
+        },
+        "vs_legacy": null,
+        "vs_pre-fix": null,
+        "vs_pre-cycle-fix": {
+          "definitions": [
+            0,
+            0
+          ],
+          "functionPairs": [
+            0,
+            0
+          ],
+          "siteLines": [
+            0,
+            0
+          ],
+          "directOnlyFunctionPairs": [
+            0,
+            0
+          ],
+          "directOnlySiteLines": [
+            0,
+            0
+          ],
+          "active_definitions": [
+            0,
+            0
+          ],
+          "active_internal_pairs": [
+            0,
+            0
+          ],
+          "active_internal_coordinates": [
+            0,
+            0
+          ]
+        }
+      },
+      "sqlite": {
+        "ready": true,
+        "gold_hits": {
+          "definitions": [
+            2577,
+            2577
+          ],
+          "functionPairs": [
+            8701,
+            8702
+          ],
+          "siteLines": [
+            12522,
+            12523
+          ],
+          "directOnlyFunctionPairs": [
+            8696,
+            8697
+          ],
+          "directOnlySiteLines": [
+            12517,
+            12518
+          ]
+        },
+        "vs_legacy": null,
+        "vs_pre-fix": null,
+        "vs_pre-flow-fix": {
+          "definitions": [
+            0,
+            0
+          ],
+          "functionPairs": [
+            1,
+            0
+          ],
+          "siteLines": [
+            5,
+            0
+          ],
+          "directOnlyFunctionPairs": [
+            1,
+            0
+          ],
+          "directOnlySiteLines": [
+            5,
+            0
+          ],
+          "active_definitions": [
+            0,
+            0
+          ],
+          "active_internal_pairs": [
+            1,
+            0
+          ],
+          "active_internal_coordinates": [
+            5,
+            0
+          ]
+        }
+      },
+      "libcurl": {
+        "ready": true,
+        "gold_hits": {
+          "definitions": [
+            2674,
+            2674
+          ],
+          "strict_pairs": [
+            5801,
+            5819
+          ],
+          "strict_sites": [
+            7482,
+            7510
+          ],
+          "full_pairs": [
+            6892,
+            6959
+          ],
+          "indirect": [
+            25,
+            25
+          ]
+        },
+        "vs_pre-fix": {
+          "strict_pairs": [
+            15,
+            0
+          ],
+          "strict_sites": [
+            29,
+            0
+          ],
+          "full_pairs": [
+            15,
+            0
+          ],
+          "definition": [
+            0,
+            0
+          ],
+          "indirect": [
+            0,
+            0
+          ],
+          "all_active_coordinates": [
+            31,
+            4
+          ],
+          "all_active_pairs": [
+            16,
+            4
+          ]
+        },
+        "vs_paired-legacy": {
+          "strict_pairs": [
+            15,
+            0
+          ],
+          "strict_sites": [
+            29,
+            0
+          ],
+          "full_pairs": [
+            15,
+            0
+          ],
+          "definition": [
+            0,
+            0
+          ],
+          "indirect": [
+            0,
+            0
+          ],
+          "all_active_coordinates": [
+            31,
+            4
+          ],
+          "all_active_pairs": [
+            16,
+            4
+          ]
+        }
+      }
+    },
+    "sqlite_remaining": {
+      "false_positive": "May report sqlite3IsIdChar at sqlite3.c:208219 from the alternative macro implementation. The native ASCII build expands to a table lookup.",
+      "unreachable_syntactic_edge": "pager_incr_changecounter → sqlite3OsWrite at sqlite3.c:63675 is guarded by DIRECT_MODE, which is zero for this build.",
+      "reachable_repaired_lines": [
+        99956,
+        99972,
+        184664,
+        208291,
+        208344
+      ]
+    },
+    "zlib_remaining": "The indirect call at deflate.c:1239 additionally resolves deflate_stored; level==0 already dispatches that target at 1236. This is a site-level false positive, even though the enclosing pair is a genuine edge.",
+    "libcurl_attribution": {
+      "lost_existing_true_positive": 0,
+      "corrected_incorrect_internal_records": 4,
+      "details": {
+        "old_edition": "combined1",
+        "new_edition": "final",
+        "raw_removed": [
+          [
+            "hash_elem_link \\n[hash.c : 322_329]",
+            "hash_socket \\n[hash.c : 120_130]",
+            "lib/hash.c",
+            350,
+            20
+          ],
+          [
+            "hash_elem_link \\n[hash.c : 322_329]",
+            "hash_str \\n[hash.c : 109_112]",
+            "lib/hash.c",
+            350,
+            20
+          ],
+          [
+            "hash_elem_link \\n[hash.c : 322_329]",
+            "lib/hash.Curl_hash_add2.Curl_hash_add2_scope.<callExp_349_15>.hash",
+            "lib/hash.c",
+            350,
+            20
+          ],
+          [
+            "hash_elem_unlink \\n[hash.c : 314_320]",
+            "<treeBranch_br0>/lib/hash.Curl_hash_delete.Curl_hash_delete_scope.<BVT_hash_400_17_400_44_functions_T>.hash",
+            "lib/hash.c",
+            401,
+            27
+          ],
+          [
+            "hash_elem_unlink \\n[hash.c : 314_320]",
+            "hash_socket \\n[hash.c : 120_130]",
+            "lib/hash.c",
+            401,
+            27
+          ],
+          [
+            "hash_elem_unlink \\n[hash.c : 314_320]",
+            "hash_str \\n[hash.c : 109_112]",
+            "lib/hash.c",
+            401,
+            27
+          ]
+        ],
+        "raw_added": [
+          [
+            "tftp_option_get \\n[tftp.c : 237_257]",
+            "lib/tftp.tftp_option_get.strlen",
+            "lib/tftp.c",
+            254,
+            17
+          ]
+        ],
+        "clang_file_scope": [
+          [
+            "lib/hash.c::Curl_hash_add2",
+            "lib/hash.c",
+            350,
+            20
+          ],
+          [
+            "lib/hash.c::Curl_hash_delete",
+            "lib/hash.c",
+            401,
+            27
+          ]
+        ],
+        "still_emitted_in_correct_scope": [
+          [
+            "lib/hash.c::Curl_hash_add2",
+            "lib/hash.c",
+            350,
+            20,
+            "lib/hash.c::hash_socket"
+          ],
+          [
+            "lib/hash.c::Curl_hash_add2",
+            "lib/hash.c",
+            350,
+            20,
+            "lib/hash.c::hash_str"
+          ],
+          [
+            "lib/hash.c::Curl_hash_delete",
+            "lib/hash.c",
+            401,
+            27,
+            "lib/hash.c::hash_socket"
+          ],
+          [
+            "lib/hash.c::Curl_hash_delete",
+            "lib/hash.c",
+            401,
+            27,
+            "lib/hash.c::hash_str"
+          ]
+        ],
+        "classification": "Four resolved removed entries attributed hash.c:350 or 401 to functions ending at lines 329 and 320 respectively. All four targets occur in the final graph under the correct Clang lexical caller. The two other removed entries are unresolved at the same wrongly attributed sites."
+      }
+    },
+    "nauty_remaining": "The 7 macro-template function names account for 19 missing direct call lines. A further 8 call lines in traces.c are missing for pairs recovered at other sites.",
+    "frozen_callback_audit_file": "nested-callback-audit-2026-11-27.json",
+    "verification": {
+      "verified-parser-C": {
+        "exit_code": 0,
+        "passing": 116
+      },
+      "verified-parser-CPP": {
+        "exit_code": 0,
+        "passing": 54
+      },
+      "verified-test-c": {
+        "exit_code": 0,
+        "passing": 137
+      },
+      "verified-test-cpp": {
+        "exit_code": 0,
+        "passing": 62
+      },
+      "verified-test-c-family": {
+        "exit_code": 0,
+        "passing": 227
+      },
+      "branch_and_symbol_table": {
+        "exit_code": 0,
+        "passing": 44
+      }
+    },
+    "ts_type_checks": [
+      "tsc --noEmit",
+      "tsc --noEmit -p tsconfig.change-impact.json"
+    ]
+  }
+}

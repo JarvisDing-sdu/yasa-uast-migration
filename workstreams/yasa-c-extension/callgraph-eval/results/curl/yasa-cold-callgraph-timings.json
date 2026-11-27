@@ -1,0 +1,98 @@
+{
+  "benchmark": "libcurl full C call graph",
+  "date": "2026-11-26",
+  "platform": "macOS arm64",
+  "node_version": "24.16.0",
+  "libcurl_version": "8.23.1-DEV",
+  "input_files": {
+    "c": 190,
+    "h": 199
+  },
+  "command_template": [
+    "<workspace>/work/tools/codegraph-v1.6.2/codegraph-darwin-arm64/node",
+    "--max-old-space-size=8192",
+    "--inspect=127.0.0.1:0",
+    "--import",
+    "tsx",
+    "src/main.ts",
+    "--sourcePath",
+    "<workspace>/work/curl-large/input",
+    "--language",
+    "c",
+    "--cTarget",
+    "macos",
+    "--cUnknownMacros",
+    "undefined",
+    "--cDefine",
+    "__APPLE__=1,__BYTE_ORDER__=__ORDER_LITTLE_ENDIAN__,__CHAR_BIT__=8,__ENVIRONMENT_MAC_OS_X_VERSION_MIN_REQUIRED__=260000,__ENVIRONMENT_OS_VERSION_MIN_REQUIRED__=260000,__GNUC_MINOR__=2,__GNUC__=4,__LONG_MAX__=9223372036854775807L,__LP64__=1,__MACH__=1,__ORDER_BIG_ENDIAN__=4321,__ORDER_LITTLE_ENDIAN__=1234,__SIZEOF_LONG__=8,__STDC_HOSTED__=1,__STDC_VERSION__=201710L,__STDC__=1,__aarch64__=1,__apple_build_version__=21000099,__clang__=1,__clang_major__=21,BUILDING_LIBCURL=1,CURL_HIDDEN_SYMBOLS=1,HAVE_CONFIG_H=1,NDEBUG=1",
+    "--cUndefine",
+    "__unix,__unix__,__x86_64__,unix",
+    "--cIncludeDir",
+    "<workspace>/work/curl-large/input/include,<workspace>/work/curl-large/input/lib,/opt/homebrew/opt/openssl@3/include,/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include,/Library/Developer/CommandLineTools/usr/lib/clang/21/include",
+    "--checkerIds",
+    "callgraph",
+    "--dumpAllCG",
+    "--ruleConfigFile",
+    "resource/example-rule-config/rule_config_c.json",
+    "--report",
+    "<workspace>/work/curl-large/results/yasa-fixed/report",
+    "--workerCount",
+    "4"
+  ],
+  "timing": "Wall time from spawning a fresh CLI process until exit, including callgraph.json export. Each run used a new report directory. No saved UAST or graph was loaded. OS file caches were not flushed.",
+  "workspace_runs": [
+    {
+      "wall_s": 9.692,
+      "parse_ms": 2167,
+      "build_graph_ms": 6638
+    },
+    {
+      "wall_s": 9.404,
+      "parse_ms": 1974,
+      "build_graph_ms": 6622
+    },
+    {
+      "wall_s": 9.275,
+      "parse_ms": 2001,
+      "build_graph_ms": 6543
+    }
+  ],
+  "same_source_snapshot_runs": [
+    {
+      "wall_s": 10.388,
+      "parse_ms": 2317,
+      "build_graph_ms": 6805
+    },
+    {
+      "wall_s": 9.689,
+      "parse_ms": 2185,
+      "build_graph_ms": 6721
+    },
+    {
+      "wall_s": 9.302,
+      "parse_ms": 1984,
+      "build_graph_ms": 6599
+    }
+  ],
+  "four_worker_median_s": 9.5465,
+  "single_worker_run": {
+    "wall_s": 11.258,
+    "parse_ms": 3912,
+    "build_graph_ms": 6646
+  },
+  "output": {
+    "nodes": 5370,
+    "edges": 15226,
+    "bytes": 10741961,
+    "sha256": "0a96d95296174d6fc7bb299ccb3c1e7b7f988dbe2590e91726eff78090a98bb1",
+    "comparison": "All eight outputs are byte-identical to the preceding full-graph baseline at the same absolute input path."
+  },
+  "compiled_js_run": {
+    "entrypoint": "dist/main.js",
+    "compiler_options": "engine/tsconfig.json",
+    "workers": 4,
+    "wall_s": 9.926,
+    "parse_ms": 2036,
+    "build_graph_ms": 7088
+  }
+}
